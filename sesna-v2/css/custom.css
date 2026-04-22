@@ -1,0 +1,92 @@
+#entradasBlogContainer .textContainer .title a{
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+
+#entradasBlogContainer .textContainer .categoria a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.image-overlay {
+    width: calc(100% - 30px);
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.5));
+    top: 0;
+}
+
+
+#etiquetasContainer .p-2 a{
+    text-decoration: none;
+}
+
+
+.current_page_item a span,.current_page_parent a span, .current-page-ancestor a span{
+    position: relative;
+}
+
+.current_page_item a span:before,.current_page_parent a span:before, .current-page-ancestor a span:before {
+    content: "\f124";
+    font-family: "Font Awesome 5 Free";
+    position: absolute;
+    top: -3px;
+    font-weight: 900;
+    left: -25px;
+    transform: rotate(45deg);
+}
+
+.current_page_item a,.current_page_parent a, .current-page-ancestor a {
+    color: #e2211c !important;
+}
+
+.filterContainer .screen-reader-text{
+    display: none;
+}
+
+
+.filterContainer select {
+    width: 100%;
+    /* -webkit-appearance: none; */
+    border: 0;
+    background: none;
+}
+
+.tituloEntry a{
+    text-decoration: none;
+    color: #54565a;
+}
+
+.loading img{
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+
+.tituloTransparencia{
+    text-transform: uppercase;
+}
+
+
+.iconContainer2{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.btn-download{width:100%;max-width:150px;border:1px solid #dfe3ec;border-radius: 20px;color:#9fb1c7;font-size:12px;font-weight: 800;background-color: transparent;}
+.btn-download i{color:#19d96a;}
+
+
+.entradaContainer2 .categoria a:first-of-type, .entradaContainer .categoria a:first-of-type{
+    display: block !important;
+}
+.entradaContainer2 .categoria a, .entradaContainer .categoria a {
+    display: none;
+}

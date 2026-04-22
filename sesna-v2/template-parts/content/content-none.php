@@ -1,0 +1,1 @@
+<h2 class="entry-none">No hay más notas con los filtros seleccionados.</h2>
