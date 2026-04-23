@@ -47,6 +47,7 @@ services:
       - db
     volumes:
       - wordpress_data:/var/www/html
+      - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: ${DB_USER}
@@ -65,7 +66,13 @@ services:
             --user_pass="$WP_ADMIN_PASSWORD" \
             --allow-root \
             --path=/var/www/html && echo "Usuario $WP_ADMIN_USER creado correctamente.";
-        fi
+        fi;
+        wp theme activate sesna-v2 --allow-root --path=/var/www/html;
+        wp menu location assign header-1 menu-1 --allow-root --path=/var/www/html;
+        wp menu location assign header-2 menu-2 --allow-root --path=/var/www/html;
+        wp menu location assign footer-1 footer-1 --allow-root --path=/var/www/html;
+        wp menu location assign footer-2 footer-2 --allow-root --path=/var/www/html;
+        wp menu location assign footer-3 footer-3 --allow-root --path=/var/www/html;
       '
 
 volumes:
