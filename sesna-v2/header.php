@@ -38,6 +38,7 @@
                             'add_li_class'  => 'nav-item',
                             'link_before'         => '<span>',
                             'link_after'          => '</span>',
+                            'fallback_cb'    => '__return_false'
                           )
                         );
 					?>
@@ -56,6 +57,7 @@
                                 'add_li_class'   => 'nav-item',
                                 'link_before'         => '<span>',
                               'link_after'          => '</span>',
+                              'fallback_cb'    => '__return_false'
                             )
                         );
                         ?>

@@ -238,13 +238,16 @@ function the_thumbnail_photo($size)
 
 function get_the_thumbnail_photo($size)
 {
+	$fallback_text = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Texto.jpg';
+	$fallback_video = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Multimedia.jpg';
 
 	if (has_post_thumbnail()) {
-		return get_the_post_thumbnail_url(get_the_ID(), $size);
+		$url = get_the_post_thumbnail_url(get_the_ID(), $size);
+		return $url ? $url : $fallback_text;
 	} else if (get_post_format() === 'video') {
-		return get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Multimedia.jpg';
+		return $fallback_video;
 	} else {
-		return get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Texto.jpg';
+		return $fallback_text;
 	}
 }
 

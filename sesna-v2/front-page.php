@@ -149,7 +149,7 @@ get_header();
           </div>
           <div class="col-sm-12 col-md-1 .d-sm-none .d-md-block"></div>
           <div class="col-sm-12 col-md-4">
-            <img class="anticorrupcion" src="<?php the_field('imagen_home_pna', 'option') ?>" alt="anticorrupcion"/>
+            <img class="anticorrupcion" src="<?php echo function_exists('get_field') && get_field('imagen_home_pna', 'option') ? get_field('imagen_home_pna', 'option') : get_stylesheet_directory_uri() . '/img/pna/bannerPNA1.png'; ?>" alt="anticorrupcion"/>
           </div>
         </div>
       </div>
@@ -165,7 +165,7 @@ get_header();
         <div class="container" id="conocenos">
           <div clasS="row">
             <div class="col-sm-12 col-md-6">
-              <img class="politicos" src="<?php the_field('imagen_home_conocenos', 'option') ?>" alt="politicos"/>
+              <img class="politicos" src="<?php echo function_exists('get_field') && get_field('imagen_home_conocenos', 'option') ? get_field('imagen_home_conocenos', 'option') : get_stylesheet_directory_uri() . '/img/conocenos/conocenos.png'; ?>" alt="politicos"/>
             </div>
             <div class="col-sm-12 col-md-1 .d-sm-none .d-md-block"></div>
             <div class="col-md-5 col-sm-12">
