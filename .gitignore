@@ -1,0 +1,9 @@
+# Variables de entorno — nunca subir al repositorio
+.env
+
+# Dump de base de datos — puede contener datos sensibles
+init.sql
+
+# Dependencias y caché
+node_modules/
+.DS_Store
