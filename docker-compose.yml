@@ -58,6 +58,7 @@ services:
         until wp core is-installed --allow-root --path=/var/www/html 2>/dev/null; do
           echo "Esperando WordPress..."; sleep 3;
         done;
+
         if wp user get "$WP_ADMIN_USER" --allow-root --path=/var/www/html 2>/dev/null; then
           echo "El usuario $WP_ADMIN_USER ya existe, no se modifica.";
         else
@@ -67,12 +68,13 @@ services:
             --allow-root \
             --path=/var/www/html && echo "Usuario $WP_ADMIN_USER creado correctamente.";
         fi;
+
         wp theme activate sesna-v2 --allow-root --path=/var/www/html;
-        wp menu location assign header-1 menu-1 --allow-root --path=/var/www/html;
-        wp menu location assign header-2 menu-2 --allow-root --path=/var/www/html;
-        wp menu location assign footer-1 footer-1 --allow-root --path=/var/www/html;
-        wp menu location assign footer-2 footer-2 --allow-root --path=/var/www/html;
-        wp menu location assign footer-3 footer-3 --allow-root --path=/var/www/html;
+
+        wp menu location assign menu-1   principal --allow-root --path=/var/www/html;
+        wp menu location assign footer-1 footer-1  --allow-root --path=/var/www/html;
+        wp menu location assign footer-2 footer-2  --allow-root --path=/var/www/html;
+        wp menu location assign footer-3 footer-3  --allow-root --path=/var/www/html;
       '
 
 volumes:

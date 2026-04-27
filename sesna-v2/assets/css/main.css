@@ -1,0 +1,111 @@
+/* ============================================================
+   SESNA v2 — Hoja de estilos principal
+   Extiende el framework GOB.mx v3
+   El header y footer de GOB.mx son inyectados automáticamente
+   por gobmx.js — no se codifican aquí.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Variables específicas SESNA
+   ------------------------------------------------------------ */
+:root {
+    --color-guinda:      #611232;
+    --color-navbar:      #5C2035;
+    --color-burgundi:    #9d2449;
+    --color-dorado:      #a57f2c;
+    --color-bronce:      #bc955c;
+    --color-arena:       #ddc9a3;
+    --color-gris:        #98989a;
+    --color-gris-oscuro: #54565a;
+    --color-blanco:      #ffffff;
+    --buffer:            64px;
+}
+
+/* ------------------------------------------------------------
+   Reset — anula margin-top que el framework GOB.mx aplica al body
+   para su navbar Bootstrap 3 (nosotros lo manejamos con sticky)
+   ------------------------------------------------------------ */
+body {
+    margin-top: 0 !important;
+}
+
+/* ------------------------------------------------------------
+   Utilidades de espaciado (GOB.mx v3)
+   ------------------------------------------------------------ */
+.top-buffer      { margin-top: var(--buffer); }
+.bottom-buffer   { margin-bottom: var(--buffer); }
+.vertical-buffer { margin-top: var(--buffer); margin-bottom: var(--buffer); }
+
+/* ------------------------------------------------------------
+   Navbar institucional SESNA
+   ------------------------------------------------------------ */
+.site-header {
+    position: fixed;
+    top: 70px; /* valor inicial — JS lo ajusta al alto real del header GOB.mx */
+    left: 0;
+    right: 0;
+    z-index: 900;
+}
+
+.sesna-navbar {
+    background-color: var(--color-navbar) !important;
+}
+
+.sesna-nav {
+    gap: 4px;
+}
+
+.sesna-nav .nav-item .nav-link {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-blanco) !important;
+    padding: 12px 10px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.sesna-nav .nav-item .nav-link:hover {
+    color: var(--color-arena) !important;
+}
+
+.sesna-nav .nav-item.current-menu-item .nav-link {
+    font-weight: 600;
+    color: var(--color-blanco) !important;
+    border-bottom: 2px solid var(--color-blanco);
+}
+
+/* Botón buscador */
+.sesna-btn-outline {
+    border: 1px solid var(--color-blanco);
+    color: var(--color-blanco);
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sesna-btn-outline:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-burgundi);
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .sesna-nav .nav-item .nav-link {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .sesna-nav .nav-item.current-menu-item .nav-link {
+        border-bottom: 1px solid var(--color-blanco);
+    }
+}
+
+/* ------------------------------------------------------------
+   Colores de utilidad
+   ------------------------------------------------------------ */
+.bg-guinda    { background-color: var(--color-guinda) !important; }
+.bg-burgundi  { background-color: var(--color-burgundi) !important; }
+.text-guinda  { color: var(--color-guinda) !important; }
+.text-burgundi { color: var(--color-burgundi) !important; }
+.text-dorado  { color: var(--color-dorado) !important; }

@@ -1,119 +1,68 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="profile" href="https://gmpg.org/xfn/11" />
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+  <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
 
-    <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory') ?>/img/favicon.png">
-    <?php wp_head(); ?>
-  </head>
-  <body <?php body_class(); ?>>
+<!-- Navbar institucional SESNA -->
+<header class="site-header">
+  <nav class="sesna-navbar navbar navbar-expand-lg" aria-label="Navegación principal">
+    <div class="container">
 
-    <!-- 
-          HEADER
+      <button class="navbar-toggler ms-auto border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSESNA"
+              aria-controls="navbarSESNA"
+              aria-expanded="false"
+              aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      -->
-
-      <div class="container">
-        <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('stylesheet_directory') ?>/img/logo.png"/></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <div class="row ml-auto menuList">
-                <div class="col-sm-12 col-md-6">
-
-                    <?php
-                          wp_nav_menu(
-                            array(
-                            'container'      => false,
-                            'theme_location' => 'menu-1',
-                            'menu_class'     => 'nav flex-column navbar-nav',
-                            'depth'          => 1,
-                            'add_li_class'  => 'nav-item',
-                            'link_before'         => '<span>',
-                            'link_after'          => '</span>',
-                            'fallback_cb'    => '__return_false'
-                          )
-                        );
-					?>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-9 borderLeft">
-
-                        <?php
-                        wp_nav_menu(
-                            array(
-                                'container'      => false,
-                                'theme_location' => 'menu-2',
-                                'menu_class'     => 'nav flex-column navbar-nav',
-                                'depth'          => 1,
-                                'add_li_class'   => 'nav-item',
-                                'link_before'         => '<span>',
-                              'link_after'          => '</span>',
-                              'fallback_cb'    => '__return_false'
-                            )
-                        );
-                        ?>
-                    </div>
-                    <div class="col-sm-12 col-md-2 borderLeft redesContainer">
-                      <ul class="nav flex-column redes">
-<!--                        <li><a href="<?= get_option('options_facebook') ?>" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="<?= get_option('options_twitter') ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
-			<li><a href="https://www.youtube.com/channel/UCRUpiHth_WRkNo2sBmZIyfQ" target="_blank"><i class="fab fa-youtube"></i></a></li>
- -->
-			 <li class="d-none d-md-block"><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-search"></i></button></li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <form class="row buscador d-flex d-md-none" action="/" >
-                    <input class="form-control" name="s" type="search" value="<?= get_search_query() ?>" placeholder="BÚSQUEDA" aria-label="Search">
-                    <button class="btn btn-danger" type="submit"><i class="fas fa-search"></i></button>
-                  </form>
-                </div>
-            </div>
-          </div>
-        </nav>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSESNA">
+        <?php
+          wp_nav_menu(array(
+            'container'      => false,
+            'theme_location' => 'menu-1',
+            'menu_class'     => 'navbar-nav sesna-nav',
+            'depth'          => 2,
+            'add_li_class'   => 'nav-item',
+            'fallback_cb'    => '__return_false',
+          ));
+        ?>
       </div>
-<!-- 
-        END HEADER
 
-      -->
-	  
-<!-- Modal -->
-<div class="modal fade" id="modalLinksPNA" tabindex="-1" role="dialog" aria-labelledby="modalLinksPNA" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+    </div>
+  </nav>
+</header>
+
+<!-- Modal: Buscador -->
+<div class="modal fade" id="modalBuscador" tabindex="-1"
+     aria-labelledby="modalBuscadorLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title" id="modalBuscadorLabel">Buscador</h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
-      <div class="modal-body" style="margin-bottom: 5%">
-		  <h2>
-			  Selecciona una opción:
-		  </h2><br>
-		   <ul>
-			   <li><a style="font-size: 24px; color: #fff;" href="https://www.sesna.gob.mx/politica-nacional-anticorrupcion/">Política Nacional Anticorrupción</a></li>
-			  <li><a style="font-size: 24px; color: #fff;" href="https://www.sesna.gob.mx/programa-implemetancion-pna/">Programa de Implementación</a></li>
-<li><a style="font-size: 24px; color: #fff;" href="https://www.sesna.gob.mx/seguimiento-evaluacion/">Seguimiento y Evaluación</a></li> 
-		  </ul> 
-        
-		  <br>
-		  
+      <div class="modal-body pt-2">
+        <form class="d-flex gap-2" action="/">
+          <input class="form-control"
+                 type="search" name="s"
+                 value="<?= esc_attr(get_search_query()) ?>"
+                 placeholder="¿Qué estás buscando?"
+                 aria-label="Término de búsqueda">
+          <button class="btn sesna-btn-outline" type="submit" aria-label="Buscar">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
       </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-      </div> -->
     </div>
   </div>
 </div>
