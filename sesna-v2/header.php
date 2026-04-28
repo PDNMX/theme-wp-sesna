@@ -10,8 +10,8 @@
 <body <?php body_class(); ?>>
 
 <!-- Navbar institucional SESNA -->
-<header class="site-header">
-  <nav class="sesna-navbar navbar navbar-expand-lg" aria-label="Navegación principal">
+<header class="site-header fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark sesna-navbar" aria-label="Navegación principal">
     <div class="container">
 
       <button class="navbar-toggler ms-auto border-0"
@@ -40,6 +40,8 @@
     </div>
   </nav>
 </header>
+
+<main class="page">
 
 <!-- Modal: Buscador -->
 <div class="modal fade" id="modalBuscador" tabindex="-1"

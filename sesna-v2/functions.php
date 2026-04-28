@@ -63,49 +63,38 @@ function sesna_theme_scripts()
 	// Hoja principal del tema (estilos SESNA sobre el framework)
 	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), wp_get_theme()->get('Version'));
 
-	// Framework GOB.mx v3 — JS oficial (puede inyectar header/footer gob.mx dinámicamente)
+	// Framework GOB.mx v3 — JS oficial — ya incluye Bootstrap 5 y jQuery 3.7.1
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
 
-	// Bootstrap 5 bundle JS (incluye Popper) — CDN
-	wp_enqueue_script('bootstrap-script', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array('jquery'), '5.3.3', true);
-
-	// JS global del tema
-	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'bootstrap-script'), wp_get_theme()->get('Version'), true);
+	// JS global del tema (depende solo del framework)
+	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 
 	wp_localize_script('sesna-main-script', 'ajax_object', array(
 		'ajax_url'    => admin_url('admin-ajax.php'),
 		'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
 	));
 
-	// Scripts por página (se refactorizarán en el paso 5 — limpieza de templates)
+	// Scripts por página — dependen del framework (Bootstrap y jQuery ya vienen en él)
 	if (is_page('como-vamos')) {
-		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('jquery', 'bootstrap-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('que-hacemos')) {
-		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('jquery', 'bootstrap-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('politica-nacional-anticorrupcion')) {
-		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('jquery'), 'v4', true);
-		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('jquery', 'bootstrap-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('gobmx-framework-js'), 'v4', true);
+		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('informacion') || is_home() || is_archive() || is_search()) {
-		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('jquery'), wp_get_theme()->get('Version'), true);
-		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('jquery', 'bootstrap-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 }
 add_action('wp_enqueue_scripts', 'sesna_theme_scripts');
 
-
-if (!is_admin()) add_action('wp_enqueue_scripts', 'my_jquery_enqueue', 11);
-function my_jquery_enqueue()
-{
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', false, '3.7.1');
-	wp_enqueue_script('jquery');
-}
 
 
 function add_additional_class_on_li($classes, $item, $args)

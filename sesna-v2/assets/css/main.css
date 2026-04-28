@@ -9,24 +9,25 @@
    Variables específicas SESNA
    ------------------------------------------------------------ */
 :root {
+    /* Colores institucionales — Guía de Identidad Gráfica GOB.mx 2024-2030 */
+    --color-negro:       #161a1d;
     --color-guinda:      #611232;
-    --color-navbar:      #5C2035;
-    --color-burgundi:    #9d2449;
+    --color-burgundi:    #9b2247;
+    --color-teal-oscuro: #002f2a;
+    --color-teal:        #1e5b4f;
     --color-dorado:      #a57f2c;
-    --color-bronce:      #bc955c;
-    --color-arena:       #ddc9a3;
+    --color-dorado-claro:#e6d194;
     --color-gris:        #98989a;
-    --color-gris-oscuro: #54565a;
     --color-blanco:      #ffffff;
-    --buffer:            64px;
-}
 
-/* ------------------------------------------------------------
-   Reset — anula margin-top que el framework GOB.mx aplica al body
-   para su navbar Bootstrap 3 (nosotros lo manejamos con sticky)
-   ------------------------------------------------------------ */
-body {
-    margin-top: 0 !important;
+    /* Color específico SESNA (diseño maqueta) */
+    --color-navbar:      #5C2035;
+
+    /* Espaciado GOB.mx v3 */
+    --buffer:            64px;
+
+    /* Offset total de los dos navbars fijos (lo actualiza main.js en runtime) */
+    --sesna-offset:      140px; /* valor de arranque antes de que cargue el JS */
 }
 
 /* ------------------------------------------------------------
@@ -38,17 +39,21 @@ body {
 
 /* ------------------------------------------------------------
    Navbar institucional SESNA
+   El framework GOB.mx ya compensa su propio header con margin-top en body.
+   Aquí solo ajustamos el top del sub-navbar (fixed-top lo pone en top:0;
+   el JS lo baja al alto real del header GOB.mx).
    ------------------------------------------------------------ */
 .site-header {
-    position: fixed;
-    top: 70px; /* valor inicial — JS lo ajusta al alto real del header GOB.mx */
-    left: 0;
-    right: 0;
-    z-index: 900;
+    /* fixed-top (Bootstrap 5) da position:fixed; top:0; z-index:1030
+       - top SIN !important para que el JS (inline style) lo pueda sobrescribir
+       - z-index CON !important para vencer el 1030 de fixed-top             */
+    top: 70px;               /* fallback antes de que corra el JS */
+    z-index: 999 !important; /* debajo del header GOB.mx (1030) — no tapa su menú */
 }
 
 .sesna-navbar {
     background-color: var(--color-navbar) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .sesna-nav {
@@ -109,3 +114,76 @@ body {
 .text-guinda  { color: var(--color-guinda) !important; }
 .text-burgundi { color: var(--color-burgundi) !important; }
 .text-dorado  { color: var(--color-dorado) !important; }
+
+/* ------------------------------------------------------------
+   Hero — Banner institucional
+   ------------------------------------------------------------ */
+.sesna-hero {
+    min-height: 480px;
+    background-color: var(--color-teal-oscuro);
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+
+.sesna-hero__title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.sesna-hero__title strong {
+    font-weight: 700;
+}
+
+/* Animación de texto deslizante vertical */
+.sesna-hero__slide {
+    font-weight: 700;
+    color: var(--color-dorado-claro);
+    overflow: hidden;
+    height: 1.4em;
+}
+
+.sesna-hero__slide span {
+    display: block;
+    animation: sesnaSlide 8s infinite;
+}
+
+.sesna-hero__slide span:nth-child(2) { animation-delay: 2s; }
+.sesna-hero__slide span:nth-child(3) { animation-delay: 4s; }
+.sesna-hero__slide span:nth-child(4) { animation-delay: 6s; }
+
+@keyframes sesnaSlide {
+    0%   { opacity: 0; transform: translateY(100%); }
+    8%   { opacity: 1; transform: translateY(0);    }
+    25%  { opacity: 1; transform: translateY(0);    }
+    33%  { opacity: 0; transform: translateY(-100%);}
+    100% { opacity: 0; transform: translateY(-100%);}
+}
+
+/* ------------------------------------------------------------
+   Tarjetas de blog con imagen de fondo
+   ------------------------------------------------------------ */
+.sesna-card-featured {
+    height: 280px;
+}
+
+.sesna-card-featured--sm {
+    height: 200px;
+}
+
+.sesna-card-featured__img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.sesna-card-featured__overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%);
+}
+
+/* ------------------------------------------------------------
+   Sección SESNA INFORMA
+   ------------------------------------------------------------ */
+.sesna-informa {
+    border-left: 4px solid var(--color-dorado);
+}
