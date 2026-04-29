@@ -28,6 +28,9 @@
 
     /* Offset total de los dos navbars fijos (lo actualiza main.js en runtime) */
     --sesna-offset:      140px; /* valor de arranque antes de que cargue el JS */
+
+    /* Configuración de componentes */
+    --sesna-banner-max-height: 441px;
 }
 
 /* ------------------------------------------------------------
@@ -151,7 +154,7 @@ main.page {
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: 441px;
+    max-height: var(--sesna-banner-max-height);
     object-fit: cover;
     object-position: center;
 }

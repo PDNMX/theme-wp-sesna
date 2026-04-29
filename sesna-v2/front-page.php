@@ -1,12 +1,17 @@
 <?php get_header(); ?>
 
-<!-- ============================================================
-     SECCIÓN 1 — Banner / Hero
-     ============================================================ -->
-<section class="sesna-banner" aria-label="Banner institucional SESNA">
-    <img src="<?php bloginfo('stylesheet_directory'); ?>/img/home_v2/grande_sesna.jpg"
-         alt="Secretaría Ejecutiva del Sistema Nacional Anticorrupción"
-         class="sesna-banner__img">
-</section>
+<?php get_template_part( 'template-parts/home/banner' ); ?>
+
+    <div class="container pb-5">
+        <?php
+        // Loop principal requerido por Elementor
+        if ( have_posts() ) :
+            while ( have_posts() ) :
+                the_post();
+                the_content();
+            endwhile;
+        endif;
+        ?>
+    </div>
 
 <?php get_footer(); ?>
