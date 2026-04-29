@@ -31,6 +31,24 @@
 }
 
 /* ------------------------------------------------------------
+   Anula el margin-top: 70px que gobmx.js inyecta como inline style en body.
+   author !important gana sobre inline style en la cascada CSS.
+   ------------------------------------------------------------ */
+body {
+    margin-top: 0 !important;
+    overflow-x: hidden;
+}
+
+/* ------------------------------------------------------------
+   Offset fijo para compensar los dos navbars fijos:
+   header GOB.mx (~60px) + sub-navbar SESNA (~50px) = ~110px
+   Ajustar este valor si cambia la altura de alguno de los navbars.
+   ------------------------------------------------------------ */
+main.page {
+    padding-top: 110px;
+}
+
+/* ------------------------------------------------------------
    Utilidades de espaciado (GOB.mx v3)
    ------------------------------------------------------------ */
 .top-buffer      { margin-top: var(--buffer); }
@@ -116,7 +134,30 @@
 .text-dorado  { color: var(--color-dorado) !important; }
 
 /* ------------------------------------------------------------
-   Hero — Banner institucional
+   Banner principal — imagen full-width debajo del sub-navbar
+   ------------------------------------------------------------ */
+.sesna-banner {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+.sesna-banner__img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 441px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ------------------------------------------------------------
+   Hero — Banner institucional (legacy, se reemplaza por .sesna-banner)
    ------------------------------------------------------------ */
 .sesna-hero {
     min-height: 480px;
