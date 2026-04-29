@@ -59,12 +59,16 @@ function sesna_theme_scripts()
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
 	// Bootstrap Icons — CDN (no incluido en el framework GOB.mx)
 	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
+	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
+	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 
 	// Hoja principal del tema (estilos SESNA sobre el framework)
 	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), wp_get_theme()->get('Version'));
 
 	// Framework GOB.mx v3 — JS oficial — ya incluye Bootstrap 5 y jQuery 3.7.1
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
+	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
+	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array(), null, true);
 
 	// JS global del tema (depende solo del framework)
 	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
