@@ -2,6 +2,8 @@
 
 <?php get_template_part( 'template-parts/home/banner' ); ?>
 
+<?php get_template_part( 'template-parts/home/carousel' ); ?>
+
     <div class="container pb-5">
         <?php
         // Loop principal requerido por Elementor
