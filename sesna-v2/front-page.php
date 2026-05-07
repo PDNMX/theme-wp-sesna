@@ -4,6 +4,10 @@
 
 <?php get_template_part( 'template-parts/home/carousel' ); ?>
 
+<?php get_template_part( 'template-parts/home/section-sna' ); ?>
+<?php get_template_part( 'template-parts/home/section-integrantes' ); ?>
+<?php get_template_part( 'template-parts/home/section-programas' ); ?>
+
     <div class="container pb-5">
         <?php
         // Loop principal requerido por Elementor
