@@ -17,7 +17,7 @@
     /* Colores institucionales — Guía de Identidad Gráfica GOB.mx 2024-2030 */
     --color-negro: #161a1d;
     --color-guinda: #611232;
-    --color-burgundi: #9b2247;
+    --color-burgundi: #F1003E;
     --color-teal-oscuro: #002f2a;
     --color-teal: #1e5b4f;
     --color-dorado: #a57f2c;
@@ -459,36 +459,60 @@ main.page {
 }
 
 /* ------------------------------------------------------------
-   Sección Programas
+   Sección Acciones y Programas
    ------------------------------------------------------------ */
 .sna-programas-section {
     background-color: #E7E1E7;
 }
 
-.sna-programas-card {
-    background-color: #fdfdfd;
-    border-radius: 1rem;
+.sna-programas-wrapper {
+    filter: drop-shadow(8px 8px 18px rgba(0, 0, 0, 0.12));
 }
 
-.sna-programas-img-wrapper {
-    height: 160px;
+.sna-programas-card {
+    background-color: #F0ECF0;
+    border-radius: 20px;
+    padding: 0 1.25rem;
+    margin-top: 3.5rem;
+}
+
+.sna-programas-img-outer {
+    margin-top: -3.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.sna-programas-img-inner {
+    height: 200px;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
-    border-radius: 1rem 1rem 0 0;
+    border-bottom: 6px solid #E6003D;
+    background-color: #fff;
 }
 
 .sna-programas-img {
     object-fit: cover;
+    display: block;
 }
 
 .sna-programas-icon-container {
-    width: 55px;
-    height: 55px;
-    top: 0;
-    margin-top: -27.5px;
+    width: 90px;
+    height: 90px;
+    bottom: 0;
+    margin-bottom: -20px;
+    background-color: #E6003D !important;
+    border-radius: 22px !important;
+    z-index: 3;
 }
 
 .sna-programas-link {
+    color: #0b1c3c;
     letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.sna-programas-link:hover {
+    color: #E6003D;
 }
 
 /* ------------------------------------------------------------
@@ -527,8 +551,10 @@ main.page {
 .sna-noticias-date-badge {
     position: absolute;
     left: -10px;
-    top: calc(1.25rem + 200px); /* Padding + Image Height */
-    background-color: #E6003D; /* Bright Red */
+    top: calc(1.25rem + 200px);
+    /* Padding + Image Height */
+    background-color: #E6003D;
+    /* Bright Red */
     color: #fff;
     width: 50px;
     padding: 8px 0;
@@ -538,8 +564,6 @@ main.page {
     line-height: 1.2;
     z-index: 2;
 }
-
-
 
 .sna-noticias-date-day {
     font-size: 1.2rem;
@@ -563,7 +587,8 @@ main.page {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    min-height: 4.5em; /* Garantiza el espacio de 3 líneas uniformemente */
+    min-height: 4.5em;
+    /* Garantiza el espacio de 3 líneas uniformemente */
 }
 
 .sna-noticias-link {
