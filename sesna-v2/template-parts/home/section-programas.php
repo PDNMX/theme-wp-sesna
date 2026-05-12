@@ -1,4 +1,4 @@
-<section class="py-5" style="background-color: #E7E1E7;">
+<section class="py-5 sna-programas-section">
     <div class="container my-5">
         <div class="text-center mb-5">
             <h2 class="fw-bold font-patria">Acciones y <span class="text-burgundi">Programas</span></h2>
@@ -35,14 +35,12 @@
                 <div class="col-lg-3 col-md-6">
                     <!-- Se usa un div en lugar de card para mejor control de bordes y sombras en el interior -->
                     <div class="h-100 border-0 bg-transparent">
-                        <div class="d-flex flex-column h-100 shadow-sm"
-                            style="background-color: #fdfdfd; border-radius: 1rem;">
+                        <div class="d-flex flex-column h-100 shadow-sm sna-programas-card">
 
                             <!-- Imagen superior -->
-                            <div
-                                style="height: 160px; overflow: hidden; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                            <div class="sna-programas-img-wrapper">
                                 <!-- Asegúrate de reemplazar $prog['img'] con los campos personalizados de WP reales cuando los integres -->
-                                <img src="<?php echo $prog['img']; ?>" class="w-100 h-100" style="object-fit: cover;"
+                                <img src="<?php echo $prog['img']; ?>" class="w-100 h-100 sna-programas-img"
                                     alt="<?php echo strip_tags($prog['title']); ?>">
                             </div>
 
@@ -50,8 +48,7 @@
                             <div class="position-relative pt-5 pb-4 px-3 text-center d-flex flex-column flex-grow-1">
 
                                 <!-- Icono Flotante -->
-                                <div class="position-absolute start-50 translate-middle-x bg-burgundi rounded-3 d-flex align-items-center justify-content-center shadow-sm"
-                                    style="width: 55px; height: 55px; top: 0; margin-top: -27.5px;">
+                                <div class="position-absolute start-50 translate-middle-x bg-burgundi rounded-3 d-flex align-items-center justify-content-center shadow-sm sna-programas-icon-container">
                                     <i class="bi <?php echo $prog['icon']; ?> text-white fs-4"></i>
                                 </div>
 
@@ -65,8 +62,7 @@
                                 </p>
 
                                 <div class="mt-auto">
-                                    <a href="#" class="text-decoration-none text-dark small fw-bold"
-                                        style="letter-spacing: 0.5px;">
+                                    <a href="#" class="text-decoration-none text-dark small fw-bold sna-programas-link">
                                         Leer más <i class="bi bi-arrow-right ms-1"></i>
                                     </a>
                                 </div>

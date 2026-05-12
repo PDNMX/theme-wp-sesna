@@ -15,15 +15,15 @@
    ------------------------------------------------------------ */
 :root {
     /* Colores institucionales — Guía de Identidad Gráfica GOB.mx 2024-2030 */
-    --color-negro:       #161a1d;
-    --color-guinda:      #611232;
-    --color-burgundi:    #9b2247;
+    --color-negro: #161a1d;
+    --color-guinda: #611232;
+    --color-burgundi: #9b2247;
     --color-teal-oscuro: #002f2a;
-    --color-teal:        #1e5b4f;
-    --color-dorado:      #a57f2c;
-    --color-dorado-claro:#e6d194;
-    --color-gris:        #98989a;
-    --color-blanco:      #ffffff;
+    --color-teal: #1e5b4f;
+    --color-dorado: #a57f2c;
+    --color-dorado-claro: #e6d194;
+    --color-gris: #98989a;
+    --color-blanco: #ffffff;
 
     /* Tipografía Institucional */
     --font-patria: 'Patria', serif;
@@ -244,6 +244,13 @@ main.page {
     object-position: center;
 }
 
+@media (min-width: 1025px) {
+    .sesna-banner__img {
+        height: 350px;
+        max-height: 350px;
+    }
+}
+
 /* ------------------------------------------------------------
    Hero — Banner institucional (legacy, se reemplaza por .sesna-banner)
    ------------------------------------------------------------ */
@@ -375,10 +382,196 @@ main.page {
     align-items: center;
     justify-content: center;
 }
+
 /* ------------------------------------------------------------
    Sección logo del SNA.
    ------------------------------------------------------------ */
 .sna-logo {
     max-width: 350px;
     float: left;
+}
+
+/* ------------------------------------------------------------
+   Sección Integrantes del SNA
+   ------------------------------------------------------------ */
+.sna-integrantes-section {
+    background-color: #ECE6EC;
+}
+
+.sna-integrantes-card {
+    background-color: #F3F0F3;
+    /* Sombra más visible en la parte derecha y abajo */
+    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sna-integrantes-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.sna-integrantes-icon-circle {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.sna-integrantes-chevron-circle {
+    width: 26px;
+    height: 26px;
+}
+
+.sna-integrantes-chevron-icon {
+    font-size: 0.9rem;
+}
+
+.sna-integrantes-title {
+    font-size: 20px;
+}
+
+/* ------------------------------------------------------------
+   Sección SNA (About)
+   ------------------------------------------------------------ */
+.sna-about-section {
+    background-color: #F6F0F6;
+}
+
+.sna-about-btn {
+    letter-spacing: 0.5px;
+}
+
+.sna-about-btn-icon-circle {
+    width: 24px;
+    height: 24px;
+}
+
+.sna-about-btn-icon {
+    font-size: 0.8rem;
+}
+
+/* ------------------------------------------------------------
+   Separador de Secciones
+   ------------------------------------------------------------ */
+.sna-section-separator {
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+}
+
+/* ------------------------------------------------------------
+   Sección Programas
+   ------------------------------------------------------------ */
+.sna-programas-section {
+    background-color: #E7E1E7;
+}
+
+.sna-programas-card {
+    background-color: #fdfdfd;
+    border-radius: 1rem;
+}
+
+.sna-programas-img-wrapper {
+    height: 160px;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.sna-programas-img {
+    object-fit: cover;
+}
+
+.sna-programas-icon-container {
+    width: 55px;
+    height: 55px;
+    top: 0;
+    margin-top: -27.5px;
+}
+
+.sna-programas-link {
+    letter-spacing: 0.5px;
+}
+
+/* ------------------------------------------------------------
+   Sección Noticias y Actividades
+   ------------------------------------------------------------ */
+.sna-noticias-section {
+    background-color: #FFFFFF;
+}
+
+.sna-noticias-card {
+    background-color: #fdfdfd;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sna-noticias-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.sna-noticias-img-wrapper {
+    height: 200px;
+    width: 100%;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.sna-noticias-img {
+    object-fit: cover;
+}
+
+/* Date Ribbon Effect */
+.sna-noticias-date-badge {
+    position: absolute;
+    left: -10px;
+    top: calc(1.25rem + 200px); /* Padding + Image Height */
+    background-color: #E6003D; /* Bright Red */
+    color: #fff;
+    width: 50px;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    z-index: 2;
+}
+
+
+
+.sna-noticias-date-day {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.sna-noticias-date-month {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.sna-noticias-title {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.sna-noticias-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.5em; /* Garantiza el espacio de 3 líneas uniformemente */
+}
+
+.sna-noticias-link {
+    color: #0b1c3c;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.sna-noticias-link:hover {
+    color: #E6003D;
 }

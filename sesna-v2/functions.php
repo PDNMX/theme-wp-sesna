@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('sesna_theme_setup')) :
+if (!function_exists('sesna_theme_setup')):
 
 	function sesna_theme_setup()
 	{
@@ -12,14 +12,14 @@ if (!function_exists('sesna_theme_setup')) :
 
 		register_nav_menus(
 			array(
-				'menu-1'        => __('Header 1', 'sesna'),
-				'menu-2'        => __('Header 2', 'sesna'),
+				'menu-1' => __('Header 1', 'sesna'),
+				'menu-2' => __('Header 2', 'sesna'),
 				'transparencia' => __('Transparencia', 'sesna'),
-				'conocenos'     => __('Conocenos', 'sesna'),
-				'footer-1'      => __('Footer 1', 'sesna'),
-				'footer-2'      => __('Footer 2', 'sesna'),
-				'footer-3'      => __('Footer 3', 'sesna'),
-				'social'        => __('Social Links Menu', 'sesna'),
+				'conocenos' => __('Conocenos', 'sesna'),
+				'footer-1' => __('Footer 1', 'sesna'),
+				'footer-2' => __('Footer 2', 'sesna'),
+				'footer-3' => __('Footer 3', 'sesna'),
+				'social' => __('Social Links Menu', 'sesna'),
 			)
 		);
 
@@ -37,13 +37,13 @@ function twentynineteen_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => __('Blog sidebar', 'sesna'),
-			'id'            => 'sidebar-1',
-			'description'   => __('Add widgets here to appear in your blog.', 'sesna'),
+			'name' => __('Blog sidebar', 'sesna'),
+			'id' => 'sidebar-1',
+			'description' => __('Add widgets here to appear in your blog.', 'sesna'),
 			'before_widget' => '<div class="filterContainer">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h2>',
-			'after_title'   => '</h2>',
+			'after_widget' => '</div>',
+			'before_title' => '<h2>',
+			'after_title' => '</h2>',
 		)
 	);
 }
@@ -55,15 +55,14 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
    ============================================================ */
 function sesna_theme_scripts()
 {
+	// Hoja principal del tema (estilos SESNA sobre el framework)
+	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), wp_get_theme()->get('Version'));
 	// Framework GOB.mx v3 — incluye Bootstrap 5, fuente Patria y variables de color
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
 	// Bootstrap Icons — CDN (no incluido en el framework GOB.mx)
 	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
 	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
-
-	// Hoja principal del tema (estilos SESNA sobre el framework)
-	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), wp_get_theme()->get('Version'));
 
 	// Framework GOB.mx v3 — JS oficial — ya incluye Bootstrap 5 y jQuery 3.7.1
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, false);
@@ -74,7 +73,7 @@ function sesna_theme_scripts()
 	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 
 	wp_localize_script('sesna-main-script', 'ajax_object', array(
-		'ajax_url'    => admin_url('admin-ajax.php'),
+		'ajax_url' => admin_url('admin-ajax.php'),
 		'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
 	));
 
@@ -127,7 +126,7 @@ function the_thumbnail_photo($size)
 
 function get_the_thumbnail_photo($size)
 {
-	$fallback_text  = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Texto.jpg';
+	$fallback_text = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Texto.jpg';
 	$fallback_video = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Multimedia.jpg';
 
 	if (has_post_thumbnail()) {
@@ -156,20 +155,20 @@ function get_sesiones()
 {
 	global $post;
 
-	$page           = $_POST['page'];
-	$type           = $_POST['type'];
+	$page = $_POST['page'];
+	$type = $_POST['type'];
 	$posts_per_page = 3;
 
 	$args = [
-		'post_type'      => 'sesion',
+		'post_type' => 'sesion',
 		'posts_per_page' => $posts_per_page,
-		'offset'         => ($page * $posts_per_page),
-		'post_status'    => array('publish', 'convocatoria'),
-		'tax_query'      => array(
+		'offset' => ($page * $posts_per_page),
+		'post_status' => array('publish', 'convocatoria'),
+		'tax_query' => array(
 			array(
 				'taxonomy' => 'tipo_sesion',
-				'field'    => 'slug',
-				'terms'    => $type,
+				'field' => 'slug',
+				'terms' => $type,
 			)
 		),
 		'date_query' => array(),
@@ -178,9 +177,9 @@ function get_sesiones()
 	if (isset($_POST['start_date']) && !empty($_POST['start_date'])) {
 		$start_date = explode('/', $_POST['start_date']);
 		array_push($args['date_query'], array(
-			'year'    => $start_date[2],
-			'month'   => $start_date[0],
-			'day'     => $start_date[1],
+			'year' => $start_date[2],
+			'month' => $start_date[0],
+			'day' => $start_date[1],
 			'compare' => '>=',
 		));
 	}
@@ -188,9 +187,9 @@ function get_sesiones()
 	if (isset($_POST['end_date']) && !empty($_POST['end_date'])) {
 		$end_date = explode('/', $_POST['end_date']);
 		array_push($args['date_query'], array(
-			'year'    => $end_date[2],
-			'month'   => $end_date[0],
-			'day'     => $end_date[1],
+			'year' => $end_date[2],
+			'month' => $end_date[0],
+			'day' => $end_date[1],
 			'compare' => '<=',
 		));
 	}
@@ -304,7 +303,7 @@ function get_blog_posts()
 
 	$args = [
 		'posts_per_page' => $posts_per_page,
-		'offset'         => ($page * $posts_per_page),
+		'offset' => ($page * $posts_per_page),
 	];
 
 	if (isset($_POST['filter']) && !empty($_POST['filter'])) {
@@ -320,7 +319,7 @@ function get_blog_posts()
 				break;
 			case 4:
 				$args['date_query'] = array(
-					'after'  => $_POST['date_init'],
+					'after' => $_POST['date_init'],
 					'before' => $_POST['date_end'],
 				);
 				break;
@@ -406,7 +405,8 @@ class wpb_widget extends WP_Widget
 	{
 		?>
 		<div class="redBox">
-			<p class="titulo">Contamos con: <b><span><?= wp_count_posts()->publish ?></span> documentos <br>originales a tu<br> disposición.</b></p>
+			<p class="titulo">Contamos con: <b><span><?= wp_count_posts()->publish ?></span> documentos <br>originales a tu<br>
+					disposición.</b></p>
 		</div>
 		<?php
 	}
@@ -415,97 +415,101 @@ class wpb_widget extends WP_Widget
 // =========================================================================
 // REGISTRO DE CUSTOM POST TYPE PARA EL CARRUSEL
 // =========================================================================
-function sesna_register_slider_cpt() {
-    $labels = array(
-        'name'                  => _x( 'Sliders', 'Post type general name', 'sesna' ),
-        'singular_name'         => _x( 'Slider', 'Post type singular name', 'sesna' ),
-        'menu_name'             => _x( 'Carrusel', 'Admin Menu text', 'sesna' ),
-        'name_admin_bar'        => _x( 'Slide', 'Add New on Toolbar', 'sesna' ),
-        'add_new'               => __( 'Añadir nuevo', 'sesna' ),
-        'add_new_item'          => __( 'Añadir nuevo slide', 'sesna' ),
-        'new_item'              => __( 'Nuevo slide', 'sesna' ),
-        'edit_item'             => __( 'Editar slide', 'sesna' ),
-        'view_item'             => __( 'Ver slide', 'sesna' ),
-        'all_items'             => __( 'Todos los slides', 'sesna' ),
-        'search_items'          => __( 'Buscar slides', 'sesna' ),
-        'not_found'             => __( 'No se encontraron slides.', 'sesna' ),
-        'not_found_in_trash'    => __( 'No se encontraron slides en la papelera.', 'sesna' ),
-    );
+function sesna_register_slider_cpt()
+{
+	$labels = array(
+		'name' => _x('Sliders', 'Post type general name', 'sesna'),
+		'singular_name' => _x('Slider', 'Post type singular name', 'sesna'),
+		'menu_name' => _x('Carrusel', 'Admin Menu text', 'sesna'),
+		'name_admin_bar' => _x('Slide', 'Add New on Toolbar', 'sesna'),
+		'add_new' => __('Añadir nuevo', 'sesna'),
+		'add_new_item' => __('Añadir nuevo slide', 'sesna'),
+		'new_item' => __('Nuevo slide', 'sesna'),
+		'edit_item' => __('Editar slide', 'sesna'),
+		'view_item' => __('Ver slide', 'sesna'),
+		'all_items' => __('Todos los slides', 'sesna'),
+		'search_items' => __('Buscar slides', 'sesna'),
+		'not_found' => __('No se encontraron slides.', 'sesna'),
+		'not_found_in_trash' => __('No se encontraron slides en la papelera.', 'sesna'),
+	);
 
-    $args = array(
-        'labels'             => $labels,
-        'public'             => false, // Para que no tenga página individual propia
-        'publicly_queryable' => false,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'query_var'          => false,
-        'rewrite'            => false,
-        'capability_type'    => 'post',
-        'has_archive'        => false,
-        'hierarchical'       => false,
-        'menu_position'      => 5,
-        'menu_icon'          => 'dashicons-images-alt2', // Icono representativo (imágenes)
-        'supports'           => array( 'title', 'excerpt', 'thumbnail' ), // Título, Extracto e Imagen Destacada
-    );
+	$args = array(
+		'labels' => $labels,
+		'public' => false, // Para que no tenga página individual propia
+		'publicly_queryable' => false,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => false,
+		'rewrite' => false,
+		'capability_type' => 'post',
+		'has_archive' => false,
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-images-alt2', // Icono representativo (imágenes)
+		'supports' => array('title', 'excerpt', 'thumbnail'), // Título, Extracto e Imagen Destacada
+	);
 
-    register_post_type( 'slider', $args );
+	register_post_type('slider', $args);
 }
-add_action( 'init', 'sesna_register_slider_cpt' );
+add_action('init', 'sesna_register_slider_cpt');
 
 // =========================================================================
 // META BOX PARA OPCIONES DEL SLIDER (Mostrar/Ocultar Textos)
 // =========================================================================
 
 // 1. Agregar el Meta Box en el panel derecho (side)
-function sesna_add_slider_meta_box() {
-    add_meta_box(
-        'slider_options_meta',
-        'Opciones del Slide',
-        'sesna_slider_meta_box_html',
-        'slider',
-        'side',
-        'default'
-    );
+function sesna_add_slider_meta_box()
+{
+	add_meta_box(
+		'slider_options_meta',
+		'Opciones del Slide',
+		'sesna_slider_meta_box_html',
+		'slider',
+		'side',
+		'default'
+	);
 }
-add_action( 'add_meta_boxes', 'sesna_add_slider_meta_box' );
+add_action('add_meta_boxes', 'sesna_add_slider_meta_box');
 
 // 2. Imprimir el HTML del Checkbox
-function sesna_slider_meta_box_html( $post ) {
-    wp_nonce_field( 'sesna_save_slider_meta_data', 'sesna_slider_meta_nonce' );
+function sesna_slider_meta_box_html($post)
+{
+	wp_nonce_field('sesna_save_slider_meta_data', 'sesna_slider_meta_nonce');
 
-    // Obtener el valor actual. Si es un post nuevo sin guardar, asumimos "1" (mostrar)
-    $show_text = get_post_meta( $post->ID, '_show_text_slider', true );
-    if ( $show_text === '' ) {
-        $show_text = '1';
-    }
+	// Obtener el valor actual. Si es un post nuevo sin guardar, asumimos "1" (mostrar)
+	$show_text = get_post_meta($post->ID, '_show_text_slider', true);
+	if ($show_text === '') {
+		$show_text = '1';
+	}
 
-    ?>
-    <p>
-        <label>
-            <input type="checkbox" name="_show_text_slider" value="1" <?php checked( $show_text, '1' ); ?> />
-            Mostrar título y extracto en el carrusel
-        </label>
-    </p>
-    <p class="description">Si desmarcas esta casilla, solo se mostrará la imagen para este slide.</p>
-    <?php
+	?>
+	<p>
+		<label>
+			<input type="checkbox" name="_show_text_slider" value="1" <?php checked($show_text, '1'); ?> />
+			Mostrar título y extracto en el carrusel
+		</label>
+	</p>
+	<p class="description">Si desmarcas esta casilla, solo se mostrará la imagen para este slide.</p>
+	<?php
 }
 
 // 3. Guardar el estado del Checkbox al actualizar/publicar
-function sesna_save_slider_meta_data( $post_id ) {
-    if ( ! isset( $_POST['sesna_slider_meta_nonce'] ) || ! wp_verify_nonce( $_POST['sesna_slider_meta_nonce'], 'sesna_save_slider_meta_data' ) ) {
-        return;
-    }
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-        return;
-    }
-    if ( ! current_user_can( 'edit_post', $post_id ) ) {
-        return;
-    }
+function sesna_save_slider_meta_data($post_id)
+{
+	if (!isset($_POST['sesna_slider_meta_nonce']) || !wp_verify_nonce($_POST['sesna_slider_meta_nonce'], 'sesna_save_slider_meta_data')) {
+		return;
+	}
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+		return;
+	}
+	if (!current_user_can('edit_post', $post_id)) {
+		return;
+	}
 
-    if ( isset( $_POST['_show_text_slider'] ) ) {
-        update_post_meta( $post_id, '_show_text_slider', '1' );
-    } else {
-        update_post_meta( $post_id, '_show_text_slider', '0' );
-    }
+	if (isset($_POST['_show_text_slider'])) {
+		update_post_meta($post_id, '_show_text_slider', '1');
+	} else {
+		update_post_meta($post_id, '_show_text_slider', '0');
+	}
 }
-add_action( 'save_post_slider', 'sesna_save_slider_meta_data' );
+add_action('save_post_slider', 'sesna_save_slider_meta_data');
