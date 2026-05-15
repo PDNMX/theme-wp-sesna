@@ -14,8 +14,8 @@
                         México.</p>
                     <div class="text-md-start text-lg-end mt-4">
                         <a href="#"
-                            class="btn btn-burgundi text-white rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center shadow-sm text-decoration-none sna-about-btn">
-                            CONOCE AL SNA
+                            class="btn text-white rounded-pill px-4 py-2 fw-bold d-inline-flex align-items-center shadow-sm text-decoration-none sna-about-btn">
+                            Conoce el SNA
                             <span class="ms-2 bg-dorado rounded-circle d-flex align-items-center justify-content-center sna-about-btn-icon-circle">
                                 <span class="icon-arrow text-white sna-about-btn-icon" aria-hidden="true"></span>
                             </span>

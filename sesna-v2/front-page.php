@@ -1,14 +1,17 @@
 <?php get_header(); ?>
 
+<div class="front-page-bg">
+
 <?php get_template_part( 'template-parts/home/banner' ); ?>
 
 <?php get_template_part( 'template-parts/home/carousel' ); ?>
 
 <?php get_template_part( 'template-parts/home/section-sna' ); ?>
+<div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-integrantes' ); ?>
 <div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-programas' ); ?>
-
+<div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-noticias' ); ?>
 
     <div class="container pb-5">
@@ -22,5 +25,7 @@
         endif;
         ?>
     </div>
+
+</div>
 
 <?php get_footer(); ?>

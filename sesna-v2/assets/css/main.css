@@ -17,7 +17,7 @@
     /* Colores institucionales — Guía de Identidad Gráfica GOB.mx 2024-2030 */
     --color-negro: #161a1d;
     --color-guinda: #611232;
-    --color-burgundi: #F1003E;
+    --color-burgundi: #9d2449;
     --color-teal-oscuro: #002f2a;
     --color-teal: #1e5b4f;
     --color-dorado: #a57f2c;
@@ -222,6 +222,13 @@ main.page {
 }
 
 /* ------------------------------------------------------------
+   Fondo general de la Front Page
+   ------------------------------------------------------------ */
+.front-page-bg {
+    background-color: #F6EFF6;
+}
+
+/* ------------------------------------------------------------
    Banner principal — imagen full-width debajo del sub-navbar
    ------------------------------------------------------------ */
 .sesna-banner {
@@ -395,7 +402,6 @@ main.page {
    Sección Integrantes del SNA
    ------------------------------------------------------------ */
 .sna-integrantes-section {
-    background-color: #ECE6EC;
 }
 
 .sna-integrantes-card {
@@ -433,11 +439,17 @@ main.page {
    Sección SNA (About)
    ------------------------------------------------------------ */
 .sna-about-section {
-    background-color: #F6F0F6;
 }
 
 .sna-about-btn {
     letter-spacing: 0.5px;
+    background-color: #611232 !important;
+    border-color: #611232 !important;
+}
+
+.sna-about-btn:hover {
+    background-color: #611232 !important;
+    border-color: #611232 !important;
 }
 
 .sna-about-btn-icon-circle {
@@ -462,7 +474,6 @@ main.page {
    Sección Acciones y Programas
    ------------------------------------------------------------ */
 .sna-programas-section {
-    background-color: #E7E1E7;
 }
 
 .sna-programas-wrapper {
@@ -471,22 +482,21 @@ main.page {
 
 .sna-programas-card {
     background-color: #F0ECF0;
-    border-radius: 20px;
-    padding: 0 1.25rem;
-    margin-top: 3.5rem;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
 }
 
 .sna-programas-img-outer {
-    margin-top: -3.5rem;
     position: relative;
     z-index: 2;
 }
 
 .sna-programas-img-inner {
     height: 200px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 0;
     overflow: hidden;
-    border-bottom: 6px solid #E6003D;
+    border-bottom: 1px solid #E6003D;
     background-color: #fff;
 }
 
@@ -519,7 +529,6 @@ main.page {
    Sección Noticias y Actividades
    ------------------------------------------------------------ */
 .sna-noticias-section {
-    background-color: #FFFFFF;
 }
 
 .sna-noticias-card {
@@ -553,7 +562,7 @@ main.page {
     left: -10px;
     top: calc(1.25rem + 200px);
     /* Padding + Image Height */
-    background-color: #E6003D;
+    background-color: var(--color-burgundi);
     /* Bright Red */
     color: #fff;
     width: 50px;

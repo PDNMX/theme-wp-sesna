@@ -43,10 +43,6 @@
                                     <img src="<?php echo $prog['img']; ?>" class="w-100 h-100 sna-programas-img"
                                         alt="<?php echo strip_tags($prog['title']); ?>">
                                 </div>
-                                <!-- Icono Flotante -->
-                                <div class="position-absolute start-50 translate-middle-x d-flex align-items-center justify-content-center shadow-sm sna-programas-icon-container">
-                                    <i class="bi <?php echo $prog['icon']; ?> text-white fs-4"></i>
-                                </div>
                             </div>
 
                             <!-- Cuerpo de la tarjeta -->
