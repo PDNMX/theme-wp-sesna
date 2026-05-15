@@ -1,0 +1,95 @@
+/* transparencia.css — Tipografía e Iconografía GOB.mx v3
+   Scope: .page-transparencia | Depende de: main.css, Bootstrap Icons CDN */
+
+/* ── Tipografía ───────────────────────────────────────────── */
+
+.page-transparencia .tx-hero__title {
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.page-transparencia .tx-section-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.page-transparencia .tx-card__title {
+    font-family: var(--font-noto-sans);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.page-transparencia .tx-card__desc,
+.page-transparencia .tx-hero__subtitle,
+.page-transparencia .tx-consulta-card__desc {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.page-transparencia .tx-contacto__detail {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.page-transparencia .tx-hero__cta,
+.page-transparencia .tx-search__btn,
+.page-transparencia .tx-consulta-card__btn {
+    font-family: var(--font-noto-sans);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.page-transparencia .tx-search__label,
+.page-transparencia .tx-consulta-card__title,
+.page-transparencia .tx-contacto__name {
+    font-family: var(--font-noto-sans);
+    font-weight: 600;
+}
+
+/* ── Iconografía ──────────────────────────────────────────── */
+
+.page-transparencia .tx-card__icon,
+.page-transparencia .tx-card .bootstrap-icons {
+    font-size: 40px;
+    color: var(--color-burgundi);
+    display: block;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.page-transparencia .tx-hero__cta .bootstrap-icons,
+.page-transparencia .tx-search__btn .bootstrap-icons,
+.page-transparencia .tx-consulta-card__btn .bootstrap-icons {
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+}
+
+.page-transparencia .tx-search__circle .bootstrap-icons {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.page-transparencia .tx-consulta-card__icon-wrap .bootstrap-icons {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.page-transparencia .tx-contacto__icon-wrap .bootstrap-icons {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.page-transparencia .tx-logo-placeholder .bootstrap-icons {
+    font-size: 32px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.4);
+}

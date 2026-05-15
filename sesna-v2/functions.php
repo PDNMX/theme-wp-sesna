@@ -78,6 +78,11 @@ function sesna_theme_scripts()
 	));
 
 	// Scripts por página — dependen del framework (Bootstrap y jQuery ya vienen en él)
+	// Estilos de tipografía e iconografía GOB.mx v3 — solo para el landing de Transparencia
+	if (is_page('transparencia')) {
+		wp_enqueue_style('sesna-transparencia-style', get_theme_file_uri('/assets/css/transparencia.css'), array('sesna-main-style'), wp_get_theme()->get('Version'));
+	}
+
 	if (is_page('como-vamos')) {
 		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
