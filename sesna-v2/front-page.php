@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="front-page-bg">
+<div class="front-page-bg has-fullbleed-hero">
 
 <?php get_template_part( 'template-parts/home/banner' ); ?>
 

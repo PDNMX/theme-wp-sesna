@@ -20,14 +20,14 @@ $tx_cards = [
     ['icon' => 'bi-person-badge',      'title' => 'Unidad de Transparencia',       'desc' => 'Atención, orientación y canales de contacto con la Unidad.'],
     ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información',    'desc' => 'Presenta solicitudes de acceso a la información pública.'],
     ['icon' => 'bi-shield-lock',       'title' => 'Datos Personales',              'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.'],
-    ['icon' => 'bi-folder2-open',      'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el Título Quinto LGTAIP.'],
+    ['icon' => 'bi-folder2-open',      'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).'],
     ['icon' => 'bi-book',              'title' => 'Normativa',                     'desc' => 'Leyes, lineamientos y normas en materia de transparencia.'],
     ['icon' => 'bi-archive',           'title' => 'Archivos',                      'desc' => 'Gestión, resguardo y consulta de documentos históricos.'],
     ['icon' => 'bi-bell',              'title' => 'Denuncias',                     'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.'],
 ];
 ?>
 
-<div class="page-transparencia">
+<div class="page-transparencia has-fullbleed-hero">
 
     <!-- ============================================================
          1. HERO / BANNER PRINCIPAL
@@ -45,15 +45,7 @@ $tx_cards = [
             <div class="row align-items-center">
 
                 <!-- Columna izquierda: logo (zona visible antes del corte diagonal) -->
-                <div class="col-md-4 col-lg-5 d-none d-md-flex justify-content-center align-items-center">
-                    <!-- PLACEHOLDER LOGO — sustituir este div por:
-                         <img src="ruta/logo.svg" alt="SESNA" class="tx-hero__logo"> -->
-                    <div class="tx-logo-placeholder" aria-label="Pendiente: logotipo institucional">
-                        <span class="bootstrap-icons" aria-hidden="true">
-                            <i class="bi bi-image"></i>
-                        </span>
-                        <span>LOGO</span>
-                    </div>
+                <div class="col-md-4 col-lg-5 d-none d-md-flex justify-content-center align-items-center">                   
                 </div>
 
                 <!-- Columna derecha: texto sobre el overlay oscuro -->
@@ -90,15 +82,13 @@ $tx_cards = [
             <div class="row g-4 mt-3">
                 <?php foreach ( $tx_cards as $card ) : ?>
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <a href="#" class="tx-card h-100" aria-label="<?= esc_attr( $card['title'] ) ?>">
-                        <span class="bootstrap-icons tx-card__icon" aria-hidden="true">
+                    <a href="#" class="tx-card h-100 d-flex flex-column" aria-label="<?= esc_attr( $card['title'] ) ?>">
+                        <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                             <i class="bi <?= esc_attr( $card['icon'] ) ?>"></i>
                         </span>
-                        <div class="tx-card__body">
-                            <strong class="tx-card__title"><?= esc_html( $card['title'] ) ?></strong>
-                            <p class="tx-card__desc"><?= esc_html( $card['desc'] ) ?></p>
-                            <span class="tx-card__arrow" aria-hidden="true">&rsaquo;</span>
-                        </div>
+                        <strong class="tx-card__title d-block mb-2"><?= esc_html( $card['title'] ) ?></strong>
+                        <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html( $card['desc'] ) ?></p>
+                        <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -111,6 +101,7 @@ $tx_cards = [
          ============================================================ -->
     <section class="tx-search py-5" aria-label="Buscador de información de transparencia">
         <div class="container">
+            <div class="tx-search__box">
             <div class="row align-items-center g-4">
                 <div class="col-auto">
                     <div class="tx-search__circle" aria-hidden="true">
@@ -140,6 +131,7 @@ $tx_cards = [
                     </form>
                 </div>
             </div>
+            </div><!-- /.tx-search__box -->
         </div>
     </section>
 
