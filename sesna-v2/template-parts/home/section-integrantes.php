@@ -1,6 +1,6 @@
 <section class="py-5 sna-integrantes-section">
     <div class="container my-5">
-        <h2 class="text-center fw-bold mb-5 font-patria">¿Quiénes integran el SNA?</h2>
+        <h2 class="text-center fw-bold mb-5 font-patria sesna-section-heading">¿Quiénes integran el SNA?</h2>
         <div class="row g-4">
 
             <!-- Card 1 -->

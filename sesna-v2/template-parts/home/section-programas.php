@@ -1,7 +1,7 @@
 <section class="py-5 sna-programas-section">
     <div class="container my-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold font-patria">Acciones y <span class="text-burgundi">Programas</span></h2>
+            <h2 class="fw-bold font-patria sesna-section-heading">Acciones y <span class="text-burgundi">Programas</span></h2>
             <p class="text-muted">Conoce y accede a nuestros micrositios</p>
         </div>
         <div class="row g-4 pt-4">

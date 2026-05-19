@@ -468,6 +468,27 @@ body.front-page main.page {
 }
 
 /* ------------------------------------------------------------
+   Títulos de sección con línea decorativa dorada
+   ------------------------------------------------------------ */
+.sesna-section-heading {
+    position: relative;
+    display: block;
+    padding-bottom: 14px;
+}
+
+.sesna-section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-dorado), var(--color-dorado-claro));
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------------
    Separador de Secciones
    ------------------------------------------------------------ */
 .sna-section-separator {
@@ -480,6 +501,15 @@ body.front-page main.page {
    Sección Acciones y Programas
    ------------------------------------------------------------ */
 .sna-programas-section {
+}
+
+.sna-programas-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sna-programas-wrapper:hover .sna-programas-card {
+    transform: translateY(-6px);
+    box-shadow: 12px 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .sna-programas-wrapper {
