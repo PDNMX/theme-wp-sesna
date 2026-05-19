@@ -44,7 +44,7 @@
                             </div>
 
                             <!-- Contenido -->
-                            <div class="card-body d-flex flex-column text-center px-3 pt-3 pb-2">
+                            <div class="card-body d-flex flex-column text-center px-3 pt-4 pb-2">
                                 <h4 class="fw-bold mb-3 sna-noticias-title">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
                                 </h4>
