@@ -7,10 +7,21 @@
         var siteHeader  = document.querySelector('.site-header');
         if (!siteHeader) return;
 
-        /* Posiciona el sub-navbar justo debajo del header GOB.mx usando
-           getBoundingClientRect().bottom — posición visual real en el viewport */
+        /* Posiciona el sub-navbar justo debajo del header GOB.mx */
         var gobmxBottom = gobmxHeader ? gobmxHeader.getBoundingClientRect().bottom : 70;
         siteHeader.style.top = gobmxBottom + 'px';
+
+        /* Calcula el borde inferior real del sub-navbar */
+        var totalOffset = gobmxBottom + siteHeader.offsetHeight;
+
+        /* Actualiza la variable CSS (para páginas que la usen vía var()) */
+        document.documentElement.style.setProperty('--sesna-offset', totalOffset + 'px');
+
+        /* Aplica inline style directamente al wrapper hero (más confiable) */
+        var heroWrapper = document.querySelector('.front-page-bg.has-fullbleed-hero');
+        if (heroWrapper) {
+            heroWrapper.style.paddingTop = totalOffset + 'px';
+        }
     }
 
     function init() {

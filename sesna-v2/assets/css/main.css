@@ -42,8 +42,7 @@
     --buffer: 64px;
 
     /* Offset total de los dos navbars fijos (lo actualiza main.js en runtime) */
-    --sesna-offset: 140px;
-    /* valor de arranque antes de que cargue el JS */
+    --sesna-offset: 44px;
 
     /* Configuración de componentes */
     --sesna-banner-max-height: auto;
@@ -91,22 +90,23 @@ h3,
 /* ------------------------------------------------------------
    Offset fijo para compensar los dos navbars fijos:
    header GOB.mx (~60px) + sub-navbar SESNA (~50px) = ~110px
-   Ajustar este valor si cambia la altura de alguno de los navbars.
    ------------------------------------------------------------ */
 main.page {
-    padding-top: 110px;
+    padding-top: 44px;
 }
-/* Para páginas futuras: añade has-fullbleed-hero al div/wrapper
-   raíz del template y aplica uno de los dos patrones anteriores.
-   ------------------------------------------------------------ */
-main.page:has(.has-fullbleed-hero) {
+
+/* Portada: WordPress añade .home (y .front-page) al body.
+   Zeroing main.page y dejando que el wrapper hijo tome el offset
+   evita doble padding con el banner hero. */
+body.home main.page,
+body.front-page main.page {
     padding-top: 0;
 }
 
-/* front-page: el banner es una imagen que debe arrancar justo
-   debajo de los navbars (no detrás); el wrapper asume el offset. */
+/* front-page: el banner arranca justo debajo de los navbars.
+   El JS (main.js) actualiza --sesna-offset con el valor real. */
 .front-page-bg.has-fullbleed-hero {
-    padding-top: var(--sesna-offset, 140px);
+    padding-top: var(--sesna-offset, 44px);
 }
 
 /* ------------------------------------------------------------
@@ -245,7 +245,6 @@ main.page:has(.has-fullbleed-hero) {
    ------------------------------------------------------------ */
 .sesna-banner {
     width: 100%;
-    max-width: 100%;
     overflow: hidden;
     line-height: 0;
     margin: 0 !important;
@@ -253,21 +252,16 @@ main.page:has(.has-fullbleed-hero) {
     display: block;
 }
 
+/* BannerSESNA.jpg: 2880×624px (ratio ~4.6:1) — dimensión GOB.mx v3
+   La imagen se escala al ancho completo manteniendo su proporción nativa.
+   En pantallas muy grandes se limita a la altura del archivo original. */
 .sesna-banner__img {
     display: block;
     width: 100%;
-    max-width: 100%;
     height: auto;
-    max-height: var(--sesna-banner-max-height);
+    max-height: 624px;
     object-fit: cover;
     object-position: center;
-}
-
-@media (min-width: 1025px) {
-    .sesna-banner__img {
-        height: 350px;
-        max-height: 350px;
-    }
 }
 
 /* ------------------------------------------------------------
