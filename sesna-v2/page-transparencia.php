@@ -16,14 +16,14 @@ get_header();
 /* Accesos rápidos — 8 tarjetas fijas de la maqueta.
  * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
-    ['icon' => 'bi-people',            'title' => 'Comité de Transparencia',      'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.'],
-    ['icon' => 'bi-person-badge',      'title' => 'Unidad de Transparencia',       'desc' => 'Atención, orientación y canales de contacto con la Unidad.'],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información',    'desc' => 'Presenta solicitudes de acceso a la información pública.'],
-    ['icon' => 'bi-shield-lock',       'title' => 'Datos Personales',              'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.'],
-    ['icon' => 'bi-folder2-open',      'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).'],
-    ['icon' => 'bi-book',              'title' => 'Normativa',                     'desc' => 'Leyes, lineamientos y normas en materia de transparencia.'],
-    ['icon' => 'bi-archive',           'title' => 'Archivos',                      'desc' => 'Gestión, resguardo y consulta de documentos históricos.'],
-    ['icon' => 'bi-bell',              'title' => 'Denuncias',                     'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.'],
+    ['icon' => 'bi-people',            'title' => 'Comité de Transparencia',      'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => '#'],
+    ['icon' => 'bi-person-badge',      'title' => 'Unidad de Transparencia',       'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => '#'],
+    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información',    'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => '#'],
+    ['icon' => 'bi-shield-lock',       'title' => 'Datos Personales',              'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => '#'],
+    ['icon' => 'bi-folder2-open',      'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => '#'],
+    ['icon' => 'bi-book',              'title' => 'Normativa',                     'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
+    ['icon' => 'bi-archive',           'title' => 'Archivos',                      'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => '#'],
+    ['icon' => 'bi-bell',              'title' => 'Denuncias',                     'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => '#'],
 ];
 ?>
 
@@ -82,7 +82,7 @@ $tx_cards = [
             <div class="row g-4 mt-3">
                 <?php foreach ( $tx_cards as $card ) : ?>
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <a href="#" class="tx-card h-100 d-flex flex-column" aria-label="<?= esc_attr( $card['title'] ) ?>">
+                    <a href="<?= $card['url'] !== '#' ? esc_url( $card['url'] ) : '#' ?>" class="tx-card h-100 d-flex flex-column" aria-label="<?= esc_attr( $card['title'] ) ?>">
                         <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                             <i class="bi <?= esc_attr( $card['icon'] ) ?>"></i>
                         </span>
