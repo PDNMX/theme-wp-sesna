@@ -11,7 +11,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     volumes:
       - db_data:/var/lib/mysql
-      #- ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   wordpress:
     image: wordpress:6-apache
@@ -26,11 +26,8 @@ services:
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME}
       WORDPRESS_CONFIG_EXTRA: |
-        define('WP_HOME', '${WP_HOME}');
-        define('WP_SITEURL', '${WP_HOME}');
-        #define('AUTOMATIC_UPDATER_DISABLED', true);
-        #define('WP_AUTO_UPDATE_CORE', false);
-        #define('DISALLOW_FILE_EDIT', true);
+        define('WP_HOME', '${WP_HOME:-http://localhost:8080}');
+        define('WP_SITEURL', '${WP_HOME:-http://localhost:8080}');
     volumes:
       - wordpress_data:/var/www/html
       - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
@@ -38,41 +35,20 @@ services:
 
   wpcli:
     image: wordpress:cli
-    restart: on-failure
     depends_on:
-      - wordpress
       - db
-    volumes:
-      - wordpress_data:/var/www/html
-      - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
+      - wordpress
+    user: "33:33"
+    working_dir: /var/www/html
     environment:
-      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: ${DB_USER}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME}
-    command: >
-      /bin/sh -c '
-        until wp core is-installed --allow-root --path=/var/www/html 2>/dev/null; do
-          echo "Esperando WordPress..."; sleep 3;
-        done;
-
-        if wp user get "$WP_ADMIN_USER" --allow-root --path=/var/www/html 2>/dev/null; then
-          echo "El usuario $WP_ADMIN_USER ya existe, no se modifica.";
-        else
-          wp user create "$WP_ADMIN_USER" "$WP_ADMIN_EMAIL" \
-            --role=administrator \
-            --user_pass="$WP_ADMIN_PASSWORD" \
-            --allow-root \
-            --path=/var/www/html && echo "Usuario $WP_ADMIN_USER creado correctamente.";
-        fi;
-
-        wp theme activate sesna-v2 --allow-root --path=/var/www/html;
-
-        wp menu location assign menu-1   principal --allow-root --path=/var/www/html;
-        wp menu location assign footer-1 footer-1  --allow-root --path=/var/www/html;
-        wp menu location assign footer-2 footer-2  --allow-root --path=/var/www/html;
-        wp menu location assign footer-3 footer-3  --allow-root --path=/var/www/html;
-      '
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
+    entrypoint: ["tail", "-f", "/dev/null"]
 
 volumes:
   db_data:
