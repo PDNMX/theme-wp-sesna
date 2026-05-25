@@ -38,25 +38,18 @@ services:
 
   wpcli:
     image: wordpress:cli
-    restart: "no"
+    restart: on-failure
     depends_on:
-      - db
       - wordpress
-    user: "33:33"
-    working_dir: /var/www/html
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: ${DB_USER}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${DB_NAME}
-      WP_HOME: ${WP_HOME}
-      WP_TITLE: ${WP_TITLE}
-      WP_ADMIN_USER: ${WP_ADMIN_USER}
-      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+      - db
     volumes:
       - wordpress_data:/var/www/html
       - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME}
     command: >
       /bin/sh -c '
         until wp core is-installed --allow-root --path=/var/www/html 2>/dev/null; do
@@ -75,14 +68,10 @@ services:
 
         wp theme activate sesna-v2 --allow-root --path=/var/www/html;
 
-        wp theme activate sesna-v2 --allow-root --path=/var/www/html || true;
-        wp menu location assign menu-1 principal --allow-root --path=/var/www/html;
-        wp menu location assign footer-1 footer-1 --allow-root --path=/var/www/html;
-        wp menu location assign footer-2 footer-2 --allow-root --path=/var/www/html;
-        wp menu location assign footer-3 footer-3 --allow-root --path=/var/www/html;
-
-        wp rewrite structure "/%postname%/" --hard --allow-root || true;
-        wp rewrite flush --allow-root || true;
+        wp menu location assign menu-1   principal --allow-root --path=/var/www/html;
+        wp menu location assign footer-1 footer-1  --allow-root --path=/var/www/html;
+        wp menu location assign footer-2 footer-2  --allow-root --path=/var/www/html;
+        wp menu location assign footer-3 footer-3  --allow-root --path=/var/www/html;
       '
 
 volumes:
