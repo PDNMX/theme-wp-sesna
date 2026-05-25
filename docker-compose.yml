@@ -59,31 +59,30 @@ services:
       - ./sesna-v2:/var/www/html/wp-content/themes/sesna-v2
     command: >
       /bin/sh -c '
-      until wp db check --allow-root >/dev/null 2>&1; do
-        echo "Esperando base de datos...";
-        sleep 5;
-      done;
+        until wp core is-installed --allow-root --path=/var/www/html 2>/dev/null; do
+          echo "Esperando WordPress..."; sleep 3;
+        done;
 
-      until wp core is-installed --allow-root >/dev/null 2>&1 || wp core install \
-        --url="$WP_HOME" \
-        --title="$WP_TITLE" \
-        --admin_user="$WP_ADMIN_USER" \
-        --admin_password="$WP_ADMIN_PASSWORD" \
-        --admin_email="$WP_ADMIN_EMAIL" \
-        --skip-email \
-        --allow-root; do
-        echo "Esperando instalación de WordPress...";
-        sleep 5;
-      done;
+        if wp user get "$WP_ADMIN_USER" --allow-root --path=/var/www/html 2>/dev/null; then
+          echo "El usuario $WP_ADMIN_USER ya existe, no se modifica.";
+        else
+          wp user create "$WP_ADMIN_USER" "$WP_ADMIN_EMAIL" \
+            --role=administrator \
+            --user_pass="$WP_ADMIN_PASSWORD" \
+            --allow-root \
+            --path=/var/www/html && echo "Usuario $WP_ADMIN_USER creado correctamente.";
+        fi;
 
-      wp theme activate sesna-v2 --allow-root --path=/var/www/html || true;
-      wp menu location assign menu-1 principal --allow-root --path=/var/www/html;
-      wp menu location assign footer-1 footer-1 --allow-root --path=/var/www/html;
-      wp menu location assign footer-2 footer-2 --allow-root --path=/var/www/html;
-      wp menu location assign footer-3 footer-3 --allow-root --path=/var/www/html;
+        wp theme activate sesna-v2 --allow-root --path=/var/www/html;
 
-      wp rewrite structure "/%postname%/" --hard --allow-root || true;
-      wp rewrite flush --allow-root || true;
+        wp theme activate sesna-v2 --allow-root --path=/var/www/html || true;
+        wp menu location assign menu-1 principal --allow-root --path=/var/www/html;
+        wp menu location assign footer-1 footer-1 --allow-root --path=/var/www/html;
+        wp menu location assign footer-2 footer-2 --allow-root --path=/var/www/html;
+        wp menu location assign footer-3 footer-3 --allow-root --path=/var/www/html;
+
+        wp rewrite structure "/%postname%/" --hard --allow-root || true;
+        wp rewrite flush --allow-root || true;
       '
 
 volumes:
