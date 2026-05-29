@@ -16,14 +16,14 @@ get_header();
 /* Accesos rápidos — 8 tarjetas fijas de la maqueta.
  * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
-    ['icon' => 'bi-people',            'title' => 'Comité de Transparencia',      'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => '#'],
-    ['icon' => 'bi-person-badge',      'title' => 'Unidad de Transparencia',       'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => '#'],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información',    'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => '#'],
-    ['icon' => 'bi-shield-lock',       'title' => 'Datos Personales',              'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => '#'],
-    ['icon' => 'bi-folder2-open',      'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => '#'],
-    ['icon' => 'bi-book',              'title' => 'Normativa',                     'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-archive',           'title' => 'Archivos',                      'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => '#'],
-    ['icon' => 'bi-bell',              'title' => 'Denuncias',                     'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => '#'],
+    ['icon' => 'bi-people', 'title' => 'Comité de Transparencia', 'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => '#'],
+    ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => '#'],
+    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => '#'],
+    ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => '#'],
+    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => '#'],
+    ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
+    ['icon' => 'bi-archive', 'title' => 'Archivos', 'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => '#'],
+    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => '#'],
 ];
 ?>
 
@@ -32,42 +32,22 @@ $tx_cards = [
     <!-- ============================================================
          1. HERO / BANNER PRINCIPAL
          ============================================================ -->
-    <section class="tx-hero" aria-label="Encabezado de Transparencia y acceso a la información">
+    <section class="position-relative" aria-label="Encabezado de Transparencia y acceso a la información">
+        <!-- Imagen del Banner Nativa -->
+        <img src="<?= get_template_directory_uri() ?>/img/home_v2/BannerSESNA_Transparencia.jpg" alt="Transparencia"
+            class="w-100 img-fluid" style="object-fit: cover; min-height: 200px;">
 
-        <!-- PLACEHOLDER BANNER — sustituir por:
-             background-image: url('ruta/imagen.jpg'); filter: grayscale(100%);
-             en la regla .page-transparencia .tx-hero__bg dentro de main.css -->
-        <div class="tx-hero__bg" role="img" aria-label="Pendiente: fotografía del banner"></div>
-        <div class="tx-hero__overlay" aria-hidden="true"></div>
-        <div class="tx-hero__accent"  aria-hidden="true"></div>
-
-        <div class="container tx-hero__content">
-            <div class="row align-items-center">
-
-                <!-- Columna izquierda: logo (zona visible antes del corte diagonal) -->
-                <div class="col-md-4 col-lg-5 d-none d-md-flex justify-content-center align-items-center">                   
-                </div>
-
-                <!-- Columna derecha: texto sobre el overlay oscuro -->
-                <div class="col-12 col-md-8 col-lg-7">
-                    <h1 class="tx-hero__title">
-                        Transparencia y acceso a la información
-                    </h1>
-                    <p class="tx-hero__subtitle">
-                        Consulta información pública de la SESNA de manera clara, accesible y actualizada.
-                    </p>
-                    <a href="https://www.plataformadetransparencia.org.mx/group/guest/crear-solicitud"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="tx-hero__cta"
-                       aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                        <span class="bootstrap-icons" aria-hidden="true">
-                            <i class="bi bi-file-earmark-arrow-up"></i>
-                        </span>
-                        Solicitar información &rsaquo;
-                    </a>
-                </div>
-
+        <!-- Botón flotante -->
+        <div class="position-absolute w-100 text-center" style="bottom: 6%; left: 0; z-index: 10;">
+            <div class="container">
+                <a href="https://www.plataformadetransparencia.org.mx" target="_blank" rel="noopener noreferrer"
+                    class="btn d-inline-flex align-items-center gap-2"
+                    style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 1.4rem; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
+                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
+                    aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
+                    <i class="bi bi-file-earmark-arrow-up"></i>
+                    Solicitar información &rsaquo;
+                </a>
             </div>
         </div>
     </section>
@@ -80,17 +60,18 @@ $tx_cards = [
             <h2 class="tx-section-title" id="tx-accesos-titulo">Accesos rápidos</h2>
 
             <div class="row g-4 mt-3">
-                <?php foreach ( $tx_cards as $card ) : ?>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <a href="<?= $card['url'] !== '#' ? esc_url( $card['url'] ) : '#' ?>" class="tx-card h-100 d-flex flex-column" aria-label="<?= esc_attr( $card['title'] ) ?>">
-                        <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                            <i class="bi <?= esc_attr( $card['icon'] ) ?>"></i>
-                        </span>
-                        <strong class="tx-card__title d-block mb-2"><?= esc_html( $card['title'] ) ?></strong>
-                        <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html( $card['desc'] ) ?></p>
-                        <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
-                    </a>
-                </div>
+                <?php foreach ($tx_cards as $card): ?>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
+                            class="tx-card h-100 d-flex flex-column" aria-label="<?= esc_attr($card['title']) ?>">
+                            <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
+                                <i class="bi <?= esc_attr($card['icon']) ?>"></i>
+                            </span>
+                            <strong class="tx-card__title d-block mb-2"><?= esc_html($card['title']) ?></strong>
+                            <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html($card['desc']) ?></p>
+                            <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
+                        </a>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -102,35 +83,29 @@ $tx_cards = [
     <section class="tx-search py-5" aria-label="Buscador de información de transparencia">
         <div class="container">
             <div class="tx-search__box">
-            <div class="row align-items-center g-4">
-                <div class="col-auto">
-                    <div class="tx-search__circle" aria-hidden="true">
-                        <span class="bootstrap-icons">
-                            <i class="bi bi-search"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="col">
-                    <p class="tx-search__label">¿Qué información estás buscando?</p>
-                    <form role="search"
-                          method="get"
-                          action="<?= esc_url( home_url( '/' ) ) ?>"
-                          class="tx-search__form">
-                        <label for="tx-search-input" class="visually-hidden">Buscar en transparencia</label>
-                        <input type="text"
-                               id="tx-search-input"
-                               name="s"
-                               class="tx-search__input"
-                               placeholder="Buscar por palabra clave, documento, acta, obligación, resolución...">
-                        <button type="submit" class="tx-search__btn">
-                            <span class="bootstrap-icons" aria-hidden="true">
+                <div class="row align-items-center g-4">
+                    <div class="col-auto">
+                        <div class="tx-search__circle" aria-hidden="true">
+                            <span class="bootstrap-icons">
                                 <i class="bi bi-search"></i>
                             </span>
-                            Buscar
-                        </button>
-                    </form>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="tx-search__label">¿Qué información estás buscando?</p>
+                        <form role="search" method="get" action="<?= esc_url(home_url('/')) ?>" class="tx-search__form">
+                            <label for="tx-search-input" class="visually-hidden">Buscar en transparencia</label>
+                            <input type="text" id="tx-search-input" name="s" class="tx-search__input"
+                                placeholder="Buscar por palabra clave, documento, acta, obligación, resolución...">
+                            <button type="submit" class="tx-search__btn">
+                                <span class="bootstrap-icons" aria-hidden="true">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                Buscar
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
             </div><!-- /.tx-search__box -->
         </div>
     </section>
@@ -155,14 +130,13 @@ $tx_cards = [
                             <div class="d-flex flex-column h-100">
                                 <strong class="tx-consulta-card__title">Transparencia para el Pueblo</strong>
                                 <p class="tx-consulta-card__desc mt-2 flex-grow-1">
-                                    Conoce el nuevo modelo nacional de transparencia y consulta información de interés público.
+                                    Conoce el nuevo modelo nacional de transparencia y consulta información de interés
+                                    público.
                                 </p>
                                 <div class="mt-3">
-                                    <a href="<?= esc_url( get_option( 'options_url_transparencia_pueblo' ) ?: 'https://www.transparencia.gob.mx/' ) ?>"
-                                       target="_blank"
-                                       rel="noopener noreferrer"
-                                       class="tx-consulta-card__btn"
-                                       aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
+                                    <a href="<?= esc_url(get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/') ?>"
+                                        target="_blank" rel="noopener noreferrer" class="tx-consulta-card__btn"
+                                        aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         Ir al portal
                                         <span class="bootstrap-icons" aria-hidden="true">
                                             <i class="bi bi-box-arrow-up-right"></i>
@@ -188,11 +162,9 @@ $tx_cards = [
                                     Realiza solicitudes de información y consulta obligaciones de transparencia.
                                 </p>
                                 <div class="mt-3">
-                                    <a href="https://www.plataformadetransparencia.org.mx/"
-                                       target="_blank"
-                                       rel="noopener noreferrer"
-                                       class="tx-consulta-card__btn"
-                                       aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
+                                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank"
+                                        rel="noopener noreferrer" class="tx-consulta-card__btn"
+                                        aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         Acceder
                                         <span class="bootstrap-icons" aria-hidden="true">
                                             <i class="bi bi-box-arrow-up-right"></i>

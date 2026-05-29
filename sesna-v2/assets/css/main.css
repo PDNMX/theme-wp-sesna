@@ -670,24 +670,14 @@ body.front-page main.page {
     background-color: var(--color-negro);
 }
 
-/* Imagen de fondo — placeholder hasta recibir imagen real */
+/* Imagen de fondo real de Transparencia */
 .page-transparencia .tx-hero__bg {
     position: absolute;
     inset: 0;
-    background-color: #3a3a3a;
-    background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 18px,
-        rgba(255, 255, 255, 0.03) 18px,
-        rgba(255, 255, 255, 0.03) 36px
-    );
-    /* Reemplazar background-color + background-image por:
-       background-image: url('ruta/a/la/imagen.jpg');
-       background-size: cover;
-       background-position: center left;
-       filter: grayscale(100%);
-    */
+    background-image: url('../../img/home_v2/BannerSESNA_Transparencia.jpg');
+    background-size: cover;
+    background-position: center left;
+    filter: grayscale(100%);
 }
 
 /* Overlay oscuro diagonal — cubre el lado derecho */
@@ -733,21 +723,22 @@ body.front-page main.page {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 2px solid var(--color-blanco);
+    border: 2px solid var(--color-guinda);
     color: var(--color-blanco);
-    background: transparent;
+    background: var(--color-guinda);
     padding: 10px 24px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .page-transparencia .tx-hero__cta:hover,
 .page-transparencia .tx-hero__cta:focus-visible {
-    background: var(--color-blanco);
-    color: var(--color-burgundi);
+    background: #4a0d26;
+    border-color: #4a0d26;
+    color: var(--color-blanco);
 }
 
 /* Móvil: overlay completo, sin diagonal */
