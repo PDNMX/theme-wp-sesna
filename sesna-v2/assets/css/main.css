@@ -1011,3 +1011,302 @@ body.front-page main.page {
 .page-transparencia .tx-contacto__link:hover {
     color: var(--color-burgundi);
 }
+
+/* ============================================================
+   SINGLE POST — Entrada de noticias / blog
+   ============================================================ */
+
+/* Fondo homologado con el home (#F6EFF6) */
+.sesna-single-wrapper {
+    background-color: #F6EFF6;
+    min-height: 100vh;
+}
+
+.sesna-single-container {
+    padding-top: 2.5rem;
+    padding-bottom: 4.5rem;
+}
+
+/* Breadcrumb — sobre fondo #F6EFF6, texto oscuro */
+.sesna-single-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+}
+
+.sesna-single-breadcrumb a {
+    color: var(--color-burgundi);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sesna-single-breadcrumb a:hover {
+    color: var(--color-guinda);
+    text-decoration: underline;
+}
+
+.sesna-single-breadcrumb .current {
+    color: #444;
+    font-weight: 600;
+}
+
+/* Tarjeta principal del artículo */
+.sesna-single-card {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.09);
+    margin-bottom: 1.75rem;
+}
+
+/* Imagen destacada — visible, contenida en la card */
+.sesna-single-card__img-wrap {
+    width: 100%;
+    max-height: 460px;
+    overflow: hidden;
+}
+
+.sesna-single-card__img {
+    width: 100%;
+    height: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* Encabezado dentro de la card (categoría + fecha + título) */
+.sesna-single-card__header {
+    padding: 2rem 2.5rem 1.5rem;
+    border-bottom: 1px solid #f0e8f0;
+}
+
+/* Meta: categoría + fecha */
+.sesna-single-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.sesna-single-date {
+    font-size: 14px;
+    color: #777;
+    display: flex;
+    align-items: center;
+}
+
+.sesna-single-cat {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-blanco);
+    background-color: var(--color-burgundi);
+    padding: 3px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.sesna-single-cat:hover {
+    background-color: var(--color-guinda);
+    color: var(--color-blanco);
+}
+
+/* Título — dentro de la card, sobre blanco */
+.sesna-single-title {
+    font-family: var(--font-patria);
+    font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+    font-weight: 700;
+    color: var(--color-negro);
+    line-height: 1.28;
+    margin-bottom: 0;
+}
+
+/* Cuerpo de la card */
+.sesna-single-card__body {
+    padding: 2rem 2.5rem 2.5rem;
+}
+
+/* Contenido del artículo */
+.sesna-single-content {
+    font-family: var(--font-noto-sans);
+    font-size: 18px;
+    line-height: 1.78;
+    color: var(--color-negro);
+}
+
+.sesna-single-content h2,
+.sesna-single-content h3,
+.sesna-single-content h4 {
+    font-family: var(--font-patria);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: var(--color-negro);
+}
+
+.sesna-single-content h2 { font-size: 1.65rem; }
+.sesna-single-content h3 { font-size: 1.3rem; }
+.sesna-single-content h4 { font-size: 1.1rem; }
+
+.sesna-single-content p { margin-bottom: 1.3rem; }
+
+.sesna-single-content ul,
+.sesna-single-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.sesna-single-content li { margin-bottom: 0.4rem; }
+
+.sesna-single-content a {
+    color: var(--color-burgundi);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.sesna-single-content a:hover { color: var(--color-guinda); }
+
+.sesna-single-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+.sesna-single-content blockquote {
+    border-left: 4px solid var(--color-burgundi);
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #fdf5f7;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #444;
+}
+
+/* Divisor */
+.sesna-single-divider {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 2.5rem 0;
+}
+
+/* Archivos adjuntos */
+.sesna-single-files {
+    background-color: #fdf5f7;
+    border-left: 4px solid var(--color-burgundi);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sesna-single-files__title {
+    font-family: var(--font-patria);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--color-guinda);
+}
+
+.sesna-single-files__item { margin-bottom: 0.5rem; }
+
+.sesna-single-files__link {
+    color: var(--color-burgundi);
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.sesna-single-files__link:hover {
+    color: var(--color-guinda);
+    text-decoration: underline;
+}
+
+/* Compartir */
+.sesna-single-share {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.sesna-single-share__label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-right: 0.25rem;
+}
+
+.sesna-single-share__btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sesna-single-share__btn:hover {
+    transform: scale(1.12);
+    opacity: 0.88;
+    color: var(--color-blanco);
+}
+
+.sesna-single-share__btn--fb { background-color: #1877f2; }
+.sesna-single-share__btn--tw { background-color: #0f0f0f; }
+.sesna-single-share__btn--wa { background-color: #25d366; }
+
+/* Categorías */
+.sesna-single-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.sesna-single-cats__tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-burgundi);
+    border: 1.5px solid var(--color-burgundi);
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sesna-single-cats__tag:hover {
+    background-color: var(--color-burgundi);
+    color: var(--color-blanco);
+}
+
+/* Volver a noticias — fuera de la card, sobre #F6EFF6 */
+.sesna-single-nav {
+    margin-top: 0;
+}
+
+.sesna-single-nav__back {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-guinda);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sesna-single-nav__back:hover { color: var(--color-burgundi); }

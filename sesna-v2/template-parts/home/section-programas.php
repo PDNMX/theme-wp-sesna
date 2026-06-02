@@ -21,12 +21,12 @@
                 [
                     'title' => 'Plataforma de Aprendizaje<br>Anticorrupción',
                     'icon' => 'bi-laptop',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) )
                 ],
                 [
                     'title' => 'Riesgos e Inteligencia<br>Anticorrupción',
                     'icon' => 'bi-building',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) )
                 ]
             ];
 
