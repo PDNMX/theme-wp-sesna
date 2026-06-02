@@ -789,6 +789,10 @@ body.front-page main.page {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.page-transparencia .tx-card:focus {
+    outline: none;
+}
+
 .page-transparencia .tx-card:hover,
 .page-transparencia .tx-card:focus-visible {
     transform: translateY(-4px);

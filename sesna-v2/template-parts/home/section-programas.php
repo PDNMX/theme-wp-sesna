@@ -11,22 +11,22 @@
                 [
                     'title' => 'Plataforma<br>Digital Nacional',
                     'icon' => 'bi-graph-up',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/plataforma.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_01_pdn.jpg' ) )
                 ],
                 [
                     'title' => 'Política Nacional<br>Anticorrupción',
                     'icon' => 'bi-shield-check',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/corrupcion.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_02_politica.jpg' ) )
                 ],
                 [
                     'title' => 'Plataforma de Aprendizaje<br>Anticorrupción',
                     'icon' => 'bi-laptop',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/aprendizaje.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) )
                 ],
                 [
                     'title' => 'Riesgos e Inteligencia<br>Anticorrupción',
                     'icon' => 'bi-building',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/riesgos.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) )
                 ]
             ];
 
