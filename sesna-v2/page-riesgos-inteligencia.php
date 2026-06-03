@@ -9,16 +9,20 @@ get_header(); ?>
 
 <div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
     
-    <!-- Breadcrumbs -->
-    <div class="container pt-4 pb-2">
-        <nav aria-label="breadcrumb">
+    <!-- Breadcrumb -->
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+        <div class="container">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="<?php echo home_url(); ?>" class="text-decoration-none text-dark"><i class="bi bi-house-door"></i> Inicio</a></li>
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-dark">Acciones y Programas</a></li>
-                <li class="breadcrumb-item active text-guinda fw-bold" aria-current="page">Riesgos e Inteligencia Anticorrupción</li>
+                <li class="breadcrumb-item">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door"></i> Inicio</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Riesgos e Inteligencia Anticorrupción</li>
             </ol>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <!-- Hero Banner -->
     <section class="py-5 mb-5">
@@ -69,7 +73,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
                     <p class="tx-card__desc text-muted mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <a href="#" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/contrataciones-publicas/') ); ?>" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <!-- Card 2 -->
@@ -91,7 +95,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <a href="#" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/verificacion-patrimonial/') ); ?>" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <!-- Card 4 -->
