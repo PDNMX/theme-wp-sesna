@@ -11,22 +11,27 @@
                 [
                     'title' => 'Plataforma<br>Digital Nacional',
                     'icon' => 'bi-graph-up',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_01_pdn.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_01_pdn.jpg' ) ),
+                    'desc' => 'Herramienta de inteligencia tecnológica que integra y conecta diversos sistemas electrónicos que poseen información necesaria a las autoridades competentes en materia de combate a la corrupción.',
+                    'link' => 'https://www.plataformadigitalnacional.org/'
                 ],
                 [
                     'title' => 'Política Nacional<br>Anticorrupción',
                     'icon' => 'bi-shield-check',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_02_politica.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_02_politica.jpg' ) ),
+                    'desc' => 'Fue aprobada el 29 de enero de 2020 por el Comite Coordinador del Sistema Nacional Anticorrupción, en ella se define la estrategia para combatir el problema de la corrupción en México.'
                 ],
                 [
                     'title' => 'Plataforma de Aprendizaje<br>Anticorrupción',
                     'icon' => 'bi-laptop',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) ),
+                    'desc' => 'Herramienta tecnológica y pedagógica que promueve conocimientos y capacidades para fortalecer la integridad y combatir la corrupción.'
                 ],
                 [
                     'title' => 'Riesgos e Inteligencia<br>Anticorrupción',
                     'icon' => 'bi-building',
-                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) )
+                    'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) ),
+                    'desc' => 'Genera evidencia y herramientas de análisis para identificar riesgos de corrupción y fortalecer la toma de decisiones.'
                 ]
             ];
 
@@ -52,12 +57,11 @@
                                 </h5>
 
                                 <p class="text-muted mb-3">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed Lorem ipsum dolor sit
-                                    amet,
+                                    <?php echo $prog['desc']; ?>
                                 </p>
 
                                 <div class="mt-auto text-center">
-                                    <a href="#" class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center">
+                                    <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( isset($prog['link']) ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center">
                                         Leer más <i class="bi bi-arrow-right ms-2"></i>
                                     </a>
                                 </div>
