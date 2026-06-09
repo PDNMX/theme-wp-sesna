@@ -8,12 +8,16 @@ get_header();
 
 
 
+<div class="conocenosHeader">
+  <div class="container">
+    <h1 class="titulo">¿Qué hacemos?</h1>
+    <h2 class="subtitulo">Trabajamos junto con las otras personas integrantes del <b>Sistema Nacional Anticorrupción</b> <b><i>para combatir la corrupción.</i></b></h2>
+  </div>
+</div>
+
 <div class="quehacemoscontainer">
   <div class="container">
     <div class="container">
-      <h1 class="titulo">¿qué hacemos?</h1>
-      <h2 class="subtitulo">Trabajamos junto con las otras personas integrantes del <b>Sistema Nacional Anticorrupción</b>
-        <b><i>para combatir la corrupción.</i></b></h2>
       <div class="d-xs-block d-sm-block d-md-none">
         <p>Pulsa sobre el esquema y conoce todas las funciones</p>
         <i style="transform:rotate(180deg);" class="far fa-hand-pointer"></i>
