@@ -10,7 +10,7 @@
                 <h3 class="fw-bold mb-3 font-patria text-burgundi">Sistema Nacional Anticorrupción (<span
                         class="fw-bold font-patria">SNA</span>)</h3>
                     <p class="mb-4">Instancia de coordinación entre autoridades
-                        de las tres órdenes de gobierno para prevenir, detectar, fiscalizar y sancionar la corrupción en
+                        de los tres órdenes de gobierno para prevenir, detectar, fiscalizar y sancionar la corrupción en
                         México.</p>
                     <div class="text-md-start text-lg-end mt-4">
                         <a href="#"
