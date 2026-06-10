@@ -136,8 +136,8 @@ $tx_cards = [
             <div class="row g-4 mt-2">
 
                 <div class="col-12 col-md-6">
-                    <div class="tx-consulta-card h-100">
-                        <div class="d-flex align-items-start gap-3">
+                    <a href="<?= esc_url(get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/') ?>" target="_blank" rel="noopener noreferrer" class="tx-consulta-card h-100 d-block text-decoration-none text-dark">
+                        <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
                                     <i class="bi bi-people"></i>
@@ -150,23 +150,22 @@ $tx_cards = [
                                     público.
                                 </p>
                                 <div class="mt-3">
-                                    <a href="<?= esc_url(get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/') ?>"
-                                        target="_blank" rel="noopener noreferrer" class="tx-consulta-card__btn"
+                                    <span class="tx-consulta-card__btn"
                                         aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         Ir al portal
                                         <span class="bootstrap-icons" aria-hidden="true">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </span>
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="tx-consulta-card h-100">
-                        <div class="d-flex align-items-start gap-3">
+                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener noreferrer" class="tx-consulta-card h-100 d-block text-decoration-none text-dark">
+                        <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
                                     <i class="bi bi-search"></i>
@@ -178,18 +177,17 @@ $tx_cards = [
                                     Realiza solicitudes de información y consulta obligaciones de transparencia.
                                 </p>
                                 <div class="mt-3">
-                                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank"
-                                        rel="noopener noreferrer" class="tx-consulta-card__btn"
+                                    <span class="tx-consulta-card__btn"
                                         aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         Acceder
                                         <span class="bootstrap-icons" aria-hidden="true">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </span>
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
             </div>

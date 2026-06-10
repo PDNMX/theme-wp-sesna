@@ -40,7 +40,7 @@
                 ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="h-100 border-0 bg-transparent sna-programas-wrapper">
-                        <div class="d-flex flex-column h-100 sna-programas-card">
+                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( isset($prog['link']) ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="d-flex flex-column h-100 sna-programas-card text-decoration-none text-dark">
 
                             <!-- Contenedor del grupo superior (Imagen + Icono) que sobresale -->
                             <div class="sna-programas-img-outer">
@@ -53,7 +53,7 @@
 
                             <!-- Cuerpo de la tarjeta -->
                             <div class="pt-4 pb-4 px-4 text-start d-flex flex-column flex-grow-1">
-                                <h5 class="fw-bold mb-3 sna-programas-title">
+                                <h5 class="fw-bold mb-3 sna-programas-title text-dark">
                                     <?php echo $prog['title']; ?>
                                 </h5>
 
@@ -62,12 +62,12 @@
                                 </p>
 
                                 <div class="mt-auto text-center">
-                                    <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( isset($prog['link']) ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center">
+                                    <span class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center text-guinda">
                                         Leer más <i class="bi bi-arrow-right ms-2"></i>
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             <?php endforeach; ?>

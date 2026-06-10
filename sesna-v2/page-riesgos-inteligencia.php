@@ -67,47 +67,47 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-6">
-                <div class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100">
+                <a href="<?php echo esc_url( home_url('/contrataciones-publicas/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-briefcase tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
                     <p class="tx-card__desc text-muted mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/contrataciones-publicas/') ); ?>" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
-                </div>
+                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                </a>
             </div>
             <!-- Card 2 -->
             <div class="col-lg-3 col-md-6">
-                <div class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100">
+                <a href="#" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-people tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
                     <p class="tx-card__desc text-muted mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
-                    <a href="#" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
-                </div>
+                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                </a>
             </div>
             <!-- Card 3 -->
             <div class="col-lg-3 col-md-6">
-                <div class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100">
+                <a href="<?php echo esc_url( home_url('/verificacion-patrimonial/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-person-vcard tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/verificacion-patrimonial/') ); ?>" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
-                </div>
+                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                </a>
             </div>
             <!-- Card 4 -->
             <div class="col-lg-3 col-md-6">
-                <div class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100">
+                <a href="#" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-activity tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>
                     <p class="tx-card__desc text-muted mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
-                    <a href="#" class="tx-hero__cta text-decoration-none text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></a>
-                </div>
+                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                </a>
             </div>
         </div>
     </section>
@@ -128,7 +128,7 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Left Column: Generador de Muestras -->
             <div class="col-lg-6">
-                <div class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card" style="border-radius: 8px; background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
+                <a href="#" class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card text-decoration-none d-block" style="border-radius: 8px; background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
                     <div class="d-flex flex-column h-100">
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-white text-guinda rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 90px; height: 90px;">
@@ -145,11 +145,11 @@ get_header(); ?>
                         
                         <p class="mb-5 text-white pe-md-5" style="font-size: 16px; opacity: 1 !important;">Herramienta para la selección aleatoria y análisis de declaraciones patrimoniales.</p>
                         
-                        <a href="#" class="btn-white-rounded mt-auto align-self-start shadow-sm text-guinda">
+                        <span class="btn-white-rounded mt-auto align-self-start shadow-sm text-guinda">
                             Ir a la herramienta <i class="bi bi-box-arrow-up-right ms-2"></i>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
             </div>
             
             <!-- Right Column: Proximamente -->
@@ -175,7 +175,7 @@ get_header(); ?>
 
     <!-- Bottom Info Cards -->
     <section class="container pb-5 mb-5">
-        <div class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card" style="border-radius: 8px; margin-top: 0; padding: 1.5rem 3rem;">
+        <a href="#" class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card text-decoration-none d-block text-dark" style="border-radius: 8px; margin-top: 0; padding: 1.5rem 3rem;">
             <div class="row align-items-stretch">
                 <div class="col-lg-7 mb-4 mb-lg-0 d-flex">
                     <div class="d-flex align-items-center pe-lg-5 flex-grow-1">
@@ -188,11 +188,11 @@ get_header(); ?>
                 <div class="col-lg-5 d-flex align-items-center">
                     <div class="d-flex align-items-center justify-content-lg-center w-100 ps-lg-4">
                         <i class="bi bi-book text-guinda flex-shrink-0 me-3" style="font-size: 3rem;"></i>
-                        <a href="#" class="tx-hero__cta text-guinda text-decoration-none">Conoce más sobre nuestras metodologías <i class="bi bi-arrow-right fw-bold ms-1"></i></a>
+                        <span class="tx-hero__cta text-guinda">Conoce más sobre nuestras metodologías <i class="bi bi-arrow-right fw-bold ms-1"></i></span>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     </section>
 
 </div>

@@ -24,7 +24,7 @@
                 while ($noticias_query->have_posts()) : $noticias_query->the_post();
                     ?>
                     <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 border-0 sna-noticias-card position-relative">
+                        <a href="<?php the_permalink(); ?>" class="card h-100 border-0 sna-noticias-card position-relative text-decoration-none text-dark d-flex flex-column">
                             
                             <!-- Date Ribbon -->
                             <div class="sna-noticias-date-badge">
@@ -45,20 +45,20 @@
 
                             <!-- Contenido -->
                             <div class="card-body d-flex flex-column text-center px-3 pt-4 pb-2">
-                                <h4 class="fw-bold mb-3 sna-noticias-title">
+                                <h4 class="fw-bold mb-3 sna-noticias-title text-dark">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
                                 </h4>
                                 <p class="text-muted mb-4 sna-noticias-excerpt">
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
                                 <div class="mt-auto pb-3">
-                                    <a href="<?php the_permalink(); ?>" class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center">
+                                    <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
                                         Leer más <i class="bi bi-arrow-right ms-2"></i>
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
 
-                        </div>
+                        </a>
                     </div>
                     <?php
                 endwhile;

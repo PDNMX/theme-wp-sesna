@@ -36,7 +36,7 @@
         ?>
 
             <div class="col <?= (get_the_ID() == $item->object_id)?'active':'' ?>" style="padding-left:0px; padding-right: 0px">
-                <a href="<?= $item->url ?>" target="<?= $item->target ?>">
+                <a href="<?= $item->url ?>" target="<?= $item->target ?>" class="d-block w-100 h-100 text-decoration-none text-dark">
                 <div class="circleContainer">
                     <div class="d-flex align-self-center justify-content-center iconContainer">
                         <div class="p-2">

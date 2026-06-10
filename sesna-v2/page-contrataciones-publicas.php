@@ -50,10 +50,11 @@ get_header();
                 </div>
 
                 <!-- Texto descriptivo -->
-                <div class="col-lg-8 col-md-7">
-                    <h1 class="cp-page-title">Contrataciones públicas</h1>
-                    <p class="mb-3">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                    <p class="mb-0">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+                <div class="col-lg-8 col-md-7 position-relative z-1">
+                    <h1 class="tx-hero__title fw-bold mb-3 font-patria">Contrataciones públicas</h1>
+                    <div class="hero-separator" style="width: 60px; height: 4px; background-color: var(--color-burgundi); border-radius: 2px; margin-bottom: 22px;"></div>
+                    <p class="tx-hero__subtitle text-muted mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
+                    <p class="tx-hero__subtitle text-muted mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
                 </div>
 
             </div>
