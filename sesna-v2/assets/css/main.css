@@ -493,12 +493,54 @@ body.front-page main.page {
 }
 
 /* ------------------------------------------------------------
-   Breadcrumb institucional compartido
+   Breadcrumb institucional estandarizado GOB.MX
+   ------------------------------------------------------------ */
+.gobmx-breadcrumb-container {
+    background-color: transparent !important;
+    padding: 1.5rem 0 1rem 0;
+    font-size: 14px;
+    font-family: var(--font-principal, 'Inter', sans-serif);
+}
+
+.gobmx-breadcrumb-container .breadcrumb {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.gobmx-breadcrumb-container .breadcrumb-item,
+.gobmx-breadcrumb-container .breadcrumb-item a {
+    color: var(--color-burgundi) !important;
+    text-decoration: none !important;
+    font-weight: 400;
+}
+
+.gobmx-breadcrumb-container .breadcrumb-item a:hover {
+    color: var(--color-guinda) !important;
+    text-decoration: underline !important;
+}
+
+.gobmx-breadcrumb-container .breadcrumb-item.active {
+    color: rgba(22, 26, 29, 0.75) !important;
+    font-weight: 600;
+}
+
+.gobmx-breadcrumb-container .breadcrumb-item + .breadcrumb-item::before {
+    content: '›' !important;
+    color: var(--color-gris) !important;
+    padding: 0 0.5rem;
+    float: none;
+}
+
+/* ------------------------------------------------------------
+   Breadcrumb institucional compartido (Legacy)
    ------------------------------------------------------------ */
 .sesna-breadcrumb {
-    background-color: #f5f3f5 !important;
+    background-color: transparent !important;
     padding: 10px 0;
-    border-bottom: 1px solid #e2d8e2;
     font-size: 16px;
 }
 
@@ -523,7 +565,7 @@ body.front-page main.page {
 
 .sesna-breadcrumb .breadcrumb-item.active {
     color: rgba(22, 26, 29, 0.65) !important;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .sesna-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
@@ -904,9 +946,8 @@ body.front-page main.page {
 
 /* Breadcrumb */
 .cp-breadcrumb {
-    background-color: #f5f3f5 !important;
+    background-color: transparent !important;
     padding: 10px 0;
-    border-bottom: 1px solid #e2d8e2;
     font-size: 16px;
 }
 
@@ -928,6 +969,7 @@ body.front-page main.page {
 
 .cp-breadcrumb .breadcrumb-item.active {
     color: rgba(22, 26, 29, 0.65) !important;
+    font-weight: 600;
 }
 
 .cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
@@ -1445,7 +1487,7 @@ body.front-page main.page {
 
 .page-transparencia .tx-search__box {
     background-color: var(--color-blanco);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 2rem 2.5rem;
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.08);
 }

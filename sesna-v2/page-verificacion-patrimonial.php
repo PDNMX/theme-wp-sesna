@@ -11,7 +11,7 @@ get_header();
 <div class="page-verificacion front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -21,7 +21,7 @@ get_header();
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/') ); ?>">Riesgos e Inteligencia Anticorrupción</a>
+                    <a href="<?php echo esc_url( home_url('/riesgos-inteligencia/') ); ?>">Riesgos e Inteligencia Anticorrupción</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Verificación Patrimonial</li>
             </ol>

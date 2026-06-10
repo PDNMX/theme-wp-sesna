@@ -16,18 +16,34 @@ get_header();
 /* Accesos rápidos — 8 tarjetas fijas de la maqueta.
  * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
-    ['icon' => 'bi-people', 'title' => 'Comité de Transparencia', 'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => '#'],
-    ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => '#'],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => '#'],
-    ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => '#'],
-    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => '#'],
+    ['icon' => 'bi-people', 'title' => 'Comité de Transparencia', 'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => home_url('/transparencia/comite-de-transparencia/')],
+    ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
+    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
+    ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
+    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => home_url('/transparencia/obligaciones-de-transparencia/')],
     ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-archive', 'title' => 'Archivos', 'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => '#'],
-    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => '#'],
+    ['icon' => 'bi-archive', 'title' => 'Archivos', 'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => home_url('/transparencia/archivos/')],
+    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => home_url('/transparencia/denuncias-por-incumplimiento/')],
 ];
 ?>
 
 <div class="page-transparencia has-fullbleed-hero">
+
+    <!-- ============================================================
+         MIGAS DE PAN (BREADCRUMB)
+         ============================================================ -->
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a href="<?= esc_url( home_url('/') ) ?>">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Transparencia</li>
+            </ol>
+        </div>
+    </nav>
 
     <!-- ============================================================
          1. HERO / BANNER PRINCIPAL

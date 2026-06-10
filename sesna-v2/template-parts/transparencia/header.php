@@ -1,4 +1,24 @@
+<!-- MIGAS DE PAN (BREADCRUMB) -->
+<nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="<?php echo esc_url( home_url('/') ); ?>">
+                    <i class="bi bi-house-door"></i> Inicio
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="<?php echo esc_url( home_url('/transparencia/') ); ?>">
+                    Transparencia
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( get_the_title() ); ?></li>
+        </ol>
+    </div>
+</nav>
+
 <div class="transparenciaHeader">
+
     <div class="container">
       <p class="titulo">RENDICIÓN DE CUENTAS</p>
       <p class="dependencia"><?php the_title_transparencia(); ?></p>

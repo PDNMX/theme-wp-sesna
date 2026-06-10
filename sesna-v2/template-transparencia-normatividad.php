@@ -52,23 +52,34 @@ if (!function_exists('sesna_render_document_row')) {
 
 <div class="page-transparencia has-fullbleed-hero">
 
+    <!-- MIGAS DE PAN (BREADCRUMB) -->
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+        <div class="container">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?php echo esc_url( home_url('/transparencia/') ); ?>">
+                        Transparencia
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Normativa</li>
+            </ol>
+        </div>
+    </nav>
+
     <!-- HERO / BANNER PRINCIPAL -->
-    <section class="tx-hero" aria-label="Encabezado de Normativa">
-        <div class="tx-hero__bg" role="img" aria-label="Fondo del banner"></div>
-        <div class="tx-hero__overlay" aria-hidden="true"></div>
-        <div class="tx-hero__accent" aria-hidden="true"></div>
-
-        <div class="container tx-hero__content">
+    <section class="py-5" aria-label="Encabezado de Normativa">
+        <div class="container">
             <div class="row align-items-center">
-                <!-- Columna izquierda: zona visible antes del corte diagonal -->
-                <div class="col-md-4 col-lg-5 d-none d-md-flex justify-content-center align-items-center"></div>
-
-                <!-- Columna derecha: texto sobre el overlay oscuro -->
                 <div class="col-12 col-md-8 col-lg-7">
-                    <h1 class="tx-hero__title">
+                    <h1 class="fw-bold mb-3 font-patria text-burgundi" style="font-size: 2.5rem;">
                         Normativa
                     </h1>
-                    <p class="tx-hero__subtitle">
+                    <p class="text-muted" style="font-size: 1.1rem;">
                         Disposiciones legales, reglamentarias y administrativas para la transparencia.
                     </p>
                 </div>

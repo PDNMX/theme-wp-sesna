@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
     
     <!-- Breadcrumb -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -128,7 +128,7 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Left Column: Generador de Muestras -->
             <div class="col-lg-6">
-                <div class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card" style="border-radius: 16px; background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
+                <div class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card" style="border-radius: 8px; background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
                     <div class="d-flex flex-column h-100">
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-white text-guinda rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 90px; height: 90px;">
@@ -154,7 +154,7 @@ get_header(); ?>
             
             <!-- Right Column: Proximamente -->
             <div class="col-lg-6">
-                <div class="bg-white shadow-sm p-4 p-md-5 h-100" style="border-radius: 16px;">
+                <div class="bg-white shadow-sm p-4 p-md-5 h-100" style="border-radius: 8px;">
                     <h5 class="fw-bold border-bottom pb-3 mb-4">Próximamente</h5>
                     
                     <!-- Item -->
@@ -175,7 +175,7 @@ get_header(); ?>
 
     <!-- Bottom Info Cards -->
     <section class="container pb-5 mb-5">
-        <div class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card" style="border-radius: 16px; margin-top: 0; padding: 1.5rem 3rem;">
+        <div class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card" style="border-radius: 8px; margin-top: 0; padding: 1.5rem 3rem;">
             <div class="row align-items-stretch">
                 <div class="col-lg-7 mb-4 mb-lg-0 d-flex">
                     <div class="d-flex align-items-center pe-lg-5 flex-grow-1">
