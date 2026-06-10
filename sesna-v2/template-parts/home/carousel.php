@@ -11,7 +11,7 @@ $slider_query = new WP_Query( $slider_args );
 
 if ( $slider_query->have_posts() ) :
 ?>
-<section class="sesna-carousel-section container">
+<section class="sesna-carousel-section container-fluid px-0">
     <div id="homeCarousel" class="carousel slide sesna-carousel" data-bs-ride="carousel" data-bs-interval="4000">
     <!-- Indicadores -->
     <div class="carousel-indicators">

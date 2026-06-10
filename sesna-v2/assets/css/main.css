@@ -368,15 +368,15 @@ body.front-page main.page {
    Carrusel de la página de inicio (Bootstrap 5)
    ------------------------------------------------------------ */
 .sesna-carousel-section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* El contenedor del carrusel (max-width ya está controlado por el .container padre) */
 .sesna-carousel {
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
 }
 
 /* Ajuste de las imágenes para mantener la proporción sin deformarse */
