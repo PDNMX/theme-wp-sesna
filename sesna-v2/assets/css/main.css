@@ -151,7 +151,7 @@ body.front-page main.page {
 }
 
 .sesna-nav .nav-item .nav-link {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--color-blanco) !important;
     padding: 12px 10px;
@@ -412,6 +412,9 @@ body.front-page main.page {
 
 .sna-integrantes-card {
     background-color: #F3F0F3;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
     /* Sombra más visible en la parte derecha y abajo */
     box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -434,7 +437,7 @@ body.front-page main.page {
 }
 
 .sna-integrantes-chevron-icon {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .sna-integrantes-title {
@@ -451,6 +454,7 @@ body.front-page main.page {
     letter-spacing: 0.5px;
     background-color: #611232 !important;
     border-color: #611232 !important;
+    border-radius: 4px;
 }
 
 .sna-about-btn:hover {
@@ -464,7 +468,7 @@ body.front-page main.page {
 }
 
 .sna-about-btn-icon {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 /* ------------------------------------------------------------
@@ -495,7 +499,7 @@ body.front-page main.page {
     background-color: #f5f3f5 !important;
     padding: 10px 0;
     border-bottom: 1px solid #e2d8e2;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .sesna-breadcrumb .breadcrumb {
@@ -518,13 +522,13 @@ body.front-page main.page {
 }
 
 .sesna-breadcrumb .breadcrumb-item.active {
-    color: #777 !important;
+    color: rgba(22, 26, 29, 0.65) !important;
     font-weight: 400;
 }
 
 .sesna-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
     content: '›' !important;
-    color: #aaa !important;
+    color: var(--color-gris) !important;
     float: none;
 }
 
@@ -558,9 +562,11 @@ body.front-page main.page {
 
 .sna-programas-card {
     background-color: #F0ECF0;
-    border-radius: 0;
+    border-radius: 8px;
+    overflow: hidden;
     padding: 0;
     margin-top: 0;
+    text-align: left;
 }
 
 .sna-programas-img-outer {
@@ -570,7 +576,7 @@ body.front-page main.page {
 
 .sna-programas-img-inner {
     height: 200px;
-    border-radius: 0;
+    border-radius: 8px 8px 0 0;
     overflow: hidden;
     border-bottom: 1px solid #E6003D;
     background-color: #fff;
@@ -609,8 +615,9 @@ body.front-page main.page {
 
 .sna-noticias-card {
     background-color: #fdfdfd;
-    border-radius: 1rem;
-    padding: 1.25rem;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
     box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -623,7 +630,7 @@ body.front-page main.page {
 .sna-noticias-img-wrapper {
     height: 200px;
     width: 100%;
-    border-radius: 0.25rem;
+    border-radius: 4px;
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -734,7 +741,7 @@ body.front-page main.page {
 
 .page-verificacion .vp-hero__desc {
     font-size: 1.6rem;
-    color: #444;
+    color: rgba(22, 26, 29, 0.85);
     line-height: 1.7;
     text-align: left;
 }
@@ -854,13 +861,13 @@ body.front-page main.page {
 
 .page-verificacion .vp-func-item__desc {
     font-size: 1.05rem;
-    color: #555;
+    color: rgba(22, 26, 29, 0.8);
     line-height: 1.6;
     margin: 0;
 }
 
 .page-verificacion .vp-func-sep {
-    color: #ccc;
+    color: var(--color-gris);
     font-size: 5rem;
     font-weight: 100;
     line-height: 1;
@@ -900,7 +907,7 @@ body.front-page main.page {
     background-color: #f5f3f5 !important;
     padding: 10px 0;
     border-bottom: 1px solid #e2d8e2;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .cp-breadcrumb .breadcrumb {
@@ -920,18 +927,19 @@ body.front-page main.page {
 }
 
 .cp-breadcrumb .breadcrumb-item.active {
-    color: #777 !important;
+    color: rgba(22, 26, 29, 0.65) !important;
 }
 
 .cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
     content: '›' !important;
-    color: #aaa !important;
+    color: var(--color-gris) !important;
 }
 
 /* ── Hero card ilustración ── */
 .page-contrataciones .cp-hero-card {
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
+    text-align: left;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
@@ -1133,7 +1141,7 @@ body.front-page main.page {
 
 .cp-doc-desc {
     font-size: 1.2rem;
-    color: #555;
+    color: rgba(22, 26, 29, 0.8);
     margin-bottom: 14px;
     line-height: 1.6;
 }
@@ -1146,7 +1154,7 @@ body.front-page main.page {
     color: #888;
 }
 
-.cp-doc-meta__sep { color: #ccc; }
+.cp-doc-meta__sep { color: var(--color-gris); }
 
 /* Botones */
 .cp-doc-acciones {
@@ -1222,7 +1230,7 @@ body.front-page main.page {
 
 .cp-nota__texto {
     font-size: 1rem;
-    color: #666;
+    color: rgba(22, 26, 29, 0.75);
     line-height: 1.6;
 }
 
@@ -1384,8 +1392,9 @@ body.front-page main.page {
 .page-transparencia .tx-card {
     background-color: var(--color-blanco);
     border: 0;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 24px;
+    text-align: left;
     text-decoration: none;
     color: var(--color-negro);
     box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.08);
@@ -1417,8 +1426,8 @@ body.front-page main.page {
 }
 
 .page-transparencia .tx-card__desc {
-    font-size: 14px;
-    color: #555;
+    font-size: 16px;
+    color: rgba(22, 26, 29, 0.8);
     line-height: 1.45;
 }
 
@@ -1481,7 +1490,7 @@ body.front-page main.page {
 }
 
 .page-transparencia .tx-search__input::placeholder {
-    color: #aaa;
+    color: var(--color-gris);
 }
 
 .page-transparencia .tx-search__btn {
@@ -1523,8 +1532,9 @@ body.front-page main.page {
 .page-transparencia .tx-consulta-card {
     background: var(--color-blanco);
     border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 24px;
+    text-align: left;
 }
 
 .page-transparencia .tx-consulta-card__icon-wrap {
@@ -1547,8 +1557,8 @@ body.front-page main.page {
 }
 
 .page-transparencia .tx-consulta-card__desc {
-    font-size: 14px;
-    color: #555;
+    font-size: 16px;
+    color: rgba(22, 26, 29, 0.8);
     line-height: 1.5;
     margin-bottom: 0;
 }
@@ -1561,7 +1571,7 @@ body.front-page main.page {
     color: var(--color-blanco) !important;
     border: none;
     padding: 8px 18px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     border-radius: 4px;
     text-decoration: none;
@@ -1597,13 +1607,13 @@ body.front-page main.page {
 }
 
 .page-transparencia .tx-contacto__detail {
-    font-size: 14px;
-    color: #555;
+    font-size: 16px;
+    color: rgba(22, 26, 29, 0.8);
     line-height: 1.5;
 }
 
 .page-transparencia .tx-contacto__link {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--color-negro);
     font-weight: 500;
     text-decoration: none;
@@ -1635,8 +1645,8 @@ body.front-page main.page {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 14px;
-    color: #666;
+    font-size: 16px;
+    color: rgba(22, 26, 29, 0.75);
     margin-bottom: 1.75rem;
     flex-wrap: wrap;
 }
@@ -1653,15 +1663,16 @@ body.front-page main.page {
 }
 
 .sesna-single-breadcrumb .current {
-    color: #444;
+    color: rgba(22, 26, 29, 0.85);
     font-weight: 600;
 }
 
 /* Tarjeta principal del artículo */
 .sesna-single-card {
     background-color: var(--color-blanco);
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
+    text-align: left;
     box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.09);
     margin-bottom: 1.75rem;
 }
@@ -1698,14 +1709,14 @@ body.front-page main.page {
 }
 
 .sesna-single-date {
-    font-size: 14px;
-    color: #777;
+    font-size: 16px;
+    color: rgba(22, 26, 29, 0.65);
     display: flex;
     align-items: center;
 }
 
 .sesna-single-cat {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-blanco);
     background-color: var(--color-burgundi);
@@ -1790,7 +1801,7 @@ body.front-page main.page {
     background-color: #fdf5f7;
     border-radius: 0 8px 8px 0;
     font-style: italic;
-    color: #444;
+    color: rgba(22, 26, 29, 0.85);
 }
 
 /* Divisor */
@@ -1822,7 +1833,7 @@ body.front-page main.page {
 .sesna-single-files__link {
     color: var(--color-burgundi);
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     display: inline-flex;
     align-items: center;
     transition: color 0.2s;
@@ -1842,7 +1853,7 @@ body.front-page main.page {
 }
 
 .sesna-single-share__label {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 700;
     color: #888;
     text-transform: uppercase;
@@ -1882,7 +1893,7 @@ body.front-page main.page {
 }
 
 .sesna-single-cats__tag {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-burgundi);
     border: 1.5px solid var(--color-burgundi);
@@ -1907,7 +1918,7 @@ body.front-page main.page {
     align-items: center;
     color: var(--color-guinda);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     text-decoration: none;
     transition: color 0.2s;
 }
