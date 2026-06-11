@@ -23,7 +23,7 @@ get_header();
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/riesgos-inteligencia/') ); ?>">Riesgos e Inteligencia Anticorrupción</a>
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/') ); ?>">Riesgos e Inteligencia Anticorrupción</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Contrataciones públicas</li>
             </ol>

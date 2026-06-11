@@ -67,7 +67,7 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-6">
-                <a href="<?php echo esc_url( home_url('/contrataciones-publicas/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/contrataciones-publicas/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-briefcase tx-card__icon"></i>
                     </div>
@@ -89,7 +89,7 @@ get_header(); ?>
             </div>
             <!-- Card 3 -->
             <div class="col-lg-3 col-md-6">
-                <a href="<?php echo esc_url( home_url('/verificacion-patrimonial/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/verificacion-patrimonial/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-person-vcard tx-card__icon"></i>
                     </div>

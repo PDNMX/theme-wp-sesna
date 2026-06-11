@@ -32,7 +32,7 @@
                     'icon' => 'bi-building',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) ),
                     'desc' => 'Genera evidencia y herramientas de análisis para identificar riesgos de corrupción y fortalecer la toma de decisiones.',
-                    'link' => home_url('/riesgos-inteligencia/')
+                    'link' => home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/')
                 ]
             ];
 
