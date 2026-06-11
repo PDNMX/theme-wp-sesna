@@ -25,12 +25,12 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSESNA">
           <?php
           wp_nav_menu(array(
-            'container' => false,
+            'container'   => false,
             'theme_location' => 'menu-1',
-            'menu_class' => 'navbar-nav sesna-nav',
-            'depth' => 2,
-            'add_li_class' => 'nav-item',
+            'menu_class'  => 'navbar-nav sesna-nav',
+            'depth'       => 2,
             'fallback_cb' => '__return_false',
+            'walker'      => new Sesna_Bootstrap_Nav_Walker(),
           ));
           ?>
         </div>

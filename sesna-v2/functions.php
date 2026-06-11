@@ -584,3 +584,48 @@ function sesna_register_normatividad_cpt() {
 }
 add_action('init', 'sesna_register_normatividad_cpt');
 
+/* ---------------------------------------------------------------
+   Bootstrap 5 Nav Walker para el menú principal SESNA
+--------------------------------------------------------------- */
+class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
+
+    public function start_lvl( &$output, $depth = 0, $args = null ) {
+        $output .= '<ul class="dropdown-menu sesna-dropdown">';
+    }
+
+    public function end_lvl( &$output, $depth = 0, $args = null ) {
+        $output .= '</ul>';
+    }
+
+    public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+        $has_children = in_array( 'menu-item-has-children', $item->classes );
+        $is_active    = in_array( 'current-menu-item', $item->classes ) ||
+                        in_array( 'current-menu-ancestor', $item->classes );
+
+        if ( $depth === 0 ) {
+            $li_class = 'nav-item' . ( $has_children ? ' dropdown' : '' ) . ( $is_active ? ' active' : '' );
+            $output .= '<li class="' . esc_attr( $li_class ) . '">';
+
+            if ( $has_children ) {
+                $output .= '<a class="nav-link dropdown-toggle' . ( $is_active ? ' active' : '' ) . '"'
+                    . ' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">'
+                    . esc_html( $item->title ) . '</a>';
+            } else {
+                $output .= '<a class="nav-link' . ( $is_active ? ' active' : '' ) . '"'
+                    . ' href="' . esc_url( $item->url ) . '">'
+                    . esc_html( $item->title ) . '</a>';
+            }
+        } else {
+            $is_sub_active = in_array( 'current-menu-item', $item->classes );
+            $output .= '<li>';
+            $output .= '<a class="dropdown-item' . ( $is_sub_active ? ' active' : '' ) . '"'
+                . ' href="' . esc_url( $item->url ) . '">'
+                . esc_html( $item->title ) . '</a>';
+        }
+    }
+
+    public function end_el( &$output, $item, $depth = 0, $args = null ) {
+        $output .= '</li>';
+    }
+}
+

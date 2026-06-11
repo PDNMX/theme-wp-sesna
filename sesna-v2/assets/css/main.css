@@ -151,10 +151,10 @@ body.front-page main.page {
 }
 
 .sesna-nav .nav-item .nav-link {
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: 400;
     color: var(--color-blanco) !important;
-    padding: 12px 10px;
+    padding: 12px 10px 20px !important;
     white-space: nowrap;
     transition: color 0.2s ease;
 }
@@ -1982,3 +1982,71 @@ body.front-page main.page {
 }
 
 .sesna-single-nav__back:hover { color: var(--color-burgundi); }
+
+/* ------------------------------------------------------------
+   Dropdown del menú principal SESNA
+   ------------------------------------------------------------ */
+.sesna-dropdown {
+    background-color: #FAF7F8;
+    border: none;
+    border-top: 3px solid var(--color-burgundi);
+    border-radius: 0 0 10px 10px;
+    padding: 6px 0 10px;
+    min-width: fit-content;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15);
+}
+
+.sesna-dropdown .dropdown-item {
+    color: var(--color-negro);
+    font-size: 13.5px;
+    font-weight: 500;
+    padding: 9px 18px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sesna-dropdown .dropdown-item::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-dorado);
+    flex-shrink: 0;
+    opacity: 0.8;
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+.sesna-dropdown .dropdown-item:hover,
+.sesna-dropdown .dropdown-item:focus {
+    background-color: #fdf2f5 !important;
+    color: var(--color-burgundi) !important;
+}
+
+.sesna-dropdown .dropdown-item:hover::before,
+.sesna-dropdown .dropdown-item:focus::before {
+    opacity: 1;
+    transform: scale(1.4);
+    background-color: var(--color-dorado);
+}
+
+.sesna-dropdown .dropdown-item.active,
+.sesna-dropdown .dropdown-item:active {
+    background-color: #fdf2f5 !important;
+    color: var(--color-burgundi) !important;
+    font-weight: 600;
+}
+
+.sesna-dropdown .dropdown-item.active::before,
+.sesna-dropdown .dropdown-item:active::before {
+    opacity: 1;
+}
+
+/* Caret del dropdown-toggle */
+.sesna-nav .dropdown-toggle::after {
+    border-top-color: rgba(255, 255, 255, 0.85);
+    vertical-align: 0.15em;
+}
