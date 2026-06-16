@@ -243,7 +243,7 @@ body.front-page main.page {
 /* ------------------------------------------------------------
    Banner principal — imagen full-width debajo del sub-navbar
    ------------------------------------------------------------ */
-.sesna-banner {
+.sesna-portada {
     width: 100%;
     overflow: hidden;
     line-height: 0;
@@ -255,7 +255,7 @@ body.front-page main.page {
 /* BannerSESNA.jpg: 2880×624px (ratio ~4.6:1) — dimensión GOB.mx v3
    La imagen se escala al ancho completo manteniendo su proporción nativa.
    En pantallas muy grandes se limita a la altura del archivo original. */
-.sesna-banner__img {
+.sesna-portada__img {
     display: block;
     width: 100%;
     height: auto;
@@ -2049,4 +2049,40 @@ body.front-page main.page {
 .sesna-nav .dropdown-toggle::after {
     border-top-color: rgba(255, 255, 255, 0.85);
     vertical-align: 0.15em;
+}
+
+/* ============================================================
+   Loader de carga inicial de página
+   ============================================================ */
+.sesna-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-blanco);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.sesna-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sesna-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--color-burgundi);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: sesna-spin 1s linear infinite;
+}
+
+@keyframes sesna-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

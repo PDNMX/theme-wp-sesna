@@ -12,6 +12,11 @@
 
 <body <?php body_class(); ?>>
 
+  <!-- Loader / Transición Inicial -->
+  <div id="sesna-page-loader" class="sesna-loader">
+    <div class="sesna-spinner"></div>
+  </div>
+
   <!-- Navbar institucional SESNA -->
   <header class="site-header fixed-top">
     <nav class="navbar navbar-expand-md navbar-dark sesna-navbar" aria-label="Navegación principal">

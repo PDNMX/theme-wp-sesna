@@ -56,4 +56,40 @@
 
     window.addEventListener('resize', adjustNavbar);
 
+    /* Loader / Transición Suave Inicial */
+    window.addEventListener('load', function() {
+        var loader = document.getElementById('sesna-page-loader');
+        if (loader) {
+            loader.classList.add('loader-hidden');
+            setTimeout(function() {
+                if (loader.parentNode) loader.parentNode.removeChild(loader);
+            }, 600);
+        }
+    });
+
+    /* Fallback de seguridad: 7 segundos máximo por si algún script bloquea el load */
+    setTimeout(function() {
+        var loader = document.getElementById('sesna-page-loader');
+        if (loader && !loader.classList.contains('loader-hidden')) {
+            loader.classList.add('loader-hidden');
+            setTimeout(function() {
+                if (loader.parentNode) loader.parentNode.removeChild(loader);
+            }, 600);
+        }
+    }, 7000);
+
+    /* Delegación de eventos: Abrir Trámites, Gobierno y Búsqueda en nueva pestaña */
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest ? e.target.closest('a') : null;
+        if (!link) return;
+        
+        var href = link.getAttribute('href') || '';
+        if (href.indexOf('gob.mx/tramites') !== -1 || 
+            href.indexOf('gob.mx/gobierno') !== -1 || 
+            href.indexOf('gob.mx/busqueda') !== -1 ||
+            link.classList.contains('search-button')) {
+            link.setAttribute('target', '_blank');
+        }
+    }, true);
+
 })();
