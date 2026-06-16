@@ -163,7 +163,9 @@ body.front-page main.page {
     color: var(--color-arena) !important;
 }
 
-.sesna-nav .nav-item.current-menu-item .nav-link {
+.sesna-nav .nav-item.current-menu-item > .nav-link,
+.sesna-nav .nav-item.current-menu-ancestor > .nav-link,
+.sesna-nav .nav-item.active > .nav-link {
     font-weight: 600;
     color: var(--color-blanco) !important;
     border-bottom: 2px solid var(--color-blanco);
@@ -191,7 +193,9 @@ body.front-page main.page {
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    .sesna-nav .nav-item.current-menu-item .nav-link {
+    .sesna-nav .nav-item.current-menu-item > .nav-link,
+    .sesna-nav .nav-item.current-menu-ancestor > .nav-link,
+    .sesna-nav .nav-item.active > .nav-link {
         border-bottom: 1px solid var(--color-blanco);
     }
 }
