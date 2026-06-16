@@ -60,6 +60,10 @@ body {
     line-height: 1.428;
     margin-top: 0 !important;
     overflow-x: hidden;
+    /* Tarea 12: Sticky Footer Flexbox setup */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Tamaño mínimo permitido por accesibilidad */
@@ -93,6 +97,8 @@ h3,
    ------------------------------------------------------------ */
 main.page {
     padding-top: 44px;
+    /* Tarea 12: Crece para empujar el footer al fondo */
+    flex: 1 0 auto;
 }
 
 /* Portada: WordPress añade .home (y .front-page) al body.
@@ -147,16 +153,23 @@ body.front-page main.page {
 }
 
 .sesna-nav {
-    gap: 4px;
+    gap: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .sesna-nav {
+        gap: 1.5rem;
+    }
 }
 
 .sesna-nav .nav-item .nav-link {
     font-size: 16px !important;
     font-weight: 400;
     color: var(--color-blanco) !important;
-    padding: 12px 10px 20px !important;
+    padding: 16px 10px !important; /* Centrado vertical simétrico */
+    border-bottom: 2px solid transparent !important; /* Reserva el espacio para evitar saltos */
     white-space: nowrap;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .sesna-nav .nav-item .nav-link:hover {
@@ -168,7 +181,7 @@ body.front-page main.page {
 .sesna-nav .nav-item.active > .nav-link {
     font-weight: 600;
     color: var(--color-blanco) !important;
-    border-bottom: 2px solid var(--color-blanco);
+    border-bottom: 2px solid var(--color-blanco) !important;
 }
 
 /* Botón buscador */
@@ -189,14 +202,31 @@ body.front-page main.page {
 /* Mobile */
 @media (max-width: 991px) {
     .sesna-nav .nav-item .nav-link {
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
     }
 
     .sesna-nav .nav-item.current-menu-item > .nav-link,
     .sesna-nav .nav-item.current-menu-ancestor > .nav-link,
     .sesna-nav .nav-item.active > .nav-link {
-        border-bottom: 1px solid var(--color-blanco);
+        border-bottom: 1px solid var(--color-blanco) !important;
+    }
+
+    /* Corrección de ícono duplicado y flotante en móviles (Tarea 15) */
+    .sesna-navbar {
+        min-height: 55px; /* Evita que la barra colapse a altura 0 y deje franja blanca */
+    }
+    .sesna-navbar .navbar-toggler {
+        position: absolute !important;
+        right: 15px;
+        top: 8px;
+        float: none !important;
+        box-shadow: none !important;
+        z-index: 1050;
+    }
+    /* Ocultar cualquier icon-bar que GOB.mx intente inyectar para evitar el ícono doble real */
+    .sesna-navbar .navbar-toggler .icon-bar {
+        display: none !important;
     }
 }
 

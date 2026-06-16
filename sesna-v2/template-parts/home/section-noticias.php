@@ -3,7 +3,7 @@
  * Template part para la sección de Noticias y Actividades
  */
 ?>
-<section class="pt-5 pb-5 mb-5 sna-noticias-section">
+<section class="pt-5 pb-5 sna-noticias-section">
     <div class="container mt-5 mb-5 pb-4">
         <div class="text-center mb-5">
             <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
