@@ -13,7 +13,9 @@ get_header();
 
 <div class="transparenciaContainer">
       <div class="container" id="unidadContainer">
-        <h1>NOS PUEDES ENCONTRAR EN:</h1>
+        <div class="row mb-4"><div class="col-md-8">
+            <h1 class="font-patria">NOS PUEDES ENCONTRAR EN:</h1>
+        </div></div>
         <div class="d-flex align-self-center ">
           <div class="p-2">
             <a href="https://goo.gl/maps/9PXDNWn78bHbsrmaA" target="_blank">

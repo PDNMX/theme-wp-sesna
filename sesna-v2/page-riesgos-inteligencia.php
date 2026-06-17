@@ -48,7 +48,7 @@ get_header(); ?>
     <section class="container mb-5">
         <div class="d-flex align-items-center mb-4">
             <i class="bi bi-file-earmark-text text-guinda me-3 flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
-            <h2 class="tx-section-title text-dark m-0 me-4">Documentos</h2>
+            <h2 class="tx-section-title font-patria text-dark m-0 me-4">Documentos</h2>
             
             <!-- Separador vertical en desktop -->
             <div class="d-none d-md-block flex-shrink-0 me-4" style="width: 1px; height: 45px; background-color: #ccc;"></div>
@@ -67,7 +67,7 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-6">
-                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/contrataciones-publicas/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/contrataciones-publicas/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-briefcase tx-card__icon"></i>
                     </div>
@@ -78,7 +78,7 @@ get_header(); ?>
             </div>
             <!-- Card 2 -->
             <div class="col-lg-3 col-md-6">
-                <a href="#" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-people tx-card__icon"></i>
                     </div>
@@ -89,7 +89,7 @@ get_header(); ?>
             </div>
             <!-- Card 3 -->
             <div class="col-lg-3 col-md-6">
-                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/verificacion-patrimonial/') ); ?>" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/verificacion-patrimonial/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-person-vcard tx-card__icon"></i>
                     </div>
@@ -100,7 +100,7 @@ get_header(); ?>
             </div>
             <!-- Card 4 -->
             <div class="col-lg-3 col-md-6">
-                <a href="#" class="sna-noticias-card h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
+                <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
                         <i class="bi bi-activity tx-card__icon"></i>
                     </div>
@@ -120,7 +120,7 @@ get_header(); ?>
                 <i class="bi bi-gear position-absolute bg-white" style="font-size: 1.4rem; top: 42%; left: 50%; transform: translate(-50%, -50%); line-height: 1; padding: 2px;"></i>
             </div>
             <div>
-                <h2 class="tx-section-title text-dark mb-1">Herramientas</h2>
+                <h2 class="tx-section-title font-patria text-dark mb-1">Herramientas</h2>
                 <p class="tx-hero__subtitle text-muted mb-0">Plataformas y sistemas para el análisis de información y apoyo a la toma de decisiones.</p>
             </div>
         </div>
@@ -128,14 +128,14 @@ get_header(); ?>
         <div class="row g-4 pt-4">
             <!-- Left Column: Generador de Muestras -->
             <div class="col-lg-6">
-                <a href="#" class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card text-decoration-none d-block" style="border-radius: 8px; background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
+                <a href="#" class="card card-dark-red text-white h-100 p-4 p-md-5 sna-programas-wrapper sna-programas-card text-decoration-none d-block rounded-4" style="background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);">
                     <div class="d-flex flex-column h-100">
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-white text-guinda rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 90px; height: 90px;">
                                 <i class="bi bi-search" style="font-size: 3rem;"></i>
                             </div>
                             <div>
-                                <h3 class="fw-bold mb-2 text-white" style="font-size: 32px;">Generador de muestras</h3>
+                                <h3 class="fw-bold mb-2 text-white font-patria" style="font-size: 32px;">Generador de muestras</h3>
                                 <h5 class="fw-normal text-white mb-0" style="font-size: 24px;">Verificación patrimonial</h5>
                             </div>
                         </div>
@@ -154,11 +154,11 @@ get_header(); ?>
             
             <!-- Right Column: Proximamente -->
             <div class="col-lg-6">
-                <div class="bg-white shadow-sm p-4 p-md-5 h-100" style="border-radius: 8px;">
+                <div class="bg-white shadow-sm p-4 p-md-5 h-100 rounded-4">
                     <h5 class="fw-bold border-bottom pb-3 mb-4">Próximamente</h5>
                     
                     <!-- Item -->
-                    <div class="d-flex bg-light rounded-3 p-3 sna-noticias-card" style="padding: 1.25rem;">
+                    <div class="d-flex bg-light rounded-4 p-3 sna-noticias-card" style="padding: 1.25rem;">
                         <div class="icon-bg-circle me-3 flex-shrink-0" style="width: 60px; height: 60px; font-size: 1.5rem;">
                             <i class="bi bi-bell"></i>
                         </div>
@@ -175,7 +175,7 @@ get_header(); ?>
 
     <!-- Bottom Info Cards -->
     <section class="container pb-5 mb-5">
-        <a href="#" class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card text-decoration-none d-block text-dark" style="border-radius: 8px; margin-top: 0; padding: 1.5rem 3rem;">
+        <a href="#" class="bg-white shadow-sm border border-light sna-programas-wrapper sna-noticias-card text-decoration-none d-block text-dark rounded-4" style="margin-top: 0; padding: 1.5rem 3rem;">
             <div class="row align-items-stretch">
                 <div class="col-lg-7 mb-4 mb-lg-0 d-flex">
                     <div class="d-flex align-items-center pe-lg-5 flex-grow-1">

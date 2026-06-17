@@ -23,7 +23,7 @@ if (!function_exists('sesna_render_document_row')) {
                 
                 <!-- Content -->
                 <div class="d-flex flex-column justify-content-center">
-                    <h3 class="h6 mb-1 text-dark fw-bold lh-base"><?php the_title(); ?></h3>
+                    <h3 class="h6 font-patria mb-1 text-dark fw-bold lh-base"><?php the_title(); ?></h3>
                     <div class="d-flex align-items-center gap-2 mt-1">
                         <?php if ($has_file) : ?>
                             <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle fw-medium rounded-pill px-2 py-1"><i class="bi bi-check-circle me-1"></i> Disponible</span>
@@ -93,7 +93,9 @@ if (!function_exists('sesna_render_document_row')) {
 
             <!-- 1. MARCO NORMATIVO -->
             <div class="mb-5">
-                <h2 class="tx-section-title mb-4">Marco Normativo</h2>
+                <div class="row"><div class="col-md-8">
+                    <h2 class="tx-section-title font-patria mb-4">Marco Normativo</h2>
+                </div></div>
                 <div class="list-group shadow-sm rounded-4 border-0">
                     <?php 
                     global $post;
@@ -124,7 +126,9 @@ if (!function_exists('sesna_render_document_row')) {
 
             <!-- 2. NORMATIVIDAD INTERNA -->
             <div class="mb-5">
-                <h2 class="tx-section-title mb-4">Normatividad Interna</h2>
+                <div class="row"><div class="col-md-8">
+                    <h2 class="tx-section-title font-patria mb-4">Normatividad Interna</h2>
+                </div></div>
                 <div class="list-group shadow-sm rounded-4 border-0">
                     <?php 
                     $archivos = get_posts([
@@ -154,7 +158,9 @@ if (!function_exists('sesna_render_document_row')) {
 
             <!-- 3. NORMATIVIDAD EN MATERIA DE TRANSPARENCIA -->
             <div class="mb-5">
-                <h2 class="tx-section-title mb-4">Normatividad en Materia de Transparencia</h2>
+                <div class="row"><div class="col-md-8">
+                    <h2 class="tx-section-title font-patria mb-4">Normatividad en Materia de Transparencia</h2>
+                </div></div>
                 <div class="list-group shadow-sm rounded-4 border-0">
                     <?php 
                     $archivos = get_posts([

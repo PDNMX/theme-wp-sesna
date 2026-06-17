@@ -15,7 +15,7 @@ get_header();
 
         <div class="container position-relative z-index-1">
             <div class="row">
-                <div class="col-lg-7 col-md-9">
+                <div class="col-lg-7 col-md-8">
                     <span class="qh-hero-tag">Quiénes somos</span>
                     <h1 class="font-patria fw-bold text-white mb-4" style="font-size: 2.8rem; line-height: 1.2;">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
                     <p class="text-white opacity-75" style="font-size: 1.15rem; line-height: 1.6; font-weight: 300;">
@@ -30,7 +30,7 @@ get_header();
     <section class="qh-video-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0 pe-lg-5">
+                <div class="col-lg-5 col-md-8 mb-4 mb-lg-0 pe-lg-5">
                     <h2 class="font-patria fw-bold text-burgundi mb-4">Conoce a la SESNA</h2>
                     <p>
                         Descubre el papel de la Secretaría Ejecutiva dentro del Sistema Nacional Anticorrupción y cómo contribuye al fortalecimiento de la coordinación institucional, la generación de información estratégica y el desarrollo de herramientas para la prevención y el combate a la corrupción.
@@ -41,7 +41,7 @@ get_header();
                         <!-- Maqueta del reproductor -->
                         <div class="qh-video-fake-thumbnail">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="SESNA">
-                            <h3 class="font-gmx fw-bold text-burgundi mt-3 mb-0" style="font-size: 1.8rem;">¿QUÉ HACEMOS?</h3>
+                            <h3 class="font-patria fw-bold text-burgundi mt-3 mb-0" style="font-size: 1.8rem;">¿QUÉ HACEMOS?</h3>
                         </div>
                         <div class="qh-video-fake-controls">
                             <i class="bi bi-play-fill fs-5"></i>
@@ -64,30 +64,32 @@ get_header();
     <!-- Misión y Visión Section -->
     <section class="qh-mv-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra razón de ser</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra razón de ser</h2>
+                </div>
             </div>
             <div class="row justify-content-center">
                 <!-- Misión -->
                 <div class="col-md-6 mb-4">
-                    <div class="qh-mv-card">
+                    <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
                             <i class="bi bi-bullseye"></i>
                         </div>
                         <div class="qh-mv-content">
-                            <h3 class="font-gmx fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">MISIÓN</h3>
+                            <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">MISIÓN</h3>
                             <p class="mb-0">Fungir como órgano técnico de apoyo del Comité Coordinador del SNA, encargado de producir los insumos y herramientas necesarias para el desempeño de sus atribuciones establecidas en el artículo 113 de la Constitución Política de los Estados Unidos Mexicanos y en la LGSNA.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Visión -->
                 <div class="col-md-6 mb-4">
-                    <div class="qh-mv-card">
+                    <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
                             <i class="bi bi-eye"></i>
                         </div>
                         <div class="qh-mv-content">
-                            <h3 class="font-gmx fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">VISIÓN</h3>
+                            <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">VISIÓN</h3>
                             <p class="mb-0">Ser una institución eficaz y eficiente que contribuye a generar confianza y credibilidad en las instituciones públicas, mediante el uso de tecnologías de la información y el diseño, seguimiento y evaluación de políticas públicas enfocadas a la prevención, detección y sanción de faltas administrativas y hechos de corrupción, así como a la fiscalización y control de recursos públicos en el Marco del SNA.</p>
                         </div>
                     </div>
@@ -99,46 +101,48 @@ get_header();
     <!-- Nuestra Labor Section -->
     <section class="qh-labor-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra labor</h2>
-                <p class="text-muted mx-auto" style="max-width: 800px;">
-                    Contribuimos al fortalecimiento del Sistema Nacional Anticorrupción mediante la generación de conocimiento, el desarrollo de herramientas y la coordinación institucional.
-                </p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra labor</h2>
+                    <p class="text-muted mx-auto">
+                        Contribuimos al fortalecimiento del Sistema Nacional Anticorrupción mediante la generación de conocimiento, el desarrollo de herramientas y la coordinación institucional.
+                    </p>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-labor-card">
+                    <div class="qh-labor-card rounded-4">
                         <div class="qh-labor-icon-wrapper">
                             <i class="bi bi-file-earmark-text"></i>
                         </div>
-                        <h3 class="fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Diseñamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Diseñamos</h3>
                         <p class="text-muted mb-0">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-labor-card">
+                    <div class="qh-labor-card rounded-4">
                         <div class="qh-labor-icon-wrapper">
                             <i class="bi bi-laptop"></i>
                         </div>
-                        <h3 class="fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Desarrollamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Desarrollamos</h3>
                         <p class="text-muted mb-0">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-labor-card">
+                    <div class="qh-labor-card rounded-4">
                         <div class="qh-labor-icon-wrapper">
                             <i class="bi bi-graph-up-arrow"></i>
                         </div>
-                        <h3 class="fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Analizamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Analizamos</h3>
                         <p class="text-muted mb-0">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-labor-card">
+                    <div class="qh-labor-card rounded-4">
                         <div class="qh-labor-icon-wrapper">
                             <i class="bi bi-people"></i>
                         </div>
-                        <h3 class="fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Impulsamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Impulsamos</h3>
                         <p class="text-muted mb-0">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
                     </div>
                 </div>
@@ -149,16 +153,18 @@ get_header();
     <!-- Social Section -->
     <section class="qh-social-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="font-patria fw-bold text-burgundi mb-3">Mantente conectado con la SESNA</h2>
-                <p class="text-muted mx-auto" style="max-width: 800px;">
-                    Conoce nuestras actividades, publicaciones, herramientas, eventos y acciones a través de nuestros canales oficiales.
-                </p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <h2 class="font-patria fw-bold text-burgundi mb-3">Mantente conectado con la SESNA</h2>
+                    <p class="text-muted mx-auto">
+                        Conoce nuestras actividades, publicaciones, herramientas, eventos y acciones a través de nuestros canales oficiales.
+                    </p>
+                </div>
             </div>
             <div class="row">
                 <!-- X (Twitter) -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card">
+                    <div class="qh-social-card rounded-4">
                         <div class="qh-social-header qh-sh-x">
                             <i class="bi bi-twitter-x"></i>
                         </div>
@@ -177,7 +183,7 @@ get_header();
                 </div>
                 <!-- YouTube -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card">
+                    <div class="qh-social-card rounded-4">
                         <div class="qh-social-header qh-sh-yt">
                             <i class="bi bi-youtube"></i>
                         </div>
@@ -196,7 +202,7 @@ get_header();
                 </div>
                 <!-- Instagram -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card">
+                    <div class="qh-social-card rounded-4">
                         <div class="qh-social-header qh-sh-ig">
                             <i class="bi bi-instagram"></i>
                         </div>
@@ -215,7 +221,7 @@ get_header();
                 </div>
                 <!-- LinkedIn -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card">
+                    <div class="qh-social-card rounded-4">
                         <div class="qh-social-header qh-sh-in">
                             <i class="bi bi-linkedin"></i>
                         </div>
