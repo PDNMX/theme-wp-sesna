@@ -147,9 +147,10 @@ body.front-page main.page {
     /* debajo del header GOB.mx (1030) — no tapa su menú */
 }
 
-.sesna-navbar {
+.site-header .sesna-navbar {
     background-color: var(--color-navbar) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative !important;
 }
 
 .sesna-nav {
@@ -213,10 +214,12 @@ body.front-page main.page {
     }
 
     /* Corrección de ícono duplicado y flotante en móviles (Tarea 15) */
-    .sesna-navbar {
+    .site-header .sesna-navbar {
         min-height: 55px; /* Evita que la barra colapse a altura 0 y deje franja blanca */
+        background-color: var(--color-navbar) !important;
+        position: relative !important;
     }
-    .sesna-navbar .navbar-toggler {
+    .site-header .sesna-navbar .navbar-toggler {
         position: absolute !important;
         right: 15px;
         top: 8px;
@@ -277,7 +280,7 @@ body.front-page main.page {
 /* ------------------------------------------------------------
    Banner principal — imagen full-width debajo del sub-navbar
    ------------------------------------------------------------ */
-.sesna-portada {
+.sesna-banner {
     width: 100%;
     overflow: hidden;
     line-height: 0;
@@ -289,7 +292,7 @@ body.front-page main.page {
 /* BannerSESNA.jpg: 2880×624px (ratio ~4.6:1) — dimensión GOB.mx v3
    La imagen se escala al ancho completo manteniendo su proporción nativa.
    En pantallas muy grandes se limita a la altura del archivo original. */
-.sesna-portada__img {
+.sesna-banner__img {
     display: block;
     width: 100%;
     height: auto;
