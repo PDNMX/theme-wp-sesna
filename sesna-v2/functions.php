@@ -56,7 +56,7 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
 function sesna_theme_scripts()
 {
 	// Hoja principal del tema (estilos SESNA sobre el framework)
-	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), wp_get_theme()->get('Version'));
+	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), filemtime( get_template_directory() . '/assets/css/main.css' ));
 	// Framework GOB.mx v3 — incluye Bootstrap 5, fuente Patria y variables de color
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
 	// Bootstrap Icons — CDN (no incluido en el framework GOB.mx)

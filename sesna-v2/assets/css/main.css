@@ -1113,7 +1113,7 @@ body.front-page main.page {
     font-family: var(--font-patria);
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--color-negro);
+    color: var(--color-burgundi) !important;
 }
 
 .cp-recursos__linea {
@@ -2428,4 +2428,240 @@ body.front-page main.page {
 
 .qh-social-btn i {
     margin-left: 5px;
+}
+
+/* ============================================================
+   Página: Derechos Humanos y Perspectiva de Género
+   ============================================================ */
+
+/* ── Hero ─── */
+.page-derechos-humanos .dh-hero__title {
+    font-size: clamp(3rem, 5vw, 4rem);
+    color: var(--color-negro);
+    line-height: 1.15;
+}
+
+.page-derechos-humanos .dh-hero__desc {
+    font-size: 1.4rem;
+    line-height: 1.7;
+}
+
+.page-derechos-humanos .dh-hero__ilustracion {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.page-derechos-humanos .dh-hero__svg {
+    width: 100%;
+    height: auto;
+}
+
+/* ── Títulos de sección ─── */
+.page-derechos-humanos .dh-section__subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* ── Pronunciamientos ─── */
+
+/* ── Campañas ─── */
+.page-derechos-humanos .dh-campania-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-derechos-humanos .dh-campania-card__img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-derechos-humanos .dh-campania-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-burgundi);
+    padding: 16px 18px 0;
+    margin-bottom: 6px;
+}
+
+.page-derechos-humanos .dh-campania-card__desc {
+    font-size: 0.92rem;
+    color: #666;
+    padding: 0 18px;
+    margin-bottom: 8px;
+    flex: 1;
+}
+
+.page-derechos-humanos .dh-campania-card__link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-burgundi);
+    padding: 0 18px 18px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.page-derechos-humanos .dh-campania-card__link:hover {
+    text-decoration: underline;
+}
+
+/* ── Acciones X la Integridad ─── */
+.page-derechos-humanos .dh-acciones-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.page-derechos-humanos .dh-acciones-card__img {
+    overflow: hidden;
+    height: 100%;
+    min-height: 200px;
+}
+
+.page-derechos-humanos .dh-acciones-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-derechos-humanos .dh-acciones-card__body {
+    padding: 32px 36px;
+}
+
+.page-derechos-humanos .dh-acciones-card__body h3 {
+    font-size: 1.4rem;
+}
+
+.page-derechos-humanos .dh-acciones-card__body p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.page-derechos-humanos .dh-link-burgundi {
+    color: var(--color-burgundi);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.page-derechos-humanos .dh-link-burgundi:hover {
+    text-decoration: underline;
+}
+
+/* ── Comité de Igualdad de Género ─── */
+.page-derechos-humanos .dh-comite-panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.page-derechos-humanos .dh-comite-filter {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #333;
+    min-width: 180px;
+}
+
+.page-derechos-humanos .dh-sesion-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.page-derechos-humanos .dh-sesion-row:last-of-type {
+    border-bottom: none;
+}
+
+.page-derechos-humanos .dh-sesion-row__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 55px;
+    line-height: 1.1;
+}
+
+.page-derechos-humanos .dh-sesion-row__dia {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-burgundi);
+}
+
+.page-derechos-humanos .dh-sesion-row__mes {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-burgundi);
+    text-transform: uppercase;
+}
+
+.page-derechos-humanos .dh-sesion-row__anio {
+    font-size: 0.78rem;
+    color: var(--color-gris);
+}
+
+.page-derechos-humanos .dh-sesion-row__info {
+    flex: 1;
+}
+
+.page-derechos-humanos .dh-sesion-row__info h5 {
+    font-size: 1rem;
+}
+
+.page-derechos-humanos .dh-sesion-row__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.page-derechos-humanos .dh-sesion-btn {
+    color: var(--color-burgundi);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.page-derechos-humanos .dh-sesion-btn:hover {
+    text-decoration: underline;
+}
+
+.page-derechos-humanos .dh-sesion-sep {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.page-derechos-humanos .dh-sesion-chevron {
+    color: var(--color-burgundi);
+    font-size: 1rem;
+    margin-left: 6px;
+}
+
+/* ── Responsive ─── */
+@media (max-width: 767px) {
+    .page-derechos-humanos .dh-sesion-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .page-derechos-humanos .dh-sesion-row__actions {
+        flex-wrap: wrap;
+    }
+
+    .page-derechos-humanos .dh-pronunciamiento-card {
+        padding: 16px 18px;
+    }
 }
