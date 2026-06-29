@@ -140,7 +140,8 @@
                     <i class="bi bi-envelope-fill"></i>
                   </span>
                   <a class="dir-ficha__email" id="dir-email"
-                     href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
+                     href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>"
+                     target="_blank">
                     <?php echo $first ? esc_html($first['email_titular']) : '—'; ?>
                   </a>
                 </div>
@@ -152,6 +153,39 @@
       </div>
     </div>
   </section>
+
+  <!-- Modal móvil: ficha del titular -->
+  <div class="dir-modal" id="dir-modal" aria-hidden="true" role="dialog" aria-label="Ficha del titular">
+    <div class="dir-modal__backdrop" id="dir-modal-backdrop"></div>
+    <div class="dir-modal__content">
+      <button class="dir-modal__close" id="dir-modal-close" aria-label="Cerrar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <div class="dir-modal__foto-wrap">
+        <img class="dir-modal__foto" id="dir-modal-foto" src="" alt="">
+        <div class="dir-modal__foto dir-modal__foto--placeholder d-none" id="dir-modal-placeholder">
+          <i class="bi bi-person-fill"></i>
+        </div>
+      </div>
+      <div class="dir-modal__info">
+        <h3 class="dir-modal__nombre" id="dir-modal-nombre"></h3>
+        <div class="dir-modal__cargo-row d-none" id="dir-modal-encargado-row">
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
+          <span class="dir-modal__cargo" id="dir-modal-encargado"></span>
+        </div>
+        <hr class="dir-ficha__separator d-none" id="dir-modal-encargado-sep">
+        <div class="dir-modal__cargo-row">
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
+          <span class="dir-modal__cargo" id="dir-modal-cargo"></span>
+        </div>
+        <hr class="dir-ficha__separator">
+        <div class="dir-modal__cargo-row">
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
+          <a class="dir-ficha__email" id="dir-modal-email" href="#" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
