@@ -37,24 +37,8 @@ get_header();
                     </p>
                 </div>
                 <div class="col-lg-7">
-                    <div class="qh-video-wrapper">
-                        <!-- Maqueta del reproductor -->
-                        <div class="qh-video-fake-thumbnail">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="SESNA">
-                            <h3 class="font-patria fw-bold text-burgundi mt-3 mb-0" style="font-size: 1.8rem;">¿QUÉ HACEMOS?</h3>
-                        </div>
-                        <div class="qh-video-fake-controls">
-                            <i class="bi bi-play-fill fs-5"></i>
-                            <i class="bi bi-skip-end-fill"></i>
-                            <i class="bi bi-volume-up-fill"></i>
-                            <span class="ms-2" style="font-size: 0.75rem;">0:02 / 2:13</span>
-                            <div class="qh-video-progress mx-3">
-                                <div class="qh-video-progress-bar"></div>
-                            </div>
-                            <i class="bi bi-gear-fill"></i>
-                            <i class="bi bi-pip"></i>
-                            <i class="bi bi-fullscreen"></i>
-                        </div>
+                    <div class="qh-video-wrapper ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden">
+                        <iframe src="https://www.youtube.com/embed/6PQb_xTNpb0?rel=0" title="¿QUÉ HACEMOS? - SESNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -164,7 +148,7 @@ get_header();
             <div class="row">
                 <!-- X (Twitter) -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card rounded-4">
+                    <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-x">
                             <i class="bi bi-twitter-x"></i>
                         </div>
@@ -177,13 +161,13 @@ get_header();
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Noticias, comunicados y actualizaciones institucionales.</p>
-                            <a href="#" class="qh-social-btn mt-auto">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://x.com/SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- YouTube -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card rounded-4">
+                    <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-yt">
                             <i class="bi bi-youtube"></i>
                         </div>
@@ -196,13 +180,13 @@ get_header();
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Videos, transmisiones y contenido audiovisual.</p>
-                            <a href="#" class="qh-social-btn mt-auto">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.youtube.com/@SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Instagram -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card rounded-4">
+                    <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-ig">
                             <i class="bi bi-instagram"></i>
                         </div>
@@ -215,13 +199,13 @@ get_header();
                             </div>
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="mb-4">Actividades, campañas y contenido visual.</p>
-                            <a href="#" class="qh-social-btn mt-auto">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.instagram.com/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- LinkedIn -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="qh-social-card rounded-4">
+                    <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-in">
                             <i class="bi bi-linkedin"></i>
                         </div>
@@ -234,7 +218,7 @@ get_header();
                             </div>
                             <div class="qh-social-handle" style="font-size: 0.75rem;">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="mb-4">Información institucional y profesional.</p>
-                            <a href="#" class="qh-social-btn mt-auto">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
