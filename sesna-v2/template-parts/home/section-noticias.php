@@ -8,6 +8,9 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 text-center">
                 <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="sna-entradas-archive-link">
+                    Ver todas las noticias clasificadas <i class="bi bi-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
         

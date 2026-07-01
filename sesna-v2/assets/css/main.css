@@ -783,6 +783,264 @@ body.front-page main.page {
     color: #E6003D;
 }
 
+/* ------------------------------------------------------------
+   Sección Entradas por Familia Temática (home)
+   ------------------------------------------------------------ */
+.sna-entradas-archive-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+    padding: 8px 18px;
+    border: 1px solid var(--color-burgundi);
+    border-radius: 20px;
+    color: var(--color-burgundi);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sna-entradas-archive-link:hover,
+.sna-entradas-archive-link:focus {
+    background: var(--color-burgundi);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.sna-entradas-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+/* ── Filtro por año/mes ── */
+.sna-entradas-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 2rem;
+    padding: 20px 24px;
+    background: #F6EFF6;
+    border-radius: 8px;
+}
+
+.sna-entradas-filter-apply {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 22px;
+    border-radius: 4px;
+    border: none;
+    background: var(--color-burgundi);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sna-entradas-filter-apply:hover {
+    background: var(--color-guinda);
+    transform: translateY(-2px);
+}
+
+.sna-entradas-filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sna-entradas-filter-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-negro);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sna-entradas-filter-field label i {
+    color: var(--color-burgundi);
+}
+
+.sna-entradas-filter-select {
+    min-width: 160px;
+    padding: 8px 14px;
+    border-radius: 4px;
+    border: 1px solid var(--color-gris);
+    background-color: #fff;
+    color: var(--color-negro);
+    font-family: var(--font-noto-sans);
+    font-weight: 500;
+    font-size: 15px;
+    transition: border-color 0.2s ease;
+}
+
+.sna-entradas-filter-select:hover {
+    border-color: var(--color-burgundi);
+}
+
+.sna-entradas-filter-select:focus {
+    outline: none;
+    border-color: var(--color-guinda);
+    box-shadow: 0 0 0 3px rgba(97, 18, 50, 0.15);
+}
+
+.sna-entradas-filter-clear {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: var(--color-burgundi);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.sna-entradas-filter-clear:hover {
+    color: var(--color-guinda);
+}
+
+@media (max-width: 575px) {
+    .sna-entradas-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sna-entradas-filter-select {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .sna-entradas-filter-apply,
+    .sna-entradas-filter-clear {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.sna-entradas-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--color-gris);
+    background: #fff;
+    color: var(--color-negro);
+    font-family: var(--font-noto-sans);
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sna-entradas-tab i {
+    color: var(--color-teal);
+    transition: color 0.3s ease;
+}
+
+.sna-entradas-tab.active {
+    background: var(--color-guinda);
+    border-color: var(--color-guinda);
+    color: #fff;
+    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.sna-entradas-tab.active i {
+    color: #fff;
+}
+
+.sna-entradas-tab:hover:not(.active) {
+    border-color: var(--color-burgundi);
+    color: var(--color-burgundi);
+    transform: translateY(-2px);
+}
+
+.sna-entradas-tab:hover:not(.active) i {
+    color: var(--color-burgundi);
+}
+
+.sna-entradas-tab-count {
+    background: var(--color-dorado-claro);
+    color: var(--color-teal-oscuro);
+    border-radius: 50%;
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    transition: transform 0.2s ease;
+}
+
+.sna-entradas-tab.active .sna-entradas-tab-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.sna-entradas-tab-count--updated {
+    animation: sna-entradas-count-pulse 0.4s ease;
+}
+
+@keyframes sna-entradas-count-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+.sna-entradas-panel {
+    display: none;
+}
+
+.sna-entradas-panel.active {
+    display: flex;
+}
+
+.sna-entradas-card-category {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--color-teal);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.sna-entradas-load-more-btn {
+    border-radius: 4px;
+    padding: 10px 28px;
+    background: var(--color-teal-oscuro);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.sna-entradas-load-more-btn:hover {
+    background: var(--color-teal);
+}
+
+@media (max-width: 767px) {
+    .sna-entradas-tab {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+}
+
 /* ============================================================
    VERIFICACIÓN PATRIMONIAL (page-verificacion-patrimonial.php)
    Scope: .page-verificacion

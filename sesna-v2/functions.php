@@ -100,9 +100,13 @@ function sesna_theme_scripts()
 		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
 	}
 
-	if (is_page('informacion') || is_home() || is_archive() || is_search()) {
+	if (is_archive() || is_search()) {
 		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+	}
+
+	if (is_front_page() || is_home()) {
+		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 }
 add_action('wp_enqueue_scripts', 'sesna_theme_scripts');
@@ -382,6 +386,212 @@ function get_blog_posts()
 	} else {
 		get_template_part('template-parts/content/content', 'none');
 	}
+
+	wp_die();
+}
+
+/* Agrupa las categorías de WordPress en familias.*/
+function sna_get_familias_tematicas()
+{
+	return [
+		'comunicados' => [
+			'label' => 'Comunicados de Prensa',
+			'icon'  => 'bi-megaphone',
+			'cats'  => ['comunicados-de-prensa'],
+		],
+		'comunicacion' => [
+			'label' => 'Comunicación y Difusión',
+			'icon'  => 'bi-camera-reels',
+			'cats'  => [
+				'infografia', 'videos', 'relatorias', 'premio',
+				'dia-internacional-vs-la-corrupcion',
+			],
+		],
+		'politica-nacional' => [
+			'label' => 'Política Nacional Anticorrupción',
+			'icon'  => 'bi-shield-check',
+			'cats'  => [
+				'politica-nacional-anticorrupcion', 'programa-de-implementacion-pna',
+				'programa-institucional', 'metodologias', 'reisgos-de-corrupcion',
+				'autodiagnostico-riesgos-corrupcion', 'inteligencia-anticorrupcion',
+				'conflicto-de-interes',
+			],
+		],
+		'gobierno-coordinacion' => [
+			'label' => 'Órganos de Gobierno y Coordinación',
+			'icon'  => 'bi-bank',
+			'cats'  => [
+				'comite-coordinador', 'comite_etica-sesna', 'comision-ejecutiva',
+				'organo-de-gobierno', 'ost', 'asamblea-general-sna',
+			],
+		],
+		'vinculacion-sna' => [
+			'label' => 'Vinculación e Implementación SNA',
+			'icon'  => 'bi-diagram-3',
+			'cats'  => [
+				'sistemas-locales-anticorrupcion', 'convenios', 'colaboraciones',
+				'politicas-estatales-anticorrupcion', 'conoce-mas-del-sna',
+				'banco-de-buenas-practicas', 'guias', 'estudios', 'taller',
+			],
+		],
+		'datos-transparencia' => [
+			'label' => 'Datos y Plataforma Digital',
+			'icon'  => 'bi-database',
+			'cats'  => [
+				'plataforma-digital-nacional', 'datos', 'estandar-de-datos',
+				'catalogo-informacion-corrupcion-mexico', 'ata',
+			],
+		],
+		'rendicion-cuentas' => [
+			'label' => 'Transparencia y Rendición de Cuentas',
+			'icon'  => 'bi-file-earmark-text',
+			'cats'  => [
+				'informes', 'reportes', 'declaracion-patrimonial',
+				'normatividad_int', 'marco-normativo', 'desempeno-institucional-sesna',
+				'semblanzas', 'genero-y-derechos-humanos', 'presupuesto-2021',
+			],
+		],
+		'administracion' => [
+			'label' => 'Administración y Adquisiciones',
+			'icon'  => 'bi-briefcase',
+			'cats'  => [
+				'direccion-general-de-administracion', 'adquisiciones',
+				'licitaciones-de-la-sesna', 'compras-publicas', 'convocatoria',
+				'acciones-y-programas', 'sin-categoria',
+			],
+		],
+	];
+}
+
+function sna_get_term_ids_for_familia($familia_key)
+{
+	$familias = sna_get_familias_tematicas();
+
+	if (!isset($familias[$familia_key])) {
+		return [];
+	}
+
+	$term_ids = [];
+
+	foreach ($familias[$familia_key]['cats'] as $slug) {
+		$term = get_category_by_slug($slug);
+
+		if ($term) {
+			$term_ids[] = $term->term_id;
+		}
+	}
+
+	return $term_ids;
+}
+
+function sna_get_familia_post_count($familia_key, $year = 0, $monthnum = 0)
+{
+	$term_ids = sna_get_term_ids_for_familia($familia_key);
+
+	if (empty($term_ids)) {
+		return 0;
+	}
+
+	$args = [
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'category__in'   => $term_ids,
+		'fields'         => 'ids',
+		'posts_per_page' => -1,
+	];
+
+	if ($year) {
+		$args['year'] = (int) $year;
+	}
+
+	if ($monthnum) {
+		$args['monthnum'] = (int) $monthnum;
+	}
+
+	$q = new WP_Query($args);
+
+	return $q->found_posts;
+}
+
+add_action('wp_ajax_get_familias_counts', 'sna_get_familias_counts');
+add_action('wp_ajax_nopriv_get_familias_counts', 'sna_get_familias_counts');
+
+function sna_get_familias_counts()
+{
+	$year     = isset($_POST['year']) ? (int) $_POST['year'] : 0;
+	$monthnum = isset($_POST['monthnum']) ? (int) $_POST['monthnum'] : 0;
+
+	$counts = [];
+
+	foreach (sna_get_familias_tematicas() as $key => $familia) {
+		$counts[$key] = sna_get_familia_post_count($key, $year, $monthnum);
+	}
+
+	wp_send_json_success($counts);
+}
+
+function sna_get_entradas_years()
+{
+	global $wpdb;
+
+	$years = $wpdb->get_col("
+		SELECT DISTINCT YEAR(post_date) AS y
+		FROM {$wpdb->posts}
+		WHERE post_type = 'post' AND post_status = 'publish'
+		ORDER BY y DESC
+	");
+
+	return array_map('intval', $years);
+}
+
+add_action('wp_ajax_get_home_entries_by_family', 'sna_get_home_entries_by_family');
+add_action('wp_ajax_nopriv_get_home_entries_by_family', 'sna_get_home_entries_by_family');
+
+function sna_get_home_entries_by_family()
+{
+	$familia_key    = isset($_POST['familia']) ? sanitize_text_field($_POST['familia']) : '';
+	$page           = isset($_POST['page']) ? max(0, (int) $_POST['page']) : 0;
+	$year           = isset($_POST['year']) ? (int) $_POST['year'] : 0;
+	$monthnum       = isset($_POST['monthnum']) ? (int) $_POST['monthnum'] : 0;
+	$posts_per_page = 6;
+
+	$term_ids = sna_get_term_ids_for_familia($familia_key);
+
+	if (empty($term_ids)) {
+		wp_die();
+	}
+
+	$args = [
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'ignore_sticky_posts' => 1,
+		'category__in'        => $term_ids,
+		'posts_per_page'      => $posts_per_page,
+		'offset'              => $page * $posts_per_page,
+	];
+
+	if ($year) {
+		$args['year'] = $year;
+	}
+
+	if ($monthnum) {
+		$args['monthnum'] = $monthnum;
+	}
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/home/card-entrada', null, ['familia_key' => $familia_key]);
+		}
+		wp_reset_postdata();
+	} elseif ($page === 0) {
+		echo '<p class="text-muted text-center w-100">No hay contenido disponible con los filtros seleccionados.</p>';
+	}
+
+	$has_more = ($query->found_posts > (($page + 1) * $posts_per_page)) ? 1 : 0;
+	echo '<span class="d-none" data-has-more="' . esc_attr($has_more) . '"></span>';
 
 	wp_die();
 }
