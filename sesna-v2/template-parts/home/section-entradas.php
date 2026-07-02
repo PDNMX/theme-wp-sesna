@@ -13,17 +13,18 @@ $sna_meses = [
 	9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre',
 ];
 ?>
+<div class="container">
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="<?php echo esc_url(home_url('/')); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Noticias y Actividades</li>
+        </ol>
+    </nav>
+</div>
+
 <section class="pt-5 pb-5 sna-entradas-section">
-    <div class="container">
-        <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url(home_url('/')); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Noticias y Actividades</li>
-            </ol>
-        </nav>
-    </div>
     <div class="container mt-4 mb-5 pb-4">
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 text-center">
