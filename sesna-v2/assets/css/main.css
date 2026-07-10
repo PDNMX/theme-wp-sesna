@@ -3340,3 +3340,366 @@ body:has(.page-directorio) main.page {
         padding: 20px;
     }
 }
+
+/* ------------------------------------------------------------
+   Página: Política Nacional Anticorrupción (.page-pna)
+   ------------------------------------------------------------ */
+
+.page-pna .pna-hero {
+    padding: 2rem 0 1rem;
+}
+
+.page-pna .pna-hero__title {
+    font-family: var(--font-patria);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-negro);
+    margin-bottom: 12px;
+}
+
+.page-pna .pna-hero__line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-burgundi);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+/* Card principal: portada + descarga */
+.page-pna .pna-doc-card {
+    background-color: var(--color-blanco);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.page-pna .pna-doc-cover {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--color-guinda) 0%, var(--color-teal-oscuro) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-size: 4rem;
+}
+
+.page-pna .pna-hero__badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.page-pna .pna-hero__badge-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background-color: #f2ecf0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-burgundi);
+    font-size: 20px;
+}
+
+.page-pna .pna-hero__badge-title {
+    font-weight: 700;
+    color: var(--color-guinda);
+    margin-bottom: 2px;
+    font-size: 17px;
+}
+
+.page-pna .pna-hero__badge-desc {
+    color: var(--color-gris);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.page-pna .pna-doc-desc {
+    color: rgba(22, 26, 29, 0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.page-pna .pna-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background-color: var(--color-burgundi);
+    color: var(--color-blanco);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.page-pna .pna-download-btn:hover {
+    background-color: var(--color-guinda);
+    color: var(--color-blanco);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.page-pna .pna-download-btn i {
+    font-size: 16px;
+}
+
+.page-pna .pna-doc-note {
+    color: var(--color-gris);
+    font-size: 14px;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+}
+
+/* Dropdown Anexos */
+.page-pna .pna-anexos-dropdown .dropdown-menu {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.12);
+    padding: 8px;
+}
+
+.page-pna .pna-anexos-dropdown .dropdown-item {
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-pna .pna-anexos-dropdown .dropdown-item:hover {
+    background-color: #f2ecf0;
+    color: var(--color-guinda);
+}
+
+/* Título de sección con separador dorado (reusa patrón sesna-section-heading) */
+.page-pna .pna-section-title {
+    font-family: var(--font-patria);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-negro);
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+}
+
+.page-pna .pna-section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-dorado), var(--color-dorado-claro));
+    border-radius: 2px;
+}
+
+.page-pna .pna-section-title--center {
+    text-align: center;
+}
+
+.page-pna .pna-section-title--center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Estructura de la Política: stat tiles */
+.page-pna .pna-stats-card {
+    background-color: #F3F0F3;
+    border-radius: 12px;
+    padding: 32px;
+}
+
+.page-pna .pna-stats-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.page-pna .pna-stat-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 1 0;
+    padding: 12px 24px;
+}
+
+.page-pna .pna-stat-sep {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    align-self: stretch;
+    margin: 4px 0;
+}
+
+.page-pna .pna-stat-tile__icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+}
+
+.page-pna .pna-stat-tile__icon--verde { color: #3f8f3f; }
+.page-pna .pna-stat-tile__icon--morado { color: #6b4fa0; }
+.page-pna .pna-stat-tile__icon--verde-oscuro { color: var(--color-teal); }
+
+.page-pna .pna-stat-tile__number {
+    font-family: var(--font-patria);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-negro);
+    margin-bottom: 2px;
+}
+
+.page-pna .pna-stat-tile__label {
+    color: var(--color-gris);
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+/* Ciclo de la Política Pública */
+.page-pna .pna-ciclo-card {
+    background-color: var(--color-blanco);
+    border-radius: 8px;
+    padding: 28px 24px;
+    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.page-pna .pna-ciclo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.page-pna .pna-ciclo-card__top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.page-pna .pna-ciclo-card__number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background-color: var(--color-burgundi);
+    color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.page-pna .pna-ciclo-card__icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    background-color: #f2ecf0;
+    color: var(--color-burgundi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.page-pna .pna-ciclo-card__title {
+    font-weight: 700;
+    color: var(--color-guinda);
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.page-pna .pna-ciclo-card__desc {
+    color: rgba(22, 26, 29, 0.8);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.page-pna .pna-ciclo-hint {
+    background-color: #F6EFF6;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-pna .pna-ciclo-hint__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    color: var(--color-burgundi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.page-pna .pna-ciclo-hint p {
+    margin-bottom: 0;
+    color: var(--color-negro);
+}
+
+/* Bloque final: documentos relativos + aviso */
+.page-pna .pna-final-card {
+    background-color: #F3F0F3;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+}
+
+.page-pna .pna-final-card__desc {
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+    color: rgba(22, 26, 29, 0.8);
+}
+
+.page-pna .pna-privacy-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-burgundi);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.page-pna .pna-privacy-link:hover {
+    color: var(--color-guinda);
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .page-pna .pna-stats-row {
+        flex-direction: column;
+    }
+
+    .page-pna .pna-stat-sep {
+        display: none;
+    }
+
+    .page-pna .pna-doc-cover {
+        max-width: 280px;
+        margin: 0 auto 1.5rem;
+    }
+}
