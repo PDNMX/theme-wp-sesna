@@ -2539,37 +2539,15 @@ body.front-page main.page {
     border-radius: 12px;
     padding: 2rem 1.5rem;
     text-align: center;
-    border-top: 4px solid #335075; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
 }
 
 .qh-labor-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
 }
-
-.qh-labor-icon-wrapper {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #eaeaea;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-    color: var(--color-burgundi);
-    background: var(--color-blanco);
-    transition: all 0.3s ease;
-}
-
-.qh-labor-card:hover .qh-labor-icon-wrapper {
-    border-color: var(--color-burgundi);
-    background: var(--color-burgundi);
-    color: var(--color-blanco);
-}
-
 .qh-labor-card h3 {
     color: var(--color-burgundi);
     font-weight: 700;
