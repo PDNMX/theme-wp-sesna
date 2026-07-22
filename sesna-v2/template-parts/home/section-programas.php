@@ -21,13 +21,15 @@
                     'title' => 'Política Nacional<br>Anticorrupción',
                     'icon' => 'bi-shield-check',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_02_politica.jpg' ) ),
-                    'desc' => 'Fue aprobada el 29 de enero de 2020 por el Comite Coordinador del Sistema Nacional Anticorrupción, en ella se define la estrategia para combatir el problema de la corrupción en México.'
+                    'desc' => 'Fue aprobada el 29 de enero de 2020 por el Comite Coordinador del Sistema Nacional Anticorrupción, en ella se define la estrategia para combatir el problema de la corrupción en México.',
+                    'link' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/')
                 ],
                 [
                     'title' => 'Plataforma de Aprendizaje<br>Anticorrupción',
                     'icon' => 'bi-laptop',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) ),
-                    'desc' => 'Herramienta tecnológica y pedagógica que promueve conocimientos y capacidades para fortalecer la integridad y combatir la corrupción.'
+                    'desc' => 'Herramienta tecnológica y pedagógica que promueve conocimientos y capacidades para fortalecer la integridad y combatir la corrupción.',
+                    'link' => 'https://paa.sesna.gob.mx/web/index.html'
                 ],
                 [
                     'title' => 'Riesgos e Inteligencia<br>Anticorrupción',

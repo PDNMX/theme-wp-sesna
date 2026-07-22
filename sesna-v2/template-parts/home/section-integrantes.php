@@ -9,7 +9,7 @@
 
             <!-- Card 1 -->
             <div class="col-lg-4 col-md-6">
-                <a href="#" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
+                <a href="https://www.sna.org.mx/category/comite-coordinador/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
                             alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-shrink-0">
@@ -34,7 +34,7 @@
 
             <!-- Card 2 -->
             <div class="col-lg-4 col-md-6">
-                <a href="#" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
+                <a href="https://comiteparticipacion.com.mx/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
                             alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-shrink-0">
@@ -59,7 +59,7 @@
 
             <!-- Card 3 -->
             <div class="col-lg-4 col-md-6 mx-auto">
-                <a href="#" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
+                <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"
                             alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-shrink-0">
