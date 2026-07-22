@@ -29,21 +29,6 @@ $tx_cards = [
 
 <div class="page-transparencia has-fullbleed-hero">
 
-    <!-- ============================================================
-         MIGAS DE PAN (BREADCRUMB)
-         ============================================================ -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
-        <div class="container">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Transparencia</li>
-            </ol>
-        </div>
-    </nav>
 
     <!-- ============================================================
          1. HERO / BANNER PRINCIPAL

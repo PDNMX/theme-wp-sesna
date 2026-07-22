@@ -3831,3 +3831,241 @@ body:has(.page-directorio) main.page {
         margin: 0 auto 1.5rem;
     }
 }
+
+/* ============================================================
+   Comité de Transparencia
+   ============================================================ */
+.page-transparencia-comite {
+    /* Fondo heredado de .front-page-bg */
+    min-height: 75vh;
+}
+
+.tx-comite-title {
+    border-left: none !important;
+    padding-left: 0 !important;
+    color: var(--color-negro) !important;
+    font-size: 2.5rem !important;
+}
+
+.tx-comite-subtitle {
+    font-size: 1.75rem;
+    color: var(--color-guinda);
+}
+
+.tx-sesion-date {
+    position: relative;
+    min-width: 110px;
+}
+
+.tx-sesion-date::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background-color: var(--color-burgundi);
+}
+
+.tx-sesion-date-day {
+    font-size: 2.5rem;
+}
+
+.tx-sesion-date-month {
+    font-size: 14px;
+    color: var(--color-gris);
+}
+
+.tx-sesion-date-year,
+.tx-sesion-info-type {
+    font-size: 15px;
+    color: var(--text-color-main);
+}
+
+.tx-sesion-info-title {
+    color: var(--text-color-main);
+}
+
+.tx-sesion-pdf-link {
+    color: var(--color-burgundi);
+}
+
+.tx-sesion-pdf-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #b9151b;
+}
+
+.tx-sesion-pdf-text {
+    font-size: 14px;
+}
+
+.tx-sesion-chevron-link {
+    color: #6c757d;
+}
+
+.tx-sesion-chevron-icon {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .tx-sesion-date::after {
+        bottom: 15%;
+        top: 15%;
+        right: 0;
+        left: auto;
+        width: 1px;
+        height: auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .tx-sesion-action {
+        position: relative;
+        justify-content: center !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    .tx-sesion-chevron-link {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+/* Tabs Comité de Transparencia */
+.tx-comite-tabs-container {
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 2rem;
+}
+.tx-comite-tabs {
+    border-bottom: none;
+    margin-bottom: -1px;
+}
+.tx-comite-tabs .nav-link {
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 6px 6px 0 0;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #fff;
+    margin-right: 0.5rem;
+    font-family: var(--font-noto-sans);
+    transition: all 0.2s ease-in-out;
+}
+.tx-comite-tabs .nav-link:hover {
+    background-color: #f8f9fa;
+    color: var(--color-burgundi);
+}
+.tx-comite-tabs .nav-link.active,
+.tx-comite-tabs .nav-item.show .nav-link {
+    color: var(--color-burgundi) !important;
+    background-color: #e9ecef !important;
+    border-color: #dee2e6 !important;
+    border-bottom-color: #e9ecef !important;
+    border-top: 4px solid var(--color-burgundi) !important;
+}
+
+/* Evitar marco por defecto de Bootstrap/Gobmx en el contenido de los tabs */
+.tx-comite-tab-content {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* Botón Ver Más */
+.tx-comite-btn-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--color-burgundi);
+    background-color: transparent;
+    border: 1px solid var(--color-burgundi);
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-family: var(--font-noto-sans);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.tx-comite-btn-more:hover {
+    background-color: var(--color-burgundi);
+    color: #fff;
+}
+/* Buscador Resoluciones y Filtros */
+.tx-comite-filter-control {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+}
+.tx-comite-search-input {
+    padding-right: 2.5rem;
+}
+.tx-comite-search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-burgundi);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+/* Forzar Modal a Pantalla Completa (Full Screen) en todas las versiones */
+.tx-pdf-modal .modal-dialog {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.tx-pdf-modal .modal-content {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+.tx-pdf-modal.fade .modal-dialog {
+    transform: scale(0.95);
+    opacity: 0;
+}
+.tx-pdf-modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+}
+.tx-pdf-modal .modal-header {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+.tx-pdf-modal iframe {
+    background-color: #fff;
+}
+
+/* Botón Personalizado de Descarga */
+.tx-pdf-download-btn {
+    border: 1px solid var(--color-burgundi) !important;
+    color: var(--color-burgundi) !important;
+    background-color: transparent !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.tx-pdf-download-btn:hover {
+    background-color: var(--color-burgundi) !important;
+    color: #fff !important;
+}
+.tx-pdf-download-btn:focus, .tx-pdf-download-btn:active {
+    box-shadow: none !important;
+}
