@@ -1786,6 +1786,156 @@ body.front-page main.page {
     line-height: 1;
 }
 
+/* Página — Comité de Transparencia */
+.page-transparencia-comite .tx-modal__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-gris);
+    font-weight: 600;
+}
+
+.page-transparencia-comite .tx-meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: var(--color-blanco);
+    border: 1px solid rgba(22, 26, 29, 0.08);
+    color: var(--color-negro);
+}
+
+.page-transparencia-comite .tx-meta-chip__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-burgundi);
+    flex-shrink: 0;
+}
+
+.page-transparencia-comite .tx-modal__group {
+    margin-top: 22px;
+}
+
+.page-transparencia-comite .tx-modal__group-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-guinda);
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(22, 26, 29, 0.08);
+}
+
+.page-transparencia-comite .tx-modal__group-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-blanco);
+    background: var(--color-burgundi);
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-variant-numeric: tabular-nums;
+}
+
+.page-transparencia-comite .tx-doc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page-transparencia-comite .tx-doc-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.page-transparencia-comite .tx-doc-row:hover,
+.page-transparencia-comite .tx-doc-row.active {
+    background: #F3F0F3;
+    border-color: rgba(22, 26, 29, 0.08);
+    transform: translateX(2px);
+}
+
+.page-transparencia-comite .tx-doc-row:focus-visible {
+    outline: 2px solid var(--color-burgundi);
+    outline-offset: 1px;
+}
+
+.page-transparencia-comite .tx-doc-row__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    background: rgba(30, 91, 79, 0.1);
+    color: var(--color-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.page-transparencia-comite .tx-doc-row__name {
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-negro);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-transparencia-comite .tx-doc-row__hint {
+    font-size: 12px;
+    color: var(--color-gris);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.page-transparencia-comite .tx-doc-row:hover .tx-doc-row__hint,
+.page-transparencia-comite .tx-doc-row.active .tx-doc-row__hint {
+    color: var(--color-burgundi);
+}
+
+.page-transparencia-comite .tx-viewer__actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-burgundi);
+    transition: color 0.2s ease;
+}
+
+.page-transparencia-comite .tx-viewer__actions a:hover {
+    color: var(--color-guinda);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-transparencia-comite .tx-doc-row,
+    .page-transparencia-comite .tx-viewer__actions a {
+        transition: none;
+    }
+}
+
 /* Buscador */
 .page-transparencia .tx-search {
     background-color: transparent;

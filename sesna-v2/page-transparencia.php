@@ -16,7 +16,6 @@ get_header();
 /* Accesos rápidos — 8 tarjetas fijas de la maqueta.
  * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
-    ['icon' => 'bi-people', 'title' => 'Comité de Transparencia', 'desc' => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.', 'url' => home_url('/transparencia/comite-de-transparencia/')],
     ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
     ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
     ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
@@ -25,6 +24,7 @@ $tx_cards = [
     ['icon' => 'bi-archive', 'title' => 'Archivos', 'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => home_url('/transparencia/archivos/')],
     ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => home_url('/transparencia/denuncias-por-incumplimiento/')],
 ];
+
 ?>
 
 <div class="page-transparencia has-fullbleed-hero">
@@ -80,6 +80,18 @@ $tx_cards = [
             </div>
 
             <div class="row g-4 mt-3">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="<?= esc_url(home_url('/transparencia/comite-de-transparencia/')) ?>"
+                        class="tx-card rounded-4 h-100 d-flex flex-column"
+                        aria-label="Comité de Transparencia — abre el detalle de sesiones y actas">
+                        <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
+                            <i class="bi bi-people"></i>
+                        </span>
+                        <strong class="tx-card__title d-block mb-2" style="font-size: 16px;">Comité de Transparencia</strong>
+                        <p class="tx-card__desc flex-grow-1 mb-0" style="font-size: 16px;">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
+                        <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
+                    </a>
+                </div>
                 <?php foreach ($tx_cards as $card): ?>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
@@ -257,6 +269,8 @@ $tx_cards = [
             </div>
         </div>
     </section>
+
+
 
 </div><!-- /.page-transparencia -->
 

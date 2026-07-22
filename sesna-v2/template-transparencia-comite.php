@@ -1,333 +1,124 @@
 <?php
-
-
 /**
-* Template Name: Transparencia - Comite de transparencia
-*/
+ * Template Name: Transparencia - Comite de transparencia
+ */
 
 get_header();
+
+/* Datos del "Comité de Transparencia" — contenido temporal (hardcoded) hasta
+ * que exista una fuente de datos definitiva (CPT/ACF) para el expediente. */
+$tx_comite_pdf_placeholder = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+$tx_comite_grupos = [
+    [
+        'titulo' => 'Sesiones Extraordinarias 2024',
+        'actas' => [
+            'Acta primera sesión extraordinaria 2024',
+        ],
+    ],
+    [
+        'titulo' => 'Sesiones Ordinarias 2024',
+        'actas' => [
+            'Acta primera sesión ordinaria 2024',
+            'Acta segunda sesión ordinaria 2024',
+            'Acta tercera sesión ordinaria 2024',
+            'Acta cuarta sesión ordinaria 2024',
+            'Acta quinta sesión ordinaria 2024',
+            'Acta sexta sesión ordinaria 2024',
+        ],
+    ],
+];
 ?>
 
-    
-<?php get_template_part( 'template-parts/transparencia/header' ); ?>
-
-
-
-<div class="transparenciaContainer">
-  <img src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/tx2.png"/ class="tx2">
-  <div class="container" id="funcionariosContainer">
-    <div class="row">
-
-        <?php 
-          global $post;
-        
-          $functionarios = get_posts([
-            'post_type'=>'funcionario',
-            'posts_per_page' => -1,
-            'tax_query' => array(
-              array(
-                'taxonomy' => 'seccion_funcionario',
-                'field'    => 'slug',
-                'terms'    => 'transparencia',
-              ),
-            ),
-          ]);
-        ?>
-
-        <?php foreach( $functionarios as $functionario ):  $post = $functionario; setup_postdata($post);?>
-
-          <div class="col">
-            <div class="d-flex justify-content-center align-items-center">
-              <div class="p-2">
-                <img src="<?php the_field('imagen') ?>"/>
-                <p class="functionarioNombre"><?php the_title(); ?></p>
-                <p class="funcionarioTitulo"><?php the_field('puesto') ?></p>
-              </div>
-            </div>
-          </div>
-
-        <?php endforeach; ?>
-        <?php wp_reset_postdata(); ?>
-
-      
-    </div>
-  </div>
-
-
-
-
-  <div class="container" id="comiteTransparencia">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
-            <i class="fas fa-list-ul"></i>
-            <span>Actas</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#resoluciones" role="tab" aria-controls="profile" aria-selected="false">
-            <i class="far fa-clipboard"></i>
-            <span>Resoluciones</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#expedientes" role="tab" aria-controls="contact" aria-selected="false">
-            <i class="fas fa-key"></i>
-            <span>Expedientes Reservados</span>
-        </a>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<div class="page-transparencia-comite">
+    <!-- Migas de pan (Breadcrumb) -->
+    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
         <div class="container">
-          <div class="row" id="filaTitulos">
-            <div class="col-2 d-md-block d-none">
-              <p>AÑO: </p>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a href="<?= esc_url( home_url('/') ) ?>">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>">Transparencia</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Comité de Transparencia</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Encabezado de sección -->
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-12">
+                <p class="tx-modal__eyebrow mb-1">Transparencia</p>
+                <h1 class="tx-section-title font-patria">Comité de Transparencia</h1>
+                <div class="tx-meta-row d-flex flex-wrap gap-3 mt-3 p-3 bg-light border-bottom rounded-top-4">
+                    <span class="tx-meta-chip"><span class="tx-meta-chip__dot" aria-hidden="true"></span><?= array_reduce($tx_comite_grupos, function($c, $g) { return $c + count($g['actas']); }, 0) ?> archivos en PDF</span>
+                    <span class="tx-meta-chip"><span class="tx-meta-chip__dot" aria-hidden="true"></span>Vigencia 2024–2026</span>
+                    <span class="tx-meta-chip tx-meta-chip--legal text-muted fst-italic flex-grow-1">Fundamento: Artículos 19 y 20 de la Ley General de Transparencia y Acceso a la Información Pública (LGTAIP)</span>
+                </div>
             </div>
-            <div class="col-4 d-md-block d-none">
-              <p>NÚMERO DE ACTA: </p>
-            </div>
-            <div class="col-2 d-md-block d-none">
-              <p>FECHA: </p>
-            </div>
-            <div class="col-4 d-md-block d-none">
-              <p>DOCUMENTO COMPLETO: </p>
-            </div>
-          </div>
         </div>
 
-        
-
-
-          <?php 
-          
-          
-            $anios = get_terms( [
-              'taxonomy' => 'anio_archivo', 
-
-            ]);
-
-            usort($anios, 'sortByName');
-
-           
-          ?>
-
-          <?php foreach( $anios as $anio ): ?>
-
-          <div class="container scrollbar scrollbar-primary" id="tableContainer">
-
-          <?php 
-
-            
-            $actas = get_posts([
-              'post_type'=>'archivo',
-              'posts_per_page' => -1,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'tipo_archivo',
-                  'field'    => 'slug',
-                  'terms'    => 'acta',
-                ),
-                array(
-                  'taxonomy' => 'anio_archivo',
-                  'field'    => 'term_id',
-                  'terms'    => $anio->term_id,
-                ),
-              ),
-            ]);
-
-            $first = true;
-          ?>
-
-            <?php foreach( $actas as $acta ): $post = $acta; setup_postdata($post);?>
-
-            <div class="row">
-              <div class="col-lg-2 col-md-2 col-sm-12" id="year">
-                <p class="year"><?= ($first)?$anio->name:'&nbsp;' ?></p>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <p class="nombreActa"> <?php the_title(); ?></p>
-              </div>
-              <div class="col-lg-2 col-md-2 col-sm-12" id="fechaContainer">
-                <p class="fecha"><?php echo get_the_date('d/m/Y') ?></p>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <a href="<?php the_file('archivo'); ?>" class="btn btn-light">Descargar PDF  <i class="fas fa-download"></i></a>
-              </div>
-            </div>
-          
-
-            <?php $first = false; endforeach; ?>
-
+        <!-- Contenedor Principal: Sidebar e Iframe -->
+        <div class="row g-4 align-items-stretch">
+            <!-- Columna Izquierda: Índice de Documentos -->
+            <div class="col-lg-4">
+                <div class="tx-comite-sidebar border rounded-4 p-3 bg-white h-100" style="max-height: 80vh; overflow-y: auto;">
+                    <?php foreach ($tx_comite_grupos as $grupo): ?>
+                        <div class="tx-modal__group mt-0 mb-4">
+                            <h3 class="tx-modal__group-title">
+                                <?= esc_html($grupo['titulo']) ?>
+                                <span class="tx-modal__group-count"><?= count($grupo['actas']) ?></span>
+                            </h3>
+                            <ul class="tx-doc-list">
+                                <?php foreach ($grupo['actas'] as $acta): ?>
+                                    <li>
+                                        <button type="button" class="tx-doc-row"
+                                            data-pdf-url="<?= esc_url($tx_comite_pdf_placeholder) ?>"
+                                            data-pdf-title="<?= esc_attr($acta) ?>"
+                                            aria-label="Ver <?= esc_attr($acta) ?> en el visor de documentos">
+                                            <span class="tx-doc-row__icon" aria-hidden="true"><i class="bi bi-file-earmark-pdf-fill"></i></span>
+                                            <span class="tx-doc-row__name"><?= esc_html($acta) ?></span>
+                                            <span class="tx-doc-row__hint">Ver PDF <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+                                        </button>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
-          <?php endforeach; ?>
-          <?php wp_reset_postdata(); ?>
-
-
-      </div>
-      <div class="tab-pane fade" id="resoluciones" role="tabpanel" aria-labelledby="profile-tab">
-              
-        <div class="container">
-          <div class="row" id="filaTitulos">
-            <div class="col-2 d-md-block d-none">
-              <p>AÑO: </p>
+            <!-- Columna Derecha: Visor de PDF -->
+            <div class="col-lg-8">
+                <div class="tx-viewer-page border rounded-4 bg-light d-flex flex-column h-100" id="tx-viewer-page" style="min-height: 70vh;">
+                    <div class="tx-viewer__bar bg-white border-bottom rounded-top-4 d-flex align-items-center justify-content-between p-3 flex-wrap gap-2">
+                        <span class="tx-viewer__title fs-5 fw-bold text-truncate" id="tx-viewer-title">
+                            Selecciona un documento para visualizarlo
+                        </span>
+                        <div class="tx-viewer__actions" id="tx-viewer-actions" style="display: none;">
+                            <a href="#" id="tx-viewer-open" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Nueva pestaña
+                            </a>
+                            <a href="#" id="tx-viewer-download" download class="text-decoration-none">
+                                <i class="bi bi-download" aria-hidden="true"></i> Descargar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tx-viewer__frame-wrap flex-grow-1 p-3 d-flex flex-column">
+                        <div id="tx-viewer-empty" class="flex-grow-1 d-flex flex-column align-items-center justify-content-center text-muted">
+                            <i class="bi bi-file-earmark-pdf" style="font-size: 4rem; opacity: 0.5;"></i>
+                            <p class="mt-3 fs-5">El documento seleccionado aparecerá aquí</p>
+                        </div>
+                        <iframe id="tx-viewer-frame" class="w-100 flex-grow-1 border-0 rounded shadow-sm" style="display: none; min-height: 650px;" title="Visor de documento PDF"></iframe>
+                    </div>
+                </div>
             </div>
-            <div class="col-4 d-md-block d-none">
-              <p>NÚMERO DE RESOLUCIÓN: </p>
-            </div>
-            <div class="col-2 d-md-block d-none">
-              <p>FECHA: </p>
-            </div>
-            <div class="col-4 d-md-block d-none">
-              <p>DOCUMENTO COMPLETO: </p>
-            </div>
-          </div>
         </div>
-
-        
-
-
-          <?php 
-          
-          
-            $anios = get_terms([
-              'taxonomy' => 'anio_archivo', 
-            ]);
-
-            usort($anios, 'sortByName');
-          ?>
-
-          <?php foreach( $anios as $anio ): ?>
-
-          <div class="container scrollbar scrollbar-primary" id="tableContainer">
-
-          <?php 
-
-            
-            $actas = get_posts([
-              'post_type'=>'archivo',
-              'posts_per_page' => -1,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'tipo_archivo',
-                  'field'    => 'slug',
-                  'terms'    => 'resolucion',
-                ),
-                array(
-                  'taxonomy' => 'anio_archivo',
-                  'field'    => 'term_id',
-                  'terms'    => $anio->term_id,
-                ),
-              ),
-            ]);
-
-            $first = true;
-          ?>
-
-            <?php foreach( $actas as $acta ): $post = $acta; setup_postdata($post);?>
-
-            <div class="row">
-              <div class="col-lg-2 col-md-2 col-sm-12" id="year">
-                <p class="year"><?= ($first)?$anio->name:'&nbsp;' ?></p>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <p class="nombreActa"> <?php the_title(); ?></p>
-              </div>
-              <div class="col-lg-2 col-md-2 col-sm-12" id="fechaContainer">
-                <p class="fecha"><?php echo get_the_date('d/m/Y') ?></p>
-              </div>
-              <div class="col-lg-4 col-md-4 col-sm-12">
-                <a href="<?php the_file('archivo'); ?>" class="btn btn-light">Descargar PDF  <i class="fas fa-download"></i></a>
-              </div>
-            </div>
-          
-
-            <?php $first = false; endforeach; ?>
-
-            </div>
-
-          <?php endforeach; ?>
-          <?php wp_reset_postdata(); ?>
-      
-      </div>
-      <div class="tab-pane fade" id="expedientes" role="tabpanel" aria-labelledby="contact-tab">
-
-          <div class="container" >
-              <div class="row" id="filaTitulos">
-                <div class="col-9 d-md-block d-none">
-                  <p>LISTA DE DOCUMENTOS </p>
-                </div>
-                <div class="col-3 d-md-block d-none">
-                  <p>DESCARGAS </p>
-                </div>
-              </div>
-            </div>
-
-
-          <div class="container scrollbar scrollbar-primary" id="tableContainer">
-
-          <?php 
-
-            
-            $actas = get_posts([
-              'post_type'=>'archivo',
-              'posts_per_page' => -1,
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'tipo_archivo',
-                  'field'    => 'slug',
-                  'terms'    => 'expediente-reservado',
-                ),
-              ),
-            ]);
-
-            $first = true;
-          ?>
-
-            <?php foreach( $actas as $acta ): $post = $acta; setup_postdata($post);?>
-
-
-            <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-12" id="year">
-                  <p class="nombreActa"><?php the_title(); ?></p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                  <a href="<?php the_file('archivo'); ?>" target="_blank" class="btn btn-light">Descargar PDF  <i class="fas fa-download"></i></a>
-                </div>
-              </div>
-
-          
-
-            <?php $first = false; endforeach; ?>
-
-            </div>
-          <?php wp_reset_postdata(); ?>
-
-
-      </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 offset-md-1">
-        <a class="social" href="https://www.plataformadetransparencia.org.mx/web/guest/inicio" target="_blank">
-          <img src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/bannerPNT2.svg"/>
-        </a>
-      </div>
-      <div class="col-md-4 offset-md-2">
-        <a class="social" href="http://consultapublicamx.inai.org.mx:8080/vut-web/?idSujetoObigadoParametro=16370&idEntidadParametro=33&idSectorParametro=21" target="_blank">
-          <img src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/bannerObligaciones2.svg"/>
-        </a>
-      </div>
-    </div>
-  </div>
-
 </div>
-
-
-
-    <?php get_template_part( 'template-parts/transparencia/denuncia' ); ?>
 
 <?php
 get_footer();

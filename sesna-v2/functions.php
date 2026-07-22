@@ -95,6 +95,10 @@ function sesna_theme_scripts()
 		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 
+	if (is_page('transparencia')) {
+		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+	}
+
 	if (is_page('politica-nacional-anticorrupcion')) {
 		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('gobmx-framework-js'), 'v4', true);
 		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
