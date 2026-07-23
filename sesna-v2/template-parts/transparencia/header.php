@@ -22,7 +22,7 @@
     <div class="container">
       <p class="titulo">RENDICIÓN DE CUENTAS</p>
       <p class="dependencia"><?php the_title_transparencia(); ?></p>
-      <p class="subtitulo"><?php the_field('subtitulo'); ?></p>
+      <p class="subtitulo"><?php if ( function_exists('the_field') ) { the_field('subtitulo'); } ?></p>
 
 
       <div class="row">
@@ -41,7 +41,7 @@
                     <div class="d-flex align-self-center justify-content-center iconContainer">
                         <div class="p-2">
                         
-                            <?php the_field('icono', $item) ?>
+                            <?php if ( function_exists('the_field') ) { the_field('icono', $item); } ?>
                         </div>
                     </div><!--    ICON CONTAINER-->
                 </div><!--    circle container  -->

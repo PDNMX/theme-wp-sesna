@@ -17,16 +17,14 @@ get_header();
  * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
     ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Presenta solicitudes de acceso a la información pública.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
+    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
     ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
     ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => home_url('/transparencia/obligaciones-de-transparencia/')],
     ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-archive', 'title' => 'Archivos', 'desc' => 'Gestión, resguardo y consulta de documentos históricos.', 'url' => home_url('/transparencia/archivos/')],
     ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => home_url('/transparencia/denuncias-por-incumplimiento/')],
 ];
 
 ?>
-
 <div class="page-transparencia has-fullbleed-hero">
 
 

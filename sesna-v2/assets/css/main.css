@@ -4069,3 +4069,56 @@ body:has(.page-directorio) main.page {
 .tx-pdf-download-btn:focus, .tx-pdf-download-btn:active {
     box-shadow: none !important;
 }
+
+/* ------------------------------------------------------------
+   Unidad de Transparencia
+   ------------------------------------------------------------ */
+.tx-unidad-card {
+    background-color: #ffffff;
+}
+
+.tx-unidad-icon-circle {
+    background-color: #fcf4f5;
+    color: var(--color-burgundi);
+}
+
+.tx-unidad-footer-bg {
+    position: absolute;
+    right: -20%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: var(--color-guinda);
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+.tx-unidad-footer-bg-light {
+    position: absolute;
+    right: -12%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: var(--color-burgundi);
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+.tx-unidad-footer-bg-lighter {
+    position: absolute;
+    right: -4%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: #d1a8b3;
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+@media (max-width: 992px) {
+    .tx-unidad-footer-bg, 
+    .tx-unidad-footer-bg-light, 
+    .tx-unidad-footer-bg-lighter {
+        display: none;
+    }
+}
