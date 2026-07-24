@@ -19,9 +19,9 @@ $tx_cards = [
     ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
     ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
     ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
-    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => home_url('/transparencia/obligaciones-de-transparencia/')],
+    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
     ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => home_url('/transparencia/denuncias-por-incumplimiento/')],
+    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
 ];
 
 ?>
@@ -78,6 +78,7 @@ $tx_cards = [
                 <?php foreach ($tx_cards as $card): ?>
                     <div class="col-12 col-sm-6 col-lg-3">
                         <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
+                            <?= isset($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer"' : '' ?>
                             class="tx-card rounded-4 h-100 d-flex flex-column" aria-label="<?= esc_attr($card['title']) ?>">
                             <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                                 <i class="bi <?= esc_attr($card['icon']) ?>"></i>
@@ -92,38 +93,7 @@ $tx_cards = [
         </div>
     </section>
 
-    <!-- ============================================================
-         3. BUSCADOR
-         ============================================================ -->
-    <section class="tx-search py-5" aria-label="Buscador de información de transparencia">
-        <div class="container">
-            <div class="tx-search__box">
-                <div class="row align-items-center g-4">
-                    <div class="col-auto">
-                        <div class="tx-search__circle" aria-hidden="true">
-                            <span class="bootstrap-icons">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <p class="tx-search__label">¿Qué información estás buscando?</p>
-                        <form role="search" method="get" action="<?= esc_url(home_url('/')) ?>" class="tx-search__form">
-                            <label for="tx-search-input" class="visually-hidden">Buscar en transparencia</label>
-                            <input type="text" id="tx-search-input" name="s" class="tx-search__input"
-                                placeholder="Buscar por palabra clave, documento, acta, obligación, resolución...">
-                            <button type="submit" class="tx-search__btn">
-                                <span class="bootstrap-icons" aria-hidden="true">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                                Buscar
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div><!-- /.tx-search__box -->
-        </div>
-    </section>
+
 
     <!-- ============================================================
          4. CONSULTA INFORMACIÓN PÚBLICA
@@ -202,48 +172,33 @@ $tx_cards = [
          ============================================================ -->
     <section class="tx-contacto py-4" aria-label="Datos de contacto de la Unidad de Transparencia">
         <div class="container">
-            <div class="row align-items-center g-4 text-center text-md-start">
+            <div class="row align-items-center justify-content-center g-4 text-center">
 
-                <div class="col-12 col-md-4">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
-                        <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
-                            <span class="bootstrap-icons">
-                                <i class="bi bi-headset"></i>
-                            </span>
-                        </div>
-                        <div>
-                            <strong class="tx-contacto__name d-block">Unidad de Transparencia</strong>
-                            <span class="tx-contacto__detail d-block">Estamos para ayudarte</span>
-                            <span class="tx-contacto__detail d-block">Lunes a viernes de 9:00 a 18:00 h</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
                                 <i class="bi bi-envelope"></i>
                             </span>
                         </div>
                         <div>
-                            <a href="mailto:transparencia@sesna.gob.mx" class="tx-contacto__link">
-                                transparencia@sesna.gob.mx
+                            <a href="mailto:unidadtransparencia@sesna.gob.mx" class="tx-contacto__link">
+                                unidadtransparencia@sesna.gob.mx
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
                                 <i class="bi bi-telephone"></i>
                             </span>
                         </div>
                         <div>
-                            <a href="tel:+525520003000" class="tx-contacto__link">
-                                55 2000 3000<br>Ext. 1000
+                            <a href="tel:+525581178100" class="tx-contacto__link">
+                                55 8117 8100<br>Ext. 1116
                             </a>
                         </div>
                     </div>

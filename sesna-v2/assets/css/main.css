@@ -4122,3 +4122,12 @@ body:has(.page-directorio) main.page {
         display: none;
     }
 }
+.tx-unidad-map-container {
+    min-height: 300px;
+}
+@media (min-width: 992px) {
+    .tx-unidad-map-container {
+        min-height: 450px;
+    }
+}
+

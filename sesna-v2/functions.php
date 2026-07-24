@@ -146,10 +146,48 @@ function get_the_thumbnail_photo($size)
 	$fallback_text = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Texto.jpg';
 	$fallback_video = get_bloginfo('stylesheet_directory') . '/img/blog/PIC-Multimedia.jpg';
 
+	global $post;
+
+	// 1. Relación estándar de WordPress
 	if (has_post_thumbnail()) {
 		$url = get_the_post_thumbnail_url(get_the_ID(), $size);
-		return $url ? $url : $fallback_text;
-	} elseif (get_post_format() === 'video') {
+		if (!$url) {
+			$url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+		}
+		if ($url) return $url;
+	} 
+	
+	// 2. Búsqueda algorítmica: Primera imagen en el contenido
+	if ($post && !empty($post->post_content)) {
+		if (preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches)) {
+			return $matches[1];
+		}
+	}
+
+	// 3. Búsqueda algorítmica: Coincidencia por slug en el directorio uploads
+	if ($post) {
+		$upload_dir = wp_upload_dir();
+		$time = strtotime($post->post_date);
+		$year = date('Y', $time);
+		$month = date('m', $time);
+		$slug = $post->post_name;
+		
+		$base_dir = $upload_dir['basedir'] . '/' . $year . '/' . $month;
+		$base_url = $upload_dir['baseurl'] . '/' . $year . '/' . $month;
+		
+		if (file_exists($base_dir)) {
+			$extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG', 'PNG', 'GIF', 'WEBP'];
+			foreach ($extensions as $ext) {
+				$files = glob($base_dir . '/*' . $slug . '*.' . $ext);
+				if (!empty($files)) {
+					return $base_url . '/' . basename($files[0]);
+				}
+			}
+		}
+	}
+
+	// 4. Fallbacks por formato
+	if (get_post_format() === 'video') {
 		return $fallback_video;
 	} else {
 		return $fallback_text;
@@ -1189,3 +1227,256 @@ function sesna_transparencia_admin_menu_styles() {
     </style>';
 }
 add_action('admin_head', 'sesna_transparencia_admin_menu_styles');
+
+// Registrar el Custom Post Type "Datos Personales"
+function sesna_register_datos_personales_cpt() {
+    $labels = array(
+        'name'               => _x('Datos Personales', 'Post type general name', 'sesna'),
+        'singular_name'      => _x('Documento Datos Personales', 'Post type singular name', 'sesna'),
+        'menu_name'          => _x('Datos Personales', 'Admin Menu text', 'sesna'),
+        'name_admin_bar'     => _x('Doc. Datos Personales', 'Add New on Toolbar', 'sesna'),
+        'add_new'            => __('Añadir nuevo', 'sesna'),
+        'add_new_item'       => __('Añadir nuevo documento', 'sesna'),
+        'new_item'           => __('Nuevo documento', 'sesna'),
+        'edit_item'          => __('Editar documento', 'sesna'),
+        'view_item'          => __('Ver documento', 'sesna'),
+        'all_items'          => __('Datos Personales', 'sesna'),
+        'search_items'       => __('Buscar documentos', 'sesna'),
+        'not_found'          => __('No se encontraron documentos.', 'sesna'),
+        'not_found_in_trash' => __('No se encontraron documentos en la papelera.', 'sesna'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => 'menu-transparencia',
+        'query_var'          => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'supports'           => array('title'),
+    );
+
+    register_post_type('datos-personales', $args);
+}
+add_action('init', 'sesna_register_datos_personales_cpt');
+
+function sesna_add_datos_personales_meta_box() {
+    add_meta_box(
+        'datos_personales_meta',
+        'Datos del Documento',
+        'sesna_datos_personales_meta_box_html',
+        'datos-personales',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sesna_add_datos_personales_meta_box');
+
+function sesna_datos_personales_meta_box_html($post) {
+    wp_nonce_field('sesna_save_dp_meta', 'sesna_dp_meta_nonce');
+
+    $anio     = get_post_meta($post->ID, '_dp_anio', true) ?: date('Y');
+    $archivo_url = get_post_meta($post->ID, '_dp_archivo_url', true);
+
+    ?>
+    <style>
+        .dp-row { margin-bottom: 15px; }
+        .dp-row label { font-weight: bold; display: block; margin-bottom: 5px; }
+        .dp-row input[type=text], .dp-row input[type=number], .dp-row select { width: 100%; max-width: 400px; }
+    </style>
+    <div class="dp-row">
+        <label for="dp_anio">Año</label>
+        <input type="number" id="dp_anio" name="_dp_anio" value="<?php echo esc_attr($anio); ?>" min="2000" max="2100">
+    </div>
+
+    <div class="dp-row">
+        <label for="dp_archivo_url">Archivo (PDF, DOCX, XLSX)</label>
+        <div style="display:flex; gap:10px;">
+            <input type="text" id="dp_archivo_url" name="_dp_archivo_url" value="<?php echo esc_attr($archivo_url); ?>" style="flex:1;">
+            <button type="button" class="button" id="dp_upload_btn">Seleccionar Archivo</button>
+        </div>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($){
+        var mediaUploader;
+        $('#dp_upload_btn').click(function(e) {
+            e.preventDefault();
+            if (mediaUploader) {
+                mediaUploader.open();
+                return;
+            }
+            mediaUploader = wp.media.frames.file_frame = wp.media({
+                title: 'Seleccionar Archivo',
+                button: { text: 'Usar este archivo' },
+                multiple: false
+            });
+            mediaUploader.on('select', function() {
+                var attachment = mediaUploader.state().get('selection').first().toJSON();
+                $('#dp_archivo_url').val(attachment.url);
+            });
+            mediaUploader.open();
+        });
+    });
+    </script>
+    <?php
+}
+
+function sesna_save_dp_meta($post_id) {
+    if (!isset($_POST['sesna_dp_meta_nonce']) || !wp_verify_nonce($_POST['sesna_dp_meta_nonce'], 'sesna_save_dp_meta')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $fields = array('_dp_anio', '_dp_archivo_url');
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+}
+add_action('save_post_datos-personales', 'sesna_save_dp_meta');
+
+function sesna_dp_admin_scripts($hook) {
+    global $typenow;
+    if ($typenow == 'datos-personales') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'sesna_dp_admin_scripts');
+
+/**
+ * Obtiene los documentos para la sección de Datos Personales,
+ * infiriendo su categoría y localizando el archivo físicamente en uploads.
+ */
+function sesna_get_datos_personales_docs() {
+    $base_docs = [
+        [
+            'titulo' => 'Aviso de Privacidad Simplificado de la Plataforma de Aprendizaje Anticorrupción, 2023',
+            'anio' => '2023',
+            'filename' => 'PAA_Aviso-de-Privacidad-Simplificado.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad Integral de la Plataforma de Aprendizaje Anticorrupción, 2023',
+            'anio' => '2023',
+            'filename' => 'PAA_Aviso-de-Privacidad-Integral.pdf'
+        ],
+        [
+            'titulo' => 'Información sobre Avisos de Privacidad Integrales, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-Guia-1.-Informacion-sobre-el-aviso-o-los-avisos-de-privacidad-integrales_30Jun2022.pdf'
+        ],
+        [
+            'titulo' => 'Formatos Obligatorios para la Publicación de Medios de Verificación, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-8.-Formatos-obligatorios-para-publicacion-de-medios-de-verificacion_30Jun2022-05Jul2022.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad Simplificado, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-4-AVISO-DE-PRIVACIDAD-SIMPLIFICADO_16Jun2022-30Jun2022.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad Integral, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-3-AVISO-DE-PRIVACIDAD-INTEGRAL_16Jun2022-30Jun2022.pdf'
+        ],
+        [
+            'titulo' => 'Documento de Seguridad de la Plataforma Digital Nacional, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-1.1-Documento-de-Seguridad-PDN_VP_16Jun2022-30Jun2022.pdf'
+        ],
+        [
+            'titulo' => 'Documento de Seguridad de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, 2022',
+            'anio' => '2022',
+            'filename' => 'Anexo-1-Documento-de-Seguridad-DGA-2022_VP_16Jun2022-30Jun2022.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad de la Plataforma Digital Nacional, 2022',
+            'anio' => '2022',
+            'filename' => 'Aviso-Privacidad-PDN_14Feb2022-22Mar2022.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad Integral, 2021',
+            'anio' => '2021',
+            'filename' => 'AVISO-DE-PRIVACIDAD-INTEGRAL_23Abr2021-26Abr2021.pdf'
+        ],
+        [
+            'titulo' => 'Aviso de Privacidad Simplificado, 2021',
+            'anio' => '2021',
+            'filename' => 'AVISO-DE-PRIVACIDAD-SIMPLIFICADO_23Abr2021-26Abr2021.pdf'
+        ]
+    ];
+
+    $transient_key = 'sesna_dp_docs_cache_v3';
+    $cached_docs = get_transient($transient_key);
+
+    if (false === $cached_docs || isset($_GET['clear_cache'])) {
+        $upload_dir = wp_upload_dir();
+        $basedir = $upload_dir['basedir'];
+        $baseurl = $upload_dir['baseurl'];
+        
+        $file_map = [];
+        try {
+            $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($basedir, RecursiveDirectoryIterator::SKIP_DOTS));
+            foreach ($iterator as $file) {
+                if ($file->isFile() && strtolower($file->getExtension()) === 'pdf') {
+                    $filename = $file->getFilename();
+                    if (!isset($file_map[$filename])) {
+                        $path = $file->getPathname();
+                        $url = str_replace($basedir, $baseurl, $path);
+                        $url = str_replace('\\', '/', $url);
+                        $file_map[$filename] = $url;
+                    }
+                }
+            }
+        } catch(Exception $e) {
+            // Ignorar errores de lectura de directorio
+        }
+
+        $processed_docs = [];
+        foreach ($base_docs as $doc) {
+            $tipo = 'Información General';
+            $tit_lower = strtolower($doc['titulo']);
+            if (strpos($tit_lower, 'simplificado') !== false) {
+                $tipo = 'Aviso de Privacidad Simplificado';
+            } elseif (strpos($tit_lower, 'integral') !== false) {
+                $tipo = 'Aviso de Privacidad Integral';
+            } elseif (strpos($tit_lower, 'seguridad') !== false) {
+                $tipo = 'Documento de Seguridad';
+            } elseif (strpos($tit_lower, 'formato') !== false) {
+                $tipo = 'Formatos';
+            }
+
+            $enlace = '#';
+            if (isset($file_map[$doc['filename']])) {
+                $enlace = $file_map[$doc['filename']];
+            }
+
+            $processed_docs[] = [
+                'titulo' => $doc['titulo'],
+                'anio'   => $doc['anio'],
+                'tipo'   => $tipo,
+                'enlace' => $enlace
+            ];
+        }
+
+        usort($processed_docs, function($a, $b) {
+            return (int)$b['anio'] - (int)$a['anio'];
+        });
+
+        set_transient($transient_key, $processed_docs, 12 * HOUR_IN_SECONDS);
+        $cached_docs = $processed_docs;
+    }
+
+    return $cached_docs;
+}
