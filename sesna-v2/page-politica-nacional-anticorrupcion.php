@@ -42,7 +42,7 @@ get_header();
                     <!-- Portada -->
                     <div class="col-lg-4">
                         <div class="pna-doc-cover">
-                            <i class="bi bi-file-earmark-richtext" aria-hidden="true"></i>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción">
                         </div>
                     </div>
 
@@ -68,39 +68,39 @@ get_header();
                         </p>
 
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2020/01/PNA-resumen-ejecutivo.pdf" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
                                 <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2020/02/Política-Nacional-Anticorrupción.pdf" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
                                 <i class="bi bi-book" aria-hidden="true"></i> Documento Completo
                             </a>
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2020/02/Guía-diseño-PEA.pdf" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
                                 <i class="bi bi-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
                             </a>
 
                             <!-- Anexos -->
                             <div class="dropdown pna-anexos-dropdown">
-                                <button class="pna-download-btn dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-primary pna-download-btn dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-paperclip" aria-hidden="true"></i> Anexos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="pnaAnexosDropdown">
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2020/01/2-Anexo-1-Estadísticos-23012020.pdf">
+                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                             <i class="bi bi-download" aria-hidden="true"></i> Estadísticos
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf">
+                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                             <i class="bi bi-download" aria-hidden="true"></i> Proceso de integración de la PNA
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf">
+                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                             <i class="bi bi-download" aria-hidden="true"></i> Acciones sugeridas
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf">
+                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                             <i class="bi bi-download" aria-hidden="true"></i> Acciones de poderes ejecutivos
                                         </a>
                                     </li>
@@ -175,16 +175,16 @@ get_header();
 
             <div class="row g-4 pt-4">
                 <div class="col-md-6">
-                    <div class="pna-ciclo-card">
+                    <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-card text-decoration-none d-block" style="cursor: pointer;">
                         <div class="pna-ciclo-card__top">
                             <span class="pna-ciclo-card__number">1</span>
                             <span class="pna-ciclo-card__icon" aria-hidden="true"><i class="bi bi-bullseye"></i></span>
                             <p class="pna-ciclo-card__title">Diseño</p>
                         </div>
-                        <p class="pna-ciclo-card__desc">
+                        <p class="pna-ciclo-card__desc text-muted">
                             Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.
                         </p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <div class="pna-ciclo-card">
@@ -243,12 +243,12 @@ get_header();
                     sectores de la sociedad. Si deseas saber más sobre los insumos de la Política Nacional Anticorrupción
                     consúltalos aquí.
                 </p>
-                <a href="https://www.sesna.gob.mx/2020/03/19/insumos-de-la-politica-nacional-anticorrupcion/" class="pna-download-btn" target="_blank" rel="noopener">
+                <a href="<?php echo esc_url( home_url( '/2020/03/19/insumos-de-la-politica-nacional-anticorrupcion/' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
                     <i class="bi bi-folder2-open" aria-hidden="true"></i> Insumos de la PNA
                 </a>
 
                 <div class="mt-4">
-                    <a href="/wp-content/uploads/2019/07/Aviso-de-privacidad.pdf" class="pna-privacy-link" target="_blank" rel="noopener">
+                    <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Aviso-de-privacidad.pdf', '2019/07/Aviso-de-privacidad.pdf' ) ); ?>" class="pna-privacy-link" target="_blank" rel="noopener">
                         <i class="bi bi-shield-lock" aria-hidden="true"></i> Aviso de privacidad sobre los datos recabados para la propuesta de la PNA
                     </a>
                 </div>

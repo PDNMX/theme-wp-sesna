@@ -1480,3 +1480,48 @@ function sesna_get_datos_personales_docs() {
 
     return $cached_docs;
 }
+
+/**
+ * Obtiene de manera dinámica y portable la URL de un documento almacenado en la Biblioteca de Medios (wp-admin).
+ * Busca el archivo por nombre o ruta relativa en los archivos adjuntos de WordPress, evitando dominios codificados.
+ *
+ * @param string $filename      Nombre del archivo o patrón a buscar (ej: 'PNA-resumen-ejecutivo.pdf').
+ * @param string $fallback_path Ruta relativa dentro de la carpeta de subidas de WordPress por si no existe en BD (ej: '2020/01/PNA-resumen-ejecutivo.pdf').
+ * @return string URL completa del archivo generada dinámicamente según la configuración del entorno actual.
+ */
+function sesna_get_media_attachment_url( $filename, $fallback_path = '' ) {
+    $args = array(
+        'post_type'      => 'attachment',
+        'post_status'    => 'inherit',
+        'posts_per_page' => 20,
+        'meta_query'     => array(
+            array(
+                'key'     => '_wp_attached_file',
+                'value'   => $filename,
+                'compare' => 'LIKE'
+            )
+        ),
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    $attachments = get_posts( $args );
+
+    if ( ! empty( $attachments ) && ! is_wp_error( $attachments ) ) {
+        foreach ( $attachments as $attachment ) {
+            $attached_file = get_post_meta( $attachment->ID, '_wp_attached_file', true );
+            // Ensure exact filename match to prevent matching prefixed files (e.g. 11.-filename.pdf)
+            if ( basename( $attached_file ) === $filename ) {
+                $url = wp_get_attachment_url( $attachment->ID );
+                if ( ! empty( $url ) && ! is_wp_error( $url ) ) {
+                    return $url;
+                }
+            }
+        }
+    }
+
+    $upload_dir = wp_upload_dir();
+    $path = ! empty( $fallback_path ) ? $fallback_path : $filename;
+    
+    return trailingslashit( $upload_dir['baseurl'] ) . ltrim( $path, '/' );
+}

@@ -36,11 +36,11 @@ if (!function_exists('sesna_render_document_row')) {
             <div class="flex-shrink-0 text-md-end mt-2 mt-md-0 ms-md-4">
                 <?php if ($has_file): ?>
                 <a href="<?= esc_url($file_url) ?>" class="btn btn-outline-danger px-4 rounded-pill fw-semibold d-inline-flex align-items-center gap-2 shadow-sm" target="_blank" rel="noopener" aria-label="Descargar PDF de <?php echo esc_attr(get_the_title()); ?>">
-                    Descargar <i class="bi bi-download fs-6" aria-hidden="true"></i>
+                    Consultar <i class="bi bi-file-earmark-text fs-5" aria-hidden="true"></i>
                 </a>
                 <?php else: ?>
                 <span class="btn btn-light px-4 rounded-pill fw-medium text-muted disabled d-inline-flex align-items-center gap-2" aria-disabled="true">
-                    No disponible <i class="bi bi-dash-circle fs-6" aria-hidden="true"></i>
+                    No disponible <i class="bi bi-file-earmark-x fs-5" aria-hidden="true"></i>
                 </span>
                 <?php endif; ?>
             </div>
@@ -181,8 +181,8 @@ if (!function_exists('sesna_render_document_row')) {
                         </div>
                     </div>
                     <div class="flex-shrink-0 mt-4 mt-md-0 align-self-stretch align-self-md-auto text-md-end">
-                        <a href="javascript:void(0)" class="btn btn-primary btn-lg d-block d-md-inline-flex align-items-center justify-content-center gap-2" style="background-color: #9F2241 !important; color: #FFFFFF !important; border: 1px solid #9F2241 !important; border-radius: 8px !important; white-space: normal; padding: 12px 24px;">
-                            Ir a Órganos Colegiados y Normatividad <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                        <a href="javascript:void(0)" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
+                            Ir a Órganos Colegiados y Normatividad <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

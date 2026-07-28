@@ -135,68 +135,10 @@ $documentos = sesna_get_datos_personales_docs();
 }
 </style>
 
-<!-- Modal Visor PDF -->
-<div class="modal fade" id="pdfViewerModal" tabindex="-1" aria-labelledby="pdfViewerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width: 900px !important; margin: 5vh auto !important;">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
-                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="pdfViewerModalLabel" style="color: #9f2241; font-size: 1.25rem;">Visor de Documento</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Cerrar" style="background: none; border: none; font-size: 1.5rem; opacity: 0.5;">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 500px;">
-                <!-- Loader spinner -->
-                <div id="pdfLoader" class="position-absolute top-50 start-50 translate-middle text-white text-center">
-                    <div class="spinner-border mb-2" role="status"></div>
-                    <div class="font-noto-sans small">Cargando documento...</div>
-                </div>
-                <iframe id="pdfIframe" src="" class="w-100 h-100 border-0 position-relative" style="z-index: 2;" allowfullscreen></iframe>
-            </div>
-            <div class="modal-footer border-0 justify-content-center py-4 bg-white gap-3">
-                <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-action-btn font-noto-sans fw-bold px-4 py-2" download target="_blank">
-                    <i class="bi bi-download me-2"></i> Descargar
-                </a>
-                <button type="button" class="btn tx-pdf-action-btn font-noto-sans fw-bold px-4 py-2" onclick="document.getElementById('pdfIframe').contentWindow.print();">
-                    <i class="bi bi-printer me-2"></i> Imprimir
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const pdfModal = document.getElementById('pdfViewerModal');
-    if(pdfModal) {
-        const iframe = document.getElementById('pdfIframe');
-        const downloadBtn = document.getElementById('pdfDownloadBtn');
-        const title = document.getElementById('pdfViewerModalLabel');
-
-        pdfModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            if(!button) return;
-
-            const pdfUrl = button.getAttribute('data-pdf-url');
-            const pdfTitle = button.getAttribute('data-pdf-title');
-
-            if (pdfTitle) title.textContent = pdfTitle;
-            downloadBtn.href = pdfUrl;
-            
-            iframe.style.opacity = '0';
-            iframe.src = pdfUrl;
-            
-            iframe.onload = function() {
-                iframe.style.transition = 'opacity 0.4s ease';
-                iframe.style.opacity = '1';
-            };
-        });
-
-        pdfModal.addEventListener('hidden.bs.modal', function () {
-            iframe.src = '';
-            title.textContent = 'Visor de Documento';
-        });
-    }
 
     // Logic for filtering and pagination
     const filterAnio = document.getElementById('filter-anio');

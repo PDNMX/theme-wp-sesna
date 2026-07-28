@@ -62,7 +62,7 @@
         if (loader) {
             loader.classList.add('loader-hidden');
             setTimeout(function() {
-                if (loader.parentNode) loader.parentNode.removeChild(loader);
+                loader.style.display = 'none';
             }, 600);
         }
     });
@@ -73,7 +73,7 @@
         if (loader && !loader.classList.contains('loader-hidden')) {
             loader.classList.add('loader-hidden');
             setTimeout(function() {
-                if (loader.parentNode) loader.parentNode.removeChild(loader);
+                loader.style.display = 'none';
             }, 600);
         }
     }, 7000);

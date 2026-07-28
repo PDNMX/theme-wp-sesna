@@ -1,20 +1,6 @@
 <?php
-/*
- * Landing de la sección Transparencia — se aplica automáticamente a la página
- * con slug "transparencia" (convención page-{slug}.php de WordPress).
- *
- * CAMBIÓ   : diseño completo (hero diagonal, accesos rápidos, buscador,
- *             consulta pública, banda de contacto) + guía gráfica GOB.mx v3.
- * CONSERVÓ : get_header(), get_footer(); parciales header.php y denuncia.php
- *             intactos (no se incluyen aquí).
- * HIJOS    : ningún subtemplate (comite, unidad, solicitudes, etc.) usa las
- *             clases .tx-* ni .page-transparencia — sin riesgo de regresión.
- */
-
 get_header();
 
-/* Accesos rápidos — 8 tarjetas fijas de la maqueta.
- * Links en '#' hasta que se definan las URLs definitivas. */
 $tx_cards = [
     ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
     ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
@@ -27,10 +13,6 @@ $tx_cards = [
 ?>
 <div class="page-transparencia has-fullbleed-hero">
 
-
-    <!-- ============================================================
-         1. HERO / BANNER PRINCIPAL
-         ============================================================ -->
     <section class="position-relative" aria-label="Encabezado de Transparencia y acceso a la información">
         <!-- Imagen del Banner Nativa -->
         <img src="<?= get_template_directory_uri() ?>/img/home_v2/BannerSESNA_Transparencia.jpg" alt="Transparencia"
@@ -51,9 +33,6 @@ $tx_cards = [
         </div>
     </section>
 
-    <!-- ============================================================
-         2. ACCESOS RÁPIDOS
-         ============================================================ -->
     <section class="tx-accesos py-5" aria-labelledby="tx-accesos-titulo">
         <div class="container">
             <div class="row">
@@ -93,11 +72,6 @@ $tx_cards = [
         </div>
     </section>
 
-
-
-    <!-- ============================================================
-         4. CONSULTA INFORMACIÓN PÚBLICA
-         ============================================================ -->
     <section class="tx-consulta py-5" aria-labelledby="tx-consulta-titulo">
         <div class="container">
             <div class="row">
@@ -167,9 +141,6 @@ $tx_cards = [
         </div>
     </section>
 
-    <!-- ============================================================
-         5. BANDA DE CONTACTO
-         ============================================================ -->
     <section class="tx-contacto py-4" aria-label="Datos de contacto de la Unidad de Transparencia">
         <div class="container">
             <div class="row align-items-center justify-content-center g-4 text-center">
