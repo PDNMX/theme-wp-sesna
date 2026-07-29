@@ -15,15 +15,13 @@
   </div>
 
   <!-- Hero -->
-  <section class="dir-hero">
+  <section class="py-5 mb-5 ocn-hero">
     <div class="container">
-      <div class="d-flex align-items-start gap-4">
-        <div class="dir-hero__icon-circle" aria-hidden="true">
-          <i class="bi bi-journal-bookmark-fill"></i>
-        </div>
-        <div>
-          <h1 class="dir-hero__title">Directorio</h1>
-          <p class="dir-hero__desc">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
+          <h1 class="tx-hero__title fw-bold mb-3 font-patria">Directorio</h1>
+          <div class="hero-separator"></div>
+          <p class="tx-hero__subtitle text-muted font-noto-sans" style="max-width: 480px;">
             Conoce a las personas titulares de las áreas que integran
             la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
           </p>

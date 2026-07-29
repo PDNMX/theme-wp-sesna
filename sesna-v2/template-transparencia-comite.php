@@ -76,7 +76,7 @@ wp_reset_postdata();
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="bi bi-list-ul"></i> Sesiones
+                        <i class="bi bi-list-ul"></i> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">

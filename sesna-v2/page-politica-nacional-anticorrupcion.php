@@ -26,10 +26,14 @@ get_header();
     </nav>
 
     <!-- Hero -->
-    <section class="pna-hero">
+    <section class="py-5 mb-4 ocn-hero">
         <div class="container">
-            <h1 class="pna-hero__title">Política Nacional Anticorrupción</h1>
-            <div class="pna-hero__line"></div>
+            <div class="row align-items-center">
+                <div class="col-12 position-relative z-1">
+                    <h1 class="tx-hero__title fw-bold mb-3 font-patria">Política Nacional Anticorrupción</h1>
+                    <div class="hero-separator"></div>
+                </div>
+            </div>
         </div>
     </section>
 

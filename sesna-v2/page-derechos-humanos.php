@@ -26,76 +26,15 @@ get_header();
     </nav>
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
-    <section class="dh-hero py-5">
+    <section class="py-5 mb-5 ocn-hero">
         <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-7 col-md-8">
-                    <h1 class="dh-hero__title fw-bold font-patria">Derechos Humanos<br>y Perspectiva de Género</h1>
-                    <p class="dh-hero__desc text-muted mt-3" style="max-width: 540px;">Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.</p>
-                </div>
-                <div class="col-lg-5 col-md-4 text-center">
-                    <div class="dh-hero__ilustracion">
-                        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" class="dh-hero__svg">
-                            <!-- Círculo decorativo -->
-                            <circle cx="160" cy="150" r="130" fill="none" stroke="#e8ddd8" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
-                            <circle cx="160" cy="150" r="110" fill="none" stroke="#e8ddd8" stroke-width="1" opacity="0.3"/>
-
-                            <!-- Puntos decorativos -->
-                            <circle cx="55" cy="80" r="4" fill="#d4a5a5" opacity="0.5"/>
-                            <circle cx="270" cy="95" r="3" fill="#d4a5a5" opacity="0.4"/>
-                            <circle cx="85" cy="250" r="3.5" fill="#d4a5a5" opacity="0.35"/>
-                            <circle cx="245" cy="240" r="4" fill="#9d2449" opacity="0.25"/>
-
-                            <!-- Balanza -->
-                            <g transform="translate(160, 60)">
-                                <!-- Soporte central -->
-                                <rect x="-3" y="0" width="6" height="60" rx="3" fill="#9d2449"/>
-                                <circle cx="0" cy="0" r="8" fill="#9d2449"/>
-                                <!-- Barra horizontal -->
-                                <rect x="-65" y="12" width="130" height="5" rx="2.5" fill="#9d2449"/>
-                                <!-- Plato izquierdo -->
-                                <line x1="-60" y1="17" x2="-60" y2="50" stroke="#9d2449" stroke-width="2"/>
-                                <path d="M-85,50 Q-60,62 -35,50" fill="none" stroke="#9d2449" stroke-width="2.5" stroke-linecap="round"/>
-                                <!-- Plato derecho -->
-                                <line x1="60" y1="17" x2="60" y2="42" stroke="#9d2449" stroke-width="2"/>
-                                <path d="M35,42 Q60,54 85,42" fill="none" stroke="#9d2449" stroke-width="2.5" stroke-linecap="round"/>
-                            </g>
-
-                            <!-- Personas -->
-                            <!-- Persona izquierda -->
-                            <g transform="translate(100, 165)">
-                                <circle cx="0" cy="0" r="12" fill="#c4956a" opacity="0.8"/>
-                                <path d="M-18,50 Q0,20 18,50" fill="#c4956a" opacity="0.6"/>
-                            </g>
-
-                            <!-- Persona central -->
-                            <g transform="translate(160, 155)">
-                                <circle cx="0" cy="0" r="14" fill="#9d2449" opacity="0.7"/>
-                                <path d="M-20,55 Q0,22 20,55" fill="#9d2449" opacity="0.5"/>
-                            </g>
-
-                            <!-- Persona derecha -->
-                            <g transform="translate(220, 165)">
-                                <circle cx="0" cy="0" r="12" fill="#a57f2c" opacity="0.7"/>
-                                <path d="M-18,50 Q0,20 18,50" fill="#a57f2c" opacity="0.5"/>
-                            </g>
-
-                            <!-- Persona extra izquierda pequeña -->
-                            <g transform="translate(70, 185)">
-                                <circle cx="0" cy="0" r="9" fill="#d4a5a5" opacity="0.6"/>
-                                <path d="M-14,38 Q0,15 14,38" fill="#d4a5a5" opacity="0.4"/>
-                            </g>
-
-                            <!-- Persona extra derecha pequeña -->
-                            <g transform="translate(250, 185)">
-                                <circle cx="0" cy="0" r="9" fill="#d4a5a5" opacity="0.6"/>
-                                <path d="M-14,38 Q0,15 14,38" fill="#d4a5a5" opacity="0.4"/>
-                            </g>
-
-                            <!-- Línea base -->
-                            <line x1="60" y1="250" x2="260" y2="250" stroke="#e8ddd8" stroke-width="1.5" opacity="0.5"/>
-                        </svg>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
+                    <h1 class="tx-hero__title fw-bold mb-3 font-patria">Derechos Humanos<br>y Perspectiva de Género</h1>
+                    <div class="hero-separator"></div>
+                    <p class="tx-hero__subtitle text-muted font-noto-sans" style="max-width: 540px;">
+                        Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
+                    </p>
                 </div>
             </div>
         </div>

@@ -179,9 +179,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download target="_blank">
                     <i class="bi bi-download me-2"></i> Descargar PDF
                 </a>
-                <button type="button" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" onclick="document.getElementById('pdfIframe').contentWindow.print();">
-                    <i class="bi bi-printer me-2"></i> Imprimir
-                </button>
             </div>
         </div>
     </div>

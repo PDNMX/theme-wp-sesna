@@ -104,66 +104,55 @@ if (!function_exists('sesna_render_document_row')) {
                         </div>
                         <div>
                             <h2 class="h4 fw-bold font-patria mb-2" style="color: #9F2241;">Normativa en materia de transparencia</h2>
-                            <p class="mb-0 font-noto-sans" style="font-size: 1rem; color: #545454;">Consulta la normativa aplicable en materia de transparencia, acceso a la información, protección de datos personales y gestión documental.</p>
+                            <p class="mb-0 font-noto-sans" style="font-size: 0.85rem; font-weight: 300; color: #888888;">Consulta la normativa aplicable en materia de transparencia, acceso a la información, protección de datos personales y gestión documental.</p>
                         </div>
                     </div>
 
-                    <!-- Table (Flexbox Responsive Layout) -->
-                    <div class="border rounded-3 overflow-hidden" style="border-color: #EAEAEA !important;">
-                        <!-- Desktop Header -->
-                        <div class="d-none d-md-flex align-items-center border-bottom" style="background-color: #F9F9F9; border-color: #EAEAEA !important;">
-                            <div class="py-3 px-4 fw-bold font-noto-sans" style="width: 70%; font-size: 0.95rem; color: #545454;">Documento</div>
-                            <div class="py-3 px-4 fw-bold font-noto-sans text-center" style="width: 30%; font-size: 0.95rem; color: #545454;">Tipo de documento</div>
-                        </div>
-                        
-                        <!-- Rows -->
-                        <div class="bg-white">
-                            <?php
-                            $normatividad_externa = [
-                                [
-                                    'titulo' => 'Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados.',
-                                    'tipo' => 'Ley',
-                                    'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf'
-                                ],
-                                [
-                                    'titulo' => 'Ley General de Transparencia y Acceso a la Información Pública.',
-                                    'tipo' => 'Ley',
-                                    'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf'
-                                ],
-                                [
-                                    'titulo' => 'Ley General de Archivo.',
-                                    'tipo' => 'Ley',
-                                    'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGA.pdf'
-                                ]
-                            ];
-                            
-                            foreach ($normatividad_externa as $index => $doc) :
-                            ?>
-                            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center p-4 <?= $index < count($normatividad_externa) - 1 ? 'border-bottom' : '' ?>" style="border-color: #F2F2F2 !important;">
+                    <!-- Table (Minimalist Layout) -->
+                    <div class="table-responsive">
+                        <table class="tx-table-normatividad">
+                            <thead>
+                                <tr>
+                                    <th>Documento</th>
+                                    <th>Tipo de documento</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $normatividad_externa = [
+                                    [
+                                        'titulo' => 'Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados.',
+                                        'tipo' => 'Ley',
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf'
+                                    ],
+                                    [
+                                        'titulo' => 'Ley General de Transparencia y Acceso a la Información Pública.',
+                                        'tipo' => 'Ley',
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf'
+                                    ],
+                                    [
+                                        'titulo' => 'Ley General de Archivo.',
+                                        'tipo' => 'Ley',
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGA.pdf'
+                                    ]
+                                ];
                                 
-                                <!-- Document Info -->
-                                <div class="d-flex align-items-center gap-3 gap-md-4 mb-3 mb-md-0 w-100" style="flex: 1 1 70%;">
-                                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style="width: 50px; height: 50px; background-color: #F9F9F9; color: #9F2241; border: 1px solid #EAEAEA;">
-                                        <i class="bi bi-book fs-4"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="h6 font-noto-sans mb-0 fw-bold lh-base" style="color: #333333;"><?= esc_html($doc['titulo']) ?></h3>
-                                    </div>
-                                </div>
-
-                                <!-- Type and Action -->
-                                <div class="d-flex flex-row align-items-center justify-content-between justify-content-md-center gap-3 gap-md-4 gap-lg-5 w-100 mt-2 mt-md-0" style="flex: 1 1 30%;">
-                                    <span class="badge rounded-pill font-noto-sans px-4 py-2" style="background-color: #F2F2F2; color: #545454; font-weight: 500; font-size: 0.9rem; border: 1px solid #EAEAEA;"><?= esc_html($doc['tipo']) ?></span>
-                                    
-                                    <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-center d-flex flex-column align-items-center rounded-3 p-2 border" style="color: #9F2241; border-color: #9F2241 !important; background-color: #fff; width: 70px; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#9F2241'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='#fff'; this.style.color='#9F2241';" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                        <i class="bi bi-box-arrow-up-right fs-5 mb-1"></i>
-                                        <span class="font-noto-sans" style="font-size: 0.75rem; font-weight: 600;">Consultar</span>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <?php endforeach; ?>
-                        </div></div>
+                                foreach ($normatividad_externa as $index => $doc) :
+                                ?>
+                                    <tr>
+                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title"><?= esc_html($doc['titulo']) ?></div></td>
+                                        <td><div class="font-noto-sans tx-sesion-info-type"><?= esc_html($doc['tipo']) ?></div></td>
+                                    <td>
+                                        <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener noreferrer" class="tx-table-normatividad-link" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
             </div>

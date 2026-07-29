@@ -3,14 +3,42 @@ get_header();
 
 $tx_cards = [
     ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/transparencia/solicitudes-de-informacion/')],
+    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'), 'target' => '_blank'],
     ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
     ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
     ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Reporta incumplimientos en las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
+    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
 ];
 
 ?>
+<style>
+/* CSS para la opción de consultar manual en la tarjeta de Obligaciones */
+.tx-card-manual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(109, 27, 50, 0.95); /* Guinda semi-transparente */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+}
+.tx-card:hover .tx-card-manual-overlay {
+    transform: translateY(0);
+}
+.tx-card-manual-overlay:hover {
+    background: #501022;
+}
+</style>
 <div class="page-transparencia has-fullbleed-hero">
 
     <section class="position-relative" aria-label="Encabezado de Transparencia y acceso a la información">
@@ -58,13 +86,19 @@ $tx_cards = [
                     <div class="col-12 col-sm-6 col-lg-3">
                         <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
                             <?= isset($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer"' : '' ?>
-                            class="tx-card rounded-4 h-100 d-flex flex-column" aria-label="<?= esc_attr($card['title']) ?>">
+                            class="tx-card rounded-4 h-100 d-flex flex-column position-relative overflow-hidden" aria-label="<?= esc_attr($card['title']) ?>">
                             <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                                 <i class="bi <?= esc_attr($card['icon']) ?>"></i>
                             </span>
                             <strong class="tx-card__title d-block mb-2" style="font-size: 16px;"><?= esc_html($card['title']) ?></strong>
                             <p class="tx-card__desc flex-grow-1 mb-0" style="font-size: 16px;"><?= esc_html($card['desc']) ?></p>
                             <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
+                            
+                            <?php if ($card['title'] === 'Obligaciones de Transparencia'): ?>
+                                <div class="tx-card-manual-overlay" onclick="event.preventDefault(); window.open('<?= home_url('/wp-content/uploads/2026/07/MAUAL-DE-ACCESO-AL-PORTAL-DE-OBLIGACIONES-DE-TRANSPARENCIA.pdf') ?>', '_blank');">
+                                    <i class="bi bi-filetype-pdf fs-5"></i> Consultar manual
+                                </div>
+                            <?php endif; ?>
                         </a>
                     </div>
                 <?php endforeach; ?>

@@ -22,9 +22,10 @@ get_header();
     </nav>
 
     <div class="container py-4">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Contacto</h1>
+        <div class="row align-items-center mb-4">
+            <div class="col-12 position-relative z-1">
+                <h1 class="tx-hero__title fw-bold mb-3 font-patria">Contacto</h1>
+                <div class="hero-separator"></div>
             </div>
         </div>
         
@@ -33,7 +34,7 @@ get_header();
                 <div class="col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center">
                     
                     <p class="text-muted mb-4">
-                        En la Secretaría Ejecutiva del Sistema Nacional Anticorrupción estamos para atenderte. Si tienes dudas, comentarios o requieres más información, no dudes en comunicarte con nosotros.
+                        Conoce los medios oficiales de contacto de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como la ubicación de sus oficinas y los horarios de atención para asuntos relacionados con el ejercicio de sus atribuciones.
                     </p>
                     
                     <hr class="mb-4 text-burgundi opacity-25">

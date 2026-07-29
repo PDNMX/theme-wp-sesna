@@ -2496,6 +2496,14 @@ body.front-page main.page {
     vertical-align: 0.15em;
 }
 
+/* Mostrar dropdown en hover para pantallas grandes */
+@media (min-width: 992px) {
+    .sesna-nav .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
 /* ============================================================
    Loader de carga inicial de página
    ============================================================ */
@@ -4521,4 +4529,191 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     transform: translateX(4px);
 }
 
+/* ============================================================
+   ÓRGANOS COLEGIADOS Y NORMATIVIDAD (page-organos-colegiados.php)
+   Scope: .page-organos-colegiados
+   ============================================================ */
+
+.page-organos-colegiados .ocn-hero {
+    background-color: #FAFAFA !important;
+}
+
+.page-organos-colegiados .ocn-hero h1 {
+    letter-spacing: -0.5px;
+}
+
+/* Sidebar Nav - Diseño Premium */
+.page-organos-colegiados .ocn-sidebar-nav {
+    border-radius: 16px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    padding: 0.5rem;
+}
+
+.page-organos-colegiados .ocn-sidebar-link {
+    color: #444;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-organos-colegiados .ocn-sidebar-link:last-child {
+    margin-bottom: 0;
+}
+
+.page-organos-colegiados .ocn-sidebar-link:hover {
+    background-color: #f8f9fa;
+    color: var(--color-burgundi, #9F2241) !important;
+    transform: translateX(4px);
+}
+.page-organos-colegiados .ocn-sidebar-link:hover i,
+.page-organos-colegiados .ocn-sidebar-link:hover span {
+    color: var(--color-burgundi, #9F2241) !important;
+}
+
+.page-organos-colegiados .ocn-sidebar-link.active {
+    background-color: var(--color-burgundi, #9F2241);
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(159, 34, 65, 0.2);
+}
+
+.page-organos-colegiados .ocn-sidebar-link.active i,
+.page-organos-colegiados .ocn-sidebar-link.active span {
+    color: #fff !important;
+}
+
+/* Enlaces de Normatividad en el Sidebar */
+.page-organos-colegiados .ocn-normatividad-list a {
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+}
+.page-organos-colegiados .ocn-normatividad-list a:hover {
+    background-color: rgba(159, 34, 65, 0.05);
+    color: var(--color-burgundi, #9F2241) !important;
+    transform: translateX(4px);
+}
+.page-organos-colegiados .ocn-normatividad-list a:hover .ocn-dot {
+    background-color: var(--color-burgundi, #9F2241);
+    transform: scale(1.5);
+}
+
+.page-organos-colegiados .ocn-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #adb5bd;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+/* Stats Cards */
+.page-organos-colegiados .ocn-stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-organos-colegiados .ocn-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+}
+
+/* Session Cards */
+.page-organos-colegiados .ocn-session-card {
+    transition: box-shadow 0.2s ease;
+}
+
+.page-organos-colegiados .ocn-session-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05) !important;
+}
+
+.page-organos-colegiados .ocn-action-icon {
+    color: #9F2241;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.page-organos-colegiados .ocn-action-icon:hover {
+    color: #691C32;
+    transform: scale(1.05);
+}
+
+.page-organos-colegiados .ocn-action-icon i {
+    color: #9F2241;
+}
+
+.page-organos-colegiados .ocn-action-icon:hover i {
+    color: #691C32;
+}
+
+/* Button outline */
+.page-organos-colegiados .ocn-btn-outline {
+    color: #9F2241;
+    border-color: #9F2241;
+    background-color: transparent;
+}
+
+.page-organos-colegiados .ocn-btn-outline:hover {
+    background-color: #9F2241;
+    color: #fff;
+}
+
+/* Search input */
+.page-organos-colegiados .ocn-search-input {
+    border-color: #EAEAEA;
+}
+
+.page-organos-colegiados .ocn-search-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(159, 34, 65, 0.25);
+    border-color: #9F2241;
+}
+
+/* Table links */
+.page-organos-colegiados .ocn-table-link {
+    color: #9F2241;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #9F2241;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.page-organos-colegiados .ocn-table-link:hover {
+    background-color: #9F2241;
+    color: #fff;
+}
+
+.page-organos-colegiados .ocn-table-link:hover i {
+    color: #fff !important;
+}
+
+.page-organos-colegiados .ocn-table-container table tbody tr:hover {
+    background-color: #FAFAFA;
+}
+
+/* Helpers responsivos para bordes en las cards de sesión */
+@media (max-width: 767px) {
+    .page-organos-colegiados .border-end-md {
+        border-right: none !important;
+        border-bottom: 1px solid #F2F2F2;
+    }
+    .page-organos-colegiados .border-start-md {
+        border-left: none !important;
+    }
+}
+@media (min-width: 768px) {
+    .page-organos-colegiados .border-end-md {
+        border-right: 1px solid #F2F2F2 !important;
+    }
+    .page-organos-colegiados .border-start-md {
+        border-left: 1px solid #F2F2F2 !important;
+    }
+}
 
