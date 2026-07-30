@@ -44,7 +44,8 @@
                 ?>
                 <div class="col-lg-3 col-md-6">
                     <div class="h-100 border-0 bg-transparent sna-programas-wrapper">
-                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( isset($prog['link']) ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="d-flex flex-column h-100 sna-programas-card text-decoration-none text-dark">
+                        <?php $is_external = isset($prog['link']) && strpos($prog['link'], home_url()) === false; ?>
+                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="d-flex flex-column h-100 sna-programas-card text-decoration-none text-dark">
 
                             <!-- Contenedor del grupo superior (Imagen + Icono) que sobresale -->
                             <div class="sna-programas-img-outer">

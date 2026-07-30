@@ -28,7 +28,7 @@
 }
 
 .card-dark-red {
-    background: linear-gradient(135deg, #611232 0%, #3e0b20 100%);
+    background: linear-gradient(135deg, var(--color-guinda) 0%, #3e0b20 100%);
     border: none;
     border-radius: 8px;
     position: relative;
@@ -52,7 +52,7 @@
     color: var(--color-guinda);
 }
 .icon-bg-circle {
-    background-color: #fdf2f5;
+    background-color: var(--color-burgundi-tenue);
     color: var(--color-guinda);
     border-radius: 50%;
     display: flex;

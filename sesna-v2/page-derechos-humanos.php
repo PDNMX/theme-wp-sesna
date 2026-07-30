@@ -54,7 +54,7 @@ get_header();
             <div class="row g-4 mt-2">
                 <div class="col-md-6">
                     <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
-                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: #fdf2f5;">
+                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: var(--color-burgundi-tenue);">
                             <i class="bi bi-file-earmark-richtext" style="font-size: 2.2rem; color: var(--color-burgundi);"></i>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 1.4rem; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
@@ -63,7 +63,7 @@ get_header();
                 </div>
                 <div class="col-md-6">
                     <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
-                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: #fdf2f5;">
+                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: var(--color-burgundi-tenue);">
                             <i class="bi bi-file-earmark-richtext" style="font-size: 2.2rem; color: var(--color-burgundi);"></i>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 1.4rem; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
@@ -92,28 +92,28 @@ get_header();
                         'titulo' => 'Menstruación Digna',
                         'desc'   => 'Hablemos de menstruación sin tabúes.',
                         'icono'  => 'bi-heart-pulse',
-                        'color'  => '#E8486A',
+                        'color'  => '#9d2449',
                         'url'    => '#',
                     ],
                     [
                         'titulo' => 'La Salud Mental también es Trabajo',
                         'desc'   => 'Cuidar nuestra mente es cuidar nuestra integridad.',
                         'icono'  => 'bi-emoji-smile',
-                        'color'  => '#7B61A6',
+                        'color'  => '#1e5b4f',
                         'url'    => '#',
                     ],
                     [
                         'titulo' => 'Diversidad e Inclusión',
                         'desc'   => 'Reconocemos, respetamos e incluimos.',
                         'icono'  => 'bi-people',
-                        'color'  => '#E8A038',
+                        'color'  => '#a57f2c',
                         'url'    => '#',
                     ],
                     [
                         'titulo' => 'Cero Tolerancia a la Violencia',
                         'desc'   => 'Comprometidos con espacios seguros.',
                         'icono'  => 'bi-hand-index-thumb',
-                        'color'  => '#D04545',
+                        'color'  => '#611232',
                         'url'    => '#',
                     ],
                 ];

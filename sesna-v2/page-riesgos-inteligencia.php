@@ -68,7 +68,7 @@ get_header(); ?>
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/contrataciones-publicas/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
+                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
                         <i class="bi bi-briefcase tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
@@ -79,7 +79,7 @@ get_header(); ?>
             <!-- Card 2 -->
             <div class="col-lg-3 col-md-6">
                 <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
+                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
                         <i class="bi bi-people tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
@@ -90,7 +90,7 @@ get_header(); ?>
             <!-- Card 3 -->
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/verificacion-patrimonial/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
+                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
                         <i class="bi bi-person-vcard tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
@@ -101,7 +101,7 @@ get_header(); ?>
             <!-- Card 4 -->
             <div class="col-lg-3 col-md-6">
                 <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: #fdf2f5;">
+                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
                         <i class="bi bi-activity tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>

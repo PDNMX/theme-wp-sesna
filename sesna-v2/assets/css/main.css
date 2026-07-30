@@ -18,12 +18,20 @@
     --color-negro: #161a1d;
     --color-guinda: #611232;
     --color-burgundi: #9d2449;
-    --color-teal-oscuro: #002f2a;
+    --color-teal-oscuro: #13322e;
     --color-teal: #1e5b4f;
     --color-dorado: #a57f2c;
-    --color-dorado-claro: #e6d194;
+    --color-dorado-claro: #DDC9A3;
+    --color-bronce: #BC955C;
     --color-gris: #98989a;
     --color-blanco: #ffffff;
+
+    /* Fondos neutros derivados */
+    --color-fondo-claro: #f8f9fa;
+    --color-burgundi-tenue: rgba(157, 36, 73, 0.07);
+
+    /* Sub-navbar — color institucional SND */
+    --color-subnav: #4A0C26;
 
     /* Tipografía Institucional */
     --font-patria: 'Patria', serif;
@@ -34,9 +42,6 @@
 
     /* Color de Texto Principal (Accesibilidad) */
     --text-color-main: #161a1d;
-
-    /* Color específico SESNA (diseño maqueta) */
-    --color-navbar: #5C2035;
 
     /* Espaciado GOB.mx v3 */
     --buffer: 64px;
@@ -148,7 +153,7 @@ body.front-page main.page {
 }
 
 .site-header .sesna-navbar {
-    background-color: var(--color-navbar) !important;
+    background-color: var(--color-subnav) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     position: relative !important;
 }
@@ -216,7 +221,7 @@ body.front-page main.page {
     /* Corrección de ícono duplicado y flotante en móviles (Tarea 15) */
     .site-header .sesna-navbar {
         min-height: 55px; /* Evita que la barra colapse a altura 0 y deje franja blanca */
-        background-color: var(--color-navbar) !important;
+        background-color: var(--color-burgundi) !important;
         position: relative !important;
     }
     .site-header .sesna-navbar .navbar-toggler {
@@ -274,7 +279,7 @@ body.front-page main.page {
    Fondo general de la Front Page
    ------------------------------------------------------------ */
 .front-page-bg {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
 }
 
 /* ------------------------------------------------------------
@@ -316,6 +321,7 @@ body.front-page main.page {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 300;
     line-height: 1.4;
+    font-family: var(--font-patria);
 }
 
 .sesna-hero__title strong {
@@ -448,7 +454,7 @@ body.front-page main.page {
 }
 
 .sna-integrantes-card {
-    background-color: #F3F0F3;
+    background-color: var(--color-fondo-claro);
     border-radius: 8px;
     padding: 24px;
     text-align: left;
@@ -492,14 +498,14 @@ body.front-page main.page {
 
 .sna-about-btn {
     letter-spacing: 0.5px;
-    background-color: #611232 !important;
-    border-color: #611232 !important;
+    background-color: var(--color-guinda) !important;
+    border-color: var(--color-guinda) !important;
     border-radius: 4px;
 }
 
 .sna-about-btn:hover {
-    background-color: #611232 !important;
-    border-color: #611232 !important;
+    background-color: var(--color-burgundi) !important;
+    border-color: var(--color-burgundi) !important;
 }
 
 .sna-about-btn-icon-circle {
@@ -538,8 +544,8 @@ body.front-page main.page {
 .gobmx-breadcrumb-container {
     background-color: transparent !important;
     padding: 1.5rem 0 1rem 0;
-    font-size: 14px;
-    font-family: var(--font-principal, 'Inter', sans-serif);
+    font-size: 16px;
+    font-family: var(--font-noto-sans);
 }
 
 .gobmx-breadcrumb-container .breadcrumb {
@@ -646,7 +652,7 @@ body.front-page main.page {
 }
 
 .sna-programas-card {
-    background-color: #F0ECF0;
+    background-color: var(--color-fondo-claro);
     border-radius: 8px;
     overflow: hidden;
     padding: 0;
@@ -663,7 +669,7 @@ body.front-page main.page {
     height: 200px;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-    border-bottom: 1px solid #E6003D;
+    border-bottom: 1px solid var(--color-guinda);
     background-color: #fff;
 }
 
@@ -677,19 +683,19 @@ body.front-page main.page {
     height: 90px;
     bottom: 0;
     margin-bottom: -20px;
-    background-color: #E6003D !important;
+    background-color: var(--color-guinda) !important;
     border-radius: 22px !important;
     z-index: 3;
 }
 
 .sna-programas-link {
-    color: #0b1c3c;
+    color: var(--color-negro);
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
 .sna-programas-link:hover {
-    color: #E6003D;
+    color: var(--color-guinda);
 }
 
 /* ------------------------------------------------------------
@@ -752,7 +758,7 @@ body.front-page main.page {
 }
 
 .sna-noticias-date-month {
-    font-size: 0.7rem;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -774,13 +780,13 @@ body.front-page main.page {
 }
 
 .sna-noticias-link {
-    color: #0b1c3c;
+    color: var(--color-negro);
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
 .sna-noticias-link:hover {
-    color: #E6003D;
+    color: var(--color-guinda);
 }
 
 /* ------------------------------------------------------------
@@ -825,7 +831,7 @@ body.front-page main.page {
     gap: 16px;
     margin-bottom: 2rem;
     padding: 20px 24px;
-    background: #F6EFF6;
+    background: var(--color-fondo-claro);
     border-radius: 8px;
 }
 
@@ -1614,7 +1620,7 @@ body.front-page main.page {
    ============================================================ */
 
 .page-transparencia {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
 }
 
 /* --- Hero -------------------------------------------------- */
@@ -1867,7 +1873,7 @@ body.front-page main.page {
 
 .page-transparencia-comite .tx-doc-row:hover,
 .page-transparencia-comite .tx-doc-row.active {
-    background: #F3F0F3;
+    background: var(--color-fondo-claro);
     border-color: rgba(22, 26, 29, 0.08);
     transform: translateX(2px);
 }
@@ -2132,9 +2138,9 @@ body.front-page main.page {
    SINGLE POST — Entrada de noticias / blog
    ============================================================ */
 
-/* Fondo homologado con el home (#F6EFF6) */
+/* Fondo homologado con el home (var(--color-fondo-claro)) */
 .sesna-single-wrapper {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
     min-height: 100vh;
 }
 
@@ -2143,7 +2149,7 @@ body.front-page main.page {
     padding-bottom: 4.5rem;
 }
 
-/* Breadcrumb — sobre fondo #F6EFF6, texto oscuro */
+/* Breadcrumb — sobre fondo var(--color-fondo-claro), texto oscuro */
 .sesna-single-breadcrumb {
     display: flex;
     align-items: center;
@@ -2411,7 +2417,7 @@ body.front-page main.page {
     color: var(--color-blanco);
 }
 
-/* Volver a noticias — fuera de la card, sobre #F6EFF6 */
+/* Volver a noticias — fuera de la card, sobre var(--color-fondo-claro) */
 .sesna-single-nav {
     margin-top: 0;
 }
@@ -2432,7 +2438,7 @@ body.front-page main.page {
    Dropdown del menú principal SESNA
    ------------------------------------------------------------ */
 .sesna-dropdown {
-    background-color: #FAF7F8;
+    background-color: var(--color-fondo-claro);
     border: none;
     border-top: 3px solid var(--color-burgundi);
     border-radius: 0 0 10px 10px;
@@ -2467,7 +2473,7 @@ body.front-page main.page {
 
 .sesna-dropdown .dropdown-item:hover,
 .sesna-dropdown .dropdown-item:focus {
-    background-color: #fdf2f5 !important;
+    background-color: var(--color-burgundi-tenue) !important;
     color: var(--color-burgundi) !important;
 }
 
@@ -2480,7 +2486,7 @@ body.front-page main.page {
 
 .sesna-dropdown .dropdown-item.active,
 .sesna-dropdown .dropdown-item:active {
-    background-color: #fdf2f5 !important;
+    background-color: var(--color-burgundi-tenue) !important;
     color: var(--color-burgundi) !important;
     font-weight: 600;
 }
@@ -3066,11 +3072,11 @@ body.front-page main.page {
    ============================================================ */
 
 .page-directorio {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
 }
 
 body:has(.page-directorio) main.page {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
 }
 
 /* ── Hero ── */
@@ -3676,7 +3682,7 @@ body:has(.page-directorio) main.page {
 
 /* Estructura de la Política: stat tiles */
 .page-pna .pna-stats-card {
-    background-color: #F3F0F3;
+    background-color: var(--color-fondo-claro);
     border-radius: 12px;
     padding: 32px;
 }
@@ -3800,7 +3806,7 @@ body:has(.page-directorio) main.page {
 
 .page-pna .pna-ciclo-hint,
 .page-pna-diseno .pna-ciclo-hint {
-    background-color: #F6EFF6;
+    background-color: var(--color-fondo-claro);
     border-radius: 12px;
     padding: 20px 24px;
     display: flex;
@@ -3830,7 +3836,7 @@ body:has(.page-directorio) main.page {
 
 /* Bloque final: documentos relativos + aviso */
 .page-pna .pna-final-card {
-    background-color: #F3F0F3;
+    background-color: var(--color-fondo-claro);
     border-radius: 12px;
     padding: 32px;
     text-align: center;
@@ -4366,7 +4372,7 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     width: 130px;
     height: 130px;
     z-index: 5;
-    border: 3px solid #F3F0F3;
+    border: 3px solid var(--color-fondo-claro);
 }
 .page-pna-diseno .pna-wheel-center__icon {
     font-size: 1.4rem;
