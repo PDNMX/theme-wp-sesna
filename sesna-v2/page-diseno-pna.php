@@ -138,7 +138,7 @@ get_header();
             <div class="pna-stats-card p-4 p-md-5">
                 <div class="mb-4">
                     <h2 class="pna-diseno-title mb-3">Ejes y Objetivos de la Política Nacional Anticorrupción</h2>
-                    <p class="text-muted mb-0 font-noto-sans" style="max-width: 900px; font-size: 1.05rem; line-height: 1.6;">
+                    <p class="text-muted mb-0 font-noto-sans" style="max-width: 900px; font-size: 15px; line-height: 1.6;">
                         La Política Nacional Anticorrupción se estructura en cuatro ejes estratégicos que agrupan diez objetivos específicos orientados a atender las principales causas y manifestaciones de la corrupción en México.
                     </p>
                 </div>
@@ -155,11 +155,11 @@ get_header();
                             <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn active d-flex flex-column justify-content-center" data-eje="1" role="button" tabindex="0" style="background: linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #6AC72C;">
-                                        <span class="font-montserrat fw-normal" style="font-size: 0.8rem; line-height: 1; opacity: 0.95;">Eje</span>
-                                        <span class="font-noto-sans fw-bold" style="font-size: 1.6rem; line-height: 1.1;">1</span>
+                                        <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
+                                        <span class="font-noto-sans fw-bold" style="font-size: 22px; line-height: 1.1;">1</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 1.05rem; color: #225C0E;">Combatir la corrupción y la impunidad</p>
+                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 15px; color: #225C0E;">Combatir la corrupción y la impunidad</p>
                                         <div style="width: 38px; height: 3px; background-color: #6AC72C; border-radius: 2px;"></div>
                                     </div>
                                 </div>
@@ -176,11 +176,11 @@ get_header();
                             <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="0" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #74598F;">
-                                        <span class="font-montserrat fw-normal" style="font-size: 0.8rem; line-height: 1; opacity: 0.95;">Eje</span>
-                                        <span class="font-noto-sans fw-bold" style="font-size: 1.6rem; line-height: 1.1;">3</span>
+                                        <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
+                                        <span class="font-noto-sans fw-bold" style="font-size: 22px; line-height: 1.1;">3</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 1.05rem; color: #3A2649;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</p>
+                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 15px; color: #3A2649;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</p>
                                         <div style="width: 38px; height: 3px; background-color: #74598F; border-radius: 2px;"></div>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@ get_header();
                                     <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="0" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 20 160 A 140 140 0 0 1 160 20 Z" fill="#6AC72C" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="62" y="62" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 1.85rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                                 <i class="bi bi-shield-lock-fill"></i>
                                             </div>
                                         </foreignObject>
@@ -214,7 +214,7 @@ get_header();
                                     <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="0" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="214" y="62" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 1.85rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                                 <i class="bi bi-clipboard-check-fill"></i>
                                             </div>
                                         </foreignObject>
@@ -223,7 +223,7 @@ get_header();
                                     <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="0" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 300 160 A 140 140 0 0 1 160 300 Z" fill="#E04F67" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="214" y="214" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 1.85rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                                 <i class="bi bi-people-fill"></i>
                                             </div>
                                         </foreignObject>
@@ -232,7 +232,7 @@ get_header();
                                     <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="0" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="62" y="214" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 1.85rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                                 <i class="bi bi-diagram-3-fill"></i>
                                             </div>
                                         </foreignObject>
@@ -243,9 +243,9 @@ get_header();
 
                                 <!-- Centro del Problema (Destacado y centrado al 100%) -->
                                 <div class="pna-wheel-center position-absolute bg-white rounded-circle d-flex flex-column align-items-center justify-content-center text-center p-3 shadow" style="width: 154px; height: 154px; z-index: 10;">
-                                    <span class="mb-1"><i class="bi bi-people-fill d-block" style="font-size: 2.2rem; line-height: 1; color: var(--color-burgundi, #9D2449);"></i></span>
-                                    <strong class="d-block font-noto-sans mb-1" style="font-size: 0.95rem; line-height: 1.1; color: var(--color-burgundi, #9D2449);">Problema:</strong>
-                                    <span class="text-muted font-montserrat" style="font-size: 0.65rem; line-height: 1.25; color: var(--color-negro, #54565a);">Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente.</span>
+                                    <span class="mb-1"><i class="bi bi-people-fill d-block" style="font-size: 24px; line-height: 1; color: var(--color-burgundi, #9D2449);"></i></span>
+                                    <strong class="d-block font-noto-sans mb-1" style="font-size: 13px; line-height: 1.1; color: var(--color-burgundi, #9D2449);">Problema:</strong>
+                                    <span class="text-muted font-montserrat" style="font-size: 11px; line-height: 1.25; color: var(--color-negro, #54565a);">Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente.</span>
                                 </div>
                             </div>
 
@@ -260,11 +260,11 @@ get_header();
                             <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="0" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #1D70B8;">
-                                        <span class="font-montserrat fw-normal" style="font-size: 0.8rem; line-height: 1; opacity: 0.95;">Eje</span>
-                                        <span class="font-noto-sans fw-bold" style="font-size: 1.6rem; line-height: 1.1;">2</span>
+                                        <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
+                                        <span class="font-noto-sans fw-bold" style="font-size: 22px; line-height: 1.1;">2</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 1.05rem; color: #0C365C;">Combatir la arbitrariedad y el abuso de poder</p>
+                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 15px; color: #0C365C;">Combatir la arbitrariedad y el abuso de poder</p>
                                         <div style="width: 38px; height: 3px; background-color: #1D70B8; border-radius: 2px;"></div>
                                     </div>
                                 </div>
@@ -281,11 +281,11 @@ get_header();
                             <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="4" role="button" tabindex="0" style="background: linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #E04F67;">
-                                        <span class="font-montserrat fw-normal" style="font-size: 0.8rem; line-height: 1; opacity: 0.95;">Eje</span>
-                                        <span class="font-noto-sans fw-bold" style="font-size: 1.6rem; line-height: 1.1;">4</span>
+                                        <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
+                                        <span class="font-noto-sans fw-bold" style="font-size: 22px; line-height: 1.1;">4</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 1.05rem; color: #701D2D;">Involucrar a la sociedad y el sector privado</p>
+                                        <p class="font-noto-sans fw-bold mb-2 lh-sm" style="font-size: 15px; color: #701D2D;">Involucrar a la sociedad y el sector privado</p>
                                         <div style="width: 38px; height: 3px; background-color: #E04F67; border-radius: 2px;"></div>
                                     </div>
                                 </div>
@@ -318,11 +318,11 @@ get_header();
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="col-lg-5 border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #6AC72C; font-size: 0.95rem;">
+                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #6AC72C; font-size: 13px;">
                                     Eje 1
                                 </div>
                                 <h3 class="h4 fw-bold font-noto-sans mb-3" style="color: #6AC72C;">Combatir la corrupción y la impunidad</h3>
-                                <p class="text-muted font-noto-sans mb-0" style="font-size: 1.25rem; line-height: 1.65;">
+                                <p class="text-muted font-noto-sans mb-0" style="font-size: 16px; line-height: 1.65;">
                                     Busca combatir la corrupción e impunidad mediante la generación, adecuación y fortalecimiento de los procesos de denuncia, detección, investigación, substanciación y sanción; promoviendo mecanismos de coordinación y transparencia proactiva.
                                 </p>
                             </div>
@@ -335,13 +335,13 @@ get_header();
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 1 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">1</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Promover los mecanismos de coordinación de las autoridades competentes para la mejora de los procesos de prevención, denuncia, detección investigación, substanciación y sanción de faltas administrativa y hechos de corrupción.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">1</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Promover los mecanismos de coordinación de las autoridades competentes para la mejora de los procesos de prevención, denuncia, detección investigación, substanciación y sanción de faltas administrativa y hechos de corrupción.</span>
                                     </div>
                                     <!-- Objetivo 2 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">2</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Fortalecer las capacidades institucionales para el desahogo de carpetas de investigación y causas penales en materia de delitos por hechos de corrupción.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">2</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Fortalecer las capacidades institucionales para el desahogo de carpetas de investigación y causas penales en materia de delitos por hechos de corrupción.</span>
                                     </div>
                                 </div>
                             </div>
@@ -355,11 +355,11 @@ get_header();
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="col-lg-5 border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 0.95rem;">
+                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 13px;">
                                     Eje 2
                                 </div>
                                 <h3 class="h4 fw-bold font-noto-sans mb-3" style="color: #1D70B8;">Combatir la arbitrariedad y abuso de poder</h3>
-                                <p class="text-muted font-noto-sans mb-0" style="font-size: 1.25rem; line-height: 1.65;">
+                                <p class="text-muted font-noto-sans mb-0" style="font-size: 16px; line-height: 1.65;">
                                     Busca disminuir los márgenes de arbitrariedad en el servicio público mediante mecanismos de profesionalización, integridad, control interno, auditoría, fiscalización, rendición de cuentas en el uso de recursos públicos y en la operación de procesos institucionales clave al interior de las administraciones públicas.
                                 </p>
                             </div>
@@ -372,18 +372,18 @@ get_header();
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 3 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">3</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">3</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
                                     </div>
                                     <!-- Objetivo 4 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">4</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">4</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
                                     </div>
                                     <!-- Objetivo 5 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">5</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">5</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
                                     </div>
                                 </div>
                             </div>
@@ -397,11 +397,11 @@ get_header();
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="col-lg-5 border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 0.95rem;">
+                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
                                     Eje 3
                                 </div>
                                 <h3 class="h4 fw-bold font-noto-sans mb-3" style="color: #74598F;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</h3>
-                                <p class="text-muted font-noto-sans mb-0" style="font-size: 1.25rem; line-height: 1.65;">
+                                <p class="text-muted font-noto-sans mb-0" style="font-size: 16px; line-height: 1.65;">
                                     Busca fortalecer los puntos de contacto, espacios de interacción y esquemas de relación entre los entes públicos y distintos sectores de la sociedad, a fin de contener sus riesgos de corrupción.
                                 </p>
                             </div>
@@ -414,13 +414,13 @@ get_header();
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 6 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">6</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Promover la implementación de esquemas que erradiquen áreas de riesgo que propician la corrupción en las interacciones que establecen ciudadanos y empresas con el gobierno al realizar trámites, y acceder a programas y servicios públicos.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">6</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Promover la implementación de esquemas que erradiquen áreas de riesgo que propician la corrupción en las interacciones que establecen ciudadanos y empresas con el gobierno al realizar trámites, y acceder a programas y servicios públicos.</span>
                                     </div>
                                     <!-- Objetivo 7 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">7</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Impulsar la adopción y homologación de reglas en materia de contrataciones públicas, asociaciones público-privadas y cabildeo, que garanticen interacciones íntegras e imparciales entre gobierno y sector privado.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">7</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Impulsar la adopción y homologación de reglas en materia de contrataciones públicas, asociaciones público-privadas y cabildeo, que garanticen interacciones íntegras e imparciales entre gobierno y sector privado.</span>
                                     </div>
                                 </div>
                             </div>
@@ -434,11 +434,11 @@ get_header();
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="col-lg-5 border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #E04F67; font-size: 0.95rem;">
+                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #E04F67; font-size: 13px;">
                                     Eje 4
                                 </div>
                                 <h3 class="h4 fw-bold font-noto-sans mb-3" style="color: #E04F67;">Involucrar a la sociedad y el sector privado</h3>
-                                <p class="text-muted font-noto-sans mb-0" style="font-size: 1.25rem; line-height: 1.65;">
+                                <p class="text-muted font-noto-sans mb-0" style="font-size: 16px; line-height: 1.65;">
                                     Busca incentivar el involucramiento de diversos sectores de la sociedad en el control de la corrupción mediante el fortalecimiento e institucionalización de mecanismos de participación, vigilancia y autorregulación social, bajo un enfoque incluyente y con perspectiva de género.
                                 </p>
                             </div>
@@ -451,18 +451,18 @@ get_header();
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 8 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">8</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Impulsar el desarrollo de mecanismos efectivos de participación que favorezcan el involucramiento social en el control de la corrupción, así como en la vigilancia y rendición de cuentas de las decisiones de gobierno.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">8</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Impulsar el desarrollo de mecanismos efectivos de participación que favorezcan el involucramiento social en el control de la corrupción, así como en la vigilancia y rendición de cuentas de las decisiones de gobierno.</span>
                                     </div>
                                     <!-- Objetivo 9 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">9</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Promover la adopción y aplicación de principios, políticas y programas de integridad y anticorrupción en el sector privado.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">9</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Promover la adopción y aplicación de principios, políticas y programas de integridad y anticorrupción en el sector privado.</span>
                                     </div>
                                     <!-- Objetivo 10 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 0.95rem;">10</span>
-                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 1.18rem; line-height: 1.6;">Fomentar la socialización y adopción de valores prácticos relevantes en la sociedad para el control de la corrupción.</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E04F67; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">10</span>
+                                        <span class="text-dark fw-normal font-noto-sans" style="font-size: 15px; line-height: 1.6;">Fomentar la socialización y adopción de valores prácticos relevantes en la sociedad para el control de la corrupción.</span>
                                     </div>
                                 </div>
                             </div>
@@ -494,7 +494,7 @@ get_header();
             <div class="row g-4 mb-5">
                 <div class="col-12">
                     <h2 class="pna-diseno-title mb-3">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
-                    <p class="text-muted mb-0" style="max-width: 800px; font-size: 1.1rem; line-height: 1.6;">
+                    <p class="text-muted mb-0" style="max-width: 800px; font-size: 15px; line-height: 1.6;">
                         La PNA se construyó mediante un proceso participativo nacional que integró consultas ciudadanas, foros regionales y diversos insumos de evidencia y análisis técnico.
                     </p>
                 </div>
@@ -508,48 +508,48 @@ get_header();
                     <div class="col-12 col-sm-4 col-lg d-flex">
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 1rem;">1</span>
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
                                 <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="bi bi-people-fill"></i></span>
                             </div>
-                            <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 0.95rem;">Consejo consultivo<br>y análisis técnico</span>
+                            <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
                     </div>
 
                     <!-- Operador + -->
                     <div class="col-auto d-none d-sm-flex align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 2rem; line-height: 1;">+</span>
+                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 1rem;">2</span>
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
                                 <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="bi bi-people"></i></span>
                             </div>
-                            <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 0.95rem;">Consulta<br>Ciudadana en línea</span>
+                            <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
                     </div>
 
                     <!-- Operador + -->
                     <div class="col-auto d-none d-sm-flex align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 2rem; line-height: 1;">+</span>
+                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 1rem;">3</span>
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
                                 <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="bi bi-pin-map-fill"></i></span>
                             </div>
-                            <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 0.95rem;">Foros de Consulta<br>Regional</span>
+                            <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
                     </div>
 
                     <!-- Operador = -->
                     <div class="col-auto d-none d-lg-flex align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 2rem; line-height: 1;">=</span>
+                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">=</span>
                     </div>
 
                     <!-- Resultado: Logo PNA -->
@@ -580,7 +580,7 @@ get_header();
                         <h3 class="h4 mb-0 fw-bold font-noto-sans" style="color: #74598F;">Consejo consultivo y análisis técnico</h3>
                     </div>
                     
-                    <p class="text-muted mb-5 font-noto-sans" style="font-size: 1.1rem; line-height: 1.65;">
+                    <p class="text-muted mb-5 font-noto-sans" style="font-size: 15px; line-height: 1.65;">
                         Participaron especialistas y representantes de la academia, sociedad civil organizada, sector empresarial, instituciones gubernamentales y organismos internacionales. Se recabaron insumos técnicos, recomendaciones y evidencia que permitió complementar la percepción de la población con respecto a la corrupción. Se sistematizó la información y se construyó una base de datos.
                     </p>
 
@@ -589,11 +589,11 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 1.05rem; line-height: 1.35;">Compromisos Internacionales</span>
+                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Compromisos Internacionales</span>
                                 </div>
                             </a>
                         </div>
@@ -601,11 +601,11 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 1.05rem; line-height: 1.35;">Numeralia de los costos de la corrupción</span>
+                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Numeralia de los costos de la corrupción</span>
                                 </div>
                             </a>
                         </div>
@@ -613,11 +613,11 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 1.05rem; line-height: 1.35;">Acciones para combatir la Corrupción propuestas</span>
+                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Acciones para combatir la Corrupción propuestas</span>
                                 </div>
                             </a>
                         </div>
@@ -625,11 +625,11 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 1.05rem; line-height: 1.35;">Recomendaciones de Organizaciones de la Sociedad Civil</span>
+                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Recomendaciones de Organizaciones de la Sociedad Civil</span>
                                 </div>
                             </a>
                         </div>
@@ -637,11 +637,11 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 1.05rem; line-height: 1.35;">Reporte del taller de inteligencia colectiva</span>
+                                    <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Reporte del taller de inteligencia colectiva</span>
                                 </div>
                             </a>
                         </div>
@@ -655,7 +655,7 @@ get_header();
                         <h3 class="h4 mb-0 fw-bold font-noto-sans" style="color: #00887A;">Consulta Ciudadana en línea</h3>
                     </div>
                     
-                    <p class="text-muted mb-5 font-noto-sans" style="font-size: 1.1rem; line-height: 1.65;">
+                    <p class="text-muted mb-5 font-noto-sans" style="font-size: 15px; line-height: 1.65;">
                         Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
                     </p>
 
@@ -668,7 +668,7 @@ get_header();
                                     <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-people me-1" style="color: #00887A;"></i> Ciudadanía</span>
                                     <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-building me-1" style="color: #00887A;"></i> Organizaciones de la Sociedad Civil</span>
                                 </div>
-                                <div class="my-2 py-3 px-5 rounded-pill d-inline-block text-white fw-bold shadow mx-auto" style="background-color: #00887A; font-size: 1.1rem;">
+                                <div class="my-2 py-3 px-5 rounded-pill d-inline-block text-white fw-bold shadow mx-auto" style="background-color: #00887A; font-size: 15px;">
                                     <i class="bi bi-people-fill me-2"></i> Consultas Ciudadana
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
@@ -741,7 +741,7 @@ get_header();
                             <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 shadow-sm flex-shrink-0" style="background-color: #D97706; width: 44px; height: 44px;">3</span>
                             <h3 class="h4 mb-0 fw-bold font-noto-sans" style="color: #D97706;">Foros de Consulta Regional</h3>
                         </div>
-                        <p class="text-muted mb-5 font-noto-sans" style="font-size: 1.1rem; line-height: 1.65; max-width: 900px;">
+                        <p class="text-muted mb-5 font-noto-sans" style="font-size: 15px; line-height: 1.65; max-width: 900px;">
                             Participaron integrantes de los Comités de Participación Ciudadana, instituciones públicas, organizaciones de la sociedad civil, academia y sector privado para la construcción de propuestas de política pública.
                         </p>
                     </div>
@@ -952,7 +952,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -970,7 +970,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -988,7 +988,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -1006,7 +1006,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -1024,7 +1024,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -1042,7 +1042,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -1060,7 +1060,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
 
@@ -1078,7 +1078,7 @@ get_header();
                                         </div>
                                         <a href="#" class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="#" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 2.3rem; color: #9d2449 !important;"></i>
+                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </a>
                                     </div>
                             </div>

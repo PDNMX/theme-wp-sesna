@@ -98,29 +98,29 @@ get_header();
                     <!-- Stat Card 1 -->
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 2.5rem; color: var(--color-negro);">30</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 0.8rem; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
+                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">30</span>
+                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
                         </div>
                     </div>
                     <!-- Stat Card 2 -->
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 2.5rem; color: var(--color-negro);">120</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 0.8rem; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
+                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">120</span>
+                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
                         </div>
                     </div>
                     <!-- Stat Card 3 -->
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 2.5rem; color: var(--color-negro);">15</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 0.8rem; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
+                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">15</span>
+                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
                         </div>
                     </div>
                     <!-- Stat Card 4 -->
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 2.5rem; color: var(--color-negro);">8</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 0.8rem; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
+                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">8</span>
+                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ get_header();
                 <!-- SUBSECTION: SESIONES -->
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 1.5rem;">Sesiones</h3>
+                        <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                     </div>
                 </div>
                 <div class="row mb-4">

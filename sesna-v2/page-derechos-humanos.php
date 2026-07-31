@@ -41,7 +41,7 @@ get_header();
     </section>
 
     <!-- ── Pronunciamientos ──────────────────────────────────── -->
-    <section class="dh-pronunciamientos py-5">
+    <section class="dh-pronunciamientos pt-3 pb-5">
         <div class="container">
             <div class="cp-recursos__header mb-2">
                 <div>
@@ -54,20 +54,20 @@ get_header();
             <div class="row g-4 mt-2">
                 <div class="col-md-6">
                     <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
-                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: var(--color-burgundi-tenue);">
-                            <i class="bi bi-file-earmark-richtext" style="font-size: 2.2rem; color: var(--color-burgundi);"></i>
+                        <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
+                            <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
                         </div>
-                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 1.4rem; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
-                        <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 1.1rem;"></i>
+                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
+                        <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 14px;"></i>
                     </a>
                 </div>
                 <div class="col-md-6">
                     <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
-                        <div class="icon-bg-circle flex-shrink-0" style="width: 64px; height: 64px; background-color: var(--color-burgundi-tenue);">
-                            <i class="bi bi-file-earmark-richtext" style="font-size: 2.2rem; color: var(--color-burgundi);"></i>
+                        <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
+                            <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
                         </div>
-                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 1.4rem; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
-                        <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 1.1rem;"></i>
+                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
+                        <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 14px;"></i>
                     </a>
                 </div>
             </div>
@@ -121,7 +121,7 @@ get_header();
                 <div class="col-lg-3 col-md-6">
                     <div class="dh-campania-card">
                         <div class="dh-campania-card__img" style="background-color: <?php echo esc_attr($camp['color']); ?>20;">
-                            <i class="bi <?php echo esc_attr($camp['icono']); ?>" style="color: <?php echo esc_attr($camp['color']); ?>; font-size: 3rem;"></i>
+                            <i class="bi <?php echo esc_attr($camp['icono']); ?>" style="color: <?php echo esc_attr($camp['color']); ?>; font-size: 30px;"></i>
                         </div>
                         <h5 class="dh-campania-card__title"><?php echo esc_html($camp['titulo']); ?></h5>
                         <p class="dh-campania-card__desc"><?php echo esc_html($camp['desc']); ?></p>

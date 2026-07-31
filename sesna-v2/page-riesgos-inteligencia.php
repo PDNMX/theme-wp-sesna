@@ -47,7 +47,7 @@ get_header(); ?>
     <!-- Documentos Section -->
     <section class="container mb-5">
         <div class="d-flex align-items-center mb-4">
-            <i class="bi bi-file-earmark-text text-guinda me-3 flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
+            <i class="bi bi-file-earmark-text text-guinda me-3 flex-shrink-0" style="font-size: 32px; line-height: 1;"></i>
             <h2 class="cp-recursos__titulo m-0 me-4">Documentos</h2>
             
             <!-- Separador vertical en desktop -->
@@ -68,7 +68,7 @@ get_header(); ?>
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/contrataciones-publicas/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
+                    <div class="icon-bg-circle mb-4">
                         <i class="bi bi-briefcase tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
@@ -79,7 +79,7 @@ get_header(); ?>
             <!-- Card 2 -->
             <div class="col-lg-3 col-md-6">
                 <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
+                    <div class="icon-bg-circle mb-4">
                         <i class="bi bi-people tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
@@ -90,7 +90,7 @@ get_header(); ?>
             <!-- Card 3 -->
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/verificacion-patrimonial/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
+                    <div class="icon-bg-circle mb-4">
                         <i class="bi bi-person-vcard tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
@@ -101,7 +101,7 @@ get_header(); ?>
             <!-- Card 4 -->
             <div class="col-lg-3 col-md-6">
                 <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
-                    <div class="icon-bg-circle mb-4" style="width: 80px; height: 80px; background-color: var(--color-burgundi-tenue);">
+                    <div class="icon-bg-circle mb-4">
                         <i class="bi bi-activity tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>
@@ -116,8 +116,8 @@ get_header(); ?>
     <section class="container mb-5 pb-4">
         <div class="d-flex align-items-center mb-4">
             <div class="position-relative text-guinda me-4 flex-shrink-0" style="width: 4rem; height: 3.5rem;">
-                <i class="bi bi-laptop position-absolute w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 4rem; left: 0; top: 0; line-height: 1;"></i>
-                <i class="bi bi-gear position-absolute bg-white" style="font-size: 1.4rem; top: 42%; left: 50%; transform: translate(-50%, -50%); line-height: 1; padding: 2px;"></i>
+                <i class="bi bi-laptop position-absolute w-100 h-100 d-flex align-items-center justify-content-center" style="font-size: 40px; left: 0; top: 0; line-height: 1;"></i>
+                <i class="bi bi-gear position-absolute bg-white" style="font-size: 16px; top: 42%; left: 50%; transform: translate(-50%, -50%); line-height: 1; padding: 2px;"></i>
             </div>
             <div>
                 <h2 class="cp-recursos__titulo mb-1">Herramientas</h2>
@@ -133,7 +133,7 @@ get_header(); ?>
                     <div class="d-flex flex-column h-100">
                         <div class="d-flex align-items-center mb-4">
                             <div class="bg-white text-guinda rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 me-4" style="width: 90px; height: 90px;">
-                                <i class="bi bi-search" style="font-size: 3rem;"></i>
+                                <i class="bi bi-search" style="font-size: 32px;"></i>
                             </div>
                             <div>
                                 <h3 class="fw-bold mb-2 text-white font-patria" style="font-size: 32px;">Generador de muestras</h3>
@@ -160,7 +160,7 @@ get_header(); ?>
                     
                     <!-- Item -->
                     <div class="d-flex bg-light rounded-4 p-3 sna-noticias-card" style="padding: 1.25rem;">
-                        <div class="icon-bg-circle me-3 flex-shrink-0" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                        <div class="icon-bg-circle icon-bg-circle--sm me-3 flex-shrink-0">
                             <i class="bi bi-bell"></i>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
@@ -180,7 +180,7 @@ get_header(); ?>
             <div class="row align-items-stretch">
                 <div class="col-lg-7 mb-4 mb-lg-0 d-flex">
                     <div class="d-flex align-items-center pe-lg-5 flex-grow-1">
-                        <i class="bi bi-file-text text-guinda flex-shrink-0 me-4" style="font-size: 3.5rem;"></i>
+                        <i class="bi bi-file-text text-guinda flex-shrink-0 me-4" style="font-size: 36px;"></i>
                         <p class="tx-contacto__detail mb-0 text-muted text-start">Cada herramienta cuenta con documentación metodológica, notas técnicas y guías de funcionamiento disponibles en la sección correspondiente.</p>
                     </div>
                     <!-- Separador vertical en desktop -->
@@ -188,7 +188,7 @@ get_header(); ?>
                 </div>
                 <div class="col-lg-5 d-flex align-items-center">
                     <div class="d-flex align-items-center justify-content-lg-center w-100 ps-lg-4">
-                        <i class="bi bi-book text-guinda flex-shrink-0 me-3" style="font-size: 3rem;"></i>
+                        <i class="bi bi-book text-guinda flex-shrink-0 me-3" style="font-size: 32px;"></i>
                         <span class="btn-sesna-link">Conoce más sobre nuestras metodologías <i class="bi bi-arrow-right fw-bold ms-1"></i></span>
                     </div>
                 </div>

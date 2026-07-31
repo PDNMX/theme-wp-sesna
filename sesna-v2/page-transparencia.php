@@ -51,7 +51,7 @@ $tx_cards = [
             <div class="container">
                 <a href="https://www.plataformadetransparencia.org.mx" target="_blank" rel="noopener noreferrer"
                     class="btn d-inline-flex align-items-center gap-2"
-                    style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 1.4rem; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
+                    style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 16px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
                     onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
                     aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
                     <i class="bi bi-file-earmark-arrow-up"></i>

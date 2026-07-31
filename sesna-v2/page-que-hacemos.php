@@ -31,7 +31,7 @@ get_header();
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-8 mb-4 mb-lg-0 pe-lg-5">
-                    <h2 class="font-patria fw-bold text-burgundi mb-4">Conoce a la SESNA</h2>
+                    <h2 class="sesna-section-title mb-4">Conoce a la SESNA</h2>
                     <p>
                         Descubre el papel de la Secretaría Ejecutiva dentro del Sistema Nacional Anticorrupción y cómo contribuye al fortalecimiento de la coordinación institucional, la generación de información estratégica y el desarrollo de herramientas para la prevención y el combate a la corrupción.
                     </p>
@@ -50,7 +50,7 @@ get_header();
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center">
-                    <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra razón de ser</h2>
+                    <h2 class="sesna-section-title mb-3">Nuestra razón de ser</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -61,7 +61,7 @@ get_header();
                             <i class="bi bi-bullseye"></i>
                         </div>
                         <div class="qh-mv-content">
-                            <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">MISIÓN</h3>
+                            <h3 class="font-patria fw-bold text-burgundi mb-3">MISIÓN</h3>
                             <p class="mb-0">Fungir como órgano técnico de apoyo del Comité Coordinador del SNA, encargado de producir los insumos y herramientas necesarias para el desempeño de sus atribuciones establecidas en el artículo 113 de la Constitución Política de los Estados Unidos Mexicanos y en la LGSNA.</p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ get_header();
                             <i class="bi bi-eye"></i>
                         </div>
                         <div class="qh-mv-content">
-                            <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.4rem;">VISIÓN</h3>
+                            <h3 class="font-patria fw-bold text-burgundi mb-3">VISIÓN</h3>
                             <p class="mb-0">Ser una institución eficaz y eficiente que contribuye a generar confianza y credibilidad en las instituciones públicas, mediante el uso de tecnologías de la información y el diseño, seguimiento y evaluación de políticas públicas enfocadas a la prevención, detección y sanción de faltas administrativas y hechos de corrupción, así como a la fiscalización y control de recursos públicos en el Marco del SNA.</p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ get_header();
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center">
-                    <h2 class="font-patria fw-bold text-burgundi mb-3">Nuestra labor</h2>
+                    <h2 class="sesna-section-title mb-3">Nuestra labor</h2>
                     <p class="text-muted mx-auto">
                         Contribuimos al fortalecimiento del Sistema Nacional Anticorrupción mediante la generación de conocimiento, el desarrollo de herramientas y la coordinación institucional.
                     </p>
@@ -97,28 +97,28 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-disenamos.svg" alt="Diseñamos" class="sna-integrantes-icon-circle mb-4">
-                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Diseñamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3">Diseñamos</h3>
                         <p class="text-muted mb-0">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-desarrollamos.svg" alt="Desarrollamos" class="sna-integrantes-icon-circle mb-4">
-                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Desarrollamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3">Desarrollamos</h3>
                         <p class="text-muted mb-0">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-analizamos.svg" alt="Analizamos" class="sna-integrantes-icon-circle mb-4">
-                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Analizamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3">Analizamos</h3>
                         <p class="text-muted mb-0">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-impulsamos.svg" alt="Impulsamos" class="sna-integrantes-icon-circle mb-4">
-                        <h3 class="font-patria fw-bold text-burgundi mb-3" style="font-size: 1.2rem;">Impulsamos</h3>
+                        <h3 class="font-patria fw-bold text-burgundi mb-3">Impulsamos</h3>
                         <p class="text-muted mb-0">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ get_header();
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center">
-                    <h2 class="font-patria fw-bold text-burgundi mb-3">Mantente conectado con la SESNA</h2>
+                    <h2 class="sesna-section-title mb-3">Mantente conectado con la SESNA</h2>
                     <p class="text-muted mx-auto">
                         Conoce nuestras actividades, publicaciones, herramientas, eventos y acciones a través de nuestros canales oficiales.
                     </p>
@@ -205,10 +205,10 @@ get_header();
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/favicon.png" alt="SESNA">
                             </div>
-                            <div class="qh-social-account mt-2" style="font-size: 0.85rem;">
+                            <div class="qh-social-account mt-2">
                                 SESNA <i class="bi bi-patch-check-fill"></i>
                             </div>
-                            <div class="qh-social-handle" style="font-size: 0.75rem;">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
+                            <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="mb-4">Información institucional y profesional.</p>
                             <a href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
                         </div>

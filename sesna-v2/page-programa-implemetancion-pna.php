@@ -46,7 +46,7 @@ get_header();
     <div class="container" id="fila">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 align-middle">
-                <h1 style="padding-bottom: 50px; padding-top: 50px; font-size: 1.6rem; color: #54565a;">
+                <h1 style="padding-bottom: 50px; padding-top: 50px; font-size: 22px; color: #54565a;">
                     En el proyecto de PI-PNA se desarrollaron 64 indicadores estratégicos que serán la herramienta para el seguimiento de los resultados de cada una de las Estrategias y formarán parte integral del Modelo de Evaluación de la
                     Anticorrupción y la Integridad (MESAI), una vez que sea aprobado particularmente.
                 </h1>
