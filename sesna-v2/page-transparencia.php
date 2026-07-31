@@ -65,7 +65,8 @@ $tx_cards = [
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="tx-section-title font-patria" id="tx-accesos-titulo">Accesos rápidos</h2>
+                    <h2 class="cp-recursos__titulo" id="tx-accesos-titulo">Accesos rápidos</h2>
+                    <div class="cp-recursos__linea mb-3"></div>
                 </div>
             </div>
 
@@ -110,7 +111,8 @@ $tx_cards = [
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="tx-section-title font-patria" id="tx-consulta-titulo">Consulta información pública</h2>
+                    <h2 class="cp-recursos__titulo" id="tx-consulta-titulo">Consulta información pública</h2>
+                    <div class="cp-recursos__linea mb-3"></div>
                 </div>
             </div>
 

@@ -48,7 +48,7 @@ get_header(); ?>
     <section class="container mb-5">
         <div class="d-flex align-items-center mb-4">
             <i class="bi bi-file-earmark-text text-guinda me-3 flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
-            <h2 class="tx-section-title font-patria text-dark m-0 me-4">Documentos</h2>
+            <h2 class="cp-recursos__titulo m-0 me-4">Documentos</h2>
             
             <!-- Separador vertical en desktop -->
             <div class="d-none d-md-block flex-shrink-0 me-4" style="width: 1px; height: 45px; background-color: #ccc;"></div>
@@ -120,8 +120,9 @@ get_header(); ?>
                 <i class="bi bi-gear position-absolute bg-white" style="font-size: 1.4rem; top: 42%; left: 50%; transform: translate(-50%, -50%); line-height: 1; padding: 2px;"></i>
             </div>
             <div>
-                <h2 class="tx-section-title font-patria text-dark mb-1">Herramientas</h2>
-                <p class="tx-hero__subtitle text-muted mb-0">Plataformas y sistemas para el análisis de información y apoyo a la toma de decisiones.</p>
+                <h2 class="cp-recursos__titulo mb-1">Herramientas</h2>
+                <div class="cp-recursos__linea mb-2"></div>
+                <p class="sesna-hero__subtitle mb-0">Plataformas y sistemas para el análisis de información y apoyo a la toma de decisiones.</p>
             </div>
         </div>
         

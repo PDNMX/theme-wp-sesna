@@ -89,7 +89,7 @@ get_header();
                 <!-- SECTION: COMITÉ COORDINADOR -->
                 <div class="row mb-5">
                     <div class="col-12">
-                        <h2 class="tx-section-title font-patria mb-2 tx-comite-title text-uppercase">COMITÉ COORDINADOR</h2>
+                        <h2 class="cp-recursos__titulo mb-2">COMITÉ COORDINADOR</h2>
                     </div>
                 </div>
 
@@ -321,7 +321,7 @@ get_header();
                     <div class="card-body p-4 p-md-5">
                         <div class="row align-items-end mb-4">
                             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <h2 class="tx-section-title font-patria fw-bold mb-0 tx-comite-title text-uppercase">NORMATIVIDAD</h2>
+                                <h2 class="cp-recursos__titulo mb-0">NORMATIVIDAD</h2>
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="search-doc" class="form-label fw-bold font-noto-sans text-dark mb-2">Buscar documento</label>
