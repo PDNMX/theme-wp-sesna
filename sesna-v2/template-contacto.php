@@ -8,7 +8,7 @@ get_header();
 
  
 <div class="page-contacto front-page-bg pb-5">
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -24,7 +24,7 @@ get_header();
     <div class="container py-4">
         <div class="row align-items-center mb-4">
             <div class="col-12 position-relative z-1">
-                <h1 class="tx-hero__title fw-bold mb-3 font-patria">Contacto</h1>
+                <h1 class="sesna-hero__title">Contacto</h1>
                 <div class="hero-separator"></div>
             </div>
         </div>

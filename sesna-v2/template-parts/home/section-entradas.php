@@ -14,7 +14,7 @@ $sna_meses = [
 ];
 ?>
 <div class="container">
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>

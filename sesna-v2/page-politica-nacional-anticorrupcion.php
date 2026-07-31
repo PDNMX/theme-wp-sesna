@@ -11,7 +11,7 @@ get_header();
 <div class="page-pna">
 
     <!-- Breadcrumb -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -26,11 +26,11 @@ get_header();
     </nav>
 
     <!-- Hero -->
-    <section class="py-5 mb-4 ocn-hero">
+    <section class="sesna-page-hero">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 position-relative z-1">
-                    <h1 class="tx-hero__title fw-bold mb-3 font-patria">Política Nacional Anticorrupción</h1>
+                    <h1 class="sesna-hero__title">Política Nacional Anticorrupción</h1>
                     <div class="hero-separator"></div>
                 </div>
             </div>

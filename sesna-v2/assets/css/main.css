@@ -27,7 +27,7 @@
     --color-blanco: #ffffff;
 
     /* Fondos neutros derivados */
-    --color-fondo-claro: #f8f9fa;
+    --color-fondo-claro: #F6EFF6;
     --color-burgundi-tenue: rgba(157, 36, 73, 0.07);
 
     /* Sub-navbar — color institucional SND */
@@ -539,84 +539,87 @@ body.front-page main.page {
 }
 
 /* ------------------------------------------------------------
-   Breadcrumb institucional estandarizado GOB.MX
+   Hero de Página Interna — componente estándar
+   Reemplaza: .ocn-hero, .vp-hero, .pna-hero, .qh-hero, "py-5 mb-5"
    ------------------------------------------------------------ */
-.gobmx-breadcrumb-container {
-    background-color: transparent !important;
-    padding: 1.5rem 0 1rem 0;
-    font-size: 16px;
-    font-family: var(--font-noto-sans);
+.sesna-page-hero {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
 }
 
-.gobmx-breadcrumb-container .breadcrumb {
+.sesna-hero__title {
+    font-family: var(--font-patria);
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--color-negro);
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+    line-height: 1.15;
+    text-align: left;
+}
+
+.sesna-hero__subtitle {
+    font-size: 17px;
+    color: rgba(33, 37, 41, 0.72);
+    line-height: 1.65;
+    margin-bottom: 0;
+    text-align: justify;
+    max-width: 560px;
+}
+
+@media (max-width: 768px) {
+    .sesna-hero__title {
+        font-size: 32px;
+        letter-spacing: -0.4px;
+    }
+    .sesna-page-hero {
+        padding-top: 28px;
+        padding-bottom: 20px;
+        margin-bottom: 24px;
+    }
+}
+
+/* ------------------------------------------------------------
+   Breadcrumb SESNA — extiende .cp-breadcrumb del CDN GOB.mx v3
+   ------------------------------------------------------------ */
+.cp-breadcrumb {
+    font-size: 16px;
+    font-family: var(--font-noto-sans);
+    padding-top: 16px !important;
+    padding-bottom: 12px;
+    background-color: transparent;
+}
+
+.cp-breadcrumb .breadcrumb {
     margin: 0;
     padding: 0;
     background: transparent;
-    display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.gobmx-breadcrumb-container .breadcrumb-item,
-.gobmx-breadcrumb-container .breadcrumb-item a {
-    color: var(--color-burgundi) !important;
-    text-decoration: none !important;
+.cp-breadcrumb .breadcrumb-item a {
+    color: var(--color-burgundi);
+    text-decoration: none;
     font-weight: 400;
-}
-
-.gobmx-breadcrumb-container .breadcrumb-item a:hover {
-    color: var(--color-guinda) !important;
-    text-decoration: underline !important;
-}
-
-.gobmx-breadcrumb-container .breadcrumb-item.active {
-    color: rgba(22, 26, 29, 0.75) !important;
-    font-weight: 600;
-}
-
-.gobmx-breadcrumb-container .breadcrumb-item + .breadcrumb-item::before {
-    content: '›' !important;
-    color: var(--color-gris) !important;
-    padding: 0 0.5rem;
-    float: none;
-}
-
-/* ------------------------------------------------------------
-   Breadcrumb institucional compartido (Legacy)
-   ------------------------------------------------------------ */
-.sesna-breadcrumb {
-    background-color: transparent !important;
-    padding: 10px 0;
-    font-size: 16px;
-}
-
-.sesna-breadcrumb .breadcrumb {
-    margin: 0;
-    flex-wrap: wrap;
-    background: transparent;
-    padding: 0;
-}
-
-.sesna-breadcrumb .breadcrumb-item,
-.sesna-breadcrumb .breadcrumb-item a {
-    color: var(--color-burgundi) !important;
-    text-decoration: none !important;
     transition: color 0.2s;
-    font-weight: 400;
 }
 
-.sesna-breadcrumb .breadcrumb-item a:hover {
-    color: var(--color-guinda) !important;
+.cp-breadcrumb .breadcrumb-item a:hover {
+    color: var(--color-guinda);
+    text-decoration: underline;
 }
 
-.sesna-breadcrumb .breadcrumb-item.active {
-    color: rgba(22, 26, 29, 0.65) !important;
+.cp-breadcrumb .breadcrumb-item.active {
+    color: rgba(22, 26, 29, 0.65);
     font-weight: 600;
 }
 
-.sesna-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    content: '›' !important;
-    color: var(--color-gris) !important;
+.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: '›';
+    color: var(--color-gris);
+    padding: 0 0.4rem;
     float: none;
 }
 
@@ -1254,38 +1257,6 @@ body.front-page main.page {
    Scope: .page-contrataciones — aislado del resto del tema
    ============================================================ */
 
-/* Breadcrumb */
-.cp-breadcrumb {
-    background-color: transparent !important;
-    padding: 10px 0;
-    font-size: 16px;
-}
-
-.cp-breadcrumb .breadcrumb {
-    margin: 0;
-    flex-wrap: wrap;
-    background: transparent !important;
-}
-
-.cp-breadcrumb .breadcrumb-item a {
-    color: var(--color-burgundi) !important;
-    text-decoration: none !important;
-    transition: color 0.2s;
-}
-
-.cp-breadcrumb .breadcrumb-item a:hover {
-    color: var(--color-guinda) !important;
-}
-
-.cp-breadcrumb .breadcrumb-item.active {
-    color: rgba(22, 26, 29, 0.65) !important;
-    font-weight: 600;
-}
-
-.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    content: '›' !important;
-    color: var(--color-gris) !important;
-}
 
 /* ── Hero card ilustración ── */
 .page-contrataciones .cp-hero-card {
@@ -2573,14 +2544,15 @@ body.front-page main.page {
 }
 
 .qh-hero-tag {
-    font-size: 0.85rem;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    color: var(--color-dorado-claro);
+    margin-bottom: 6px;
     display: inline-block;
     border-bottom: 2px solid var(--color-dorado);
-    padding-bottom: 0.25rem;
+    padding-bottom: 6px;
 }
 
 /* Iconos flotantes fondo */

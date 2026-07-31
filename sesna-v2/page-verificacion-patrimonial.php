@@ -11,7 +11,7 @@ get_header();
 <div class="page-verificacion front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -29,17 +29,17 @@ get_header();
     </nav>
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
-    <section class="vp-hero pt-2 pb-0">
+    <section class="sesna-page-hero">
         <div class="container">
             <div class="row align-items-start g-4">
 
                 <!-- Izquierda: texto -->
                 <div class="col-lg-6 col-md-8 position-relative z-1">
                     <span class="vp-hero__badge mb-2 fw-bold">Herramienta Especializada</span>
-                    <h1 class="tx-hero__title fw-bold mb-2 font-patria">Generador de muestras aleatorio</h1>
+                    <h1 class="sesna-hero__title">Generador de muestras aleatorio</h1>
                     <p class="fs-3 fw-normal mb-3" style="color: var(--color-burgundi); font-family: var(--font-patria);">Verificación patrimonial</p>
-                    <div class="vp-hero__line"></div>
-                    <p class="tx-hero__subtitle text-muted" style="max-width: 480px;">Herramienta para apoyar ejercicios de verificación patrimonial mediante la generación automatizada de muestras, con base en criterios técnicos y parámetros normativos.</p>
+                    <div class="hero-separator"></div>
+                    <p class="sesna-hero__subtitle">Herramienta para apoyar ejercicios de verificación patrimonial mediante la generación automatizada de muestras, con base en criterios técnicos y parámetros normativos.</p>
                 </div>
 
                 <!-- Derecha: imagen laptop -->

@@ -4,7 +4,7 @@
 
   <!-- Breadcrumb -->
   <div class="container">
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item">
           <a href="<?php echo esc_url(home_url('/')); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
@@ -15,13 +15,13 @@
   </div>
 
   <!-- Hero -->
-  <section class="py-5 mb-5 ocn-hero">
+  <section class="sesna-page-hero">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
-          <h1 class="tx-hero__title fw-bold mb-3 font-patria">Directorio</h1>
+          <h1 class="sesna-hero__title">Directorio</h1>
           <div class="hero-separator"></div>
-          <p class="tx-hero__subtitle text-muted font-noto-sans" style="max-width: 480px;">
+          <p class="sesna-hero__subtitle">
             Conoce a las personas titulares de las áreas que integran
             la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
           </p>

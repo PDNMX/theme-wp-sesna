@@ -45,7 +45,7 @@ wp_reset_postdata();
 
 <div class="page-transparencia-comite front-page-bg pb-5">
     <!-- Migas de pan (Breadcrumb) -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">

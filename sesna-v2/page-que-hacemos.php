@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <div class="front-page-bg">
-    
+
     <!-- Hero Section -->
     <section class="qh-hero">
         <!-- Floating icons -->
@@ -17,8 +17,8 @@ get_header();
             <div class="row">
                 <div class="col-lg-7 col-md-8">
                     <span class="qh-hero-tag">Quiénes somos</span>
-                    <h1 class="font-patria fw-bold text-white mb-4" style="font-size: 2.8rem; line-height: 1.2;">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
-                    <p class="text-white opacity-75" style="font-size: 1.15rem; line-height: 1.6; font-weight: 300;">
+                    <h1 class="sesna-hero__title text-white mb-4">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
+                    <p class="sesna-hero__subtitle text-white opacity-75 fw-light">
                         Somos el órgano técnico de apoyo del Sistema Nacional Anticorrupción encargado de generar insumos técnicos especializados, desarrollar herramientas estratégicas, coordinar esfuerzos institucionales y contribuir al fortalecimiento de las políticas públicas para prevenir y combatir la corrupción en México.
                     </p>
                 </div>

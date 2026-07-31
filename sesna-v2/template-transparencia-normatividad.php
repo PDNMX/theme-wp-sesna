@@ -53,7 +53,7 @@ if (!function_exists('sesna_render_document_row')) {
 <div class="page-transparencia has-fullbleed-hero">
 
     <!-- MIGAS DE PAN (BREADCRUMB) -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">

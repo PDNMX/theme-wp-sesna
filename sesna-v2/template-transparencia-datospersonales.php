@@ -12,7 +12,7 @@ $documentos = sesna_get_datos_personales_docs();
 
 <div class="page-transparencia-datos front-page-bg pb-5">
     <!-- Migas de pan (Breadcrumb) -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">

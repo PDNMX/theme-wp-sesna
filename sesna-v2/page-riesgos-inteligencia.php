@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
     
     <!-- Breadcrumb -->
-    <nav class="gobmx-breadcrumb-container" aria-label="Ruta de navegación">
+    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
@@ -25,13 +25,13 @@ get_header(); ?>
     </nav>
 
     <!-- Hero Banner -->
-    <section class="py-5 mb-5">
+    <section class="sesna-page-hero">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-8 position-relative z-1">
-                    <h1 class="tx-hero__title fw-bold mb-3 font-patria">Riesgos e <br>Inteligencia Anticorrupción</h1>
+                    <h1 class="sesna-hero__title">Riesgos e <br>Inteligencia Anticorrupción</h1>
                     <div class="hero-separator"></div>
-                    <p class="tx-hero__subtitle text-muted" style="max-width: 480px;">
+                    <p class="sesna-hero__subtitle">
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
