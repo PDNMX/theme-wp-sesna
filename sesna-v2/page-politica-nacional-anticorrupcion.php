@@ -72,19 +72,19 @@ get_header();
                         </p>
 
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
                                 <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
                                 <i class="bi bi-book" aria-hidden="true"></i> Documento Completo
                             </a>
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
                                 <i class="bi bi-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
                             </a>
 
                             <!-- Anexos -->
                             <div class="dropdown pna-anexos-dropdown">
-                                <button class="btn btn-primary pna-download-btn dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-sesna dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-paperclip" aria-hidden="true"></i> Anexos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="pnaAnexosDropdown">
@@ -247,7 +247,7 @@ get_header();
                     sectores de la sociedad. Si deseas saber más sobre los insumos de la Política Nacional Anticorrupción
                     consúltalos aquí.
                 </p>
-                <a href="<?php echo esc_url( home_url( '/2020/03/19/insumos-de-la-politica-nacional-anticorrupcion/' ) ); ?>" class="pna-download-btn" target="_blank" rel="noopener">
+                <a href="<?php echo esc_url( home_url( '/2020/03/19/insumos-de-la-politica-nacional-anticorrupcion/' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
                     <i class="bi bi-folder2-open" aria-hidden="true"></i> Insumos de la PNA
                 </a>
 

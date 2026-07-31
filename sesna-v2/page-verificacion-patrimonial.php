@@ -105,7 +105,7 @@ get_header();
 
             <!-- CTA -->
             <div class="text-center mt-5 pt-2">
-                <a href="#" class="vp-cta-btn" target="_blank" rel="noopener">
+                <a href="#" class="btn-sesna btn-sesna--lg" target="_blank" rel="noopener">
                     <i class="bi bi-display fs-5"></i>
                     Acceder a la herramienta
                     <i class="bi bi-box-arrow-up-right fs-6"></i>

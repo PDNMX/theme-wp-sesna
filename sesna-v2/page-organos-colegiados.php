@@ -411,7 +411,7 @@ get_header();
 
                         <!-- VER MÁS BTN (DOCUMENTOS) -->
                         <div class="text-center mt-5 mb-2">
-                            <a href="#" class="tx-btn-outline-guinda">
+                            <a href="#" class="btn-sesna-outline">
                                 Ver más documentos <i class="bi bi-chevron-down ms-1"></i>
                             </a>
                         </div>

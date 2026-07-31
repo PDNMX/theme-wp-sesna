@@ -73,7 +73,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
                     <p class="tx-card__desc text-muted mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
                 </a>
             </div>
             <!-- Card 2 -->
@@ -84,7 +84,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
                     <p class="tx-card__desc text-muted mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
-                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
                 </a>
             </div>
             <!-- Card 3 -->
@@ -95,7 +95,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
                 </a>
             </div>
             <!-- Card 4 -->
@@ -106,7 +106,7 @@ get_header(); ?>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>
                     <p class="tx-card__desc text-muted mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
-                    <span class="tx-hero__cta text-guinda mt-auto d-inline-flex align-items-center">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
                 </a>
             </div>
         </div>
@@ -146,7 +146,7 @@ get_header(); ?>
                         
                         <p class="mb-5 text-white pe-md-5" style="font-size: 16px; opacity: 1 !important;">Herramienta para la selección aleatoria y análisis de declaraciones patrimoniales.</p>
                         
-                        <span class="btn-white-rounded mt-auto align-self-start shadow-sm text-guinda">
+                        <span class="btn-sesna-white mt-auto align-self-start">
                             Ir a la herramienta <i class="bi bi-box-arrow-up-right ms-2"></i>
                         </span>
                     </div>
@@ -189,7 +189,7 @@ get_header(); ?>
                 <div class="col-lg-5 d-flex align-items-center">
                     <div class="d-flex align-items-center justify-content-lg-center w-100 ps-lg-4">
                         <i class="bi bi-book text-guinda flex-shrink-0 me-3" style="font-size: 3rem;"></i>
-                        <span class="tx-hero__cta text-guinda">Conoce más sobre nuestras metodologías <i class="bi bi-arrow-right fw-bold ms-1"></i></span>
+                        <span class="btn-sesna-link">Conoce más sobre nuestras metodologías <i class="bi bi-arrow-right fw-bold ms-1"></i></span>
                     </div>
                 </div>
             </div>

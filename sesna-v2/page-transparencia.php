@@ -78,8 +78,8 @@ $tx_cards = [
                         <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                             <i class="bi bi-people"></i>
                         </span>
-                        <strong class="tx-card__title d-block mb-2" style="font-size: 16px;">Comité de Transparencia</strong>
-                        <p class="tx-card__desc flex-grow-1 mb-0" style="font-size: 16px;">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
+                        <strong class="tx-card__title d-block mb-2">Comité de Transparencia</strong>
+                        <p class="tx-card__desc flex-grow-1 mb-0">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
                         <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
                     </a>
                 </div>
@@ -91,8 +91,8 @@ $tx_cards = [
                             <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
                                 <i class="bi <?= esc_attr($card['icon']) ?>"></i>
                             </span>
-                            <strong class="tx-card__title d-block mb-2" style="font-size: 16px;"><?= esc_html($card['title']) ?></strong>
-                            <p class="tx-card__desc flex-grow-1 mb-0" style="font-size: 16px;"><?= esc_html($card['desc']) ?></p>
+                            <strong class="tx-card__title d-block mb-2"><?= esc_html($card['title']) ?></strong>
+                            <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html($card['desc']) ?></p>
                             <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
                             
                             <?php if ($card['title'] === 'Obligaciones de Transparencia'): ?>
@@ -127,13 +127,13 @@ $tx_cards = [
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
-                                <strong class="tx-consulta-card__title" style="font-size: 18px;">Transparencia para el Pueblo</strong>
-                                <p class="tx-consulta-card__desc mt-2 flex-grow-1" style="font-size: 18px;">
+                                <strong class="tx-consulta-card__title">Transparencia para el Pueblo</strong>
+                                <p class="tx-consulta-card__desc mt-2 flex-grow-1">
                                     Conoce el nuevo modelo nacional de transparencia y consulta información de interés
                                     público.
                                 </p>
                                 <div class="mt-3">
-                                    <span class="tx-consulta-card__btn" style="font-size: 18px;"
+                                    <span class="tx-consulta-card__btn"
                                         aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         Ir al portal
                                         <span class="bootstrap-icons" aria-hidden="true">
@@ -155,12 +155,12 @@ $tx_cards = [
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
-                                <strong class="tx-consulta-card__title" style="font-size: 18px;">Plataforma Nacional de Transparencia</strong>
-                                <p class="tx-consulta-card__desc mt-2 flex-grow-1" style="font-size: 18px;">
+                                <strong class="tx-consulta-card__title">Plataforma Nacional de Transparencia</strong>
+                                <p class="tx-consulta-card__desc mt-2 flex-grow-1">
                                     Realiza solicitudes de información y consulta obligaciones de transparencia.
                                 </p>
                                 <div class="mt-3">
-                                    <span class="tx-consulta-card__btn" style="font-size: 18px;"
+                                    <span class="tx-consulta-card__btn"
                                         aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         Acceder
                                         <span class="bootstrap-icons" aria-hidden="true">

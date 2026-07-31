@@ -158,7 +158,7 @@ get_header();
                         <div class="dh-acciones-card__body">
                             <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
                             <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
-                            <a href="#" class="dh-link-burgundi">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
+                            <a href="#" class="btn-sesna-link">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@ get_header();
                 <?php endforeach; ?>
 
                 <div class="text-center mt-4">
-                    <a href="#" class="dh-link-burgundi"><i class="bi bi-arrow-down me-1"></i> Más sesiones</a>
+                    <a href="#" class="btn-sesna-link"><i class="bi bi-arrow-down me-1"></i> Más sesiones</a>
                 </div>
             </div>
         </div>

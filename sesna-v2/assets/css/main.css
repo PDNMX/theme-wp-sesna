@@ -573,6 +573,10 @@ body.front-page main.page {
         font-size: 32px;
         letter-spacing: -0.4px;
     }
+    .sesna-hero__subtitle {
+        text-align: left;
+        max-width: 100%;
+    }
     .sesna-page-hero {
         padding-top: 28px;
         padding-bottom: 20px;
@@ -619,8 +623,13 @@ body.front-page main.page {
 .cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
     content: '›';
     color: var(--color-gris);
-    padding: 0 0.4rem;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0 0.5rem;
     float: none;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
 }
 
 /* ------------------------------------------------------------
@@ -1356,10 +1365,10 @@ body.front-page main.page {
 }
 
 .cp-recursos__linea {
-    width: 36px;
+    width: 48px;
     height: 3px;
     background-color: var(--color-burgundi);
-    margin-top: 6px;
+    margin-top: 8px;
     margin-bottom: 0;
     border-radius: 2px;
 }
@@ -1494,6 +1503,98 @@ body.front-page main.page {
     min-width: 180px;
     flex-shrink: 0;
 }
+
+/* ============================================================
+   BOTONES — Sistema SESNA
+   Tres variantes globales + link-arrow. Sin scope por página.
+   ============================================================ */
+
+/* 1 · Sólido guinda — CTA principal */
+.btn-sesna {
+    background-color: var(--color-guinda);
+    color: #ffffff;
+    border: 2px solid var(--color-guinda);
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.btn-sesna:hover {
+    background-color: var(--color-burgundi);
+    border-color: var(--color-burgundi);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Variante grande — CTAs de hero y secciones prominentes */
+.btn-sesna--lg {
+    padding: 16px 40px;
+    font-size: 16px;
+}
+
+/* 2 · Outline guinda — secundario sobre fondo claro */
+.btn-sesna-outline {
+    background-color: transparent;
+    color: var(--color-guinda);
+    border: 2px solid var(--color-guinda);
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-sesna-outline:hover {
+    background-color: var(--color-guinda);
+    color: #ffffff;
+}
+
+/* 3 · Blanco sólido — CTA sobre fondo oscuro (cards guinda, degradados) */
+.btn-sesna-white {
+    background-color: #ffffff;
+    color: var(--color-guinda);
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.btn-sesna-white:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    color: var(--color-burgundi);
+}
+
+/* 4 · Link con flecha — navegación secundaria inline */
+.btn-sesna-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-burgundi);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: gap 0.15s ease, color 0.15s ease;
+}
+.btn-sesna-link:hover {
+    color: var(--color-guinda);
+    gap: 10px;
+}
+
+/* ──────────────────────────────────────────────────────────── */
 
 .cp-btn-ver {
     display: flex;
