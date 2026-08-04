@@ -8,12 +8,14 @@
   var ficha = document.getElementById('dir-ficha');
   var foto = document.getElementById('dir-foto');
   var placeholder = document.getElementById('dir-foto-placeholder');
+  var areaBadge = document.getElementById('dir-area-badge');
   var nombre = document.getElementById('dir-nombre');
   var encargadoRow = document.getElementById('dir-encargado-row');
   var encargadoSep = document.getElementById('dir-encargado-sep');
   var encargado = document.getElementById('dir-encargado');
   var cargo = document.getElementById('dir-cargo');
   var email = document.getElementById('dir-email');
+  var emailBtn = document.getElementById('dir-email-btn');
 
   // Modal elements
   var modal = document.getElementById('dir-modal');
@@ -33,6 +35,8 @@
   }
 
   function fillFicha(d) {
+    if (areaBadge) areaBadge.textContent = d.estructura || '';
+
     nombre.textContent = d.nombre_titular || '—';
 
     if (d.encargado) {
@@ -47,6 +51,10 @@
     cargo.textContent = d.cargo_titular || '—';
     email.textContent = d.email_titular || '—';
     email.href = d.email_titular ? 'mailto:' + d.email_titular : '#';
+
+    if (emailBtn) {
+      emailBtn.href = d.email_titular ? 'mailto:' + d.email_titular : '#';
+    }
 
     if (d.foto_titular) {
       foto.src = d.foto_titular;
@@ -128,7 +136,8 @@
   });
 
   // Mailto open in new window
-  [email, modalEmail].forEach(function (el) {
+  [email, emailBtn, modalEmail].forEach(function (el) {
+    if (!el) return;
     el.addEventListener('click', function (e) {
       if (this.href && this.href.indexOf('mailto:') === 0) {
         e.preventDefault();

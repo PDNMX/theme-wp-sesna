@@ -18,52 +18,63 @@
   <section class="sesna-page-hero">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
+        <div class="col-lg-7 col-md-9 position-relative z-1 mb-4 mb-lg-0">
           <h1 class="sesna-hero__title">Directorio</h1>
           <div class="hero-separator"></div>
           <p class="sesna-hero__subtitle">
             Conoce a las personas titulares de las áreas que integran
             la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
           </p>
+          <?php
+          $dir_args = array(
+            'post_type'      => 'directorio',
+            'posts_per_page' => -1,
+            'post_status'    => 'publish',
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+          );
+          $dir_query = new WP_Query($dir_args);
+
+          $areas = array();
+          if ($dir_query->have_posts()) :
+            while ($dir_query->have_posts()) : $dir_query->the_post();
+              $foto_url       = get_the_post_thumbnail_url(get_the_ID(), 'large');
+              $estructura     = get_post_meta(get_the_ID(), '_dir_estructura', true);
+              $nombre_area    = get_post_meta(get_the_ID(), '_dir_nombre_area', true);
+              $show_enc       = get_post_meta(get_the_ID(), '_dir_show_encargado', true);
+              $areas[] = array(
+                'estructura'      => $estructura ? $estructura : $nombre_area,
+                'nombre_area'     => $nombre_area,
+                'encargado'       => ($show_enc === '1') ? $nombre_area : '',
+                'foto_titular'    => $foto_url ? $foto_url : '',
+                'nombre_titular'  => get_the_title(),
+                'cargo_titular'   => get_post_meta(get_the_ID(), '_dir_cargo', true),
+                'email_titular'   => get_post_meta(get_the_ID(), '_dir_email', true),
+              );
+            endwhile;
+            wp_reset_postdata();
+          endif;
+
+          $first = !empty($areas) ? $areas[0] : null;
+          ?>
+          <?php if (!empty($areas)) : ?>
+          <div class="dir-hero__meta d-flex gap-3 mt-3">
+            <span class="dir-hero__meta-badge">
+              <i class="bi bi-building" aria-hidden="true"></i>
+              <?php echo count($areas); ?> unidades administrativas
+            </span>
+            <span class="dir-hero__meta-badge">
+              <i class="bi bi-calendar3" aria-hidden="true"></i>
+              Actualizado <?php echo date('Y'); ?>
+            </span>
+          </div>
+          <?php endif; ?>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contenido principal -->
-  <?php
-  $dir_args = array(
-    'post_type'      => 'directorio',
-    'posts_per_page' => -1,
-    'post_status'    => 'publish',
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC',
-  );
-  $dir_query = new WP_Query($dir_args);
-
-  $areas = array();
-  if ($dir_query->have_posts()) :
-    while ($dir_query->have_posts()) : $dir_query->the_post();
-      $foto_url       = get_the_post_thumbnail_url(get_the_ID(), 'large');
-      $estructura     = get_post_meta(get_the_ID(), '_dir_estructura', true);
-      $nombre_area    = get_post_meta(get_the_ID(), '_dir_nombre_area', true);
-      $show_enc       = get_post_meta(get_the_ID(), '_dir_show_encargado', true);
-      $areas[] = array(
-        'estructura'      => $estructura ? $estructura : $nombre_area,
-        'nombre_area'     => $nombre_area,
-        'encargado'       => ($show_enc === '1') ? $nombre_area : '',
-        'foto_titular'    => $foto_url ? $foto_url : '',
-        'nombre_titular'  => get_the_title(),
-        'cargo_titular'   => get_post_meta(get_the_ID(), '_dir_cargo', true),
-        'email_titular'   => get_post_meta(get_the_ID(), '_dir_email', true),
-      );
-    endwhile;
-    wp_reset_postdata();
-  endif;
-
-  $first = !empty($areas) ? $areas[0] : null;
-  ?>
-
   <section class="dir-content">
     <div class="container">
       <div class="row g-4">
@@ -71,7 +82,14 @@
         <!-- Col izquierda: Estructura Orgánica -->
         <div class="col-lg-6">
           <div class="dir-card">
-            <h2 class="dir-org__title">Estructura Orgánica</h2>
+            <div class="dir-org__header">
+              <h2 class="dir-org__title">Estructura Orgánica</h2>
+              <?php if (!empty($areas)) : ?>
+              <span class="dir-org__count" aria-label="<?php echo count($areas); ?> áreas">
+                <?php echo count($areas); ?>
+              </span>
+              <?php endif; ?>
+            </div>
             <div class="dir-org__list" role="listbox" aria-label="Áreas de la SESNA">
               <?php if (!empty($areas)) : ?>
                 <?php foreach ($areas as $i => $area) : ?>
@@ -112,6 +130,9 @@
                 <?php endif; ?>
               </div>
               <div class="dir-ficha__info">
+                <div class="dir-ficha__area-badge" id="dir-area-badge">
+                  <?php echo $first ? esc_html($first['estructura']) : ''; ?>
+                </div>
                 <h3 class="dir-ficha__nombre" id="dir-nombre">
                   <?php echo $first ? esc_html($first['nombre_titular']) : '—'; ?>
                 </h3>
@@ -138,16 +159,37 @@
                     <i class="bi bi-envelope-fill"></i>
                   </span>
                   <a class="dir-ficha__email" id="dir-email"
-                     href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>"
-                     target="_blank">
+                     href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
                     <?php echo $first ? esc_html($first['email_titular']) : '—'; ?>
                   </a>
                 </div>
+                <a class="dir-ficha__email-btn" id="dir-email-btn"
+                   href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
+                  <i class="bi bi-envelope" aria-hidden="true"></i> Enviar correo
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Contacto institucional -->
+  <section class="dir-contact-cta">
+    <div class="container">
+      <div class="dir-contact-cta__card">
+        <div class="dir-contact-cta__icon" aria-hidden="true">
+          <i class="bi bi-headset"></i>
+        </div>
+        <div class="dir-contact-cta__body">
+          <h4 class="dir-contact-cta__title">¿Necesitas más información?</h4>
+          <p class="dir-contact-cta__text">Para consultas generales o información adicional sobre la Secretaría Ejecutiva, comunícate con nosotros.</p>
+        </div>
+        <a href="<?php echo esc_url(home_url('/contacto/')); ?>" class="dir-contact-cta__btn">
+          <i class="bi bi-arrow-right" aria-hidden="true"></i> Ir a Contacto
+        </a>
       </div>
     </div>
   </section>
@@ -179,7 +221,7 @@
         <hr class="dir-ficha__separator">
         <div class="dir-modal__cargo-row">
           <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
-          <a class="dir-ficha__email" id="dir-modal-email" href="#" target="_blank"></a>
+          <a class="dir-ficha__email" id="dir-modal-email" href="#"></a>
         </div>
       </div>
     </div>
