@@ -1440,14 +1440,13 @@ function sesna_get_datos_personales_docs() {
         ]
     ];
 
-    $transient_key = 'sesna_dp_docs_cache_v3';
+    $transient_key = 'sesna_dp_docs_cache_v4';
     $cached_docs = get_transient($transient_key);
 
     if (false === $cached_docs || isset($_GET['clear_cache'])) {
         $upload_dir = wp_upload_dir();
         $basedir = $upload_dir['basedir'];
-        $baseurl = $upload_dir['baseurl'];
-        
+
         $file_map = [];
         try {
             $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($basedir, RecursiveDirectoryIterator::SKIP_DOTS));
@@ -1455,10 +1454,11 @@ function sesna_get_datos_personales_docs() {
                 if ($file->isFile() && strtolower($file->getExtension()) === 'pdf') {
                     $filename = $file->getFilename();
                     if (!isset($file_map[$filename])) {
-                        $path = $file->getPathname();
-                        $url = str_replace($basedir, $baseurl, $path);
-                        $url = str_replace('\\', '/', $url);
-                        $file_map[$filename] = $url;
+                        // Se guarda solo el path relativo (sin dominio) para que la URL
+                        // absoluta se reconstruya con home_url() en cada carga y nunca
+                        // quede un dominio (p. ej. localhost) congelado en el transient.
+                        $relative_path = str_replace('\\', '/', substr($file->getPathname(), strlen($basedir)));
+                        $file_map[$filename] = $relative_path;
                     }
                 }
             }
@@ -1480,16 +1480,13 @@ function sesna_get_datos_personales_docs() {
                 $tipo = 'Formatos';
             }
 
-            $enlace = '#';
-            if (isset($file_map[$doc['filename']])) {
-                $enlace = $file_map[$doc['filename']];
-            }
+            $ruta_relativa = isset($file_map[$doc['filename']]) ? $file_map[$doc['filename']] : '';
 
             $processed_docs[] = [
                 'titulo' => $doc['titulo'],
                 'anio'   => $doc['anio'],
                 'tipo'   => $tipo,
-                'enlace' => $enlace
+                'ruta_relativa' => $ruta_relativa
             ];
         }
 
@@ -1501,7 +1498,61 @@ function sesna_get_datos_personales_docs() {
         $cached_docs = $processed_docs;
     }
 
-    return $cached_docs;
+    // La URL final siempre se construye con el dominio actual del sitio,
+    // sin importar cuándo se generó el transient cacheado.
+    $upload_dir = wp_upload_dir();
+    foreach ($cached_docs as &$doc) {
+        $doc['enlace'] = !empty($doc['ruta_relativa'])
+            ? $upload_dir['baseurl'] . $doc['ruta_relativa']
+            : '#';
+    }
+    unset($doc);
+
+    // Se agregan los documentos cargados desde wp-admin (CPT "Datos Personales"),
+    // junto a los históricos de arriba. El enlace se resuelve con
+    // sesna_resolve_archivo_url() para nunca depender del dominio guardado al subir el archivo.
+    $cpt_docs = [];
+    $cpt_query = new WP_Query([
+        'post_type'      => 'datos-personales',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+    ]);
+
+    if ($cpt_query->have_posts()) {
+        while ($cpt_query->have_posts()) {
+            $cpt_query->the_post();
+            $post_id = get_the_ID();
+            $titulo = get_the_title();
+            $tit_lower = strtolower($titulo);
+
+            $tipo = 'Información General';
+            if (strpos($tit_lower, 'simplificado') !== false) {
+                $tipo = 'Aviso de Privacidad Simplificado';
+            } elseif (strpos($tit_lower, 'integral') !== false) {
+                $tipo = 'Aviso de Privacidad Integral';
+            } elseif (strpos($tit_lower, 'seguridad') !== false) {
+                $tipo = 'Documento de Seguridad';
+            } elseif (strpos($tit_lower, 'formato') !== false) {
+                $tipo = 'Formatos';
+            }
+
+            $cpt_docs[] = [
+                'titulo' => $titulo,
+                'anio'   => get_post_meta($post_id, '_dp_anio', true) ?: date('Y'),
+                'tipo'   => $tipo,
+                'enlace' => sesna_resolve_archivo_url(get_post_meta($post_id, '_dp_archivo_url', true)),
+            ];
+        }
+        wp_reset_postdata();
+    }
+
+    $todos_docs = array_merge($cpt_docs, $cached_docs);
+
+    usort($todos_docs, function($a, $b) {
+        return (int)$b['anio'] - (int)$a['anio'];
+    });
+
+    return $todos_docs;
 }
 
 /**
