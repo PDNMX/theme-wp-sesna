@@ -36,26 +36,39 @@
           $dir_query = new WP_Query($dir_args);
 
           $areas = array();
+          $oficinas = array();
           if ($dir_query->have_posts()) :
             while ($dir_query->have_posts()) : $dir_query->the_post();
               $foto_url       = get_the_post_thumbnail_url(get_the_ID(), 'large');
               $estructura     = get_post_meta(get_the_ID(), '_dir_estructura', true);
               $nombre_area    = get_post_meta(get_the_ID(), '_dir_nombre_area', true);
               $show_enc       = get_post_meta(get_the_ID(), '_dir_show_encargado', true);
-              $areas[] = array(
+              $cargo          = get_post_meta(get_the_ID(), '_dir_cargo', true);
+              
+              $item = array(
                 'estructura'      => $estructura ? $estructura : $nombre_area,
                 'nombre_area'     => $nombre_area,
                 'encargado'       => ($show_enc === '1') ? $nombre_area : '',
                 'foto_titular'    => $foto_url ? $foto_url : '',
                 'nombre_titular'  => get_the_title(),
-                'cargo_titular'   => get_post_meta(get_the_ID(), '_dir_cargo', true),
+                'cargo_titular'   => $cargo,
                 'email_titular'   => get_post_meta(get_the_ID(), '_dir_email', true),
               );
+
+              if (stripos($cargo, 'Oficina de Representaci') !== false || stripos($item['nombre_titular'], 'Mónica Vargas') !== false) {
+                  if (empty($item['estructura'])) {
+                      $item['estructura'] = 'Oficina de Representación en la SESNA';
+                  }
+                  $oficinas[] = $item;
+              } else {
+                  $areas[] = $item;
+              }
             endwhile;
             wp_reset_postdata();
           endif;
 
-          $first = !empty($areas) ? $areas[0] : null;
+          $all_areas = array_merge($areas, $oficinas);
+          $first = !empty($all_areas) ? $all_areas[0] : null;
           ?>
           <?php if (!empty($areas)) : ?>
           <div class="dir-hero__meta d-flex gap-3 mt-3">
@@ -108,6 +121,30 @@
               <?php endif; ?>
             </div>
           </div>
+
+          <?php if (!empty($oficinas)) : ?>
+          <div class="dir-card mt-4">
+            <div class="dir-org__header">
+              <h2 class="dir-org__title">Oficina de Representación en la SESNA</h2>
+            </div>
+            <div class="dir-org__list" role="listbox" aria-label="Oficina de Representación en la SESNA">
+              <?php foreach ($oficinas as $k => $oficina) : 
+                $index = count($areas) + $k;
+              ?>
+                <div class="dir-org__item"
+                     data-index="<?php echo $index; ?>"
+                     role="option"
+                     aria-selected="false"
+                     tabindex="0">
+                  <span class="dir-org__dot" aria-hidden="true"></span>
+                  <span class="dir-org__item-icon" aria-hidden="true"><i class="bi bi-building"></i></span>
+                  <span class="dir-org__item-text"><?php echo esc_html($oficina['estructura']); ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <?php endif; ?>
+
         </div>
 
         <!-- Col derecha: Ficha del titular -->
@@ -229,9 +266,9 @@
 
 </div>
 
-<?php if (!empty($areas)) : ?>
+<?php if (!empty($all_areas)) : ?>
 <script>
-  window.directorioData = <?php echo wp_json_encode($areas); ?>;
+  window.directorioData = <?php echo wp_json_encode($all_areas); ?>;
 </script>
 <?php endif; ?>
 

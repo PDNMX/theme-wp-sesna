@@ -124,17 +124,17 @@ if (!function_exists('sesna_render_document_row')) {
                                     [
                                         'titulo' => 'Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados.',
                                         'tipo' => 'Ley',
-                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf'
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/ref/lgpdppso.htm'
                                     ],
                                     [
                                         'titulo' => 'Ley General de Transparencia y Acceso a la Información Pública.',
                                         'tipo' => 'Ley',
-                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGTAIP.pdf'
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/ref/lgtaip.htm'
                                     ],
                                     [
                                         'titulo' => 'Ley General de Archivo.',
                                         'tipo' => 'Ley',
-                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/pdf/LGA.pdf'
+                                        'url' => 'https://www.diputados.gob.mx/LeyesBiblio/ref/lga.htm'
                                     ]
                                 ];
                                 
@@ -145,7 +145,8 @@ if (!function_exists('sesna_render_document_row')) {
                                         <td><div class="font-noto-sans tx-sesion-info-type"><?= esc_html($doc['tipo']) ?></div></td>
                                     <td>
                                         <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener noreferrer" class="tx-table-normatividad-link" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                            <i class="bi bi-box-arrow-up-right"></i>
+                                            <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                            <span class="tx-table-normatividad-link-label">Consultar</span>
                                         </a>
                                     </td>
                                 </tr>
@@ -170,7 +171,7 @@ if (!function_exists('sesna_render_document_row')) {
                         </div>
                     </div>
                     <div class="flex-shrink-0 mt-4 mt-md-0 align-self-stretch align-self-md-auto text-md-end">
-                        <a href="javascript:void(0)" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
+                        <a href="<?php echo esc_url( home_url('/acciones-y-programas/organos-colegiados-y-normatividad/') ); ?>" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
                             Ir a Órganos Colegiados y Normatividad <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                         </a>
                     </div>

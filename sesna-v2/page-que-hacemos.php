@@ -146,7 +146,7 @@ get_header();
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/favicon.png" alt="SESNA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
                                 SESNA <i class="bi bi-patch-check-fill"></i>
@@ -165,7 +165,7 @@ get_header();
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/favicon.png" alt="SESNA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
                                 SESNA <i class="bi bi-patch-check-fill"></i>
@@ -184,7 +184,7 @@ get_header();
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/favicon.png" alt="SESNA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
                                 SESNA <i class="bi bi-patch-check-fill"></i>
@@ -203,7 +203,7 @@ get_header();
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/favicon.png" alt="SESNA">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
                                 SESNA <i class="bi bi-patch-check-fill"></i>

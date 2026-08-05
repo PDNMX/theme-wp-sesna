@@ -1174,7 +1174,9 @@ function sesna_comite_transparencia_meta_box_html($post) {
             });
             mediaUploader.on('select', function() {
                 var attachment = mediaUploader.state().get('selection').first().toJSON();
-                $('#ct_archivo_url').val(attachment.url);
+                var idx = attachment.url.indexOf('/wp-content/uploads/');
+                var relativeUrl = idx !== -1 ? attachment.url.substring(idx) : attachment.url;
+                $('#ct_archivo_url').val(relativeUrl);
             });
             mediaUploader.open();
         });
@@ -1202,6 +1204,25 @@ function sesna_save_comite_meta($post_id) {
     }
 }
 add_action('save_post_comite_transparencia', 'sesna_save_comite_meta');
+
+/**
+ * Resuelve un valor de _ct_archivo_url (path relativo o URL absoluta
+ * guardada con un dominio distinto, p. ej. de una migración) a una
+ * URL absoluta válida para el dominio actual del sitio.
+ */
+function sesna_resolve_archivo_url($valor) {
+    if (empty($valor) || $valor === '#') {
+        return '#';
+    }
+    if (strpos($valor, '/wp-content/uploads/') === 0) {
+        return home_url($valor);
+    }
+    $idx = strpos($valor, '/wp-content/uploads/');
+    if ($idx !== false) {
+        return home_url(substr($valor, $idx));
+    }
+    return $valor;
+}
 
 // 4. Encolar WP Media para que funcione el uploader en nuestro CPT
 function sesna_comite_admin_scripts($hook) {
@@ -1317,7 +1338,9 @@ function sesna_datos_personales_meta_box_html($post) {
             });
             mediaUploader.on('select', function() {
                 var attachment = mediaUploader.state().get('selection').first().toJSON();
-                $('#dp_archivo_url').val(attachment.url);
+                var idx = attachment.url.indexOf('/wp-content/uploads/');
+                var relativeUrl = idx !== -1 ? attachment.url.substring(idx) : attachment.url;
+                $('#dp_archivo_url').val(relativeUrl);
             });
             mediaUploader.open();
         });

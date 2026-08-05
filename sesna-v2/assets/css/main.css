@@ -2891,8 +2891,9 @@ body.front-page main.page {
 }
 
 .qh-social-avatar img {
-    width: 100%;
-    height: auto;
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
 }
 
 .qh-social-account {
@@ -4879,6 +4880,12 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     margin-bottom: 0.25rem;
     position: relative;
     overflow: hidden;
+    outline: none !important;
+}
+
+.page-organos-colegiados .ocn-sidebar-link:focus,
+.page-organos-colegiados .ocn-sidebar-link:active {
+    outline: none !important;
 }
 
 .page-organos-colegiados .ocn-sidebar-link:last-child {

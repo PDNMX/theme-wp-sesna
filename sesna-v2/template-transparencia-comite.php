@@ -28,7 +28,7 @@ if ($query->have_posts()) {
         $item = [
             'titulo' => get_the_title(),
             'anio'   => get_post_meta($id, '_ct_anio', true),
-            'enlace' => get_post_meta($id, '_ct_archivo_url', true) ?: '#'
+            'enlace' => sesna_resolve_archivo_url(get_post_meta($id, '_ct_archivo_url', true))
         ];
 
         if ($tipo_doc === 'Acta') {
