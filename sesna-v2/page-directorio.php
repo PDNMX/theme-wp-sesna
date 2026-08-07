@@ -104,6 +104,7 @@
               <?php endif; ?>
             </div>
             <div class="dir-org__list" role="listbox" aria-label="Áreas de la SESNA">
+              <div class="dir-org__inner">
               <?php if (!empty($areas)) : ?>
                 <?php foreach ($areas as $i => $area) : ?>
                   <div class="dir-org__item<?php echo $i === 0 ? ' dir-org__item--active' : ''; ?>"
@@ -119,6 +120,7 @@
               <?php else : ?>
                 <p>No hay áreas configuradas. Crea entradas en el menú <strong>Directorio</strong> del panel de administración.</p>
               <?php endif; ?>
+              </div>
             </div>
           </div>
 
@@ -128,6 +130,7 @@
               <h2 class="dir-org__title">Oficina de Representación en la SESNA</h2>
             </div>
             <div class="dir-org__list" role="listbox" aria-label="Oficina de Representación en la SESNA">
+              <div class="dir-org__inner">
               <?php foreach ($oficinas as $k => $oficina) : 
                 $index = count($areas) + $k;
               ?>
@@ -141,6 +144,7 @@
                   <span class="dir-org__item-text"><?php echo esc_html($oficina['estructura']); ?></span>
                 </div>
               <?php endforeach; ?>
+              </div>
             </div>
           </div>
           <?php endif; ?>

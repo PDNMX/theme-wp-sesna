@@ -3322,7 +3322,11 @@ body:has(.page-directorio) main.page {
     background: var(--color-burgundi);
 }
 
-.page-directorio .dir-org__list::before {
+.page-directorio .dir-org__inner {
+    position: relative;
+}
+
+.page-directorio .dir-org__inner::before {
     content: '';
     position: absolute;
     left: 12px;
