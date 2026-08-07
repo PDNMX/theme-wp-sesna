@@ -1,9 +1,26 @@
 <?php
 /**
- * Template Name: Órganos Colegiados y Normatividad
+ * Template Name: Órganos Colegiados y Normativa
  */
 
 get_header();
+
+$oc_stats_comite   = sesna_get_oc_stats('comite');
+$oc_stats_comision = sesna_get_oc_stats('comision');
+$oc_stats_organo   = sesna_get_oc_stats('organo_gobierno');
+
+$oc_sesiones_comite   = sesna_get_oc_entries('comite');
+$oc_sesiones_comision = sesna_get_oc_entries('comision');
+$oc_sesiones_organo   = sesna_get_oc_entries('organo_gobierno');
+$oc_recomendaciones   = sesna_get_oc_entries('recomendaciones');
+$oc_exhortos          = sesna_get_oc_entries('exhortos');
+
+$oc_anios_comite   = array_values(array_unique(array_filter(array_column($oc_sesiones_comite, 'anio'))));
+$oc_anios_comision = array_values(array_unique(array_filter(array_column($oc_sesiones_comision, 'anio'))));
+$oc_anios_organo   = array_values(array_unique(array_filter(array_column($oc_sesiones_organo, 'anio'))));
+rsort($oc_anios_comite);
+rsort($oc_anios_comision);
+rsort($oc_anios_organo);
 ?>
 
 <div class="page-organos-colegiados front-page-bg pb-5">
@@ -20,7 +37,7 @@ get_header();
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/acciones-y-programas/') ) ?>">Acciones y Programas</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Órganos Colegiados y Normatividad</li>
+                <li class="breadcrumb-item active" aria-current="page">Órganos Colegiados y Normativa</li>
             </ol>
         </div>
     </nav>
@@ -30,7 +47,7 @@ get_header();
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
-                    <h1 class="sesna-hero__title">Órganos Colegiados<br>y Normatividad</h1>
+                    <h1 class="sesna-hero__title">Órganos Colegiados<br>y Normativa</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle">
                         Conoce la estructura, atribuciones y marco jurídico de los Órganos Colegiados del SESNA.
@@ -65,17 +82,21 @@ get_header();
                         <span class="fw-bold font-noto-sans lh-sm">Recomendaciones<br>no vinculantes</span>
                         <i class="bi bi-chevron-right fw-bold"></i>
                     </a>
+                    <a href="#" data-target="exhortos" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
+                        <span class="fw-bold font-noto-sans">Exhortos</span>
+                        <i class="bi bi-chevron-right fw-bold"></i>
+                    </a>
                 </div>
 
                 <!-- Normatividad Nav -->
-                <h2 class="h6 fw-bold font-noto-sans mb-3 text-uppercase" style="color: var(--color-burgundi); letter-spacing: 0.5px;">NORMATIVIDAD</h2>
+                <h2 class="h6 fw-bold font-noto-sans mb-3 text-uppercase" style="color: var(--color-burgundi); letter-spacing: 0.5px;">NORMATIVA</h2>
                 <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-normatividad">
                     <a href="#" data-target="norm-ext" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Normatividad externa</span>
+                        <span class="fw-bold font-noto-sans">Normativa externa</span>
                         <i class="bi bi-chevron-right fw-bold"></i>
                     </a>
                     <a href="#" data-target="norm-int" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Normatividad interna</span>
+                        <span class="fw-bold font-noto-sans">Normativa interna</span>
                         <i class="bi bi-chevron-right fw-bold"></i>
                     </a>
                 </div>
@@ -92,37 +113,7 @@ get_header();
                     </div>
                 </div>
 
-                <!-- STATS CARDS -->
-                <div class="row g-3 mb-5">
-                    <!-- Stat Card 1 -->
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">30</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
-                        </div>
-                    </div>
-                    <!-- Stat Card 2 -->
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">120</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
-                        </div>
-                    </div>
-                    <!-- Stat Card 3 -->
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">15</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
-                        </div>
-                    </div>
-                    <!-- Stat Card 4 -->
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                            <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);">8</span>
-                            <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
-                        </div>
-                    </div>
-                </div>
+                <?php sesna_render_oc_stats_cards($oc_stats_comite); ?>
 
                 <!-- SUBSECTION: SESIONES -->
                 <div class="row mb-3">
@@ -132,185 +123,35 @@ get_header();
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6 mb-3 mb-md-0">
-                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                        <label for="filter-anio-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
+                        <select id="filter-anio-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
-                            <option value="2024" selected>2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
+                            <?php foreach ($oc_anios_comite as $anio) : ?>
+                                <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
-                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                        <label for="filter-tipo-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
+                        <select id="filter-tipo-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todas">Todas</option>
-                            <option value="Ordinaria" selected>Ordinaria</option>
+                            <option value="Ordinaria">Ordinaria</option>
                             <option value="Extraordinaria">Extraordinaria</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- SESSIONS LIST -->
-                <div class="d-flex flex-column gap-3 mb-4">
-                    
-                <!-- SESSION ITEM 1 -->
-                <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card" data-anio="2024" data-tipo="Ordinaria">
-                    <div class="card-body p-0">
-                        <div class="row g-0 h-100 align-items-center">
-                            <!-- Date col -->
-                            <div class="col-12 col-md-2 tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
-                                <div class="fw-bold tx-sesion-date-day lh-1 text-secondary">15</div>
-                                <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;">FEB</div>
-                                <div class="fw-bold tx-sesion-date-year text-secondary mt-1">2024</div>
-                            </div>
-                            
-                            <!-- Content col -->
-                            <div class="col-12 col-md-4 p-4 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title">Primera Sesión Ordinaria 2024</h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> Ordinaria</p>
-                            </div>
-                            
-                            <!-- Actions col -->
-                            <div class="col-12 col-md-5 tx-sesion-action p-3 p-md-4 d-flex align-items-center">
-                                <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-clipboard tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Convocatoria</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Orden del día</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-folder tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Anexos</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-play-btn tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Ver sesión</div>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Chevron col -->
-                            <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                                <i class="bi bi-chevron-right text-muted fs-5"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SESSION ITEM 2 -->
-                <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card" data-anio="2024" data-tipo="Ordinaria">
-                    <div class="card-body p-0">
-                        <div class="row g-0 h-100 align-items-center">
-                            <!-- Date col -->
-                            <div class="col-12 col-md-2 tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
-                                <div class="fw-bold tx-sesion-date-day lh-1 text-secondary">18</div>
-                                <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;">ABR</div>
-                                <div class="fw-bold tx-sesion-date-year text-secondary mt-1">2024</div>
-                            </div>
-                            
-                            <!-- Content col -->
-                            <div class="col-12 col-md-4 p-4 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title">Segunda Sesión Ordinaria 2024</h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> Ordinaria</p>
-                            </div>
-                            
-                            <!-- Actions col -->
-                            <div class="col-12 col-md-5 tx-sesion-action p-3 p-md-4 d-flex align-items-center">
-                                <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-clipboard tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Convocatoria</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Orden del día</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-folder tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Anexos</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-play-btn tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Ver sesión</div>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Chevron col -->
-                            <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                                <i class="bi bi-chevron-right text-muted fs-5"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SESSION ITEM 3 -->
-                <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card" data-anio="2024" data-tipo="Extraordinaria">
-                    <div class="card-body p-0">
-                        <div class="row g-0 h-100 align-items-center">
-                            <!-- Date col -->
-                            <div class="col-12 col-md-2 tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
-                                <div class="fw-bold tx-sesion-date-day lh-1 text-secondary">27</div>
-                                <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;">JUN</div>
-                                <div class="fw-bold tx-sesion-date-year text-secondary mt-1">2024</div>
-                            </div>
-                            
-                            <!-- Content col -->
-                            <div class="col-12 col-md-4 p-4 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title">Tercera Sesión Extraordinaria 2024</h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> Extraordinaria</p>
-                            </div>
-                            
-                            <!-- Actions col -->
-                            <div class="col-12 col-md-5 tx-sesion-action p-3 p-md-4 d-flex align-items-center">
-                                <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-clipboard tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Convocatoria</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Orden del día</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-file-earmark-text tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-folder tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Anexos</div>
-                                    </a>
-                                    <a href="#" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                                        <i class="bi bi-play-btn tx-sesion-pdf-icon"></i>
-                                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Ver sesión</div>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <!-- Chevron col -->
-                            <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                                <i class="bi bi-chevron-right text-muted fs-5"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <div class="d-flex flex-column gap-3 mb-4 tx-sesion-list" id="sesiones-list-comite">
+                    <?php foreach ($oc_sesiones_comite as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                    <?php if (empty($oc_sesiones_comite)) : ?>
+                        <p class="text-muted fs-5 mb-0">Aún no hay sesiones registradas.</p>
+                    <?php endif; ?>
                 </div>
 
                 <!-- VER MÁS BTN -->
-                <div class="text-center mt-5">
-                    <a href="#" class="tx-comite-btn-more">
+                <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
+                    <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comite">
                         Ver más sesiones <i class="bi bi-chevron-down"></i>
                     </a>
                 </div>
@@ -323,8 +164,45 @@ get_header();
                             <h2 class="cp-recursos__titulo mb-2">COMISIÓN EJECUTIVA</h2>
                         </div>
                     </div>
-                    <div class="card border border-light shadow-sm rounded-4 mb-5 bg-white p-5 text-center">
-                        <p class="text-muted fs-5 mb-0">Información sobre la Comisión Ejecutiva (Próximamente).</p>
+
+                    <?php sesna_render_oc_stats_cards($oc_stats_comision); ?>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                            <label for="filter-anio-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
+                            <select id="filter-anio-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                                <option value="Todos">Todos</option>
+                                <?php foreach ($oc_anios_comision as $anio) : ?>
+                                    <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="filter-tipo-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
+                            <select id="filter-tipo-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                                <option value="Todas">Todas</option>
+                                <option value="Ordinaria">Ordinaria</option>
+                                <option value="Extraordinaria">Extraordinaria</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3 mb-4 tx-sesion-list" id="sesiones-list-comision">
+                        <?php foreach ($oc_sesiones_comision as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                        <?php if (empty($oc_sesiones_comision)) : ?>
+                            <p class="text-muted fs-5 mb-0">Aún no hay sesiones registradas.</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
+                        <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comision">
+                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -335,8 +213,45 @@ get_header();
                             <h2 class="cp-recursos__titulo mb-2">ÓRGANO DE GOBIERNO</h2>
                         </div>
                     </div>
-                    <div class="card border border-light shadow-sm rounded-4 mb-5 bg-white p-5 text-center">
-                        <p class="text-muted fs-5 mb-0">Información sobre el Órgano de Gobierno (Próximamente).</p>
+
+                    <?php sesna_render_oc_stats_cards($oc_stats_organo); ?>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                            <label for="filter-anio-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
+                            <select id="filter-anio-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                                <option value="Todos">Todos</option>
+                                <?php foreach ($oc_anios_organo as $anio) : ?>
+                                    <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="filter-tipo-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
+                            <select id="filter-tipo-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                                <option value="Todas">Todas</option>
+                                <option value="Ordinaria">Ordinaria</option>
+                                <option value="Extraordinaria">Extraordinaria</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3 mb-4 tx-sesion-list" id="sesiones-list-organo">
+                        <?php foreach ($oc_sesiones_organo as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                        <?php if (empty($oc_sesiones_organo)) : ?>
+                            <p class="text-muted fs-5 mb-0">Aún no hay sesiones registradas.</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
+                        <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-organo">
+                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -347,8 +262,30 @@ get_header();
                             <h2 class="cp-recursos__titulo mb-2">RECOMENDACIONES NO VINCULANTES</h2>
                         </div>
                     </div>
-                    <div class="card border border-light shadow-sm rounded-4 mb-5 bg-white p-5 text-center">
-                        <p class="text-muted fs-5 mb-0">Información sobre Recomendaciones no vinculantes (Próximamente).</p>
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <?php foreach ($oc_recomendaciones as $item) : sesna_render_oc_lista_directa_item($item); endforeach; ?>
+                        <?php if (empty($oc_recomendaciones)) : ?>
+                            <div class="card border border-light shadow-sm rounded-4 mb-5 bg-white p-5 text-center">
+                                <p class="text-muted fs-5 mb-0">Aún no hay recomendaciones registradas.</p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <!-- SECTION: EXHORTOS -->
+                <div class="content-section d-none" id="sec-exhortos">
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <h2 class="cp-recursos__titulo mb-2">EXHORTOS</h2>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-3 mb-4">
+                        <?php foreach ($oc_exhortos as $item) : sesna_render_oc_lista_directa_item($item); endforeach; ?>
+                        <?php if (empty($oc_exhortos)) : ?>
+                            <div class="card border border-light shadow-sm rounded-4 mb-5 bg-white p-5 text-center">
+                                <p class="text-muted fs-5 mb-0">Aún no hay exhortos registrados.</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -357,7 +294,7 @@ get_header();
                     <div class="card-body p-4 p-md-5">
                         <div class="row align-items-end mb-4">
                             <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <h2 class="cp-recursos__titulo mb-0">NORMATIVIDAD</h2>
+                                <h2 class="cp-recursos__titulo mb-0">NORMATIVA</h2>
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="search-doc" class="form-label fw-bold font-noto-sans text-dark mb-2">Buscar documento</label>
@@ -370,7 +307,7 @@ get_header();
 
                         <!-- TABLE 1: EXTERNA -->
                         <div id="normatividad-externa-container">
-                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-externa-title">NORMATIVIDAD EXTERNA</h3>
+                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-externa-title">NORMATIVA EXTERNA</h3>
                         <div class="table-responsive" id="normatividad-externa-table-wrap">
                             <table class="tx-table-normatividad">
                                 <thead>
@@ -766,7 +703,7 @@ get_header();
 
                         <!-- TABLE 2: INTERNA -->
                         <div id="normatividad-interna-container">
-                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-interna-title">NORMATIVIDAD INTERNA</h3>
+                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-interna-title">NORMATIVA INTERNA</h3>
                         <div class="table-responsive" id="normatividad-interna-table-wrap">
                             <table class="tx-table-normatividad">
                                 <thead>
@@ -955,6 +892,50 @@ get_header();
         </div>
     </div>
 </div>
+
+<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+
+<!-- Modal Visor de Video (Ver sesión) -->
+<div class="modal fade tx-pdf-modal" id="oc-video-modal" tabindex="-1" aria-labelledby="oc-video-modal-label" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 900px !important; margin: 5vh auto !important;">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
+                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="oc-video-modal-label" style="color: #9f2241; font-size: 1.25rem;">Ver sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">
+                <div class="embed-responsive embed-responsive-16by9 h-100">
+                    <iframe id="oc-video-iframe" class="w-100 h-100 border-0" src="" title="Video de la sesión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var videoModalEl = document.getElementById('oc-video-modal');
+    if (!videoModalEl) return;
+    var iframe = document.getElementById('oc-video-iframe');
+    var title = document.getElementById('oc-video-modal-label');
+
+    videoModalEl.addEventListener('show.bs.modal', function (event) {
+        var trigger = event.relatedTarget;
+        if (!trigger) return;
+        var videoId = trigger.getAttribute('data-video-id') || '';
+        var videoTitle = trigger.getAttribute('data-video-title') || 'Ver sesión';
+        if (title) title.textContent = videoTitle;
+        if (iframe && videoId) {
+            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+        }
+    });
+
+    videoModalEl.addEventListener('hidden.bs.modal', function () {
+        if (iframe) iframe.src = '';
+        if (title) title.textContent = 'Ver sesión';
+    });
+});
+</script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/script/organos-colegiados.js?v=1"></script>
 

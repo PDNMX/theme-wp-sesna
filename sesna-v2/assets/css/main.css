@@ -2637,6 +2637,7 @@ body.front-page main.page {
 .sesna-loader.loader-hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .sesna-spinner {
@@ -4247,7 +4248,8 @@ body:has(.page-directorio) main.page {
     color: var(--text-color-main);
 }
 
-.tx-sesion-pdf-link {
+.tx-sesion-pdf-link,
+.tx-oc-anexos-toggle {
     color: var(--color-burgundi);
     outline: none !important;
 }
@@ -4266,6 +4268,54 @@ button[data-bs-target="#pdfViewerModal"]:focus {
 
 .tx-sesion-pdf-text {
     font-size: 14px;
+}
+
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled {
+    cursor: default;
+    pointer-events: none;
+}
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled .tx-sesion-pdf-icon,
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled .tx-sesion-pdf-text {
+    color: #c0c0c0;
+}
+
+.tx-oc-anexos-panel {
+    background-color: #f7f7f9;
+}
+
+.tx-oc-anexo-row {
+    background-color: #ffffff;
+    transition: background-color 0.15s ease;
+    padding-right: 0.75rem !important;
+    cursor: pointer;
+}
+.tx-oc-anexo-row:hover,
+.tx-oc-anexo-row:focus-visible {
+    background-color: #fbeef1;
+}
+.tx-oc-anexo-row.d-none {
+    display: none !important;
+}
+
+.tx-oc-anexo-nombre {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.tx-oc-anexo-row .tx-sesion-pdf-icon {
+    color: #b9151b;
+    font-size: 18px;
+}
+
+.tx-oc-anexos-search:focus {
+    box-shadow: 0 0 0 3px rgba(159, 34, 65, 0.12);
+    border-color: var(--color-burgundi, #9F2241);
+}
+
+.tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-icon,
+.tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-text {
+    color: var(--color-burgundi, #9F2241) !important;
 }
 
 .tx-sesion-chevron-link {

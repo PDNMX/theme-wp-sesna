@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const downloadBtn = document.getElementById('pdfDownloadBtn');
         const loader = document.getElementById('pdfLoader');
         const title = document.getElementById('pdfViewerModalLabel');
+        // Cuando el click handler de abajo ya resolvió correctamente el documento
+        // (por ejemplo un ítem dentro de un dropdown de Bootstrap), el listener
+        // 'show.bs.modal' de más abajo NO debe volver a resolverlo usando
+        // event.relatedTarget, porque tras cerrarse el dropdown ese valor puede
+        // apuntar a un elemento distinto (el toggle, o el foco previo) y pisar
+        // el título/URL correctos con datos equivocados.
+        let lastResolvedByClick = false;
 
         document.addEventListener('click', function(e) {
             // No hacer nada si se hace clic en cabeceras de acordeón u otros controles de UI
@@ -20,7 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Buscar si el clic fue en un elemento de documento PDF
             const trigger = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#pdfViewerModal"], .pna-doc-card, .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
-            
+
+            // Si el trigger ya declara explícitamente otro modal (p. ej. un visor de video),
+            // respetar esa intención y no interceptarlo como si fuera un PDF.
+            if (trigger && trigger.hasAttribute('data-bs-target') && trigger.getAttribute('data-bs-target') !== '#pdfViewerModal') return;
+
             // Verificar por clase, atributo o contenido de texto si es un PDF
             let isPdfTrigger = false;
             if (trigger) {
@@ -73,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Abrir modal usando Bootstrap o jQuery
+                lastResolvedByClick = true;
                 if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
                     let modalInstance = bootstrap.Modal.getInstance(pdfModalEl) || new bootstrap.Modal(pdfModalEl);
                     modalInstance.show();
@@ -84,6 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Soporte adicional para cuando el modal se abre vía evento de Bootstrap
         pdfModalEl.addEventListener('show.bs.modal', function (event) {
+            // El click handler de arriba ya resolvió correctamente el documento
+            // (p. ej. clic en un ítem de dropdown): no reprocesar con relatedTarget,
+            // que tras cerrarse el dropdown puede no ser el elemento correcto.
+            if (lastResolvedByClick) {
+                lastResolvedByClick = false;
+                return;
+            }
             const button = event.relatedTarget;
             if (!button) return;
             const pdfUrl = button.getAttribute('data-pdf-url') || button.getAttribute('href') || '#';

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Template Name: Transparencia - Normatividad
+* Template Name: Transparencia - Normativa
 */
 
 get_header();
@@ -75,7 +75,7 @@ if (!function_exists('sesna_render_document_row')) {
     <div class="container py-4 mt-2" aria-label="Encabezado de Normativa">
         <div class="row mb-2">
             <div class="col-12">
-                <h1 class="tx-section-title font-patria mb-2 tx-comite-title" style="color: #9f2241; font-weight: bold;">Normatividad</h1>
+                <h1 class="tx-section-title font-patria mb-2 tx-comite-title" style="color: #9f2241; font-weight: bold;">Normativa</h1>
             </div>
         </div>
         <div class="row mb-2">
@@ -87,7 +87,7 @@ if (!function_exists('sesna_render_document_row')) {
         </div>
     </div>
 
-    <!-- LISTADO DE NORMATIVIDAD -->
+    <!-- LISTADO DE NORMATIVA -->
                 <section class="tx-normativa py-5">
         <div class="container">
 
@@ -166,13 +166,13 @@ if (!function_exists('sesna_render_document_row')) {
                             <i class="bi bi-bank fs-2"></i>
                         </div>
                         <div>
-                            <h3 class="h5 fw-bold font-patria mb-1" style="color: #9F2241;">¿Deseas consultar más normatividad?</h3>
-                            <p class="mb-0 font-noto-sans" style="font-size: 1rem; color: #545454;">Visita la sección de Órganos Colegiados y Normatividad de la SESNA.</p>
+                            <h3 class="h5 fw-bold font-patria mb-1" style="color: #9F2241;">¿Deseas consultar más normativa?</h3>
+                            <p class="mb-0 font-noto-sans" style="font-size: 1rem; color: #545454;">Visita la sección de Órganos Colegiados y Normativa de la SESNA.</p>
                         </div>
                     </div>
                     <div class="flex-shrink-0 mt-4 mt-md-0 align-self-stretch align-self-md-auto text-md-end">
                         <a href="<?php echo esc_url( home_url('/acciones-y-programas/organos-colegiados-y-normatividad/') ); ?>" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
-                            Ir a Órganos Colegiados y Normatividad <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                            Ir a Órganos Colegiados y Normativa <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

@@ -1555,6 +1555,697 @@ function sesna_get_datos_personales_docs() {
     return $todos_docs;
 }
 
+/* =====================================================================
+ * ÓRGANOS COLEGIADOS (Comité Coordinador, Comisión Ejecutiva,
+ * Órgano de Gobierno, Recomendaciones no vinculantes, Exhortos)
+ * CPT único `oc_sesion` con meta discriminador `_oc_organo`, siguiendo
+ * el mismo patrón ya usado en comite_transparencia/datos-personales.
+ * ===================================================================== */
+
+function sesna_register_oc_sesion_cpt() {
+    $labels = array(
+        'name'               => _x('Sesiones de Órganos Colegiados', 'Post type general name', 'sesna'),
+        'singular_name'      => _x('Sesión / Documento', 'Post type singular name', 'sesna'),
+        'menu_name'          => _x('Órganos Colegiados', 'Admin Menu text', 'sesna'),
+        'name_admin_bar'     => _x('Sesión OC', 'Add New on Toolbar', 'sesna'),
+        'add_new'            => __('Añadir nueva', 'sesna'),
+        'add_new_item'       => __('Añadir nueva sesión/documento', 'sesna'),
+        'new_item'           => __('Nueva sesión', 'sesna'),
+        'edit_item'          => __('Editar sesión', 'sesna'),
+        'view_item'          => __('Ver sesión', 'sesna'),
+        'all_items'          => __('Órganos Colegiados', 'sesna'),
+        'search_items'       => __('Buscar sesiones', 'sesna'),
+        'not_found'          => __('No se encontraron sesiones.', 'sesna'),
+        'not_found_in_trash' => __('No se encontraron sesiones en la papelera.', 'sesna'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_icon'          => 'dashicons-groups',
+        'menu_position'      => 6,
+        'query_var'          => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'supports'           => array('title'),
+    );
+
+    register_post_type('oc_sesion', $args);
+}
+add_action('init', 'sesna_register_oc_sesion_cpt');
+
+function sesna_add_oc_sesion_meta_box() {
+    add_meta_box(
+        'oc_sesion_meta',
+        'Datos de la Sesión / Documento',
+        'sesna_oc_sesion_meta_box_html',
+        'oc_sesion',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sesna_add_oc_sesion_meta_box');
+
+function sesna_oc_sesion_meta_box_html($post) {
+    wp_nonce_field('sesna_save_oc_meta', 'sesna_oc_meta_nonce');
+
+    $organo          = get_post_meta($post->ID, '_oc_organo', true) ?: 'comite';
+    $modo            = get_post_meta($post->ID, '_oc_modo', true) ?: 'sesion';
+    $fecha           = get_post_meta($post->ID, '_oc_fecha', true);
+    $tipo_sesion     = get_post_meta($post->ID, '_oc_tipo_sesion', true) ?: 'Ordinaria';
+    $acuerdos        = get_post_meta($post->ID, '_oc_acuerdos', true);
+    $video_url       = get_post_meta($post->ID, '_oc_video_url', true);
+    $documentos_json = get_post_meta($post->ID, '_oc_documentos', true) ?: '[]';
+    $documentos      = json_decode($documentos_json, true);
+    if (!is_array($documentos)) {
+        $documentos = array();
+    }
+    ?>
+    <style>
+        .oc-row { margin-bottom: 15px; }
+        .oc-row label { font-weight: bold; display: block; margin-bottom: 5px; }
+        .oc-row input[type=text], .oc-row input[type=number], .oc-row input[type=date], .oc-row select { width: 100%; max-width: 400px; }
+        .oc-doc-row { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; padding: 8px; background: #f6f7f7; border-radius: 4px; }
+        .oc-doc-row .oc-doc-nombre { flex: 1; }
+        .oc-doc-row .oc-doc-archivo { flex: 1; }
+        .oc-doc-remove { color: #b32d2e; cursor: pointer; }
+    </style>
+
+    <div class="oc-row">
+        <label for="oc_organo">Órgano</label>
+        <select id="oc_organo" name="_oc_organo">
+            <option value="comite" <?php selected($organo, 'comite'); ?>>Comité Coordinador</option>
+            <option value="comision" <?php selected($organo, 'comision'); ?>>Comisión Ejecutiva</option>
+            <option value="organo_gobierno" <?php selected($organo, 'organo_gobierno'); ?>>Órgano de Gobierno</option>
+            <option value="recomendaciones" <?php selected($organo, 'recomendaciones'); ?>>Recomendaciones no vinculantes</option>
+            <option value="exhortos" <?php selected($organo, 'exhortos'); ?>>Exhortos</option>
+        </select>
+    </div>
+
+    <div class="oc-row">
+        <label for="oc_modo">Tipo de entrada</label>
+        <select id="oc_modo" name="_oc_modo">
+            <option value="sesion" <?php selected($modo, 'sesion'); ?>>Sesión (con fecha y documentos agrupados)</option>
+            <option value="lista_directa" <?php selected($modo, 'lista_directa'); ?>>Documento suelto (sin sesión, ej. Recomendación/Exhorto)</option>
+        </select>
+        <p class="description">El título de esta entrada (arriba) es el nombre de la sesión o del documento suelto.</p>
+    </div>
+
+    <div id="oc_row_sesion_fields">
+        <div class="oc-row">
+            <label for="oc_fecha">Fecha de la sesión</label>
+            <input type="date" id="oc_fecha" name="_oc_fecha" value="<?php echo esc_attr($fecha); ?>">
+        </div>
+        <div class="oc-row">
+            <label for="oc_tipo_sesion">Tipo de sesión</label>
+            <select id="oc_tipo_sesion" name="_oc_tipo_sesion">
+                <option value="Ordinaria" <?php selected($tipo_sesion, 'Ordinaria'); ?>>Ordinaria</option>
+                <option value="Extraordinaria" <?php selected($tipo_sesion, 'Extraordinaria'); ?>>Extraordinaria</option>
+            </select>
+        </div>
+        <div class="oc-row">
+            <label for="oc_acuerdos">Número de acuerdos tomados</label>
+            <input type="number" id="oc_acuerdos" name="_oc_acuerdos" value="<?php echo esc_attr($acuerdos !== '' ? $acuerdos : '0'); ?>" min="0">
+        </div>
+        <div class="oc-row">
+            <label for="oc_video_url">Ver sesión (URL de YouTube o video)</label>
+            <input type="text" id="oc_video_url" name="_oc_video_url" value="<?php echo esc_attr($video_url); ?>" placeholder="https://www.youtube.com/watch?v=... o /wp-content/uploads/...">
+            <p class="description">Deja vacío si esta sesión no tiene grabación disponible; el ícono "Ver sesión" se mostrará deshabilitado.</p>
+        </div>
+    </div>
+
+    <div class="oc-row">
+        <label>Documentos</label>
+        <div id="oc_documentos_repeater">
+            <?php foreach ($documentos as $doc) : ?>
+            <div class="oc-doc-row">
+                <input type="text" class="oc-doc-nombre" placeholder="Nombre (ej. Convocatoria, Anexo I...)" value="<?php echo esc_attr($doc['nombre'] ?? ''); ?>">
+                <input type="text" class="oc-doc-archivo" placeholder="/wp-content/uploads/..." value="<?php echo esc_attr($doc['archivo'] ?? ''); ?>">
+                <button type="button" class="button oc-doc-upload-btn">Seleccionar</button>
+                <span class="dashicons dashicons-no-alt oc-doc-remove"></span>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <button type="button" class="button button-secondary" id="oc_doc_add_btn">+ Agregar documento</button>
+        <input type="hidden" id="oc_documentos_json" name="_oc_documentos_json" value="">
+    </div>
+
+    <script>
+    jQuery(document).ready(function($){
+        function toggleSesionFields() {
+            $('#oc_row_sesion_fields').toggle($('#oc_modo').val() === 'sesion');
+        }
+        $('#oc_modo').change(toggleSesionFields);
+        toggleSesionFields();
+
+        function docRowTemplate(nombre, archivo) {
+            return '<div class="oc-doc-row">' +
+                '<input type="text" class="oc-doc-nombre" placeholder="Nombre (ej. Convocatoria, Anexo I...)" value="' + (nombre || '') + '">' +
+                '<input type="text" class="oc-doc-archivo" placeholder="/wp-content/uploads/..." value="' + (archivo || '') + '">' +
+                '<button type="button" class="button oc-doc-upload-btn">Seleccionar</button>' +
+                '<span class="dashicons dashicons-no-alt oc-doc-remove"></span>' +
+                '</div>';
+        }
+
+        $('#oc_doc_add_btn').click(function(e) {
+            e.preventDefault();
+            $('#oc_documentos_repeater').append(docRowTemplate('', ''));
+        });
+
+        $('#oc_documentos_repeater').on('click', '.oc-doc-remove', function() {
+            $(this).closest('.oc-doc-row').remove();
+        });
+
+        var ocMediaUploader;
+        $('#oc_documentos_repeater').on('click', '.oc-doc-upload-btn', function(e) {
+            e.preventDefault();
+            var $row = $(this).closest('.oc-doc-row');
+            ocMediaUploader = wp.media({
+                title: 'Seleccionar Archivo',
+                button: { text: 'Usar este archivo' },
+                multiple: false
+            });
+            ocMediaUploader.on('select', function() {
+                var attachment = ocMediaUploader.state().get('selection').first().toJSON();
+                var idx = attachment.url.indexOf('/wp-content/uploads/');
+                var relativeUrl = idx !== -1 ? attachment.url.substring(idx) : attachment.url;
+                $row.find('.oc-doc-archivo').val(relativeUrl);
+            });
+            ocMediaUploader.open();
+        });
+
+        $('#post').on('submit', function() {
+            var docs = [];
+            $('#oc_documentos_repeater .oc-doc-row').each(function() {
+                var nombre = $(this).find('.oc-doc-nombre').val().trim();
+                var archivo = $(this).find('.oc-doc-archivo').val().trim();
+                if (nombre || archivo) {
+                    docs.push({ nombre: nombre, archivo: archivo });
+                }
+            });
+            $('#oc_documentos_json').val(JSON.stringify(docs));
+        });
+    });
+    </script>
+    <?php
+}
+
+function sesna_save_oc_meta($post_id) {
+    if (!isset($_POST['sesna_oc_meta_nonce']) || !wp_verify_nonce($_POST['sesna_oc_meta_nonce'], 'sesna_save_oc_meta')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $scalar_fields = array('_oc_organo', '_oc_modo', '_oc_fecha', '_oc_tipo_sesion', '_oc_acuerdos');
+    foreach ($scalar_fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+
+    if (isset($_POST['_oc_video_url'])) {
+        update_post_meta($post_id, '_oc_video_url', sesna_strip_domain_from_url(sanitize_text_field($_POST['_oc_video_url'])));
+    }
+
+    if (isset($_POST['_oc_documentos_json'])) {
+        $raw = json_decode(wp_unslash($_POST['_oc_documentos_json']), true);
+        $clean = array();
+        if (is_array($raw)) {
+            foreach ($raw as $doc) {
+                $nombre = isset($doc['nombre']) ? sanitize_text_field($doc['nombre']) : '';
+                $archivo = isset($doc['archivo']) ? sanitize_text_field($doc['archivo']) : '';
+                if ($nombre === '' && $archivo === '') {
+                    continue;
+                }
+                $clean[] = array(
+                    'nombre'  => $nombre,
+                    'archivo' => sesna_strip_domain_from_url($archivo),
+                );
+            }
+        }
+        update_post_meta($post_id, '_oc_documentos', wp_slash(wp_json_encode($clean)));
+    }
+}
+add_action('save_post_oc_sesion', 'sesna_save_oc_meta');
+
+function sesna_oc_admin_scripts($hook) {
+    global $typenow;
+    if ($typenow == 'oc_sesion') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'sesna_oc_admin_scripts');
+
+/**
+ * Recorta cualquier dominio absoluto de una URL de /wp-content/uploads/,
+ * dejando solo el path relativo. Es la contraparte de sesna_resolve_archivo_url():
+ * esta función se usa AL GUARDAR, la otra AL LEER. Juntas garantizan que
+ * nunca se congele un dominio (localhost, staging, producción) en post meta.
+ */
+function sesna_strip_domain_from_url($valor) {
+    if (empty($valor)) {
+        return '';
+    }
+    $idx = strpos($valor, '/wp-content/uploads/');
+    if ($idx !== false) {
+        return substr($valor, $idx);
+    }
+    return $valor;
+}
+
+/**
+ * Cuenta sesiones + suma de acuerdos de un órgano, y el total de
+ * documentos sueltos de recomendaciones/exhortos (siempre global,
+ * no depende del órgano recibido). Sin caché: el volumen de datos
+ * es pequeño y así las cards reflejan cambios de wp-admin al instante.
+ */
+function sesna_get_oc_stats($organo) {
+    $sesiones_query = new WP_Query(array(
+        'post_type'      => 'oc_sesion',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'fields'         => 'ids',
+        'meta_query'     => array(
+            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
+            array('key' => '_oc_modo', 'value' => 'sesion', 'compare' => '='),
+        ),
+    ));
+    $sesiones_ids = $sesiones_query->posts;
+    $total_sesiones = count($sesiones_ids);
+
+    $total_acuerdos = 0;
+    foreach ($sesiones_ids as $id) {
+        $total_acuerdos += (int) get_post_meta($id, '_oc_acuerdos', true);
+    }
+
+    return array(
+        'sesiones'        => $total_sesiones,
+        'acuerdos'        => $total_acuerdos,
+        'recomendaciones' => sesna_count_oc_lista_directa('recomendaciones'),
+        'exhortos'        => sesna_count_oc_lista_directa('exhortos'),
+    );
+}
+
+function sesna_count_oc_lista_directa($organo) {
+    $query = new WP_Query(array(
+        'post_type'      => 'oc_sesion',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'fields'         => 'ids',
+        'meta_query'     => array(
+            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
+        ),
+    ));
+    return count($query->posts);
+}
+
+/**
+ * Devuelve las sesiones (o documentos sueltos) de un órgano, con sus
+ * documentos ya decodificados y las URLs resueltas al dominio actual
+ * del sitio (nunca un dominio congelado en base de datos).
+ */
+function sesna_get_oc_entries($organo) {
+    // No se usa 'meta_key' => '_oc_fecha' + orderby=meta_value aquí porque eso
+    // excluiría (JOIN interno) los posts en modo lista_directa, que nunca
+    // guardan _oc_fecha. Se ordena por fecha después, en PHP.
+    $query = new WP_Query(array(
+        'post_type'      => 'oc_sesion',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'meta_query'     => array(
+            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
+        ),
+    ));
+
+    $entries = array();
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+
+            $documentos_json = get_post_meta($id, '_oc_documentos', true) ?: '[]';
+            $documentos = json_decode($documentos_json, true);
+            if (!is_array($documentos)) {
+                $documentos = array();
+            }
+            foreach ($documentos as &$doc) {
+                $doc['enlace'] = sesna_resolve_archivo_url($doc['archivo'] ?? '');
+            }
+            unset($doc);
+
+            $fecha = get_post_meta($id, '_oc_fecha', true);
+
+            $video_url_raw = get_post_meta($id, '_oc_video_url', true);
+            $video_url = '';
+            if (!empty($video_url_raw)) {
+                $video_url = (strpos($video_url_raw, '/wp-content/uploads/') === 0)
+                    ? sesna_resolve_archivo_url($video_url_raw)
+                    : $video_url_raw;
+            }
+
+            $entries[] = array(
+                'id'          => $id,
+                'titulo'      => get_the_title(),
+                'modo'        => get_post_meta($id, '_oc_modo', true) ?: 'sesion',
+                'fecha'       => $fecha,
+                'anio'        => $fecha ? substr($fecha, 0, 4) : '',
+                'tipo_sesion' => get_post_meta($id, '_oc_tipo_sesion', true) ?: '',
+                'acuerdos'    => (int) get_post_meta($id, '_oc_acuerdos', true),
+                'documentos'  => $documentos,
+                'video_url'   => $video_url,
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    // Las entradas con fecha (modo sesion) van primero, más recientes arriba;
+    // las lista_directa (sin fecha) conservan el orden de publicación de la query.
+    usort($entries, function ($a, $b) {
+        if ($a['fecha'] && $b['fecha']) {
+            return strcmp($b['fecha'], $a['fecha']);
+        }
+        return $a['fecha'] ? -1 : ($b['fecha'] ? 1 : 0);
+    });
+
+    return $entries;
+}
+
+/**
+ * Mapea el nombre de un documento a un ícono Bootstrap por palabra clave.
+ * Con nombres libres y cantidad variable de documentos por sesión no se
+ * puede mantener el mapeo fijo por posición que usaba el diseño original.
+ */
+function sesna_oc_doc_icon($nombre) {
+    $nombre_lower = strtolower($nombre);
+    if (strpos($nombre_lower, 'convocatoria') !== false) {
+        return 'bi-clipboard';
+    }
+    if (strpos($nombre_lower, 'acta') !== false) {
+        return 'bi-file-earmark-check';
+    }
+    if (strpos($nombre_lower, 'anexo') !== false) {
+        return 'bi-folder';
+    }
+    if (strpos($nombre_lower, 'orden') !== false) {
+        return 'bi-file-earmark-text';
+    }
+    return 'bi-file-earmark-text';
+}
+
+function sesna_render_oc_stats_cards($stats) {
+    ?>
+    <div class="row g-3 mb-5">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
+                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['sesiones'] ?></span>
+                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
+                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['acuerdos'] ?></span>
+                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
+                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['recomendaciones'] ?></span>
+                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
+                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['exhortos'] ?></span>
+                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Mapea los documentos de nombre libre de una sesión a los 5 slots fijos
+ * del diseño (Convocatoria, Orden del día, Acta, Anexos, Ver sesión).
+ * El slot "Anexos" agrupa cualquier documento cuyo nombre contenga "anexo"
+ * y enlaza al primero encontrado. Un slot sin documento queda 'enlace' => ''
+ * para que el render lo pinte deshabilitado sin quitar el ícono.
+ */
+/**
+ * Abreviatura de mes en español (3 letras, mayúsculas), independiente del
+ * locale del servidor: DateTime::format('M') solo devuelve nombres en inglés.
+ */
+function sesna_oc_mes_abrev($mes_numero) {
+    $meses = array(
+        1 => 'ENE', 2 => 'FEB', 3 => 'MAR', 4 => 'ABR',
+        5 => 'MAY', 6 => 'JUN', 7 => 'JUL', 8 => 'AGO',
+        9 => 'SEP', 10 => 'OCT', 11 => 'NOV', 12 => 'DIC',
+    );
+    return $meses[$mes_numero] ?? '---';
+}
+
+/**
+ * Extrae el ID de un video de YouTube a partir de cualquier formato de URL
+ * (watch?v=, youtu.be/, embed/). Devuelve '' si no es una URL de YouTube
+ * reconocible (p. ej. un archivo de video propio en /wp-content/uploads/).
+ */
+function sesna_oc_extraer_youtube_id($url) {
+    if (preg_match('#(?:youtube\.com/(?:watch\?v=|embed/)|youtu\.be/)([a-zA-Z0-9_-]{6,})#', $url, $m)) {
+        return $m[1];
+    }
+    return '';
+}
+
+function sesna_oc_map_slots_fijos($sesion) {
+    $slots = array(
+        'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'bi-clipboard', 'enlace' => ''),
+        'orden_del_dia' => array('label' => 'Orden del día', 'icon' => 'bi-file-earmark-text', 'enlace' => ''),
+        'acta'          => array('label' => 'Acta', 'icon' => 'bi-file-earmark-check', 'enlace' => ''),
+        // 'anexos' puede tener 0, 1 o varios documentos: si hay más de uno,
+        // el render pinta un dropdown en vez de un link directo.
+        'anexos'        => array('label' => 'Anexos', 'icon' => 'bi-folder', 'enlace' => '', 'documentos' => array()),
+        'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'bi-play-btn', 'enlace' => ''),
+    );
+
+    foreach ($sesion['documentos'] as $doc) {
+        $nombre_lower = strtolower($doc['nombre']);
+        if ($slots['convocatoria']['enlace'] === '' && strpos($nombre_lower, 'convocatoria') !== false) {
+            $slots['convocatoria']['enlace'] = $doc['enlace'];
+        } elseif ($slots['acta']['enlace'] === '' && strpos($nombre_lower, 'acta') !== false) {
+            $slots['acta']['enlace'] = $doc['enlace'];
+        } elseif (strpos($nombre_lower, 'anexo') !== false) {
+            $slots['anexos']['documentos'][] = $doc;
+        } elseif ($slots['orden_del_dia']['enlace'] === '' && strpos($nombre_lower, 'orden') !== false) {
+            $slots['orden_del_dia']['enlace'] = $doc['enlace'];
+        }
+    }
+
+    if (!empty($slots['anexos']['documentos'])) {
+        // Compatibilidad: 'enlace' queda con el primero, por si algo más lo consulta directo.
+        $slots['anexos']['enlace'] = $slots['anexos']['documentos'][0]['enlace'];
+    }
+
+    if (!empty($sesion['video_url'])) {
+        $slots['ver_sesion']['enlace'] = $sesion['video_url'];
+        $slots['ver_sesion']['youtube_id'] = sesna_oc_extraer_youtube_id($sesion['video_url']);
+    }
+
+    return $slots;
+}
+
+/**
+ * Renderiza el ícono "Anexos" como un dropdown de Bootstrap cuando la sesión
+ * tiene más de un documento de anexo, para no perder ninguno ni distorsionar
+ * el layout fijo de 5 íconos por tarjeta (mismo patrón dropdown ya usado en
+ * page-politica-nacional-anticorrupcion.php).
+ */
+/**
+ * Ícono "Anexos" (toggle) que expande/colapsa un panel dentro de la MISMA
+ * tarjeta, mostrando cada documento con su propio botón de descarga.
+ * Debe llamarse junto con sesna_render_oc_anexos_panel() para pintar el
+ * panel colapsable después de la fila de íconos, dentro de la tarjeta.
+ */
+function sesna_render_oc_anexos_toggle($panel_id, $slot) {
+    $total = count($slot['documentos']);
+    ?>
+    <a href="#<?= esc_attr($panel_id) ?>" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
+        <i class="bi <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
+    </a>
+    <?php
+}
+
+function sesna_render_oc_anexos_panel($panel_id, $slot) {
+    $total = count($slot['documentos']);
+    $mostrar_buscador = $total > 8;
+    ?>
+    <div class="collapse tx-oc-anexos-panel" id="<?= esc_attr($panel_id) ?>">
+        <div class="border-top px-4 py-4">
+            <?php if ($mostrar_buscador) : ?>
+            <div class="position-relative mb-3" style="max-width: 340px;">
+                <i class="bi bi-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
+                <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
+            </div>
+            <?php endif; ?>
+            <div class="d-flex flex-column gap-2 tx-oc-anexos-list">
+                <?php foreach ($slot['documentos'] as $doc) : ?>
+                <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
+                    <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
+                        <i class="bi bi-file-earmark-text flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true"></i>
+                        <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
+                    </div>
+                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                </a>
+                <?php endforeach; ?>
+            </div>
+            <p class="text-center text-muted small font-noto-sans mt-3 mb-0 d-none tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
+        </div>
+    </div>
+    <?php
+}
+
+function sesna_render_oc_sesion_card($sesion) {
+    $fecha_obj = !empty($sesion['fecha']) ? DateTime::createFromFormat('Y-m-d', $sesion['fecha']) : null;
+    $dia  = $fecha_obj ? $fecha_obj->format('d') : '--';
+    $mes  = $fecha_obj ? sesna_oc_mes_abrev((int) $fecha_obj->format('n')) : '---';
+    $anio = $fecha_obj ? $fecha_obj->format('Y') : '----';
+    $slots = sesna_oc_map_slots_fijos($sesion);
+    $anexos_panel_id = 'oc-anexos-panel-' . md5($sesion['titulo'] . $sesion['fecha'] . count($slots['anexos']['documentos']));
+    $tiene_anexos_panel = count($slots['anexos']['documentos']) > 1;
+    ?>
+    <div class="card border border-light shadow-sm rounded-3 mb-3 tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>">
+        <div class="card-body p-0">
+            <div class="row g-0 h-100 align-items-center">
+                <div class="col-12 col-md-2 tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
+                    <div class="fw-bold tx-sesion-date-day lh-1 text-secondary"><?= esc_html($dia) ?></div>
+                    <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;"><?= esc_html($mes) ?></div>
+                    <div class="fw-bold tx-sesion-date-year text-secondary mt-1"><?= esc_html($anio) ?></div>
+                </div>
+
+                <div class="col-12 col-md-4 p-4 d-flex flex-column justify-content-center">
+                    <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
+                    <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> <?= esc_html($sesion['tipo_sesion']) ?></p>
+                </div>
+
+                <div class="col-12 col-md-5 tx-sesion-action p-3 p-md-4 d-flex align-items-center">
+                    <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
+                        <?php foreach ($slots as $slot_key => $slot) :
+                            if ($slot_key === 'anexos' && $tiene_anexos_panel) :
+                                sesna_render_oc_anexos_toggle($anexos_panel_id, $slot);
+                                continue;
+                            endif;
+
+                            $disabled = ($slot['enlace'] === '');
+                            $href = $disabled ? '#' : esc_url($slot['enlace']);
+                            $link_class = 'text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1' . ($disabled ? ' tx-sesion-pdf-link--disabled' : '');
+                            $es_ver_sesion = ($slot_key === 'ver_sesion');
+                            $youtube_id = $es_ver_sesion ? ($slot['youtube_id'] ?? '') : '';
+                        ?>
+                        <a href="<?= $href ?>"
+                           <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-bs-toggle="modal" data-bs-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
+                           class="<?= esc_attr($link_class) ?>">
+                            <i class="bi <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+                            <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
+                    <i class="bi bi-chevron-right text-muted fs-5"></i>
+                </div>
+            </div>
+            <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
+        </div>
+    </div>
+    <?php
+}
+
+function sesna_render_oc_lista_directa_item($item) {
+    ?>
+    <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card">
+        <div class="card-body p-0">
+            <div class="row g-0 h-100 align-items-center">
+                <div class="col-12 col-md-9 p-4 d-flex flex-column justify-content-center">
+                    <h3 class="h5 fw-bold mb-0 font-noto-sans tx-sesion-info-title"><?= esc_html($item['titulo']) ?></h3>
+                </div>
+                <div class="col-12 col-md-3 tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
+                    <?php foreach ($item['documentos'] as $doc) : ?>
+                    <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
+                        <i class="bi <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon"></i>
+                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+/**
+ * Submenú de administración para disparar la importación (idempotente)
+ * de sesna-v2/files/relacion_documentos_sesna.json hacia el CPT oc_sesion.
+ */
+function sesna_add_oc_import_admin_page() {
+    add_submenu_page(
+        'edit.php?post_type=oc_sesion',
+        'Importar datos SESNA',
+        'Importar datos SESNA',
+        'manage_options',
+        'oc-importar-datos',
+        'sesna_oc_import_admin_page_html'
+    );
+}
+add_action('admin_menu', 'sesna_add_oc_import_admin_page');
+
+function sesna_oc_import_admin_page_html() {
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    $resumen = null;
+
+    if (isset($_POST['sesna_oc_import_nonce']) && wp_verify_nonce($_POST['sesna_oc_import_nonce'], 'sesna_oc_import')) {
+        require_once get_template_directory() . '/tools/import-relacion-documentos.php';
+        $resumen = sesna_import_relacion_documentos();
+    }
+    ?>
+    <div class="wrap">
+        <h1>Importar datos de Órganos Colegiados</h1>
+        <p>Importa las sesiones y documentos de <code>files/relacion_documentos_sesna.json</code> al CPT "Órganos Colegiados". Es seguro ejecutarla varias veces: las sesiones/documentos ya existentes (mismo título + órgano) no se duplican.</p>
+
+        <?php if ($resumen && empty($resumen['error'])) : ?>
+            <div class="notice notice-success">
+                <p>
+                    Importación completada: <strong><?= (int) $resumen['creados'] ?></strong> creados,
+                    <strong><?= (int) $resumen['existentes'] ?></strong> ya existentes (sin cambios),
+                    <strong><?= (int) $resumen['omitidos_zip'] ?></strong> documentos ZIP omitidos (paquete dinámico sin archivo físico).
+                </p>
+            </div>
+        <?php elseif ($resumen && !empty($resumen['error'])) : ?>
+            <div class="notice notice-error"><p><?= esc_html($resumen['error']) ?></p></div>
+        <?php endif; ?>
+
+        <form method="post">
+            <?php wp_nonce_field('sesna_oc_import', 'sesna_oc_import_nonce'); ?>
+            <?php submit_button('Ejecutar importación'); ?>
+        </form>
+    </div>
+    <?php
+}
+
 /**
  * Obtiene de manera dinámica y portable la URL de un documento almacenado en la Biblioteca de Medios (wp-admin).
  * Busca el archivo por nombre o ruta relativa en los archivos adjuntos de WordPress, evitando dominios codificados.

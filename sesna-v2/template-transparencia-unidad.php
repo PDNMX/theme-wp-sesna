@@ -71,7 +71,7 @@ get_header();
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1 text-burgundi h5">Teléfono:</h5>
-                                <a href="tel:5581178100" class="text-muted text-decoration-none">558117-8100 ext.1116</a>
+                                <a href="tel:5581178100" class="text-muted text-decoration-none">55 5131 5645</a>
                             </div>
                         </div>
                         
