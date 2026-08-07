@@ -1917,6 +1917,7 @@ function sesna_get_oc_entries($organo) {
 
             $entries[] = array(
                 'id'          => $id,
+                'organo'      => $organo,
                 'titulo'      => get_the_title(),
                 'modo'        => get_post_meta($id, '_oc_modo', true) ?: 'sesion',
                 'fecha'       => $fecha,
@@ -2143,6 +2144,13 @@ function sesna_render_oc_sesion_card($sesion) {
                         <?php foreach ($slots as $slot_key => $slot) :
                             if ($slot_key === 'anexos' && $tiene_anexos_panel) :
                                 sesna_render_oc_anexos_toggle($anexos_panel_id, $slot);
+                                continue;
+                            endif;
+
+                            // "Ver sesión" no aplica a Órgano de Gobierno: se omite por
+                            // completo (sin dejar un icono deshabilitado) sin afectar la
+                            // posición de los demás iconos, que ya vienen antes en $slots.
+                            if ($slot_key === 'ver_sesion' && $sesion['organo'] === 'organo_gobierno') :
                                 continue;
                             endif;
 
