@@ -135,4 +135,73 @@
             clearInterval(retry);
         }
     }, 300);
+
+    // ── Parche: Cursor grande — anillo visual ─────────────────────────────
+    // El CDN reemplaza el cursor del sistema con un SVG blanco que es
+    // invisible sobre fondos claros y tiene soporte irregular en navegadores.
+    //
+    // Solución: anillo visual que sigue al mouse. Funciona en todos los
+    // navegadores, visible en cualquier fondo, y no depende del cursor SVG.
+
+    var _ring = null;
+    var _ringMoveHandler = null;
+
+    function _createRing() {
+        var el = document.createElement('div');
+        el.id = 'sesna-cursor-ring';
+        document.body.appendChild(el);
+        return el;
+    }
+
+    function _activateCursorRing() {
+        if (!_ring) _ring = _createRing();
+        _ring.classList.add('sesna-cursor-ring--active');
+        _ringMoveHandler = function (e) {
+            _ring.style.left = e.clientX + 'px';
+            _ring.style.top  = e.clientY + 'px';
+        };
+        document.addEventListener('mousemove', _ringMoveHandler);
+    }
+
+    function _deactivateCursorRing() {
+        if (_ring) _ring.classList.remove('sesna-cursor-ring--active');
+        if (_ringMoveHandler) {
+            document.removeEventListener('mousemove', _ringMoveHandler);
+            _ringMoveHandler = null;
+        }
+    }
+
+    // Observa la clase cursor-big en body (la agrega el CDN al activar)
+    var _cursorObserver = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.attributeName === 'class') {
+                var hasCursorBig = document.body.classList.contains('cursor-big');
+                if (hasCursorBig) {
+                    _activateCursorRing();
+                } else {
+                    _deactivateCursorRing();
+                }
+            }
+        });
+    });
+
+    // Inicia observador en cuanto el body esté disponible
+    function _startCursorObserver() {
+        if (document.body) {
+            _cursorObserver.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+            // Sincroniza estado inicial por si se restauró desde sesión anterior
+            if (document.body.classList.contains('cursor-big')) {
+                _activateCursorRing();
+            }
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', _startCursorObserver);
+    } else {
+        _startCursorObserver();
+    }
 })();
