@@ -72,6 +72,9 @@ function sesna_theme_scripts()
 	// JS global del tema (depende solo del framework)
 	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 
+	// Parche de accesibilidad — mejoras sobre el widget CDN de GOB.mx
+	wp_enqueue_script('sesna-accesibilidad-patch', get_template_directory_uri() . '/script/accesibilidad-patch.js', array('gobmx-accesibilidad-js'), wp_get_theme()->get('Version'), true);
+
 	wp_localize_script('sesna-main-script', 'ajax_object', array(
 		'ajax_url' => admin_url('admin-ajax.php'),
 		'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
