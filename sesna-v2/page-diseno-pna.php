@@ -588,8 +588,8 @@ get_header();
                         <!-- Doc 1 -->
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
@@ -600,8 +600,8 @@ get_header();
                         <!-- Doc 2 -->
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('numeralia de los costos.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
@@ -612,8 +612,8 @@ get_header();
                         <!-- Doc 3 -->
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('acciones para combatir la corrupcion.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
@@ -624,8 +624,8 @@ get_header();
                         <!-- Doc 4 -->
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('recomendaciones de la sociedad civil.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
@@ -636,8 +636,8 @@ get_header();
                         <!-- Doc 5 -->
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="#" style="border-color: #E9ECEF !important; min-height: 250px;">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px; background-color: #F9E8EC;">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('reporte del taller de inteligencia.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
