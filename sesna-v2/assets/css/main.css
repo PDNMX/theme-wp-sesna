@@ -54,6 +54,20 @@ html.sesna-dislexia body * {
     font-family: 'open_dyslexic', sans-serif !important;
 }
 
+/* Excepción dislexia — íconos Font Awesome (FA usa font-family sin !important,
+   nuestro body * con !important lo sobrescribe y rompe los iconos).
+   Especificidad body i.fas (0,1,3) > body * (0,1,2) — gana con !important. */
+html.sesna-dislexia body i.fas,
+html.sesna-dislexia body i.far,
+html.sesna-dislexia body i.fab,
+html.sesna-dislexia body i.fal,
+html.sesna-dislexia body i.fad,
+html.sesna-dislexia body i[class*="fa-"],
+html.sesna-dislexia body i.icons {
+    font-family: "Font Awesome 5 Duotone", "Font Awesome 5 Free",
+                 "Font Awesome 5 Brands", sans-serif !important;
+}
+
 /* Espaciado vertical — 3 niveles con !important para superar inline styles del CDN */
 html.sesna-spacing-v-1 a, html.sesna-spacing-v-1 p, html.sesna-spacing-v-1 li,
 html.sesna-spacing-v-1 h1, html.sesna-spacing-v-1 h2, html.sesna-spacing-v-1 h3,
@@ -106,6 +120,23 @@ html.sesna-spacing-h-3 a, html.sesna-spacing-h-3 p, html.sesna-spacing-h-3 li,
 html.sesna-spacing-h-3 h1, html.sesna-spacing-h-3 h2, html.sesna-spacing-h-3 h3,
 html.sesna-spacing-h-3 h4, html.sesna-spacing-h-3 h5, html.sesna-spacing-h-3 h6,
 html.sesna-spacing-h-3 dd, html.sesna-spacing-h-3 dt, html.sesna-spacing-h-3 figcaption { letter-spacing: 0.15em !important; }
+
+/* Excluye nav / header / widget accesibilidad del espaciado horizontal.
+   Misma lógica que la exclusión vertical — posición en cascada gana. */
+html[class*="sesna-spacing-h"] nav a,
+html[class*="sesna-spacing-h"] nav li,
+html[class*="sesna-spacing-h"] header a,
+html[class*="sesna-spacing-h"] header li,
+html[class*="sesna-spacing-h"] .navbar a,
+html[class*="sesna-spacing-h"] .navbar li,
+html[class*="sesna-spacing-h"] .nav-item,
+html[class*="sesna-spacing-h"] .dropdown-menu a,
+html[class*="sesna-spacing-h"] .dropdown-menu li,
+html[class*="sesna-spacing-h"] #accessibility a,
+html[class*="sesna-spacing-h"] #accessibility li,
+html[class*="sesna-spacing-h"] #accessibility span {
+    letter-spacing: normal !important;
+}
 
 /* Resaltar enlaces — fix bug CDN (find("href") no hace nada).
    Marca TODOS los <a> con fondo amarillo y texto oscuro para máxima visibilidad. */

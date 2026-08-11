@@ -383,29 +383,55 @@
             el.classList.remove('highlight-accessibility');
         });
 
-        // 3. localStorage — limpia flags que el CDN deja sucios
-        ['activeGrayScale', 'activeContrast', 'activeCursor',
-         'activeAudio', 'activeMask', 'activeLineRead'].forEach(function (k) {
+        // 3. localStorage — limpia TODOS los flags del CDN
+        //    activeGrayScale/Contrast/Cursor/Audio/Mask/LineRead → keys estándar
+        //    lsDislexia / lsResaltar / highlight → keys adicionales del CDN
+        ['activeGrayScale', 'activeContrast', 'activeCursor', 'activeAudio',
+         'activeMask', 'activeLineRead', 'lsDislexia', 'lsResaltar', 'highlight'].forEach(function (k) {
             localStorage.setItem(k, 'false');
         });
 
-        // 4. icon-box-active en ítems que el CDN no resetea
-        ['li.dislexia', 'li.spacing_v', 'li.spacing_h', 'li.resaltar'].forEach(function (sel) {
+        // 4. icon-box-active en ítems que el CDN no resetea (o resetea mal)
+        ['li.dislexia', 'li.spacing_v', 'li.spacing_h', 'li.resaltar',
+         'li.mask', 'li.guia'].forEach(function (sel) {
             var el = document.querySelector(sel);
             if (el) el.classList.remove('icon-box-active');
         });
+
+        // Clases de estado propias del CDN en máscara y guía
+        var liMask = document.querySelector('li.mask');
+        if (liMask) liMask.classList.remove('activeMask');
+        var liGuia = document.querySelector('li.guia');
+        if (liGuia) liGuia.classList.remove('activeLineRead');
+
+        // Oculta el contenedor de la máscara de lectura directamente.
+        // El CDN llama activateMask() DESPUÉS de quitar icon-box-active, lo que
+        // confunde al toggle (ve "inactivo" y lo reactiva). Lo forzamos oculto.
+        var maskContainer = document.getElementById('maskAccesibility');
+        if (maskContainer) {
+            maskContainer.style.display = 'none';
+            // Resetea las bandas al estado inicial (altura 0)
+            Array.from(maskContainer.querySelectorAll('.maskRead')).forEach(function (band) {
+                band.style.height = '0px';
+            });
+        }
+
+        // Oculta el elemento separador de la guía de lectura si existe
+        var separator = document.getElementById('separator');
+        if (separator) separator.style.display = 'none';
 
         // 5. Stepping dots de espaciado
         document.querySelectorAll('.stepping').forEach(function (el) {
             el.classList.remove('stepping_active');
         });
 
-        // 6. Inline styles acumulados en el contenido por inc-font / espaciado CDN
+        // 6. Inline styles acumulados por inc-font, espaciado y contraste CDN
         document.querySelectorAll('body *').forEach(function (el) {
             el.style.removeProperty('font-size');
             el.style.removeProperty('margin-bottom');
             el.style.removeProperty('line-height');
             el.style.removeProperty('letter-spacing');
+            el.style.removeProperty('filter');
         });
 
         // 7. Cursor ring y clase cursor-big del body
