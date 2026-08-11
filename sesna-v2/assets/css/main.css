@@ -47,6 +47,77 @@ html.sesna-grayscale.sesna-high-contrast {
     opacity: 1;
 }
 
+/* Dislexia — usa open_dyslexic, la fuente oficial del CDN GOB.mx accesibilidad.
+   Se carga automáticamente desde gobmx-accesibilidad.min.css vía @font-face. */
+html.sesna-dislexia body,
+html.sesna-dislexia body * {
+    font-family: 'open_dyslexic', sans-serif !important;
+}
+
+/* Espaciado vertical — 3 niveles con !important para superar inline styles del CDN */
+html.sesna-spacing-v-1 a, html.sesna-spacing-v-1 p, html.sesna-spacing-v-1 li,
+html.sesna-spacing-v-1 h1, html.sesna-spacing-v-1 h2, html.sesna-spacing-v-1 h3,
+html.sesna-spacing-v-1 h4, html.sesna-spacing-v-1 h5, html.sesna-spacing-v-1 h6,
+html.sesna-spacing-v-1 dd, html.sesna-spacing-v-1 dt, html.sesna-spacing-v-1 figcaption,
+html.sesna-spacing-v-1 blockquote { line-height: 2 !important; }
+
+html.sesna-spacing-v-2 a, html.sesna-spacing-v-2 p, html.sesna-spacing-v-2 li,
+html.sesna-spacing-v-2 h1, html.sesna-spacing-v-2 h2, html.sesna-spacing-v-2 h3,
+html.sesna-spacing-v-2 h4, html.sesna-spacing-v-2 h5, html.sesna-spacing-v-2 h6,
+html.sesna-spacing-v-2 dd, html.sesna-spacing-v-2 dt, html.sesna-spacing-v-2 figcaption,
+html.sesna-spacing-v-2 blockquote { line-height: 2.8 !important; }
+
+html.sesna-spacing-v-3 a, html.sesna-spacing-v-3 p, html.sesna-spacing-v-3 li,
+html.sesna-spacing-v-3 h1, html.sesna-spacing-v-3 h2, html.sesna-spacing-v-3 h3,
+html.sesna-spacing-v-3 h4, html.sesna-spacing-v-3 h5, html.sesna-spacing-v-3 h6,
+html.sesna-spacing-v-3 dd, html.sesna-spacing-v-3 dt, html.sesna-spacing-v-3 figcaption,
+html.sesna-spacing-v-3 blockquote { line-height: 3.5 !important; }
+
+/* Excluye nav / header / widget accesibilidad del espaciado vertical.
+   La regla va después de las de spacing para ganar por orden en cascada
+   (misma especificidad, última posición gana). */
+html[class*="sesna-spacing-v"] nav a,
+html[class*="sesna-spacing-v"] nav li,
+html[class*="sesna-spacing-v"] header a,
+html[class*="sesna-spacing-v"] header li,
+html[class*="sesna-spacing-v"] .navbar a,
+html[class*="sesna-spacing-v"] .navbar li,
+html[class*="sesna-spacing-v"] .nav-item,
+html[class*="sesna-spacing-v"] .dropdown-menu a,
+html[class*="sesna-spacing-v"] .dropdown-menu li,
+html[class*="sesna-spacing-v"] #accessibility a,
+html[class*="sesna-spacing-v"] #accessibility li,
+html[class*="sesna-spacing-v"] #accessibility span {
+    line-height: normal !important;
+}
+
+/* Espaciado horizontal — 3 niveles */
+html.sesna-spacing-h-1 a, html.sesna-spacing-h-1 p, html.sesna-spacing-h-1 li,
+html.sesna-spacing-h-1 h1, html.sesna-spacing-h-1 h2, html.sesna-spacing-h-1 h3,
+html.sesna-spacing-h-1 h4, html.sesna-spacing-h-1 h5, html.sesna-spacing-h-1 h6,
+html.sesna-spacing-h-1 dd, html.sesna-spacing-h-1 dt, html.sesna-spacing-h-1 figcaption { letter-spacing: 0.05em !important; }
+
+html.sesna-spacing-h-2 a, html.sesna-spacing-h-2 p, html.sesna-spacing-h-2 li,
+html.sesna-spacing-h-2 h1, html.sesna-spacing-h-2 h2, html.sesna-spacing-h-2 h3,
+html.sesna-spacing-h-2 h4, html.sesna-spacing-h-2 h5, html.sesna-spacing-h-2 h6,
+html.sesna-spacing-h-2 dd, html.sesna-spacing-h-2 dt, html.sesna-spacing-h-2 figcaption { letter-spacing: 0.1em !important; }
+
+html.sesna-spacing-h-3 a, html.sesna-spacing-h-3 p, html.sesna-spacing-h-3 li,
+html.sesna-spacing-h-3 h1, html.sesna-spacing-h-3 h2, html.sesna-spacing-h-3 h3,
+html.sesna-spacing-h-3 h4, html.sesna-spacing-h-3 h5, html.sesna-spacing-h-3 h6,
+html.sesna-spacing-h-3 dd, html.sesna-spacing-h-3 dt, html.sesna-spacing-h-3 figcaption { letter-spacing: 0.15em !important; }
+
+/* Resaltar enlaces — fix bug CDN (find("href") no hace nada).
+   Marca TODOS los <a> con fondo amarillo y texto oscuro para máxima visibilidad. */
+html.sesna-highlight a,
+html.sesna-highlight a:visited {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    text-decoration: underline !important;
+    padding: 0 2px !important;
+    border-radius: 2px !important;
+}
+
 /* Botones del widget de accesibilidad — tamaño y layout mejorado */
 #accessibility ul.accesibility {
     width: 265px !important;

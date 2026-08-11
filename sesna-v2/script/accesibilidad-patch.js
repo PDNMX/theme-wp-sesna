@@ -171,9 +171,134 @@
         });
     }
 
+    // ── Parche: Dislexia — fuente accesible global ───────────────────────
+    // CDN agrega dislexia_active a elementos individuales. Depende del CSS
+    // cross-origin del CDN. Mejora: clase en <html> con Atkinson Hyperlegible
+    // (ya cargada en el tema) que aplica en cascada a todo el contenido.
+
+    function applyDislexia(active) {
+        if (active) {
+            document.documentElement.classList.add('sesna-dislexia');
+        } else {
+            document.documentElement.classList.remove('sesna-dislexia');
+        }
+    }
+
+    var dislexiaObserverStarted = false;
+
+    function startDislexiaObserver() {
+        if (dislexiaObserverStarted) return;
+        var li = document.querySelector('li.dislexia');
+        if (!li) return;
+        dislexiaObserverStarted = true;
+        applyDislexia(li.classList.contains('icon-box-active'));
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                if (m.attributeName === 'class') {
+                    applyDislexia(m.target.classList.contains('icon-box-active'));
+                }
+            });
+        }).observe(li, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // ── Parche: Espaciado vertical — CSS con !important ───────────────────
+    // CDN aplica line-height via inline style. Reglas !important en el tema
+    // bloquean el inline style. Usamos clases en <html> con !important.
+    // Observamos las stepping dots (.s1/.s2/.s3) para detectar el nivel.
+
+    function applySpacingV() {
+        var html = document.documentElement;
+        html.classList.remove('sesna-spacing-v-1', 'sesna-spacing-v-2', 'sesna-spacing-v-3');
+        var s3 = document.querySelector('.s3.stepping_active');
+        var s2 = document.querySelector('.s2.stepping_active');
+        var s1 = document.querySelector('.s1.stepping_active');
+        if (s3)      html.classList.add('sesna-spacing-v-3');
+        else if (s2) html.classList.add('sesna-spacing-v-2');
+        else if (s1) html.classList.add('sesna-spacing-v-1');
+    }
+
+    var spacingVObserverStarted = false;
+
+    function startSpacingVObserver() {
+        if (spacingVObserverStarted) return;
+        var li = document.querySelector('li.spacing_v');
+        if (!li) return;
+        spacingVObserverStarted = true;
+        // Observa cambios en las stepping dots dentro del li
+        new MutationObserver(applySpacingV)
+            .observe(li, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    }
+
+    // ── Parche: Espaciado horizontal — CSS con !important ─────────────────
+    // Mismo problema que espaciado vertical. Usa .sh1/.sh2/.sh3 como señal.
+
+    function applySpacingH() {
+        var html = document.documentElement;
+        html.classList.remove('sesna-spacing-h-1', 'sesna-spacing-h-2', 'sesna-spacing-h-3');
+        var sh3 = document.querySelector('.sh3.stepping_active');
+        var sh2 = document.querySelector('.sh2.stepping_active');
+        var sh1 = document.querySelector('.sh1.stepping_active');
+        if (sh3)      html.classList.add('sesna-spacing-h-3');
+        else if (sh2) html.classList.add('sesna-spacing-h-2');
+        else if (sh1) html.classList.add('sesna-spacing-h-1');
+    }
+
+    var spacingHObserverStarted = false;
+
+    function startSpacingHObserver() {
+        if (spacingHObserverStarted) return;
+        var li = document.querySelector('li.spacing_h');
+        if (!li) return;
+        spacingHObserverStarted = true;
+        new MutationObserver(applySpacingH)
+            .observe(li, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    }
+
+    // ── Parche: Resaltar enlaces — fix bug CDN ────────────────────────────
+    // BUG: CDN usa $("body").find("href") — selector inválido en jQuery.
+    // <href> no es un elemento HTML, por lo que la búsqueda regresa vacío
+    // y el botón no hace absolutamente nada.
+    //
+    // Solución: interceptamos el click en li.resaltar y aplicamos/removemos
+    // la clase sesna-highlight en <html>. CSS marca todos los <a> del sitio.
+
+    function applyHighlight(active) {
+        if (active) {
+            document.documentElement.classList.add('sesna-highlight');
+        } else {
+            document.documentElement.classList.remove('sesna-highlight');
+        }
+    }
+
+    var highlightObserverStarted = false;
+
+    function startHighlightObserver() {
+        if (highlightObserverStarted) return;
+        var li = document.querySelector('li.resaltar');
+        if (!li) return;
+        highlightObserverStarted = true;
+        applyHighlight(li.classList.contains('icon-box-active'));
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                if (m.attributeName === 'class') {
+                    applyHighlight(m.target.classList.contains('icon-box-active'));
+                }
+            });
+        }).observe(li, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    var accessibilityProtectorStarted = false;
+
     function startAllObservers() {
         startGrayscaleObserver();
         startContrastObserver();
+        startDislexiaObserver();
+        startSpacingVObserver();
+        startSpacingHObserver();
+        startHighlightObserver();
+        if (!accessibilityProtectorStarted) {
+            _startAccessibilityProtector();
+        }
     }
 
     if (document.readyState === 'loading') {
@@ -187,10 +312,116 @@
     var retry = setInterval(function () {
         attempts++;
         startAllObservers();
-        if (observerStarted && contrastObserverStarted || attempts >= 20) {
-            clearInterval(retry);
-        }
+        var allDone = observerStarted && contrastObserverStarted &&
+                      dislexiaObserverStarted && spacingVObserverStarted &&
+                      spacingHObserverStarted && highlightObserverStarted &&
+                      accessibilityProtectorStarted;
+        if (allDone || attempts >= 20) { clearInterval(retry); }
     }, 300);
+
+    // ── Parche: Tamaño de fuente — preserva el widget de accesibilidad ───
+    // El CDN aplica font-size via inline styles a todos los li, a, btn, etc.
+    // Esto incluye los propios botones del widget (#accessibility li/a/span),
+    // que crecen junto al contenido y se salen del panel.
+    //
+    // Solución: después de cada click en inc-font/dec-font, eliminamos los
+    // inline styles de font-size y margin-bottom dentro del widget.
+
+    // MutationObserver sobre #accessibility: cada vez que el CDN aplique un
+    // inline style de font-size / line-height / letter-spacing a un elemento
+    // del widget, lo removemos inmediatamente — sin depender de timers.
+    function _startAccessibilityProtector() {
+        var acc = document.getElementById('accessibility');
+        if (!acc) return;
+        accessibilityProtectorStarted = true;
+
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                if (m.type === 'attributes' && m.attributeName === 'style') {
+                    var el = m.target;
+                    el.style.removeProperty('font-size');
+                    el.style.removeProperty('margin-bottom');
+                    el.style.removeProperty('line-height');
+                    el.style.removeProperty('letter-spacing');
+                }
+            });
+        }).observe(acc, {
+            attributes: true,
+            attributeFilter: ['style'],
+            subtree: true
+        });
+    }
+
+    // ── Parche: Restablecer completo ──────────────────────────────────────
+    // El CDN resetea: grayscale, contraste, audio, cursor, máscara, guía.
+    // NO resetea: dislexia, espaciado V/H, resaltar enlaces, tamaño fuente.
+    // Nuestros observadores no reciben señal para esos porque el CDN no
+    // toca sus li ni sus localStorage keys.
+
+    function _sesnaFullReset() {
+        var html = document.documentElement;
+
+        // 1. Clases propias del parche en <html>
+        html.classList.remove(
+            'sesna-grayscale', 'sesna-high-contrast', 'sesna-dislexia',
+            'sesna-spacing-v-1', 'sesna-spacing-v-2', 'sesna-spacing-v-3',
+            'sesna-spacing-h-1', 'sesna-spacing-h-2', 'sesna-spacing-h-3',
+            'sesna-highlight'
+        );
+
+        // 2. Clases que el CDN agrega al contenido pero NO limpia en su reset
+        //    imgBW               → escala de grises CDN (filter:grayscale via CSS class)
+        //    dislexia_active     → tipografía dislexia CDN (font-family via CSS class)
+        //    highlight-accessibility → resaltar enlaces CDN (background-color via CSS class)
+        document.querySelectorAll('.imgBW').forEach(function (el) {
+            el.classList.remove('imgBW');
+        });
+        document.querySelectorAll('.dislexia_active').forEach(function (el) {
+            el.classList.remove('dislexia_active');
+        });
+        document.querySelectorAll('.highlight-accessibility').forEach(function (el) {
+            el.classList.remove('highlight-accessibility');
+        });
+
+        // 3. localStorage — limpia flags que el CDN deja sucios
+        ['activeGrayScale', 'activeContrast', 'activeCursor',
+         'activeAudio', 'activeMask', 'activeLineRead'].forEach(function (k) {
+            localStorage.setItem(k, 'false');
+        });
+
+        // 4. icon-box-active en ítems que el CDN no resetea
+        ['li.dislexia', 'li.spacing_v', 'li.spacing_h', 'li.resaltar'].forEach(function (sel) {
+            var el = document.querySelector(sel);
+            if (el) el.classList.remove('icon-box-active');
+        });
+
+        // 5. Stepping dots de espaciado
+        document.querySelectorAll('.stepping').forEach(function (el) {
+            el.classList.remove('stepping_active');
+        });
+
+        // 6. Inline styles acumulados en el contenido por inc-font / espaciado CDN
+        document.querySelectorAll('body *').forEach(function (el) {
+            el.style.removeProperty('font-size');
+            el.style.removeProperty('margin-bottom');
+            el.style.removeProperty('line-height');
+            el.style.removeProperty('letter-spacing');
+        });
+
+        // 7. Cursor ring y clase cursor-big del body
+        document.body.classList.remove('cursor-big');
+        _deactivateCursorRing();
+
+        // 8. Detiene lectura de pantalla en curso
+        if (window.speechSynthesis) { window.speechSynthesis.cancel(); }
+    }
+
+    // Intercepta click en Restablecer — setTimeout para correr DESPUÉS del CDN
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.icon-box-simple-reset, li.reset')) {
+            setTimeout(_sesnaFullReset, 200);
+        }
+    });
 
     // ── Parche: Cursor grande — anillo visual ─────────────────────────────
     // El CDN reemplaza el cursor del sistema con un SVG blanco que es
