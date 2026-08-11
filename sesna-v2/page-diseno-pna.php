@@ -204,36 +204,36 @@ get_header();
                                     <!-- EJE 1: Verde (Superior Izquierdo) -> Escudo con candado (Protección y combate a la impunidad) -->
                                     <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="0" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 20 160 A 140 140 0 0 1 160 20 Z" fill="#6AC72C" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-                                        <foreignObject x="62" y="62" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
-                                                <i class="bi bi-shield-lock-fill"></i>
+                                        <foreignObject x="56" y="56" width="58" height="58" style="pointer-events: none;">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
+                                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Combatir.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                             </div>
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 2: Azul (Superior Derecho) -> Auditoría, control interno y profesionalización -->
                                     <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="0" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-                                        <foreignObject x="214" y="62" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
-                                                <i class="bi bi-clipboard-check-fill"></i>
+                                        <foreignObject x="208" y="56" width="58" height="58" style="pointer-events: none;">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
+                                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Arbitrariedad.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                             </div>
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 4: Rosa/Fucsia (Inferior Derecho) -> Sociedad y sector privado -->
                                     <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="0" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 300 160 A 140 140 0 0 1 160 300 Z" fill="#E04F67" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-                                        <foreignObject x="214" y="214" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
-                                                <i class="bi bi-people-fill"></i>
+                                        <foreignObject x="208" y="208" width="58" height="58" style="pointer-events: none;">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
+                                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Involucrar.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                             </div>
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 3: Morado (Inferior Izquierdo) -> Interconexión, gestión y puntos de contacto -->
                                     <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="0" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
-                                        <foreignObject x="62" y="214" width="44" height="44" style="pointer-events: none;">
-                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100 text-white" style="font-size: 22px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
-                                                <i class="bi bi-diagram-3-fill"></i>
+                                        <foreignObject x="56" y="208" width="58" height="58" style="pointer-events: none;">
+                                            <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
+                                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Promover.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
                                             </div>
                                         </foreignObject>
                                     </g>
@@ -243,7 +243,7 @@ get_header();
 
                                 <!-- Centro del Problema (Destacado y centrado al 100%) -->
                                 <div class="pna-wheel-center position-absolute bg-white rounded-circle d-flex flex-column align-items-center justify-content-center text-center p-3 shadow" style="width: 154px; height: 154px; z-index: 10;">
-                                    <span class="mb-1"><i class="bi bi-people-fill d-block" style="font-size: 24px; line-height: 1; color: var(--color-burgundi, #9D2449);"></i></span>
+                                    <span class="mb-1"><img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/problema.svg' ); ?>" width="38" height="38" alt="" style="display: block;"></span>
                                     <strong class="d-block font-noto-sans mb-1" style="font-size: 13px; line-height: 1.1; color: var(--color-burgundi, #9D2449);">Problema:</strong>
                                     <span class="text-muted font-montserrat" style="font-size: 11px; line-height: 1.25; color: var(--color-negro, #54565a);">Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente.</span>
                                 </div>
