@@ -75,6 +75,57 @@
         };
     }
 
+    // ── Parche: Alto contraste completo ──────────────────────────────────
+    // El CDN solo aplica filter:invert(1) a .btn e img — texto, fondos y
+    // secciones no cambian. Efecto casi imperceptible, no cumple WCAG.
+    //
+    // Solución: mismo patrón que escala de grises. MutationObserver sobre
+    // li.contraste → clase sesna-high-contrast en <html> → filter global.
+
+    function applyHighContrast(active) {
+        if (active) {
+            document.documentElement.classList.add('sesna-high-contrast');
+        } else {
+            document.documentElement.classList.remove('sesna-high-contrast');
+        }
+    }
+
+    var contrastObserverStarted = false;
+
+    function startContrastObserver() {
+        if (contrastObserverStarted) return;
+
+        var contrasteLi = document.querySelector('li.contraste');
+        if (!contrasteLi) return;
+
+        contrastObserverStarted = true;
+
+        // Fix CDN: el handler del CDN está en el ícono (.InvertContrast),
+        // no en el <li>. Clicar el texto no hace nada. Delegamos al ícono.
+        contrasteLi.addEventListener('click', function (e) {
+            if (!e.target.classList.contains('InvertContrast') &&
+                !e.target.closest('i.InvertContrast')) {
+                var icon = contrasteLi.querySelector('i.InvertContrast');
+                if (icon) icon.click();
+            }
+        });
+
+        applyHighContrast(contrasteLi.classList.contains('icon-box-active'));
+
+        var contrastObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.attributeName === 'class') {
+                    applyHighContrast(mutation.target.classList.contains('icon-box-active'));
+                }
+            });
+        });
+
+        contrastObserver.observe(contrasteLi, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    }
+
     // ── Parche: Escala de grises completa ────────────────────────────────
     // El widget CDN aplica imgBW solo a <img> y .container, dejando
     // backgrounds, gradientes y el header sin afectar.
@@ -120,18 +171,23 @@
         });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', startGrayscaleObserver);
-    } else {
+    function startAllObservers() {
         startGrayscaleObserver();
+        startContrastObserver();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startAllObservers);
+    } else {
+        startAllObservers();
     }
 
     // Reintentos por si el CDN inyecta el widget de forma tardía
     var attempts = 0;
     var retry = setInterval(function () {
         attempts++;
-        startGrayscaleObserver();
-        if (observerStarted || attempts >= 20) {
+        startAllObservers();
+        if (observerStarted && contrastObserverStarted || attempts >= 20) {
             clearInterval(retry);
         }
     }, 300);

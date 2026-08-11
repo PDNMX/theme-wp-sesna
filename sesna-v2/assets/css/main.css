@@ -14,6 +14,16 @@ html.sesna-grayscale {
     filter: grayscale(100%);
 }
 
+/* Alto contraste: dobla el contraste en toda la página para cumplir WCAG */
+html.sesna-high-contrast {
+    filter: contrast(200%);
+}
+
+/* Combinación: si ambos están activos, aplican los dos filtros juntos */
+html.sesna-grayscale.sesna-high-contrast {
+    filter: grayscale(100%) contrast(200%);
+}
+
 /* Cursor grande — anillo visual que sigue al mouse.
    Reemplaza el cursor SVG del CDN (invisible en fondos claros, soporte irregular).
    El anillo funciona en todos los navegadores y es visible en cualquier fondo. */
