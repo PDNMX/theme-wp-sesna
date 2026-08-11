@@ -751,8 +751,8 @@ get_header();
                         <!-- Tarjeta 1 -->
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 56px; height: 56px; background-color: #FFF7ED; color: #D97706;">
-                                    <i class="bi bi-people-fill fs-3"></i>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('foros regionales.svg') ); ?>" alt="" width="48" height="48">
                                 </div>
                                 <div class="fw-bold mb-1 font-noto-sans" style="color: #D97706; font-size: 36px; line-height: 1.1;">8</div>
                                 <div class="fw-medium font-noto-sans" style="color: #6B7280; font-size: 16px;">Foros Regionales</div>
@@ -761,8 +761,8 @@ get_header();
                         <!-- Tarjeta 2 -->
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 56px; height: 56px; background-color: #FFF7ED; color: #D97706;">
-                                    <i class="bi bi-geo-alt-fill fs-3"></i>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('8 entidades federativas.svg') ); ?>" alt="" width="48" height="48">
                                 </div>
                                 <div class="fw-bold mb-1 font-noto-sans" style="color: #D97706; font-size: 36px; line-height: 1.1;">8</div>
                                 <div class="fw-medium font-noto-sans" style="color: #6B7280; font-size: 16px;">Entidades Federativas</div>
@@ -771,8 +771,8 @@ get_header();
                         <!-- Tarjeta 3 -->
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 56px; height: 56px; background-color: #FFF7ED; color: #D97706;">
-                                    <i class="bi bi-calendar-event-fill fs-3"></i>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/Periodo.svg' ); ?>" alt="" width="48" height="48">
                                 </div>
                                 <div class="fw-bold mb-1 font-noto-sans" style="color: #D97706; font-size: 22px; line-height: 1.2;">Octubre - Noviembre 2018</div>
                                 <div class="fw-medium mt-1 font-noto-sans" style="color: #6B7280; font-size: 16px;">Periodo</div>
@@ -781,8 +781,8 @@ get_header();
                         <!-- Tarjeta 4 -->
                         <div class="col-lg-3 col-md-6 col-12">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 56px; height: 56px; background-color: #FFF7ED; color: #D97706;">
-                                    <i class="bi bi-person-check-fill fs-3"></i>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/asistentes.svg' ); ?>" alt="" width="48" height="48">
                                 </div>
                                 <div class="fw-bold mb-1 font-noto-sans" style="color: #D97706; font-size: 36px; line-height: 1.1;">+600</div>
                                 <div class="fw-medium font-noto-sans" style="color: #6B7280; font-size: 16px;">Participantes</div>
