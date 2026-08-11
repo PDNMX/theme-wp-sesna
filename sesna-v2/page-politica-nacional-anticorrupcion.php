@@ -167,98 +167,106 @@ get_header();
     </section>
 
     <!-- Ciclo de la Política Pública -->
-    <!--
-        NOTA: sección temporal maquetada como grid de tarjetas.
-        Se reemplazará por el diagrama circular con flechas SVG
-        (4 pasos + logo central) en cuanto el usuario proporcione
-        los archivos SVG definitivos.
-    -->
     <section class="pb-5">
         <div class="container">
+            <div class="pna-ciclo-section">
             <h2 class="pna-section-title pna-section-title--center mx-auto">Ciclo de la Política Pública</h2>
+            <p class="pna-ciclo-subtitle">La política se diseña, implementa, se evalúa, se financia y mejora continuamente.</p>
 
-            <div class="row g-4 pt-4">
-                <div class="col-md-6">
-                    <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-card text-decoration-none d-block" style="cursor: pointer;">
-                        <div class="pna-ciclo-card__top">
-                            <span class="pna-ciclo-card__number">1</span>
-                            <span class="pna-ciclo-card__icon" aria-hidden="true"><i class="bi bi-bullseye"></i></span>
-                            <p class="pna-ciclo-card__title">Diseño</p>
-                        </div>
-                        <p class="pna-ciclo-card__desc text-muted">
-                            Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.
-                        </p>
-                    </a>
+            <div class="pna-ciclo-diagram mt-4">
+
+                <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-step pna-ciclo-step--1 text-decoration-none">
+                    <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="">
+                    <div class="pna-ciclo-step__header">
+                        <span class="pna-ciclo-step__number">1</span>
+                        <p class="pna-ciclo-step__title">Diseño</p>
+                    </div>
+                    <p class="pna-ciclo-step__desc">Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.</p>
+                </a>
+
+                <div class="pna-ciclo-step pna-ciclo-step--4">
+                    <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('seguimiento y evaluacion.svg') ); ?>" alt="">
+                    <div class="pna-ciclo-step__header">
+                        <span class="pna-ciclo-step__number">4</span>
+                        <p class="pna-ciclo-step__title">Seguimiento y evaluación</p>
+                    </div>
+                    <p class="pna-ciclo-step__desc">Da seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos.</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="pna-ciclo-card">
-                        <div class="pna-ciclo-card__top">
-                            <span class="pna-ciclo-card__number">2</span>
-                            <span class="pna-ciclo-card__icon" aria-hidden="true"><i class="bi bi-wallet2"></i></span>
-                            <p class="pna-ciclo-card__title">Presupuestación</p>
+
+                <!-- Centro: SVG de flechas + iconos superpuestos en cada esquina + logo -->
+                <div class="pna-ciclo-center">
+                    <div class="pna-ciclo-center__wrapper">
+                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/Flechas.svg"
+                             alt="Diagrama circular del Ciclo de la Política Nacional Anticorrupción"
+                             class="pna-ciclo-center__flechas" loading="lazy">
+
+                        <!-- Íconos superpuestos en los espacios del diagrama circular -->
+                        <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--1" aria-label="Ir a Diseño de la Política Nacional Anticorrupción">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="">
+                        </a>
+                        <div class="pna-ciclo-overlay pna-ciclo-overlay--2" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
                         </div>
-                        <p class="pna-ciclo-card__desc">
-                            El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.
-                        </p>
+                        <div class="pna-ciclo-overlay pna-ciclo-overlay--3" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
+                        </div>
+                        <div class="pna-ciclo-overlay pna-ciclo-overlay--4" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('seguimiento y evaluacion.svg') ); ?>" alt="">
+                        </div>
+
+                        <!-- Logo central -->
+                        <div class="pna-ciclo-center__logo" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/logo_pna_ok.png" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="pna-ciclo-card">
-                        <div class="pna-ciclo-card__top">
-                            <span class="pna-ciclo-card__number">3</span>
-                            <span class="pna-ciclo-card__icon" aria-hidden="true"><i class="bi bi-gear"></i></span>
-                            <p class="pna-ciclo-card__title">Implementación</p>
-                        </div>
-                        <p class="pna-ciclo-card__desc">
-                            Instrumenta las prioridades de la PNA a través del Programa de Implementación con estrategias, líneas de acción e indicadores de desempeño.
-                        </p>
+
+                <div class="pna-ciclo-step pna-ciclo-step--2">
+                    <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
+                    <div class="pna-ciclo-step__header">
+                        <span class="pna-ciclo-step__number">2</span>
+                        <p class="pna-ciclo-step__title">Presupuestación</p>
                     </div>
+                    <p class="pna-ciclo-step__desc">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="pna-ciclo-card">
-                        <div class="pna-ciclo-card__top">
-                            <span class="pna-ciclo-card__number">4</span>
-                            <span class="pna-ciclo-card__icon" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
-                            <p class="pna-ciclo-card__title">Seguimiento y evaluación</p>
-                        </div>
-                        <p class="pna-ciclo-card__desc">
-                            El sistema de seguimiento y evaluación tiene como objetivo dar seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos, derivados de la implementación de políticas.
-                        </p>
+
+                <div class="pna-ciclo-step pna-ciclo-step--3">
+                    <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
+                    <div class="pna-ciclo-step__header">
+                        <span class="pna-ciclo-step__number">3</span>
+                        <p class="pna-ciclo-step__title">Implementación</p>
                     </div>
+                    <p class="pna-ciclo-step__desc">Instrumenta las prioridades de la PNA a través del Programa de Implementación con estrategias, líneas de acción e indicadores de desempeño.</p>
                 </div>
-            </div>
+
+            </div><!-- /.pna-ciclo-diagram -->
 
             <div class="pna-ciclo-hint mt-4">
                 <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="bi bi-hand-index-thumb"></i></span>
                 <p><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
+            </div><!-- /.pna-ciclo-section -->
         </div>
     </section>
 
-    <!-- Documentos relativos a la integración de la PNA -->
-    <section class="pb-5">
-        <div class="container">
-            <div class="pna-final-card">
-                <h2 class="pna-section-title pna-section-title--center mx-auto">Documentos relativos a la integración de la PNA</h2>
-                <p class="pna-final-card__desc">
-                    La Política Nacional Anticorrupción es resultado del análisis de datos oficiales, evidencias generadas por
-                    distintas instancias gubernamentales y de la sociedad civil, así como muchas otras fuentes provenientes de
-                    instituciones nacionales e internacionales, además de una Consulta Pública que permitió dar voz a diversos
-                    sectores de la sociedad. Si deseas saber más sobre los insumos de la Política Nacional Anticorrupción
-                    consúltalos aquí.
-                </p>
-                <a href="<?php echo esc_url( home_url( '/2020/03/19/insumos-de-la-politica-nacional-anticorrupcion/' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
-                    <i class="bi bi-folder2-open" aria-hidden="true"></i> Insumos de la PNA
-                </a>
+    <script>
+    (function () {
+        var section = document.querySelector('.pna-ciclo-section');
+        if (!section || !('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-                <div class="mt-4">
-                    <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Aviso-de-privacidad.pdf', '2019/07/Aviso-de-privacidad.pdf' ) ); ?>" class="pna-privacy-link" target="_blank" rel="noopener">
-                        <i class="bi bi-shield-lock" aria-hidden="true"></i> Aviso de privacidad sobre los datos recabados para la propuesta de la PNA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        section.classList.add('pna-ciclo-pre');
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    section.classList.add('pna-ciclo-visible');
+                    io.unobserve(section);
+                }
+            });
+        }, { threshold: 0.2 });
+        io.observe(section);
+    })();
+    </script>
 
 </div>
 

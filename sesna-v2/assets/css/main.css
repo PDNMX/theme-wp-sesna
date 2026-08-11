@@ -4362,32 +4362,380 @@ body:has(.page-directorio) main.page {
     color: var(--color-negro);
 }
 
-/* Bloque final: documentos relativos + aviso */
-.page-pna .pna-final-card {
-    background-color: var(--color-fondo-claro);
-    border-radius: 12px;
-    padding: 32px;
+/* ── Ciclo PNA — diagrama circular ─────────────────────────── */
+.page-pna .pna-ciclo-section {
+    background: linear-gradient(180deg, #f7f3f8 0%, #ffffff 65%);
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.page-pna .pna-ciclo-subtitle {
     text-align: center;
+    color: rgba(22, 26, 29, 0.65);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 8px auto 0;
 }
 
-.page-pna .pna-final-card__desc {
-    max-width: 640px;
-    margin: 0 auto 1.5rem;
-    color: rgba(22, 26, 29, 0.8);
+.page-pna .pna-ciclo-diagram {
+    display: grid;
+    grid-template-columns: minmax(220px, 260px) minmax(400px, 560px) minmax(220px, 260px);
+    grid-template-rows: auto auto;
+    gap: 32px;
+    align-items: stretch;
+    justify-content: center;
 }
 
-.page-pna .pna-privacy-link {
-    display: inline-flex;
+/* Tarjetas emparejadas por fila (1↔2, 4↔3) para que compartan la misma altura
+   sin importar cuánto texto tenga cada una */
+.page-pna .pna-ciclo-step--1 { grid-column: 1; grid-row: 1; }
+.page-pna .pna-ciclo-step--4 { grid-column: 1; grid-row: 2; }
+.page-pna .pna-ciclo-center  { grid-column: 2; grid-row: 1 / 3; }
+.page-pna .pna-ciclo-step--2 { grid-column: 3; grid-row: 1; }
+.page-pna .pna-ciclo-step--3 { grid-column: 3; grid-row: 2; }
+
+.page-pna .pna-ciclo-step {
+    --step-color: #999;
+    --step-shadow: rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-blanco);
+    border-radius: 14px;
+    border-top: 3px solid var(--step-color);
+    padding: 18px 18px;
+    box-shadow: 0 6px 20px var(--step-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: block;
+    color: inherit;
+}
+
+.page-pna .pna-ciclo-step--1 { --step-color: #6AC72C; --step-shadow: rgba(106, 199, 44, 0.22); }
+.page-pna .pna-ciclo-step--2 { --step-color: #72588F; --step-shadow: rgba(114, 88, 143, 0.22); }
+.page-pna .pna-ciclo-step--3 { --step-color: #3A90C5; --step-shadow: rgba(58, 144, 197, 0.22); }
+.page-pna .pna-ciclo-step--4 { --step-color: #E14586; --step-shadow: rgba(225, 69, 134, 0.22); }
+
+.page-pna .pna-ciclo-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--step-shadow);
+}
+
+.page-pna .pna-ciclo-step:hover .pna-ciclo-step__watermark {
+    opacity: 0.14;
+    transform: rotate(-4deg) scale(1.06);
+}
+
+/* Resalta la tarjeta correspondiente al pasar el cursor sobre su ícono
+   en el círculo (mejora progresiva: navegadores sin soporte para :has()
+   simplemente no aplican este efecto extra, sin afectar el hover normal) */
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--1:hover) .pna-ciclo-step--1,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--1:focus-visible) .pna-ciclo-step--1,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--2:hover) .pna-ciclo-step--2,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--3:hover) .pna-ciclo-step--3,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--4:hover) .pna-ciclo-step--4 {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px var(--step-shadow);
+}
+
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--1:hover) .pna-ciclo-step--1 .pna-ciclo-step__watermark,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--1:focus-visible) .pna-ciclo-step--1 .pna-ciclo-step__watermark,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--2:hover) .pna-ciclo-step--2 .pna-ciclo-step__watermark,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--3:hover) .pna-ciclo-step--3 .pna-ciclo-step__watermark,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--4:hover) .pna-ciclo-step--4 .pna-ciclo-step__watermark {
+    opacity: 0.14;
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--1:hover) .pna-ciclo-step--1::after,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--2:hover) .pna-ciclo-step--2::after,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--3:hover) .pna-ciclo-step--3::after,
+.page-pna .pna-ciclo-diagram:has(.pna-ciclo-overlay--4:hover) .pna-ciclo-step--4::after {
+    transform: translateY(-50%) scale(1.25);
+}
+
+/* Ícono de fondo tenue, refuerza la identidad de color de cada etapa */
+.page-pna .pna-ciclo-step__watermark {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 68px;
+    height: 68px;
+    opacity: 0.08;
+    transform: rotate(-8deg);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    user-select: none;
+}
+
+.page-pna .pna-ciclo-step__header,
+.page-pna .pna-ciclo-step__desc {
+    position: relative;
+    z-index: 1;
+}
+
+/* Flechita conectora hacia el diagrama circular, color a juego con cada etapa */
+.page-pna .pna-ciclo-step--1::after,
+.page-pna .pna-ciclo-step--4::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -33px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 0 11px 19px;
+    border-color: transparent transparent transparent var(--step-color);
+    transition: transform 0.25s ease;
+}
+
+.page-pna .pna-ciclo-step--2::after,
+.page-pna .pna-ciclo-step--3::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -33px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 19px 11px 0;
+    border-color: transparent var(--step-color) transparent transparent;
+    transition: transform 0.25s ease;
+}
+
+.page-pna .pna-ciclo-step--1:hover::after,
+.page-pna .pna-ciclo-step--4:hover::after {
+    transform: translateY(-50%) translateX(4px);
+}
+
+.page-pna .pna-ciclo-step--2:hover::after,
+.page-pna .pna-ciclo-step--3:hover::after {
+    transform: translateY(-50%) translateX(-4px);
+}
+
+.page-pna .pna-ciclo-step__header {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    color: #13322e;
-    font-size: 14px;
-    text-decoration: none;
+    gap: 12px;
+    margin-bottom: 10px;
+    min-height: 42px;
 }
 
-.page-pna .pna-privacy-link:hover {
-    color: #0c1e1c;
-    text-decoration: underline;
+.page-pna .pna-ciclo-step__number {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background-color: var(--step-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.page-pna .pna-ciclo-step__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+}
+
+.page-pna .pna-ciclo-step__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.page-pna .pna-ciclo-step__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-bottom: 0;
+    color: var(--step-color);
+}
+
+.page-pna .pna-ciclo-step__desc {
+    color: rgba(22, 26, 29, 0.75);
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+}
+
+/* Centro: SVG flechas + logo */
+.page-pna .pna-ciclo-center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-pna .pna-ciclo-center::before {
+    content: '';
+    position: absolute;
+    inset: -8%;
+    background: radial-gradient(circle,
+        rgba(114, 88, 143, 0.16) 0%,
+        rgba(58, 144, 197, 0.10) 40%,
+        rgba(255, 255, 255, 0) 72%);
+    filter: blur(24px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.page-pna .pna-ciclo-center__wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.page-pna .pna-ciclo-center__flechas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.page-pna .pna-ciclo-center__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22%;
+    max-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-pna .pna-ciclo-center__logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Íconos superpuestos sobre el SVG de flechas */
+.page-pna .pna-ciclo-overlay {
+    position: absolute;
+    width: 16%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 2.5%;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.page-pna .pna-ciclo-overlay img {
+    width: 78%;
+    height: 78%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.page-pna .pna-ciclo-overlay:hover,
+.page-pna a.pna-ciclo-overlay:focus-visible {
+    transform: translate(-50%, -50%) scale(1.14);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.26);
+}
+
+/* Solo el ícono de Diseño tiene enlace definido por ahora */
+.page-pna a.pna-ciclo-overlay {
+    cursor: pointer;
+}
+
+.page-pna a.pna-ciclo-overlay:focus-visible {
+    outline: 3px solid #6AC72C;
+    outline-offset: 3px;
+}
+
+/* Posiciones ajustadas manualmente por el usuario sobre el render final */
+.page-pna .pna-ciclo-overlay--1 { top: 35%; left: 19%; }  /* Diseño          — teal   */
+.page-pna .pna-ciclo-overlay--2 { top: 35%; left: 80%; }  /* Presupuestación — morado */
+.page-pna .pna-ciclo-overlay--3 { top: 78%; left: 74%; }  /* Implementación  — azul   */
+.page-pna .pna-ciclo-overlay--4 { top: 76%; left: 26%; }  /* Seguimiento     — rosa   */
+
+/* Animación de entrada al hacer scroll (activada por JS, respeta reduced-motion) */
+@keyframes pnaCicloFadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pnaCicloScaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.page-pna .pna-ciclo-section.pna-ciclo-pre .pna-ciclo-step,
+.page-pna .pna-ciclo-section.pna-ciclo-pre .pna-ciclo-center__wrapper {
+    opacity: 0;
+}
+
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-step {
+    animation: pnaCicloFadeUp 0.6s ease both;
+}
+
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-step--1 { animation-delay: 0.05s; }
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-step--2 { animation-delay: 0.15s; }
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-step--4 { animation-delay: 0.35s; }
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-step--3 { animation-delay: 0.35s; }
+
+.page-pna .pna-ciclo-section.pna-ciclo-visible .pna-ciclo-center__wrapper {
+    animation: pnaCicloScaleIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+}
+
+/* Tablet/mobile: apila en una columna (evita overflow del centro grande) */
+@media (max-width: 1249px) {
+    .page-pna .pna-ciclo-section {
+        padding: 36px 20px;
+        border-radius: 20px;
+    }
+
+    .page-pna .pna-ciclo-diagram {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 16px;
+    }
+
+    .page-pna .pna-ciclo-step--1,
+    .page-pna .pna-ciclo-step--2,
+    .page-pna .pna-ciclo-step--3,
+    .page-pna .pna-ciclo-step--4,
+    .page-pna .pna-ciclo-center {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .page-pna .pna-ciclo-step--1 { order: 1; }
+    .page-pna .pna-ciclo-step--4 { order: 2; }
+    .page-pna .pna-ciclo-center  { order: 3; }
+    .page-pna .pna-ciclo-step--2 { order: 4; }
+    .page-pna .pna-ciclo-step--3 { order: 5; }
+
+    .page-pna .pna-ciclo-center {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .page-pna .pna-ciclo-step::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-pna .pna-ciclo-center {
+        max-width: 340px;
+    }
 }
 
 @media (max-width: 767px) {
