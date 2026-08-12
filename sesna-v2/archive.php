@@ -1,77 +1,43 @@
 <?php
-
+/**
+ * archive.php — Archivo de categoría / tag / fecha
+ *
+ * Muestra el diseño "Noticias y Actividades" (section-entradas) con el tab
+ * de la familia temática correcta pre-seleccionado según la categoría actual.
+ * Esto permite que las URLs de categoría (e.g. /category/comite-coordinador/)
+ * sigan siendo válidas y compartibles.
+ */
 
 get_header();
+
+/* ------------------------------------------------------------------
+ * Determinar la familia temática activa basada en la categoría actual
+ * ------------------------------------------------------------------ */
+$sna_active_familia = '';
+
+if (is_category()) {
+    $sna_current_cat  = get_queried_object();
+    $sna_current_slug = $sna_current_cat ? $sna_current_cat->slug : '';
+
+    if ($sna_current_slug) {
+        foreach (sna_get_familias_tematicas() as $key => $familia) {
+            if (in_array($sna_current_slug, $familia['cats'], true)) {
+                $sna_active_familia = $key;
+                break;
+            }
+        }
+    }
+}
 ?>
 
-
+<div class="informacion-page-bg">
     <?php
-        get_template_part( 'template-parts/header', 'blog' );
+    get_template_part(
+        'template-parts/home/section-entradas',
+        null,
+        ['active_familia' => $sna_active_familia]
+    );
     ?>
+</div>
 
-
-      <!--    LISTA DE ENTRADAS Y SIDEBAR  -->
-      <div class="container" id="content">
-        <div class="row">
-          <div class="col-lg-9 col-sm-12 order-lg-1 order-sm-2 order-2">
-
-
-          <div class="orderContainer">
-              <div class="row">
-                <div class="col-lg-3 col-sm-12">
-                  <p>Ordenar por:</p>
-                </div>
-                <div class="col-lg-9 col-sm-12">
-
-                  <select class="orderPost custom-select">
-                    <option value="0">Más Recientes</option>
-                    <option value="1">Última Semana</option>
-                    <option value="2">Último Mes</option>
-                    <option value="3">Último Año</option>
-                    <option value="4">Intervalo Personalizado</option>
-                  </select>
-                </div>
-              </div>
-              <div class="collapse" id="collapseIntervalo">
-                <div class="periodoP">
-                  <p>Periodo personalizado</p>
-                  <form class="orderPostForm">
-                    <div class="row"><div class="col-sm-12 col-lg-3"><label>Desde</label></div><div class="col-sm-12 col-lg-6"><input id="datepickerInicio" width="150"  /></div></div>
-                    <div class="row"><div class="col-sm-12 col-lg-3"><label>Hasta</label></div><div class="col-sm-12 col-lg-6"><input id="datepickerFinal" width="150"  /></div></div>
-                    <!-- <div class="row">
-                      <div class="col-sm-12 col-lg-3"><label>&nbsp;</label></div><div class="col-sm-12 col-lg-6"><input type="submit" name="" value="Ir" class="btn btn-light"></div>
-                    </div> -->
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <!--  MAIN  -->
-            <div class="blogEntriesList" data-year="<?= get_query_var('year') ?>"  data-monthnum="<?= get_query_var('monthnum') ?>">
-
-              
-            </div>  <!-- blog entries list  -->
-
-            <div class="row" >
-                <div class="col-12 loadMore" id="btn_load_more">
-                  
-                    <p>Cargar notas anteriores <i class="fas fa-redo-alt"></i></p>
-                </div>
-            </div>
-
-
-
-
-          </div><!--  col-lg-9 col-sm-12 order-lg-1 order-sm-2   -->
-          <div class="col-lg-3 col-sm-12 order-lg-2 order-sm-1 order-1">
-            <?php dynamic_sidebar( 'sidebar-1' ); ?>
-          </div>
-        </div>
-      </div>
-
-
-
-    
-
-<?php
-get_footer();
+<?php get_footer(); ?>

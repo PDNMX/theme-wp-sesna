@@ -112,12 +112,18 @@ function sesna_theme_scripts()
 		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 	}
 
-	if (is_front_page() || is_home()) {
+	if (is_front_page() || is_home() || is_page('noticias-y-actividades') || is_category()) {
 		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_localize_script('home-entries-script', 'ajax_object', array(
+			'ajax_url'    => admin_url('admin-ajax.php'),
+			'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
+		));
 	}
 }
 add_action('wp_enqueue_scripts', 'sesna_theme_scripts');
 
+// Reescritura dinámica de URLs de sesna.gob.mx → URL del sitio actual
+require_once get_template_directory() . '/inc/sna-url-rewriter.php';
 
 
 function add_additional_class_on_li($classes, $item, $args)
@@ -1968,33 +1974,42 @@ function sesna_oc_doc_icon($nombre) {
     return 'bi-file-earmark-text';
 }
 
-function sesna_render_oc_stats_cards($stats) {
+/**
+ * Renderiza las stat cards de un órgano. Recomendaciones y Exhortos solo
+ * aplican al Comité Coordinador (son secciones propias de ese órgano);
+ * para Comisión Ejecutiva y Órgano de Gobierno se omiten esas dos cards
+ * y las de Sesiones/Acuerdos ocupan el ancho completo.
+ */
+function sesna_render_oc_stats_cards($stats, $mostrar_recomendaciones_exhortos = true) {
+    $col_class = $mostrar_recomendaciones_exhortos ? 'col-12 col-md-6 col-lg-3' : 'col-12 col-md-6';
     ?>
     <div class="row g-3 mb-5">
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="<?= esc_attr($col_class) ?>">
             <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
                 <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['sesiones'] ?></span>
                 <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="<?= esc_attr($col_class) ?>">
             <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
                 <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['acuerdos'] ?></span>
                 <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <?php if ($mostrar_recomendaciones_exhortos) : ?>
+        <div class="<?= esc_attr($col_class) ?>">
             <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
                 <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['recomendaciones'] ?></span>
                 <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="<?= esc_attr($col_class) ?>">
             <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
                 <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['exhortos'] ?></span>
                 <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
             </div>
         </div>
+        <?php endif; ?>
     </div>
     <?php
 }

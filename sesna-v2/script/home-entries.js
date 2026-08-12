@@ -9,9 +9,14 @@
     jQuery(function ($) {
         var loading = '<div class="loading"><img src="' + ajax_object.loading_url + '"/></div>';
 
+        /* Familia activa inicial: primero lee el data-attribute que PHP inyecta
+           en el <section>; si no existe, cae en el primer tab marcado como active. */
+        var $section        = $('.sna-entradas-section');
+        var initialFamilia  = $section.data('active-familia') || $('.sna-entradas-tab.active').data('familia');
+
         function get_filters() {
             return {
-                year: $('#sna-entradas-filter-year').val() || '',
+                year:     $('#sna-entradas-filter-year').val()  || '',
                 monthnum: $('#sna-entradas-filter-month').val() || ''
             };
         }
@@ -34,9 +39,9 @@
             var filters = get_filters();
 
             $.post(ajax_object.ajax_url, {
-                action: 'get_familias_counts',
-                year: filters.year,
-                monthnum: filters.monthnum
+                action:    'get_familias_counts',
+                year:      filters.year,
+                monthnum:  filters.monthnum
             }, function (response) {
                 if (!response || !response.success) {
                     return;
@@ -56,18 +61,18 @@
         }
 
         function fetch_familia(key) {
-            var $panel = $('#panel-' + key);
-            var page = $panel.data('page') || 0;
+            var $panel  = $('#panel-' + key);
+            var page    = $panel.data('page') || 0;
             var filters = get_filters();
 
             $panel.append(loading);
 
             $.post(ajax_object.ajax_url, {
-                action: 'get_home_entries_by_family',
-                familia: key,
-                page: page,
-                year: filters.year,
-                monthnum: filters.monthnum
+                action:    'get_home_entries_by_family',
+                familia:   key,
+                page:      page,
+                year:      filters.year,
+                monthnum:  filters.monthnum
             }, function (response) {
                 $panel.find('.loading').remove();
                 $panel.find('[data-has-more]').remove();
@@ -77,7 +82,10 @@
             });
         }
 
-        $('.sna-entradas-tab').on('click', function () {
+        /* Clic en tab — e.preventDefault() evita cualquier navegación accidental */
+        $('.sna-entradas-tab').on('click', function (e) {
+            e.preventDefault();
+
             var key = $(this).data('familia');
 
             $('.sna-entradas-tab').removeClass('active').attr('aria-selected', 'false');
@@ -118,6 +126,9 @@
             fetch_familia(key);
         });
 
-        fetch_familia($('.sna-entradas-tab.active').data('familia'));
+        /* Carga inicial: usa la familia determinada por PHP (tab activo al renderizar) */
+        if (initialFamilia) {
+            fetch_familia(initialFamilia);
+        }
     });
 })();

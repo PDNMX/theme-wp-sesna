@@ -165,7 +165,7 @@ rsort($oc_anios_organo);
                         </div>
                     </div>
 
-                    <?php sesna_render_oc_stats_cards($oc_stats_comision); ?>
+                    <?php sesna_render_oc_stats_cards($oc_stats_comision, false); ?>
 
                     <div class="row mb-3">
                         <div class="col-12">
@@ -214,7 +214,7 @@ rsort($oc_anios_organo);
                         </div>
                     </div>
 
-                    <?php sesna_render_oc_stats_cards($oc_stats_organo); ?>
+                    <?php sesna_render_oc_stats_cards($oc_stats_organo, false); ?>
 
                     <div class="row mb-3">
                         <div class="col-12">

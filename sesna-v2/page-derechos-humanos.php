@@ -41,6 +41,12 @@ get_header();
     </section>
 
     <!-- ── Pronunciamientos ──────────────────────────────────── -->
+    <?php
+    $dh_upload_dir  = wp_upload_dir();
+    $dh_upload_url  = trailingslashit( $dh_upload_dir['baseurl'] );
+    $dh_pdf_nondiscriminacion = $dh_upload_url . '2026/06/pronunciamiento_no_discriminacion2026.pdf';
+    $dh_pdf_acoso             = $dh_upload_url . '2026/06/pronunciamiento_has2026.pdf';
+    ?>
     <section class="dh-pronunciamientos pt-3 pb-5">
         <div class="container">
             <div class="cp-recursos__header mb-2">
@@ -53,7 +59,12 @@ get_header();
 
             <div class="row g-4 mt-2">
                 <div class="col-md-6">
-                    <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#pdfViewerModal"
+                       data-pdf-url="<?php echo esc_url( $dh_pdf_nondiscriminacion ); ?>"
+                       data-pdf-title="Pronunciamiento de No Discriminación 2026"
+                       class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
                         <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
                             <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
                         </div>
@@ -62,7 +73,12 @@ get_header();
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="#" class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3" target="_blank" rel="noopener">
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#pdfViewerModal"
+                       data-pdf-url="<?php echo esc_url( $dh_pdf_acoso ); ?>"
+                       data-pdf-title="Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual 2026"
+                       class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
                         <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
                             <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
                         </div>
@@ -251,5 +267,7 @@ get_header();
     </section>
 
 </div>
+
+<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
 
 <?php get_footer(); ?>

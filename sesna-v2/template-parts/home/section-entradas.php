@@ -3,9 +3,18 @@
  * Template part para la sección "Entradas por Familia Temática"
  * Explora dinámicamente todas las entradas del sitio, agrupadas
  * en familias editoriales construidas sobre las categorías de WordPress.
+ *
+ * @param string $args['active_familia'] Clave de familia a pre-seleccionar (opcional).
+ *                                       Si se omite, se usa la primera familia.
  */
-$sna_familias = sna_get_familias_tematicas();
+$sna_familias  = sna_get_familias_tematicas();
 $sna_first_key = array_key_first($sna_familias);
+
+// Familia activa: viene de $args (archive.php) o es la primera por defecto
+$sna_active_familia = (isset($args['active_familia']) && isset($sna_familias[$args['active_familia']]))
+    ? $args['active_familia']
+    : $sna_first_key;
+
 $sna_years = sna_get_entradas_years();
 $sna_meses = [
 	1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril',
@@ -24,7 +33,7 @@ $sna_meses = [
     </nav>
 </div>
 
-<section class="pt-5 pb-5 sna-entradas-section">
+<section class="pt-5 pb-5 sna-entradas-section" data-active-familia="<?php echo esc_attr($sna_active_familia); ?>">
     <div class="container mt-4 mb-5 pb-4">
         <div class="row justify-content-center mb-5">
             <div class="col-md-8 text-center">
@@ -70,7 +79,7 @@ $sna_meses = [
         <div class="sna-entradas-tabs" role="tablist" aria-label="Familias temáticas">
             <?php foreach ($sna_familias as $key => $familia) :
                 $count    = sna_get_familia_post_count($key);
-                $is_first = ($key === $sna_first_key);
+                $is_first = ($key === $sna_active_familia);
             ?>
                 <button type="button"
                         class="sna-entradas-tab<?php echo $is_first ? ' active' : ''; ?>"
@@ -87,7 +96,7 @@ $sna_meses = [
         </div>
 
         <?php foreach ($sna_familias as $key => $familia) :
-            $is_first = ($key === $sna_first_key);
+            $is_first = ($key === $sna_active_familia);
         ?>
             <div class="row g-4 justify-content-center sna-entradas-panel<?php echo $is_first ? ' active' : ''; ?>"
                  id="panel-<?php echo esc_attr($key); ?>"

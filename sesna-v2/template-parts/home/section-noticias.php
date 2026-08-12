@@ -21,7 +21,6 @@
                 'posts_per_page'      => 3,
                 'post_status'         => 'publish',
                 'ignore_sticky_posts' => 1,
-                'category_name'       => 'comunicados-de-prensa',
             );
             $noticias_query = new WP_Query($args);
 
