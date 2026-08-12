@@ -107,6 +107,10 @@ function sesna_theme_scripts()
 		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
 	}
 
+	if (is_page_template('page-derechos-humanos.php') || is_page('derechos-humanos-y-perspectiva-de-genero')) {
+		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+	}
+
 	if (is_archive() || is_search()) {
 		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
@@ -2316,3 +2320,286 @@ function sesna_get_media_attachment_url( $filename, $fallback_path = '' ) {
     
     return trailingslashit( $upload_dir['baseurl'] ) . ltrim( $path, '/' );
 }
+
+// =========================================================================
+// REGISTRO DE CUSTOM POST TYPE: CAMPAÑAS DE SENSIBILIZACIÓN (DERECHOS HUMANOS)
+// =========================================================================
+function sesna_register_dh_campania_cpt() {
+    $labels = array(
+        'name'               => _x('Campañas de Sensibilización', 'Post type general name', 'sesna'),
+        'singular_name'      => _x('Campaña', 'Post type singular name', 'sesna'),
+        'menu_name'          => _x('Campañas D.H.', 'Admin Menu text', 'sesna'),
+        'name_admin_bar'     => _x('Campaña', 'Add New on Toolbar', 'sesna'),
+        'add_new'            => __('Añadir campaña', 'sesna'),
+        'add_new_item'       => __('Añadir nueva campaña', 'sesna'),
+        'new_item'           => __('Nueva campaña', 'sesna'),
+        'edit_item'          => __('Editar campaña', 'sesna'),
+        'view_item'          => __('Ver campaña', 'sesna'),
+        'all_items'          => __('Todas las campañas', 'sesna'),
+        'search_items'       => __('Buscar campañas', 'sesna'),
+        'not_found'          => __('No se encontraron campañas.', 'sesna'),
+        'not_found_in_trash' => __('No se encontraron campañas en la papelera.', 'sesna'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-groups',
+        'supports'           => array('title', 'editor', 'thumbnail'),
+    );
+
+    register_post_type('dh_campania', $args);
+}
+add_action('init', 'sesna_register_dh_campania_cpt');
+
+// Meta Box principal para campos extra de la campaña
+function sesna_add_dh_campania_meta_box() {
+    add_meta_box(
+        'dh_campania_extra',
+        'Detalles de la Campaña',
+        'sesna_dh_campania_meta_box_html',
+        'dh_campania',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sesna_add_dh_campania_meta_box');
+
+function sesna_dh_campania_meta_box_html($post) {
+    wp_nonce_field('sesna_save_dh_campania_meta', 'sesna_dh_campania_nonce');
+
+    $icono        = get_post_meta($post->ID, '_dh_icono',        true) ?: 'bi-star';
+    $icono_img    = get_post_meta($post->ID, '_dh_icono_img',    true) ?: '';
+    $color        = get_post_meta($post->ID, '_dh_color',        true) ?: '#9d2449';
+    $galeria_ids  = get_post_meta($post->ID, '_dh_galeria_ids',  true) ?: '';
+    $video_url    = get_post_meta($post->ID, '_dh_video_url',    true) ?: '';
+    $banner_texto = get_post_meta($post->ID, '_dh_banner_texto', true) ?: '';
+    $orden        = get_post_meta($post->ID, '_dh_orden',        true) ?: '0';
+    ?>
+    <style>
+        .dh-mb-row { margin-bottom: 16px; }
+        .dh-mb-row label { font-weight: 600; display: block; margin-bottom: 5px; }
+        .dh-mb-row input[type=text],
+        .dh-mb-row input[type=number],
+        .dh-mb-row input[type=color],
+        .dh-mb-row textarea { width: 100%; max-width: 500px; }
+        .dh-mb-row textarea { height: 80px; resize: vertical; }
+        .dh-galeria-preview { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .dh-galeria-preview img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
+        .dh-mb-hint { color: #777; font-size: 12px; margin-top: 4px; }
+    </style>
+
+    <div class="dh-mb-row">
+        <label>Imagen del ícono de la tarjeta <span class="dh-mb-hint">(imagen que aparece en la parte superior de la tarjeta — reemplaza al ícono si se carga)</span></label>
+        <input type="hidden" id="dh_icono_img" name="_dh_icono_img" value="<?php echo esc_attr($icono_img); ?>">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <button type="button" class="button" id="dh_icono_img_btn">Seleccionar imagen</button>
+            <button type="button" class="button" id="dh_icono_img_clear">Quitar imagen</button>
+        </div>
+        <div id="dh_icono_img_preview" style="margin-bottom:8px;">
+            <?php if ($icono_img): ?>
+                <img src="<?php echo esc_url($icono_img); ?>" style="height:80px; width:auto; border-radius:6px; border:1px solid #ddd; object-fit:contain; background:#f9f9f9; padding:4px;">
+            <?php endif; ?>
+        </div>
+        <p class="dh-mb-hint">Si no se carga imagen, se usará el ícono Bootstrap indicado abajo como respaldo.</p>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_icono">Ícono Bootstrap Icons (respaldo) <span class="dh-mb-hint">(solo aplica si no hay imagen de ícono cargada)</span></label>
+        <input type="text" id="dh_icono" name="_dh_icono" value="<?php echo esc_attr($icono); ?>" placeholder="bi-heart-pulse">
+        <p class="dh-mb-hint">Ver íconos disponibles en <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a></p>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_color">Color institucional de la campaña</label>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <input type="color" id="dh_color_picker" value="<?php echo esc_attr($color); ?>">
+            <input type="text" id="dh_color" name="_dh_color" value="<?php echo esc_attr($color); ?>" placeholder="#9d2449" style="max-width:120px;">
+        </div>
+    </div>
+
+    <div class="dh-mb-row">
+        <label>Galería de imágenes <span class="dh-mb-hint">(puedes seleccionar varias imágenes)</span></label>
+        <input type="hidden" id="dh_galeria_ids" name="_dh_galeria_ids" value="<?php echo esc_attr($galeria_ids); ?>">
+        <div>
+            <button type="button" class="button" id="dh_galeria_btn">Seleccionar imágenes</button>
+            <button type="button" class="button" id="dh_galeria_clear" style="margin-left:6px;">Limpiar galería</button>
+        </div>
+        <div class="dh-galeria-preview" id="dh_galeria_preview">
+            <?php
+            if (!empty($galeria_ids)) {
+                $ids_array = array_filter(explode(',', $galeria_ids));
+                foreach ($ids_array as $img_id) {
+                    $img_url = wp_get_attachment_image_url(intval($img_id), 'thumbnail');
+                    if ($img_url) {
+                        echo '<img src="' . esc_url($img_url) . '" data-id="' . intval($img_id) . '" alt="">';
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_video_url">URL de video <span class="dh-mb-hint">(YouTube, Vimeo o URL directa de video)</span></label>
+        <div style="display:flex; gap:10px; align-items:center;">
+            <input type="text" id="dh_video_url" name="_dh_video_url" value="<?php echo esc_attr($video_url); ?>" placeholder="https://www.youtube.com/watch?v=..." style="flex:1; max-width:none;">
+            <button type="button" class="button" id="dh_video_media_btn">Seleccionar archivo</button>
+        </div>
+        <p class="dh-mb-hint">Deja vacío si no hay video. Si hay galería y video, el video tendrá prioridad en la modal.</p>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_banner_texto">Texto del banner informativo inferior <span class="dh-mb-hint">(aparece en recuadro rosa al pie de la modal)</span></label>
+        <textarea id="dh_banner_texto" name="_dh_banner_texto"><?php echo esc_textarea($banner_texto); ?></textarea>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_orden">Orden de aparición en la página <span class="dh-mb-hint">(número menor = aparece primero)</span></label>
+        <input type="number" id="dh_orden" name="_dh_orden" value="<?php echo esc_attr($orden); ?>" min="0" max="999" style="max-width:100px;">
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_resumen">Resumen para la tarjeta <span class="dh-mb-hint">(texto corto que aparece en la tarjeta, ~80-120 caracteres)</span></label>
+        <textarea id="dh_resumen" name="_dh_resumen" style="height:60px;"><?php echo esc_textarea( get_post_meta($post->ID, '_dh_resumen', true) ); ?></textarea>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($) {
+
+        // Sincronizar color picker con input de texto
+        $('#dh_color_picker').on('input change', function() {
+            $('#dh_color').val($(this).val());
+        });
+        $('#dh_color').on('change', function() {
+            var v = $(this).val();
+            if (/^#[0-9A-Fa-f]{6}$/.test(v)) $('#dh_color_picker').val(v);
+        });
+
+        // ── Imagen del ícono de la tarjeta ──────────────────────
+        var iconoImgFrame;
+        $('#dh_icono_img_btn').on('click', function(e) {
+            e.preventDefault();
+            if (iconoImgFrame) { iconoImgFrame.open(); return; }
+            iconoImgFrame = wp.media({
+                title: 'Seleccionar imagen del ícono',
+                button: { text: 'Usar esta imagen' },
+                multiple: false,
+                library: { type: 'image' }
+            });
+            iconoImgFrame.on('select', function() {
+                var a = iconoImgFrame.state().get('selection').first().toJSON();
+                var url = a.url;
+                $('#dh_icono_img').val(url);
+                $('#dh_icono_img_preview').html('<img src="' + url + '" style="height:80px; width:auto; border-radius:6px; border:1px solid #ddd; object-fit:contain; background:#f9f9f9; padding:4px;">');
+            });
+            iconoImgFrame.open();
+        });
+        $('#dh_icono_img_clear').on('click', function() {
+            $('#dh_icono_img').val('');
+            $('#dh_icono_img_preview').empty();
+        });
+
+        // ── Galería múltiple con WP Media ───────────────────────
+        var galeriaFrame;
+        $('#dh_galeria_btn').on('click', function(e) {
+            e.preventDefault();
+            if (galeriaFrame) {
+                galeriaFrame.open();
+                return;
+            }
+            galeriaFrame = wp.media({
+                title: 'Seleccionar imágenes de la campaña',
+                button: { text: 'Usar selección' },
+                multiple: true,
+                library: { type: 'image' }
+            });
+            galeriaFrame.on('select', function() {
+                var selection = galeriaFrame.state().get('selection');
+                var ids = [];
+                var preview = $('#dh_galeria_preview');
+                preview.empty();
+                selection.each(function(attachment) {
+                    var a = attachment.toJSON();
+                    ids.push(a.id);
+                    var thumb = a.sizes && a.sizes.thumbnail ? a.sizes.thumbnail.url : a.url;
+                    preview.append('<img src="' + thumb + '" data-id="' + a.id + '" alt="">');
+                });
+                $('#dh_galeria_ids').val(ids.join(','));
+            });
+            galeriaFrame.open();
+        });
+
+        $('#dh_galeria_clear').on('click', function() {
+            $('#dh_galeria_ids').val('');
+            $('#dh_galeria_preview').empty();
+        });
+
+        // Selector de archivo de video (WP Media, single)
+        var videoFrame;
+        $('#dh_video_media_btn').on('click', function(e) {
+            e.preventDefault();
+            if (videoFrame) {
+                videoFrame.open();
+                return;
+            }
+            videoFrame = wp.media({
+                title: 'Seleccionar video',
+                button: { text: 'Usar este archivo' },
+                multiple: false,
+                library: { type: 'video' }
+            });
+            videoFrame.on('select', function() {
+                var attachment = videoFrame.state().get('selection').first().toJSON();
+                $('#dh_video_url').val(attachment.url);
+            });
+            videoFrame.open();
+        });
+    });
+    </script>
+    <?php
+}
+
+function sesna_save_dh_campania_meta($post_id) {
+    if (!isset($_POST['sesna_dh_campania_nonce']) || !wp_verify_nonce($_POST['sesna_dh_campania_nonce'], 'sesna_save_dh_campania_meta')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $text_fields = array('_dh_icono', '_dh_icono_img', '_dh_color', '_dh_galeria_ids', '_dh_video_url', '_dh_orden');
+    foreach ($text_fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+    // Textareas
+    foreach (array('_dh_banner_texto', '_dh_resumen') as $tf) {
+        if (isset($_POST[$tf])) {
+            update_post_meta($post_id, $tf, sanitize_textarea_field($_POST[$tf]));
+        }
+    }
+}
+add_action('save_post_dh_campania', 'sesna_save_dh_campania_meta');
+
+// Encolar WP Media en admin para este CPT
+function sesna_dh_campania_admin_scripts($hook) {
+    global $typenow;
+    if ($typenow === 'dh_campania') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'sesna_dh_campania_admin_scripts');
