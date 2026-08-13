@@ -2346,7 +2346,7 @@ function sesna_register_dh_campania_cpt() {
         'public'             => false,
         'publicly_queryable' => false,
         'show_ui'            => true,
-        'show_in_menu'       => true,
+        'show_in_menu'       => 'menu-ddhhypgi',
         'query_var'          => false,
         'rewrite'            => false,
         'capability_type'    => 'post',
@@ -2360,6 +2360,20 @@ function sesna_register_dh_campania_cpt() {
     register_post_type('dh_campania', $args);
 }
 add_action('init', 'sesna_register_dh_campania_cpt');
+
+// Agregar menú agrupador "DDHHyPGI"
+function sesna_add_ddhhypgi_menu() {
+    add_menu_page(
+        'DDHHyPGI',
+        'DDHHyPGI',
+        'edit_posts',
+        'menu-ddhhypgi',
+        '',
+        'dashicons-groups',
+        7
+    );
+}
+add_action('admin_menu', 'sesna_add_ddhhypgi_menu');
 
 // Meta Box principal para campos extra de la campaña
 function sesna_add_dh_campania_meta_box() {
@@ -2377,13 +2391,14 @@ add_action('add_meta_boxes', 'sesna_add_dh_campania_meta_box');
 function sesna_dh_campania_meta_box_html($post) {
     wp_nonce_field('sesna_save_dh_campania_meta', 'sesna_dh_campania_nonce');
 
-    $icono        = get_post_meta($post->ID, '_dh_icono',        true) ?: 'bi-star';
-    $icono_img    = get_post_meta($post->ID, '_dh_icono_img',    true) ?: '';
-    $color        = get_post_meta($post->ID, '_dh_color',        true) ?: '#9d2449';
-    $galeria_ids  = get_post_meta($post->ID, '_dh_galeria_ids',  true) ?: '';
-    $video_url    = get_post_meta($post->ID, '_dh_video_url',    true) ?: '';
-    $banner_texto = get_post_meta($post->ID, '_dh_banner_texto', true) ?: '';
-    $orden        = get_post_meta($post->ID, '_dh_orden',        true) ?: '0';
+    $icono          = get_post_meta($post->ID, '_dh_icono',          true) ?: 'bi-star';
+    $icono_img      = get_post_meta($post->ID, '_dh_icono_img',      true) ?: '';
+    $infografia_ids = get_post_meta($post->ID, '_dh_infografia_ids', true) ?: '';
+    $color          = get_post_meta($post->ID, '_dh_color',          true) ?: '#9d2449';
+    $galeria_ids    = get_post_meta($post->ID, '_dh_galeria_ids',    true) ?: '';
+    $video_url      = get_post_meta($post->ID, '_dh_video_url',      true) ?: '';
+    $banner_texto   = get_post_meta($post->ID, '_dh_banner_texto',   true) ?: '';
+    $orden          = get_post_meta($post->ID, '_dh_orden',          true) ?: '0';
     ?>
     <style>
         .dh-mb-row { margin-bottom: 16px; }
@@ -2450,6 +2465,29 @@ function sesna_dh_campania_meta_box_html($post) {
     </div>
 
     <div class="dh-mb-row">
+        <label>Imágenes de Infografía <span class="dh-mb-hint">(puedes seleccionar varias infografías)</span></label>
+        <input type="hidden" id="dh_infografia_ids" name="_dh_infografia_ids" value="<?php echo esc_attr($infografia_ids); ?>">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <button type="button" class="button" id="dh_infografia_btn">Seleccionar infografías</button>
+            <button type="button" class="button" id="dh_infografia_clear">Limpiar infografías</button>
+        </div>
+        <div class="dh-galeria-preview" id="dh_infografia_preview">
+            <?php
+            if (!empty($infografia_ids)) {
+                $ids_array = array_filter(explode(',', $infografia_ids));
+                foreach ($ids_array as $img_id) {
+                    $img_url = wp_get_attachment_image_url(intval($img_id), 'thumbnail');
+                    if ($img_url) {
+                        echo '<img src="' . esc_url($img_url) . '" data-id="' . intval($img_id) . '" alt="">';
+                    }
+                }
+            }
+            ?>
+        </div>
+        <p class="dh-mb-hint">Estas imágenes se mostrarán en la sección de infografía en la modal de la campaña.</p>
+    </div>
+
+    <div class="dh-mb-row">
         <label for="dh_video_url">URL de video <span class="dh-mb-hint">(YouTube, Vimeo o URL directa de video)</span></label>
         <div style="display:flex; gap:10px; align-items:center;">
             <input type="text" id="dh_video_url" name="_dh_video_url" value="<?php echo esc_attr($video_url); ?>" placeholder="https://www.youtube.com/watch?v=..." style="flex:1; max-width:none;">
@@ -2507,6 +2545,41 @@ function sesna_dh_campania_meta_box_html($post) {
         $('#dh_icono_img_clear').on('click', function() {
             $('#dh_icono_img').val('');
             $('#dh_icono_img_preview').empty();
+        });
+
+        // ── Imágenes de la infografía (Múltiple) ─────────────────────────────
+        var infografiaFrame;
+        $('#dh_infografia_btn').on('click', function(e) {
+            e.preventDefault();
+            if (infografiaFrame) {
+                infografiaFrame.open();
+                return;
+            }
+            infografiaFrame = wp.media({
+                title: 'Seleccionar Infografías',
+                button: { text: 'Usar selección' },
+                multiple: true,
+                library: { type: 'image' }
+            });
+            infografiaFrame.on('select', function() {
+                var selection = infografiaFrame.state().get('selection');
+                var ids = [];
+                var preview = $('#dh_infografia_preview');
+                preview.empty();
+                selection.each(function(attachment) {
+                    var a = attachment.toJSON();
+                    ids.push(a.id);
+                    var thumb = a.sizes && a.sizes.thumbnail ? a.sizes.thumbnail.url : a.url;
+                    preview.append('<img src="' + thumb + '" data-id="' + a.id + '" alt="">');
+                });
+                $('#dh_infografia_ids').val(ids.join(','));
+            });
+            infografiaFrame.open();
+        });
+
+        $('#dh_infografia_clear').on('click', function() {
+            $('#dh_infografia_ids').val('');
+            $('#dh_infografia_preview').empty();
         });
 
         // ── Galería múltiple con WP Media ───────────────────────
@@ -2580,7 +2653,7 @@ function sesna_save_dh_campania_meta($post_id) {
         return;
     }
 
-    $text_fields = array('_dh_icono', '_dh_icono_img', '_dh_color', '_dh_galeria_ids', '_dh_video_url', '_dh_orden');
+    $text_fields = array('_dh_icono', '_dh_icono_img', '_dh_infografia_ids', '_dh_color', '_dh_galeria_ids', '_dh_video_url', '_dh_orden');
     foreach ($text_fields as $field) {
         if (isset($_POST[$field])) {
             update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
@@ -2603,3 +2676,136 @@ function sesna_dh_campania_admin_scripts($hook) {
     }
 }
 add_action('admin_enqueue_scripts', 'sesna_dh_campania_admin_scripts');
+
+// =========================================================================
+// CPT: Actas del Comité de Género (dh_comite_acta)
+// =========================================================================
+function sesna_register_dh_comite_acta_cpt() {
+    $labels = array(
+        'name'               => 'Actas C. Género',
+        'singular_name'      => 'Acta',
+        'menu_name'          => 'Actas C. Género',
+        'add_new'            => 'Añadir nueva',
+        'add_new_item'       => 'Añadir nueva Acta',
+        'edit_item'          => 'Editar Acta',
+        'new_item'           => 'Nueva Acta',
+        'view_item'          => 'Ver Acta',
+        'search_items'       => 'Buscar Actas',
+        'not_found'          => 'No se encontraron actas',
+        'not_found_in_trash' => 'No hay actas en la papelera'
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false,
+        'show_ui'            => true,
+        'show_in_menu'       => 'menu-ddhhypgi',
+        'query_var'          => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 8,
+        'menu_icon'          => 'dashicons-media-document',
+        'supports'           => array('title'),
+    );
+
+    register_post_type('dh_comite_acta', $args);
+}
+add_action('init', 'sesna_register_dh_comite_acta_cpt');
+
+function sesna_add_dh_comite_acta_meta_box() {
+    add_meta_box(
+        'dh_comite_acta_extra',
+        'Detalles del Acta',
+        'sesna_dh_comite_acta_meta_box_html',
+        'dh_comite_acta',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sesna_add_dh_comite_acta_meta_box');
+
+function sesna_dh_comite_acta_meta_box_html($post) {
+    wp_nonce_field('sesna_save_dh_comite_acta_meta', 'sesna_dh_comite_acta_nonce');
+
+    $anio   = get_post_meta($post->ID, '_dh_cg_anio', true) ?: date('Y');
+    $tipo   = get_post_meta($post->ID, '_dh_cg_tipo', true) ?: 'Ordinaria';
+    $modal  = get_post_meta($post->ID, '_dh_cg_modalidad', true) ?: 'Presencial';
+    $url    = get_post_meta($post->ID, '_dh_cg_url', true) ?: '';
+    ?>
+    <style>
+        .dh-cg-row { margin-bottom: 15px; }
+        .dh-cg-row label { font-weight: 600; display: block; margin-bottom: 5px; }
+        .dh-cg-row input[type="text"], .dh-cg-row input[type="number"], .dh-cg-row select { width: 100%; max-width: 400px; }
+    </style>
+    <div class="dh-cg-row">
+        <label for="dh_cg_anio">Año</label>
+        <input type="number" id="dh_cg_anio" name="_dh_cg_anio" value="<?php echo esc_attr($anio); ?>" required>
+    </div>
+    <div class="dh-cg-row">
+        <label for="dh_cg_tipo">Tipo de sesión</label>
+        <select id="dh_cg_tipo" name="_dh_cg_tipo">
+            <option value="Ordinaria" <?php selected($tipo, 'Ordinaria'); ?>>Ordinaria</option>
+            <option value="Extraordinaria" <?php selected($tipo, 'Extraordinaria'); ?>>Extraordinaria</option>
+            <option value="Instalación" <?php selected($tipo, 'Instalación'); ?>>Instalación</option>
+        </select>
+    </div>
+    <div class="dh-cg-row">
+        <label for="dh_cg_modalidad">Modalidad</label>
+        <select id="dh_cg_modalidad" name="_dh_cg_modalidad">
+            <option value="Presencial" <?php selected($modal, 'Presencial'); ?>>Presencial</option>
+            <option value="Virtual" <?php selected($modal, 'Virtual'); ?>>Virtual</option>
+        </select>
+    </div>
+    <div class="dh-cg-row">
+        <label for="dh_cg_url">URL del Acta (PDF)</label>
+        <div style="display:flex; gap:10px; max-width: 600px;">
+            <input type="text" id="dh_cg_url" name="_dh_cg_url" value="<?php echo esc_attr($url); ?>" style="flex-grow:1;">
+            <button type="button" class="button dh-cg-media-btn">Seleccionar Archivo</button>
+        </div>
+    </div>
+    <script>
+    jQuery(document).ready(function($){
+        var mediaFrame;
+        $('.dh-cg-media-btn').on('click', function(e) {
+            e.preventDefault();
+            if (mediaFrame) {
+                mediaFrame.open();
+                return;
+            }
+            mediaFrame = wp.media({
+                title: 'Seleccionar PDF de Acta',
+                button: { text: 'Usar este archivo' },
+                multiple: false
+            });
+            mediaFrame.on('select', function() {
+                var attachment = mediaFrame.state().get('selection').first().toJSON();
+                $('#dh_cg_url').val(attachment.url);
+            });
+            mediaFrame.open();
+        });
+    });
+    </script>
+    <?php
+}
+
+function sesna_save_dh_comite_acta_meta($post_id) {
+    if (!isset($_POST['sesna_dh_comite_acta_nonce']) || !wp_verify_nonce($_POST['sesna_dh_comite_acta_nonce'], 'sesna_save_dh_comite_acta_meta')) return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    if (isset($_POST['_dh_cg_anio'])) update_post_meta($post_id, '_dh_cg_anio', sanitize_text_field($_POST['_dh_cg_anio']));
+    if (isset($_POST['_dh_cg_tipo'])) update_post_meta($post_id, '_dh_cg_tipo', sanitize_text_field($_POST['_dh_cg_tipo']));
+    if (isset($_POST['_dh_cg_modalidad'])) update_post_meta($post_id, '_dh_cg_modalidad', sanitize_text_field($_POST['_dh_cg_modalidad']));
+    if (isset($_POST['_dh_cg_url'])) update_post_meta($post_id, '_dh_cg_url', sesna_strip_domain_from_url(esc_url_raw($_POST['_dh_cg_url'])));
+}
+add_action('save_post_dh_comite_acta', 'sesna_save_dh_comite_acta_meta');
+
+function sesna_dh_comite_acta_admin_scripts($hook) {
+    global $typenow;
+    if ($typenow === 'dh_comite_acta') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'sesna_dh_comite_acta_admin_scripts');

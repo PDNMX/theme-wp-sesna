@@ -118,11 +118,12 @@ get_header();
                         $dh_c_titulo      = get_the_title();
                         $dh_c_icono       = get_post_meta($dh_c_id, '_dh_icono',        true) ?: 'bi-star';
                         $dh_c_icono_img   = get_post_meta($dh_c_id, '_dh_icono_img',    true) ?: '';
+                        $dh_c_infografia_ids = get_post_meta($dh_c_id, '_dh_infografia_ids', true) ?: '';
                         $dh_c_color       = get_post_meta($dh_c_id, '_dh_color',        true) ?: '#9d2449';
                         $dh_c_galeria_ids = get_post_meta($dh_c_id, '_dh_galeria_ids',  true) ?: '';
                         $dh_c_video       = get_post_meta($dh_c_id, '_dh_video_url',    true) ?: '';
                         $dh_c_banner      = get_post_meta($dh_c_id, '_dh_banner_texto', true) ?: '';
-                        $dh_c_resumen     = get_post_meta($dh_c_id, '_dh_resumen',      true) ?: wp_trim_words(strip_tags(get_the_content()), 15, '...');
+                        $dh_c_resumen     = get_post_meta($dh_c_id, '_dh_resumen',      true) ?: '';
 
                         // Imagen destacada → fondo de la tarjeta + columna derecha de la modal
                         $dh_c_thumbnail      = '';
@@ -146,9 +147,24 @@ get_header();
                                 }
                             }
                         }
+
+                        // Infografías (Múltiples)
+                        $dh_c_infografia = [];
+                        if (!empty($dh_c_infografia_ids)) {
+                            foreach (array_filter(explode(',', $dh_c_infografia_ids)) as $img_id) {
+                                $url_medium = wp_get_attachment_image_url(intval($img_id), 'large');
+                                $url_full   = wp_get_attachment_image_url(intval($img_id), 'full');
+                                if ($url_medium && $url_full) {
+                                    $dh_c_infografia[] = array(
+                                        'url'  => $url_medium,
+                                        'full' => $url_full
+                                    );
+                                }
+                            }
+                        }
                 ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="dh-campania-card dh-campania-trigger"
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="dh-campania-card dh-campania-trigger h-100 d-flex flex-column"
                          role="button"
                          tabindex="0"
                          data-bs-toggle="modal"
@@ -159,6 +175,7 @@ get_header();
                          data-contenido="<?php echo esc_attr(apply_filters('the_content', get_the_content())); ?>"
                          data-thumbnail="<?php echo esc_attr($dh_c_thumbnail); ?>"
                          data-thumbnail-full="<?php echo esc_attr($dh_c_thumbnail_full); ?>"
+                         data-infografia="<?php echo esc_attr(json_encode($dh_c_infografia)); ?>"
                          data-galeria="<?php echo esc_attr(json_encode($dh_c_galeria)); ?>"
                          data-video="<?php echo esc_attr($dh_c_video); ?>"
                          data-banner="<?php echo esc_attr($dh_c_banner); ?>">
@@ -170,8 +187,8 @@ get_header();
                             <?php endif; ?>
                         </div>
                         <h5 class="dh-campania-card__title"><?php echo esc_html($dh_c_titulo); ?></h5>
-                        <p class="dh-campania-card__desc"><?php echo esc_html($dh_c_resumen); ?></p>
-                        <span class="dh-campania-card__link">Ver más <i class="bi bi-arrow-right ms-1"></i></span>
+                        <p class="dh-campania-card__desc flex-grow-1 mb-3"><?php echo esc_html($dh_c_resumen); ?></p>
+                        <span class="dh-campania-card__link mt-auto">Ver más <i class="bi bi-arrow-right ms-1"></i></span>
                     </div>
                 </div>
                 <?php
@@ -233,73 +250,93 @@ get_header();
             <p class="dh-section__subtitle">Consulta las sesiones y actas del Comité de Igualdad de Género (CIG-SESNA).</p>
 
             <div class="dh-comite-panel mt-4">
-                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                    <h4 class="fw-bold mb-2 mb-md-0">Sesiones del Comité</h4>
-                    <div class="d-flex gap-3">
-                        <select class="form-select form-select-sm dh-comite-filter" aria-label="Año">
-                            <option selected>Año: 2024</option>
-                            <option>Año: 2023</option>
-                            <option>Año: 2022</option>
+                <h4 class="fw-bold mb-4 font-noto-sans text-dark">Sesiones del Comité</h4>
+                <!-- Filtros Sesiones -->
+                <div class="row mb-5 align-items-end">
+                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
+                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                            <option value="Todos">Todos</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
                         </select>
-                        <select class="form-select form-select-sm dh-comite-filter" aria-label="Tipo de sesión">
-                            <option selected>Tipo de sesión: Todas</option>
-                            <option>Ordinaria</option>
-                            <option>Extraordinaria</option>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
+                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                            <option value="Todas">Todas</option>
+                            <option value="Ordinaria">Ordinaria</option>
+                            <option value="Extraordinaria">Extraordinaria</option>
                         </select>
                     </div>
                 </div>
 
                 <?php
-                $sesiones = [
-                    [
-                        'dia'   => '15',
-                        'mes'   => 'FEB',
-                        'anio'  => '2024',
-                        'titulo'=> 'Primera Sesión Ordinaria 2024',
-                        'tipo'  => 'Ordinaria',
-                        'modal' => 'Presencial',
-                    ],
-                    [
-                        'dia'   => '18',
-                        'mes'   => 'ABR',
-                        'anio'  => '2024',
-                        'titulo'=> 'Segunda Sesión Ordinaria 2024',
-                        'tipo'  => 'Ordinaria',
-                        'modal' => 'Presencial',
-                    ],
-                    [
-                        'dia'   => '27',
-                        'mes'   => 'JUN',
-                        'anio'  => '2024',
-                        'titulo'=> 'Tercera Sesión Extraordinaria 2024',
-                        'tipo'  => 'Extraordinaria',
-                        'modal' => 'Virtual',
-                    ],
-                ];
-                foreach ( $sesiones as $sesion ) : ?>
-                <div class="dh-sesion-row">
-                    <div class="dh-sesion-row__date">
-                        <span class="dh-sesion-row__dia"><?php echo esc_html($sesion['dia']); ?></span>
-                        <span class="dh-sesion-row__mes"><?php echo esc_html($sesion['mes']); ?></span>
-                        <span class="dh-sesion-row__anio"><?php echo esc_html($sesion['anio']); ?></span>
-                    </div>
-                    <div class="dh-sesion-row__info">
-                        <h5 class="fw-bold mb-1"><?php echo esc_html($sesion['titulo']); ?></h5>
-                        <p class="text-muted mb-0 small">Tipo: <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; Modalidad: <?php echo esc_html($sesion['modal']); ?></p>
-                    </div>
-                    <div class="dh-sesion-row__actions">
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-journal-text"></i> Orden del día</a>
-                        <span class="dh-sesion-sep">|</span>
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-file-earmark"></i> Acta</a>
-                        <span class="dh-sesion-sep">|</span>
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-check2-square"></i> Acuerdos</a>
-                        <i class="bi bi-chevron-right dh-sesion-chevron"></i>
-                    </div>
-                </div>
-                <?php endforeach; ?>
+                $sesiones = [];
+                $args_actas = array(
+                    'post_type'      => 'dh_comite_acta',
+                    'posts_per_page' => -1,
+                    'post_status'    => 'publish',
+                    'meta_key'       => '_dh_cg_anio',
+                    'orderby'        => 'meta_value_num',
+                    'order'          => 'DESC'
+                );
+                $actas_query = new WP_Query($args_actas);
+                if ($actas_query->have_posts()) {
+                    while ($actas_query->have_posts()) {
+                        $actas_query->the_post();
+                        $pid = get_the_ID();
+                        $sesiones[] = [
+                            'anio'      => get_post_meta($pid, '_dh_cg_anio', true),
+                            'titulo'    => get_the_title(),
+                            'tipo'      => get_post_meta($pid, '_dh_cg_tipo', true),
+                            'modal'     => get_post_meta($pid, '_dh_cg_modalidad', true),
+                            'url'       => sesna_resolve_archivo_url(get_post_meta($pid, '_dh_cg_url', true)),
+                        ];
+                    }
+                    wp_reset_postdata();
+                }
+                ?>
+                <div class="d-flex flex-column gap-3">
+                    <?php foreach ( $sesiones as $sesion ) : ?>
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
+                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-stretch">
+                            
+                            <!-- Date Column -->
+                            <div class="tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center">
+                                <div class="fw-bold fs-3 tx-sesion-date-year" style="color:#666;"><?php echo esc_html($sesion['anio']); ?></div>
+                            </div>
 
-                <div class="text-center mt-4">
-                    <a href="#" class="btn-sesna-link"><i class="bi bi-arrow-down me-1"></i> Más sesiones</a>
+                            <!-- Info Column -->
+                            <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
+                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?php echo esc_html($sesion['titulo']); ?></h3>
+                                <p class="mb-0 font-noto-sans tx-sesion-info-type">
+                                    <strong>Tipo:</strong> <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; <strong>Modalidad:</strong> <?php echo esc_html($sesion['modal']); ?>
+                                </p>
+                            </div>
+
+                            <!-- Action Column -->
+                            <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
+                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 1.5rem; color: #9d2449;"></i>
+                                    <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text" style="color: #9d2449;">Acta</div>
+                                </a>
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
+                                    <i class="bi bi-chevron-right tx-sesion-chevron-icon" style="stroke-width: 2px; font-size: 1.5rem; color: #9d2449;"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <!-- Ver más Sesiones -->
+                <div class="text-center mt-5" id="sesiones-load-more-container">
+                    <a href="javascript:void(0)" id="sesiones-btn-more" class="tx-comite-btn-more">
+                        Ver más sesiones <i class="bi bi-chevron-down"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -351,178 +388,5 @@ get_header();
 
 <?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
 
-        <div class="container">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo mb-0">CAMPAÑAS DE SENSIBILIZACIÓN</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Conoce nuestras campañas permanentes para construir espacios libres de violencia y discriminación.</p>
-
-            <div class="row g-4 mt-2">
-                <?php
-                $campanias = [
-                    [
-                        'titulo' => 'Menstruación Digna',
-                        'desc'   => 'Hablemos de menstruación sin tabúes.',
-                        'icono'  => 'bi-heart-pulse',
-                        'color'  => '#9d2449',
-                        'url'    => '#modal-menstruacion-digna',
-                    ],
-                    [
-                        'titulo' => 'La Salud Mental también es Trabajo',
-                        'desc'   => 'Cuidar nuestra mente es cuidar nuestra integridad.',
-                        'icono'  => 'bi-emoji-smile',
-                        'color'  => '#1e5b4f',
-                        'url'    => '#',
-                    ],
-                    [
-                        'titulo' => 'Diversidad e Inclusión',
-                        'desc'   => 'Reconocemos, respetamos e incluimos.',
-                        'icono'  => 'bi-people',
-                        'color'  => '#a57f2c',
-                        'url'    => '#',
-                    ],
-                    [
-                        'titulo' => 'Cero Tolerancia a la Violencia',
-                        'desc'   => 'Comprometidos con espacios seguros.',
-                        'icono'  => 'bi-hand-index-thumb',
-                        'color'  => '#611232',
-                        'url'    => '#',
-                    ],
-                ];
-                foreach ( $campanias as $camp ) : ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="dh-campania-card">
-                        <div class="dh-campania-card__img" style="background-color: <?php echo esc_attr($camp['color']); ?>20;">
-                            <i class="bi <?php echo esc_attr($camp['icono']); ?>" style="color: <?php echo esc_attr($camp['color']); ?>; font-size: 30px;"></i>
-                        </div>
-                        <h5 class="dh-campania-card__title"><?php echo esc_html($camp['titulo']); ?></h5>
-                        <p class="dh-campania-card__desc"><?php echo esc_html($camp['desc']); ?></p>
-                        <a href="<?php echo esc_url($camp['url']); ?>" class="dh-campania-card__link" <?php if(strpos($camp['url'], '#modal') === 0) echo 'data-bs-toggle="modal"'; ?>>Ver más <i class="bi bi-arrow-right ms-1"></i></a>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Acciones X la Integridad ──────────────────────────── -->
-    <section class="dh-acciones py-5">
-        <div class="container">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo mb-0">ACCIONES X LA INTEGRIDAD</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Acciones X la integridad es nuestra publicación permanente sobre integridad, Derechos Humanos y perspectiva de género.</p>
-
-            <div class="dh-acciones-card mt-4">
-                <div class="row g-0 align-items-center">
-                    <div class="col-md-4">
-                        <div class="dh-acciones-card__img">
-                            <img src="<?php echo esc_url( get_theme_file_uri('/img/derechos-humanos/acciones-integridad.png') ); ?>"
-                                 alt="Acciones X la Integridad"
-                                 class="img-fluid"
-                                 onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'bi bi-image fs-1 text-muted\'></i></div>';">
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="dh-acciones-card__body">
-                            <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
-                            <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
-                            <a href="#" class="btn-sesna-link">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Comité de Igualdad de Género ──────────────────────── -->
-    <section class="dh-comite py-5 pb-5 mb-4">
-        <div class="container">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo mb-0">COMITÉ DE IGUALDAD DE GÉNERO</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Consulta las sesiones y actas del Comité de Igualdad de Género (CIG-SESNA).</p>
-
-            <div class="dh-comite-panel mt-4">
-                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                    <h4 class="fw-bold mb-2 mb-md-0">Sesiones del Comité</h4>
-                    <div class="d-flex gap-3">
-                        <select class="form-select form-select-sm dh-comite-filter" aria-label="Año">
-                            <option selected>Año: 2024</option>
-                            <option>Año: 2023</option>
-                            <option>Año: 2022</option>
-                        </select>
-                        <select class="form-select form-select-sm dh-comite-filter" aria-label="Tipo de sesión">
-                            <option selected>Tipo de sesión: Todas</option>
-                            <option>Ordinaria</option>
-                            <option>Extraordinaria</option>
-                        </select>
-                    </div>
-                </div>
-
-                <?php
-                $sesiones = [
-                    [
-                        'dia'   => '15',
-                        'mes'   => 'FEB',
-                        'anio'  => '2024',
-                        'titulo'=> 'Primera Sesión Ordinaria 2024',
-                        'tipo'  => 'Ordinaria',
-                        'modal' => 'Presencial',
-                    ],
-                    [
-                        'dia'   => '18',
-                        'mes'   => 'ABR',
-                        'anio'  => '2024',
-                        'titulo'=> 'Segunda Sesión Ordinaria 2024',
-                        'tipo'  => 'Ordinaria',
-                        'modal' => 'Presencial',
-                    ],
-                    [
-                        'dia'   => '27',
-                        'mes'   => 'JUN',
-                        'anio'  => '2024',
-                        'titulo'=> 'Tercera Sesión Extraordinaria 2024',
-                        'tipo'  => 'Extraordinaria',
-                        'modal' => 'Virtual',
-                    ],
-                ];
-                foreach ( $sesiones as $sesion ) : ?>
-                <div class="dh-sesion-row">
-                    <div class="dh-sesion-row__date">
-                        <span class="dh-sesion-row__dia"><?php echo esc_html($sesion['dia']); ?></span>
-                        <span class="dh-sesion-row__mes"><?php echo esc_html($sesion['mes']); ?></span>
-                        <span class="dh-sesion-row__anio"><?php echo esc_html($sesion['anio']); ?></span>
-                    </div>
-                    <div class="dh-sesion-row__info">
-                        <h5 class="fw-bold mb-1"><?php echo esc_html($sesion['titulo']); ?></h5>
-                        <p class="text-muted mb-0 small">Tipo: <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; Modalidad: <?php echo esc_html($sesion['modal']); ?></p>
-                    </div>
-                    <div class="dh-sesion-row__actions">
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-journal-text"></i> Orden del día</a>
-                        <span class="dh-sesion-sep">|</span>
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-file-earmark"></i> Acta</a>
-                        <span class="dh-sesion-sep">|</span>
-                        <a href="#" class="dh-sesion-btn"><i class="bi bi-check2-square"></i> Acuerdos</a>
-                        <i class="bi bi-chevron-right dh-sesion-chevron"></i>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-
-                <div class="text-center mt-4">
-                    <a href="#" class="btn-sesna-link"><i class="bi bi-arrow-down me-1"></i> Más sesiones</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <?php get_footer(); ?>

@@ -84,32 +84,31 @@
         var icono     = data.icono     || 'bi-star';
         var color     = data.color     || '#9d2449';
         var contenido = data.contenido || '';
-        var thumbnail = data.thumbnail || '';
-        var thumbFull = data.thumbnailFull || '';
+        var infografia= data.infografia|| [];
         var galeria   = data.galeria   || [];
         var videoUrl  = data.video     || '';
         var banner    = data.banner    || '';
 
-        var hasThumb  = thumbnail.length > 0;
+        var hasInfo   = infografia.length > 0;
         var hasVideo  = videoUrl.length > 0;
         var hasGal    = galeria.length > 0;
 
         /* ─ Determinar caso ──────────────────────────────────────── */
         // CASO A: sin medios
-        var soloTexto = !hasThumb && !hasVideo && !hasGal;
-        // CASO B: solo una imagen (thumbnail), sin video ni galería
-        var soloImagen = hasThumb && !hasVideo && !hasGal;
+        var soloTexto = !hasInfo && !hasVideo && !hasGal;
+        // CASO B: solo una imagen (infografia), sin video ni galería
+        var soloImagen = hasInfo && !hasVideo && !hasGal;
         // CASO C/E: tiene imágenes + puede tener video → layout 2 cols, video en izquierda
-        var mediaComplejo = (hasThumb || hasGal) && (hasVideo || hasGal);
+        var mediaComplejo = (hasInfo || hasGal) && (hasVideo || hasGal);
         // CASO D: solo video sin imágenes
-        var soloVideo = hasVideo && !hasThumb && !hasGal;
+        var soloVideo = hasVideo && !hasInfo && !hasGal;
 
         /* ─ Bloque de texto base (siempre presente en izquierda) ── */
         var leftCols = soloTexto ? 'col-12' : 'col-lg-6';
 
         var textoHtml =
-            '<div class="mb-2">' +
-                '<i class="bi ' + escHtml(icono) + '" style="font-size:2.5rem; color:' + escHtml(color) + ';"></i>' +
+            '<div class="mb-2" style="height:48px; display:flex; align-items:center;">' +
+                '<i class="bi ' + escHtml(icono) + '" style="font-size:2.5rem; line-height:1; color:' + escHtml(color) + ';"></i>' +
             '</div>' +
             '<h3 class="fw-bold mb-3 sna-programas-title" style="color:' + escHtml(color) + ';">' + escHtml(titulo) + '</h3>' +
             '<div style="width:30px; height:3px; background-color:' + escHtml(color) + '; margin-bottom:1.5rem;"></div>' +
@@ -119,27 +118,35 @@
 
         if (soloTexto) {
             /* ── CASO A ── */
-            leftHtml  = '<div class="col-12 d-flex flex-column justify-content-center">' + textoHtml + '</div>';
+            leftHtml  = '<div class="col-12 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml = '';
 
         } else if (soloImagen) {
             /* ── CASO B: texto izq / imagen der ── */
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-center">' + textoHtml + '</div>';
+                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml =
-                '<div class="col-lg-6 d-flex align-items-center">' +
-                    '<div class="w-100 rounded-3 overflow-hidden shadow-sm">' +
-                        '<img src="' + escHtml(thumbnail) + '" data-lb-full="' + escHtml(thumbFull) + '" alt="' + escHtml(titulo) + '"' +
+                '<div class="col-lg-6 d-flex flex-column justify-content-start">' +
+                    '<div style="height:48px; width:100%;" class="mb-2"></div>' +
+                    '<p class="fw-semibold text-muted mb-2" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Infografía</p>';
+            for (var i = 0; i < infografia.length; i++) {
+                rightHtml +=
+                    '<div class="w-100 rounded-3 overflow-hidden shadow-sm mb-3">' +
+                        '<img src="' + escHtml(infografia[i].url) + '" data-lb-full="' + escHtml(infografia[i].full) + '" alt="' + escHtml(titulo) + '"' +
                         ' class="w-100 h-100 dh-lb-img" style="object-fit:cover; max-height:380px; cursor:zoom-in;">' +
-                    '</div>' +
-                '</div>';
+                    '</div>';
+            }
+            rightHtml += '</div>';
 
         } else if (soloVideo) {
             /* ── CASO D: texto izq / video der ── */
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-center">' + textoHtml + '</div>';
+                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml =
-                '<div class="col-lg-6 d-flex align-items-center">' + buildVideoBlock(videoUrl) + '</div>';
+                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + 
+                    '<div style="height:48px; width:100%;" class="mb-2"></div>' +
+                    buildVideoBlock(videoUrl) + 
+                '</div>';
 
         } else {
             /* ── CASO C / E: texto+video izq / imágenes der ── */
@@ -150,23 +157,30 @@
                     buildVideoBlock(videoUrl);
             }
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-center">' +
+                '<div class="col-lg-6 d-flex flex-column justify-content-start">' +
                     textoHtml + videoSection +
                 '</div>';
 
             // Columna derecha: thumbnail como Infografía + galería como Evidencias
             var rightInner = '';
-            if (hasThumb) {
+            if (hasInfo || hasGal) {
+                // Spacer para alinear con el título
+                rightInner += '<div style="height:48px; width:100%;" class="mb-2"></div>';
+            }
+            if (hasInfo) {
                 rightInner +=
-                    '<p class="fw-semibold text-muted mb-2" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Infografía</p>' +
-                    '<div class="rounded-3 overflow-hidden shadow-sm mb-3" style="max-height:200px;">' +
-                        '<img src="' + escHtml(thumbnail) + '" data-lb-full="' + escHtml(thumbFull) + '" alt="Infografía ' + escHtml(titulo) + '"' +
-                        ' class="w-100 h-100 dh-lb-img" style="object-fit:cover; cursor:zoom-in;">' +
-                    '</div>';
+                    '<p class="fw-semibold text-muted mb-2" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Infografía</p>';
+                for (var j = 0; j < infografia.length; j++) {
+                    rightInner +=
+                        '<div class="rounded-3 overflow-hidden shadow-sm mb-3" style="max-height:350px;">' +
+                            '<img src="' + escHtml(infografia[j].url) + '" data-lb-full="' + escHtml(infografia[j].full) + '" alt="Infografía ' + escHtml(titulo) + '"' +
+                            ' class="w-100 h-100 dh-lb-img" style="object-fit:contain; cursor:zoom-in;">' +
+                        '</div>';
+                }
             }
             if (hasGal) {
                 rightInner +=
-                    '<p class="fw-semibold text-muted mb-0" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Evidencias de la campaña</p>' +
+                    '<p class="fw-semibold text-muted mb-0 mt-3" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Evidencias de la campaña</p>' +
                     buildGaleriaGrid(galeria, color);
             }
             rightHtml =
@@ -197,6 +211,18 @@
         try { galeria = JSON.parse(trigger.getAttribute('data-galeria') || '[]'); }
         catch (err) { galeria = []; }
 
+        var infografia = [];
+        try { infografia = JSON.parse(trigger.getAttribute('data-infografia') || '[]'); }
+        catch (err) { infografia = []; }
+
+        // Retrocompatibilidad: Si no hay infografías explícitas pero hay thumbnail
+        if (infografia.length === 0 && trigger.getAttribute('data-thumbnail')) {
+            infografia = [{
+                url: trigger.getAttribute('data-thumbnail'),
+                full: trigger.getAttribute('data-thumbnail-full') || trigger.getAttribute('data-thumbnail')
+            }];
+        }
+
         var modalBody = document.getElementById('dh-modal-body');
         if (!modalBody) return;
 
@@ -205,8 +231,7 @@
             icono:     trigger.getAttribute('data-icono')     || 'bi-star',
             color:     trigger.getAttribute('data-color')     || '#9d2449',
             contenido: trigger.getAttribute('data-contenido') || '',
-            thumbnail: trigger.getAttribute('data-thumbnail') || '',
-            thumbnailFull: trigger.getAttribute('data-thumbnail-full') || '',
+            infografia: infografia,
             galeria:   galeria,
             video:     trigger.getAttribute('data-video')     || '',
             banner:    trigger.getAttribute('data-banner')    || ''
