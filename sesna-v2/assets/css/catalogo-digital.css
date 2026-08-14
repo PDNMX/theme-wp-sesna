@@ -1,0 +1,143 @@
+/* ─────────────────────────────────────────────────────────────
+   Catálogo Digital — Flipbook (sección "Acciones X la Integridad")
+   Estilos aditivos, todos bajo el prefijo .cd- para no colisionar
+   con clases ni componentes existentes del tema.
+   ───────────────────────────────────────────────────────────── */
+
+.cd-flipbook-dialog {
+    max-width: 80vw;
+    width: 80vw;
+    height: 82vh;
+}
+
+.cd-flipbook-content {
+    height: 100%;
+    background-color: #e9e9e9;
+    position: relative;
+}
+
+/* Botón de cerrar: fijo sobre el flipbook, siempre visible por encima
+   del canvas del libro (z-index alto, nunca recortado por el overflow
+   del modal gracias a estar dentro del área con border-radius). */
+.cd-flipbook-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 20;
+    margin: 0;
+}
+
+.cd-flipbook-dialog #cd-flipbook-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cd-flipbook-title {
+    text-align: center;
+    font-family: var(--font-patria, 'Patria', serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: #444;
+    padding: 14px 60px 8px;
+    flex-shrink: 0;
+}
+
+.cd-flipbook-stage {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px 70px;
+}
+
+.cd-flipbook-book {
+    margin: 0 auto;
+}
+
+.cd-flipbook-book .page {
+    background-color: #fff;
+}
+
+.cd-flipbook-book img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Barra de controles: pill flotante inferior, siempre visible por
+   encima del canvas del flipbook (position absolute + z-index). */
+.cd-flipbook-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 8px 18px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 999px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.cd-flipbook-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: var(--color-burgundi, #9d2449);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color .15s ease;
+}
+
+.cd-flipbook-btn:hover {
+    background-color: var(--color-burgundi-tenue, rgba(157, 36, 73, 0.08));
+}
+
+.cd-flipbook-btn--home {
+    font-size: 15px;
+}
+
+.cd-flipbook-counter {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    min-width: 54px;
+    text-align: center;
+}
+
+@media (max-width: 767.98px) {
+    .cd-flipbook-dialog {
+        max-width: 100vw;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .cd-flipbook-title {
+        font-size: 14px;
+        padding: 12px 50px 6px;
+    }
+
+    .cd-flipbook-controls {
+        gap: 8px;
+        padding: 6px 12px;
+        bottom: 12px;
+    }
+
+    .cd-flipbook-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+}

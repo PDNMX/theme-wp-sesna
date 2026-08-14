@@ -117,11 +117,11 @@ get_header();
                         $dh_c_id          = get_the_ID();
                         $dh_c_titulo      = get_the_title();
                         $dh_c_icono       = get_post_meta($dh_c_id, '_dh_icono',        true) ?: 'bi-star';
-                        $dh_c_icono_img   = get_post_meta($dh_c_id, '_dh_icono_img',    true) ?: '';
+                        $dh_c_icono_img   = sesna_resolve_archivo_url(get_post_meta($dh_c_id, '_dh_icono_img',    true)) ?: '';
                         $dh_c_infografia_ids = get_post_meta($dh_c_id, '_dh_infografia_ids', true) ?: '';
                         $dh_c_color       = get_post_meta($dh_c_id, '_dh_color',        true) ?: '#9d2449';
                         $dh_c_galeria_ids = get_post_meta($dh_c_id, '_dh_galeria_ids',  true) ?: '';
-                        $dh_c_video       = get_post_meta($dh_c_id, '_dh_video_url',    true) ?: '';
+                        $dh_c_video       = sesna_resolve_archivo_url(get_post_meta($dh_c_id, '_dh_video_url',    true)) ?: '';
                         $dh_c_banner      = get_post_meta($dh_c_id, '_dh_banner_texto', true) ?: '';
                         $dh_c_resumen     = get_post_meta($dh_c_id, '_dh_resumen',      true) ?: '';
 
@@ -216,6 +216,35 @@ get_header();
             </div>
             <p class="dh-section__subtitle">Acciones X la integridad es nuestra publicación permanente sobre integridad, Derechos Humanos y perspectiva de género.</p>
 
+            <?php
+            $dh_catalogo_titulo  = '';
+            $dh_catalogo_paginas = array();
+
+            $dh_catalogo_query = new WP_Query(array(
+                'post_type'      => 'dh_catalogo',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'orderby'        => 'date',
+                'order'          => 'DESC',
+            ));
+
+            if ($dh_catalogo_query->have_posts()) {
+                $dh_catalogo_query->the_post();
+                $dh_catalogo_titulo      = get_the_title();
+                $dh_catalogo_paginas_ids = get_post_meta(get_the_ID(), '_dh_cat_paginas_ids', true) ?: '';
+
+                if (!empty($dh_catalogo_paginas_ids)) {
+                    foreach (array_filter(explode(',', $dh_catalogo_paginas_ids)) as $dh_cat_img_id) {
+                        $dh_cat_img_url = wp_get_attachment_image_url(intval($dh_cat_img_id), 'large');
+                        if ($dh_cat_img_url) {
+                            $dh_catalogo_paginas[] = $dh_cat_img_url;
+                        }
+                    }
+                }
+                wp_reset_postdata();
+            }
+            ?>
+
             <div class="dh-acciones-card mt-4">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
@@ -230,7 +259,18 @@ get_header();
                         <div class="dh-acciones-card__body">
                             <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
                             <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
-                            <a href="#" class="btn-sesna-link">Leer más <i class="bi bi-arrow-right ms-1"></i></a>
+                            <?php if (!empty($dh_catalogo_paginas)) : ?>
+                                <button type="button"
+                                        class="btn-sesna-link border-0 bg-transparent p-0"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modal-catalogo"
+                                        data-titulo="<?php echo esc_attr($dh_catalogo_titulo); ?>"
+                                        data-paginas="<?php echo esc_attr( json_encode($dh_catalogo_paginas) ); ?>">
+                                    Leer más <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            <?php else : ?>
+                                <span class="btn-sesna-link text-muted" style="cursor:default;" aria-disabled="true">Leer más <i class="bi bi-arrow-right ms-1"></i></span>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -355,6 +395,24 @@ get_header();
             <div class="modal-body p-4 p-md-5 position-relative" id="dh-modal-body">
                 <!-- Contenido inyectado dinámicamente por derechos-humanos.js -->
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Modal: Catálogo Digital (flipbook) ────────────────── -->
+<div class="modal fade" id="modal-catalogo" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-lg-down cd-flipbook-dialog">
+        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden cd-flipbook-content">
+            <button type="button" class="btn-close cd-flipbook-close" data-bs-dismiss="modal" aria-label="Cerrar"
+                style="background-color: white; border: 1px solid var(--color-burgundi, #9d2449); border-radius: 50%; padding: .4rem; opacity: 1; background-size: 0.8em;"></button>
+
+            <div class="modal-body p-0" id="cd-flipbook-container">
+                <div class="d-flex justify-content-center align-items-center" style="min-height:300px;">
                     <div class="spinner-border text-secondary" role="status">
                         <span class="visually-hidden">Cargando...</span>
                     </div>

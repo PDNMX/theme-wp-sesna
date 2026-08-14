@@ -109,6 +109,11 @@ function sesna_theme_scripts()
 
 	if (is_page_template('page-derechos-humanos.php') || is_page('derechos-humanos-y-perspectiva-de-genero')) {
 		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+
+		// Catálogo digital tipo flipbook — sección "Acciones X la Integridad"
+		wp_enqueue_style('catalogo-digital-style', get_theme_file_uri('/assets/css/catalogo-digital.css'), array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/catalogo-digital.css' ));
+		wp_enqueue_script('page-flip-vendor-script', get_theme_file_uri('/js/vendor/page-flip.browser.js'), array(), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('catalogo-digital-script', get_theme_file_uri('/script/catalogo-digital.js'), array('gobmx-framework-js', 'page-flip-vendor-script'), filemtime( get_template_directory() . '/script/catalogo-digital.js' ), true);
 	}
 
 	if (is_archive() || is_search()) {
@@ -2653,10 +2658,19 @@ function sesna_save_dh_campania_meta($post_id) {
         return;
     }
 
-    $text_fields = array('_dh_icono', '_dh_icono_img', '_dh_infografia_ids', '_dh_color', '_dh_galeria_ids', '_dh_video_url', '_dh_orden');
+    $text_fields = array('_dh_icono', '_dh_infografia_ids', '_dh_color', '_dh_galeria_ids', '_dh_orden');
     foreach ($text_fields as $field) {
         if (isset($_POST[$field])) {
             update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+
+    // Campos de URL: recortar el dominio para portabilidad (localhost -> prod)
+    $url_fields = array('_dh_icono_img', '_dh_video_url');
+    foreach ($url_fields as $field) {
+        if (isset($_POST[$field])) {
+            $val = sanitize_text_field($_POST[$field]);
+            update_post_meta($post_id, $field, sesna_strip_domain_from_url($val));
         }
     }
     // Textareas
@@ -2808,4 +2822,184 @@ function sesna_dh_comite_acta_admin_scripts($hook) {
         wp_enqueue_media();
     }
 }
+add_action('admin_enqueue_scripts', 'sesna_dh_comite_acta_admin_scripts');
+
+// =========================================================================
+// CPT: Catálogos Digitales (dh_catalogo)
+// =========================================================================
+function sesna_register_dh_catalogo_cpt() {
+    $labels = array(
+        'name'               => 'Catálogos Digitales',
+        'singular_name'      => 'Catálogo',
+        'menu_name'          => 'Catálogos Digitales',
+        'add_new'            => 'Añadir catálogo',
+        'add_new_item'       => 'Añadir nuevo catálogo',
+        'edit_item'          => 'Editar catálogo',
+        'new_item'           => 'Nuevo catálogo',
+        'view_item'          => 'Ver catálogo',
+        'all_items'          => 'Todos los catálogos',
+        'search_items'       => 'Buscar catálogos',
+        'not_found'          => 'No se encontraron catálogos.',
+        'not_found_in_trash' => 'No se encontraron catálogos en la papelera.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => false,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => 'menu-ddhhypgi',
+        'query_var'          => false,
+        'rewrite'            => false,
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 9,
+        'menu_icon'          => 'dashicons-book-alt',
+        'supports'           => array('title', 'thumbnail'),
+    );
+
+    register_post_type('dh_catalogo', $args);
+}
+add_action('init', 'sesna_register_dh_catalogo_cpt');
+
+function sesna_add_dh_catalogo_meta_box() {
+    add_meta_box(
+        'dh_catalogo_extra',
+        'Páginas del Catálogo',
+        'sesna_dh_catalogo_meta_box_html',
+        'dh_catalogo',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'sesna_add_dh_catalogo_meta_box');
+
+function sesna_dh_catalogo_meta_box_html($post) {
+    wp_nonce_field('sesna_save_dh_catalogo_meta', 'sesna_dh_catalogo_nonce');
+
+    $paginas_ids = get_post_meta($post->ID, '_dh_cat_paginas_ids', true) ?: '';
+    $resumen     = get_post_meta($post->ID, '_dh_cat_resumen',     true) ?: '';
+    ?>
+    <style>
+        .dh-mb-row { margin-bottom: 16px; }
+        .dh-mb-row label { font-weight: 600; display: block; margin-bottom: 5px; }
+        .dh-mb-row textarea { width: 100%; max-width: 500px; height: 80px; resize: vertical; }
+        .dh-galeria-preview { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .dh-galeria-preview img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
+        .dh-mb-hint { color: #777; font-size: 12px; margin-top: 4px; }
+    </style>
+
+    <div class="dh-mb-row">
+        <label>Páginas del catálogo <span class="dh-mb-hint">(selecciona las imágenes en el orden en que deben aparecer como páginas)</span></label>
+        <input type="hidden" id="dh_cat_paginas_ids" name="_dh_cat_paginas_ids" value="<?php echo esc_attr($paginas_ids); ?>">
+        <div>
+            <button type="button" class="button" id="dh_cat_paginas_btn">Seleccionar imágenes</button>
+            <button type="button" class="button" id="dh_cat_paginas_clear" style="margin-left:6px;">Limpiar páginas</button>
+        </div>
+        <div class="dh-galeria-preview" id="dh_cat_paginas_preview">
+            <?php
+            if (!empty($paginas_ids)) {
+                $ids_array = array_filter(explode(',', $paginas_ids));
+                foreach ($ids_array as $img_id) {
+                    $img_url = wp_get_attachment_image_url(intval($img_id), 'thumbnail');
+                    if ($img_url) {
+                        echo '<img src="' . esc_url($img_url) . '" data-id="' . intval($img_id) . '" alt="">';
+                    }
+                }
+            }
+            ?>
+        </div>
+        <p class="dh-mb-hint">El orden de selección define el orden de las páginas en el catálogo.</p>
+    </div>
+
+    <div class="dh-mb-row">
+        <label for="dh_cat_resumen">Resumen breve <span class="dh-mb-hint">(opcional)</span></label>
+        <textarea id="dh_cat_resumen" name="_dh_cat_resumen"><?php echo esc_textarea($resumen); ?></textarea>
+    </div>
+
+    <script>
+    jQuery(document).ready(function($) {
+        // Cada apertura crea un frame nuevo para poder precargar la selección
+        // actual (lo ya guardado) y que las páginas nuevas se sumen a esas,
+        // en vez de reemplazar todo el catálogo.
+        $('#dh_cat_paginas_btn').on('click', function(e) {
+            e.preventDefault();
+
+            var paginasFrame = wp.media({
+                title: 'Seleccionar páginas del catálogo',
+                button: { text: 'Usar selección' },
+                multiple: true,
+                library: { type: 'image' }
+            });
+
+            paginasFrame.on('open', function() {
+                var currentIds = ($('#dh_cat_paginas_ids').val() || '')
+                    .split(',')
+                    .map(function(id) { return parseInt(id, 10); })
+                    .filter(function(id) { return !isNaN(id); });
+
+                if (!currentIds.length) return;
+
+                var selection = paginasFrame.state().get('selection');
+                currentIds.forEach(function(id) {
+                    var attachment = wp.media.attachment(id);
+                    attachment.fetch();
+                    selection.add(attachment);
+                });
+            });
+
+            paginasFrame.on('select', function() {
+                var selection = paginasFrame.state().get('selection');
+                var ids = [];
+                var preview = $('#dh_cat_paginas_preview');
+                preview.empty();
+                selection.each(function(attachment) {
+                    var a = attachment.toJSON();
+                    ids.push(a.id);
+                    var thumb = a.sizes && a.sizes.thumbnail ? a.sizes.thumbnail.url : a.url;
+                    preview.append('<img src="' + thumb + '" data-id="' + a.id + '" alt="">');
+                });
+                $('#dh_cat_paginas_ids').val(ids.join(','));
+            });
+
+            paginasFrame.open();
+        });
+
+        $('#dh_cat_paginas_clear').on('click', function() {
+            $('#dh_cat_paginas_ids').val('');
+            $('#dh_cat_paginas_preview').empty();
+        });
+    });
+    </script>
+    <?php
+}
+
+function sesna_save_dh_catalogo_meta($post_id) {
+    if (!isset($_POST['sesna_dh_catalogo_nonce']) || !wp_verify_nonce($_POST['sesna_dh_catalogo_nonce'], 'sesna_save_dh_catalogo_meta')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (isset($_POST['_dh_cat_paginas_ids'])) {
+        update_post_meta($post_id, '_dh_cat_paginas_ids', sanitize_text_field($_POST['_dh_cat_paginas_ids']));
+    }
+    if (isset($_POST['_dh_cat_resumen'])) {
+        update_post_meta($post_id, '_dh_cat_resumen', sanitize_textarea_field($_POST['_dh_cat_resumen']));
+    }
+}
+add_action('save_post_dh_catalogo', 'sesna_save_dh_catalogo_meta');
+
+function sesna_dh_catalogo_admin_scripts($hook) {
+    global $typenow;
+    if ($typenow === 'dh_catalogo') {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'sesna_dh_catalogo_admin_scripts');
 add_action('admin_enqueue_scripts', 'sesna_dh_comite_acta_admin_scripts');
