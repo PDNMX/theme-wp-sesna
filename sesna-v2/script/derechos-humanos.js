@@ -46,6 +46,11 @@
         return null;
     }
 
+    /** Verdadero solo si hay una URL de video utilizable (ignora vacíos y "#"). */
+    function hasUsableVideo(videoUrl) {
+        return !!videoUrl && videoUrl !== '#';
+    }
+
     /** Construye el bloque de video (iframe o <video>) */
     function buildVideoBlock(videoUrl) {
         var embedUrl = getEmbedUrl(videoUrl);
@@ -55,9 +60,11 @@
                 ' title="Video campaña" frameborder="0"' +
                 ' allow="autoplay; encrypted-media" allowfullscreen></iframe>';
         } else {
-            html += '<video id="dh-modal-video" controls class="w-100 h-100" style="object-fit:cover;">' +
+            // preload="metadata" mejora la compatibilidad entre navegadores
+            // (evita descargar el archivo completo solo para mostrar controles).
+            html += '<video id="dh-modal-video" controls preload="metadata" class="w-100 h-100" style="object-fit:cover;">' +
                 '<source src="' + escHtml(videoUrl) + '" type="video/mp4">' +
-                'Tu navegador no soporta el tag de video.</video>';
+                'Tu navegador no soporta la reproducción de este video.</video>';
         }
         html += '</div>';
         return html;
@@ -90,7 +97,7 @@
         var banner    = data.banner    || '';
 
         var hasInfo   = infografia.length > 0;
-        var hasVideo  = videoUrl.length > 0;
+        var hasVideo  = hasUsableVideo(videoUrl);
         var hasGal    = galeria.length > 0;
 
         /* ─ Determinar caso ──────────────────────────────────────── */

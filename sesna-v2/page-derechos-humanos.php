@@ -117,11 +117,13 @@ get_header();
                         $dh_c_id          = get_the_ID();
                         $dh_c_titulo      = get_the_title();
                         $dh_c_icono       = get_post_meta($dh_c_id, '_dh_icono',        true) ?: 'bi-star';
-                        $dh_c_icono_img   = sesna_resolve_archivo_url(get_post_meta($dh_c_id, '_dh_icono_img',    true)) ?: '';
+                        $dh_c_icono_img_raw = get_post_meta($dh_c_id, '_dh_icono_img', true);
+                        $dh_c_icono_img   = $dh_c_icono_img_raw ? sesna_resolve_archivo_url($dh_c_icono_img_raw) : '';
                         $dh_c_infografia_ids = get_post_meta($dh_c_id, '_dh_infografia_ids', true) ?: '';
                         $dh_c_color       = get_post_meta($dh_c_id, '_dh_color',        true) ?: '#9d2449';
                         $dh_c_galeria_ids = get_post_meta($dh_c_id, '_dh_galeria_ids',  true) ?: '';
-                        $dh_c_video       = sesna_resolve_archivo_url(get_post_meta($dh_c_id, '_dh_video_url',    true)) ?: '';
+                        $dh_c_video_raw   = get_post_meta($dh_c_id, '_dh_video_url', true);
+                        $dh_c_video       = $dh_c_video_raw ? sesna_resolve_archivo_url($dh_c_video_raw) : '';
                         $dh_c_banner      = get_post_meta($dh_c_id, '_dh_banner_texto', true) ?: '';
                         $dh_c_resumen     = get_post_meta($dh_c_id, '_dh_resumen',      true) ?: '';
 

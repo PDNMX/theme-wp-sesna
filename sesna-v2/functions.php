@@ -108,7 +108,7 @@ function sesna_theme_scripts()
 	}
 
 	if (is_page_template('page-derechos-humanos.php') || is_page('derechos-humanos-y-perspectiva-de-genero')) {
-		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), filemtime( get_template_directory() . '/script/derechos-humanos.js' ), true);
 
 		// Catálogo digital tipo flipbook — sección "Acciones X la Integridad"
 		wp_enqueue_style('catalogo-digital-style', get_theme_file_uri('/assets/css/catalogo-digital.css'), array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/catalogo-digital.css' ));

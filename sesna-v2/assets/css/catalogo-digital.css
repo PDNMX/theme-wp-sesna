@@ -1,8 +1,4 @@
-/* ─────────────────────────────────────────────────────────────
-   Catálogo Digital — Flipbook (sección "Acciones X la Integridad")
-   Estilos aditivos, todos bajo el prefijo .cd- para no colisionar
-   con clases ni componentes existentes del tema.
-   ───────────────────────────────────────────────────────────── */
+/* Catálogo Digital — Flipbook ("Acciones X la Integridad"). Prefijo .cd- */
 
 .cd-flipbook-dialog {
     max-width: 80vw;
@@ -16,9 +12,6 @@
     position: relative;
 }
 
-/* Botón de cerrar: fijo sobre el flipbook, siempre visible por encima
-   del canvas del libro (z-index alto, nunca recortado por el overflow
-   del modal gracias a estar dentro del área con border-radius). */
 .cd-flipbook-close {
     position: absolute;
     top: 16px;
@@ -68,8 +61,6 @@
     display: block;
 }
 
-/* Barra de controles: pill flotante inferior, siempre visible por
-   encima del canvas del flipbook (position absolute + z-index). */
 .cd-flipbook-controls {
     position: absolute;
     left: 50%;

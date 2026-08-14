@@ -1,8 +1,7 @@
 /**
- * catalogo-digital.js
- * Flipbook del "Catálogo Digital" (CPT: dh_catalogo)
- * Se abre desde el botón "Leer más" de la sección "Acciones X la Integridad"
- * Usa StPageFlip (js/vendor/page-flip.browser.js) — expone window.St.PageFlip
+ * Flipbook del "Catálogo Digital" (CPT: dh_catalogo), abierto desde el
+ * botón "Leer más" de "Acciones X la Integridad". Usa StPageFlip
+ * (js/vendor/page-flip.browser.js), expuesta como window.St.PageFlip.
  */
 (function () {
     'use strict';
@@ -39,10 +38,8 @@
         }
     }
 
-    /** Proporción alto/ancho de la primera página, para dimensionar el libro
-     *  a la forma real del contenido en vez de asumir una proporción fija. */
     function getFirstPageRatio(paginas, callback) {
-        var DEFAULT_RATIO = 560 / 400; // fallback retrato si la imagen no carga
+        var DEFAULT_RATIO = 560 / 400;
         var img = new Image();
         img.onload = function () {
             if (img.naturalWidth && img.naturalHeight) {
@@ -81,19 +78,14 @@
             var stageEl = container.querySelector('.cd-flipbook-stage');
             var bookEl  = container.querySelector('#cd-flipbook-book');
 
-            // Tamaño de una sola página, calculado a partir del espacio
-            // disponible en el stage y la proporción real de las imágenes
-            // del catálogo — así el libro llena el modal sin recortar
-            // ni dejar franjas de sobra en las páginas.
             var stageW = stageEl.clientWidth  || 900;
             var stageH = stageEl.clientHeight || 600;
 
             var pageH = stageH;
             var pageW = Math.round(pageH / ratio);
 
-            // En pantallas angostas el libro se ve a doble página; si no
-            // cabe el doble ancho, se reduce hasta ajustar (StPageFlip pasa
-            // a modo una sola página automáticamente por debajo de minWidth*2).
+            // Doble página si cabe; si no, una sola página por debajo del
+            // ancho disponible (StPageFlip cambia de modo automáticamente).
             if (pageW * 2 > stageW) {
                 pageW = Math.round(stageW / 2);
                 pageH = Math.round(pageW * ratio);
@@ -149,8 +141,8 @@
             return;
         }
 
-        // Margen para permitir que el modal termine su transición de apertura
-        // (necesario para medir el tamaño real del stage antes de crear el libro)
+        // Espera a que termine la transición de apertura del modal antes de
+        // medir el stage, para calcular bien el tamaño del libro.
         window.setTimeout(function () {
             initFlipbook(container, paginas, titulo);
         }, 300);
