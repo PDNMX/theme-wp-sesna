@@ -1,5 +1,15 @@
 /* Catálogo Digital — Flipbook ("Acciones X la Integridad"). Prefijo .cd- */
 
+.cd-clickable {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cd-clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+}
+
 .cd-flipbook-dialog {
     max-width: 80vw;
     width: 80vw;

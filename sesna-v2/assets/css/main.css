@@ -4267,6 +4267,18 @@ body:has(.page-directorio) main.page {
 .page-pna .pna-stat-tile__icon--morado { color: #6b4fa0; }
 .page-pna .pna-stat-tile__icon--verde-oscuro { color: var(--color-teal); }
 
+.page-pna .pna-stat-tile__icon--img {
+    overflow: hidden;
+    padding: 0;
+}
+
+.page-pna .pna-stat-tile__icon--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .page-pna .pna-stat-tile__number {
     font-family: var(--font-patria);
     font-size: 24px;

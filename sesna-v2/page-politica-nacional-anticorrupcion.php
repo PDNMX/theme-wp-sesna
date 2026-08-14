@@ -133,8 +133,8 @@ get_header();
             <div class="pna-stats-card">
                 <div class="pna-stats-row">
                     <div class="pna-stat-tile">
-                        <span class="pna-stat-tile__icon pna-stat-tile__icon--verde" aria-hidden="true">
-                            <i class="bi bi-bullseye"></i>
+                        <span class="pna-stat-tile__icon pna-stat-tile__icon--img" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/Ejes_estrategicos.jpg' ); ?>" alt="">
                         </span>
                         <div>
                             <p class="pna-stat-tile__number">4</p>
@@ -143,8 +143,8 @@ get_header();
                     </div>
                     <div class="pna-stat-sep"></div>
                     <div class="pna-stat-tile">
-                        <span class="pna-stat-tile__icon pna-stat-tile__icon--morado" aria-hidden="true">
-                            <i class="bi bi-flag"></i>
+                        <span class="pna-stat-tile__icon pna-stat-tile__icon--img" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/Objetivos_especificos.jpg' ); ?>" alt="">
                         </span>
                         <div>
                             <p class="pna-stat-tile__number">10</p>
@@ -153,8 +153,8 @@ get_header();
                     </div>
                     <div class="pna-stat-sep"></div>
                     <div class="pna-stat-tile">
-                        <span class="pna-stat-tile__icon pna-stat-tile__icon--verde-oscuro" aria-hidden="true">
-                            <i class="bi bi-list-check"></i>
+                        <span class="pna-stat-tile__icon pna-stat-tile__icon--img" aria-hidden="true">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/40_prioridades.jpg' ); ?>" alt="">
                         </span>
                         <div>
                             <p class="pna-stat-tile__number">40</p>

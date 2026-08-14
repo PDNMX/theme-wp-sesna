@@ -247,7 +247,17 @@ get_header();
             }
             ?>
 
-            <div class="dh-acciones-card mt-4">
+            <?php if (!empty($dh_catalogo_paginas)) : ?>
+                <div class="dh-acciones-card cd-clickable mt-4"
+                     role="button"
+                     tabindex="0"
+                     data-bs-toggle="modal"
+                     data-bs-target="#modal-catalogo"
+                     data-titulo="<?php echo esc_attr($dh_catalogo_titulo); ?>"
+                     data-paginas="<?php echo esc_attr( json_encode($dh_catalogo_paginas) ); ?>">
+            <?php else : ?>
+                <div class="dh-acciones-card mt-4">
+            <?php endif; ?>
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
                         <div class="dh-acciones-card__img">
@@ -262,14 +272,7 @@ get_header();
                             <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
                             <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                <button type="button"
-                                        class="btn-sesna-link border-0 bg-transparent p-0"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modal-catalogo"
-                                        data-titulo="<?php echo esc_attr($dh_catalogo_titulo); ?>"
-                                        data-paginas="<?php echo esc_attr( json_encode($dh_catalogo_paginas) ); ?>">
-                                    Leer más <i class="bi bi-arrow-right ms-1"></i>
-                                </button>
+                                <span class="btn-sesna-link">Leer más <i class="bi bi-arrow-right ms-1"></i></span>
                             <?php else : ?>
                                 <span class="btn-sesna-link text-muted" style="cursor:default;" aria-disabled="true">Leer más <i class="bi bi-arrow-right ms-1"></i></span>
                             <?php endif; ?>
