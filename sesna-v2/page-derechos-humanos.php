@@ -67,7 +67,7 @@ get_header();
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
                         <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
                             <div class="cp-doc-thumb__logo">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 52px; max-height: 32px; object-fit: contain; filter: brightness(0) invert(1);">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 38px; max-height: 22px; object-fit: contain; filter: brightness(0) invert(1);">
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
@@ -84,7 +84,7 @@ get_header();
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
                         <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
                             <div class="cp-doc-thumb__logo">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 52px; max-height: 32px; object-fit: contain; filter: brightness(0) invert(1);">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 38px; max-height: 22px; object-fit: contain; filter: brightness(0) invert(1);">
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
