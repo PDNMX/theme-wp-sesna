@@ -124,13 +124,9 @@ get_header();
                     <!-- Thumbnail del documento -->
                     <div class="cp-doc-thumb cp-doc-thumb--<?php echo esc_attr($doc['color']); ?>">
                         <div class="cp-doc-thumb__logo">
-                            <i class="bi bi-c-circle"></i> SESNA
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 52px; max-height: 32px; object-fit: contain; filter: brightness(0) invert(1);">
                         </div>
                         <p class="cp-doc-thumb__nombre"><?php echo esc_html($doc['titulo']); ?></p>
-                        <div class="cp-doc-thumb__footer">
-                            <span>DOCUMENTO<br>TÉCNICO</span>
-                            <span><?php echo esc_html($doc['anio']); ?></span>
-                        </div>
                     </div>
 
                     <!-- Info del documento -->

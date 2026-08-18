@@ -1604,7 +1604,7 @@ body.front-page main.page {
 .cp-recursos__linea {
     width: 48px;
     height: 3px;
-    background-color: var(--color-burgundi);
+    background-color: var(--color-negro);
     margin-top: 8px;
     margin-bottom: 0;
     border-radius: 2px;

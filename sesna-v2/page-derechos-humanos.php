@@ -65,8 +65,11 @@ get_header();
                        data-pdf-url="<?php echo esc_url( $dh_pdf_nondiscriminacion ); ?>"
                        data-pdf-title="Pronunciamiento de No Discriminación 2026"
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
-                        <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
-                            <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
+                        <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
+                            <div class="cp-doc-thumb__logo">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 52px; max-height: 32px; object-fit: contain; filter: brightness(0) invert(1);">
+                            </div>
+                            <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
                         <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 14px;"></i>
@@ -79,8 +82,11 @@ get_header();
                        data-pdf-url="<?php echo esc_url( $dh_pdf_acoso ); ?>"
                        data-pdf-title="Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual 2026"
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
-                        <div class="icon-bg-circle icon-bg-circle--md flex-shrink-0">
-                            <i class="bi bi-file-earmark-richtext" style="font-size: 22px; color: var(--color-burgundi);"></i>
+                        <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
+                            <div class="cp-doc-thumb__logo">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 52px; max-height: 32px; object-fit: contain; filter: brightness(0) invert(1);">
+                            </div>
+                            <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
                         <i class="bi bi-chevron-right text-muted flex-shrink-0" style="font-size: 14px;"></i>
