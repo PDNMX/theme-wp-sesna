@@ -821,6 +821,14 @@ body.front-page main.page {
     }
 }
 
+.sesna-hero__img {
+    max-height: 280px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
 /* ------------------------------------------------------------
    Breadcrumb SESNA — extiende .cp-breadcrumb del CDN GOB.mx v3
    ------------------------------------------------------------ */

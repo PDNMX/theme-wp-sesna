@@ -35,10 +35,11 @@ get_header(); ?>
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-4 text-end d-none d-md-block position-relative">
-                    <div class="icon-wrapper-large">
-                        <i class="bi bi-search"></i>
-                    </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode('Riegos e Inteligencia Encabezado.png') ); ?>"
+                         alt="Riesgos e Inteligencia Anticorrupción"
+                         class="sesna-hero__img"
+                         loading="eager">
                 </div>
             </div>
         </div>

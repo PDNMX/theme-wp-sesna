@@ -36,6 +36,12 @@ get_header();
                         Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode('Derechos humanos Encabezado.png') ); ?>"
+                         alt="Derechos Humanos y Perspectiva de Género"
+                         class="sesna-hero__img"
+                         loading="eager">
+                </div>
             </div>
         </div>
     </section>
