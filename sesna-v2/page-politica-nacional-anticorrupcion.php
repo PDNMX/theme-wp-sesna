@@ -175,7 +175,7 @@ get_header();
 
             <div class="pna-ciclo-diagram mt-4">
 
-                <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-step pna-ciclo-step--1 text-decoration-none">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/diseno-pna/') ); ?>" class="pna-ciclo-step pna-ciclo-step--1 text-decoration-none">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">1</span>
@@ -201,12 +201,12 @@ get_header();
                              class="pna-ciclo-center__flechas" loading="lazy">
 
                         <!-- Íconos superpuestos en los espacios del diagrama circular -->
-                        <a href="<?php echo esc_url( home_url('/diseno-pna/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--1" aria-label="Ir a Diseño de la Política Nacional Anticorrupción">
+                        <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/diseno-pna/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--1" aria-label="Ir a Diseño de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="">
                         </a>
-                        <div class="pna-ciclo-overlay pna-ciclo-overlay--2" aria-hidden="true">
+                        <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/presupuestacion/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--2" aria-label="Ir a Presupuestación de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
-                        </div>
+                        </a>
                         <div class="pna-ciclo-overlay pna-ciclo-overlay--3" aria-hidden="true">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
                         </div>
@@ -221,14 +221,14 @@ get_header();
                     </div>
                 </div>
 
-                <div class="pna-ciclo-step pna-ciclo-step--2">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/presupuestacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--2 text-decoration-none">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">2</span>
                         <p class="pna-ciclo-step__title">Presupuestación</p>
                     </div>
                     <p class="pna-ciclo-step__desc">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
-                </div>
+                </a>
 
                 <div class="pna-ciclo-step pna-ciclo-step--3">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
