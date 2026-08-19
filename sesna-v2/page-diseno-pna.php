@@ -659,49 +659,40 @@ get_header();
                         Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
                     </p>
 
-                    <div class="row g-4 align-items-center">
-                        <!-- Gráfica Ecosistema Participativo -->
+                    <div class="row g-4 align-items-stretch">
+                        <!-- Imagen Consulta Ciudadana en línea -->
                         <div class="col-lg-6">
-                            <div class="bg-light rounded-4 p-4 p-md-5 text-center position-relative border h-100 d-flex flex-column justify-content-center">
-                                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                                    <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-mortarboard me-1" style="color: #00887A;"></i> Academia</span>
-                                    <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-people me-1" style="color: #00887A;"></i> Ciudadanía</span>
-                                    <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-building me-1" style="color: #00887A;"></i> Organizaciones de la Sociedad Civil</span>
-                                </div>
-                                <div class="my-2 py-3 px-5 rounded-pill d-inline-block text-white fw-bold shadow mx-auto" style="background-color: #00887A; font-size: 15px;">
-                                    <i class="bi bi-people-fill me-2"></i> Consultas Ciudadana
-                                </div>
-                                <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-                                    <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-briefcase me-1" style="color: #00887A;"></i> Sector privado</span>
-                                    <span class="badge bg-white text-dark border p-2 shadow-sm px-3 py-2 rounded-pill"><i class="bi bi-bank me-1" style="color: #00887A;"></i> Gobierno</span>
-                                </div>
+                            <div class="bg-light rounded-4 border h-100 d-flex align-items-center justify-content-center p-4">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Consulta Ciudadana en línea.svg') ); ?>"
+                                     alt="Consulta Ciudadana en línea"
+                                     style="max-width: 100%; max-height: 350px; width: auto;">
                             </div>
                         </div>
 
                         <!-- Documentos de consulta -->
                         <div class="col-lg-6">
-                            <div class="card border rounded-4 p-4 bg-white h-100 shadow-sm" style="border-color: #E9ECEF !important;">
+                            <div class="card border rounded-4 p-4 bg-white h-100 shadow-sm d-flex flex-column" style="border-color: #E9ECEF !important;">
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
-                                <div class="d-flex flex-column">
+                                <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="#">
                                         <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
-                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-6">Preguntas de la Consulta Ciudadana en línea</div>
+                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="#">
                                         <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
-                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-6">Respuestas de la Consulta Ciudadana en línea</div>
+                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="#">
                                         <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
-                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-6">Reporte de evidencias cualitativas sobre corrupción</div>
+                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="#">
                                         <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
-                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-6">Anexo de análisis estadístico de subjetividades</div>
+                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Aviso de privacidad sobre los datos recabados para la propuesta de la PNA" data-pdf-url="#">
                                         <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
-                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-6">Aviso de privacidad sobre los datos recabados para la propuesta de la PNA</div>
+                                        <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Aviso de privacidad sobre los datos recabados para la propuesta de la PNA</div>
                                     </a>
                                 </div>
                             </div>
