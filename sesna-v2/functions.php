@@ -3001,5 +3001,192 @@ function sesna_dh_catalogo_admin_scripts($hook) {
         wp_enqueue_media();
     }
 }
+
+// =============================================================================
+// CPT: Documentos ATA (Anexo Transversal Anticorrupción)
+// =============================================================================
+
+function sesna_register_ata_documento_cpt() {
+    register_post_type( 'ata_documento', array(
+        'labels' => array(
+            'name'               => 'Documentos ATA',
+            'singular_name'      => 'Documento ATA',
+            'add_new'            => 'Añadir documento',
+            'add_new_item'       => 'Añadir documento ATA',
+            'edit_item'          => 'Editar documento ATA',
+            'new_item'           => 'Nuevo documento ATA',
+            'view_item'          => 'Ver documento ATA',
+            'search_items'       => 'Buscar documentos ATA',
+            'not_found'          => 'No se encontraron documentos ATA',
+            'not_found_in_trash' => 'No hay documentos ATA en la papelera',
+            'menu_name'          => 'Documentos ATA',
+        ),
+        'public'            => false,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'menu_icon'         => 'dashicons-media-spreadsheet',
+        'supports'          => array( 'title' ),
+        'capability_type'   => 'post',
+        'has_archive'       => false,
+        'rewrite'           => false,
+    ) );
+}
+add_action( 'init', 'sesna_register_ata_documento_cpt' );
+
+function sesna_ata_documento_add_meta_box() {
+    add_meta_box(
+        'sesna_ata_documento_meta',
+        'Información del documento',
+        'sesna_ata_documento_meta_box_html',
+        'ata_documento',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'sesna_ata_documento_add_meta_box' );
+
+function sesna_ata_documento_meta_box_html( $post ) {
+    wp_nonce_field( 'sesna_save_ata_documento_meta', 'sesna_ata_documento_nonce' );
+
+    $tipo      = get_post_meta( $post->ID, '_ata_tipo', true );
+    $anio      = get_post_meta( $post->ID, '_ata_anio', true );
+    $archivo_id = get_post_meta( $post->ID, '_ata_archivo_id', true );
+    $archivo_url = $archivo_id ? wp_get_attachment_url( intval( $archivo_id ) ) : '';
+
+    $tipos = array(
+        'metodologia'        => 'Metodología',
+        'informe_asignacion' => 'Informe de asignación',
+        'base_datos'         => 'Base de datos',
+        'informe_ejecucion'  => 'Informe de Ejecución y Seguimiento',
+    );
+    ?>
+    <table class="form-table">
+        <tr>
+            <th><label for="ata_tipo">Tipo de documento</label></th>
+            <td>
+                <select id="ata_tipo" name="_ata_tipo" style="width:100%;max-width:300px;">
+                    <option value="">— Selecciona —</option>
+                    <?php foreach ( $tipos as $val => $label ) : ?>
+                        <option value="<?php echo esc_attr( $val ); ?>" <?php selected( $tipo, $val ); ?>>
+                            <?php echo esc_html( $label ); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="ata_anio">Año</label></th>
+            <td>
+                <input type="number" id="ata_anio" name="_ata_anio" value="<?php echo esc_attr( $anio ); ?>"
+                       min="2000" max="2100" style="width:120px;">
+                <p class="description">Usado para ordenar y mostrar la etiqueta del enlace. Para Metodología puedes dejar el año y usar el título del post como descripción.</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label>Archivo</label></th>
+            <td>
+                <input type="hidden" id="ata_archivo_id" name="_ata_archivo_id" value="<?php echo esc_attr( $archivo_id ); ?>">
+                <div id="ata_archivo_preview" style="margin-bottom:8px;">
+                    <?php if ( $archivo_url ) : ?>
+                        <a href="<?php echo esc_url( $archivo_url ); ?>" target="_blank"><?php echo esc_html( basename( $archivo_url ) ); ?></a>
+                    <?php else : ?>
+                        <span class="description">Sin archivo seleccionado.</span>
+                    <?php endif; ?>
+                </div>
+                <button type="button" class="button" id="ata_archivo_btn">Seleccionar archivo</button>
+                <?php if ( $archivo_id ) : ?>
+                    <button type="button" class="button" id="ata_archivo_clear" style="margin-left:6px;">Quitar archivo</button>
+                <?php endif; ?>
+                <script>
+                jQuery(document).ready(function($){
+                    var frame;
+                    $('#ata_archivo_btn').on('click', function(e){
+                        e.preventDefault();
+                        if ( frame ) { frame.open(); return; }
+                        frame = wp.media({ title: 'Seleccionar archivo', button: { text: 'Usar este archivo' }, multiple: false });
+                        frame.on('select', function(){
+                            var attachment = frame.state().get('selection').first().toJSON();
+                            $('#ata_archivo_id').val(attachment.id);
+                            $('#ata_archivo_preview').html('<a href="' + attachment.url + '" target="_blank">' + attachment.filename + '</a>');
+                        });
+                        frame.open();
+                    });
+                    $('#ata_archivo_clear').on('click', function(){
+                        $('#ata_archivo_id').val('');
+                        $('#ata_archivo_preview').html('<span class="description">Sin archivo seleccionado.</span>');
+                    });
+                });
+                </script>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+
+function sesna_save_ata_documento_meta( $post_id ) {
+    if ( ! isset( $_POST['sesna_ata_documento_nonce'] ) ||
+         ! wp_verify_nonce( $_POST['sesna_ata_documento_nonce'], 'sesna_save_ata_documento_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+    if ( isset( $_POST['_ata_tipo'] ) ) {
+        update_post_meta( $post_id, '_ata_tipo', sanitize_text_field( $_POST['_ata_tipo'] ) );
+    }
+    if ( isset( $_POST['_ata_anio'] ) ) {
+        update_post_meta( $post_id, '_ata_anio', intval( $_POST['_ata_anio'] ) );
+    }
+    if ( isset( $_POST['_ata_archivo_id'] ) ) {
+        update_post_meta( $post_id, '_ata_archivo_id', intval( $_POST['_ata_archivo_id'] ) );
+    }
+}
+add_action( 'save_post_ata_documento', 'sesna_save_ata_documento_meta' );
+
+function sesna_ata_enqueue_media( $hook ) {
+    global $typenow;
+    if ( $typenow === 'ata_documento' ) {
+        wp_enqueue_media();
+    }
+}
+add_action( 'admin_enqueue_scripts', 'sesna_ata_enqueue_media' );
+
+/**
+ * Retorna los documentos ATA de un tipo dado, ordenados por año DESC.
+ *
+ * @param string $tipo  metodologia | informe_asignacion | base_datos | informe_ejecucion
+ * @return array  Array de arrays con keys: label, anio, url
+ */
+function sesna_get_ata_docs( $tipo ) {
+    $posts = get_posts( array(
+        'post_type'      => 'ata_documento',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'meta_query'     => array(
+            array(
+                'key'   => '_ata_tipo',
+                'value' => $tipo,
+            ),
+        ),
+        'orderby'  => 'meta_value_num',
+        'meta_key' => '_ata_anio',
+        'order'    => 'DESC',
+    ) );
+
+    $docs = array();
+    foreach ( $posts as $post ) {
+        $anio       = get_post_meta( $post->ID, '_ata_anio', true );
+        $archivo_id = get_post_meta( $post->ID, '_ata_archivo_id', true );
+        $url        = $archivo_id ? wp_get_attachment_url( intval( $archivo_id ) ) : '';
+        if ( ! $url ) continue;
+
+        $docs[] = array(
+            'label' => $post->post_title ?: strval( $anio ),
+            'anio'  => intval( $anio ),
+            'url'   => $url,
+        );
+    }
+    return $docs;
+}
 add_action('admin_enqueue_scripts', 'sesna_dh_catalogo_admin_scripts');
 add_action('admin_enqueue_scripts', 'sesna_dh_comite_acta_admin_scripts');
