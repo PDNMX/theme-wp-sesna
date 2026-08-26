@@ -5721,3 +5721,20 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ── Fondo homologado páginas PNA ─────────────── */
+body.page-politica-nacional-anticorrupcion,
+body.page-pna-diseno,
+body.page-pna-presupuestacion {
+    background-color: #f6eff6;
+}
+
+body.page-politica-nacional-anticorrupcion .card {
+    background-color: #ffffff;
+}
+
+body.page-politica-nacional-anticorrupcion .pna-stats-card,
+body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
+    background: #ffffff;
+}
+

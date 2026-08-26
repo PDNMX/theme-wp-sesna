@@ -3004,3 +3004,16 @@ function sesna_dh_catalogo_admin_scripts($hook) {
 
 add_action('admin_enqueue_scripts', 'sesna_dh_catalogo_admin_scripts');
 add_action('admin_enqueue_scripts', 'sesna_dh_comite_acta_admin_scripts');
+// Agrega clases al body según el template activo (para páginas PNA con slug-matching)
+add_filter('body_class', function($classes) {
+    $template = basename(get_page_template());
+    $map = array(
+        'page-politica-nacional-anticorrupcion.php' => 'page-politica-nacional-anticorrupcion',
+        'page-diseno-pna.php'                       => 'page-pna-diseno',
+        'page-presupuestacion.php'                  => 'page-pna-presupuestacion',
+    );
+    if (isset($map[$template])) {
+        $classes[] = $map[$template];
+    }
+    return $classes;
+});
