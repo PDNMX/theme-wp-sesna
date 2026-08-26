@@ -13,26 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const downloadBtn = document.getElementById('pdfDownloadBtn');
         const loader = document.getElementById('pdfLoader');
         const title = document.getElementById('pdfViewerModalLabel');
-        // Cuando el click handler de abajo ya resolvió correctamente el documento
-        // (por ejemplo un ítem dentro de un dropdown de Bootstrap), el listener
-        // 'show.bs.modal' de más abajo NO debe volver a resolverlo usando
-        // event.relatedTarget, porque tras cerrarse el dropdown ese valor puede
-        // apuntar a un elemento distinto (el toggle, o el foco previo) y pisar
-        // el título/URL correctos con datos equivocados.
+        // Evita que 'show.bs.modal' reprocese con relatedTarget cuando el click ya resolvió el documento.
         let lastResolvedByClick = false;
 
+        // Captura (3er arg `true`) para ejecutarse antes que el listener nativo de Bootstrap en [data-bs-toggle="modal"].
         document.addEventListener('click', function(e) {
-            // No hacer nada si se hace clic en cabeceras de acordeón u otros controles de UI
             if (e.target.closest('.pna-anexos-header')) return;
 
-            // Buscar si el clic fue en un elemento de documento PDF
             const trigger = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#pdfViewerModal"], .pna-doc-card, .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
 
-            // Si el trigger ya declara explícitamente otro modal (p. ej. un visor de video),
-            // respetar esa intención y no interceptarlo como si fuera un PDF.
+            // Respeta un modal distinto declarado explícitamente (ej. visor de video).
             if (trigger && trigger.hasAttribute('data-bs-target') && trigger.getAttribute('data-bs-target') !== '#pdfViewerModal') return;
 
-            // Verificar por clase, atributo o contenido de texto si es un PDF
             let isPdfTrigger = false;
             if (trigger) {
                 if (trigger.getAttribute('data-bs-target') === '#pdfViewerModal' || trigger.classList.contains('pna-doc-card') || trigger.classList.contains('pna-anexo-item') || trigger.classList.contains('tx-sesion-pdf-link') || trigger.classList.contains('tx-sesion-chevron-link') || trigger.hasAttribute('data-pdf-url')) {
@@ -44,9 +36,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!isPdfTrigger || !trigger) return;
 
+            const pdfUrl = trigger.getAttribute('data-pdf-url') || trigger.getAttribute('href') || '#';
+
+            // Archivos no-PDF (xlsx, docx, etc.) se descargan directo; stopImmediatePropagation
+            // evita que el listener nativo de Bootstrap abra igualmente el modal.
+            if (pdfUrl && pdfUrl !== '#' && !/\.pdf(\?.*)?$/i.test(pdfUrl)) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                const tempLink = document.createElement('a');
+                tempLink.href = pdfUrl;
+                tempLink.download = '';
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+                return;
+            }
+
             e.preventDefault();
-            
-            // Obtener título y URL
+
             let pdfTitle = trigger.getAttribute('data-pdf-title') || '';
             if (!pdfTitle) {
                 const parentRow = trigger.closest('.pna-foro-item, .pna-step-card, .tx-doc-row, .tx-sesion-row, tr, li, div.row, div.card');
@@ -57,9 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
             pdfTitle = pdfTitle.replace(/\s*\(PDF\)\s*/gi, '').replace(/<i[^>]*>.*?<\/i>/gi, '').replace(/^Ver\s+/i, '').replace(/^Descargar\s+/i, '').replace(/^Consultar\s*/i, '').trim() || 'Visor de Documento';
-            
-            const pdfUrl = trigger.getAttribute('data-pdf-url') || trigger.getAttribute('href') || '#';
-            
+
             if (title) title.textContent = pdfTitle;
             if (downloadBtn) downloadBtn.href = pdfUrl;
             
@@ -83,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     iframe.src = pdfUrl;
                 }
 
-                // Abrir modal usando Bootstrap o jQuery
                 lastResolvedByClick = true;
                 if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
                     let modalInstance = bootstrap.Modal.getInstance(pdfModalEl) || new bootstrap.Modal(pdfModalEl);
@@ -92,13 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     $(pdfModalEl).modal('show');
                 }
             }
-        });
+        }, true);
 
-        // Soporte adicional para cuando el modal se abre vía evento de Bootstrap
         pdfModalEl.addEventListener('show.bs.modal', function (event) {
-            // El click handler de arriba ya resolvió correctamente el documento
-            // (p. ej. clic en un ítem de dropdown): no reprocesar con relatedTarget,
-            // que tras cerrarse el dropdown puede no ser el elemento correcto.
             if (lastResolvedByClick) {
                 lastResolvedByClick = false;
                 return;
@@ -106,6 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const button = event.relatedTarget;
             if (!button) return;
             const pdfUrl = button.getAttribute('data-pdf-url') || button.getAttribute('href') || '#';
+
+            if (pdfUrl && pdfUrl !== '#' && !/\.pdf(\?.*)?$/i.test(pdfUrl)) {
+                event.preventDefault();
+                return;
+            }
+
             let pdfTitle = button.getAttribute('data-pdf-title') || '';
             if (!pdfTitle) {
                 const parentRow = button.closest('.pna-foro-item, .pna-step-card, .tx-doc-row, .tx-sesion-row, tr, li, div.row, div.card');
