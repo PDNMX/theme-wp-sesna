@@ -91,7 +91,6 @@ get_header();
             'icono'  => 'bi-clock-history',
             'titulo' => 'Informe de Ejecución y Seguimiento',
             'docs'   => array(
-                array( 'label' => '2025', 'file' => '', 'path' => '' ),
                 array( 'label' => '2024', 'file' => 'Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf',   'path' => '2025/08/Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf' ),
                 array( 'label' => '2023', 'file' => '001-Informe_ejecucion_seguimiento_ATA_2023.pdf',     'path' => '2024/07/001-Informe_ejecucion_seguimiento_ATA_2023.pdf' ),
                 array( 'label' => '2022', 'file' => 'INF_ejec2022_ATA.pdf',                               'path' => '2023/05/INF_ejec2022_ATA.pdf' ),
