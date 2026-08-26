@@ -69,7 +69,6 @@ get_header();
             'icono'  => 'bi-bar-chart',
             'titulo' => 'Informe de asignación',
             'docs'   => array(
-                array( 'label' => '2026', 'file' => '', 'path' => '' ),
                 array( 'label' => '2025', 'file' => 'Informe-de-asignacion-ATA-2025.pdf',  'path' => '2025/03/Informe-de-asignacion-ATA-2025.pdf' ),
                 array( 'label' => '2024', 'file' => 'Informe-de-asignacion-ATA-2024.pdf',  'path' => '2023/03/Informe-de-asignacion-ATA-2024.pdf' ),
                 array( 'label' => '2023', 'file' => 'INF_ATA2023.pdf',                     'path' => '2023/03/INF_ATA2023.pdf' ),
@@ -81,7 +80,6 @@ get_header();
             'icono'  => 'bi-database',
             'titulo' => 'Base de datos',
             'docs'   => array(
-                array( 'label' => '2026', 'file' => '', 'path' => '' ),
                 array( 'label' => '2025', 'file' => 'ATA-2025-PEF.zip',                          'path' => '2025/03/ATA-2025-PEF.zip' ),
                 array( 'label' => '2024', 'file' => 'ATA-2024-PPEF.xlsx',                        'path' => '2023/03/ATA-2024-PPEF.xlsx' ),
                 array( 'label' => '2023', 'file' => 'BD_ATA-2023-AC01.xlsx',                     'path' => '2023/03/BD_ATA-2023-AC01.xlsx' ),
