@@ -5688,3 +5688,36 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     }
 }
 
+
+/* ── page-presupuestacion ─────────────────────── */
+.page-pna-presupuestacion .pna-doc-item:hover {
+    background-color: #F9F0F3;
+    color: #611232 !important;
+}
+.page-pna-presupuestacion .pna-doc-item:focus {
+    outline: none;
+}
+
+/* ── Panorama charts — animación de entrada ───── */
+.pna-chart-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .55s ease calc(var(--delay, 0s)),
+                transform .55s ease calc(var(--delay, 0s));
+}
+.pna-chart-card.pna-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Presupuestación — animación de secciones ─── */
+.pna-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease calc(var(--delay, 0s)),
+                transform .6s ease calc(var(--delay, 0s));
+}
+.pna-reveal.pna-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
