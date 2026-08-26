@@ -55,10 +55,52 @@ get_header();
 
     <!-- BLOQUE 2: Documentos del Anexo Transversal Anticorrupción -->
     <?php
-    $ata_metodologia        = sesna_get_ata_docs( 'metodologia' );
-    $ata_informe_asignacion = sesna_get_ata_docs( 'informe_asignacion' );
-    $ata_base_datos         = sesna_get_ata_docs( 'base_datos' );
-    $ata_informe_ejecucion  = sesna_get_ata_docs( 'informe_ejecucion' );
+    $ata_columnas = array(
+        array(
+            'icono'  => 'bi-book',
+            'titulo' => 'Metodología',
+            'docs'   => array(
+                array( 'label' => 'Metodología para la integración del ATA',  'file' => 'Metodologia-para-la-Integracion-del-ATA.pdf',              'path' => '2024/08/Metodologia-para-la-Integracion-del-ATA.pdf' ),
+                array( 'label' => 'Metodología 2023 y 2024',                  'file' => 'Metodologia-Integracion-ATA-2023-2024-28.06.2023-1.pdf',   'path' => '2023/04/Metodologia-Integracion-ATA-2023-2024-28.06.2023-1.pdf' ),
+                array( 'label' => 'Metodología 2021 y 2022',                  'file' => 'Met_integraci%C3%B3n_ATA_VF-18ago20.pdf',                 'path' => '2020/08/Met_integraci%C3%B3n_ATA_VF-18ago20.pdf' ),
+            ),
+        ),
+        array(
+            'icono'  => 'bi-bar-chart',
+            'titulo' => 'Informe de asignación',
+            'docs'   => array(
+                array( 'label' => '2026', 'file' => '', 'path' => '' ),
+                array( 'label' => '2025', 'file' => 'Informe-de-asignacion-ATA-2025.pdf',  'path' => '2025/03/Informe-de-asignacion-ATA-2025.pdf' ),
+                array( 'label' => '2024', 'file' => 'Informe-de-asignacion-ATA-2024.pdf',  'path' => '2023/03/Informe-de-asignacion-ATA-2024.pdf' ),
+                array( 'label' => '2023', 'file' => 'INF_ATA2023.pdf',                     'path' => '2023/03/INF_ATA2023.pdf' ),
+                array( 'label' => '2022', 'file' => 'INF_ATA2022.pdf',                     'path' => '2022/01/INF_ATA2022.pdf' ),
+                array( 'label' => '2021', 'file' => 'Informe-ATA.pdf',                     'path' => '2021/01/Informe-ATA.pdf' ),
+            ),
+        ),
+        array(
+            'icono'  => 'bi-database',
+            'titulo' => 'Base de datos',
+            'docs'   => array(
+                array( 'label' => '2026', 'file' => '', 'path' => '' ),
+                array( 'label' => '2025', 'file' => 'ATA-2025-PEF.zip',                          'path' => '2025/03/ATA-2025-PEF.zip' ),
+                array( 'label' => '2024', 'file' => 'ATA-2024-PPEF.xlsx',                        'path' => '2023/03/ATA-2024-PPEF.xlsx' ),
+                array( 'label' => '2023', 'file' => 'BD_ATA-2023-AC01.xlsx',                     'path' => '2023/03/BD_ATA-2023-AC01.xlsx' ),
+                array( 'label' => '2022', 'file' => 'BD_ATA-2022-AC01.xls',                      'path' => '2022/01/BD_ATA-2022-AC01.xls' ),
+                array( 'label' => '2021', 'file' => 'Anexo-Transversal-Anticorrupcion-2021.xlsx', 'path' => '2021/01/Anexo-Transversal-Anticorrupcion-2021.xlsx' ),
+            ),
+        ),
+        array(
+            'icono'  => 'bi-clock-history',
+            'titulo' => 'Informe de Ejecución y Seguimiento',
+            'docs'   => array(
+                array( 'label' => '2025', 'file' => '', 'path' => '' ),
+                array( 'label' => '2024', 'file' => 'Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf',   'path' => '2025/08/Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf' ),
+                array( 'label' => '2023', 'file' => '001-Informe_ejecucion_seguimiento_ATA_2023.pdf',     'path' => '2024/07/001-Informe_ejecucion_seguimiento_ATA_2023.pdf' ),
+                array( 'label' => '2022', 'file' => 'INF_ejec2022_ATA.pdf',                               'path' => '2023/05/INF_ejec2022_ATA.pdf' ),
+                array( 'label' => '2021', 'file' => 'INF_ejec2021_ATA.pdf',                               'path' => '2022/07/INF_ejec2021_ATA.pdf' ),
+            ),
+        ),
+    );
     ?>
     <section class="pb-5">
         <div class="container">
@@ -77,34 +119,6 @@ get_header();
                 <div class="cp-recursos__linea mb-4"></div>
 
                 <!-- 4 columnas de documentos -->
-                <?php
-                $ata_columnas = array(
-                    array(
-                        'tipo'  => 'metodologia',
-                        'docs'  => $ata_metodologia,
-                        'icono' => 'bi-book',
-                        'titulo'=> 'Metodología',
-                    ),
-                    array(
-                        'tipo'  => 'informe_asignacion',
-                        'docs'  => $ata_informe_asignacion,
-                        'icono' => 'bi-bar-chart',
-                        'titulo'=> 'Informe de asignación',
-                    ),
-                    array(
-                        'tipo'  => 'base_datos',
-                        'docs'  => $ata_base_datos,
-                        'icono' => 'bi-database',
-                        'titulo'=> 'Base de datos',
-                    ),
-                    array(
-                        'tipo'  => 'informe_ejecucion',
-                        'docs'  => $ata_informe_ejecucion,
-                        'icono' => 'bi-clock-history',
-                        'titulo'=> 'Informe de Ejecución y Seguimiento',
-                    ),
-                );
-                ?>
                 <div class="row g-4">
                     <?php foreach ( $ata_columnas as $col ) : ?>
                     <div class="col-lg-3 col-md-6">
@@ -116,18 +130,21 @@ get_header();
                                 <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232;"><?php echo esc_html( $col['titulo'] ); ?></h3>
                             </div>
                             <div class="d-flex flex-column flex-grow-1">
-                                <?php if ( empty( $col['docs'] ) ) : ?>
-                                    <p class="text-muted font-noto-sans" style="font-size: 14px;">Próximamente.</p>
-                                <?php else : ?>
-                                    <?php foreach ( $col['docs'] as $doc ) : ?>
-                                    <a href="<?php echo esc_url( $doc['url'] ); ?>"
+                                <?php foreach ( $col['docs'] as $doc ) : ?>
+                                    <?php if ( ! empty( $doc['file'] ) ) : ?>
+                                    <a href="<?php echo esc_url( sesna_get_media_attachment_url( $doc['file'], $doc['path'] ) ); ?>"
                                        target="_blank" rel="noopener"
                                        class="d-flex align-items-start gap-2 py-2 border-bottom text-decoration-none text-dark pna-doc-item">
                                         <i class="bi bi-download flex-shrink-0 mt-1" style="color: #611232;"></i>
                                         <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?></span>
                                     </a>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                    <?php else : ?>
+                                    <span class="d-flex align-items-center gap-2 py-2 border-bottom text-muted">
+                                        <i class="bi bi-download flex-shrink-0" style="color: #ccc;"></i>
+                                        <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
+                                    </span>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
