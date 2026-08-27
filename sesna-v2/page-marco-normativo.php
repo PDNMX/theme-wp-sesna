@@ -33,6 +33,12 @@ get_header();
                         Conoce el <strong>marco normativo</strong> que sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como las disposiciones jurídicas que orientan su actuación y participación en el cumplimiento de los objetivos del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/Marco_normativo_Encabezado.png' ); ?>"
+                         alt="Marco Normativo"
+                         class="sesna-hero__img"
+                         loading="eager">
+                </div>
             </div>
         </div>
     </section>
@@ -46,11 +52,11 @@ get_header();
                 <h2 class="h6 fw-bold font-noto-sans mb-3 text-uppercase" style="color: var(--color-burgundi); letter-spacing: 0.5px;">MARCO NORMATIVO</h2>
                 <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-normatividad">
                     <a href="#" data-target="norm-ext" class="ocn-sidebar-link js-tab-link active d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Normativa externa</span>
+                        <span class="fw-bold font-noto-sans">Normatividad externa</span>
                         <i class="bi bi-chevron-right fw-bold"></i>
                     </a>
                     <a href="#" data-target="norm-int" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Normativa interna</span>
+                        <span class="fw-bold font-noto-sans">Normatividad interna</span>
                         <i class="bi bi-chevron-right fw-bold"></i>
                     </a>
                 </div>
@@ -77,7 +83,7 @@ get_header();
 
                         <!-- TABLE 1: EXTERNA -->
                         <div id="normatividad-externa-container">
-                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-externa-title">NORMATIVA EXTERNA</h3>
+                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-externa-title">NORMATIVIDAD EXTERNA</h3>
                         <div class="table-responsive" id="normatividad-externa-table-wrap">
                             <table class="tx-table-normatividad">
                                 <thead>
@@ -473,7 +479,7 @@ get_header();
 
                         <!-- TABLE 2: INTERNA -->
                         <div id="normatividad-interna-container">
-                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-interna-title">NORMATIVA INTERNA</h3>
+                        <h3 class="tx-table-normatividad-title mt-5" id="normatividad-interna-title">NORMATIVIDAD INTERNA</h3>
                         <div class="table-responsive" id="normatividad-interna-table-wrap">
                             <table class="tx-table-normatividad">
                                 <thead>

@@ -53,6 +53,12 @@ rsort($oc_anios_organo);
                         Información de los diversos órganos colegiados en los que participa la SESNA: Comité Coordinador, Órgano de Gobierno y Comisión Ejecutiva.
                     </p>
                 </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/Organos_Colegiados_Encabezado.png' ); ?>"
+                         alt="Órganos Colegiados"
+                         class="sesna-hero__img"
+                         loading="eager">
+                </div>
             </div>
         </div>
     </section>
