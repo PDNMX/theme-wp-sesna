@@ -5508,7 +5508,8 @@ button[data-bs-target="#pdfViewerModal"]:focus {
 }
 
 /* Sidebar Nav - Diseño Premium */
-.page-organos-colegiados .ocn-sidebar-nav {
+.page-organos-colegiados .ocn-sidebar-nav,
+.page-marco-normativo .ocn-sidebar-nav {
     border-radius: 16px;
     background-color: #fff;
     border: 1px solid rgba(0,0,0,0.04);
@@ -5516,7 +5517,8 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     padding: 0.5rem;
 }
 
-.page-organos-colegiados .ocn-sidebar-link {
+.page-organos-colegiados .ocn-sidebar-link,
+.page-marco-normativo .ocn-sidebar-link {
     color: #444;
     border-radius: 10px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5527,32 +5529,41 @@ button[data-bs-target="#pdfViewerModal"]:focus {
 }
 
 .page-organos-colegiados .ocn-sidebar-link:focus,
-.page-organos-colegiados .ocn-sidebar-link:active {
+.page-organos-colegiados .ocn-sidebar-link:active,
+.page-marco-normativo .ocn-sidebar-link:focus,
+.page-marco-normativo .ocn-sidebar-link:active {
     outline: none !important;
 }
 
-.page-organos-colegiados .ocn-sidebar-link:last-child {
+.page-organos-colegiados .ocn-sidebar-link:last-child,
+.page-marco-normativo .ocn-sidebar-link:last-child {
     margin-bottom: 0;
 }
 
-.page-organos-colegiados .ocn-sidebar-link:hover {
+.page-organos-colegiados .ocn-sidebar-link:hover,
+.page-marco-normativo .ocn-sidebar-link:hover {
     background-color: #f8f9fa;
     color: var(--color-burgundi, #9F2241) !important;
     transform: translateX(4px);
 }
 .page-organos-colegiados .ocn-sidebar-link:hover i,
-.page-organos-colegiados .ocn-sidebar-link:hover span {
+.page-organos-colegiados .ocn-sidebar-link:hover span,
+.page-marco-normativo .ocn-sidebar-link:hover i,
+.page-marco-normativo .ocn-sidebar-link:hover span {
     color: var(--color-burgundi, #9F2241) !important;
 }
 
-.page-organos-colegiados .ocn-sidebar-link.active {
+.page-organos-colegiados .ocn-sidebar-link.active,
+.page-marco-normativo .ocn-sidebar-link.active {
     background-color: var(--color-burgundi, #9F2241);
     color: #fff !important;
     box-shadow: 0 4px 12px rgba(159, 34, 65, 0.2);
 }
 
 .page-organos-colegiados .ocn-sidebar-link.active i,
-.page-organos-colegiados .ocn-sidebar-link.active span {
+.page-organos-colegiados .ocn-sidebar-link.active span,
+.page-marco-normativo .ocn-sidebar-link.active i,
+.page-marco-normativo .ocn-sidebar-link.active span {
     color: #fff !important;
 }
 

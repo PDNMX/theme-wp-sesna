@@ -172,7 +172,7 @@ if (!function_exists('sesna_render_document_row')) {
                     </div>
                     <div class="flex-shrink-0 mt-4 mt-md-0 align-self-stretch align-self-md-auto text-md-end">
                         <a href="<?php echo esc_url( home_url('/acciones-y-programas/organos-colegiados-y-normatividad/') ); ?>" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
-                            Ir a Órganos Colegiados y Normativa <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                            Marco Normativo<i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
