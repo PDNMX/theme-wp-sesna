@@ -298,7 +298,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo mediante el cual el Comité Coordinador del Sistema Nacional Anticorrupción aprueba la Política Nacional Anticorrupción</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://sidof.segob.gob.mx/notas/getDoc/5587360" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2020/03/7.-ACUERDO-MEDIANTE-EL-CUAL-EL-COMITÉ-COORDINADOR-DEL-SISTEMA-NACIONAL-ANTICORRUPCIÓN.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -308,7 +308,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo por el que el Comité Coordinador del Sistema Nacional Anticorrupción da a conocer que los formatos de declaración de situación patrimonial y de intereses son técnicamente operables con el Sistema de Evolución Patrimonial y de Declaración de Intereses de la Plataforma Digital Nacional, así como el inicio de la obligación de los servidores públicos de presentar sus respectivas declaraciones de situación patrimonial y de intereses conforme a los artículos 32 y 33 de la Ley General de Responsabilidades Administrativas</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5582735&amp;fecha=24/12/2019#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2025/01/211.-ACUERDO.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -338,7 +338,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo por el que el Comité Coordinador del Sistema Nacional Anticorrupción emite el formato de declaraciones: de situación patrimonial y de intereses; y expide las normas e instructivo para su llenado y presentación.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5582735&amp;fecha=24/12/2019#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2019/08/144.dgaj_.acuerdo_cc_sna_formato_declaraciones.pdf.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -358,7 +358,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo mediante el cual el Comité Coordinador del Sistema Nacional Anticorrupción emite el Análisis para la Identificación y Transparencia del Beneficiario Final en México y aprueba los Principios para la Identificación y Transparencia del Beneficiario Final para el Combate a la Corrupción en México.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5541803&amp;fecha=23/10/2018#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="https://www.gob.mx/cms/uploads/attachment/file/429768/Acuerdo_mediante_el_cual_el_Comit__Coordinador_del_Sistema_Nacional_Anticorrupci_n_emite_el_An_lisis_para_la_Identificaci_n_y_....pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -398,7 +398,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo por el que el Comité Coordinador del Sistema Nacional Anticorrupción da a conocer la obligación de presentar las declaraciones de situación patrimonial y de intereses conforme a los artículos 32 y 33 de la Ley General de Responsabilidades Administrativas</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5582735&amp;fecha=24/12/2019#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="https://www.gob.mx/cms/uploads/attachment/file/398332/ACUERDO_por_el_que_el_Comit__Coordinador_del_Sistema_Nacional_Anticorrupci_n_da_a_conocer_la_obligaci_n_de_presentar_las_declaraciones_de_situaci_n_patrimonial...pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -408,7 +408,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Lineamientos para la incorporación de la información al sistema de evolución patrimonial, de declaración de intereses y constancia de presentación de declaración fiscal de la Plataforma Digital Nacional, previsto en el artículo 49, fracción I de la Ley General del Sistema Nacional Anticorrupción.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos, Códigos y Reglas de Integridad</div></td>
                                         <td>
-                                            <a href="https://sidof.segob.gob.mx/notas/getDoc/5718117" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2024/04/0323.-LINEAMIENTOS.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -418,7 +418,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Código de Ética e Integridad para un Buen Gobierno en la Administración Pública Federal.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos, Códigos y Reglas de Integridad</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5773147&amp;fecha=18/11/2025#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2026/01/380.-CODIGO.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -438,7 +438,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Declaratoria de inicio de funciones del sistema de evolución patrimonial, de declaración de intereses y constancia de presentación de declaración fiscal de la Plataforma Digital Nacional, previsto en el artículo 49, fracción I de la Ley General del Sistema Nacional Anticorrupción.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Declaratoria</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5729579&amp;fecha=05/06/2024#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2024/10/09.-DECLARATORIA.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -524,7 +524,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Acuerdo mediante el cual el Sistema Nacional Anticorrupción refrenda los Lineamientos para la emisión del Código de Ética.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
-                                            <a href="https://sidof.segob.gob.mx/notas/5722585" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2024/04/0326.-ACUERDO.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -571,10 +571,10 @@ get_header();
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Lineamientos relativos al control y registro de asistencia de las personas servidoras públicas adscritas a la Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div></td>
+                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Lineamientos relativos al control y registro de asistencia de las personas servidoras públicas adscritas a la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
-                                            <a href="#" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2026/08/lineamientos_asistencia_DRHyO.pdf" target="_blank" class=" tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -584,7 +584,7 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Políticas, Bases y Lineamientos en Materia de Adquisiciones, Arrendamientos y Servicios de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Políticas</div></td>
                                         <td>
-                                            <a href="https://www.gob.mx/cms/uploads/attachment/file/318383/POL_TICAS__BASES_Y_LINEAMIENTOS_EN_MATERIA_DE_ADQUISICIONES__ARRENDAMIENTOS_Y_SERVICIOS_DE_LA_SECRETAR_A_EJECUTIVA_DEL_SISTEMA_NACIONAL_ANTICORRUPCI_N.pdf" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2021/02/9.-POLITICAS....pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -614,17 +614,17 @@ get_header();
                                         <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Manual de Organización General de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Manuales</div></td>
                                         <td>
-                                            <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5773842&amp;fecha=25/11/2025#gsc.tab=0" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2026/01/379.-MANUAL.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Programa Institucional 2020-2024 de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.</div></td>
+                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Programa Institucional 2025-2030 de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
-                                            <a href="/wp-content/uploads/2020/06/2020_06_17_MAT_sesna.pdf" target="_blank" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2025/10/371-PROGRAMA.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
@@ -641,10 +641,10 @@ get_header();
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Plan Anual de Desarrollo Archivístico</div></td>
+                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Plan Anual de Desarrollo Archivístico 2026.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
-                                            <a href="#" class="tx-table-normatividad-link">
+                                            <a href="/wp-content/uploads/2026/08/PADA_2026.pdf" target="_blank" class="tx-table-normatividad-link">
                                                 <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
