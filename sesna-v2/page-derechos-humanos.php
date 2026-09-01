@@ -139,6 +139,23 @@ get_header();
                         $dh_c_banner      = get_post_meta($dh_c_id, '_dh_banner_texto', true) ?: '';
                         $dh_c_resumen     = get_post_meta($dh_c_id, '_dh_resumen',      true) ?: '';
 
+                        // Reemplazar dinámicamente la imagen con SVG específico según el título
+                        $titulo_lower = mb_strtolower($dh_c_titulo, 'UTF-8');
+                        $svg_especifico = '';
+                        if (strpos($titulo_lower, 'menstruación') !== false) {
+                            $svg_especifico = 'Menstruacion_Digna.svg';
+                        } elseif (strpos($titulo_lower, 'salud mental') !== false) {
+                            $svg_especifico = 'Salud_mental.svg';
+                        } elseif (strpos($titulo_lower, 'juicios') !== false) {
+                            $svg_especifico = 'Cuidarnos_sin_juicios.svg';
+                        } elseif (strpos($titulo_lower, 'cuidado') !== false) {
+                            $svg_especifico = 'Taller_del_Derecho_al_cuidado.svg';
+                        }
+                        
+                        if (!empty($svg_especifico)) {
+                            $dh_c_icono_img = get_theme_file_uri('/img/genero/' . rawurlencode($svg_especifico));
+                        }
+
                         // Imagen destacada → fondo de la tarjeta + columna derecha de la modal
                         $dh_c_thumbnail      = '';
                         $dh_c_thumbnail_full = '';
@@ -273,7 +290,7 @@ get_header();
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
                         <div class="dh-acciones-card__img bg-light d-flex align-items-center justify-content-center p-2 p-md-3">
-                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/' . rawurlencode('Acciones X la integridad.svg')) ); ?>"
+                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/Acciones_X_la_integridad.svg') ); ?>"
                                  alt="Acciones X la Integridad"
                                  class="img-fluid"
                                  style="object-fit: contain; width: 90%; max-height: 280px;"
