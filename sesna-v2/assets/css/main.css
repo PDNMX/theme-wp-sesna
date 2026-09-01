@@ -3226,7 +3226,7 @@ body.front-page main.page {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;

@@ -195,7 +195,7 @@ get_header();
                          data-banner="<?php echo esc_attr($dh_c_banner); ?>">
                         <!-- Parte superior de la tarjeta: imagen cubre el área o color de fondo con ícono -->
                         <div class="dh-campania-card__img"
-                             style="<?php if ($dh_c_icono_img): ?>background-image: url('<?php echo esc_url($dh_c_icono_img); ?>');<?php else: ?>background-color: <?php echo esc_attr($dh_c_color); ?>18;<?php endif; ?>">
+                             style="background-color: <?php echo esc_attr($dh_c_color); ?>18; <?php if ($dh_c_icono_img): ?>background-image: url('<?php echo esc_url($dh_c_icono_img); ?>');<?php endif; ?>">
                             <?php if (!$dh_c_icono_img): ?>
                                 <i class="bi <?php echo esc_attr($dh_c_icono); ?>" style="color: <?php echo esc_attr($dh_c_color); ?>; font-size: 34px;"></i>
                             <?php endif; ?>
@@ -272,10 +272,11 @@ get_header();
             <?php endif; ?>
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
-                        <div class="dh-acciones-card__img">
-                            <img src="<?php echo esc_url( get_theme_file_uri('/img/derechos-humanos/acciones-integridad.png') ); ?>"
+                        <div class="dh-acciones-card__img bg-light d-flex align-items-center justify-content-center p-2 p-md-3">
+                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/' . rawurlencode('Acciones X la integridad.svg')) ); ?>"
                                  alt="Acciones X la Integridad"
                                  class="img-fluid"
+                                 style="object-fit: contain; width: 90%; max-height: 280px;"
                                  onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'bi bi-image fs-1 text-muted\'></i></div>';">
                         </div>
                     </div>
