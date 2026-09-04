@@ -589,7 +589,7 @@ get_header();
                         <div class="col-6 col-md-4 col-lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
-                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="80" height="80">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Proceso de Consulta.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
                                 <div class="w-100 text-center my-auto">
