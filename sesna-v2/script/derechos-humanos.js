@@ -74,11 +74,12 @@
     function buildGaleriaGrid(galeria, color) {
         if (!galeria || galeria.length === 0) return '';
         var cols = galeria.length <= 2 ? 'col-6' : 'col-4';
+        var containerHeight = galeria.length <= 2 ? '240px' : '150px';
         var html = '<div class="row g-2 mt-1">';
         for (var i = 0; i < galeria.length; i++) {
             html += '<div class="' + cols + '">' +
-                '<div class="rounded-2 overflow-hidden" style="height:110px;">' +
-                '<img src="' + escHtml(galeria[i].url) + '" data-lb-full="' + escHtml(galeria[i].full) + '" class="w-100 h-100 dh-lb-img" style="object-fit:cover; cursor:zoom-in;" alt="Evidencia ' + (i + 1) + '">' +
+                '<div class="rounded-2 overflow-hidden bg-light d-flex align-items-center justify-content-center p-2" style="height:' + containerHeight + ';">' +
+                '<img src="' + escHtml(galeria[i].url) + '" data-lb-full="' + escHtml(galeria[i].full) + '" class="w-100 h-100 dh-lb-img" style="object-fit:contain; cursor:zoom-in;" alt="Evidencia ' + (i + 1) + '">' +
                 '</div></div>';
         }
         html += '</div>';
@@ -357,3 +358,80 @@
     });
 
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   FILTROS Y PAGINACIÓN — Sesiones del Comité
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+    'use strict';
+    document.addEventListener('DOMContentLoaded', function() {
+        var filterAnio = document.getElementById('filter-anio');
+        var filterTipo = document.getElementById('filter-tipo');
+        var cards = Array.from(document.querySelectorAll('.tx-sesion-card'));
+        var loadMoreBtnContainer = document.getElementById('sesiones-load-more-container');
+        var loadMoreBtn = document.getElementById('sesiones-btn-more');
+        
+        var visibleCount = 5;
+        var filteredCards = [];
+
+        function applyFilters() {
+            if (!filterAnio || !filterTipo) return;
+            
+            var selectedAnio = filterAnio.value;
+            var selectedTipo = filterTipo.value;
+            
+            filteredCards = [];
+            
+            cards.forEach(function(card) {
+                var anio = card.getAttribute('data-anio');
+                var tipo = card.getAttribute('data-tipo');
+                
+                var matchAnio = (selectedAnio === 'Todos' || anio === selectedAnio);
+                var matchTipo = (selectedTipo === 'Todas' || tipo === selectedTipo);
+                
+                if (matchAnio && matchTipo) {
+                    filteredCards.push(card);
+                }
+                card.style.display = 'none'; // ocultar todos temporalmente
+            });
+            
+            visibleCount = 5;
+            updateView();
+        }
+        
+        function updateView() {
+            // Mostrar hasta visibleCount
+            for (var i = 0; i < filteredCards.length; i++) {
+                if (i < visibleCount) {
+                    filteredCards[i].style.display = '';
+                } else {
+                    filteredCards[i].style.display = 'none';
+                }
+            }
+            
+            if (loadMoreBtnContainer) {
+                if (visibleCount < filteredCards.length) {
+                    loadMoreBtnContainer.style.display = 'block';
+                } else {
+                    loadMoreBtnContainer.style.display = 'none';
+                }
+            }
+        }
+        
+        if (filterAnio) filterAnio.addEventListener('change', applyFilters);
+        if (filterTipo) filterTipo.addEventListener('change', applyFilters);
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                visibleCount += 5;
+                updateView();
+            });
+        }
+        
+        // Inicializar si los filtros existen
+        if (filterAnio && filterTipo && cards.length > 0) {
+            applyFilters();
+        }
+    });
+})();
+

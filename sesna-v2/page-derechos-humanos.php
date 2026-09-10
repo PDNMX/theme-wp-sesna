@@ -327,28 +327,9 @@ get_header();
             <div class="dh-comite-panel mt-4">
                 <h4 class="fw-bold mb-4 font-noto-sans text-dark">Sesiones del Comité</h4>
                 <!-- Filtros Sesiones -->
-                <div class="row mb-5 align-items-end">
-                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
-                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todos">Todos</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
-                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todas">Todas</option>
-                            <option value="Ordinaria">Ordinaria</option>
-                            <option value="Extraordinaria">Extraordinaria</option>
-                        </select>
-                    </div>
-                </div>
-
                 <?php
                 $sesiones = [];
+                $anios_unicos = [];
                 $args_actas = array(
                     'post_type'      => 'dh_comite_acta',
                     'posts_per_page' => -1,
@@ -362,8 +343,12 @@ get_header();
                     while ($actas_query->have_posts()) {
                         $actas_query->the_post();
                         $pid = get_the_ID();
+                        $anio = get_post_meta($pid, '_dh_cg_anio', true);
+                        if (!empty($anio) && !in_array($anio, $anios_unicos)) {
+                            $anios_unicos[] = $anio;
+                        }
                         $sesiones[] = [
-                            'anio'      => get_post_meta($pid, '_dh_cg_anio', true),
+                            'anio'      => $anio,
                             'titulo'    => get_the_title(),
                             'tipo'      => get_post_meta($pid, '_dh_cg_tipo', true),
                             'modal'     => get_post_meta($pid, '_dh_cg_modalidad', true),
@@ -372,7 +357,27 @@ get_header();
                     }
                     wp_reset_postdata();
                 }
+                rsort($anios_unicos);
                 ?>
+                <div class="row mb-5 align-items-end">
+                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
+                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                            <option value="Todos">Todos</option>
+                            <?php foreach ($anios_unicos as $a): ?>
+                            <option value="<?php echo esc_attr($a); ?>"><?php echo esc_html($a); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
+                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
+                            <option value="Todas">Todas</option>
+                            <option value="Ordinaria">Ordinaria</option>
+                            <option value="Extraordinaria">Extraordinaria</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="d-flex flex-column gap-3">
                     <?php foreach ( $sesiones as $sesion ) : ?>
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
@@ -408,11 +413,13 @@ get_header();
                 </div>
 
                 <!-- Ver más Sesiones -->
+                <?php if (count($sesiones) > 5) : ?>
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="tx-comite-btn-more">
                         Ver más sesiones <i class="bi bi-chevron-down"></i>
                     </a>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
