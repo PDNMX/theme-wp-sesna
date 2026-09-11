@@ -508,7 +508,7 @@ function sna_get_familias_tematicas()
 			'cats'  => [
 				'informes', 'reportes', 'declaracion-patrimonial',
 				'normatividad_int', 'marco-normativo', 'desempeno-institucional-sesna',
-				'semblanzas', 'genero-y-derechos-humanos', 'presupuesto-2021',
+				'semblanzas', 'presupuesto-2021',
 			],
 		],
 		'administracion' => [
@@ -519,6 +519,11 @@ function sna_get_familias_tematicas()
 				'licitaciones-de-la-sesna', 'compras-publicas', 'convocatoria',
 				'acciones-y-programas', 'sin-categoria',
 			],
+		],
+		'genero-derechos-humanos' => [
+			'label' => 'Género y Derechos Humanos',
+			'icon'  => 'bi-people',
+			'cats'  => ['genero-y-derechos-humanos'],
 		],
 	];
 }
@@ -628,6 +633,8 @@ function sna_get_home_entries_by_family()
 		'category__in'        => $term_ids,
 		'posts_per_page'      => $posts_per_page,
 		'offset'              => $page * $posts_per_page,
+		'orderby'             => 'date',
+		'order'               => 'DESC',
 	];
 
 	if ($year) {
