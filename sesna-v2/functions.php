@@ -1650,6 +1650,12 @@ function sesna_oc_sesion_meta_box_html($post) {
     if (!is_array($documentos)) {
         $documentos = array();
     }
+    
+    $anexos_json = get_post_meta($post->ID, '_oc_anexos', true) ?: '[]';
+    $anexos = json_decode($anexos_json, true);
+    if (!is_array($anexos)) {
+        $anexos = array();
+    }
     ?>
     <style>
         .oc-row { margin-bottom: 15px; }
@@ -1720,6 +1726,22 @@ function sesna_oc_sesion_meta_box_html($post) {
         <input type="hidden" id="oc_documentos_json" name="_oc_documentos_json" value="">
     </div>
 
+    <div class="oc-row" style="margin-top: 30px;">
+        <label>Anexos</label>
+        <div id="oc_anexos_repeater">
+            <?php foreach ($anexos as $doc) : ?>
+            <div class="oc-doc-row">
+                <input type="text" class="oc-doc-nombre" placeholder="Nombre (ej. Anexo 1...)" value="<?php echo esc_attr($doc['nombre'] ?? ''); ?>">
+                <input type="text" class="oc-doc-archivo" placeholder="/wp-content/uploads/..." value="<?php echo esc_attr($doc['archivo'] ?? ''); ?>">
+                <button type="button" class="button oc-doc-upload-btn">Seleccionar</button>
+                <span class="dashicons dashicons-no-alt oc-doc-remove"></span>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <button type="button" class="button button-secondary" id="oc_anexo_add_btn">+ Agregar anexo</button>
+        <input type="hidden" id="oc_anexos_json" name="_oc_anexos_json" value="">
+    </div>
+
     <script>
     jQuery(document).ready(function($){
         function toggleSesionFields() {
@@ -1742,12 +1764,17 @@ function sesna_oc_sesion_meta_box_html($post) {
             $('#oc_documentos_repeater').append(docRowTemplate('', ''));
         });
 
-        $('#oc_documentos_repeater').on('click', '.oc-doc-remove', function() {
+        $('#oc_anexo_add_btn').click(function(e) {
+            e.preventDefault();
+            $('#oc_anexos_repeater').append(docRowTemplate('', ''));
+        });
+
+        $('#oc_documentos_repeater, #oc_anexos_repeater').on('click', '.oc-doc-remove', function() {
             $(this).closest('.oc-doc-row').remove();
         });
 
         var ocMediaUploader;
-        $('#oc_documentos_repeater').on('click', '.oc-doc-upload-btn', function(e) {
+        $('#oc_documentos_repeater, #oc_anexos_repeater').on('click', '.oc-doc-upload-btn', function(e) {
             e.preventDefault();
             var $row = $(this).closest('.oc-doc-row');
             ocMediaUploader = wp.media({
@@ -1774,6 +1801,16 @@ function sesna_oc_sesion_meta_box_html($post) {
                 }
             });
             $('#oc_documentos_json').val(JSON.stringify(docs));
+
+            var anexos = [];
+            $('#oc_anexos_repeater .oc-doc-row').each(function() {
+                var nombre = $(this).find('.oc-doc-nombre').val().trim();
+                var archivo = $(this).find('.oc-doc-archivo').val().trim();
+                if (nombre || archivo) {
+                    anexos.push({ nombre: nombre, archivo: archivo });
+                }
+            });
+            $('#oc_anexos_json').val(JSON.stringify(anexos));
         });
     });
     </script>
@@ -1819,6 +1856,25 @@ function sesna_save_oc_meta($post_id) {
             }
         }
         update_post_meta($post_id, '_oc_documentos', wp_slash(wp_json_encode($clean)));
+    }
+
+    if (isset($_POST['_oc_anexos_json'])) {
+        $raw = json_decode(wp_unslash($_POST['_oc_anexos_json']), true);
+        $clean = array();
+        if (is_array($raw)) {
+            foreach ($raw as $doc) {
+                $nombre = isset($doc['nombre']) ? sanitize_text_field($doc['nombre']) : '';
+                $archivo = isset($doc['archivo']) ? sanitize_text_field($doc['archivo']) : '';
+                if ($nombre === '' && $archivo === '') {
+                    continue;
+                }
+                $clean[] = array(
+                    'nombre'  => $nombre,
+                    'archivo' => sesna_strip_domain_from_url($archivo),
+                );
+            }
+        }
+        update_post_meta($post_id, '_oc_anexos', wp_slash(wp_json_encode($clean)));
     }
 }
 add_action('save_post_oc_sesion', 'sesna_save_oc_meta');
@@ -1930,6 +1986,16 @@ function sesna_get_oc_entries($organo) {
             }
             unset($doc);
 
+            $anexos_json = get_post_meta($id, '_oc_anexos', true) ?: '[]';
+            $anexos_db = json_decode($anexos_json, true);
+            if (!is_array($anexos_db)) {
+                $anexos_db = array();
+            }
+            foreach ($anexos_db as &$doc) {
+                $doc['enlace'] = sesna_resolve_archivo_url($doc['archivo'] ?? '');
+            }
+            unset($doc);
+
             $fecha = get_post_meta($id, '_oc_fecha', true);
 
             $video_url_raw = get_post_meta($id, '_oc_video_url', true);
@@ -1950,6 +2016,7 @@ function sesna_get_oc_entries($organo) {
                 'tipo_sesion' => get_post_meta($id, '_oc_tipo_sesion', true) ?: '',
                 'acuerdos'    => (int) get_post_meta($id, '_oc_acuerdos', true),
                 'documentos'  => $documentos,
+                'anexos_extra'=> $anexos_db,
                 'video_url'   => $video_url,
             );
         }
@@ -2073,16 +2140,49 @@ function sesna_oc_map_slots_fijos($sesion) {
         'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'bi-play-btn', 'enlace' => ''),
     );
 
+    $modo_anexos = false;
+
     foreach ($sesion['documentos'] as $doc) {
-        $nombre_lower = strtolower($doc['nombre']);
-        if ($slots['convocatoria']['enlace'] === '' && strpos($nombre_lower, 'convocatoria') !== false) {
+        $nombre_lower = strtolower(trim($doc['nombre']));
+        $enlace_lower = strtolower(trim($doc['enlace'] ?? ''));
+        
+        // Si el usuario usa un separador visual en wp-admin (ej: "Anexos" sin archivo)
+        if (($nombre_lower === 'anexos' || $nombre_lower === '--- anexos ---' || $nombre_lower === '-- anexos --') && empty($enlace_lower)) {
+            $modo_anexos = true;
+            continue; // No pintamos este separador como un documento real
+        }
+
+        // Evitar agregar documentos que estén completamente vacíos por error
+        if (empty($enlace_lower)) {
+            continue;
+        }
+
+        // Si ya pasamos el separador "Anexos", TODO lo que siga va a anexos
+        if ($modo_anexos) {
+            $slots['anexos']['documentos'][] = $doc;
+            continue;
+        }
+        
+        // Si el nombre o el archivo contienen la palabra "anexo", van directamente a anexos
+        if (strpos($nombre_lower, 'anexo') !== false || strpos($enlace_lower, 'anexo') !== false) {
+            $slots['anexos']['documentos'][] = $doc;
+        } elseif ($slots['convocatoria']['enlace'] === '' && strpos($nombre_lower, 'convocatoria') !== false) {
             $slots['convocatoria']['enlace'] = $doc['enlace'];
         } elseif ($slots['acta']['enlace'] === '' && strpos($nombre_lower, 'acta') !== false) {
             $slots['acta']['enlace'] = $doc['enlace'];
-        } elseif (strpos($nombre_lower, 'anexo') !== false) {
-            $slots['anexos']['documentos'][] = $doc;
         } elseif ($slots['orden_del_dia']['enlace'] === '' && strpos($nombre_lower, 'orden') !== false) {
             $slots['orden_del_dia']['enlace'] = $doc['enlace'];
+        } else {
+            // Cualquier otro documento que no sea la primera convocatoria, acta u orden del día, se manda a anexos por descarte
+            $slots['anexos']['documentos'][] = $doc;
+        }
+    }
+
+    if (!empty($sesion['anexos_extra'])) {
+        foreach ($sesion['anexos_extra'] as $anexo_doc) {
+             if (!empty($anexo_doc['enlace'])) {
+                 $slots['anexos']['documentos'][] = $anexo_doc;
+             }
         }
     }
 

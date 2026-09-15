@@ -30,7 +30,7 @@ get_header();
                     <h1 class="sesna-hero__title">Marco Normativo</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle">
-                        Conoce el <strong>marco normativo</strong> que sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como las disposiciones jurídicas que orientan su actuación y participación en el cumplimiento de los objetivos del Sistema Nacional Anticorrupción.
+Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como las disposiciones jurídicas que orientan su actuación y participación en el cumplimiento de los objetivos del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
@@ -641,7 +641,7 @@ get_header();
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Plan Anual de Desarrollo Archivístico 2026.</div></td>
+                                        <td><div class="h6 fw-bold mb-2 font-patria tx-sesion-info-title">Plan Anual de Desarrollo Archivístico (PADA) 2026.</div></td>
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2026/08/PADA_2026.pdf" target="_blank" class="tx-table-normatividad-link">
