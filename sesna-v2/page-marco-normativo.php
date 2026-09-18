@@ -69,9 +69,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                 <div class="card border border-light shadow-sm rounded-4 mb-5 content-section" style="background-color: #ffffff;" id="normatividad-section">
                     <div class="card-body p-4 p-md-5">
                         <div class="row align-items-end mb-4">
-                            <div class="col-12 col-md-6 mb-3 mb-md-0">
-                                <h2 class="cp-recursos__titulo mb-0">MARCO NORMATIVO</h2>
-                            </div>
+                            <div class="col-12 col-md-6 mb-3 mb-md-0"></div>
                             <div class="col-12 col-md-6">
                                 <label for="search-doc" class="form-label fw-bold font-noto-sans text-dark mb-2">Buscar documento</label>
                                 <div class="position-relative">

@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
-    
+
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="container">
@@ -50,16 +50,16 @@ get_header(); ?>
         <div class="d-flex align-items-center mb-4">
             <i class="bi bi-file-earmark-text text-guinda me-3 flex-shrink-0" style="font-size: 32px; line-height: 1;"></i>
             <h2 class="cp-recursos__titulo m-0 me-4">Documentos</h2>
-            
+
             <!-- Separador vertical en desktop -->
             <div class="d-none d-md-block flex-shrink-0 me-4" style="width: 1px; height: 45px; background-color: #ccc;"></div>
-            
+
             <!-- Texto descriptivo desktop -->
             <div class="tx-hero__subtitle text-muted d-none d-md-block" style="max-width: 600px;">
                 Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
             </div>
         </div>
-        
+
         <!-- Texto descriptivo mobile -->
         <div class="tx-hero__subtitle text-muted d-block d-md-none mb-4">
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
@@ -113,315 +113,273 @@ get_header(); ?>
         </div>
     </section>
 
+    <!-- Filtro por subsección (chips) de "Recursos metodológicos" -->
+    <style>
+        .cp-subsec-filtros {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .cp-subsec-chip {
+            font-family: var(--font-montserrat);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--color-burgundi);
+            background: #fff;
+            color: var(--color-burgundi);
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease;
+        }
+        .cp-subsec-chip:hover {
+            background: rgba(157, 36, 73, 0.08);
+        }
+        .cp-subsec-chip.is-active {
+            background: var(--color-burgundi);
+            border-color: var(--color-burgundi);
+            color: #fff;
+        }
+
+        /* Enlace externo (no es un documento descargable) dentro de una subsección */
+        .cp-subsec-enlace {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px 20px;
+            padding: 18px 24px;
+            border: 1px solid var(--color-teal);
+            border-radius: 8px;
+            background: rgba(30, 91, 79, 0.06);
+        }
+        .cp-subsec-enlace__icono {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 50%;
+            background: var(--color-teal);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        .cp-subsec-enlace__texto {
+            flex: 1;
+            min-width: 200px;
+        }
+        .cp-subsec-enlace__badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-teal);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
+        }
+        .cp-subsec-enlace__titulo {
+            font-family: var(--font-montserrat);
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-negro);
+            margin: 0;
+        }
+    </style>
 
     <!-- CONTENEDORES DINÁMICOS -->
     <div id="dinamic-content-wrapper" class="container mt-5 mb-5 pt-4 border-top" style="display: none; scroll-margin-top: 100px;">
-        
+
         <div id="sec-contrataciones" class="dinamic-section" style="display: none;">
             <!-- Texto descriptivo -->
-                <div class="col-lg-8 col-md-7 position-relative z-1">
-                    <h1 class="sesna-hero__title">Contrataciones públicas</h1>
-                    <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                    <p class="sesna-hero__subtitle mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Recursos disponibles ──────────────────────────────── -->
-    <section class="cp-recursos py-4 pb-5">
-        <div class="container">
-
-            <!-- Encabezado de sección -->
-            <div class="cp-recursos__header mb-4">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cp-recursos__icono-box">
-                        <i class="bi bi-folder2-open"></i>
-                    </div>
-                    <div>
-                        <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
-                        <div class="cp-recursos__linea"></div>
-                    </div>
-                </div>
+            <div class="col-lg-8 col-md-7 position-relative z-1">
+                <h1 class="sesna-hero__title">Contrataciones públicas</h1>
+                <div class="hero-separator"></div>
+                <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
+                <p class="sesna-hero__subtitle mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
             </div>
 
-            <!-- Lista de documentos -->
-            <div class="cp-docs-lista">
+            <!-- ── Recursos disponibles ──────────────────────────────── -->
+            <section class="cp-recursos py-4 pb-5">
+                <div class="container">
 
-                <?php
-                $documentos = [
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Análisis normativo nacional contrataciones públicas SESNA',
-                        'descripcion' => 'Análisis del marco normativo aplicable a las contrataciones públicas en México, con enfoque en riesgos de corrupción y áreas de oportunidad.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '45 págs.',
-                        'color'       => 'burgundi',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Análisis normativo nacional obra pública',
-                        'descripcion' => 'Revisión y análisis del marco normativo en materia de obra pública, identificando riesgos de corrupción y buenas prácticas para su mitigación.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '38 págs.',
-                        'color'       => 'teal',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Propuesta de variables estratégicas para el seguimiento de las contrataciones públicas en México',
-                        'descripcion' => 'Propuesta de variables e indicadores clave para el seguimiento y monitoreo de contrataciones públicas, orientadas a la detección temprana de riesgos.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '52 págs.',
-                        'color'       => 'negro',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                ];
-                foreach ( $documentos as $doc ) : ?>
-
-                <div class="cp-doc-item">
-
-                    <!-- Thumbnail del documento -->
-                    <div class="cp-doc-thumb cp-doc-thumb--<?php echo esc_attr($doc['color']); ?>">
-                        <div class="cp-doc-thumb__logo">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 38px; max-height: 22px; object-fit: contain; filter: brightness(0) invert(1);">
-                        </div>
-                        <p class="cp-doc-thumb__nombre"><?php echo esc_html($doc['titulo']); ?></p>
-                    </div>
-
-                    <!-- Info del documento -->
-                    <div class="cp-doc-info">
-                        <span class="cp-doc-badge"><?php echo esc_html($doc['badge']); ?></span>
-                        <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
-                        <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
-                        <div class="cp-doc-meta">
-                            <span><i class="bi bi-calendar3"></i> <?php echo esc_html($doc['anio']); ?></span>
-                            <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="bi bi-file-earmark"></i> <?php echo esc_html($doc['formato']); ?></span>
-                            <span class="cp-doc-meta__sep">·</span>
-                            <span><?php echo esc_html($doc['paginas']); ?></span>
+                    <!-- Encabezado de sección -->
+                    <div class="cp-recursos__header mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="cp-recursos__icono-box">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                            <div>
+                                <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
+                                <div class="cp-recursos__linea"></div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Acciones -->
-                    <div class="cp-doc-acciones">
-                        <a href="<?php echo esc_url($doc['url_ver']); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                            <i class="bi bi-eye"></i> Ver documento
-                        </a>
-                        <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                            <i class="bi bi-download"></i> Descargar PDF
-                        </a>
-                    </div>
+                    <!-- Lista de documentos -->
+                    <div class="cp-docs-lista">
+
+                        <?php
+                        $recursos_contrataciones = sesna_get_recursos_por_seccion('contrataciones');
+                        foreach ( $recursos_contrataciones as $recurso ) :
+                            sesna_render_recurso_card( $recurso );
+                        endforeach;
+                        ?>
+
+                    </div><!-- /.cp-docs-lista -->
 
                 </div>
+            </section>
 
-                <?php endforeach; ?>
-
-            </div><!-- /.cp-docs-lista -->
-
-        </div>
-    </section>
-
-    <!-- ── Nota informativa ──────────────────────────────────── -->
-    <div class="cp-nota pb-5">
-        <div class="container">
-            <div class="cp-nota__inner">
-                <i class="bi bi-info-circle-fill cp-nota__icono"></i>
-                <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
+            <!-- ── Nota informativa ──────────────────────────────────── -->
+            <div class="cp-nota pb-5">
+                <div class="container">
+                    <div class="cp-nota__inner">
+                        <i class="bi bi-info-circle-fill cp-nota__icono"></i>
+                        <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
         </div>
 
         <div id="sec-verificacion" class="dinamic-section" style="display: none;">
-            <!-- ── Funcionalidades principales ───────────────────────── -->
-    <section class="vp-funcionalidades py-4">
-        <div class="container">
-            <div class="vp-func-box">
+            <!-- ── Recursos metodológicos ─────────────────────────────── -->
+            <section class="cp-recursos py-4 pb-5">
+                <div class="container">
 
-            <h2 class="text-center fw-bold font-patria vp-func-box__title mb-4">
-                Funcionalidades principales
-            </h2>
-
-            <div class="vp-func-row">
-
-                <div class="vp-func-item">
-                    <div class="vp-func-item__icon">
-                        <i class="bi bi-cpu"></i>
-                    </div>
-                    <div class="vp-func-item__text">
-                        <h5 class="vp-func-item__title">Generación automatizada</h5>
-                        <p class="vp-func-item__desc">Realiza muestreos aleatorios simples con base en parámetros definidos y criterios normativos.</p>
-                    </div>
-                </div>
-
-                <div class="vp-func-sep">|</div>
-
-                <div class="vp-func-item">
-                    <div class="vp-func-item__icon">
-                        <i class="bi bi-shield-check"></i>
-                    </div>
-                    <div class="vp-func-item__text">
-                        <h5 class="vp-func-item__title">Apoyo a la verificación</h5>
-                        <p class="vp-func-item__desc">Facilita la identificación de casos para la verificación patrimonial y de intereses.</p>
-                    </div>
-                </div>
-
-                <div class="vp-func-sep">|</div>
-
-                <div class="vp-func-item">
-                    <div class="vp-func-item__icon">
-                        <i class="bi bi-file-earmark-ruled"></i>
-                    </div>
-                    <div class="vp-func-item__text">
-                        <h5 class="vp-func-item__title">Criterios técnicos</h5>
-                        <p class="vp-func-item__desc">Basado en lineamientos normativos y metodologías estandarizadas.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center mt-5 pt-2">
-                <a href="#" class="btn-sesna btn-sesna--lg" target="_blank" rel="noopener">
-                    <i class="bi bi-display fs-5"></i>
-                    Acceder a la herramienta
-                    <i class="bi bi-box-arrow-up-right fs-6"></i>
-                </a>
-            </div>
-
-            </div><!-- /.vp-func-box -->
-        </div>
-    </section>
-
-    <!-- ── Recursos metodológicos ─────────────────────────────── -->
-    <section class="cp-recursos py-4 pb-5">
-        <div class="container">
-
-            <div class="cp-recursos__header mb-4">
-                <div class="d-flex align-items-center gap-3">
-                    <div class="cp-recursos__icono-box">
-                        <i class="bi bi-folder2-open"></i>
-                    </div>
-                    <div>
-                        <h2 class="cp-recursos__titulo mb-0">Recursos metodológicos</h2>
-                        <div class="cp-recursos__linea"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cp-docs-lista">
-
-                <?php
-                $documentos = [
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Nota técnica normativa del procedimiento de verificación evolución patrimonial',
-                        'descripcion' => 'Documento que establece el marco normativo y procedimental para la verificación de la evolución patrimonial y de intereses en el servicio público.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '28 págs.',
-                        'color'       => 'teal',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Nota Elementos Técnicos del GM',
-                        'descripcion' => 'Describe los elementos técnicos y parámetros utilizados en el Generador de Muestras (GM) para la selección aleatoria y la integridad del proceso.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '18 págs.',
-                        'color'       => 'negro',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                    [
-                        'badge'       => 'Documento técnico',
-                        'titulo'      => 'Guía de funcionamiento',
-                        'descripcion' => 'Guía práctica para el uso del Generador de Muestras Aleatorio, incluye instrucciones, roles y buenas prácticas.',
-                        'anio'        => '2025',
-                        'formato'     => 'PDF',
-                        'paginas'     => '34 págs.',
-                        'color'       => 'negro',
-                        'url_ver'     => '#',
-                        'url_pdf'     => '#',
-                    ],
-                ];
-                foreach ( $documentos as $doc ) : ?>
-
-                <div class="cp-doc-item">
-                    <div class="cp-doc-thumb cp-doc-thumb--<?php echo esc_attr($doc['color']); ?>">
-                        <div class="cp-doc-thumb__logo"><i class="bi bi-c-circle"></i> SESNA</div>
-                        <p class="cp-doc-thumb__nombre"><?php echo esc_html($doc['titulo']); ?></p>
-                        <div class="cp-doc-thumb__footer">
-                            <span>DOCUMENTO<br>TÉCNICO</span>
-                            <span><?php echo esc_html($doc['anio']); ?></span>
+                    <div class="cp-recursos__header mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="cp-recursos__icono-box">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                            <div>
+                                <h2 class="cp-recursos__titulo mb-0">Recursos metodológicos</h2>
+                                <div class="cp-recursos__linea"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="cp-doc-info">
-                        <span class="cp-doc-badge"><?php echo esc_html($doc['badge']); ?></span>
-                        <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
-                        <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
-                        <div class="cp-doc-meta">
-                            <span><i class="bi bi-calendar3"></i> <?php echo esc_html($doc['anio']); ?></span>
-                            <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="bi bi-file-earmark"></i> <?php echo esc_html($doc['formato']); ?></span>
-                            <span class="cp-doc-meta__sep">·</span>
-                            <span><?php echo esc_html($doc['paginas']); ?></span>
-                        </div>
+
+                    <?php
+                    $recursos_verificacion     = sesna_get_recursos_por_seccion('verificacion');
+                    $subsecciones_verificacion = array();
+                    foreach ( $recursos_verificacion as $recurso ) {
+                        $nombre_subseccion = get_post_meta( $recurso->ID, '_sesna_recurso_subseccion', true );
+                        if ( ! empty( $nombre_subseccion ) && ! in_array( $nombre_subseccion, $subsecciones_verificacion, true ) ) {
+                            $subsecciones_verificacion[] = $nombre_subseccion;
+                        }
+                    }
+                    ?>
+
+                    <!-- Filtro por subsección -->
+                    <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
+                    <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
+                        <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
+                        <button type="button" class="cp-subsec-chip<?php echo $indice === 0 ? ' is-active' : ''; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
+                        <?php endforeach; ?>
                     </div>
-                    <div class="cp-doc-acciones">
-                        <a href="<?php echo esc_url($doc['url_ver']); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                            <i class="bi bi-eye"></i> Ver documento
-                        </a>
-                        <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                            <i class="bi bi-download"></i> Descargar PDF
-                        </a>
+                    <?php endif; ?>
+
+                    <div class="cp-docs-lista" id="vp-metodologicos-lista">
+
+                        <!-- Enlace externo (no es un documento): herramienta ALEA -->
+                        <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
+                            <div class="cp-subsec-enlace__icono">
+                                <i class="bi bi-link-45deg"></i>
+                            </div>
+                            <div class="cp-subsec-enlace__texto">
+                                <span class="cp-subsec-enlace__badge">Enlace externo</span>
+                                <p class="cp-subsec-enlace__titulo">ALEA, Muestreo Aleatorio Simple</p>
+                            </div>
+                            <a href="https://alea.sesna.gob.mx" class="btn-sesna" target="_blank" rel="noopener">
+                                Visitar sitio <i class="bi bi-box-arrow-up-right ms-1"></i>
+                            </a>
+                        </div>
+
+                        <?php foreach ( $recursos_verificacion as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── Nota informativa ──────────────────────────────────── -->
+            <div class="cp-nota pb-5">
+                <div class="container">
+                    <div class="cp-nota__inner">
+                        <i class="bi bi-info-circle-fill cp-nota__icono"></i>
+                        <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
-
-                <?php endforeach; ?>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ── Nota informativa ──────────────────────────────────── -->
-    <div class="cp-nota pb-5">
-        <div class="container">
-            <div class="cp-nota__inner">
-                <i class="bi bi-info-circle-fill cp-nota__icono"></i>
-                <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
             </div>
         </div>
-    </div>
-        </div>
 
+        <?php
+        $recursos_conflicto = sesna_get_recursos_por_seccion('conflicto');
+        ?>
         <div id="sec-conflicto" class="dinamic-section" style="display: none;">
+            <?php if ( ! empty( $recursos_conflicto ) ) : ?>
+            <section class="cp-recursos py-4 pb-5">
+                <div class="container">
+
+                    <div class="cp-recursos__header mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="cp-recursos__icono-box">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                            <div>
+                                <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
+                                <div class="cp-recursos__linea"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-docs-lista">
+                        <?php foreach ( $recursos_conflicto as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                    </div>
+
+                </div>
+            </section>
+            <?php else : ?>
             <div class="text-center py-5">
                 <i class="bi bi-tools text-muted mb-3" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
+            <?php endif; ?>
         </div>
 
+        <?php
+        $recursos_deporte = sesna_get_recursos_por_seccion('deporte');
+        ?>
         <div id="sec-deporte" class="dinamic-section" style="display: none;">
+            <?php if ( ! empty( $recursos_deporte ) ) : ?>
+            <section class="cp-recursos py-4 pb-5">
+                <div class="container">
+
+                    <div class="cp-recursos__header mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="cp-recursos__icono-box">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                            <div>
+                                <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
+                                <div class="cp-recursos__linea"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cp-docs-lista">
+                        <?php foreach ( $recursos_deporte as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                    </div>
+
+                </div>
+            </section>
+            <?php else : ?>
             <div class="text-center py-5">
                 <i class="bi bi-tools text-muted mb-3" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>
+            <?php endif; ?>
         </div>
 
     </div>
@@ -436,28 +394,65 @@ get_header(); ?>
         triggers.forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+
                 // Remover active de todas las tarjetas (opcional para estilo visual)
                 triggers.forEach(t => t.style.boxShadow = '');
-                this.style.boxShadow = '0 0 0 3px rgba(155, 34, 66, 0.5)'; // Estilo activo guinda
-                
+                this.style.boxShadow = '0 0 0 2px rgba(155, 34, 66, 1)'; // Estilo activo guinda
+
                 // Ocultar todas las secciones
                 sections.forEach(sec => sec.style.display = 'none');
-                
+
                 // Mostrar wrapper principal
                 wrapper.style.display = 'block';
-                
+
                 // Mostrar sección seleccionada
                 const targetId = this.getAttribute('data-target');
                 const targetSec = document.querySelector(targetId);
                 if (targetSec) {
                     targetSec.style.display = 'block';
-                    
+
                     // Hacer scroll suave hacia el contenido
                     wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
+
+        // Filtro por subsección (chips) de "Recursos metodológicos"
+        const filtros = document.getElementById('vp-metodologicos-filtros');
+        const lista = document.getElementById('vp-metodologicos-lista');
+        if (filtros && lista) {
+            const chips = filtros.querySelectorAll('.cp-subsec-chip');
+            const items = lista.querySelectorAll('[data-subseccion]');
+
+            const aplicarFiltro = (filtro) => {
+                items.forEach(item => {
+                    const coincide = !filtro || item.getAttribute('data-subseccion') === filtro;
+                    item.style.display = coincide ? '' : 'none';
+                });
+            };
+
+            chips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const yaActivo = this.classList.contains('is-active');
+                    chips.forEach(c => c.classList.remove('is-active'));
+
+                    // Clic sobre el chip ya activo = quitar filtro (mostrar todos)
+                    const filtro = yaActivo ? '' : this.getAttribute('data-filter');
+                    if (!yaActivo) {
+                        this.classList.add('is-active');
+                    }
+
+                    aplicarFiltro(filtro);
+                });
+            });
+
+            // Estado inicial: el primer chip viene marcado "is-active" desde PHP,
+            // así que por default solo se ve esa subsección (ej. "ALEA").
+            const chipActivoInicial = filtros.querySelector('.cp-subsec-chip.is-active');
+            if (chipActivoInicial) {
+                aplicarFiltro(chipActivoInicial.getAttribute('data-filter'));
+            }
+        }
     });
     </script>
 
