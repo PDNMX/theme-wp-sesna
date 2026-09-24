@@ -266,3 +266,80 @@
     background-color: var(--color-burgundi, #9F2241);
     color: #ffffff;
 }
+
+/* ------------------------------------------------------------
+   Componentes: Administración y Finanzas
+   ------------------------------------------------------------ */
+.cp-admin-card {
+    text-align: left;
+    align-items: flex-start !important;
+}
+
+.cp-admin-card .tx-card__title {
+    text-align: left;
+}
+
+.cp-admin-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cp-admin-date__text {
+    font-family: var(--font-montserrat);
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.cp-admin-date__text span {
+    display: block;
+    color: #6c757d;
+}
+
+.cp-admin-date__text strong {
+    color: var(--color-negro, #000);
+    font-weight: 700;
+}
+
+.cp-instruccion-banner {
+    border-top: 1px solid var(--color-burgundi, #9d2449);
+    border-bottom: 1px solid var(--color-burgundi, #9d2449);
+    padding: 24px 0;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Card Active State */
+.sna-noticias-card.active {
+    background-color: var(--color-burgundi, #9F2241) !important;
+    color: #ffffff !important;
+    position: relative;
+    border: none !important;
+}
+
+.sna-noticias-card.active .tx-card__title,
+.sna-noticias-card.active .tx-card__desc,
+.sna-noticias-card.active .tx-card__icon,
+.sna-noticias-card.active .btn-sesna-link {
+    color: #ffffff !important;
+}
+
+.sna-noticias-card.active .icon-bg-circle {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Triángulo que conecta la tarjeta activa con el contenido desplegado debajo */
+.sna-noticias-card.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-burgundi, #9F2241);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+

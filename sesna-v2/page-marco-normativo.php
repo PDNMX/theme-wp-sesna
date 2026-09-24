@@ -667,7 +667,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
     </div>
 </div>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/script/marco-normativo.js?v=1"></script>
 

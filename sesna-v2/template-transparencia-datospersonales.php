@@ -135,7 +135,7 @@ $documentos = sesna_get_datos_personales_docs();
 }
 </style>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

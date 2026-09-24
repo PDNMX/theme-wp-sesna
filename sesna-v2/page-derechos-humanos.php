@@ -486,7 +486,7 @@ get_header();
     </div>
 </div>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 
 <?php get_footer(); ?>

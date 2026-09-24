@@ -1092,7 +1092,7 @@ get_header();
 <!-- Interactividad de la página (Rueda de Ejes, Mapa Interactivo SVG y Sincronización) -->
 <script src="<?php echo get_template_directory_uri(); ?>/script/diseno-pna.js"></script>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 </div>
 

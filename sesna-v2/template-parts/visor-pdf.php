@@ -11,8 +11,92 @@ document.addEventListener('DOMContentLoaded', function () {
     if (pdfModalEl) {
         const iframe = document.getElementById('pdfIframe');
         const downloadBtn = document.getElementById('pdfDownloadBtn');
+        const copyLinkBtn = document.getElementById('pdfCopyLinkBtn');
+        const copyLinkBtnText = document.getElementById('pdfCopyLinkBtnText');
         const loader = document.getElementById('pdfLoader');
         const title = document.getElementById('pdfViewerModalLabel');
+
+        if (copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', function () {
+                const url = downloadBtn ? downloadBtn.href : '';
+                if (!url || url === '#' || url.endsWith('/#')) return;
+
+                const showCopied = function () {
+                    copyLinkBtn.classList.add('is-copied');
+                    if (copyLinkBtnText) copyLinkBtnText.textContent = '¡Enlace copiado!';
+                    setTimeout(function () {
+                        copyLinkBtn.classList.remove('is-copied');
+                        if (copyLinkBtnText) copyLinkBtnText.textContent = 'Copiar enlace';
+                    }, 2000);
+                };
+
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(url).then(showCopied).catch(function () {
+                        copyLinkFallback(url, showCopied);
+                    });
+                } else {
+                    copyLinkFallback(url, showCopied);
+                }
+            });
+        }
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function (e) {
+                const url = downloadBtn.href;
+                if (!url || url === '#' || url.endsWith('/#')) return;
+
+                e.preventDefault();
+
+                let filename = 'documento.pdf';
+                try {
+                    const path = new URL(url, window.location.href).pathname;
+                    filename = decodeURIComponent(path.substring(path.lastIndexOf('/') + 1)) || filename;
+                } catch (err) {
+                    // Se conserva el nombre por defecto si la URL no pudo analizarse.
+                }
+
+                const triggerDownload = function (href) {
+                    const tempLink = document.createElement('a');
+                    tempLink.href = href;
+                    tempLink.download = filename;
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                };
+
+                fetch(url)
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('network');
+                        return res.blob();
+                    })
+                    .then(function (blob) {
+                        const blobUrl = URL.createObjectURL(blob);
+                        triggerDownload(blobUrl);
+                        setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 1000);
+                    })
+                    .catch(function () {
+                        // Fallback: si el fetch falla (p. ej. CORS en un dominio externo), se intenta la descarga nativa.
+                        triggerDownload(url);
+                    });
+            });
+        }
+
+        function copyLinkFallback(url, onSuccess) {
+            const temp = document.createElement('textarea');
+            temp.value = url;
+            temp.style.position = 'fixed';
+            temp.style.opacity = '0';
+            document.body.appendChild(temp);
+            temp.focus();
+            temp.select();
+            try {
+                document.execCommand('copy');
+                onSuccess();
+            } catch (err) {
+                // Silencioso: si tampoco funciona el fallback, el usuario aún puede copiar el enlace de "Descargar PDF".
+            }
+            document.body.removeChild(temp);
+        }
         // Evita que 'show.bs.modal' reprocese con relatedTarget cuando el click ya resolvió el documento.
         let lastResolvedByClick = false;
 
@@ -201,7 +285,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <iframe id="pdfIframe" src="" class="w-100 h-100 border-0 position-relative" style="z-index: 2;" allowfullscreen></iframe>
             </div>
             <div class="modal-footer border-0 justify-content-center py-4 bg-white gap-3">
-                <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download target="_blank">
+                <button type="button" id="pdfCopyLinkBtn" class="btn tx-pdf-copy-btn font-noto-sans fw-bold px-4 py-2">
+                    <i class="bi bi-link-45deg me-2"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
+                </button>
+                <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download>
                     <i class="bi bi-download me-2"></i> Descargar PDF
                 </a>
             </div>

@@ -287,7 +287,7 @@ rsort($oc_anios_organo);
     </div>
 </div>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <!-- Modal Visor de Video (Ver sesión) -->
 <div class="modal fade tx-pdf-modal" id="oc-video-modal" tabindex="-1" aria-labelledby="oc-video-modal-label" aria-hidden="true">

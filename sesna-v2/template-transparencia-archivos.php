@@ -55,7 +55,7 @@ get_header();
 
     <?php get_template_part( 'template-parts/transparencia/denuncia' ); ?>
 
-<?php get_template_part( 'template-parts/transparencia/visor-pdf' ); ?>
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <?php
 get_footer();
