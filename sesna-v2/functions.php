@@ -3560,12 +3560,13 @@ function sesna_render_recurso_card($post) {
 add_filter('body_class', function($classes) {
     $template = basename(get_page_template());
     $map = array(
-        'page-politica-nacional-anticorrupcion.php' => 'page-politica-nacional-anticorrupcion',
-        'page-diseno-pna.php'                       => 'page-pna-diseno',
-        'page-presupuestacion.php'                  => 'page-pna-presupuestacion',
+        'page-politica-nacional-anticorrupcion.php'  => array('page-politica-nacional-anticorrupcion'),
+        'page-diseno-pna.php'                        => array('page-pna-diseno'),
+        'page-presupuestacion.php'                   => array('page-pna-presupuestacion'),
+        'page-programa-implemetancion-pna.php'       => array('page-pna', 'page-pna-implementacion'),
     );
     if (isset($map[$template])) {
-        $classes[] = $map[$template];
+        $classes = array_merge($classes, $map[$template]);
     }
     return $classes;
 });

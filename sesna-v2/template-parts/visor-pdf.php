@@ -104,14 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('click', function(e) {
             if (e.target.closest('.pna-anexos-header')) return;
 
-            const trigger = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#pdfViewerModal"], .pna-doc-card, .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
+            const trigger = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#pdfViewerModal"], .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
 
             // Respeta un modal distinto declarado explícitamente (ej. visor de video).
             if (trigger && trigger.hasAttribute('data-bs-target') && trigger.getAttribute('data-bs-target') !== '#pdfViewerModal') return;
 
             let isPdfTrigger = false;
             if (trigger) {
-                if (trigger.getAttribute('data-bs-target') === '#pdfViewerModal' || trigger.classList.contains('pna-doc-card') || trigger.classList.contains('pna-anexo-item') || trigger.classList.contains('tx-sesion-pdf-link') || trigger.classList.contains('tx-sesion-chevron-link') || trigger.hasAttribute('data-pdf-url')) {
+                if (trigger.getAttribute('data-bs-target') === '#pdfViewerModal' || trigger.classList.contains('pna-anexo-item') || trigger.classList.contains('tx-sesion-pdf-link') || trigger.classList.contains('tx-sesion-chevron-link') || trigger.hasAttribute('data-pdf-url')) {
                     isPdfTrigger = true;
                 } else if (trigger.innerText && (trigger.innerText.includes('PDF') || trigger.innerText.includes('Relatoría') || trigger.innerText.includes('Acta') || trigger.innerText.includes('Resolución'))) {
                     isPdfTrigger = true;

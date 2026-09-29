@@ -207,9 +207,9 @@ get_header();
                         <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/presupuestacion/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--2" aria-label="Ir a Presupuestación de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
                         </a>
-                        <div class="pna-ciclo-overlay pna-ciclo-overlay--3" aria-hidden="true">
+                        <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--3" aria-label="Ir a Implementación de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
-                        </div>
+                        </a>
                         <div class="pna-ciclo-overlay pna-ciclo-overlay--4" aria-hidden="true">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('seguimiento y evaluacion.svg') ); ?>" alt="">
                         </div>
@@ -230,14 +230,14 @@ get_header();
                     <p class="pna-ciclo-step__desc">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
                 </a>
 
-                <div class="pna-ciclo-step pna-ciclo-step--3">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 text-decoration-none">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">3</span>
                         <p class="pna-ciclo-step__title">Implementación</p>
                     </div>
                     <p class="pna-ciclo-step__desc">Instrumenta las prioridades de la PNA a través del Programa de Implementación con estrategias, líneas de acción e indicadores de desempeño.</p>
-                </div>
+                </a>
 
             </div><!-- /.pna-ciclo-diagram -->
 

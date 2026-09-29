@@ -6174,7 +6174,8 @@ button[data-bs-target="#pdfViewerModal"]:focus {
 /* ── Fondo homologado páginas PNA ─────────────── */
 body.page-politica-nacional-anticorrupcion,
 body.page-pna-diseno,
-body.page-pna-presupuestacion {
+body.page-pna-presupuestacion,
+body.page-pna-implementacion {
     background-color: #f6eff6;
 }
 
