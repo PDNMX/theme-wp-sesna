@@ -2030,8 +2030,8 @@ p, .b1r {
     font-size: 26px;
     font-weight: 700;
     color: var(--color-burgundi) !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: none;
+    letter-spacing: normal;
     line-height: 1.2;
     margin-bottom: 0;
 }
@@ -5968,6 +5968,45 @@ button[data-bs-target="#pdfViewerModal"]:focus {
 
 .page-organos-colegiados .ocn-hero h1 {
     letter-spacing: -0.5px;
+}
+
+/* Tabs horizontales SND — Órganos Colegiados */
+.ocn-tabs-nav {
+    border-bottom: 2px solid var(--neutro200, #E5E7EB);
+}
+.ocn-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.ocn-tabs::-webkit-scrollbar { display: none; }
+.ocn-tab {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-noto-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--neutro600, #767676);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ocn-tab:hover {
+    color: var(--pguinda600, #9B2247);
+    text-decoration: none;
+}
+.ocn-tab.active {
+    color: var(--pguinda900, #611232);
+    border-bottom-color: var(--pguinda900, #611232);
+}
+@media (max-width: 767px) {
+    .ocn-tabs { gap: 4px; }
+    .ocn-tab { padding: 0.625rem 0.875rem; font-size: 0.875rem; }
 }
 
 /* Sidebar Nav - Diseño Premium */

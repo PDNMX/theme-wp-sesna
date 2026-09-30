@@ -1,4 +1,4 @@
-// Lógica de Tabs dinámica para el sidebar
+// Lógica de Tabs horizontales SND — Órganos Colegiados
 document.addEventListener('DOMContentLoaded', function() {
     const tabLinks = document.querySelectorAll('.js-tab-link');
     const sections = {
@@ -13,8 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
-            tabLinks.forEach(l => l.classList.remove('active'));
+            tabLinks.forEach(l => {
+                l.classList.remove('active');
+                l.setAttribute('aria-selected', 'false');
+            });
             this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
 
             Object.values(sections).forEach(sec => {
                 if(sec) sec.classList.add('d-none');
@@ -25,13 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 sections[target].classList.remove('d-none');
             }
 
-            // Auto scroll to top on mobile or just to the content area
-            const mainContentArea = document.getElementById('main-content-area');
-            if(mainContentArea) {
-                window.scrollTo({
-                    top: mainContentArea.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+            // Scroll suave al inicio del contenido en mobile
+            var tabsNav = document.querySelector('.ocn-tabs-nav');
+            if (tabsNav && window.innerWidth < 992) {
+                window.scrollTo({ top: tabsNav.offsetTop - 80, behavior: 'smooth' });
             }
         });
     });

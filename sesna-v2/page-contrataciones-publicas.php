@@ -43,7 +43,7 @@ get_header();
                             <i class="snd snd-building--government cp-hero-card__icon-sub"></i>
                         </div>
                         <div class="cp-hero-card__body">
-                            <h2 class="cp-hero-card__title">CONTRATACIONES PÚBLICAS</h2>
+                            <h2 class="cp-hero-card__title">Contrataciones Públicas</h2>
                             <p class="cp-hero-card__subtitle">Análisis y prevención de riesgos de corrupción</p>
                         </div>
                     </div>

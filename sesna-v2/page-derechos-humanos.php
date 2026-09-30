@@ -57,7 +57,7 @@ get_header();
         <div class="container">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">PRONUNCIAMIENTOS</h2>
+                    <h2 class="cp-recursos__titulo mb-0">Pronunciamientos</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ get_header();
         <div class="container">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">CAMPAÑAS DE SENSIBILIZACIÓN</h2>
+                    <h2 class="cp-recursos__titulo mb-0">Campañas de Sensibilización</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -241,7 +241,7 @@ get_header();
         <div class="container">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">ACCIONES X LA INTEGRIDAD</h2>
+                    <h2 class="cp-recursos__titulo mb-0">Acciones x la Integridad</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -318,7 +318,7 @@ get_header();
         <div class="container">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">COMITÉ DE IGUALDAD DE GÉNERO</h2>
+                    <h2 class="cp-recursos__titulo mb-0">Comité de Igualdad de Género</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>

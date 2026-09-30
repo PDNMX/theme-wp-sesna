@@ -7,6 +7,20 @@
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
   <?php wp_head(); ?>
+  <script>
+  /* SND icon fetch interceptor: redirige ./assets/iconos/*.svg al CDN oficial */
+  (function(){
+    var SND_ICON_CDN = 'https://framework-gb.cdn.gob.mx/snd/v1/assets/iconos/';
+    var _orig = window.fetch.bind(window);
+    window.fetch = function(url, opts) {
+      if (typeof url === 'string' && url.indexOf('/assets/iconos/') !== -1 && url.indexOf('framework-gb.cdn') === -1) {
+        var file = url.split('/assets/iconos/').pop();
+        return _orig(SND_ICON_CDN + file, opts);
+      }
+      return _orig(url, opts);
+    };
+  })();
+  </script>
 </head>
 
 <body <?php body_class(); ?>>

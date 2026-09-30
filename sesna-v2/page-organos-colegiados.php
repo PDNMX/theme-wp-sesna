@@ -65,44 +65,37 @@ rsort($oc_anios_organo);
 
     <!-- MAIN CONTENT -->
     <div class="container py-5">
-        <div class="row">
-            
-            <!-- SIDEBAR -->
-            <aside class="col-12 col-lg-3 mb-5 mb-lg-0 pe-lg-4">
-                <!-- Órganos Colegiados Nav -->
-                <h2 class="h6 fw-bold font-noto-sans mb-3 text-uppercase" style="color: var(--color-burgundi); letter-spacing: 0.5px;">ÓRGANOS COLEGIADOS</h2>
-                <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-colegiados">
-                    <a href="#" data-target="comite" class="ocn-sidebar-link js-tab-link active d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Comité Coordinador</span>
-                        <i class="snd snd-chevron--right fw-bold"></i>
-                    </a>
-                    <a href="#" data-target="comision" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Comisión Ejecutiva</span>
-                        <i class="snd snd-chevron--right fw-bold"></i>
-                    </a>
-                    <a href="#" data-target="organo" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Órgano de Gobierno</span>
-                        <i class="snd snd-chevron--right fw-bold"></i>
-                    </a>
-                    <a href="#" data-target="recomendaciones" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans lh-sm">Recomendaciones<br>no vinculantes</span>
-                        <i class="snd snd-chevron--right fw-bold"></i>
-                    </a>
-                    <a href="#" data-target="exhortos" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
-                        <span class="fw-bold font-noto-sans">Exhortos</span>
-                        <i class="snd snd-chevron--right fw-bold"></i>
-                    </a>
-                </div>
-            </aside>
 
-            <!-- MAIN COLUMN -->
-            <div class="col-12 col-lg-9 ps-lg-4">
+        <!-- TABS HORIZONTALES SND -->
+        <nav class="ocn-tabs-nav mb-5" aria-label="Secciones de órganos colegiados">
+            <div class="ocn-tabs" role="tablist">
+                <a href="#" data-target="comite" class="ocn-tab js-tab-link active" role="tab" aria-selected="true">
+                    Comité Coordinador
+                </a>
+                <a href="#" data-target="comision" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                    Comisión Ejecutiva
+                </a>
+                <a href="#" data-target="organo" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                    Órgano de Gobierno
+                </a>
+                <a href="#" data-target="recomendaciones" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                    Recomendaciones
+                </a>
+                <a href="#" data-target="exhortos" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                    Exhortos
+                </a>
+            </div>
+        </nav>
+
+        <div class="row">
+            <!-- MAIN COLUMN (full width) -->
+            <div class="col-12">
                 
                 <!-- SECTION: COMITÉ COORDINADOR -->
                 <div class="content-section" id="sec-comite">
                 <div class="row mb-5">
                     <div class="col-12">
-                        <h2 class="cp-recursos__titulo mb-2">COMITÉ COORDINADOR</h2>
+                        <h2 class="cp-recursos__titulo mb-2">Comité Coordinador</h2>
                     </div>
                 </div>
 
@@ -154,7 +147,7 @@ rsort($oc_anios_organo);
                 <div class="content-section d-none" id="sec-comision">
                     <div class="row mb-5">
                         <div class="col-12">
-                            <h2 class="cp-recursos__titulo mb-2">COMISIÓN EJECUTIVA</h2>
+                            <h2 class="cp-recursos__titulo mb-2">Comisión Ejecutiva</h2>
                         </div>
                     </div>
 
@@ -203,7 +196,7 @@ rsort($oc_anios_organo);
                 <div class="content-section d-none" id="sec-organo">
                     <div class="row mb-5">
                         <div class="col-12">
-                            <h2 class="cp-recursos__titulo mb-2">ÓRGANO DE GOBIERNO</h2>
+                            <h2 class="cp-recursos__titulo mb-2">Órgano de Gobierno</h2>
                         </div>
                     </div>
 
@@ -252,7 +245,7 @@ rsort($oc_anios_organo);
                 <div class="content-section d-none" id="sec-recomendaciones">
                     <div class="row mb-5">
                         <div class="col-12">
-                            <h2 class="cp-recursos__titulo mb-2">RECOMENDACIONES NO VINCULANTES</h2>
+                            <h2 class="cp-recursos__titulo mb-2">Recomendaciones no vinculantes</h2>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-3 mb-4">
@@ -269,7 +262,7 @@ rsort($oc_anios_organo);
                 <div class="content-section d-none" id="sec-exhortos">
                     <div class="row mb-5">
                         <div class="col-12">
-                            <h2 class="cp-recursos__titulo mb-2">EXHORTOS</h2>
+                            <h2 class="cp-recursos__titulo mb-2">Exhortos</h2>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-3 mb-4">
