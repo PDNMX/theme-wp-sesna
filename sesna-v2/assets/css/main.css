@@ -19,6 +19,17 @@ body {
 }
 
 /* ------------------------------------------------------------
+   Fix SND JS: el <svg> generado no tiene width/height explícito.
+   width:1em/height:1em lo escala al font-size del contexto.
+   ------------------------------------------------------------ */
+svg.snd {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------------------
    Accesibilidad — parches sobre el widget CDN de GOB.mx
    ------------------------------------------------------------ */
 
