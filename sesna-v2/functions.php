@@ -1068,8 +1068,9 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
             $output .= '<li class="navHeader__li' . ( $is_active ? ' navHeader__li--active' : '' ) . '">';
 
             if ( $has_children ) {
-                // <details> abre/cierra el submenu; JS/CSS controla hover en desktop
-                $output .= '<details class="navHeader__details"' . ( $is_active ? ' open' : '' ) . '>';
+                // <details> abre/cierra el submenu; JS/CSS controla hover en desktop.
+                // NO se pone open por defecto — el hover JS maneja la apertura.
+                $output .= '<details class="navHeader__details">';
                 $output .= '<summary class="navHeader__a navHeader__a--toggle"' . $current_attr . '>'
                     . esc_html( $item->title )
                     . '<i class="snd snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
