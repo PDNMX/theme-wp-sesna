@@ -68,20 +68,20 @@ rsort($oc_anios_organo);
 
         <!-- TABS HORIZONTALES SND -->
         <nav class="ocn-tabs-nav mb-5" aria-label="Secciones de órganos colegiados">
-            <div class="ocn-tabs" role="tablist">
-                <a href="#" data-target="comite" class="ocn-tab js-tab-link active" role="tab" aria-selected="true">
+            <div class="ocn-tabs" role="tablist" aria-label="Órganos Colegiados">
+                <a href="#sec-comite" id="tab-comite" data-target="comite" class="ocn-tab js-tab-link active" role="tab" aria-selected="true" aria-controls="sec-comite" tabindex="0">
                     Comité Coordinador
                 </a>
-                <a href="#" data-target="comision" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                <a href="#sec-comision" id="tab-comision" data-target="comision" class="ocn-tab js-tab-link" role="tab" aria-selected="false" aria-controls="sec-comision" tabindex="-1">
                     Comisión Ejecutiva
                 </a>
-                <a href="#" data-target="organo" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                <a href="#sec-organo" id="tab-organo" data-target="organo" class="ocn-tab js-tab-link" role="tab" aria-selected="false" aria-controls="sec-organo" tabindex="-1">
                     Órgano de Gobierno
                 </a>
-                <a href="#" data-target="recomendaciones" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                <a href="#sec-recomendaciones" id="tab-recomendaciones" data-target="recomendaciones" class="ocn-tab js-tab-link" role="tab" aria-selected="false" aria-controls="sec-recomendaciones" tabindex="-1">
                     Recomendaciones
                 </a>
-                <a href="#" data-target="exhortos" class="ocn-tab js-tab-link" role="tab" aria-selected="false">
+                <a href="#sec-exhortos" id="tab-exhortos" data-target="exhortos" class="ocn-tab js-tab-link" role="tab" aria-selected="false" aria-controls="sec-exhortos" tabindex="-1">
                     Exhortos
                 </a>
             </div>
@@ -92,7 +92,7 @@ rsort($oc_anios_organo);
             <div class="col-12">
                 
                 <!-- SECTION: COMITÉ COORDINADOR -->
-                <div class="content-section" id="sec-comite">
+                <div class="content-section" id="sec-comite" role="tabpanel" aria-labelledby="tab-comite">
                 <div class="row mb-5">
                     <div class="col-12">
                         <h2 class="cp-recursos__titulo mb-2">Comité Coordinador</h2>
@@ -144,7 +144,7 @@ rsort($oc_anios_organo);
                 </div> <!-- END sec-comite -->
 
                 <!-- SECTION: COMISIÓN EJECUTIVA -->
-                <div class="content-section d-none" id="sec-comision">
+                <div class="content-section d-none" id="sec-comision" role="tabpanel" aria-labelledby="tab-comision">
                     <div class="row mb-5">
                         <div class="col-12">
                             <h2 class="cp-recursos__titulo mb-2">Comisión Ejecutiva</h2>
@@ -193,7 +193,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <!-- SECTION: ÓRGANO DE GOBIERNO -->
-                <div class="content-section d-none" id="sec-organo">
+                <div class="content-section d-none" id="sec-organo" role="tabpanel" aria-labelledby="tab-organo">
                     <div class="row mb-5">
                         <div class="col-12">
                             <h2 class="cp-recursos__titulo mb-2">Órgano de Gobierno</h2>
@@ -242,7 +242,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <!-- SECTION: RECOMENDACIONES -->
-                <div class="content-section d-none" id="sec-recomendaciones">
+                <div class="content-section d-none" id="sec-recomendaciones" role="tabpanel" aria-labelledby="tab-recomendaciones">
                     <div class="row mb-5">
                         <div class="col-12">
                             <h2 class="cp-recursos__titulo mb-2">Recomendaciones no vinculantes</h2>
@@ -259,7 +259,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <!-- SECTION: EXHORTOS -->
-                <div class="content-section d-none" id="sec-exhortos">
+                <div class="content-section d-none" id="sec-exhortos" role="tabpanel" aria-labelledby="tab-exhortos">
                     <div class="row mb-5">
                         <div class="col-12">
                             <h2 class="cp-recursos__titulo mb-2">Exhortos</h2>

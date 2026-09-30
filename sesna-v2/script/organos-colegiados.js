@@ -1,6 +1,6 @@
 // Lógica de Tabs horizontales SND — Órganos Colegiados
 document.addEventListener('DOMContentLoaded', function() {
-    const tabLinks = document.querySelectorAll('.js-tab-link');
+    const tabLinks = Array.from(document.querySelectorAll('.js-tab-link'));
     const sections = {
         'comite': document.getElementById('sec-comite'),
         'comision': document.getElementById('sec-comision'),
@@ -9,30 +9,59 @@ document.addEventListener('DOMContentLoaded', function() {
         'exhortos': document.getElementById('sec-exhortos')
     };
 
-    tabLinks.forEach(link => {
+    function activateTab(tab) {
+        tabLinks.forEach(l => {
+            l.classList.remove('active');
+            l.setAttribute('aria-selected', 'false');
+            l.setAttribute('tabindex', '-1');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        tab.setAttribute('tabindex', '0');
+
+        Object.values(sections).forEach(sec => {
+            if (sec) sec.classList.add('d-none');
+        });
+
+        const target = tab.getAttribute('data-target');
+        if (sections[target]) {
+            sections[target].classList.remove('d-none');
+        }
+
+        var tabsNav = document.querySelector('.ocn-tabs-nav');
+        if (tabsNav && window.innerWidth < 992) {
+            window.scrollTo({ top: tabsNav.offsetTop - 80, behavior: 'smooth' });
+        }
+    }
+
+    tabLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            activateTab(this);
+            this.focus();
+        });
 
-            tabLinks.forEach(l => {
-                l.classList.remove('active');
-                l.setAttribute('aria-selected', 'false');
-            });
-            this.classList.add('active');
-            this.setAttribute('aria-selected', 'true');
-
-            Object.values(sections).forEach(sec => {
-                if(sec) sec.classList.add('d-none');
-            });
-
-            const target = this.getAttribute('data-target');
-            if (sections[target]) {
-                sections[target].classList.remove('d-none');
-            }
-
-            // Scroll suave al inicio del contenido en mobile
-            var tabsNav = document.querySelector('.ocn-tabs-nav');
-            if (tabsNav && window.innerWidth < 992) {
-                window.scrollTo({ top: tabsNav.offsetTop - 80, behavior: 'smooth' });
+        // Keyboard: ArrowLeft/ArrowRight navigate tabs (WCAG 2.1.1)
+        link.addEventListener('keydown', function(e) {
+            const idx = tabLinks.indexOf(this);
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const next = tabLinks[(idx + 1) % tabLinks.length];
+                activateTab(next);
+                next.focus();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prev = tabLinks[(idx - 1 + tabLinks.length) % tabLinks.length];
+                activateTab(prev);
+                prev.focus();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                activateTab(tabLinks[0]);
+                tabLinks[0].focus();
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                activateTab(tabLinks[tabLinks.length - 1]);
+                tabLinks[tabLinks.length - 1].focus();
             }
         });
     });

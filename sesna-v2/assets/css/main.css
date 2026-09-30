@@ -6745,3 +6745,46 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
     background: #ffffff;
 }
 
+
+/* ══════════════════════════════════════════════════════
+   BLOQUE 12 — Accesibilidad SND
+   ══════════════════════════════════════════════════════ */
+
+/* Skip link (WCAG 2.4.1) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 99999;
+    background: var(--pguinda900, #611232);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 4px 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Focus visible global (WCAG 2.4.7) */
+:focus-visible {
+    outline: 3px solid var(--pguinda600, #9B2247);
+    outline-offset: 2px;
+}
+
+/* Tab keyboard focus */
+.ocn-tab:focus-visible {
+    outline: 3px solid var(--pguinda600, #9B2247);
+    outline-offset: -3px;
+    border-radius: 2px;
+}
+
+/* Ensure hidden panels are truly hidden from AT */
+.content-section[hidden],
+.content-section.d-none {
+    display: none !important;
+}

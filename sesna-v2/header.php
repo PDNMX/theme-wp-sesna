@@ -25,6 +25,8 @@
 
 <body <?php body_class(); ?>>
 
+  <a href="#page-content" class="skip-link">Saltar al contenido principal</a>
+
   <!-- Loader / Transición Inicial -->
   <div id="sesna-page-loader" class="sesna-loader">
     <div class="sesna-spinner"></div>
@@ -73,5 +75,5 @@
     </div>
   </header>
 
-  <main class="page">
+  <main class="page" id="page-content">
 
