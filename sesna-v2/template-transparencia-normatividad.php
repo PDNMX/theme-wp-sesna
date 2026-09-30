@@ -18,7 +18,7 @@ if (!function_exists('sesna_render_document_row')) {
             <div class="d-flex align-items-start align-items-md-center gap-3 flex-grow-1">
                 <!-- Icon container -->
                 <div class="flex-shrink-0 bg-danger bg-opacity-10 text-danger rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;" aria-hidden="true">
-                    <i class="bi bi-file-earmark-pdf-fill fs-4"></i>
+                    <i class="snd snd-document--pdf fs-4"></i>
                 </div>
                 
                 <!-- Content -->
@@ -26,7 +26,7 @@ if (!function_exists('sesna_render_document_row')) {
                     <h3 class="h6 font-patria mb-1 text-dark fw-bold lh-base"><?php the_title(); ?></h3>
                     <div class="d-flex align-items-center gap-2 mt-1">
                         <?php if ($has_file) : ?>
-                            <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle fw-medium rounded-pill px-2 py-1"><i class="bi bi-check-circle me-1"></i> Disponible</span>
+                            <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle fw-medium rounded-pill px-2 py-1"><i class="snd snd-checkmark--outline me-1"></i> Disponible</span>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -36,11 +36,11 @@ if (!function_exists('sesna_render_document_row')) {
             <div class="flex-shrink-0 text-md-end mt-2 mt-md-0 ms-md-4">
                 <?php if ($has_file): ?>
                 <a href="<?= esc_url($file_url) ?>" class="btn btn-outline-danger px-4 rounded-pill fw-semibold d-inline-flex align-items-center gap-2 shadow-sm" target="_blank" rel="noopener" aria-label="Descargar PDF de <?php echo esc_attr(get_the_title()); ?>">
-                    Consultar <i class="bi bi-file-earmark-text fs-5" aria-hidden="true"></i>
+                    Consultar <i class="snd snd-document fs-5" aria-hidden="true"></i>
                 </a>
                 <?php else: ?>
                 <span class="btn btn-light px-4 rounded-pill fw-medium text-muted disabled d-inline-flex align-items-center gap-2" aria-disabled="true">
-                    No disponible <i class="bi bi-file-earmark-x fs-5" aria-hidden="true"></i>
+                    No disponible <i class="snd snd-document--unknown fs-5" aria-hidden="true"></i>
                 </span>
                 <?php endif; ?>
             </div>
@@ -58,7 +58,7 @@ if (!function_exists('sesna_render_document_row')) {
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -100,7 +100,7 @@ if (!function_exists('sesna_render_document_row')) {
                     <!-- Header Section -->
                     <div class="d-flex align-items-start gap-4 mb-5">
                         <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background-color: #F2F2F2; color: #9F2241; border: 1px solid #EAEAEA;">
-                            <i class="bi bi-shield-check fs-1"></i>
+                            <i class="snd snd-security fs-1"></i>
                         </div>
                         <div>
                             <h2 class="h4 fw-bold font-patria mb-2" style="color: #9F2241;">Normativa en materia de transparencia</h2>
@@ -145,7 +145,7 @@ if (!function_exists('sesna_render_document_row')) {
                                         <td><div class="font-noto-sans tx-sesion-info-type"><?= esc_html($doc['tipo']) ?></div></td>
                                     <td>
                                         <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener noreferrer" class="tx-table-normatividad-link" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                            <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                            <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                             <span class="tx-table-normatividad-link-label">Consultar</span>
                                         </a>
                                     </td>
@@ -163,7 +163,7 @@ if (!function_exists('sesna_render_document_row')) {
                 <div class="card-body p-4 p-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
                     <div class="d-flex align-items-center gap-4">
                         <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background-color: #FFFFFF; color: #9F2241; border: 1px solid #EAEAEA;">
-                            <i class="bi bi-bank fs-2"></i>
+                            <i class="snd snd-building--government fs-2"></i>
                         </div>
                         <div>
                             <h3 class="h5 fw-bold font-patria mb-1" style="color: #9F2241;">¿Deseas consultar más normativa?</h3>
@@ -172,7 +172,7 @@ if (!function_exists('sesna_render_document_row')) {
                     </div>
                     <div class="flex-shrink-0 mt-4 mt-md-0 align-self-stretch align-self-md-auto text-md-end">
                         <a href="<?php echo esc_url( home_url('/marco-normativo/') ); ?>" class="sna-entradas-archive-link d-inline-flex align-items-center justify-content-center m-0" style="padding: 10px 24px; font-size: 16px;">
-                            Marco Normativo<i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+                            Marco Normativo<i class="snd snd-arrow--right ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
                 <a href="<?php echo esc_url( home_url('/') ); ?>">
-                    <i class="bi bi-house-door"></i> Inicio
+                    <i class="snd snd-home"></i> Inicio
                 </a>
             </li>
             <li class="breadcrumb-item">

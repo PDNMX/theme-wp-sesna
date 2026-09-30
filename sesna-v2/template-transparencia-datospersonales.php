@@ -17,7 +17,7 @@ $documentos = sesna_get_datos_personales_docs();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -96,11 +96,11 @@ $documentos = sesna_get_datos_personales_docs();
                         <!-- Action Column -->
                         <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                <i class="bi bi-filetype-pdf tx-sesion-pdf-icon"></i>
+                                <i class="snd snd-document--pdf tx-sesion-pdf-icon"></i>
                                 <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Consultar</div>
                             </a>
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                <i class="bi bi-chevron-right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                <i class="snd snd-chevron--right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
                             </a>
                         </div>
 
@@ -112,7 +112,7 @@ $documentos = sesna_get_datos_personales_docs();
             <!-- Ver más Documentos -->
             <div class="text-center mt-5" id="documentos-load-more-container">
                 <a href="javascript:void(0)" id="documentos-btn-more" class="tx-comite-btn-more">
-                    Ver más documentos <i class="bi bi-chevron-down"></i>
+                    Ver más documentos <i class="snd snd-chevron--down"></i>
                 </a>
             </div>
 

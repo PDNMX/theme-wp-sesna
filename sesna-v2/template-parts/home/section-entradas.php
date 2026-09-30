@@ -26,7 +26,7 @@ $sna_meses = [
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
-                <a href="<?php echo esc_url(home_url('/')); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Noticias y Actividades</li>
         </ol>
@@ -45,7 +45,7 @@ $sna_meses = [
         <div class="sna-entradas-filters" role="search" aria-label="Filtrar por fecha">
             <div class="sna-entradas-filter-field">
                 <label for="sna-entradas-filter-year">
-                    <i class="bi bi-calendar3" aria-hidden="true"></i> Año
+                    <i class="snd snd-calendar" aria-hidden="true"></i> Año
                 </label>
                 <select id="sna-entradas-filter-year" class="sna-entradas-filter-select">
                     <option value="">Todos</option>
@@ -57,7 +57,7 @@ $sna_meses = [
 
             <div class="sna-entradas-filter-field">
                 <label for="sna-entradas-filter-month">
-                    <i class="bi bi-calendar-month" aria-hidden="true"></i> Mes
+                    <i class="snd snd-calendar" aria-hidden="true"></i> Mes
                 </label>
                 <select id="sna-entradas-filter-month" class="sna-entradas-filter-select">
                     <option value="">Todos</option>
@@ -68,11 +68,11 @@ $sna_meses = [
             </div>
 
             <button type="button" id="sna-entradas-filter-apply" class="sna-entradas-filter-apply">
-                Aplicar filtro <i class="bi bi-funnel ms-1"></i>
+                Aplicar filtro <i class="snd snd-filter ms-1"></i>
             </button>
 
             <button type="button" id="sna-entradas-filter-clear" class="sna-entradas-filter-clear" style="display:none;">
-                Quitar filtros <i class="bi bi-x-circle ms-1"></i>
+                Quitar filtros <i class="snd snd-close--outline ms-1"></i>
             </button>
         </div>
 
@@ -88,7 +88,7 @@ $sna_meses = [
                         aria-selected="<?php echo $is_first ? 'true' : 'false'; ?>"
                         aria-controls="panel-<?php echo esc_attr($key); ?>"
                         data-familia="<?php echo esc_attr($key); ?>">
-                    <i class="bi <?php echo esc_attr($familia['icon']); ?>" aria-hidden="true"></i>
+                    <i class="snd <?php echo esc_attr($familia['icon']); ?>" aria-hidden="true"></i>
                     <span class="sna-entradas-tab-label"><?php echo esc_html($familia['label']); ?></span>
                     <span class="sna-entradas-tab-count"><?php echo (int) $count; ?></span>
                 </button>
@@ -103,14 +103,14 @@ $sna_meses = [
                  role="tabpanel"
                  aria-labelledby="tab-<?php echo esc_attr($key); ?>"
                  data-familia="<?php echo esc_attr($key); ?>"
-                 data-page="0"
-                 data-loaded="0">
+                 data-page="snd-star"
+                 data-loaded="snd-star">
             </div>
         <?php endforeach; ?>
 
         <div class="text-center mt-4">
             <button type="button" id="sna-entradas-load-more" class="sna-entradas-load-more-btn" style="display:none;">
-                Cargar más <i class="bi bi-arrow-clockwise ms-2"></i>
+                Cargar más <i class="snd snd-renew ms-2"></i>
             </button>
         </div>
     </div>

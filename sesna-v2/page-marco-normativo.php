@@ -14,7 +14,7 @@ get_header();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Marco Normativo</li>
@@ -53,11 +53,11 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                 <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-normatividad">
                     <a href="#" data-target="norm-ext" class="ocn-sidebar-link js-tab-link active d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Normatividad externa</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                     <a href="#" data-target="norm-int" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Normatividad interna</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                 </div>
             </aside>
@@ -74,7 +74,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                 <label for="search-doc" class="form-label fw-bold font-noto-sans text-dark mb-2">Buscar documento</label>
                                 <div class="position-relative">
                                     <input type="text" id="search-doc" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Nombre, palabra clave, año, etc.">
-                                    <i class="bi bi-search tx-comite-search-icon"></i>
+                                    <i class="snd snd-search tx-comite-search-icon"></i>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Constitución Política de los Estados Unidos Mexicanos</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/cpeum.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -107,7 +107,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.ohchr.org/es/instruments-mechanisms/instruments/international-covenant-civil-and-political-rights" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -117,7 +117,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.ordenjuridico.gob.mx/TratInt/Derechos%20Humanos/D50.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -127,7 +127,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.cndh.org.mx/sites/default/files/doc/Programas/TrataPersonas/MarcoNormativoTrata/InsInternacionales/Regionales/Convencion_ADH.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -137,7 +137,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.oas.org/es/sla/ddi/docs/tratados_multilaterales_interamericanos_b-58_contra_corrupcion.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -147,7 +147,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.oecd.org/content/dam/oecd/es/publications/reports/2011/03/convention-on-combating-bribery-of-foreign-public-officials-in-international-business-transactions_037f7856/24d80d2c-es.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -157,7 +157,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Tratados Internacionales</div></td>
                                         <td>
                                             <a href="https://www.unodc.org/pdf/corruption/publications_unodc_convention-s.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -167,7 +167,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Generales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lgra.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -177,7 +177,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Generales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lgsna.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -187,7 +187,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Generales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lga.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -197,7 +197,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/loapf.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -207,7 +207,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/laassp.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -217,7 +217,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lfpa.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -227,7 +227,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lfpca.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -237,7 +237,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lfep.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -247,7 +247,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lfrcf.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -257,7 +257,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Leyes Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/lamp.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -267,7 +267,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Códigos Federales</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/ref/cpf.htm" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -277,7 +277,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Reglamentos</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LFEP.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -287,7 +287,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Reglamentos</div></td>
                                         <td>
                                             <a href="https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LAASSP.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -297,7 +297,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2020/03/7.-ACUERDO-MEDIANTE-EL-CUAL-EL-COMITÉ-COORDINADOR-DEL-SISTEMA-NACIONAL-ANTICORRUPCIÓN.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -307,7 +307,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2025/01/211.-ACUERDO.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -317,7 +317,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/496436/ACUERDO_POR_EL_QUE_SE_MODIFICAN_LOS_ANEXOS_PRIMERO_Y_SEGUNDO_DEL_ACUERDO_POR....pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -327,7 +327,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.seseabc.gob.mx/doctos/dof_23092019_formatos_SP.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -337,7 +337,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2019/08/144.dgaj_.acuerdo_cc_sna_formato_declaraciones.pdf.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -347,7 +347,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/403489/Implementacion_y_Operacion_de_la_PDN_y_las_Bases_para_el_Funcionamiento_de_la_PDN_completo.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -357,7 +357,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/429768/Acuerdo_mediante_el_cual_el_Comit__Coordinador_del_Sistema_Nacional_Anticorrupci_n_emite_el_An_lisis_para_la_Identificaci_n_y_....pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -367,7 +367,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/429770/Acuerdo_por_el_que_el_Comit__Coordinador_del_Sistema_Nacional_Anticorrupci_n_aprueba_la_difusi_n_y_da_a....pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -377,7 +377,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/404145/ACUERDO_CC_SESNA_designa_los_dias_9_de_cada_mes_como_el_Dia_por_la_Integridad.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -387,7 +387,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/483383/2019-08-06_acuerdo_codigo_etica.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -397,7 +397,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/398332/ACUERDO_por_el_que_el_Comit__Coordinador_del_Sistema_Nacional_Anticorrupci_n_da_a_conocer_la_obligaci_n_de_presentar_las_declaraciones_de_situaci_n_patrimonial...pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -407,7 +407,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos, Códigos y Reglas de Integridad</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2024/04/0323.-LINEAMIENTOS.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -417,7 +417,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos, Códigos y Reglas de Integridad</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2026/01/380.-CODIGO.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -427,7 +427,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos, Códigos y Reglas de Integridad</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/167646/Reglas-Integridad.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -437,7 +437,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Declaratoria</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2024/10/09.-DECLARATORIA.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -447,7 +447,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Políticas</div></td>
                                         <td>
                                             <a href="https://www.dof.gob.mx/2020/SESNA/PNA.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -457,7 +457,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Protocolos</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/619797/Protocolo_para_la_prevenci_n__atenci_n_y_sanci_n_del_hostigamiento_sexual_y_acoso_sexual.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -469,7 +469,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                         <!-- VER MÁS BTN (EXTERNA) -->
                         <div class="text-center mt-4 mb-2" id="normatividad-externa-vermas-wrap">
                             <a href="#" class="btn-sesna-outline" id="normatividad-externa-vermas-btn">
-                                Ver más documentos <i class="bi bi-chevron-down ms-1"></i>
+                                Ver más documentos <i class="snd snd-chevron--down ms-1"></i>
                             </a>
                         </div>
 
@@ -493,7 +493,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Estatuto</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2019/06/10.-Estatuto-Organico-de-la-SESNA.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -503,7 +503,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Reglas</div></td>
                                         <td>
                                             <a href="https://sesaemm.gob.mx/documentos/sc01/06_marco_juridico/05_Reglamentos/Reglamentos_13.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -513,7 +513,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2020/12/Acuerdo-OG-SESNA-Aprobacion-Celebracion-Sesiones-Distancia-DOF_12Oct2020.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -523,7 +523,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Acuerdos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2024/04/0326.-ACUERDO.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -533,7 +533,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2024/05/lineamientos-sesiones-CC-SNA-2024.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -543,7 +543,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2019/12/LINEAMIENTOS-QUE-REGULAN-EL-PROCEDIMIENTO-01Oct2019.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -553,7 +553,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2022/03/Lineamientos_Sesiones_CE_SESNA_09Jun2020-07Mar2022.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -563,7 +563,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2021/07/44.-LINEAMIENTOS....pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -573,7 +573,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Lineamientos</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2026/08/lineamientos_asistencia_DRHyO.pdf" target="_blank" class=" tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -583,7 +583,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Políticas</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2021/02/9.-POLITICAS....pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -593,7 +593,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Manuales</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/389674/5.1_Manual_Subcomite-RUBRICADO.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -603,7 +603,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Manuales</div></td>
                                         <td>
                                             <a href="https://www.gob.mx/cms/uploads/attachment/file/318479/MANUAL_DE_INTEGRACI_N_Y_FUNCIONAMIENTO_DEL_COMT__DE_ADQUISICIONES__ARRENDAMIENTOS_Y_SERVICIOS_DE_LA_SECRETARIA_EJECUTIVA_DEL_SISTEMA_NACIONAL_ANTICORRUPCI_N__-_RUBRICADO.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -613,7 +613,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Manuales</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2026/01/379.-MANUAL.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -623,7 +623,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2025/10/371-PROGRAMA.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -633,7 +633,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2022/05/Guia-Basica-Eventos-Accesibles-12May2022.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -643,7 +643,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                                         <td><div class="font-noto-sans tx-sesion-info-type">Programas, Planes y Guías</div></td>
                                         <td>
                                             <a href="/wp-content/uploads/2026/08/PADA_2026.pdf" target="_blank" class="tx-table-normatividad-link">
-                                                <i class="bi bi-box-arrow-up-right tx-table-normatividad-link-icon"></i>
+                                                <i class="snd snd-launch tx-table-normatividad-link-icon"></i>
                                                 <span class="tx-table-normatividad-link-label">Consultar</span>
                                             </a>
                                         </td>
@@ -655,7 +655,7 @@ Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ej
                         <!-- VER MÁS BTN (INTERNA) -->
                         <div class="text-center mt-5 mb-2" id="normatividad-interna-vermas-wrap">
                             <a href="#" class="btn-sesna-outline" id="normatividad-interna-vermas-btn">
-                                Ver más documentos <i class="bi bi-chevron-down ms-1"></i>
+                                Ver más documentos <i class="snd snd-chevron--down ms-1"></i>
                             </a>
                         </div>
                         </div>

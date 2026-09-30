@@ -15,7 +15,7 @@ get_header();
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
             var chevron = this.querySelector('.cf-year-chevron');
             if (!target) return;
             var abierto = target.classList.toggle('d-none');
-            chevron.classList.toggle('bi-chevron-down', !abierto);
-            chevron.classList.toggle('bi-chevron-right', abierto);
+            chevron.classList.toggle('snd-chevron--down', !abierto);
+            chevron.classList.toggle('snd-chevron--right', abierto);
         });
     });
 
@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     g.classList.toggle('d-none', !open);
                     var toggle = scope.querySelector('[data-cf-toggle="' + g.id + '"] .cf-year-chevron');
                     if (toggle) {
-                        toggle.classList.toggle('bi-chevron-down', open);
-                        toggle.classList.toggle('bi-chevron-right', !open);
+                        toggle.classList.toggle('snd-chevron--down', open);
+                        toggle.classList.toggle('snd-chevron--right', !open);
                     }
                 });
                 return;

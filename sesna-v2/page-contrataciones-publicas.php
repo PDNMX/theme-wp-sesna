@@ -16,7 +16,7 @@ get_header();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -39,8 +39,8 @@ get_header();
                 <div class="col-lg-4 col-md-5">
                     <div class="cp-hero-card">
                         <div class="cp-hero-card__img">
-                            <i class="bi bi-file-earmark-check cp-hero-card__icon-main"></i>
-                            <i class="bi bi-bank cp-hero-card__icon-sub"></i>
+                            <i class="snd snd-document--tasks cp-hero-card__icon-main"></i>
+                            <i class="snd snd-building--government cp-hero-card__icon-sub"></i>
                         </div>
                         <div class="cp-hero-card__body">
                             <h2 class="cp-hero-card__title">CONTRATACIONES PÚBLICAS</h2>
@@ -69,7 +69,7 @@ get_header();
             <div class="cp-recursos__header mb-4">
                 <div class="d-flex align-items-center gap-3">
                     <div class="cp-recursos__icono-box">
-                        <i class="bi bi-folder2-open"></i>
+                        <i class="snd snd-folder--open"></i>
                     </div>
                     <div>
                         <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -135,9 +135,9 @@ get_header();
                         <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
                         <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
                         <div class="cp-doc-meta">
-                            <span><i class="bi bi-calendar3"></i> <?php echo esc_html($doc['anio']); ?></span>
+                            <span><i class="snd snd-calendar"></i> <?php echo esc_html($doc['anio']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="bi bi-file-earmark"></i> <?php echo esc_html($doc['formato']); ?></span>
+                            <span><i class="snd snd-document--blank"></i> <?php echo esc_html($doc['formato']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
                             <span><?php echo esc_html($doc['paginas']); ?></span>
                         </div>
@@ -146,10 +146,10 @@ get_header();
                     <!-- Acciones -->
                     <div class="cp-doc-acciones">
                         <a href="<?php echo esc_url($doc['url_ver']); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                            <i class="bi bi-eye"></i> Ver documento
+                            <i class="snd snd-view"></i> Ver documento
                         </a>
                         <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                            <i class="bi bi-download"></i> Descargar PDF
+                            <i class="snd snd-download"></i> Descargar PDF
                         </a>
                     </div>
 
@@ -166,7 +166,7 @@ get_header();
     <div class="cp-nota pb-5">
         <div class="container">
             <div class="cp-nota__inner">
-                <i class="bi bi-info-circle-fill cp-nota__icono"></i>
+                <i class="snd snd-information--filled cp-nota__icono"></i>
                 <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
             </div>
         </div>

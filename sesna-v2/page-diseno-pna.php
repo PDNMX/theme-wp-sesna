@@ -15,7 +15,7 @@ get_header();
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -48,28 +48,28 @@ get_header();
                         <!-- Tarjeta 1: Consultar documento completo -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="bi bi-file-earmark-text text-white fs-4"></i>
+                                <i class="snd snd-document text-white fs-4"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Consultar documento completo</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Política Nacional Anticorrupción (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="bi bi-box-arrow-up-right text-burgundi fs-5"></i>
+                                <i class="snd snd-launch text-burgundi fs-5"></i>
                             </div>
                         </a>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="bi bi-book text-white fs-4"></i>
+                                <i class="snd snd-book text-white fs-4"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Documento (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="bi bi-box-arrow-up-right text-burgundi fs-5"></i>
+                                <i class="snd snd-launch text-burgundi fs-5"></i>
                             </div>
                         </a>
 
@@ -80,7 +80,7 @@ get_header();
                                     <div class="accordion-header m-0" id="flush-headingAnexos">
                                         <button class="accordion-button collapsed p-3 bg-transparent shadow-none d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAnexos" aria-expanded="false" aria-controls="flush-collapseAnexos">
                                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                                <i class="bi bi-folder text-white fs-4"></i>
+                                                <i class="snd snd-folder text-white fs-4"></i>
                                             </div>
                                             <div class="flex-grow-1 text-start my-auto">
                                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
@@ -93,19 +93,19 @@ get_header();
                                             <div class="list-group list-group-flush">
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -152,7 +152,7 @@ get_header();
                         
                         <!-- Tarjeta Eje 1 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn active d-flex flex-column justify-content-center" data-eje="1" role="button" tabindex="0" style="background: linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn active d-flex flex-column justify-content-center" data-eje="1" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #6AC72C;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -173,7 +173,7 @@ get_header();
 
                         <!-- Tarjeta Eje 3 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="0" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #74598F;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -202,7 +202,7 @@ get_header();
                                 <!-- Sectores SVG divididos con borde blanco y 4 iconos representativos en vectores nativos -->
                                 <svg class="pna-wheel-svg w-100 h-100" viewBox="0 0 320 320" style="filter: drop-shadow(0 8px 24px rgba(0,0,0,0.08));">
                                     <!-- EJE 1: Verde (Superior Izquierdo) -> Escudo con candado (Protección y combate a la impunidad) -->
-                                    <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="0" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="snd-star" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 20 160 A 140 140 0 0 1 160 20 Z" fill="#6AC72C" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="56" y="56" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -211,7 +211,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 2: Azul (Superior Derecho) -> Auditoría, control interno y profesionalización -->
-                                    <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="0" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="snd-star" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="208" y="56" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -220,7 +220,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 4: Rosa/Fucsia (Inferior Derecho) -> Sociedad y sector privado -->
-                                    <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="0" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="snd-star" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 300 160 A 140 140 0 0 1 160 300 Z" fill="#E04F67" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="208" y="208" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -229,7 +229,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 3: Morado (Inferior Izquierdo) -> Interconexión, gestión y puntos de contacto -->
-                                    <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="0" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="snd-star" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="56" y="208" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -257,7 +257,7 @@ get_header();
                         
                         <!-- Tarjeta Eje 2 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="0" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #1D70B8;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -278,7 +278,7 @@ get_header();
 
                         <!-- Tarjeta Eje 4 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="4" role="button" tabindex="0" style="background: linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="4" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #E04F67;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -304,7 +304,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="bi bi-hand-index-thumb"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-cursor--1"></i></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -506,10 +506,10 @@ get_header();
                     
                     <!-- Etapa 1: Consejo consultivo y análisis técnico -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="snd-star" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="bi bi-people-fill"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group--filled"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
@@ -522,10 +522,10 @@ get_header();
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
-                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="bi bi-people"></i></span>
+                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd snd-group"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
@@ -538,10 +538,10 @@ get_header();
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
-                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="bi bi-pin-map-fill"></i></span>
+                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd snd-location--filled"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
@@ -564,7 +564,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+                        <i class="snd snd-information--filled me-2 fs-5"></i>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
@@ -687,19 +687,19 @@ get_header();
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
@@ -871,52 +871,52 @@ get_header();
                                         <!-- Marcadores / Pines de las 8 Sedes en Naranja (#D97706) -->
                                         <g class="sedes-pins">
                                             <!-- Sede 1: Guadalajara, Jalisco -->
-                                            <g class="sede-pin" data-sede="1" role="button" tabindex="0" transform="translate(345, 315)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="1" role="button" tabindex="snd-star" transform="translate(345, 315)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
                                             </g>
                                             <!-- Sede 2: Zacatecas, Zacatecas -->
-                                            <g class="sede-pin" data-sede="2" role="button" tabindex="0" transform="translate(365, 250)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="2" role="button" tabindex="snd-star" transform="translate(365, 250)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
                                             </g>
                                             <!-- Sede 3: Saltillo, Coahuila -->
-                                            <g class="sede-pin" data-sede="3" role="button" tabindex="0" transform="translate(440, 180)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="3" role="button" tabindex="snd-star" transform="translate(440, 180)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
                                             </g>
                                             <!-- Sede 4: Oaxaca, Oaxaca -->
-                                            <g class="sede-pin" data-sede="4" role="button" tabindex="0" transform="translate(560, 405)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="4" role="button" tabindex="snd-star" transform="translate(560, 405)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
                                             </g>
                                             <!-- Sede 5: Querétaro, Querétaro -->
-                                            <g class="sede-pin" data-sede="5" role="button" tabindex="0" transform="translate(468, 320)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="5" role="button" tabindex="snd-star" transform="translate(468, 320)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">5</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">5</text>
                                             </g>
                                             <!-- Sede 6: Hermosillo, Sonora -->
-                                            <g class="sede-pin" data-sede="6" role="button" tabindex="0" transform="translate(175, 115)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="6" role="button" tabindex="snd-star" transform="translate(175, 115)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">6</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">6</text>
                                             </g>
                                             <!-- Sede 7: Cancún, Quintana Roo -->
-                                            <g class="sede-pin" data-sede="7" role="button" tabindex="0" transform="translate(770, 345)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="7" role="button" tabindex="snd-star" transform="translate(770, 345)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">7</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">7</text>
                                             </g>
                                             <!-- Sede 8: CDMX -->
-                                            <g class="sede-pin" data-sede="8" role="button" tabindex="0" transform="translate(488, 375)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="8" role="button" tabindex="snd-star" transform="translate(488, 375)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">8</text>
+                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">8</text>
                                             </g>
                                         </g>
                                     </svg>
@@ -944,14 +944,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">23 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Guadalajara, Jalisco</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -962,14 +962,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">25 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Zacatecas, Zacatecas</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -980,14 +980,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">30 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Saltillo, Coahuila</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -998,14 +998,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">8 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Oaxaca, Oaxaca</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -1016,14 +1016,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">12 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Querétaro, Querétaro</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -1034,14 +1034,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">20 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Hermosillo, Sonora</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -1052,14 +1052,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">22 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Cancún, Quintana Roo</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
 
@@ -1070,14 +1070,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">29 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Ciudad de México, CDMX</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
                                         </span>
                                     </div>
                             </div>

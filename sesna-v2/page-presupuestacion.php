@@ -15,7 +15,7 @@ get_header();
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -46,7 +46,7 @@ get_header();
 
                 <!-- Columna Derecha: Ícono representativo -->
                 <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="bi bi-pie-chart-fill" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
+                    <i class="snd snd-chart--pie" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
                 </div>
 
             </div>
@@ -57,7 +57,7 @@ get_header();
     <?php
     $ata_columnas = array(
         array(
-            'icono'  => 'bi-book',
+            'icono'  => 'snd-book',
             'titulo' => 'Metodología',
             'docs'   => array(
                 array( 'label' => 'Metodología para la integración del ATA',  'file' => 'Metodologia-para-la-Integracion-del-ATA.pdf',              'path' => '2024/08/Metodologia-para-la-Integracion-del-ATA.pdf' ),
@@ -66,7 +66,7 @@ get_header();
             ),
         ),
         array(
-            'icono'  => 'bi-bar-chart',
+            'icono'  => 'snd-chart--bar',
             'titulo' => 'Informe de asignación',
             'docs'   => array(
                 array( 'label' => '2025', 'file' => 'Informe-de-asignacion-ATA-2025.pdf',  'path' => '2025/03/Informe-de-asignacion-ATA-2025.pdf' ),
@@ -77,7 +77,7 @@ get_header();
             ),
         ),
         array(
-            'icono'  => 'bi-database',
+            'icono'  => 'snd-data--base',
             'titulo' => 'Base de datos',
             'docs'   => array(
                 array( 'label' => '2025', 'file' => 'ATA-2025-PEF.zip',                          'path' => '2025/03/ATA-2025-PEF.zip' ),
@@ -88,7 +88,7 @@ get_header();
             ),
         ),
         array(
-            'icono'  => 'bi-clock-history',
+            'icono'  => 'snd-recently-viewed',
             'titulo' => 'Informe de Ejecución y Seguimiento',
             'docs'   => array(
                 array( 'label' => '2024', 'file' => 'Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf',   'path' => '2025/08/Informe-de-Ejecucion-y-Seguimiento-ATA-2024.pdf' ),
@@ -106,7 +106,7 @@ get_header();
                 <!-- Encabezado -->
                 <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="icon-bg-circle flex-shrink-0" style="background-color: #F9F0F3;">
-                        <i class="bi bi-file-earmark-text" style="color: #611232;"></i>
+                        <i class="snd snd-document" style="color: #611232;"></i>
                     </div>
                     <div>
                         <h2 class="h4 fw-bold font-patria mb-0" style="color: #611232;">1. Documentos del Anexo Transversal Anticorrupción</h2>
@@ -123,7 +123,7 @@ get_header();
                             <!-- Encabezado de columna -->
                             <div class="d-flex align-items-center gap-2 mb-4">
                                 <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: #F9F0F3;">
-                                    <i class="bi <?php echo esc_attr( $col['icono'] ); ?>" style="color: #611232;"></i>
+                                    <i class="snd <?php echo esc_attr( $col['icono'] ); ?>" style="color: #611232;"></i>
                                 </div>
                                 <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232;"><?php echo esc_html( $col['titulo'] ); ?></h3>
                             </div>
@@ -135,12 +135,12 @@ get_header();
                                        target="_blank" rel="noopener"
                                        class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-decoration-none pna-doc-item"
                                        style="transition: background-color .15s; color: #333;">
-                                        <i class="bi bi-download flex-shrink-0" style="color: #611232;"></i>
+                                        <i class="snd snd-download flex-shrink-0" style="color: #611232;"></i>
                                         <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?></span>
                                     </a>
                                     <?php else : ?>
                                     <span class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-muted">
-                                        <i class="bi bi-download flex-shrink-0" style="color: #ccc;"></i>
+                                        <i class="snd snd-download flex-shrink-0" style="color: #ccc;"></i>
                                         <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
                                     </span>
                                     <?php endif; ?>
@@ -161,7 +161,7 @@ get_header();
                                         class="btn-descargar-todo d-flex align-items-center gap-2 text-decoration-none font-noto-sans fw-semibold border-0 bg-transparent p-0"
                                         data-files="<?php echo esc_attr( json_encode( $urls ) ); ?>"
                                         style="font-size: 13px; color: #611232; cursor: pointer;">
-                                    <i class="bi bi-download"></i> Descargar todo
+                                    <i class="snd snd-download"></i> Descargar todo
                                 </button>
                             </div>
                         </div>
@@ -180,7 +180,7 @@ get_header();
             <!-- Encabezado de sección -->
             <div class="d-flex align-items-center gap-3 mb-2">
                 <div class="icon-bg-circle flex-shrink-0" style="background-color: #EEE8F5;">
-                    <i class="bi bi-bar-chart-line" style="color: #72588F;"></i>
+                    <i class="snd snd-chart--bar" style="color: #72588F;"></i>
                 </div>
                 <h2 class="h4 fw-bold font-patria mb-0" style="color: #611232;">2. Panorama del Anexo Transversal 30</h2>
             </div>
@@ -192,7 +192,7 @@ get_header();
                     <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Datos-procesados-Anexo-Transversal-2021-2026_rev.xlsx', '' ) ); ?>"
                        class="btn d-inline-flex align-items-center gap-2 font-noto-sans fw-semibold"
                        style="font-size: 13px; border-radius: 8px; background-color: #F9F0F3; color: #611232; border: 1px solid #e8d0d8; padding: 8px 16px;" download>
-                        <i class="bi bi-download"></i> Descargar base de datos
+                        <i class="snd snd-download"></i> Descargar base de datos
                     </a>
                 </div>
             </div>
@@ -209,7 +209,7 @@ get_header();
                         <canvas id="chartMontos" height="220"></canvas>
                         <p class="text-muted mt-2" style="font-size: 11px;">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt-1 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <i class="snd snd-information text-muted flex-shrink-0"></i>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada barra para ver el monto exacto.</span>
                         </div>
                     </div>
@@ -240,8 +240,8 @@ get_header();
                             <button class="btn btn-sm d-flex align-items-center gap-2 font-noto-sans fw-semibold w-100 justify-content-between px-3 py-2"
                                     id="btnVerInstituciones"
                                     style="background-color: #F9F0F3; color: #611232; border: 1px solid #e8d0d8; border-radius: 8px; font-size: 13px;">
-                                <span><i class="bi bi-building me-1"></i> Ver instituciones participantes por año</span>
-                                <i class="bi bi-chevron-down" id="iconVerInstituciones"></i>
+                                <span><i class="snd snd-building me-1"></i> Ver instituciones participantes por año</span>
+                                <i class="snd snd-chevron--down" id="iconVerInstituciones"></i>
                             </button>
                             <div id="listaInstituciones" class="d-none mt-2 p-3 rounded-3" style="background-color: #fafafa; border: 1px solid #e8d0d8;">
                                 <!-- Selector de año -->
@@ -264,7 +264,7 @@ get_header();
                                         <?php foreach ( $lista as $inst ) : ?>
                                         <div class="col-6">
                                             <span class="d-flex align-items-center gap-1 font-noto-sans" style="font-size: 12px; color: #444;">
-                                                <i class="bi bi-dot flex-shrink-0" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
+                                                <i class="snd snd-circle--filled flex-shrink-0" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
                                             </span>
                                         </div>
                                         <?php endforeach; ?>
@@ -288,7 +288,7 @@ get_header();
                         <p class="text-muted mb-3" style="font-size: 12px;">(%)</p>
                         <canvas id="chartCapitulos" height="220"></canvas>
                         <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <i class="snd snd-information text-muted flex-shrink-0"></i>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada segmento para ver la descripción.</span>
                         </div>
                         <!-- Tooltip de descripción -->
@@ -306,7 +306,7 @@ get_header();
                         <p class="text-muted mb-3" style="font-size: 12px;">(millones de pesos)</p>
                         <canvas id="chartEjes" height="220"></canvas>
                         <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <i class="snd snd-information text-muted flex-shrink-0"></i>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del Eje–Objetivo.</span>
                         </div>
                         <p class="text-muted mt-2" style="font-size: 11px; font-style: italic;">
@@ -403,10 +403,10 @@ get_header();
             var icono = document.getElementById('iconVerInstituciones');
             if (lista.classList.contains('d-none')) {
                 lista.classList.remove('d-none');
-                icono.classList.replace('bi-chevron-down', 'bi-chevron-up');
+                icono.classList.replace('snd-chevron--down', 'snd-chevron--up');
             } else {
                 lista.classList.add('d-none');
-                icono.classList.replace('bi-chevron-up', 'bi-chevron-down');
+                icono.classList.replace('snd-chevron--up', 'snd-chevron--down');
             }
         });
 
@@ -604,7 +604,7 @@ get_header();
                     <div class="col-lg-2 d-flex justify-content-center">
                         <div class="d-flex align-items-center justify-content-center rounded-circle"
                              style="width: 110px; height: 110px; background-color: #F9F0F3;">
-                            <i class="bi bi-map fs-1" style="color: #611232;"></i>
+                            <i class="snd snd-map fs-1" style="color: #611232;"></i>
                         </div>
                     </div>
 
@@ -624,7 +624,7 @@ get_header();
                         <a href="#" target="_blank" rel="noopener"
                            class="d-flex align-items-center justify-content-center gap-3 text-decoration-none px-4 py-4 rounded-3"
                            style="background-color: #611232; color: #fff; max-width: 260px; width: 100%;">
-                            <i class="bi bi-box-arrow-up-right flex-shrink-0" style="font-size: 1.8rem; opacity: 0.85;"></i>
+                            <i class="snd snd-launch flex-shrink-0" style="font-size: 1.8rem; opacity: 0.85;"></i>
                             <span class="font-noto-sans fw-semibold lh-sm" style="font-size: 15px;">
                                 Consultar información<br>por entidad federativa
                             </span>
@@ -634,7 +634,7 @@ get_header();
 
                 <!-- Nota al pie -->
                 <div class="d-flex align-items-center gap-2 mt-4 pt-3 px-3 py-2 rounded-3" style="background-color: #F8F9FA; font-size: 13px; border-top: 1px solid #e9ecef;">
-                    <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                    <i class="snd snd-information text-muted flex-shrink-0"></i>
                     <span class="text-muted font-noto-sans">Los montos se presentan en millones de pesos corrientes.</span>
                 </div>
 

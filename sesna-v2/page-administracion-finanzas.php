@@ -16,7 +16,7 @@ get_header(); ?>
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -55,11 +55,11 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/planeacion-institucional/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="bi bi-clipboard-check tx-card__icon"></i>
+                        <i class="snd snd-task--complete tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Planeación<br>Institucional</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos que orientan y dan seguimiento al cumplimiento de los objetivos y metas institucionales.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
                 </a>
             </div>
 
@@ -67,11 +67,11 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/informacion-financiera/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="bi bi-graph-up-arrow tx-card__icon"></i>
+                        <i class="snd snd-trending--up tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Información<br>Financiera</h5>
                     <p class="tx-card__desc text-muted mb-4">Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
                 </a>
             </div>
 
@@ -79,11 +79,11 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/contrataciones-y-adquisiciones/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="bi bi-briefcase tx-card__icon"></i>
+                        <i class="snd snd-portfolio tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>y Adquisiciones</h5>
                     <p class="tx-card__desc text-muted mb-4">Información relacionada con los procedimientos de contratación y adquisición de bienes y servicios.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
                 </a>
             </div>
 
@@ -91,11 +91,11 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/archivo-documental/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="bi bi-journals tx-card__icon"></i>
+                        <i class="snd snd-notebook--reference tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Gestión<br>Documental</h5>
                     <p class="tx-card__desc text-muted mb-4">Instrumentos para la organización, conservación y administración de los archivos institucionales.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="bi bi-arrow-right ms-2"></i></span>
+                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
                 </a>
             </div>
 
@@ -103,7 +103,7 @@ get_header(); ?>
 
         <!-- Instrucción Banner -->
         <div class="cp-instruccion-banner d-flex align-items-center gap-4">
-            <i class="bi bi-hand-index-thumb text-guinda flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
+            <i class="snd snd-cursor--1 text-guinda flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
             <div class="tx-hero__subtitle text-muted m-0" style="max-width: 800px; line-height: 1.5;">
                 Selecciona una de las siguientes categorías para <span class="text-guinda fw-bold" style="color: var(--color-burgundi);">consultar documentos, informes y recursos relacionados.</span>
             </div>

@@ -43,7 +43,7 @@ get_header();
                 <p class="nombreActa"><?php the_title(); ?></p>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-12">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="btn btn-light d-inline-flex align-items-center gap-2">Consultar <i class="bi bi-filetype-pdf fs-5" style="color: #9f2241;"></i></a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="btn btn-light d-inline-flex align-items-center gap-2">Consultar <i class="snd snd-document--pdf fs-5" style="color: #9f2241;"></i></a>
               </div>
             </div>
 

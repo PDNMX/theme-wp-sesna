@@ -9,7 +9,7 @@
             <div class="col-md-8 text-center">
                 <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="sna-entradas-archive-link">
-                    Ver todas las noticias clasificadas <i class="bi bi-arrow-right ms-1"></i>
+                    Ver todas las noticias clasificadas <i class="snd snd-arrow--right ms-1"></i>
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
                                     <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
                                 <?php else : ?>
                                     <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center text-muted sna-noticias-img">
-                                        <i class="bi bi-image fs-1"></i>
+                                        <i class="snd snd-image fs-1"></i>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -57,7 +57,7 @@
                                 </p>
                                 <div class="mt-auto pb-3">
                                     <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
-                                        Leer más <i class="bi bi-arrow-right ms-2"></i>
+                                        Leer más <i class="snd snd-arrow--right ms-2"></i>
                                     </span>
                                 </div>
                             </div>

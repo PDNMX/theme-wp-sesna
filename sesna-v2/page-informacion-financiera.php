@@ -15,7 +15,7 @@ get_header();
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url( '/acciones-y-programas/' ) ); ?>">Acciones y Programas</a>

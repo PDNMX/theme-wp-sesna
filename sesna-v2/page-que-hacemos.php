@@ -7,11 +7,11 @@ get_header();
     <!-- Hero Section -->
     <section class="qh-hero">
         <!-- Floating icons -->
-        <i class="bi bi-file-earmark-text qh-floating-icon qh-fi-1"></i>
-        <i class="bi bi-bullseye qh-floating-icon qh-fi-2"></i>
-        <i class="bi bi-bar-chart-line qh-floating-icon qh-fi-3"></i>
-        <i class="bi bi-shield-check qh-floating-icon qh-fi-4"></i>
-        <i class="bi bi-laptop qh-floating-icon qh-fi-5"></i>
+        <i class="snd snd-document qh-floating-icon qh-fi-1"></i>
+        <i class="snd snd-target qh-floating-icon qh-fi-2"></i>
+        <i class="snd snd-chart--bar qh-floating-icon qh-fi-3"></i>
+        <i class="snd snd-security qh-floating-icon qh-fi-4"></i>
+        <i class="snd snd-screen qh-floating-icon qh-fi-5"></i>
 
         <div class="container position-relative z-index-1">
             <div class="row">
@@ -38,7 +38,7 @@ get_header();
                 </div>
                 <div class="col-lg-7">
                     <div class="qh-video-wrapper ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden">
-                        <iframe src="https://www.youtube.com/embed/6PQb_xTNpb0?rel=0" title="¿QUÉ HACEMOS? - SESNA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6PQb_xTNpb0?rel=0" title="¿QUÉ HACEMOS? - SESNA" frameborder="snd-star" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ get_header();
                 <div class="col-md-6 mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="bi bi-bullseye"></i>
+                            <i class="snd snd-target"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">MISIÓN</h3>
@@ -70,7 +70,7 @@ get_header();
                 <div class="col-md-6 mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="bi bi-eye"></i>
+                            <i class="snd snd-view"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">VISIÓN</h3>
@@ -142,18 +142,18 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-x">
-                            <i class="bi bi-twitter-x"></i>
+                            <i class="snd snd-logo--twitter"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="bi bi-patch-check-fill"></i>
+                                SESNA <i class="snd snd-checkmark--filled"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Noticias, comunicados y actualizaciones institucionales.</p>
-                            <a href="https://x.com/SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://x.com/SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -161,18 +161,18 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-yt">
-                            <i class="bi bi-youtube"></i>
+                            <i class="snd snd-logo--youtube"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="bi bi-patch-check-fill"></i>
+                                SESNA <i class="snd snd-checkmark--filled"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Videos, transmisiones y contenido audiovisual.</p>
-                            <a href="https://www.youtube.com/@SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.youtube.com/@SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -180,18 +180,18 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-ig">
-                            <i class="bi bi-instagram"></i>
+                            <i class="snd snd-logo--instagram"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="bi bi-patch-check-fill"></i>
+                                SESNA <i class="snd snd-checkmark--filled"></i>
                             </div>
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="mb-4">Actividades, campañas y contenido visual.</p>
-                            <a href="https://www.instagram.com/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.instagram.com/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -199,18 +199,18 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-in">
-                            <i class="bi bi-linkedin"></i>
+                            <i class="snd snd-logo--linkedin"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="bi bi-patch-check-fill"></i>
+                                SESNA <i class="snd snd-checkmark--filled"></i>
                             </div>
                             <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="mb-4">Información institucional y profesional.</p>
-                            <a href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="bi bi-arrow-right"></i></a>
+                            <a href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
                         </div>
                     </div>
                 </div>

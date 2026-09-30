@@ -2,12 +2,12 @@
 get_header();
 
 $tx_cards = [
-    ['icon' => 'bi-person-badge', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
-    ['icon' => 'bi-file-earmark-text', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'), 'target' => '_blank'],
-    ['icon' => 'bi-shield-lock', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
-    ['icon' => 'bi-folder2-open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
-    ['icon' => 'bi-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'bi-bell', 'title' => 'Denuncias', 'desc' => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
+    ['icon' => 'snd-id-management', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
+    ['icon' => 'snd-document', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'), 'target' => '_blank'],
+    ['icon' => 'snd-security--services', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
+    ['icon' => 'snd-folder--open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
+    ['icon' => 'snd-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
+    ['icon' => 'snd-notification', 'title' => 'Denuncias', 'desc' => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
 ];
 
 ?>
@@ -54,7 +54,7 @@ $tx_cards = [
                     style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 16px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
                     onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
                     aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                    <i class="bi bi-file-earmark-arrow-up"></i>
+                    <i class="snd snd-document--import"></i>
                     Solicitar información &rsaquo;
                 </a>
             </div>
@@ -76,7 +76,7 @@ $tx_cards = [
                         class="tx-card rounded-4 h-100 d-flex flex-column"
                         aria-label="Comité de Transparencia — abre el detalle de sesiones y actas">
                         <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                            <i class="bi bi-people"></i>
+                            <i class="snd snd-group"></i>
                         </span>
                         <strong class="tx-card__title d-block mb-2">Comité de Transparencia</strong>
                         <p class="tx-card__desc flex-grow-1 mb-0">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
@@ -89,7 +89,7 @@ $tx_cards = [
                             <?= isset($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer"' : '' ?>
                             class="tx-card rounded-4 h-100 d-flex flex-column position-relative overflow-hidden" aria-label="<?= esc_attr($card['title']) ?>">
                             <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                                <i class="bi <?= esc_attr($card['icon']) ?>"></i>
+                                <i class="snd <?= esc_attr($card['icon']) ?>"></i>
                             </span>
                             <strong class="tx-card__title d-block mb-2"><?= esc_html($card['title']) ?></strong>
                             <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html($card['desc']) ?></p>
@@ -97,7 +97,7 @@ $tx_cards = [
                             
                             <?php if ($card['title'] === 'Obligaciones de Transparencia'): ?>
                                 <div class="tx-card-manual-overlay" onclick="event.preventDefault(); window.open('<?= home_url('/wp-content/uploads/2026/07/MAUAL-DE-ACCESO-AL-PORTAL-DE-OBLIGACIONES-DE-TRANSPARENCIA.pdf') ?>', '_blank');">
-                                    <i class="bi bi-filetype-pdf fs-5"></i> Consultar manual
+                                    <i class="snd snd-document--pdf fs-5"></i> Consultar manual
                                 </div>
                             <?php endif; ?>
                         </a>
@@ -123,7 +123,7 @@ $tx_cards = [
                         <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
-                                    <i class="bi bi-people"></i>
+                                    <i class="snd snd-group"></i>
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
@@ -137,7 +137,7 @@ $tx_cards = [
                                         aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         Ir al portal
                                         <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="bi bi-box-arrow-up-right"></i>
+                                            <i class="snd snd-launch"></i>
                                         </span>
                                     </span>
                                 </div>
@@ -151,7 +151,7 @@ $tx_cards = [
                         <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
-                                    <i class="bi bi-search"></i>
+                                    <i class="snd snd-search"></i>
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
@@ -164,7 +164,7 @@ $tx_cards = [
                                         aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         Acceder
                                         <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="bi bi-box-arrow-up-right"></i>
+                                            <i class="snd snd-launch"></i>
                                         </span>
                                     </span>
                                 </div>
@@ -185,7 +185,7 @@ $tx_cards = [
                     <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
-                                <i class="bi bi-envelope"></i>
+                                <i class="snd snd-email"></i>
                             </span>
                         </div>
                         <div>
@@ -200,7 +200,7 @@ $tx_cards = [
                     <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
-                                <i class="bi bi-telephone"></i>
+                                <i class="snd snd-phone"></i>
                             </span>
                         </div>
                         <div>

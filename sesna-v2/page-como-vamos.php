@@ -80,7 +80,7 @@ get_header();
           <div class="col-lg-9 d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
-        <div class="sesiones_container" id="sesiones_comite" data-page="0">
+        <div class="sesiones_container" id="sesiones_comite" data-page="snd-star">
 
         </div>
 
@@ -163,7 +163,7 @@ get_header();
         </div>
 
 
-        <div class="sesiones_container" id="sesiones_comision" data-page="0">
+        <div class="sesiones_container" id="sesiones_comision" data-page="snd-star">
         </div>
 
         <div class="row" >
@@ -232,7 +232,7 @@ get_header();
         </div>
 
 
-        <div class="sesiones_container" id="sesiones_organo_gobierno" data-page="0">
+        <div class="sesiones_container" id="sesiones_organo_gobierno" data-page="snd-star">
         </div>
 
         <div class="row" >

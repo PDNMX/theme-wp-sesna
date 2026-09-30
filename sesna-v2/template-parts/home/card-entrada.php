@@ -39,7 +39,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
                 <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
             <?php else : ?>
                 <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center text-muted sna-noticias-img">
-                    <i class="bi bi-image fs-1"></i>
+                    <i class="snd snd-image fs-1"></i>
                 </div>
             <?php endif; ?>
         </div>
@@ -54,7 +54,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             </p>
             <div class="mt-auto pb-3">
                 <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
-                    Leer más <i class="bi bi-arrow-right ms-2"></i>
+                    Leer más <i class="snd snd-arrow--right ms-2"></i>
                 </span>
             </div>
         </div>

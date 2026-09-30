@@ -15,7 +15,7 @@ get_header();
         <div class="container">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -54,7 +54,7 @@ get_header();
                     <div class="col-lg-8">
                         <div class="pna-hero__badge">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="bi bi-calendar-check"></i>
+                                <i class="snd snd-calendar--check-mark"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobada el 29 de enero de 2020</p>
@@ -73,39 +73,39 @@ get_header();
 
                         <div class="d-flex flex-wrap gap-3">
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
-                                <i class="bi bi-file-earmark-text" aria-hidden="true"></i> Resumen Ejecutivo
+                                <i class="snd snd-document" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
-                                <i class="bi bi-book" aria-hidden="true"></i> Documento Completo
+                                <i class="snd snd-book" aria-hidden="true"></i> Documento Completo
                             </a>
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
-                                <i class="bi bi-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
+                                <i class="snd snd-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
                             </a>
 
                             <!-- Anexos -->
                             <div class="dropdown pna-anexos-dropdown">
                                 <button class="btn btn-sesna dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-paperclip" aria-hidden="true"></i> Anexos
+                                    <i class="snd snd-attachment" aria-hidden="true"></i> Anexos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="pnaAnexosDropdown">
                                     <li>
                                         <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
-                                            <i class="bi bi-download" aria-hidden="true"></i> Estadísticos
+                                            <i class="snd snd-download" aria-hidden="true"></i> Estadísticos
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
-                                            <i class="bi bi-download" aria-hidden="true"></i> Proceso de integración de la PNA
+                                            <i class="snd snd-download" aria-hidden="true"></i> Proceso de integración de la PNA
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
-                                            <i class="bi bi-download" aria-hidden="true"></i> Acciones sugeridas
+                                            <i class="snd snd-download" aria-hidden="true"></i> Acciones sugeridas
                                         </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
-                                            <i class="bi bi-download" aria-hidden="true"></i> Acciones de poderes ejecutivos
+                                            <i class="snd snd-download" aria-hidden="true"></i> Acciones de poderes ejecutivos
                                         </a>
                                     </li>
                                 </ul>
@@ -113,7 +113,7 @@ get_header();
                         </div>
 
                         <p class="pna-doc-note">
-                            <i class="bi bi-download" aria-hidden="true"></i> Todos los documentos están disponibles para descarga en formato PDF.
+                            <i class="snd snd-download" aria-hidden="true"></i> Todos los documentos están disponibles para descarga en formato PDF.
                         </p>
                     </div>
 
@@ -242,7 +242,7 @@ get_header();
             </div><!-- /.pna-ciclo-diagram -->
 
             <div class="pna-ciclo-hint mt-4">
-                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="bi bi-hand-index-thumb"></i></span>
+                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-cursor--1"></i></span>
                 <p><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
             </div><!-- /.pna-ciclo-section -->

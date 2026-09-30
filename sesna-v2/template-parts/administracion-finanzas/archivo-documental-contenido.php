@@ -14,11 +14,11 @@
 $ad_json_path = get_template_directory() . '/data/inventario-dgayf.json';
 
 $ad_columnas = array(
-    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'bi-calendar-check', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'bi-graph-up-arrow', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'bi-diagram-3', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Guía de Archivo Documental' => array( 'icono' => 'bi-book', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Inventario general por Expediente' => array( 'icono' => 'bi-archive', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-calendar--check-mark', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-trending--up', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
+    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-flow', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Guía de Archivo Documental' => array( 'icono' => 'snd-book', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
+    'Inventario general por Expediente' => array( 'icono' => 'snd-archive', 'bg' => '#F9F0F3', 'color' => '#611232' ),
 );
 
 $ad_grupos = array();
@@ -75,7 +75,7 @@ if ( file_exists( $ad_json_path ) ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="bi bi-journals" style="color: #fff;"></i>
+                <i class="snd snd-notebook--reference" style="color: #fff;"></i>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Archivo Documental</h2>
@@ -83,20 +83,20 @@ if ( file_exists( $ad_json_path ) ) {
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="bi bi-search"></i>
+            <i class="snd snd-search"></i>
             <input type="search" class="cf-search-input" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
 
     <div class="row g-4">
         <?php $ad_i = 0; foreach ( $ad_grupos as $grupo ) :
-            $meta = isset( $ad_columnas[ $grupo['titulo'] ] ) ? $ad_columnas[ $grupo['titulo'] ] : array( 'icono' => 'bi-folder2-open', 'bg' => '#F9F0F3', 'color' => '#611232' );
+            $meta = isset( $ad_columnas[ $grupo['titulo'] ] ) ? $ad_columnas[ $grupo['titulo'] ] : array( 'icono' => 'snd-folder--open', 'bg' => '#F9F0F3', 'color' => '#611232' );
             ?>
         <div class="col-lg-4 col-md-6 pna-chart-card" style="--delay:<?php echo esc_attr( ( $ad_i++ % 3 ) * .1 ); ?>s">
             <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                        <i class="bi <?php echo esc_attr( $meta['icono'] ); ?>" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
+                        <i class="snd <?php echo esc_attr( $meta['icono'] ); ?>" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
                     </div>
                     <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232; line-height: 1.3;"><?php echo esc_html( $grupo['titulo'] ); ?></h3>
                 </div>
@@ -113,7 +113,7 @@ if ( file_exists( $ad_json_path ) ) {
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document"></i></span>
                         <span class="visually-hidden">Ver documento</span>
                     </a>
                     <?php else : ?>
@@ -122,7 +122,7 @@ if ( file_exists( $ad_json_path ) ) {
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="bi bi-box-arrow-up-right"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="snd snd-launch"></i></span>
                         <span class="visually-hidden">Abrir enlace</span>
                     </a>
                     <?php endif; ?>
@@ -131,7 +131,7 @@ if ( file_exists( $ad_json_path ) ) {
 
                 <?php if ( $grupo['nota'] ) : ?>
                 <div class="mt-3 pt-3 d-flex align-items-start gap-2" style="border-top: 1px solid #e8d0d8;">
-                    <i class="bi bi-info-circle text-muted flex-shrink-0" style="font-size: 13px; margin-top: 2px;"></i>
+                    <i class="snd snd-information text-muted flex-shrink-0" style="font-size: 13px; margin-top: 2px;"></i>
                     <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $grupo['nota'] ); ?></span>
                 </div>
                 <?php endif; ?>

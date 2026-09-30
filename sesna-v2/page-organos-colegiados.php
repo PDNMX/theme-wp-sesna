@@ -31,7 +31,7 @@ rsort($oc_anios_organo);
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -74,23 +74,23 @@ rsort($oc_anios_organo);
                 <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-colegiados">
                     <a href="#" data-target="comite" class="ocn-sidebar-link js-tab-link active d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Comité Coordinador</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                     <a href="#" data-target="comision" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Comisión Ejecutiva</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                     <a href="#" data-target="organo" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Órgano de Gobierno</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                     <a href="#" data-target="recomendaciones" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans lh-sm">Recomendaciones<br>no vinculantes</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                     <a href="#" data-target="exhortos" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Exhortos</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <i class="snd snd-chevron--right fw-bold"></i>
                     </a>
                 </div>
             </aside>
@@ -145,7 +145,7 @@ rsort($oc_anios_organo);
                 <!-- VER MÁS BTN -->
                 <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
                     <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="bi bi-chevron-down"></i>
+                        Ver más sesiones <i class="snd snd-chevron--down"></i>
                     </a>
                 </div>
                 </div> <!-- END sec-comite -->
@@ -194,7 +194,7 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
                         <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comision">
-                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                            Ver más sesiones <i class="snd snd-chevron--down"></i>
                         </a>
                     </div>
                 </div>
@@ -243,7 +243,7 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
                         <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-organo">
-                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                            Ver más sesiones <i class="snd snd-chevron--down"></i>
                         </a>
                     </div>
                 </div>
@@ -299,7 +299,7 @@ rsort($oc_anios_organo);
             </div>
             <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">
                 <div class="embed-responsive embed-responsive-16by9 h-100">
-                    <iframe id="oc-video-iframe" class="w-100 h-100 border-0" src="" title="Video de la sesión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="oc-video-iframe" class="w-100 h-100 border-0" src="" title="Video de la sesión" frameborder="snd-star" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

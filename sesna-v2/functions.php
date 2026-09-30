@@ -65,8 +65,6 @@ function sesna_theme_scripts()
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
 	// SND v1 — Sistema Nacional de Diseño (carga después de v3; tokens, tipografía y componentes SND toman prioridad)
 	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css', array('gobmx-framework'), null);
-	// Bootstrap Icons — temporal, se reemplazará con IBM Carbon (snd-*) en BLOQUE 8
-	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 	// Hoja principal del tema — carga al último, después de SND
@@ -466,12 +464,12 @@ function sna_get_familias_tematicas()
 	return [
 		'comunicados' => [
 			'label' => 'Comunicados de Prensa',
-			'icon'  => 'bi-megaphone',
+			'icon'  => 'snd-volume--up',
 			'cats'  => ['comunicados-de-prensa'],
 		],
 		'comunicacion' => [
 			'label' => 'Comunicación y Difusión',
-			'icon'  => 'bi-camera-reels',
+			'icon'  => 'snd-video',
 			'cats'  => [
 				'infografia', 'videos', 'relatorias', 'premio',
 				'dia-internacional-vs-la-corrupcion',
@@ -479,7 +477,7 @@ function sna_get_familias_tematicas()
 		],
 		'politica-nacional' => [
 			'label' => 'Política Nacional Anticorrupción',
-			'icon'  => 'bi-shield-check',
+			'icon'  => 'snd-security',
 			'cats'  => [
 				'politica-nacional-anticorrupcion', 'programa-de-implementacion-pna',
 				'programa-institucional', 'metodologias', 'reisgos-de-corrupcion',
@@ -489,7 +487,7 @@ function sna_get_familias_tematicas()
 		],
 		'gobierno-coordinacion' => [
 			'label' => 'Órganos de Gobierno y Coordinación',
-			'icon'  => 'bi-bank',
+			'icon'  => 'snd-building--government',
 			'cats'  => [
 				'comite-coordinador', 'comite_etica-sesna', 'comision-ejecutiva',
 				'organo-de-gobierno', 'ost', 'asamblea-general-sna',
@@ -497,7 +495,7 @@ function sna_get_familias_tematicas()
 		],
 		'vinculacion-sna' => [
 			'label' => 'Vinculación e Implementación SNA',
-			'icon'  => 'bi-diagram-3',
+			'icon'  => 'snd-flow',
 			'cats'  => [
 				'sistemas-locales-anticorrupcion', 'convenios', 'colaboraciones',
 				'politicas-estatales-anticorrupcion', 'conoce-mas-del-sna',
@@ -506,7 +504,7 @@ function sna_get_familias_tematicas()
 		],
 		'datos-transparencia' => [
 			'label' => 'Datos y Plataforma Digital',
-			'icon'  => 'bi-database',
+			'icon'  => 'snd-data--base',
 			'cats'  => [
 				'plataforma-digital-nacional', 'datos', 'estandar-de-datos',
 				'catalogo-informacion-corrupcion-mexico', 'ata',
@@ -514,7 +512,7 @@ function sna_get_familias_tematicas()
 		],
 		'rendicion-cuentas' => [
 			'label' => 'Transparencia y Rendición de Cuentas',
-			'icon'  => 'bi-file-earmark-text',
+			'icon'  => 'snd-document',
 			'cats'  => [
 				'informes', 'reportes', 'declaracion-patrimonial',
 				'normatividad_int', 'marco-normativo', 'desempeno-institucional-sesna',
@@ -523,7 +521,7 @@ function sna_get_familias_tematicas()
 		],
 		'administracion' => [
 			'label' => 'Administración y Adquisiciones',
-			'icon'  => 'bi-briefcase',
+			'icon'  => 'snd-portfolio',
 			'cats'  => [
 				'direccion-general-de-administracion', 'adquisiciones',
 				'licitaciones-de-la-sesna', 'compras-publicas', 'convocatoria',
@@ -532,7 +530,7 @@ function sna_get_familias_tematicas()
 		],
 		'genero-derechos-humanos' => [
 			'label' => 'Género y Derechos Humanos',
-			'icon'  => 'bi-people',
+			'icon'  => 'snd-group',
 			'cats'  => ['genero-y-derechos-humanos'],
 		],
 	];
@@ -821,7 +819,7 @@ function sesna_save_slider_meta_data($post_id)
 	if (isset($_POST['_show_text_slider'])) {
 		update_post_meta($post_id, '_show_text_slider', '1');
 	} else {
-		update_post_meta($post_id, '_show_text_slider', '0');
+		update_post_meta($post_id, '_show_text_slider', 'snd-star');
 	}
 }
 add_action('save_post_slider', 'sesna_save_slider_meta_data');
@@ -1012,7 +1010,7 @@ function sesna_save_directorio_meta($post_id)
 	if (isset($_POST['_dir_show_encargado'])) {
 		update_post_meta($post_id, '_dir_show_encargado', '1');
 	} else {
-		update_post_meta($post_id, '_dir_show_encargado', '0');
+		update_post_meta($post_id, '_dir_show_encargado', 'snd-star');
 	}
 }
 add_action('save_post_directorio', 'sesna_save_directorio_meta');
@@ -1760,7 +1758,7 @@ function sesna_oc_sesion_meta_box_html($post) {
         </div>
         <div class="oc-row">
             <label for="oc_acuerdos">Número de acuerdos tomados</label>
-            <input type="number" id="oc_acuerdos" name="_oc_acuerdos" value="<?php echo esc_attr($acuerdos !== '' ? $acuerdos : '0'); ?>" min="0">
+            <input type="number" id="oc_acuerdos" name="_oc_acuerdos" value="<?php echo esc_attr($acuerdos !== '' ? $acuerdos : 'snd-star'); ?>" min="snd-star">
         </div>
         <div class="oc-row">
             <label for="oc_video_url">Ver sesión (URL de YouTube o video)</label>
@@ -2102,18 +2100,18 @@ function sesna_get_oc_entries($organo) {
 function sesna_oc_doc_icon($nombre) {
     $nombre_lower = strtolower($nombre);
     if (strpos($nombre_lower, 'convocatoria') !== false) {
-        return 'bi-clipboard';
+        return 'snd-clipboard';
     }
     if (strpos($nombre_lower, 'acta') !== false) {
-        return 'bi-file-earmark-check';
+        return 'snd-document--tasks';
     }
     if (strpos($nombre_lower, 'anexo') !== false) {
-        return 'bi-folder';
+        return 'snd-folder';
     }
     if (strpos($nombre_lower, 'orden') !== false) {
-        return 'bi-file-earmark-text';
+        return 'snd-document';
     }
-    return 'bi-file-earmark-text';
+    return 'snd-document';
 }
 
 /**
@@ -2190,13 +2188,13 @@ function sesna_oc_extraer_youtube_id($url) {
 
 function sesna_oc_map_slots_fijos($sesion) {
     $slots = array(
-        'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'bi-clipboard', 'enlace' => ''),
-        'orden_del_dia' => array('label' => 'Orden del día', 'icon' => 'bi-file-earmark-text', 'enlace' => ''),
-        'acta'          => array('label' => 'Acta', 'icon' => 'bi-file-earmark-check', 'enlace' => ''),
+        'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'snd-clipboard', 'enlace' => ''),
+        'orden_del_dia' => array('label' => 'Orden del día', 'icon' => 'snd-document', 'enlace' => ''),
+        'acta'          => array('label' => 'Acta', 'icon' => 'snd-document--tasks', 'enlace' => ''),
         // 'anexos' puede tener 0, 1 o varios documentos: si hay más de uno,
         // el render pinta un dropdown en vez de un link directo.
-        'anexos'        => array('label' => 'Anexos', 'icon' => 'bi-folder', 'enlace' => '', 'documentos' => array()),
-        'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'bi-play-btn', 'enlace' => ''),
+        'anexos'        => array('label' => 'Anexos', 'icon' => 'snd-folder', 'enlace' => '', 'documentos' => array()),
+        'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'snd-play--outline--filled', 'enlace' => ''),
     );
 
     $modo_anexos = false;
@@ -2274,7 +2272,7 @@ function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
     <a href="#<?= esc_attr($panel_id) ?>" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
-        <i class="bi <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+        <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
     </a>
     <?php
@@ -2288,7 +2286,7 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
         <div class="border-top px-4 py-4">
             <?php if ($mostrar_buscador) : ?>
             <div class="position-relative mb-3" style="max-width: 340px;">
-                <i class="bi bi-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
+                <i class="snd snd-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
                 <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
             </div>
             <?php endif; ?>
@@ -2296,10 +2294,10 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="bi bi-file-earmark-text flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true"></i>
+                        <i class="snd snd-document flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true"></i>
                         <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                    <i class="snd snd-document--pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
                 </a>
                 <?php endforeach; ?>
             </div>
@@ -2356,7 +2354,7 @@ function sesna_render_oc_sesion_card($sesion) {
                         <a href="<?= $href ?>"
                            <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-bs-toggle="modal" data-bs-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
                            class="<?= esc_attr($link_class) ?>">
-                            <i class="bi <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+                            <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
                             <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
                         </a>
                         <?php endforeach; ?>
@@ -2364,7 +2362,7 @@ function sesna_render_oc_sesion_card($sesion) {
                 </div>
 
                 <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                    <i class="bi bi-chevron-right text-muted fs-5"></i>
+                    <i class="snd snd-chevron--right text-muted fs-5"></i>
                 </div>
             </div>
             <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
@@ -2384,7 +2382,7 @@ function sesna_render_oc_lista_directa_item($item) {
                 <div class="col-12 col-md-3 tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
                     <?php foreach ($item['documentos'] as $doc) : ?>
                     <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                        <i class="bi <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon"></i>
+                        <i class="snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon"></i>
                         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
                     </a>
                     <?php endforeach; ?>
@@ -2562,14 +2560,14 @@ add_action('add_meta_boxes', 'sesna_add_dh_campania_meta_box');
 function sesna_dh_campania_meta_box_html($post) {
     wp_nonce_field('sesna_save_dh_campania_meta', 'sesna_dh_campania_nonce');
 
-    $icono          = get_post_meta($post->ID, '_dh_icono',          true) ?: 'bi-star';
+    $icono          = get_post_meta($post->ID, '_dh_icono',          true) ?: 'snd-star';
     $icono_img      = get_post_meta($post->ID, '_dh_icono_img',      true) ?: '';
     $infografia_ids = get_post_meta($post->ID, '_dh_infografia_ids', true) ?: '';
     $color          = get_post_meta($post->ID, '_dh_color',          true) ?: '#9d2449';
     $galeria_ids    = get_post_meta($post->ID, '_dh_galeria_ids',    true) ?: '';
     $video_url      = get_post_meta($post->ID, '_dh_video_url',      true) ?: '';
     $banner_texto   = get_post_meta($post->ID, '_dh_banner_texto',   true) ?: '';
-    $orden          = get_post_meta($post->ID, '_dh_orden',          true) ?: '0';
+    $orden          = get_post_meta($post->ID, '_dh_orden',          true) ?: 'snd-star';
     ?>
     <style>
         .dh-mb-row { margin-bottom: 16px; }
@@ -2674,7 +2672,7 @@ function sesna_dh_campania_meta_box_html($post) {
 
     <div class="dh-mb-row">
         <label for="dh_orden">Orden de aparición en la página <span class="dh-mb-hint">(número menor = aparece primero)</span></label>
-        <input type="number" id="dh_orden" name="_dh_orden" value="<?php echo esc_attr($orden); ?>" min="0" max="999" style="max-width:100px;">
+        <input type="number" id="dh_orden" name="_dh_orden" value="<?php echo esc_attr($orden); ?>" min="snd-star" max="999" style="max-width:100px;">
     </div>
 
     <div class="dh-mb-row">
@@ -3589,9 +3587,9 @@ function sesna_render_recurso_card($post) {
             <h3 class="cp-doc-titulo"><?php echo esc_html($titulo); ?></h3>
             <p class="cp-doc-desc"><?php echo esc_html($descripcion); ?></p>
             <div class="cp-doc-meta">
-                <span><i class="bi bi-calendar3"></i> <?php echo esc_html($anio); ?></span>
+                <span><i class="snd snd-calendar"></i> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="bi bi-file-earmark"></i> <?php echo esc_html($formato); ?></span>
+                <span><i class="snd snd-document--blank"></i> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3603,11 +3601,11 @@ function sesna_render_recurso_card($post) {
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                <i class="bi bi-eye"></i> Ver documento
+                <i class="snd snd-view"></i> Ver documento
             </a>
             <?php endif; ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                <i class="bi bi-download"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+                <i class="snd snd-download"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
 

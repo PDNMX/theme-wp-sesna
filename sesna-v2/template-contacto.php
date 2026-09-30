@@ -13,7 +13,7 @@ get_header();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <i class="snd snd-home"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Contacto</li>
@@ -43,7 +43,7 @@ get_header();
                         
                         <div class="d-flex align-items-start">
                             <div class="rounded-circle d-flex align-items-center justify-content-center me-3 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="bi bi-geo-alt fs-4"></i>
+                                <i class="snd snd-location fs-4"></i>
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1 text-burgundi h5">Dirección:</h5>
@@ -57,7 +57,7 @@ get_header();
 
                         <div class="d-flex align-items-center">
                             <div class="rounded-circle d-flex align-items-center justify-content-center me-3 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="bi bi-telephone fs-4"></i>
+                                <i class="snd snd-phone fs-4"></i>
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1 text-burgundi h5">Teléfono:</h5>
@@ -67,7 +67,7 @@ get_header();
                         
                         <div class="d-flex align-items-start">
                             <div class="rounded-circle d-flex align-items-center justify-content-center me-3 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="bi bi-clock fs-4"></i>
+                                <i class="snd snd-time fs-4"></i>
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1 text-burgundi h5">Horarios:</h5>
@@ -91,7 +91,7 @@ get_header();
             <div class="position-relative d-flex align-items-center px-4 px-md-5 py-4 mt-2" style="background-color: #fbf4f5; overflow: hidden;">
                 <div class="d-flex align-items-center position-relative z-1 w-100 pe-lg-5">
                     <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 tx-unidad-icon-circle" style="width: 50px; height: 50px;">
-                        <i class="bi bi-shield-lock fs-4"></i>
+                        <i class="snd snd-security--services fs-4"></i>
                     </div>
                     <p class="mb-0 fw-medium text-dark">
                         Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="d-none d-md-block">y la participación ciudadana.

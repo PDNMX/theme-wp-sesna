@@ -95,7 +95,7 @@
 
                                 <?php else: ?>
 
-                                    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="640.8" height="360" type="text/html" src="https://www.youtube.com/embed/<?php the_youtube_video_ID() ?>?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"></iframe>
+                                    <iframe frameborder="snd-star" scrolling="no" marginheight="snd-star" marginwidth="snd-star"width="640.8" height="360" type="text/html" src="https://www.youtube.com/embed/<?php the_youtube_video_ID() ?>?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"></iframe>
 
                                 <?php endif; ?>
                             </div>
