@@ -93,7 +93,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     </p>
                 </div>
                 <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="snd snd-settings--adjust" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
+                    <i class="snd snd-settings" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                            data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
                            data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
                            data-pdf-title="PI-PNA – Actualización 2024">
-                            <i class="snd snd-view" aria-hidden="true"></i> Consultar PI-PNA (Actualización 2024)
+                            <i class="snd snd-screen" aria-hidden="true"></i> Consultar PI-PNA (Actualización 2024)
                         </a>
                     </div>
 
@@ -131,7 +131,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     <div class="col-lg-6 d-flex flex-column" style="flex:0 0 45%; min-width:240px; padding-left:2rem;">
                         <div class="pna-hero__badge mb-3">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd snd-calendar--check-mark"></i>
+                                <i class="snd snd-calendar"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobado el 27 de enero de 2022</p>
@@ -282,17 +282,17 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                                 <i class="snd snd-security"></i>
                             </div>
                             <div style="position:absolute; top:74px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-building--government"></i>
+                                <i class="snd snd-building"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:74px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-group--filled"></i>
+                                <i class="snd snd-group"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-flow"></i>
+                                <i class="snd snd-collaborate"></i>
                             </div>
                             <!-- Texto central -->
                             <div class="position-absolute top-50 start-50 translate-middle text-center px-1" style="width:155px;pointer-events:none;">
-                                <i class="snd snd-user--filled d-block mb-1" style="font-size:22px; color:#611232;"></i>
+                                <i class="snd snd-user d-block mb-1" style="font-size:22px; color:#611232;"></i>
                                 <div class="font-noto-sans fw-bold mb-1" style="font-size:9px;color:#611232;letter-spacing:.02em;">Objetivo de la PNA:</div>
                                 <div class="font-noto-sans" style="font-size:8px;color:#444;line-height:1.4;">
                                     "Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente".
@@ -328,7 +328,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                 </div>
 
                 <p class="text-center font-noto-sans text-muted mt-3 mb-3" style="font-size:13px;">
-                    <i class="snd snd-cursor--1 me-1"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
+                    <i class="snd snd-screen me-1"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
                 </p>
 
                 <!-- Paneles de eje -->
@@ -389,7 +389,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     ['label'=>'Primer Informe','nota'=>'Resultados al 28 de abril de 2023','file'=>'Primer-Informe-de-ejecucion-del-PI-PNA-28.04.2023.pdf','path'=>'2023/04/Primer-Informe-de-ejecucion-del-PI-PNA-28.04.2023.pdf'],
                     ['label'=>'Segundo Informe','nota'=>'Resultados mayo 2024','file'=>'SEGUNDO-INFORME-PI-PNA.pdf','path'=>'2024/05/SEGUNDO-INFORME-PI-PNA.pdf'],
                 ]],
-                ['icono'=>'snd-attachment','titulo'=>'Anexos','desc'=>'Material complementario de los informes de seguimiento.','color'=>'#611232','docs'=>[
+                ['icono'=>'snd-document--import','titulo'=>'Anexos','desc'=>'Material complementario de los informes de seguimiento.','color'=>'#611232','docs'=>[
                     ['label'=>'Anexo Segundo Informe','nota'=>'Datos estadísticos detallados','file'=>'ANEXO_INFORME_PI-PNA.pdf','path'=>'2024/05/ANEXO_INFORME_PI-PNA.pdf'],
                 ]],
             ];
@@ -422,7 +422,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                                        data-pdf-title="<?php echo esc_attr($doc['label']); ?>"
                                        class="d-inline-flex align-items-center gap-1 font-noto-sans"
                                        style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:4px 12px;text-decoration:none;">
-                                        <i class="snd snd-view"></i> Ver
+                                        <i class="snd snd-screen"></i> Ver
                                     </a>
                                     <a href="<?php echo esc_url($url); ?>" download
                                        class="d-inline-flex align-items-center gap-1 font-noto-sans"

@@ -8,7 +8,7 @@
 $pi_grupos = array(
     array(
         'titulo' => 'Programa Institucional',
-        'icono'  => 'snd-book',
+        'icono'  => 'snd-education',
         'bg'     => '#F9F0F3',
         'color'  => '#611232',
         'nota'   => 'Documento rector que establece los objetivos, estrategias y líneas de acción de la SESNA.',
@@ -19,7 +19,7 @@ $pi_grupos = array(
     ),
     array(
         'titulo' => 'Informes del Programa Institucional 2020-2024',
-        'icono'  => 'snd-trending--up',
+        'icono'  => 'snd-chart--bar',
         'bg'     => '#EEE8F5',
         'color'  => '#72588F',
         'nota'   => 'Informes anuales de avance y resultados del Programa Institucional de la SESNA.',
@@ -53,7 +53,7 @@ $pi_grupos = array(
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd snd-task--complete" style="color: #fff;"></i>
+                <i class="snd snd-checkmark--filled" style="color: #fff;"></i>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Planeación Institucional</h2>

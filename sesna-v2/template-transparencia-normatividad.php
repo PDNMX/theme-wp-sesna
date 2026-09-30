@@ -40,7 +40,7 @@ if (!function_exists('sesna_render_document_row')) {
                 </a>
                 <?php else: ?>
                 <span class="btn btn-light px-4 rounded-pill fw-medium text-muted disabled d-inline-flex align-items-center gap-2" aria-disabled="true">
-                    No disponible <i class="snd snd-document--unknown fs-5" aria-hidden="true"></i>
+                    No disponible <i class="snd snd-document fs-5" aria-hidden="true"></i>
                 </span>
                 <?php endif; ?>
             </div>
@@ -163,7 +163,7 @@ if (!function_exists('sesna_render_document_row')) {
                 <div class="card-body p-4 p-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
                     <div class="d-flex align-items-center gap-4">
                         <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background-color: #FFFFFF; color: #9F2241; border: 1px solid #EAEAEA;">
-                            <i class="snd snd-building--government fs-2"></i>
+                            <i class="snd snd-building fs-2"></i>
                         </div>
                         <div>
                             <h3 class="h5 fw-bold font-patria mb-1" style="color: #9F2241;">¿Deseas consultar más normativa?</h3>

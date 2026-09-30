@@ -76,12 +76,12 @@ wp_reset_postdata();
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="snd snd-list--bulleted"></i> Actas
+                        <i class="snd snd-list"></i> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="resoluciones-tab" data-bs-toggle="tab" data-bs-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="snd snd-task--complete"></i> Resoluciones
+                        <i class="snd snd-checkmark--filled"></i> Resoluciones
                     </button>
                 </li>
             </ul>

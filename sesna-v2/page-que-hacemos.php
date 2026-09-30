@@ -8,7 +8,7 @@ get_header();
     <section class="qh-hero">
         <!-- Floating icons -->
         <i class="snd snd-document qh-floating-icon qh-fi-1"></i>
-        <i class="snd snd-target qh-floating-icon qh-fi-2"></i>
+        <i class="snd snd-chart--bar qh-floating-icon qh-fi-2"></i>
         <i class="snd snd-chart--bar qh-floating-icon qh-fi-3"></i>
         <i class="snd snd-security qh-floating-icon qh-fi-4"></i>
         <i class="snd snd-screen qh-floating-icon qh-fi-5"></i>
@@ -58,7 +58,7 @@ get_header();
                 <div class="col-md-6 mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-target"></i>
+                            <i class="snd snd-chart--bar"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">MISIÓN</h3>
@@ -70,7 +70,7 @@ get_header();
                 <div class="col-md-6 mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-view"></i>
+                            <i class="snd snd-screen"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">VISIÓN</h3>
@@ -142,7 +142,7 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-x">
-                            <i class="snd snd-logo--twitter"></i>
+                            <i class="snd snd-earth"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
@@ -199,7 +199,7 @@ get_header();
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-in">
-                            <i class="snd snd-logo--linkedin"></i>
+                            <i class="snd snd-earth"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">

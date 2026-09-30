@@ -92,7 +92,7 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-id-management tx-card__icon"></i>
+                        <i class="snd snd-security tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
@@ -103,7 +103,7 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-activity tx-card__icon"></i>
+                        <i class="snd snd-chart--bar tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>
                     <p class="tx-card__desc text-muted mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
@@ -207,7 +207,7 @@ get_header(); ?>
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder--open"></i>
+                                <i class="snd snd-folder"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -235,7 +235,7 @@ get_header(); ?>
             <div class="cp-nota pb-5">
                 <div class="container">
                     <div class="cp-nota__inner">
-                        <i class="snd snd-information--filled cp-nota__icono"></i>
+                        <i class="snd snd-information cp-nota__icono"></i>
                         <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
@@ -250,7 +250,7 @@ get_header(); ?>
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder--open"></i>
+                                <i class="snd snd-folder"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos metodológicos</h2>
@@ -284,7 +284,7 @@ get_header(); ?>
                         <!-- Enlace externo (no es un documento): herramienta ALEA -->
                         <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
                             <div class="cp-subsec-enlace__icono">
-                                <i class="snd snd-link"></i>
+                                <i class="snd snd-launch"></i>
                             </div>
                             <div class="cp-subsec-enlace__texto">
                                 <span class="cp-subsec-enlace__badge">Enlace externo</span>
@@ -305,7 +305,7 @@ get_header(); ?>
             <div class="cp-nota pb-5">
                 <div class="container">
                     <div class="cp-nota__inner">
-                        <i class="snd snd-information--filled cp-nota__icono"></i>
+                        <i class="snd snd-information cp-nota__icono"></i>
                         <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
@@ -323,7 +323,7 @@ get_header(); ?>
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder--open"></i>
+                                <i class="snd snd-folder"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -340,7 +340,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="text-center py-5">
-                <i class="snd snd-tools text-muted mb-3" style="font-size: 3rem;"></i>
+                <i class="snd snd-settings text-muted mb-3" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
@@ -358,7 +358,7 @@ get_header(); ?>
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder--open"></i>
+                                <i class="snd snd-folder"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -375,7 +375,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="text-center py-5">
-                <i class="snd snd-tools text-muted mb-3" style="font-size: 3rem;"></i>
+                <i class="snd snd-settings text-muted mb-3" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>

@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="modal-footer border-0 justify-content-center py-4 bg-white gap-3">
                 <button type="button" id="pdfCopyLinkBtn" class="btn tx-pdf-copy-btn font-noto-sans fw-bold px-4 py-2">
-                    <i class="snd snd-link me-2"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
+                    <i class="snd snd-launch me-2"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
                 </button>
                 <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download>
                     <i class="snd snd-download me-2"></i> Descargar PDF

@@ -14,10 +14,10 @@
 $ad_json_path = get_template_directory() . '/data/inventario-dgayf.json';
 
 $ad_columnas = array(
-    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-calendar--check-mark', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-trending--up', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-flow', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Guía de Archivo Documental' => array( 'icono' => 'snd-book', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
+    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-calendar', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-chart--bar', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
+    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-collaborate', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Guía de Archivo Documental' => array( 'icono' => 'snd-education', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
     'Inventario general por Expediente' => array( 'icono' => 'snd-archive', 'bg' => '#F9F0F3', 'color' => '#611232' ),
 );
 
@@ -75,7 +75,7 @@ if ( file_exists( $ad_json_path ) ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd snd-notebook--reference" style="color: #fff;"></i>
+                <i class="snd snd-document" style="color: #fff;"></i>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Archivo Documental</h2>
@@ -90,7 +90,7 @@ if ( file_exists( $ad_json_path ) ) {
 
     <div class="row g-4">
         <?php $ad_i = 0; foreach ( $ad_grupos as $grupo ) :
-            $meta = isset( $ad_columnas[ $grupo['titulo'] ] ) ? $ad_columnas[ $grupo['titulo'] ] : array( 'icono' => 'snd-folder--open', 'bg' => '#F9F0F3', 'color' => '#611232' );
+            $meta = isset( $ad_columnas[ $grupo['titulo'] ] ) ? $ad_columnas[ $grupo['titulo'] ] : array( 'icono' => 'snd-folder', 'bg' => '#F9F0F3', 'color' => '#611232' );
             ?>
         <div class="col-lg-4 col-md-6 pna-chart-card" style="--delay:<?php echo esc_attr( ( $ad_i++ % 3 ) * .1 ); ?>s">
             <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">

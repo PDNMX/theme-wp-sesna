@@ -12,7 +12,7 @@
             $programas = [
                 [
                     'title' => 'Plataforma<br>Digital Nacional',
-                    'icon' => 'snd-trending--up',
+                    'icon' => 'snd-chart--bar',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_01_pdn.jpg' ) ),
                     'desc' => 'Herramienta de inteligencia tecnológica que integra y conecta diversos sistemas electrónicos que poseen información necesaria a las autoridades competentes en materia de combate a la corrupción.',
                     'link' => 'https://www.plataformadigitalnacional.org/'

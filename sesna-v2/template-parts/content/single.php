@@ -35,7 +35,7 @@
                                 ?>
                                     <a href="<?= esc_url( get_category_link( $cat->term_id ) ) ?>"
                                        class="sesna-single-cat">
-                                        <i class="snd snd-tag--filled me-1" aria-hidden="true"></i>
+                                        <i class="snd snd-tag me-1" aria-hidden="true"></i>
                                         <?= esc_html( $cat->name ) ?>
                                     </a>
                                 <?php endif; ?>
@@ -58,7 +58,7 @@
                             <?php if ( function_exists( 'have_rows' ) && have_rows( 'files' ) ) : ?>
                                 <div class="sesna-single-files">
                                     <h3 class="sesna-single-files__title">
-                                        <i class="snd snd-attachment me-2" aria-hidden="true"></i>Documentos adjuntos
+                                        <i class="snd snd-document--import me-2" aria-hidden="true"></i>Documentos adjuntos
                                     </h3>
                                     <ul class="sesna-single-files__list list-unstyled mb-0">
                                         <?php while ( have_rows( 'files' ) ) : the_row(); ?>
@@ -90,13 +90,13 @@
                                    onclick="window.open(this.href,'_blank','width=600,height=300'); return false;"
                                    class="sesna-single-share__btn sesna-single-share__btn--tw"
                                    aria-label="Compartir en Twitter / X">
-                                    <i class="snd snd-logo--twitter" aria-hidden="true"></i>
+                                    <i class="snd snd-earth" aria-hidden="true"></i>
                                 </a>
                                 <a href="https://api.whatsapp.com/send?text=<?= urlencode( get_the_title() . ' — ' . get_the_permalink() ) ?>"
                                    target="_blank" rel="noopener noreferrer"
                                    class="sesna-single-share__btn sesna-single-share__btn--wa"
                                    aria-label="Compartir por WhatsApp">
-                                    <i class="snd snd-logo--whatsapp" aria-hidden="true"></i>
+                                    <i class="snd snd-phone" aria-hidden="true"></i>
                                 </a>
                             </div>
 

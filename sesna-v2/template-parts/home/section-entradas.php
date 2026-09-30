@@ -72,7 +72,7 @@ $sna_meses = [
             </button>
 
             <button type="button" id="sna-entradas-filter-clear" class="sna-entradas-filter-clear" style="display:none;">
-                Quitar filtros <i class="snd snd-close--outline ms-1"></i>
+                Quitar filtros <i class="snd snd-close ms-1"></i>
             </button>
         </div>
 

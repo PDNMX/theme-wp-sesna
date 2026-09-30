@@ -2,11 +2,11 @@
 get_header();
 
 $tx_cards = [
-    ['icon' => 'snd-id-management', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
+    ['icon' => 'snd-security', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
     ['icon' => 'snd-document', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'), 'target' => '_blank'],
-    ['icon' => 'snd-security--services', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
-    ['icon' => 'snd-folder--open', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
-    ['icon' => 'snd-book', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
+    ['icon' => 'snd-security', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
+    ['icon' => 'snd-folder', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
+    ['icon' => 'snd-education', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
     ['icon' => 'snd-notification', 'title' => 'Denuncias', 'desc' => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
 ];
 

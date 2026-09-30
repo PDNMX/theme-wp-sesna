@@ -54,7 +54,7 @@ get_header();
                     <div class="col-lg-8">
                         <div class="pna-hero__badge">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd snd-calendar--check-mark"></i>
+                                <i class="snd snd-calendar"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobada el 29 de enero de 2020</p>
@@ -76,7 +76,7 @@ get_header();
                                 <i class="snd snd-document" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
-                                <i class="snd snd-book" aria-hidden="true"></i> Documento Completo
+                                <i class="snd snd-education" aria-hidden="true"></i> Documento Completo
                             </a>
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
                                 <i class="snd snd-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
@@ -85,7 +85,7 @@ get_header();
                             <!-- Anexos -->
                             <div class="dropdown pna-anexos-dropdown">
                                 <button class="btn btn-sesna dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="snd snd-attachment" aria-hidden="true"></i> Anexos
+                                    <i class="snd snd-document--import" aria-hidden="true"></i> Anexos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="pnaAnexosDropdown">
                                     <li>
@@ -242,7 +242,7 @@ get_header();
             </div><!-- /.pna-ciclo-diagram -->
 
             <div class="pna-ciclo-hint mt-4">
-                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-cursor--1"></i></span>
+                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen"></i></span>
                 <p><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
             </div><!-- /.pna-ciclo-section -->

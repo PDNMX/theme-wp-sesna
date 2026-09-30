@@ -161,11 +161,11 @@
                        src="<?php echo esc_url($first['foto_titular']); ?>"
                        alt="<?php echo esc_attr($first['nombre_titular']); ?>">
                   <div class="dir-ficha__foto dir-ficha__foto--placeholder d-none" id="dir-foto-placeholder">
-                    <i class="snd snd-user--filled"></i>
+                    <i class="snd snd-user"></i>
                   </div>
                 <?php else : ?>
                   <div class="dir-ficha__foto dir-ficha__foto--placeholder" id="dir-foto-placeholder">
-                    <i class="snd snd-user--filled"></i>
+                    <i class="snd snd-user"></i>
                   </div>
                   <img class="dir-ficha__foto d-none" id="dir-foto" src="" alt="">
                 <?php endif; ?>
@@ -179,7 +179,7 @@
                 </h3>
                 <div class="dir-ficha__cargo-row <?php echo ($first && $first['encargado']) ? '' : 'd-none'; ?>" id="dir-encargado-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-user--filled"></i>
+                    <i class="snd snd-user"></i>
                   </span>
                   <span class="dir-ficha__cargo" id="dir-encargado">
                     <?php echo ($first && $first['encargado']) ? esc_html($first['encargado']) : ''; ?>
@@ -188,7 +188,7 @@
                 <hr class="dir-ficha__separator <?php echo ($first && $first['encargado']) ? '' : 'd-none'; ?>" id="dir-encargado-sep">
                 <div class="dir-ficha__cargo-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-user--filled"></i>
+                    <i class="snd snd-user"></i>
                   </span>
                   <span class="dir-ficha__cargo" id="dir-cargo">
                     <?php echo $first ? esc_html($first['cargo_titular']) : '—'; ?>
@@ -197,7 +197,7 @@
                 <hr class="dir-ficha__separator">
                 <div class="dir-ficha__cargo-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-email--filled"></i>
+                    <i class="snd snd-email"></i>
                   </span>
                   <a class="dir-ficha__email" id="dir-email"
                      href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
@@ -222,7 +222,7 @@
     <div class="container">
       <div class="dir-contact-cta__card">
         <div class="dir-contact-cta__icon" aria-hidden="true">
-          <i class="snd snd-headphones"></i>
+          <i class="snd snd-accessibility"></i>
         </div>
         <div class="dir-contact-cta__body">
           <h4 class="dir-contact-cta__title">¿Necesitas más información?</h4>
@@ -245,23 +245,23 @@
       <div class="dir-modal__foto-wrap">
         <img class="dir-modal__foto" id="dir-modal-foto" src="" alt="">
         <div class="dir-modal__foto dir-modal__foto--placeholder d-none" id="dir-modal-placeholder">
-          <i class="snd snd-user--filled"></i>
+          <i class="snd snd-user"></i>
         </div>
       </div>
       <div class="dir-modal__info">
         <h3 class="dir-modal__nombre" id="dir-modal-nombre"></h3>
         <div class="dir-modal__cargo-row d-none" id="dir-modal-encargado-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user--filled"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user"></i></span>
           <span class="dir-modal__cargo" id="dir-modal-encargado"></span>
         </div>
         <hr class="dir-ficha__separator d-none" id="dir-modal-encargado-sep">
         <div class="dir-modal__cargo-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user--filled"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user"></i></span>
           <span class="dir-modal__cargo" id="dir-modal-cargo"></span>
         </div>
         <hr class="dir-ficha__separator">
         <div class="dir-modal__cargo-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-email--filled"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-email"></i></span>
           <a class="dir-ficha__email" id="dir-modal-email" href="#"></a>
         </div>
       </div>

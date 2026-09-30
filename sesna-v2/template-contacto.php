@@ -67,7 +67,7 @@ get_header();
                         
                         <div class="d-flex align-items-start">
                             <div class="rounded-circle d-flex align-items-center justify-content-center me-3 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="snd snd-time fs-4"></i>
+                                <i class="snd snd-timer fs-4"></i>
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1 text-burgundi h5">Horarios:</h5>
@@ -91,7 +91,7 @@ get_header();
             <div class="position-relative d-flex align-items-center px-4 px-md-5 py-4 mt-2" style="background-color: #fbf4f5; overflow: hidden;">
                 <div class="d-flex align-items-center position-relative z-1 w-100 pe-lg-5">
                     <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0 tx-unidad-icon-circle" style="width: 50px; height: 50px;">
-                        <i class="snd snd-security--services fs-4"></i>
+                        <i class="snd snd-security fs-4"></i>
                     </div>
                     <p class="mb-0 fw-medium text-dark">
                         Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="d-none d-md-block">y la participación ciudadana.

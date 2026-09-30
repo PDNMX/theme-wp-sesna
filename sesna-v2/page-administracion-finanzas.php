@@ -55,7 +55,7 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/planeacion-institucional/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-task--complete tx-card__icon"></i>
+                        <i class="snd snd-checkmark--filled tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Planeación<br>Institucional</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos que orientan y dan seguimiento al cumplimiento de los objetivos y metas institucionales.</p>
@@ -67,7 +67,7 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/informacion-financiera/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-trending--up tx-card__icon"></i>
+                        <i class="snd snd-chart--bar tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Información<br>Financiera</h5>
                     <p class="tx-card__desc text-muted mb-4">Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.</p>
@@ -91,7 +91,7 @@ get_header(); ?>
             <div class="col-lg-3 col-md-6">
                 <a href="<?php echo esc_url( home_url('/archivo-documental/') ); ?>" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-notebook--reference tx-card__icon"></i>
+                        <i class="snd snd-document tx-card__icon"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Gestión<br>Documental</h5>
                     <p class="tx-card__desc text-muted mb-4">Instrumentos para la organización, conservación y administración de los archivos institucionales.</p>
@@ -103,7 +103,7 @@ get_header(); ?>
 
         <!-- Instrucción Banner -->
         <div class="cp-instruccion-banner d-flex align-items-center gap-4">
-            <i class="snd snd-cursor--1 text-guinda flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
+            <i class="snd snd-screen text-guinda flex-shrink-0" style="font-size: 3rem; line-height: 1;"></i>
             <div class="tx-hero__subtitle text-muted m-0" style="max-width: 800px; line-height: 1.5;">
                 Selecciona una de las siguientes categorías para <span class="text-guinda fw-bold" style="color: var(--color-burgundi);">consultar documentos, informes y recursos relacionados.</span>
             </div>

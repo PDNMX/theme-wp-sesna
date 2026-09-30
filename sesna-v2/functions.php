@@ -487,7 +487,7 @@ function sna_get_familias_tematicas()
 		],
 		'gobierno-coordinacion' => [
 			'label' => 'Órganos de Gobierno y Coordinación',
-			'icon'  => 'snd-building--government',
+			'icon'  => 'snd-building',
 			'cats'  => [
 				'comite-coordinador', 'comite_etica-sesna', 'comision-ejecutiva',
 				'organo-de-gobierno', 'ost', 'asamblea-general-sna',
@@ -495,7 +495,7 @@ function sna_get_familias_tematicas()
 		],
 		'vinculacion-sna' => [
 			'label' => 'Vinculación e Implementación SNA',
-			'icon'  => 'snd-flow',
+			'icon'  => 'snd-collaborate',
 			'cats'  => [
 				'sistemas-locales-anticorrupcion', 'convenios', 'colaboraciones',
 				'politicas-estatales-anticorrupcion', 'conoce-mas-del-sna',
@@ -2103,7 +2103,7 @@ function sesna_oc_doc_icon($nombre) {
         return 'snd-clipboard';
     }
     if (strpos($nombre_lower, 'acta') !== false) {
-        return 'snd-document--tasks';
+        return 'snd-list';
     }
     if (strpos($nombre_lower, 'anexo') !== false) {
         return 'snd-folder';
@@ -2190,7 +2190,7 @@ function sesna_oc_map_slots_fijos($sesion) {
     $slots = array(
         'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'snd-clipboard', 'enlace' => ''),
         'orden_del_dia' => array('label' => 'Orden del día', 'icon' => 'snd-document', 'enlace' => ''),
-        'acta'          => array('label' => 'Acta', 'icon' => 'snd-document--tasks', 'enlace' => ''),
+        'acta'          => array('label' => 'Acta', 'icon' => 'snd-list', 'enlace' => ''),
         // 'anexos' puede tener 0, 1 o varios documentos: si hay más de uno,
         // el render pinta un dropdown en vez de un link directo.
         'anexos'        => array('label' => 'Anexos', 'icon' => 'snd-folder', 'enlace' => '', 'documentos' => array()),
@@ -3589,7 +3589,7 @@ function sesna_render_recurso_card($post) {
             <div class="cp-doc-meta">
                 <span><i class="snd snd-calendar"></i> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="snd snd-document--blank"></i> <?php echo esc_html($formato); ?></span>
+                <span><i class="snd snd-document"></i> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3601,7 +3601,7 @@ function sesna_render_recurso_card($post) {
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                <i class="snd snd-view"></i> Ver documento
+                <i class="snd snd-screen"></i> Ver documento
             </a>
             <?php endif; ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>

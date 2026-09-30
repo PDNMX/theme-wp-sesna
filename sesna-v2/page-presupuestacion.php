@@ -46,7 +46,7 @@ get_header();
 
                 <!-- Columna Derecha: Ícono representativo -->
                 <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="snd snd-chart--pie" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
+                    <i class="snd snd-chart--bar" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
                 </div>
 
             </div>
@@ -57,7 +57,7 @@ get_header();
     <?php
     $ata_columnas = array(
         array(
-            'icono'  => 'snd-book',
+            'icono'  => 'snd-education',
             'titulo' => 'Metodología',
             'docs'   => array(
                 array( 'label' => 'Metodología para la integración del ATA',  'file' => 'Metodologia-para-la-Integracion-del-ATA.pdf',              'path' => '2024/08/Metodologia-para-la-Integracion-del-ATA.pdf' ),
@@ -264,7 +264,7 @@ get_header();
                                         <?php foreach ( $lista as $inst ) : ?>
                                         <div class="col-6">
                                             <span class="d-flex align-items-center gap-1 font-noto-sans" style="font-size: 12px; color: #444;">
-                                                <i class="snd snd-circle--filled flex-shrink-0" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
+                                                <i class="snd snd-dot-mark flex-shrink-0" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
                                             </span>
                                         </div>
                                         <?php endforeach; ?>

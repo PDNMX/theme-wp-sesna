@@ -62,7 +62,7 @@ get_header();
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd snd-book text-white fs-4"></i>
+                                <i class="snd snd-education text-white fs-4"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
@@ -304,7 +304,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-cursor--1"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen"></i></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -509,7 +509,7 @@ get_header();
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="snd-star" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group--filled"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
@@ -564,7 +564,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="snd snd-information--filled me-2 fs-5"></i>
+                        <i class="snd snd-information me-2 fs-5"></i>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
