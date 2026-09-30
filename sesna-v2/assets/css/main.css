@@ -407,30 +407,20 @@ body.front-page main.page {
 .sesna-subheader__inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;
     padding: 0 24px;
     max-width: 1440px;
     margin: 0 auto;
     min-height: 52px;
 }
 
-/* Logo SESNA */
-.sesna-brand {
+/* details SND — contenedor principal del menú */
+.sesna-subheader .mexico__details {
+    flex: 1;
     display: flex;
     align-items: center;
-    flex-shrink: 0;
-    margin-right: 24px;
-    text-decoration: none !important;
 }
 
-.sesna-brand__img {
-    height: 36px;
-    width: auto;
-    filter: brightness(0) invert(1); /* blanco sobre fondo oscuro */
-}
-
-/* Contenedor del nav */
+/* nav.navHeader — alineación a la derecha en desktop */
 .sesna-nav {
     flex: 1;
     display: flex;
@@ -565,52 +555,44 @@ body.front-page main.page {
     border-bottom: none !important;
 }
 
-/* ---- Hamburguesa móvil ---- */
-.sesna-nav-toggle {
+/* ---- Hamburguesa SND (summary.mexico__summary) — oculto en desktop ---- */
+.sesna-subheader .mexico__summary {
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 4px;
+    list-style: none;
     cursor: pointer;
-    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--neutro100);
+    padding: 10px 0;
+    gap: 8px;
+    user-select: none;
 }
+.sesna-subheader .mexico__summary::-webkit-details-marker { display: none; }
 
-.sesna-nav-toggle__bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--neutro100);
-    border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-/* ---- Mobile ---- */
-@media (max-width: 991px) {
-    .sesna-nav-toggle {
+/* ---- Mobile: < 768px — SND usa details/summary ---- */
+@media (max-width: 767px) {
+    /* Mostrar hamburguesa */
+    .sesna-subheader .mexico__details {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .sesna-subheader .mexico__summary {
         display: flex;
     }
 
-    .sesna-nav {
+    /* Menú colapsado: visible solo cuando details está abierto */
+    .sesna-subheader .mexico__details:not([open]) .sesna-nav {
+        display: none;
+    }
+    .sesna-subheader .mexico__details[open] .sesna-nav {
+        display: block;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
         background: var(--pguinda950, #4A0C26);
-        flex-direction: column;
-        align-items: stretch;
-        display: none;
         z-index: 1040;
         box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-
-    .sesna-nav.is-open {
-        display: flex;
     }
 
     .sesna-subheader .navHeader__ul {
@@ -6775,21 +6757,22 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
    BLOQUE 12 — Accesibilidad SND
    ══════════════════════════════════════════════════════ */
 
-/* Skip link (WCAG 2.4.1) */
-.skip-link {
+/* Skip link SND — clase irContent (WCAG 2.4.1)
+   snd-guinda.css provee estilos base; reforzamos posicionamiento */
+.irContent {
     position: absolute;
     top: -100%;
     left: 1rem;
     z-index: 99999;
     background: var(--pguinda900, #611232);
-    color: #fff;
+    color: #fff !important;
     padding: 0.5rem 1rem;
     border-radius: 0 0 4px 4px;
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: top 0.2s;
 }
-.skip-link:focus {
+.irContent:focus {
     top: 0;
     outline: 3px solid #fff;
     outline-offset: 2px;

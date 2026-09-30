@@ -58,28 +58,20 @@
         observer.observe(document.body, { childList: true, subtree: true });
     }
 
-    /* Mobile nav toggle — hamburger button */
+    /* Hamburguesa SND: details/summary — cerrar al hacer clic fuera */
     document.addEventListener('DOMContentLoaded', function() {
-        var toggle = document.getElementById('sesna-nav-toggle');
-        var nav    = document.getElementById('sesna-nav-main');
-        if (!toggle || !nav) return;
+        var navDetails = document.getElementById('sesna-nav-details');
+        if (navDetails) {
+            document.addEventListener('click', function(e) {
+                if (!navDetails.contains(e.target)) {
+                    navDetails.removeAttribute('open');
+                }
+            });
+        }
 
-        toggle.addEventListener('click', function() {
-            var isOpen = nav.classList.toggle('is-open');
-            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-
-        /* Cerrar al hacer clic fuera del menú */
-        document.addEventListener('click', function(e) {
-            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-                nav.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        /* Hover para submenús en desktop: abrir/cerrar <details> con mouse */
-        if (window.innerWidth >= 992) {
-            document.querySelectorAll('.navHeader__details').forEach(function(det) {
+        /* Hover para submenús de dropdown en desktop (solo dentro del nav, no el hamburguesa) */
+        if (window.innerWidth >= 768) {
+            document.querySelectorAll('#sesna-nav-main .navHeader__details').forEach(function(det) {
                 det.addEventListener('mouseenter', function() { det.setAttribute('open', ''); });
                 det.addEventListener('mouseleave', function() { det.removeAttribute('open'); });
             });

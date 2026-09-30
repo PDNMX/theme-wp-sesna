@@ -25,7 +25,8 @@
 
 <body <?php body_class(); ?>>
 
-  <a href="#page-content" class="skip-link">Saltar al contenido principal</a>
+  <!-- Skip link — SND: clase irContent, apunta a #mainContent (WCAG 2.4.1) -->
+  <a href="#mainContent" class="irContent">Ir al contenido principal</a>
 
   <!-- Loader / Transición Inicial -->
   <div id="sesna-page-loader" class="sesna-loader">
@@ -33,47 +34,40 @@
   </div>
 
   <!--
-    Navbar institucional SESNA — SND v1
-    Estructura: .subheader > .subheader__contenedor > logo + nav(.navHeader__ul)
-    El .mexico del Gobierno de México es inyectado por gobmx.js automáticamente.
+    Barra institucional SESNA — SND v1
+    Estructura: section.subheader > subheader__contenedor
+                > details.mexico__details.navHeader__details (hamburguesa móvil)
+                  > summary.mexico__summary
+                  > nav.navHeader > ul.navHeader__ul.mexico__detailsCont
+    El encabezado .mexico (Gobierno de México) es inyectado por gobmx.js automáticamente.
   -->
-  <header class="subheader sesna-subheader" role="banner" aria-label="Navegación principal">
+  <section class="subheader sesna-subheader" aria-label="Navegación institucional">
     <div class="subheader__contenedor sesna-subheader__inner">
 
-      <!-- Logo SESNA -->
-      <a href="<?php echo esc_url( home_url('/') ); ?>" class="sesna-brand" aria-label="Inicio — Secretaría Ejecutiva del SNA">
-        <img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo_blanco.svg"
-             alt="Secretaría Ejecutiva del Sistema Nacional Anticorrupción"
-             class="sesna-brand__img"
-             width="160" height="auto"
-             onerror="this.style.display='none'">
-      </a>
+      <!-- Hamburguesa SND: details/summary (patrón nativo móvil) -->
+      <details class="mexico__details navHeader__details" id="sesna-nav-details">
+        <summary class="mexico__summary">
+          <span class="mexico__span">Menú</span>
+        </summary>
 
-      <!-- Botón hamburguesa móvil -->
-      <button class="sesna-nav-toggle" id="sesna-nav-toggle"
-              aria-controls="sesna-nav-main" aria-expanded="false"
-              aria-label="Abrir menú de navegación">
-        <span class="sesna-nav-toggle__bar"></span>
-        <span class="sesna-nav-toggle__bar"></span>
-        <span class="sesna-nav-toggle__bar"></span>
-      </button>
+        <!-- Menú principal — SND: nav.navHeader / ul.navHeader__ul.mexico__detailsCont -->
+        <nav class="navHeader sesna-nav" id="sesna-nav-main" aria-label="Menú principal">
+          <?php
+          wp_nav_menu(array(
+            'container'      => false,
+            'theme_location' => 'menu-1',
+            'menu_class'     => 'navHeader__ul mexico__detailsCont sesna-nav__list',
+            'depth'          => 2,
+            'fallback_cb'    => '__return_false',
+            'walker'         => new Sesna_Bootstrap_Nav_Walker(),
+          ));
+          ?>
+        </nav>
 
-      <!-- Menú principal — SND: .navHeader__ul / .navHeader__a -->
-      <nav id="sesna-nav-main" class="sesna-nav" aria-label="Menú principal">
-        <?php
-        wp_nav_menu(array(
-          'container'      => false,
-          'theme_location' => 'menu-1',
-          'menu_class'     => 'navHeader__ul sesna-nav__list',
-          'depth'          => 2,
-          'fallback_cb'    => '__return_false',
-          'walker'         => new Sesna_Bootstrap_Nav_Walker(),
-        ));
-        ?>
-      </nav>
+      </details>
 
     </div>
-  </header>
+  </section>
 
-  <main class="page" id="page-content">
+  <main class="page" id="mainContent">
 
