@@ -4,10 +4,12 @@
 
     function adjustNavbar() {
         var gobmxHeader = document.querySelector('.navbar-fixed-top');
-        var siteHeader  = document.querySelector('.site-header');
+        /* SND: el .mexico header también es el header GOB.mx */
+        if (!gobmxHeader) gobmxHeader = document.querySelector('.mexico');
+        var siteHeader  = document.querySelector('.sesna-subheader, .site-header');
         if (!siteHeader) return;
 
-        /* Posiciona el sub-navbar justo debajo del header GOB.mx */
+        /* Posiciona el sub-navbar justo debajo del header GOB.mx / .mexico */
         var gobmxBottom = gobmxHeader ? gobmxHeader.getBoundingClientRect().bottom : 70;
         siteHeader.style.top = gobmxBottom + 'px';
 
@@ -47,6 +49,34 @@
         });
         observer.observe(document.body, { childList: true, subtree: true });
     }
+
+    /* Mobile nav toggle — hamburger button */
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggle = document.getElementById('sesna-nav-toggle');
+        var nav    = document.getElementById('sesna-nav-main');
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener('click', function() {
+            var isOpen = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        /* Cerrar al hacer clic fuera del menú */
+        document.addEventListener('click', function(e) {
+            if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        /* Hover para submenús en desktop: abrir/cerrar <details> con mouse */
+        if (window.innerWidth >= 992) {
+            document.querySelectorAll('.navHeader__details').forEach(function(det) {
+                det.addEventListener('mouseenter', function() { det.setAttribute('open', ''); });
+                det.addEventListener('mouseleave', function() { det.removeAttribute('open'); });
+            });
+        }
+    });
 
     if (typeof $gmx !== 'undefined') {
         $gmx(document).ready(init);

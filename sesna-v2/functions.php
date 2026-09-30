@@ -51,25 +51,35 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
 
 
 /* ============================================================
-   Enqueue scripts y estilos — GOB.mx v3
+   Enqueue scripts y estilos — SND v1 (migración desde Gráfica Base v3)
+   Estrategia progresiva:
+     1. v3 CSS se mantiene como base Bootstrap (grid, modales, carousel)
+     2. SND v1 CSS carga después — sus tokens/componentes toman prioridad
+     3. v3 JS se mantiene para Bootstrap JS (modales, dropdown, carousel)
+     4. SND v1 JS se agrega para IBM Carbon Icons
    ============================================================ */
 function sesna_theme_scripts()
 {
-	// Hoja principal del tema (estilos SESNA sobre el framework)
-	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), filemtime( get_template_directory() . '/assets/css/main.css' ));
-	// Framework GOB.mx v3 — incluye Bootstrap 5, fuente Patria y variables de color
+	// GOB.mx v3 — se mantiene SOLO para Bootstrap CSS (grid, .row, .col-*, modales, carousel)
+	// TODO BLOQUE 13: remover cuando todas las páginas migren a .fila/.columna__N de SND
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
-	// Bootstrap Icons — CDN (no incluido en el framework GOB.mx)
+	// SND v1 — Sistema Nacional de Diseño (carga después de v3; tokens, tipografía y componentes SND toman prioridad)
+	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css', array('gobmx-framework'), null);
+	// Bootstrap Icons — temporal, se reemplazará con IBM Carbon (snd-*) en BLOQUE 8
 	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
-	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
+	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
+	// Hoja principal del tema — carga al último, después de SND
+	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('snd-v1'), filemtime( get_template_directory() . '/assets/css/main.css' ));
 
-	// Framework GOB.mx v3 — JS oficial — ya incluye Bootstrap 5 y jQuery 3.7.1
+	// GOB.mx v3 JS — mantener para Bootstrap 5 JS (modales, dropdown, carousel, jQuery)
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
-	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
+	// SND v1 JS — IBM Carbon Design System icons
+	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-js.js', array(), null, true);
+	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array(), null, true);
 
-	// JS global del tema (depende solo del framework)
+	// JS global del tema (depende del framework para jQuery/Bootstrap)
 	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
 
 	// Parche de accesibilidad — mejoras sobre el widget CDN de GOB.mx
@@ -1010,45 +1020,93 @@ add_action('save_post_directorio', 'sesna_save_directorio_meta');
 /* ---------------------------------------------------------------
    Bootstrap 5 Nav Walker para el menú principal SESNA
 --------------------------------------------------------------- */
+/**
+ * SND v1 Nav Walker — genera HTML compatible con .navHeader__* del Sistema Nacional de Diseño.
+ * Usa <details>/<summary> para submenús (hover en desktop vía CSS/JS, nativo en móvil).
+ * URLs externas detectadas automáticamente para agregar ícono SND de enlace externo.
+ */
 class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 
+    /** URLs o slugs que son enlaces externos — reciben ícono snd-launch */
+    private $external_slugs = ['pdn', 'paa', 'mercado-digital', 'mercado_digital'];
+
+    private function is_external( $item ) {
+        $home = home_url();
+        $url  = $item->url;
+        // Detectar por URL (fuera del dominio local) o por clases del ítem
+        if ( strpos( $url, 'http' ) === 0 && strpos( $url, $home ) !== 0 ) {
+            return true;
+        }
+        foreach ( $this->external_slugs as $slug ) {
+            if ( in_array( 'menu-item-' . $slug, $item->classes ) ) return true;
+        }
+        return false;
+    }
+
     public function start_lvl( &$output, $depth = 0, $args = null ) {
-        $output .= '<ul class="dropdown-menu sesna-dropdown">';
+        if ( $depth === 0 ) {
+            $output .= '<ul class="navHeader__ul navHeader__submenu">';
+        }
     }
 
     public function end_lvl( &$output, $depth = 0, $args = null ) {
-        $output .= '</ul>';
+        if ( $depth === 0 ) {
+            $output .= '</ul></details>';
+        }
     }
 
     public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
         $has_children = in_array( 'menu-item-has-children', $item->classes );
         $is_active    = in_array( 'current-menu-item', $item->classes ) ||
                         in_array( 'current-menu-ancestor', $item->classes );
+        $is_external  = $this->is_external( $item );
+        $current_attr = $is_active ? ' aria-current="page"' : '';
+        $ext_icon     = $is_external ? ' <i class="snd snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;"></i>' : '';
+        $ext_attr     = $is_external ? ' target="_blank" rel="noopener noreferrer"' : '';
 
         if ( $depth === 0 ) {
-            $li_class = 'nav-item' . ( $has_children ? ' dropdown' : '' ) . ( $is_active ? ' active' : '' );
-            $output .= '<li class="' . esc_attr( $li_class ) . '">';
+            $output .= '<li class="navHeader__li' . ( $is_active ? ' navHeader__li--active' : '' ) . '">';
 
             if ( $has_children ) {
-                $output .= '<a class="nav-link dropdown-toggle' . ( $is_active ? ' active' : '' ) . '"'
-                    . ' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">'
-                    . esc_html( $item->title ) . '</a>';
+                // <details> abre/cierra el submenu; JS/CSS controla hover en desktop
+                $output .= '<details class="navHeader__details"' . ( $is_active ? ' open' : '' ) . '>';
+                $output .= '<summary class="navHeader__a navHeader__a--toggle"' . $current_attr . '>'
+                    . esc_html( $item->title )
+                    . '<i class="snd snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
+                    . '</summary>';
+                // end_lvl closes </ul></details>
             } else {
-                $output .= '<a class="nav-link' . ( $is_active ? ' active' : '' ) . '"'
-                    . ' href="' . esc_url( $item->url ) . '">'
-                    . esc_html( $item->title ) . '</a>';
+                $output .= '<a class="navHeader__a"'
+                    . ' href="' . esc_url( $item->url ) . '"'
+                    . $current_attr
+                    . $ext_attr . '>'
+                    . esc_html( $item->title )
+                    . $ext_icon
+                    . '</a>';
             }
         } else {
+            // Nivel 1 — subitems dentro del <details>
             $is_sub_active = in_array( 'current-menu-item', $item->classes );
-            $output .= '<li>';
-            $output .= '<a class="dropdown-item' . ( $is_sub_active ? ' active' : '' ) . '"'
-                . ' href="' . esc_url( $item->url ) . '">'
-                . esc_html( $item->title ) . '</a>';
+            $sub_current   = $is_sub_active ? ' aria-current="page"' : '';
+            $output .= '<li class="navHeader__li--sub">';
+            $output .= '<a class="navHeader__a navHeader__a--sub"'
+                . ' href="' . esc_url( $item->url ) . '"'
+                . $sub_current
+                . $ext_attr . '>'
+                . esc_html( $item->title )
+                . $ext_icon
+                . '</a>';
         }
     }
 
     public function end_el( &$output, $item, $depth = 0, $args = null ) {
-        $output .= '</li>';
+        $has_children = in_array( 'menu-item-has-children', $item->classes );
+        // end_lvl cierra </details> para items con hijos en depth 0
+        if ( $depth === 0 && ! $has_children ) {
+            $output .= '</li>';
+        } elseif ( $depth > 0 ) {
+            $output .= '</li>';
+        }
     }
 }
 
