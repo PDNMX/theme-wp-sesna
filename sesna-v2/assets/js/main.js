@@ -2,26 +2,32 @@
 
 (function () {
 
+    var _resizeObserver = null;
+
     function adjustNavbar() {
         var gobmxHeader = document.querySelector('.navbar-fixed-top');
-        /* SND: el .mexico header también es el header GOB.mx */
         if (!gobmxHeader) gobmxHeader = document.querySelector('.mexico');
         var siteHeader  = document.querySelector('.sesna-subheader, .site-header');
         if (!siteHeader) return;
 
-        /* Posiciona el sub-navbar justo debajo del header GOB.mx / .mexico */
-        var gobmxBottom = gobmxHeader ? gobmxHeader.getBoundingClientRect().bottom : 70;
+        /* Posiciona el sub-navbar justo debajo del header GOB.mx / .mexico.
+           getBoundingClientRect().bottom da la posición viewport-relativa del borde inferior. */
+        var gobmxBottom = gobmxHeader ? Math.round(gobmxHeader.getBoundingClientRect().bottom) : 94;
+        if (gobmxBottom <= 0) gobmxBottom = gobmxHeader ? gobmxHeader.offsetHeight : 94;
         siteHeader.style.top = gobmxBottom + 'px';
 
-        /* El v3 CSS ya compensa el header GOB.mx con body{padding-top:80px}.
-           --sesna-offset solo necesita compensar la altura del SESNA subheader. */
-        var totalOffset = siteHeader.offsetHeight;
-        document.documentElement.style.setProperty('--sesna-offset', totalOffset + 'px');
+        /* --sesna-offset = delta que main.page necesita sobre el body padding-top ya existente.
+           body ya tiene padding-top del v3 CSS (~80px). El total del stack es gobmxBottom + sesnaH.
+           Delta = total - bodyPaddingTop (para no doblar el offset del GOB.mx nav). */
+        var bodyPaddingTop = parseInt(window.getComputedStyle(document.body).paddingTop) || 0;
+        var totalStack = gobmxBottom + siteHeader.offsetHeight;
+        var delta = Math.max(0, totalStack - bodyPaddingTop);
+        document.documentElement.style.setProperty('--sesna-offset', delta + 'px');
 
-        /* Aplica inline style directamente al wrapper hero (más confiable) */
+        /* Hero de portada: recibe el offset completo del stack (body padding ya es 0 en main.page home) */
         var heroWrapper = document.querySelector('.front-page-bg.has-fullbleed-hero');
         if (heroWrapper) {
-            heroWrapper.style.paddingTop = totalOffset + 'px';
+            heroWrapper.style.paddingTop = totalStack + 'px';
         }
     }
 
@@ -30,19 +36,22 @@
 
         if (gobmxHeader && gobmxHeader.offsetHeight > 0) {
             adjustNavbar();
-            if (window.ResizeObserver) {
-                new ResizeObserver(adjustNavbar).observe(gobmxHeader);
+            if (window.ResizeObserver && !_resizeObserver) {
+                _resizeObserver = new ResizeObserver(adjustNavbar);
+                _resizeObserver.observe(gobmxHeader);
             }
             return;
         }
 
+        /* GOB.mx nav aún no aparece — observar el DOM */
         var observer = new MutationObserver(function () {
             var h = document.querySelector('.navbar-fixed-top');
             if (h && h.offsetHeight > 0) {
-                adjustNavbar();
                 observer.disconnect();
-                if (window.ResizeObserver) {
-                    new ResizeObserver(adjustNavbar).observe(h);
+                adjustNavbar();
+                if (window.ResizeObserver && !_resizeObserver) {
+                    _resizeObserver = new ResizeObserver(adjustNavbar);
+                    _resizeObserver.observe(h);
                 }
             }
         });
@@ -77,16 +86,22 @@
         }
     });
 
+    /* Inicialización: intentar vía $gmx (GOB.mx jQuery) o DOMContentLoaded */
     if (typeof $gmx !== 'undefined') {
         $gmx(document).ready(init);
     } else {
         document.addEventListener('DOMContentLoaded', init);
     }
+    /* También ejecutar siempre en DOMContentLoaded como fallback independiente */
+    document.addEventListener('DOMContentLoaded', init);
 
     window.addEventListener('resize', adjustNavbar);
 
-    /* Loader / Transición Suave Inicial */
+    /* Loader / Transición Suave Inicial + fallback de posicionamiento en window.load */
     window.addEventListener('load', function() {
+        /* Fallback final: re-ejecutar adjustNavbar cuando todo el layout esté listo */
+        adjustNavbar();
+
         var loader = document.getElementById('sesna-page-loader');
         if (loader) {
             loader.classList.add('loader-hidden');

@@ -282,8 +282,9 @@ html.sesna-highlight a:visited {
     /* Espaciado */
     --buffer: 64px;
 
-    /* Offset navbars fijos (actualizado por main.js en runtime) */
-    --sesna-offset: 44px;
+    /* Offset navbars fijos (actualizado por main.js en runtime)
+       fallback = total stack (94px GOB.mx + 52px SESNA) - 80px body padding-top v3 = 66px */
+    --sesna-offset: 66px;
 
     /* Configuración de componentes */
     --sesna-banner-max-height: auto;
@@ -397,7 +398,7 @@ body.front-page main.page {
 /* El SND ya define .subheader con background:var(--gama950) = #4A0C26 */
 .sesna-subheader {
     position: fixed;
-    top: 70px; /* fallback — JS actualiza con height real del .mexico header */
+    top: 94px; /* fallback — JS actualiza con height real; 94px = altura típica del nav GOB.mx v3 */
     width: 100%;
     z-index: 999;
     /* min-height ya viene del SND .subheader */
