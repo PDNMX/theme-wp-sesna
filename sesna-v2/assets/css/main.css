@@ -6,6 +6,19 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
+   Fix GOB.mx v3: body { height: 100vh } colapsa el contenido.
+   Usamos min-height para que body/html crezcan con el contenido.
+   ------------------------------------------------------------ */
+html {
+    height: auto !important;
+    min-height: 100vh;
+}
+body {
+    height: auto !important;
+    min-height: 100vh;
+}
+
+/* ------------------------------------------------------------
    Accesibilidad — parches sobre el widget CDN de GOB.mx
    ------------------------------------------------------------ */
 
