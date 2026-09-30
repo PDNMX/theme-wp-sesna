@@ -650,14 +650,121 @@ body.front-page main.page {
     color: var(--color-dorado) !important;
 }
 
-.btn-burgundi {
-    background-color: var(--color-burgundi) !important;
-    border-color: var(--color-burgundi) !important;
+/* ============================================================
+   BLOQUE 5 — Botones SND v1
+   Bridge: clases Bootstrap → estilo SND. Permite migración gradual
+   de .btn.btn-primary → [class*="boton__primario"] sin tocar cada PHP.
+   ============================================================ */
+
+/* Base para todos los botones del sitio */
+.btn,
+[class*="boton__"] {
+    font-family: var(--font-noto-sans);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 1.2;
 }
 
-.btn-burgundi:hover {
-    background-color: var(--color-guinda) !important;
-    border-color: var(--color-guinda) !important;
+/* Primario — fondo guinda SND (reemplaza .btn-primary y .btn-burgundi) */
+.btn-primary,
+.btn-burgundi,
+.boton__primario {
+    background-color: var(--principal, #611232) !important;
+    border-color: var(--principal, #611232) !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-burgundi:hover,
+.boton__primario:hover {
+    background-color: var(--pguinda800, #781838) !important;
+    border-color: var(--pguinda800, #781838) !important;
+    color: #fff !important;
+}
+
+.btn-primary:active,
+.btn-burgundi:active,
+.boton__primario:active {
+    background-color: var(--pguinda950, #4A0C26) !important;
+    border-color: var(--pguinda950, #4A0C26) !important;
+}
+
+/* Secundario — borde guinda, fondo blanco */
+.btn-secondary,
+.btn-outline-primary,
+.boton__secundario {
+    background-color: #fff !important;
+    border-color: var(--principal, #611232) !important;
+    color: var(--principal, #611232) !important;
+}
+
+.btn-secondary:hover,
+.btn-outline-primary:hover,
+.boton__secundario:hover {
+    background-color: var(--pguinda100, #F3E4E9) !important;
+    color: var(--principal, #611232) !important;
+}
+
+/* Fantasma / Ghost — transparente con borde */
+.btn-outline-secondary,
+.btn-outline-dark,
+.boton__fantasma {
+    background-color: transparent !important;
+    border-color: var(--neutro600, #767676) !important;
+    color: var(--neutro800, #161A1D) !important;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-dark:hover,
+.boton__fantasma:hover {
+    background-color: var(--neutro300, #F3F3F3) !important;
+}
+
+/* Botón outline blanco (sobre fondos oscuros — navbar, hero) */
+.sesna-btn-outline {
+    border: 1px solid var(--neutro100, #fff) !important;
+    color: var(--neutro100, #fff) !important;
+    background: transparent !important;
+}
+
+.sesna-btn-outline:hover {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: var(--neutro100, #fff) !important;
+}
+
+/* Link-button (sin borde ni fondo) */
+.btn-link {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--pverde600, #004D40) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.btn-link:hover {
+    color: var(--pverde700, #004339) !important;
+    text-decoration: underline !important;
+}
+
+/* Tamaños */
+.btn-sm { font-size: 14px; padding: 6px 14px; }
+.btn-lg { font-size: 18px; padding: 12px 24px; }
+
+/* Disabled */
+.btn:disabled,
+[class*="boton__"]:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
 }
 
 /* ------------------------------------------------------------

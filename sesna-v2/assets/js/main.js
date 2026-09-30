@@ -13,10 +13,9 @@
         var gobmxBottom = gobmxHeader ? gobmxHeader.getBoundingClientRect().bottom : 70;
         siteHeader.style.top = gobmxBottom + 'px';
 
-        /* Calcula el borde inferior real del sub-navbar */
-        var totalOffset = gobmxBottom + siteHeader.offsetHeight;
-
-        /* Actualiza la variable CSS (para páginas que la usen vía var()) */
+        /* El v3 CSS ya compensa el header GOB.mx con body{padding-top:80px}.
+           --sesna-offset solo necesita compensar la altura del SESNA subheader. */
+        var totalOffset = siteHeader.offsetHeight;
         document.documentElement.style.setProperty('--sesna-offset', totalOffset + 'px');
 
         /* Aplica inline style directamente al wrapper hero (más confiable) */
