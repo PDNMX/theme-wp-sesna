@@ -909,6 +909,97 @@ p, .b1r {
     letter-spacing: normal;
 }
 
+/* ============================================================
+   BLOQUE 11 — Grid/Layout: .container → .contenedor SND
+   Bridge CSS: max-width 1440px + padding responsive SND.
+   No se modifica PHP (113 instancias) — se sobreescribe aquí.
+   ============================================================ */
+
+.container,
+.contenedor {
+    max-width: 1440px !important;
+    padding-left: clamp(1rem, 3.5vw, 3.5rem) !important;
+    padding-right: clamp(1rem, 3.5vw, 3.5rem) !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* container-fluid permanece full-width pero con padding SND */
+.container-fluid {
+    padding-left: clamp(1rem, 3.5vw, 3.5rem) !important;
+    padding-right: clamp(1rem, 3.5vw, 3.5rem) !important;
+}
+
+/* SND pagination component */
+.paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 2rem 0;
+    list-style: none;
+    padding: 0;
+}
+.paginacion__item a,
+.paginacion__item span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-family: var(--font-noto-sans);
+    font-size: 0.875rem;
+    color: var(--pverde600, #004D40);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s ease;
+}
+.paginacion__item a:hover {
+    background: var(--pguinda100, #F3E4E9);
+    color: var(--pguinda900, #611232);
+}
+.paginacion__item--activo a,
+.paginacion__item--activo span {
+    background: var(--pguinda900, #611232);
+    color: #fff;
+    border-color: var(--pguinda900, #611232);
+}
+
+/* SND table wrapper */
+.deslizable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+}
+.deslizable table {
+    min-width: 600px;
+}
+
+/* SND form inputs */
+.form__inset {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.form__inset .form-control,
+.form__inset .form-select {
+    border: 1px solid var(--neutro400, #C6C6C6);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-noto-sans);
+    font-size: 0.9375rem;
+    transition: border-color 0.15s ease;
+}
+.form__inset .form-control:focus,
+.form__inset .form-select:focus {
+    border-color: var(--pverde600, #004D40);
+    box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.2);
+    outline: none;
+}
+
 /* ------------------------------------------------------------
    Fondo general de la Front Page
    ------------------------------------------------------------ */
