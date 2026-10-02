@@ -1,14 +1,14 @@
-<section class="py-5 sna-integrantes-section">
-    <div class="container my-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
+<section class="py--56 sna-integrantes-section">
+    <div class="contenedor my--48">
+        <div class="fila justify-content-center mb--48">
+            <div class="columna__8--md text-center">
                 <h2 class="fw-bold mb-0 font-patria sesna-section-heading">¿Quiénes integran el SNA?</h2>
             </div>
         </div>
-        <div class="row g-4">
+        <div class="fila gap--24">
 
             <!-- Card 1 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="columna__4--lg columna__6--md">
                 <a href="https://www.sna.org.mx/category/comite-coordinador/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
@@ -33,7 +33,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="col-lg-4 col-md-6">
+            <div class="columna__4--lg columna__6--md">
                 <a href="https://comiteparticipacion.com.mx/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="col-lg-4 col-md-6 mx-auto">
+            <div class="columna__4--lg columna__6--md mx-auto">
                 <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" rel="noopener noreferrer" class="card h-100 border-0 rounded-4 p-4 sna-integrantes-card text-decoration-none text-dark d-flex flex-column">
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"

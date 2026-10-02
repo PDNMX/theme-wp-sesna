@@ -11,7 +11,7 @@ $slider_query = new WP_Query( $slider_args );
 
 if ( $slider_query->have_posts() ) :
 ?>
-<section class="sesna-carousel-section container-fluid px-0">
+<section class="sesna-carousel-section contenedor--fluido p--0">
     <div id="homeCarousel" class="carousel slide sesna-carousel" data-bs-ride="carousel" data-bs-interval="4000">
     <!-- Indicadores -->
     <div class="carousel-indicators">
@@ -69,16 +69,12 @@ if ( $slider_query->have_posts() ) :
 
     <!-- Controles -->
     <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-        <span class="bootstrap-icons text-white" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="bi bi-chevron-left"></i>
-        </span>
-        <span class="visually-hidden">Anterior</span>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-white"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span class="d-none">Anterior</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-        <span class="bootstrap-icons text-white" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="bi bi-chevron-right"></i>
-        </span>
-        <span class="visually-hidden">Siguiente</span>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-white"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <span class="d-none">Siguiente</span>
     </button>
     </div>
 </section>

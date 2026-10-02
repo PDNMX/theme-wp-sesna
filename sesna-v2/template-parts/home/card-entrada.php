@@ -20,7 +20,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
 	$sna_entrada_cat = $sna_entrada_cats[0]->name;
 }
 ?>
-<div class="col-lg-4 col-md-6">
+<div class="col-100 columna__6--md columna__4--lg">
     <a href="<?php the_permalink(); ?>" class="card h-100 border-0 sna-noticias-card position-relative text-decoration-none text-dark d-flex flex-column">
 
         <?php if ($sna_entrada_cat) : ?>
@@ -39,7 +39,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
                 <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
             <?php else : ?>
                 <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center text-muted sna-noticias-img">
-                    <i class="bi bi-image fs-1"></i>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                 </div>
             <?php endif; ?>
         </div>
@@ -54,7 +54,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             </p>
             <div class="mt-auto pb-3">
                 <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
-                    Leer más <i class="bi bi-arrow-right ms-2"></i>
+                    Leer más <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ms-2"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                 </span>
             </div>
         </div>

@@ -12,21 +12,21 @@ get_header();
 
 
 <div class="transparenciaContainer" id="normatividadContainer">
-      <div class="container">
+      <div class="contenedor">
         <p class="normatividadTitulo">Preguntas Frecuentes</p>
       </div>
 
-      <div class="container">
+      <div class="contenedor">
         <p class="normatividadTitulo">A continuación te presentamos los documentos más solicitados a través de solicitudes de información, conócelos.</p>
       </div>
 
 
-        <div class="container" >
-          <div class="row" id="filaTitulos">
-            <div class="col-9 d-md-block d-none">
+        <div class="contenedor" >
+          <div class="fila" id="filaTitulos">
+            <div class="columna__9 d-md-block d-none">
               <p>LISTA DE DOCUMENTOS </p>
             </div>
-            <div class="col-3 d-md-block d-none">
+            <div class="columna__3 d-md-block d-none">
               <p>DESCARGAS </p>
             </div>
           </div>
@@ -34,7 +34,7 @@ get_header();
 
 
         
-        <div class="container scrollbar scrollbar-primary" id="tableContainer">
+        <div class="contenedor scrollbar scrollbar-primary" id="tableContainer">
 
         <?php 
 
@@ -47,11 +47,11 @@ get_header();
 
           <?php foreach( $archivos as $archivo ): $post = $archivo; setup_postdata($post);?>
 
-            <div class="row">
-              <div class="col-lg-9 col-md-9 col-sm-12" id="year">
+            <div class="fila">
+              <div class="columna__9--lg columna__9--md col-100" id="year">
                 <p class="nombreActa"><?php the_title(); ?></p>
               </div>
-              <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="columna__3--lg columna__3--md col-100">
                 <a href="<?php the_file('archivo'); ?>" class="btn btn-light">Descargar PDF  <i class="fas fa-download"></i></a>
               </div>
             </div>

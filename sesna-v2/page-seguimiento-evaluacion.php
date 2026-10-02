@@ -10,9 +10,9 @@ get_header();
         </h1>
     </div>
     <div style="height: 30px;"></div>
-    <div id="seguimiento" class="container">
-        <div class="row">
-            <div class="col-12">
+    <div id="seguimiento" class="contenedor">
+        <div class="fila">
+            <div class="col-100">
 
                 <h1>El artículo 6 de la Ley General del Sistema Nacional Anticorrupción (LGSNA) indica que el SNA es una
                     instancia cuya finalidad es establecer, articular y evaluar la política en materia de combate a la
@@ -27,7 +27,7 @@ get_header();
                     ciudadanía respecto al desempeño institucional para la atención del problema público de corrupción.
                 </h1>
                 <h1>
-                    <div class="col-12 text-center">
+                    <div class="col-100 text-center">
                         <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/01/Sistema-de-Seguimiento-y-Evaluacion-SiSE-SNA_CC-SNA.pdf"
                             class="btn btn-secondary mt-auto" target="_blank" role="button">Descargar
                             <i class="fas fa-download"></i>
@@ -69,7 +69,7 @@ get_header();
         <h1>Los Indicadores Nacionales se aprobaron en la Primera Sesión Extraordinaria 2024 del CC-SNA, celebrada el 12
             de enero.</h1>
 
-        <div class="col-12 text-center">
+        <div class="col-100 text-center">
             <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf"
                 class="btn btn-secondary mt-auto" target="_blank" role="button">Consulta el documento aprobado
                 <i class="fas fa-download"></i>
@@ -87,7 +87,7 @@ get_header();
             Retos y Acciones sugeridas que los entes públicos pueden implementar en el corto plazo para lograr valor
             público.</h1>
 
-        <div class="col-12 text-center">
+        <div class="col-100 text-center">
             <a href="https://www.sesna.gob.mx/wp-content/uploads/2023/10/INFORME-DE-AVANCES-DE-LOS-INDICADORES-NACIONALES-2024_septiembre-1.pdf"
                 class="btn btn-secondary mt-auto" target="_blank" role="button">Descargar informe
                 <i class="fas fa-download"></i>
@@ -185,7 +185,7 @@ get_header();
 		En el marco del SiSE y de los Indicadores Nacionales vinculados a los Objetivos Específicos de la PNA se desarrolló la Métrica transversal que estima el impacto diferenciado de la corrupción en México.
  		</h1>
 		
-		<div class="col-12 text-center">
+		<div class="col-100 text-center">
 		<img src="https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-de-genero-Color.svg"
         style="width:250px;height:250px;">
 		<h1>

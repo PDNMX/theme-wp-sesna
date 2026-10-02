@@ -1,11 +1,5 @@
 $(document).ready(function(){
 	// $('.dropdown-toggle').dropdown(('toggle'))
-	$('#datepickerInicio').datepicker({
-	    uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerFinal').datepicker({
-	    uiLibrary: 'bootstrap4'
-	});
 
 	$('#datepickerInicio').change(function(){
 

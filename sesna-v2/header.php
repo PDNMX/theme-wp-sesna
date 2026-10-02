@@ -7,7 +7,6 @@
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
   <?php wp_head(); ?>
-  <!--<link rel="stylesheet" href="https://framework-gb.cdn.gob.mx/gm/v3/qa/assets/styles/main.css"> -->
 </head>
 
 <body <?php body_class(); ?>>
@@ -17,52 +16,49 @@
     <div class="sesna-spinner"></div>
   </div>
 
-  <!-- Navbar institucional SESNA -->
-  <header class="site-header fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark sesna-navbar" aria-label="Navegación principal">
-      <div class="container">
-
-        <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSESNA" aria-controls="navbarSESNA" aria-expanded="false" aria-label="Abrir menú">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-center" id="navbarSESNA">
-          <?php
-          wp_nav_menu(array(
-            'container'   => false,
-            'theme_location' => 'menu-1',
-            'menu_class'  => 'navbar-nav sesna-nav',
-            'depth'       => 2,
-            'fallback_cb' => '__return_false',
-            'walker'      => new Sesna_Bootstrap_Nav_Walker(),
-          ));
-          ?>
+  <!-- P00-COMP-002: Header Institucional SND -->
+  <header class="header">
+    <a class="irContent" href="#mainContent">Ir al contenido principal</a>
+    <section class="mexico">
+      <div class="mexico__contenedor">
+        <div class="mexico__escudo">
+          <a href="https://www.gob.mx/" class="mexico__aescudo">
+            <img src="https://framework-gb.cdn.gob.mx/gobmx/img/logo_blanco.svg" class="mexico__img" alt="Ir a la pagina de inicio del Gobierno de Mexico" />
+          </a>
         </div>
-
+        <div class="mexico__menu">
+          <details class="mexico__details">
+            <summary class="mexico__summary"><span class="mexico__span">Menu</span></summary>
+            <div class="mexico__detailsCont">
+              <a href="https://www.gob.mx/tramites" class="mexico__a">Trámites</a>
+              <a href="https://www.gob.mx/gobierno" class="mexico__a">Gobierno</a>
+            </div>
+          </details>
+        </div>
       </div>
-    </nav>
+    </section>
   </header>
 
-  <main class="page">
-
-    <!-- Modal: Buscador -->
-    <div class="modal fade" id="modalBuscador" tabindex="-1" aria-labelledby="modalBuscadorLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title" id="modalBuscadorLabel">Buscador</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body pt-2">
-            <form class="d-flex gap-2" action="/">
-              <input class="form-control" type="search" name="s" value="<?= esc_attr(get_search_query()) ?>"
-                placeholder="¿Qué estás buscando?" aria-label="Término de búsqueda">
-              <button class="btn sesna-btn-outline" type="submit" aria-label="Buscar">
-                <i class="bi bi-search"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+  <!-- Subheader (Navbar principal) -->
+  <section class="subheader">
+    <div class="subheader__contenedor">
+      <details class="mexico__details navHeader__details">
+        <summary class="mexico__summary"><span class="mexico__span">Menú</span></summary>
+        <nav class="navHeader">
+          <?php
+          wp_nav_menu(array(
+            'container'      => false,
+            'theme_location' => 'menu-1',
+            'menu_class'     => 'navHeader__ul mexico__detailsCont',
+            'depth'          => 2,
+            'fallback_cb'    => '__return_false',
+            'walker'         => new SND_Subheader_Menu_Walker(),
+          ));
+          ?>
+        </nav>
+      </details>
     </div>
+  </section>
+
+
+  <main id="mainContent" class="page">

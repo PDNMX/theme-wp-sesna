@@ -13,7 +13,7 @@ if ( ! function_exists( 'get_header' ) ) {
 
 get_header();
 ?>
-    <div class="container py-5">
+    <div class="contenedor py-5">
         <?php
         if ( have_posts() ) :
             while ( have_posts() ) :

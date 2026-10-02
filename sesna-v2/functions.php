@@ -56,21 +56,25 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
 function sesna_theme_scripts()
 {
 	// Hoja principal del tema (estilos SESNA sobre el framework)
-	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('gobmx-framework'), filemtime( get_template_directory() . '/assets/css/main.css' ));
-	// Framework GOB.mx v3 — incluye Bootstrap 5, fuente Patria y variables de color
-	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
-	// Bootstrap Icons — CDN (no incluido en el framework GOB.mx)
-	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
+	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('snd-guinda'), filemtime( get_template_directory() . '/assets/css/main.css' ));
+	// P00: Framework SND GUINDA (Oficial)
+	wp_enqueue_style('snd-guinda', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css', array(), null);
 	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 
-	// Framework GOB.mx v3 — JS oficial — ya incluye Bootstrap 5 y jQuery 3.7.1
-	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
+	// Dependencia temporal: Bootstrap 5 JS Bundle para modales residuales
+	wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '5.3.3', true);
+	// P00: Framework SND JS (Oficial)
+	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-js.js', array(), null, true);
+	
+	// Exponer $ globalmente para que gobmx-accesibilidad.min.js no rompa
+	wp_add_inline_script('jquery-core', 'window.$ = window.jQuery;');
+	
 	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
 	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array(), null, true);
 
 	// JS global del tema (depende solo del framework)
-	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 
 	// Parche de accesibilidad — mejoras sobre el widget CDN de GOB.mx
 	wp_enqueue_script('sesna-accesibilidad-patch', get_template_directory_uri() . '/script/accesibilidad-patch.js', array('gobmx-accesibilidad-js'), wp_get_theme()->get('Version'), true);
@@ -87,42 +91,42 @@ function sesna_theme_scripts()
 	}
 
 	if (is_page('como-vamos')) {
-		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('directorio')) {
-		wp_enqueue_script('directorio-script', get_theme_file_uri('/script/directorio.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('directorio-script', get_theme_file_uri('/script/directorio.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('que-hacemos')) {
-		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('transparencia')) {
-		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('politica-nacional-anticorrupcion')) {
-		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('gobmx-framework-js'), 'v4', true);
-		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('jquery', 'bootstrap-js'), 'v4', true);
+		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('jquery', 'bootstrap-js', 'd3-script'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page_template('page-derechos-humanos.php') || is_page('derechos-humanos-y-perspectiva-de-genero')) {
-		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), filemtime( get_template_directory() . '/script/derechos-humanos.js' ), true);
+		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('jquery', 'bootstrap-js'), filemtime( get_template_directory() . '/script/derechos-humanos.js' ), true);
 
 		// Catálogo digital tipo flipbook — sección "Acciones X la Integridad"
 		wp_enqueue_style('catalogo-digital-style', get_theme_file_uri('/assets/css/catalogo-digital.css'), array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/catalogo-digital.css' ));
 		wp_enqueue_script('page-flip-vendor-script', get_theme_file_uri('/js/vendor/page-flip.browser.js'), array(), wp_get_theme()->get('Version'), true);
-		wp_enqueue_script('catalogo-digital-script', get_theme_file_uri('/script/catalogo-digital.js'), array('gobmx-framework-js', 'page-flip-vendor-script'), filemtime( get_template_directory() . '/script/catalogo-digital.js' ), true);
+		wp_enqueue_script('catalogo-digital-script', get_theme_file_uri('/script/catalogo-digital.js'), array('jquery', 'bootstrap-js', 'page-flip-vendor-script'), filemtime( get_template_directory() . '/script/catalogo-digital.js' ), true);
 	}
 
 	if (is_archive() || is_search()) {
-		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
-		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_front_page() || is_home() || is_page('noticias-y-actividades') || is_category()) {
-		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('jquery', 'bootstrap-js'), wp_get_theme()->get('Version'), true);
 		wp_localize_script('home-entries-script', 'ajax_object', array(
 			'ajax_url'    => admin_url('admin-ajax.php'),
 			'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
@@ -146,8 +150,12 @@ add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
 function add_menu_link_class($atts, $item, $args)
 {
-	if (isset($args->theme_location) && in_array($args->theme_location, ['menu-1', 'menu-2', 'transparencia'])) {
-		$atts['class'] = 'nav-link';
+	if (isset($args->theme_location) && in_array($args->theme_location, ['menu-2', 'transparencia'])) {
+		if (isset($atts['class'])) {
+			$atts['class'] .= ' nav-link';
+		} else {
+			$atts['class'] = 'nav-link';
+		}
 	}
 	return $atts;
 }
@@ -456,12 +464,12 @@ function sna_get_familias_tematicas()
 	return [
 		'comunicados' => [
 			'label' => 'Comunicados de Prensa',
-			'icon'  => 'bi-megaphone',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>',
 			'cats'  => ['comunicados-de-prensa'],
 		],
 		'comunicacion' => [
 			'label' => 'Comunicación y Difusión',
-			'icon'  => 'bi-camera-reels',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>',
 			'cats'  => [
 				'infografia', 'videos', 'relatorias', 'premio',
 				'dia-internacional-vs-la-corrupcion',
@@ -469,7 +477,7 @@ function sna_get_familias_tematicas()
 		],
 		'politica-nacional' => [
 			'label' => 'Política Nacional Anticorrupción',
-			'icon'  => 'bi-shield-check',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>',
 			'cats'  => [
 				'politica-nacional-anticorrupcion', 'programa-de-implementacion-pna',
 				'programa-institucional', 'metodologias', 'reisgos-de-corrupcion',
@@ -479,7 +487,7 @@ function sna_get_familias_tematicas()
 		],
 		'gobierno-coordinacion' => [
 			'label' => 'Órganos de Gobierno y Coordinación',
-			'icon'  => 'bi-bank',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 1L2 6v2h19V6l-9.5-5zM16 10h-2v7h2v-7zm-3 0h-2v7h2v-7zm-5 0H6v7h2v-7zm-4 8v2h15v-2H4z"/></svg>',
 			'cats'  => [
 				'comite-coordinador', 'comite_etica-sesna', 'comision-ejecutiva',
 				'organo-de-gobierno', 'ost', 'asamblea-general-sna',
@@ -487,7 +495,7 @@ function sna_get_familias_tematicas()
 		],
 		'vinculacion-sna' => [
 			'label' => 'Vinculación e Implementación SNA',
-			'icon'  => 'bi-diagram-3',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>',
 			'cats'  => [
 				'sistemas-locales-anticorrupcion', 'convenios', 'colaboraciones',
 				'politicas-estatales-anticorrupcion', 'conoce-mas-del-sna',
@@ -496,7 +504,7 @@ function sna_get_familias_tematicas()
 		],
 		'datos-transparencia' => [
 			'label' => 'Datos y Plataforma Digital',
-			'icon'  => 'bi-database',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>',
 			'cats'  => [
 				'plataforma-digital-nacional', 'datos', 'estandar-de-datos',
 				'catalogo-informacion-corrupcion-mexico', 'ata',
@@ -504,7 +512,7 @@ function sna_get_familias_tematicas()
 		],
 		'rendicion-cuentas' => [
 			'label' => 'Transparencia y Rendición de Cuentas',
-			'icon'  => 'bi-file-earmark-text',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>',
 			'cats'  => [
 				'informes', 'reportes', 'declaracion-patrimonial',
 				'normatividad_int', 'marco-normativo', 'desempeno-institucional-sesna',
@@ -513,7 +521,7 @@ function sna_get_familias_tematicas()
 		],
 		'administracion' => [
 			'label' => 'Administración y Adquisiciones',
-			'icon'  => 'bi-briefcase',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>',
 			'cats'  => [
 				'direccion-general-de-administracion', 'adquisiciones',
 				'licitaciones-de-la-sesna', 'compras-publicas', 'convocatoria',
@@ -522,7 +530,7 @@ function sna_get_familias_tematicas()
 		],
 		'genero-derechos-humanos' => [
 			'label' => 'Género y Derechos Humanos',
-			'icon'  => 'bi-people',
+			'icon'  => '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>',
 			'cats'  => ['genero-y-derechos-humanos'],
 		],
 	];
@@ -2229,7 +2237,7 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
         <div class="border-top px-4 py-4">
             <?php if ($mostrar_buscador) : ?>
             <div class="position-relative mb-3" style="max-width: 340px;">
-                <i class="bi bi-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
+                <svg class="position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                 <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
             </div>
             <?php endif; ?>
@@ -2237,10 +2245,10 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="bi bi-file-earmark-text flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true"></i>
+                        <svg class="flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                         <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                    <svg class="tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                 </a>
                 <?php endforeach; ?>
             </div>
@@ -2305,7 +2313,7 @@ function sesna_render_oc_sesion_card($sesion) {
                 </div>
 
                 <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                    <i class="bi bi-chevron-right text-muted fs-5"></i>
+                    <svg class="text-muted fs-5" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                 </div>
             </div>
             <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
@@ -3530,9 +3538,9 @@ function sesna_render_recurso_card($post) {
             <h3 class="cp-doc-titulo"><?php echo esc_html($titulo); ?></h3>
             <p class="cp-doc-desc"><?php echo esc_html($descripcion); ?></p>
             <div class="cp-doc-meta">
-                <span><i class="bi bi-calendar3"></i> <?php echo esc_html($anio); ?></span>
+                <span><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="bi bi-file-earmark"></i> <?php echo esc_html($formato); ?></span>
+                <span><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3544,11 +3552,11 @@ function sesna_render_recurso_card($post) {
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                <i class="bi bi-eye"></i> Ver documento
+                <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg> Ver documento
             </a>
             <?php endif; ?>
             <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                <i class="bi bi-download"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+                <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
 
@@ -3570,3 +3578,91 @@ add_filter('body_class', function($classes) {
     }
     return $classes;
 });
+
+
+
+/**
+ * P00: Custom Walker para el Subheader SND Guinda
+ * Conserva etiquetas <ul> y <li> de wp_nav_menu pero con clases institucionales
+ */
+class SND_Subheader_Menu_Walker extends Walker_Nav_Menu {
+    public function start_lvl( &$output, $depth = 0, $args = null ) {
+        if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+            $t = '';
+            $n = '';
+        } else {
+            $t = "\t";
+            $n = "\n";
+        }
+        $indent = str_repeat( $t, $depth );
+        // Si es el primer nivel de profundidad (submenu), usar dropdown-menu
+        if ($depth == 0) {
+            $output .= "{$n}{$indent}<ul class=\"dropdown-menu sesna-dropdown\">{$n}";
+        } else {
+            $output .= "{$n}{$indent}<ul class=\"navHeader__ul\">{$n}";
+        }
+    }
+
+    public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        
+        $is_dropdown = in_array('menu-item-has-children', $classes);
+        
+        if ($depth == 0) {
+            $classes[] = 'navHeader__li';
+            if ($is_dropdown) {
+                $classes[] = 'dropdown';
+            }
+        } else {
+            $classes[] = 'dropdown-item-container';
+        }
+        
+        $args = apply_filters( 'nav_menu_item_args', $args, $item, $depth );
+        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+        
+        $output .= '<li' . $class_names . '>';
+
+        $atts = array();
+        $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+        $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+        $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+        $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+        
+        if ($depth == 0) {
+            $atts['class'] = 'navHeader__a';
+            if ($is_dropdown) {
+                $atts['class'] .= ' dropdown-toggle';
+                // Removemos data-bs-toggle para evitar que Bootstrap intercepte el clic y lo deje "pegado"
+                $atts['aria-expanded'] = 'false';
+            }
+        } else {
+            $atts['class'] = 'dropdown-item';
+        }
+        
+        if (in_array('current-menu-item', $classes)) {
+            $atts['aria-current'] = 'page';
+        }
+
+        $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+        
+        $attributes = '';
+        foreach ( $atts as $attr => $value ) {
+            if ( ! empty( $value ) ) {
+                $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+                $attributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+        
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
+        $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+        
+        $item_output = isset($args->before) ? $args->before : '';
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= (isset($args->link_before) ? $args->link_before : '') . $title . (isset($args->link_after) ? $args->link_after : '');
+        $item_output .= '</a>';
+        $item_output .= isset($args->after) ? $args->after : '';
+        
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+}

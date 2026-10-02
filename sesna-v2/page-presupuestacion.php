@@ -12,10 +12,10 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><svg  aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -30,11 +30,11 @@ get_header();
 
     <!-- BLOQUE 1: Hero -->
     <section class="pt-4 pb-5">
-        <div class="container">
-            <div class="row g-4 align-items-start justify-content-between">
+        <div class="contenedor">
+            <div class="fila gap--24 align-items-start justify-content-between">
 
                 <!-- Columna Izquierda -->
-                <div class="col-lg-7 col-xl-7 pna-reveal" style="--delay:0s">
+                <div class="columna__7--lg columna__7--xl pna-reveal" style="--delay:0s">
                     <h2 class="fw-bold font-patria text-burgundi mb-3">Presupuestación</h2>
                     <p class="text-muted mb-4">
                         Conoce más sobre el Anexo Transversal 30 del Presupuesto de Egresos de la Federación, el cual agrupa los recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.
@@ -45,8 +45,8 @@ get_header();
                 </div>
 
                 <!-- Columna Derecha: Ícono representativo -->
-                <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="bi bi-pie-chart-fill" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
+                <div class="columna__5--lg columna__5--xl d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
+                    <svg  style="font-size: 220px; color: #72588F; opacity: 0.15;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778zM8.5.015V7.5h7.485A8 8 0 0 0 8.5.015"/></svg>
                 </div>
 
             </div>
@@ -100,13 +100,13 @@ get_header();
     );
     ?>
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
 
                 <!-- Encabezado -->
                 <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="icon-bg-circle flex-shrink-0" style="background-color: #F9F0F3;">
-                        <i class="bi bi-file-earmark-text" style="color: #611232;"></i>
+                        <svg  style="color: #611232;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                     </div>
                     <div>
                         <h2 class="h4 fw-bold font-patria mb-0" style="color: #611232;">1. Documentos del Anexo Transversal Anticorrupción</h2>
@@ -116,9 +116,9 @@ get_header();
                 <div class="cp-recursos__linea mb-4"></div>
 
                 <!-- 4 columnas de documentos -->
-                <div class="row g-4">
+                <div class="fila gap--24">
                     <?php foreach ( $ata_columnas as $i => $col ) : ?>
-                    <div class="col-lg-3 col-md-6 pna-chart-card" style="--delay:<?php echo ($i * .1); ?>s">
+                    <div class="columna__3--lg columna__6--md pna-chart-card" style="--delay:<?php echo ($i * .1); ?>s">
                         <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">
                             <!-- Encabezado de columna -->
                             <div class="d-flex align-items-center gap-2 mb-4">
@@ -135,12 +135,12 @@ get_header();
                                        target="_blank" rel="noopener"
                                        class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-decoration-none pna-doc-item"
                                        style="transition: background-color .15s; color: #333;">
-                                        <i class="bi bi-download flex-shrink-0" style="color: #611232;"></i>
+                                        <svg class="flex-shrink-0" style="color: #611232;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                                         <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?></span>
                                     </a>
                                     <?php else : ?>
                                     <span class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-muted">
-                                        <i class="bi bi-download flex-shrink-0" style="color: #ccc;"></i>
+                                        <svg class="flex-shrink-0" style="color: #ccc;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                                         <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
                                     </span>
                                     <?php endif; ?>
@@ -161,7 +161,7 @@ get_header();
                                         class="btn-descargar-todo d-flex align-items-center gap-2 text-decoration-none font-noto-sans fw-semibold border-0 bg-transparent p-0"
                                         data-files="<?php echo esc_attr( json_encode( $urls ) ); ?>"
                                         style="font-size: 13px; color: #611232; cursor: pointer;">
-                                    <i class="bi bi-download"></i> Descargar todo
+                                    <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Descargar todo
                                 </button>
                             </div>
                         </div>
@@ -174,49 +174,50 @@ get_header();
 
     <!-- BLOQUE 3: Panorama nacional del Anexo Transversal -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
 
             <!-- Encabezado de sección -->
             <div class="d-flex align-items-center gap-3 mb-2">
                 <div class="icon-bg-circle flex-shrink-0" style="background-color: #EEE8F5;">
-                    <i class="bi bi-bar-chart-line" style="color: #72588F;"></i>
+                    <svg  style="color: #72588F;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1zm1 12h2V2h-2zm-3 0V7H7v7zm-5 0v-3H2v3z"/></svg>
                 </div>
                 <h2 class="h4 fw-bold font-patria mb-0" style="color: #611232;">2. Panorama del Anexo Transversal 30</h2>
             </div>
-            <div class="row align-items-center mb-4 ms-1 me-0">
-                <div class="col">
+            <div class="fila align-items-center mb-4 ms-1 me-0">
+                <div class="col-100 columna__9--md mb--24 mb-md-0">
                     <p class="text-muted mb-0" style="font-size: 15px;">Consulta indicadores sobre la evolución y distribución de los recursos identificados en el Anexo Transversal 30 del Presupuesto de Egresos de la Federación.</p>
                 </div>
-                <div class="col-auto">
+                <div class="col-100 columna__3--md">
                     <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Datos-procesados-Anexo-Transversal-2021-2026_rev.xlsx', '' ) ); ?>"
                        class="btn d-inline-flex align-items-center gap-2 font-noto-sans fw-semibold"
                        style="font-size: 13px; border-radius: 8px; background-color: #F9F0F3; color: #611232; border: 1px solid #e8d0d8; padding: 8px 16px;" download>
-                        <i class="bi bi-download"></i> Descargar base de datos
+                        <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Descargar base de datos
                     </a>
                 </div>
             </div>
             <div class="cp-recursos__linea mb-5"></div>
 
             <!-- Fila 1: Evolución presupuestal + Instituciones -->
-            <div class="row g-4 mb-4">
+            <div class="fila gap--24 mb-4">
 
                 <!-- Gráfica 1: Evolución presupuestal -->
-                <div class="col-lg-6 pna-chart-card" style="--delay:.0s">
+                <div class="columna__6--lg pna-chart-card" style="--delay:.0s">
                     <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #611232 !important;">
                         <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Evolución presupuestal del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
                         <p class="text-muted mb-3" style="font-size: 12px;">(millones de pesos)</p>
                         <canvas id="chartMontos" height="220"></canvas>
                         <p class="text-muted mt-2" style="font-size: 11px;">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt-1 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <svg class="text-muted flex-shrink-0" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada barra para ver el monto exacto.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Gráfica 2: Instituciones participantes -->
-                <div class="col-lg-6 pna-chart-card" style="--delay:.15s">
+                <div class="columna__6--lg pna-chart-card" style="--delay:.15s">
                     <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #72588F !important;">
                         <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Instituciones participantes del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
                         <p class="text-muted mb-3" style="font-size: 12px;">(número de instituciones)</p>
@@ -240,8 +241,9 @@ get_header();
                             <button class="btn btn-sm d-flex align-items-center gap-2 font-noto-sans fw-semibold w-100 justify-content-between px-3 py-2"
                                     id="btnVerInstituciones"
                                     style="background-color: #F9F0F3; color: #611232; border: 1px solid #e8d0d8; border-radius: 8px; font-size: 13px;">
-                                <span><i class="bi bi-building me-1"></i> Ver instituciones participantes por año</span>
-                                <i class="bi bi-chevron-down" id="iconVerInstituciones"></i>
+                                <span><svg class="me-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+  <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"/></svg> Ver instituciones participantes por año</span>
+                                <svg  id="iconVerInstituciones" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                             </button>
                             <div id="listaInstituciones" class="d-none mt-2 p-3 rounded-3" style="background-color: #fafafa; border: 1px solid #e8d0d8;">
                                 <!-- Selector de año -->
@@ -262,9 +264,9 @@ get_header();
                                     </p>
                                     <div class="row g-1 ps-2">
                                         <?php foreach ( $lista as $inst ) : ?>
-                                        <div class="col-6">
+                                        <div class="columna__6">
                                             <span class="d-flex align-items-center gap-1 font-noto-sans" style="font-size: 12px; color: #444;">
-                                                <i class="bi bi-dot flex-shrink-0" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
+                                                <svg class="flex-shrink-0" style="color: #611232;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg><?php echo esc_html( $inst ); ?>
                                             </span>
                                         </div>
                                         <?php endforeach; ?>
@@ -279,16 +281,17 @@ get_header();
             </div><!-- /fila 1 -->
 
             <!-- Fila 2: Capítulos + Eje-Objetivo -->
-            <div class="row g-4">
+            <div class="fila gap--24">
 
                 <!-- Gráfica 3: Alineación por Capítulo -->
-                <div class="col-lg-6 pna-chart-card" style="--delay:.05s">
+                <div class="columna__6--lg pna-chart-card" style="--delay:.05s">
                     <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #72588F !important;">
                         <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Alineación porcentual por Capítulo de Clasificación del Gasto (2021–2026)</h3>
                         <p class="text-muted mb-3" style="font-size: 12px;">(%)</p>
                         <canvas id="chartCapitulos" height="220"></canvas>
                         <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <svg class="text-muted flex-shrink-0" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada segmento para ver la descripción.</span>
                         </div>
                         <!-- Tooltip de descripción -->
@@ -300,13 +303,14 @@ get_header();
                 </div>
 
                 <!-- Gráfica 4: Monto por Eje-Objetivo -->
-                <div class="col-lg-6 pna-chart-card" style="--delay:.2s">
+                <div class="columna__6--lg pna-chart-card" style="--delay:.2s">
                     <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #611232 !important;">
                         <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Monto de presupuesto asignado por Eje–Objetivo (2021–2025)</h3>
                         <p class="text-muted mb-3" style="font-size: 12px;">(millones de pesos)</p>
                         <canvas id="chartEjes" height="220"></canvas>
                         <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                            <svg class="text-muted flex-shrink-0" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                             <span class="text-muted font-noto-sans">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del Eje–Objetivo.</span>
                         </div>
                         <p class="text-muted mt-2" style="font-size: 11px; font-style: italic;">
@@ -596,20 +600,20 @@ get_header();
 
     <!-- BLOQUE 4: Consulta por entidad federativa -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
 
-                <div class="row align-items-center g-4">
+                <div class="fila align-items-center gap--24">
                     <!-- Col 1: Ícono / imagen placeholder -->
-                    <div class="col-lg-2 d-flex justify-content-center">
+                    <div class="columna__2--lg d-flex justify-content-center">
                         <div class="d-flex align-items-center justify-content-center rounded-circle"
                              style="width: 110px; height: 110px; background-color: #F9F0F3;">
-                            <i class="bi bi-map fs-1" style="color: #611232;"></i>
+                            <svg class="fs-1" style="color: #611232;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/></svg>
                         </div>
                     </div>
 
                     <!-- Col 2: Título + descripción -->
-                    <div class="col-lg-7">
+                    <div class="columna__7--lg">
                         <h2 class="h4 fw-bold font-patria mb-2" style="color: #611232;">3. Consulta por entidad federativa</h2>
                         <p class="font-noto-sans mb-2" style="font-size: 15px; color: #333; text-align: justify;">
                             La información del Anexo Transversal 30 en materia anticorrupción por entidad federativa puede consultarse en la <strong>Dimensión de Presupuesto del Sistema de Seguimiento de la Política Nacional Anticorrupción.</strong>
@@ -620,11 +624,12 @@ get_header();
                     </div>
 
                     <!-- Col 3: Botón -->
-                    <div class="col-lg-3 d-flex justify-content-center justify-content-lg-end">
+                    <div class="columna__3--lg d-flex justify-content-center justify-content-lg-end">
                         <a href="#" target="_blank" rel="noopener"
                            class="d-flex align-items-center justify-content-center gap-3 text-decoration-none px-4 py-4 rounded-3"
                            style="background-color: #611232; color: #fff; max-width: 260px; width: 100%;">
-                            <i class="bi bi-box-arrow-up-right flex-shrink-0" style="font-size: 1.8rem; opacity: 0.85;"></i>
+                            <svg class="flex-shrink-0" style="font-size: 1.8rem; opacity: 0.85;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                             <span class="font-noto-sans fw-semibold lh-sm" style="font-size: 15px;">
                                 Consultar información<br>por entidad federativa
                             </span>
@@ -634,7 +639,8 @@ get_header();
 
                 <!-- Nota al pie -->
                 <div class="d-flex align-items-center gap-2 mt-4 pt-3 px-3 py-2 rounded-3" style="background-color: #F8F9FA; font-size: 13px; border-top: 1px solid #e9ecef;">
-                    <i class="bi bi-info-circle text-muted flex-shrink-0"></i>
+                    <svg class="text-muted flex-shrink-0" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                     <span class="text-muted font-noto-sans">Los montos se presentan en millones de pesos corrientes.</span>
                 </div>
 

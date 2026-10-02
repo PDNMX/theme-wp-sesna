@@ -22,17 +22,17 @@
 ?>
 
 <div class="relatedNotes">
-    <div class="container">
+    <div class="contenedor">
         <div class="d-flex justify-content-center">
             <p class="notasRelacionadas">NOTAS <b>RELACIONADAS</b></p>
         </div>
 
-        <div class="row">
+        <div class="fila gap--24">
 
 
         <?php while( $my_query->have_posts() ) : $my_query->the_post(); ?>
         
-            <div class="col-12 col-lg-4 col-md-4">
+            <div class="col-100 columna__4--md columna__4--lg">
                 <a href="<?php the_permalink(); ?>">
                 <div class="thumbnailContainer">
 

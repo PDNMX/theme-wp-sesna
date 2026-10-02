@@ -13,13 +13,13 @@ get_header();
 
 
     <div class="transparenciaContainer" id="normatividadContainer">
-      <div class="container">
+      <div class="contenedor">
 		  
 		  <p class="normatividadTitulo" style="margin-bottom: 20px">Consulta las <b><i>denuncias presentadas</i></b> en contra de la <b>SESNA</b> <b><i>por incumplimiento y/o por la falta de actualización de las Obligaciones de Transparencia.</i></b></p>
       </div>
 
-        <div class="container" >
-		<div class="row justify-content-center align-self-center">
+        <div class="contenedor" >
+		<div class="fila justify-content-center align-self-center">
 			<div class="mx-auto">
                 <a href="https://www.sesna.gob.mx/wp-content/uploads/2021/10/Denuncias-Incumplimiento-Obligaciones-Transparencia.xlsx" class="btn btn-light btn-lg">Descargar PDF  <i class="fas fa-download"></i></a>
               </div>

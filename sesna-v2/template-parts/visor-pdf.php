@@ -286,10 +286,11 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="modal-footer border-0 justify-content-center py-4 bg-white gap-3">
                 <button type="button" id="pdfCopyLinkBtn" class="btn tx-pdf-copy-btn font-noto-sans fw-bold px-4 py-2">
-                    <i class="bi bi-link-45deg me-2"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
+                    <svg class="me-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/></svg> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
                 </button>
                 <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download>
-                    <i class="bi bi-download me-2"></i> Descargar PDF
+                    <svg class="me-2" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Descargar PDF
                 </a>
             </div>
         </div>

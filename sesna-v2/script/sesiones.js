@@ -63,26 +63,6 @@ jQuery(document).ready(function($) {
 	get_sesiones('sesiones_organo_gobierno');
 
 
-	$('#datepickerInicio').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerFinal').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-
-	$('#datepickerInicio2').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerFinal2').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerInicio3').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerFinal3').datepicker({
-		uiLibrary: 'bootstrap4'
-	});
-
 	$('#datepickerInicio, #datepickerFinal').change(function() {
 		$('#sesiones_comite').empty().data('page', 0);
 		get_sesiones('sesiones_comite');

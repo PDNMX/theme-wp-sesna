@@ -9,9 +9,61 @@
    Accesibilidad — parches sobre el widget CDN de GOB.mx
    ------------------------------------------------------------ */
 
-/* Escala de grises: aplica al renderizado completo de la página */
-html.sesna-grayscale {
-    filter: grayscale(100%);
+:root {
+    /* Ajuste estricto al PDF: El CDN trae 1416px, pero el estándar documental exige 1440px para la retícula */
+    --MaxWidth: 1440px !important;
+}
+
+/* P00 Fix: Forzar que el grid de 1440px se respete en resoluciones ultra-anchas.
+   El CDN inyecta .wrapper--ancho y hace max-width: unset rompiendo la retícula. */
+body.wrapper--ancho .mexico__contenedor,
+body.wrapper--ancho .subheader__contenedor,
+body.wrapper--ancho .footer__contenedor,
+.mexico__contenedor,
+.subheader__contenedor,
+.footer__contenedor {
+    width: 100% !important;
+    max-width: var(--MaxWidth, 1440px) !important;
+}
+
+/* P00 Fix: Sincronizar el padding del Header y Navbar con la retícula oficial (.contenedor).
+   El CDN olvida aplicar el padding de 56px en desktop al navbar, desalineándolo del contenido. */
+@media (min-width: 640px) {
+    .mexico__contenedor,
+    .subheader__contenedor,
+    .footer__contenedor {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+}
+@media (min-width: 1024px) {
+    .mexico__contenedor,
+    .subheader__contenedor,
+    .footer__contenedor {
+        padding-left: 56px !important;
+        padding-right: 56px !important;
+    }
+}
+@media (min-width: 1536px) {
+    .mexico__contenedor,
+    .subheader__contenedor,
+    .footer__contenedor {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 1416px !important;
+    }
+}
+
+/* P00 Fix: Ajustar padding-top del body para no solapar el subheader y librar el header de GOB.mx */
+body {
+    padding-top: var(--bodyTop, 75px) !important;
+    display: block; /* Quitar flex para que position: sticky funcione en los hijos directos */
+    min-height: 100vh;
+}
+main.page {
+    display: block;
+    height: auto !important; /* P00 Fix: Previene overflow por height:100% del framework */
+    min-height: calc(100vh - 350px); /* Empuja el footer hacia abajo simulando flex-grow */
 }
 
 /* Alto contraste: dobla el contraste en toda la página para cumplir WCAG */
@@ -148,10 +200,25 @@ html.sesna-highlight a:visited {
     padding: 0 2px !important;
     border-radius: 2px !important;
 }
-
 /* Botones del widget de accesibilidad — tamaño y layout mejorado */
 #accessibility ul.accesibility {
     width: 265px !important;
+}
+
+/* Mover el panel completo (.menu-slide) a la derecha */
+nav.menu-container .menu-slide {
+    left: auto !important;
+    right: -350px !important; /* Escondido a la derecha por defecto */
+    transform: none !important; /* Anula el translate desde la izquierda del CDN */
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+}
+
+/* Al abrir (hover o clase activa dictada por JS/CDN) */
+nav.menu-container:hover .menu-slide,
+nav.menu-container .menu-slide.active,
+nav.menu-container .menu-slide[style*="translate"] {
+    right: 0 !important;
+    left: auto !important;
 }
 
 #accessibility ul.accesibility li {
@@ -218,6 +285,165 @@ html.sesna-highlight a:visited {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Noto+Sans:wght@300;400;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* ------------------------------------------------------------
+   Utilidades Flex y Text (Reemplazo ligero de Bootstrap)
+   ------------------------------------------------------------ */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.align-items-center { align-items: center !important; }
+.align-items-start { align-items: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+.img-fluid { max-width: 100%; height: auto; }
+.text-center { text-align: center !important; }
+.text-start { text-align: left !important; }
+.text-end { text-align: right !important; }
+.text-white { color: #ffffff !important; }
+.text-muted { color: #6c757d !important; }
+.fw-bold { font-weight: 700 !important; }
+.text-decoration-none { text-decoration: none !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.rounded-3 { border-radius: 0.3rem !important; }
+.rounded-circle { border-radius: 50% !important; }
+.rounded-pill { border-radius: 50rem !important; }
+.shadow-sm { box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important; }
+.bg-transparent { background-color: transparent !important; }
+
+@media (min-width: 768px) {
+    .d-md-none { display: none !important; }
+    .d-md-block { display: block !important; }
+    .d-md-flex { display: flex !important; }
+    .text-md-center { text-align: center !important; }
+    .text-md-end { text-align: right !important; }
+    .text-md-start { text-align: left !important; }
+    .justify-content-md-end { justify-content: flex-end !important; }
+}
+@media (min-width: 992px) {
+    .d-lg-none { display: none !important; }
+    .d-lg-block { display: block !important; }
+    .d-lg-flex { display: flex !important; }
+    .text-lg-center { text-align: center !important; }
+    .text-lg-end { text-align: right !important; }
+}
+
+/* ------------------------------------------------------------
+   Componente Carrusel (Core de Bootstrap 5 ligero)
+   ------------------------------------------------------------ */
+.carousel { position: relative; }
+.carousel-inner { position: relative; width: 100%; overflow: hidden; }
+.carousel-item {
+    position: relative; display: none; float: left;
+    width: 100%; margin-right: -100%; backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev { display: block; }
+.carousel-item-next:not(.carousel-item-start),
+.active.carousel-item-end { transform: translateX(100%); }
+.carousel-item-prev:not(.carousel-item-end),
+.active.carousel-item-start { transform: translateX(-100%); }
+
+.carousel-indicators {
+    position: absolute; right: 0; bottom: 0; left: 0; z-index: 2;
+    display: flex; justify-content: center; padding: 0; margin-bottom: 1rem;
+}
+.carousel-indicators [data-bs-target] {
+    box-sizing: content-box; flex: 0 1 auto;
+    width: 30px; height: 3px; padding: 0;
+    margin-right: 3px; margin-left: 3px;
+    text-indent: -999px; cursor: pointer;
+    background-color: #fff; background-clip: padding-box;
+    border: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+    opacity: .5; transition: opacity .6s ease;
+}
+.carousel-indicators .active { opacity: 1; }
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute; top: 0; bottom: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    width: 15%; padding: 0; color: #fff; text-align: center;
+    background: none; border: 0; opacity: .5; transition: opacity .15s ease;
+}
+.carousel-control-prev:hover, .carousel-control-prev:focus,
+.carousel-control-next:hover, .carousel-control-next:focus {
+    color: #fff; text-decoration: none; outline: 0; opacity: .9;
+}
+.carousel-control-prev { left: 0; }
+.carousel-control-next { right: 0; }
+
+/* ------------------------------------------------------------
+   Componente Tabs (Core de Bootstrap 5 ligero)
+   ------------------------------------------------------------ */
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    color: var(--color-principal, #9f2241);
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+.nav-tabs .nav-link.active {
+    color: #434343;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+.tab-content > .tab-pane { display: none; }
+.tab-content > .active { display: block; }
+
+/* ------------------------------------------------------------
+   Componente Header SND Guinda (Fijar Menú de WP)
+   ------------------------------------------------------------ */
+.mexico__detailsCont ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.mexico__detailsCont li {
+    list-style: none !important;
+    margin-right: 15px;
+}
+.mexico__detailsCont li:last-child {
+    margin-right: 0;
+}
+.mexico__detailsCont li a {
+    text-decoration: none !important;
+    color: var(--color-blanco) !important;
+}
+.mexico__detailsCont li a:hover {
+    color: var(--color-dorado-claro) !important;
+}
+
+/* ------------------------------------------------------------
    Variables específicas SESNA
    ------------------------------------------------------------ */
 :root {
@@ -264,19 +490,7 @@ html.sesna-highlight a:visited {
    Anula el margin-top: 70px que gobmx.js inyecta como inline style en body.
    author !important gana sobre inline style en la cascada CSS.
    ------------------------------------------------------------ */
-body {
-    font-family: var(--font-noto-sans);
-    color: var(--text-color-main);
-    font-size: 18px;
-    /* Tamaño estandarizado */
-    line-height: 1.428;
-    margin-top: 0 !important;
-    overflow-x: hidden;
-    /* Tarea 12: Sticky Footer Flexbox setup */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* Eliminado body custom para respetar snd-guinda.css */
 
 /* Tamaño mínimo permitido por accesibilidad */
 small,
@@ -284,166 +498,9 @@ small,
     font-size: 16px !important;
 }
 
-/* Encabezados principales Web */
-h1,
-h2,
-h3,
-.font-patria {
-    font-family: var(--font-patria);
-    color: var(--text-color-main);
-}
-
-/* Documentación Oficial / Textos corridos oficiales */
-.font-montserrat {
-    font-family: var(--font-montserrat);
-}
-
-/* Firmas y Títulos oficiales (Estrictamente prohibido en cuerpo) */
-.font-gmx {
-    font-family: var(--font-gmx);
-}
-
-/* ------------------------------------------------------------
-   Offset fijo para compensar los dos navbars fijos:
-   header GOB.mx (~60px) + sub-navbar SESNA (~50px) = ~110px
-   ------------------------------------------------------------ */
-main.page {
-    padding-top: 44px;
-    /* Tarea 12: Crece para empujar el footer al fondo */
-    flex: 1 0 auto;
-}
-
-/* Portada: WordPress añade .home (y .front-page) al body.
-   Zeroing main.page y dejando que el wrapper hijo tome el offset
-   evita doble padding con el banner hero. */
-body.home main.page,
-body.front-page main.page {
-    padding-top: 0;
-}
-
-/* front-page: el banner arranca justo debajo de los navbars.
-   El JS (main.js) actualiza --sesna-offset con el valor real. */
-.front-page-bg.has-fullbleed-hero {
-    padding-top: var(--sesna-offset, 44px);
-}
-
-/* ------------------------------------------------------------
-   Utilidades de espaciado (GOB.mx v3)
-   ------------------------------------------------------------ */
-.top-buffer {
-    margin-top: var(--buffer);
-}
-
-.bottom-buffer {
-    margin-bottom: var(--buffer);
-}
-
-.vertical-buffer {
-    margin-top: var(--buffer);
-    margin-bottom: var(--buffer);
-}
-
-/* ------------------------------------------------------------
-   Navbar institucional SESNA
-   El framework GOB.mx ya compensa su propio header con margin-top en body.
-   Aquí solo ajustamos el top del sub-navbar (fixed-top lo pone en top:0;
-   el JS lo baja al alto real del header GOB.mx).
-   ------------------------------------------------------------ */
-.site-header {
-    /* fixed-top (Bootstrap 5) da position:fixed; top:0; z-index:1030
-       - top SIN !important para que el JS (inline style) lo pueda sobrescribir
-       - z-index CON !important para vencer el 1030 de fixed-top             */
-    top: 70px;
-    /* fallback antes de que corra el JS */
-    z-index: 999 !important;
-    /* debajo del header GOB.mx (1030) — no tapa su menú */
-}
-
-.site-header .sesna-navbar {
-    background-color: var(--color-subnav) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    position: relative !important;
-}
-
-.sesna-nav {
-    gap: 1rem;
-}
-
-@media (min-width: 1200px) {
-    .sesna-nav {
-        gap: 1.5rem;
-    }
-}
-
-.sesna-nav .nav-item .nav-link {
-    font-size: 16px !important;
-    font-weight: 400;
-    color: var(--color-blanco) !important;
-    padding: 16px 10px !important; /* Centrado vertical simétrico */
-    border-bottom: 2px solid transparent !important; /* Reserva el espacio para evitar saltos */
-    white-space: nowrap;
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.sesna-nav .nav-item .nav-link:hover {
-    color: var(--color-arena) !important;
-}
-
-.sesna-nav .nav-item.current-menu-item > .nav-link,
-.sesna-nav .nav-item.current-menu-ancestor > .nav-link,
-.sesna-nav .nav-item.active > .nav-link {
-    font-weight: 600;
-    color: var(--color-blanco) !important;
-    border-bottom: 2px solid var(--color-blanco) !important;
-}
-
-/* Botón buscador */
-.sesna-btn-outline {
-    border: 1px solid var(--color-blanco);
-    color: var(--color-blanco);
-    background: transparent;
-    padding: 6px 14px;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s;
-}
-
-.sesna-btn-outline:hover {
-    background-color: var(--color-blanco);
-    color: var(--color-burgundi);
-}
-
-/* Mobile */
-@media (max-width: 991px) {
-    .sesna-nav .nav-item .nav-link {
-        padding: 10px 0 !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-    }
-
-    .sesna-nav .nav-item.current-menu-item > .nav-link,
-    .sesna-nav .nav-item.current-menu-ancestor > .nav-link,
-    .sesna-nav .nav-item.active > .nav-link {
-        border-bottom: 1px solid var(--color-blanco) !important;
-    }
-
-    /* Corrección de ícono duplicado y flotante en móviles (Tarea 15) */
-    .site-header .sesna-navbar {
-        min-height: 55px; /* Evita que la barra colapse a altura 0 y deje franja blanca */
-        background-color: var(--color-burgundi) !important;
-        position: relative !important;
-    }
-    .site-header .sesna-navbar .navbar-toggler {
-        position: absolute !important;
-        right: 15px;
-        top: 8px;
-        float: none !important;
-        box-shadow: none !important;
-        z-index: 1050;
-    }
-    /* Ocultar cualquier icon-bar que GOB.mx intente inyectar para evitar el ícono doble real */
-    .sesna-navbar .navbar-toggler .icon-bar {
-        display: none !important;
-    }
-}
+/* Eliminados selectores h1, h2, h3 globales para permitir control SND. */
+/* Eliminado padding fijo de main.page porque el Header SND fluye natural. */
+/* Eliminados estilos de .site-header y .sesna-navbar (ya no existen, SND usa .header). */
 
 /* ------------------------------------------------------------
    Colores de utilidad
@@ -2757,28 +2814,28 @@ body.front-page main.page {
 .sesna-single-nav__back:hover { color: var(--color-burgundi); }
 
 /* ------------------------------------------------------------
-   Dropdown del menú principal SESNA
+   Dropdown del menú principal SESNA (Adaptado a Guinda SND)
    ------------------------------------------------------------ */
 .sesna-dropdown {
-    background-color: var(--color-fondo-claro);
+    background-color: var(--principal); /* Color Guinda base del SND */
     border: none;
-    border-top: 3px solid var(--color-burgundi);
-    border-radius: 0 0 10px 10px;
-    padding: 6px 0 10px;
+    border-top: 3px solid var(--dorado600, #A57F2C);
+    border-radius: 0 0 8px 8px;
+    padding: 8px 0;
     min-width: fit-content;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
 }
 
 .sesna-dropdown .dropdown-item {
-    color: var(--color-negro);
-    font-size: 13.5px;
+    color: var(--neutro100, #FFF);
+    font-size: 1rem;
     font-weight: 500;
-    padding: 9px 18px;
+    padding: 10px 20px;
     white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.15s, color 0.15s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .sesna-dropdown .dropdown-item::before {
@@ -2787,29 +2844,29 @@ body.front-page main.page {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: var(--color-dorado);
+    background-color: var(--dorado300, #D4AF37);
     flex-shrink: 0;
     opacity: 0.8;
-    transition: opacity 0.15s, transform 0.15s;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .sesna-dropdown .dropdown-item:hover,
 .sesna-dropdown .dropdown-item:focus {
-    background-color: var(--color-burgundi-tenue) !important;
-    color: var(--color-burgundi) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--neutro100, #FFF) !important;
 }
 
 .sesna-dropdown .dropdown-item:hover::before,
 .sesna-dropdown .dropdown-item:focus::before {
     opacity: 1;
     transform: scale(1.4);
-    background-color: var(--color-dorado);
+    background-color: var(--dorado300, #D4AF37);
 }
 
 .sesna-dropdown .dropdown-item.active,
 .sesna-dropdown .dropdown-item:active {
-    background-color: var(--color-burgundi-tenue) !important;
-    color: var(--color-burgundi) !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--neutro100, #FFF) !important;
     font-weight: 600;
 }
 
@@ -2826,12 +2883,36 @@ body.front-page main.page {
 
 /* Mostrar dropdown en hover para pantallas grandes */
 @media (min-width: 992px) {
-    .sesna-nav .nav-item.dropdown:hover > .dropdown-menu {
+    .sesna-nav .nav-item.dropdown:hover > .dropdown-menu,
+    .navHeader__li.dropdown:hover > .dropdown-menu {
         display: block;
         margin-top: 0;
     }
 }
 
+/* Fix para dropdown SND Guinda */
+.navHeader__li.dropdown {
+    position: relative;
+}
+.navHeader__li .dropdown-menu.sesna-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1050;
+    list-style: none;
+    display: none; /* Asegurar que esté oculto por defecto */
+}
+
+/* Navbar fijo (Fixed para evitar fallos de sticky) */
+body {
+    overflow-x: hidden !important; /* Restauramos el overflow original por si acaso */
+}
+.subheader {
+    position: fixed;
+    top: var(--bodyTop, 75px); /* Se usa --bodyTop para quedar debajo del header de Gobierno */
+    width: 100%;
+    z-index: 1040;
+}
 /* ============================================================
    Loader de carga inicial de página
    ============================================================ */

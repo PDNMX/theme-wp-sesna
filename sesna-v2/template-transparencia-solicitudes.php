@@ -16,14 +16,14 @@ get_header();
 
 
 
-<div class="container" id="blogEntries">
+<div class="contenedor" id="blogEntries">
      <img class="imagen" src="<?php the_field('imagen_seccion_solicitudes', 'option') ?>"/>
 
      
 </div>
 
 
-<div class="container" id="loadMoreContainer">
+<div class="contenedor" id="loadMoreContainer">
     <p class="normatividadTitulo">Si tienes dudas, o quieres conocer algo más:</p>
     <a class="btn btn-black" target="_blank" href="https://www.plataformadetransparencia.org.mx/group/guest/crear-solicitud">Solicita información</a></div>
 </div>

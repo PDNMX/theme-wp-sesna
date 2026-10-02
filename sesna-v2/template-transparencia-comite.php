@@ -46,11 +46,11 @@ wp_reset_postdata();
 <div class="page-transparencia-comite front-page-bg pb-5">
     <!-- Migas de pan (Breadcrumb) -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -62,11 +62,11 @@ wp_reset_postdata();
     </nav>
 
     <!-- Contenedor Principal -->
-    <div class="container py-4">
+    <div class="contenedor py-4">
         
         <!-- Títulos -->
-        <div class="row mb-4">
-            <div class="col-12">
+        <div class="fila mb-4">
+            <div class="col-100">
                 <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Comité de Transparencia</h1>
             </div>
         </div>
@@ -76,12 +76,12 @@ wp_reset_postdata();
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="bi bi-list-ul"></i> Actas
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="resoluciones-tab" data-bs-toggle="tab" data-bs-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="bi bi-clipboard-check"></i> Resoluciones
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 14l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg> Resoluciones
                     </button>
                 </li>
             </ul>
@@ -92,8 +92,8 @@ wp_reset_postdata();
             <div class="tab-pane show active" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="0">
                 
                 <!-- Filtros Sesiones -->
-                <div class="row mb-5 align-items-end">
-                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                <div class="fila gap--24 mb-5 align-items-end">
+                    <div class="col-100 columna__6--sm columna__3--md mb-3 mb-md-0">
                         <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
@@ -105,7 +105,7 @@ wp_reset_postdata();
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-100 columna__6--sm columna__4--md">
                         <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                         <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todas">Todas</option>
@@ -136,11 +136,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon"></i>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="tx-sesion-pdf-icon"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="bi bi-chevron-right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="tx-sesion-chevron-icon"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                                 </a>
                             </div>
 
@@ -152,7 +152,7 @@ wp_reset_postdata();
                 <!-- Ver más Sesiones -->
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="tx-comite-btn-more">
-                        Ver más sesiones <i class="bi bi-chevron-down"></i>
+                        Ver más sesiones <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                     </a>
                 </div>
 
@@ -162,8 +162,8 @@ wp_reset_postdata();
             <div class="tab-pane" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
                 
                 <!-- Filtros Resoluciones -->
-                <div class="row mb-5 align-items-end">
-                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                <div class="fila gap--24 mb-5 align-items-end">
+                    <div class="col-100 columna__6--sm columna__3--md mb-3 mb-md-0">
                         <label for="filter-anio-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio-res" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
@@ -175,11 +175,11 @@ wp_reset_postdata();
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-100 columna__6--sm columna__6--md">
                         <label for="search-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Número de resolución</label>
                         <div class="position-relative">
                             <input type="text" id="search-res" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Buscar resolución...">
-                            <i class="bi bi-search tx-comite-search-icon"></i>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="tx-comite-search-icon"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -205,11 +205,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="bi bi-filetype-pdf tx-sesion-pdf-icon"></i>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="tx-sesion-pdf-icon"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Resolución</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="bi bi-chevron-right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="tx-sesion-chevron-icon"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                                 </a>
                             </div>
 
@@ -221,7 +221,7 @@ wp_reset_postdata();
                 <!-- Ver más Resoluciones -->
                 <div class="text-center mt-5" id="resoluciones-load-more-container">
                     <a href="javascript:void(0)" id="resoluciones-btn-more" class="tx-comite-btn-more">
-                        Ver más resoluciones <i class="bi bi-chevron-down"></i>
+                        Ver más resoluciones <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                     </a>
                 </div>
 
@@ -242,6 +242,7 @@ wp_reset_postdata();
 .tx-pdf-action-btn:hover {
     background-color: #9f2241;
     color: #ffffff;
+}
 </style>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>

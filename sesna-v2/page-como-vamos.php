@@ -7,17 +7,17 @@ get_header();
       -->
 
       <div class="container-fluid comovamoscontainer" id="comite_coordinador">
-        <div class="container">
-          <div class="row">
-            <div class="col-12" align="center">
+        <div class="contenedor">
+            <div class="fila">
+            <div class="col-100" align="center">
               <h1 class="title-vamos">¿Cómo vamos?</h1>
               <h2 class="comite-title">Sesiones del <span>Comité Coordinador</span></h2>
             </div>
           </div>
 
 
-          <div class="row">
-           <div class="col-xl-3 col-6 mb-4">
+          <div class="fila">
+           <div class="columna__3--xl columna__6 mb--24">
               <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
@@ -29,7 +29,7 @@ get_header();
             </div>
 
 
-            <div class="col-xl-3 col-6 mb-4">
+            <div class="columna__3--xl columna__6 mb--24">
               <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
@@ -40,7 +40,7 @@ get_header();
               </div>
             </div>
 
-            <div class="col-xl-3 col-6 mb-4">
+            <div class="columna__3--xl columna__6 mb--24">
               <div class="card-deck text-center">
                 <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-toggle="modal" data-target="#modal-recomendaciones">
                   <div class="card-body">
@@ -51,7 +51,7 @@ get_header();
               </div>
             </div>
 
-            <div class="col-xl-3 col-6 mb-4">
+            <div class="columna__3--xl columna__6 mb--24">
               <div class="card-deck text-center">
                 <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-toggle="modal" data-target="#modal-exhortos">
                   <div class="card-body">
@@ -66,26 +66,26 @@ get_header();
       </div>
 
 
-      <div class="container" >
-        <div class="row fechas" >
-          <div class="col-lg-4 col-sm-12"></div>
-          <div class="col-lg-3 col-sm-6"><p>FILTRAR POR FECHA:</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerInicio" width="150"  /></div>
-          <div class="col-lg-1 col-sm-6"><p>AL</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerFinal" width="150" /></div>
+      <div class="contenedor" >
+        <div class="fila fechas" >
+          <div class="columna__4--lg col-100"></div>
+          <div class="columna__3--lg columna__6--sm"><p>FILTRAR POR FECHA:</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerInicio" class="form-control" /></div>
+          <div class="columna__1--lg columna__6--sm"><p>AL</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerFinal" class="form-control" /></div>
         </div>
 
-        <div class="row titulosFilas">
-          <div class="col col-lg-3 d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="col-lg-9 d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+        <div class="fila titulosFilas">
+          <div class="columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
         <div class="sesiones_container" id="sesiones_comite" data-page="0">
 
         </div>
 
-        <div class="row" >
-          <div class="col-12 loadSesiones" id="btn_sesiones_comite">
+        <div class="fila" >
+          <div class="col-100 loadSesiones" id="btn_sesiones_comite">
           <p>Cargar sesiones anteriores <i class="fas fa-redo-alt"></i></p>
           </div>
         </div>
@@ -99,17 +99,17 @@ get_header();
 
       -->
     <div class="container-fluid comovamoscontainer" id="comision_ejecutiva">
-        <div class="container">
-            <div class="row">
-            <div class="col-12" align="center">
+        <div class="contenedor">
+            <div class="fila">
+            <div class="col-100" align="center">
                 <h1 class="title-vamos">¿Cómo vamos?</h1>
                 <h2 class="comite-title">Sesiones de la <span>Comisión Ejecutiva</span></h2>
             </div>
             </div>
 
 
-            <div class="row">
-            <div class="col-6">
+            <div class="fila">
+            <div class="columna__6">
                 <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
@@ -121,7 +121,7 @@ get_header();
             </div>
 
 
-            <div class="col-6">
+            <div class="columna__6">
                 <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
@@ -148,26 +148,26 @@ get_header();
 
 
 
-    <div class="container" >
-        <div class="row fechas" >
-          <div class="col-lg-4 col-sm-12"></div>
-          <div class="col-lg-3 col-sm-6"><p>FILTRAR POR FECHA:</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerInicio2" width="150"  /></div>
-          <div class="col-lg-1 col-sm-6"><p>AL</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerFinal2" width="150" /></div>
+    <div class="contenedor" >
+        <div class="fila fechas" >
+          <div class="columna__4--lg col-100"></div>
+          <div class="columna__3--lg columna__6--sm"><p>FILTRAR POR FECHA:</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerInicio2" class="form-control" /></div>
+          <div class="columna__1--lg columna__6--sm"><p>AL</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerFinal2" class="form-control" /></div>
         </div>
 
-        <div class="row titulosFilas">
-          <div class="col col-lg-3 d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="col-lg-9 d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+        <div class="fila titulosFilas">
+          <div class="columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
 
         <div class="sesiones_container" id="sesiones_comision" data-page="0">
         </div>
 
-        <div class="row" >
-            <div class="col-12 loadSesiones" id="btn_sesiones_comision">
+        <div class="fila" >
+            <div class="col-100 loadSesiones" id="btn_sesiones_comision">
                 <p>Cargar sesiones anteriores <i class="fas fa-redo-alt"></i></p>
             </div>
         </div>
@@ -178,17 +178,17 @@ get_header();
       -->
 
       <div class="container-fluid comovamoscontainer" id="organo_gobierno">
-        <div class="container">
-            <div class="row">
-            <div class="col-12" align="center">
+        <div class="contenedor">
+            <div class="fila">
+            <div class="col-100" align="center">
                 <h1 class="title-vamos">¿Cómo vamos?</h1>
                 <h2 class="comite-title">Sesiones del <span>Órgano de Gobierno</span></h2>
             </div>
             </div>
 
 
-            <div class="row">
-            <div class="col-6">
+            <div class="fila">
+            <div class="columna__6">
                 <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
@@ -200,7 +200,7 @@ get_header();
             </div>
 
 
-            <div class="col-6">
+            <div class="columna__6">
                 <div class="card-deck text-center">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
@@ -217,26 +217,26 @@ get_header();
 
 
 
-    <div class="container" >
-        <div class="row fechas" >
-          <div class="col-lg-4 col-sm-12"></div>
-          <div class="col-lg-3 col-sm-6"><p>FILTRAR POR FECHA:</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerInicio3" width="150"  /></div>
-          <div class="col-lg-1 col-sm-6"><p>AL</p></div>
-          <div class="col-lg-2 col-sm-6"><input id="datepickerFinal3" width="150" /></div>
+    <div class="contenedor" >
+        <div class="fila fechas" >
+          <div class="columna__4--lg col-100"></div>
+          <div class="columna__3--lg columna__6--sm"><p>FILTRAR POR FECHA:</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerInicio3" class="form-control" /></div>
+          <div class="columna__1--lg columna__6--sm"><p>AL</p></div>
+          <div class="columna__2--lg columna__6--sm"><input type="date" id="datepickerFinal3" class="form-control" /></div>
         </div>
 
-        <div class="row titulosFilas">
-          <div class="col col-lg-3 d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="col-lg-9 d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+        <div class="fila titulosFilas">
+          <div class="columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
 
         <div class="sesiones_container" id="sesiones_organo_gobierno" data-page="0">
         </div>
 
-        <div class="row" >
-            <div class="col-12 loadSesiones" id="btn_sesiones_organo_gobierno">
+        <div class="fila" >
+            <div class="col-100 loadSesiones" id="btn_sesiones_organo_gobierno">
                 <p>Cargar sesiones anteriores <i class="fas fa-redo-alt"></i></p>
             </div>
         </div>

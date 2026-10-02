@@ -1,6 +1,6 @@
 <div class="entryContainer activeEntry">
-    <div class="row">
-        <div class="col-lg-<?= is_page('solicitudes-de-informacion')?4:5 ?> col-sm-12">
+    <div class="fila">
+        <div class="columna__<?= is_page('solicitudes-de-informacion')?4:5 ?>--lg col-100">
         <div class="thumbnailContainer">
         <a class="" href="<?php the_permalink(); ?>">
             <img src="<?php the_thumbnail_photo('thumb-medium'); ?>" class="thumbnail">
@@ -11,7 +11,7 @@
             <div class="p-2"><p class="fecha"><?= get_the_date('d / m / Y'); ?></p></div>
         </div>
         </div>
-        <div class="col-lg-<?= is_page('solicitudes-de-informacion')?8:7 ?> col-sm-12">
+        <div class="columna__<?= is_page('solicitudes-de-informacion')?8:7 ?>--lg col-100">
             <div class="etiquetasEntradaContainer">
 
             <?php get_template_part( 'template-parts/content/categories' ); ?> 

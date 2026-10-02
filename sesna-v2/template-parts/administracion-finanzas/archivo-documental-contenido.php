@@ -75,7 +75,7 @@ if ( file_exists( $ad_json_path ) ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="bi bi-journals" style="color: #fff;"></i>
+                <svg  style="color: #fff;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Archivo Documental</h2>
@@ -83,7 +83,7 @@ if ( file_exists( $ad_json_path ) ) {
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="bi bi-search"></i>
+            <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="search" class="cf-search-input" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
@@ -113,7 +113,7 @@ if ( file_exists( $ad_json_path ) ) {
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
                         <span class="visually-hidden">Ver documento</span>
                     </a>
                     <?php else : ?>
@@ -122,7 +122,8 @@ if ( file_exists( $ad_json_path ) ) {
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="bi bi-box-arrow-up-right"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg></span>
                         <span class="visually-hidden">Abrir enlace</span>
                     </a>
                     <?php endif; ?>
@@ -131,7 +132,8 @@ if ( file_exists( $ad_json_path ) ) {
 
                 <?php if ( $grupo['nota'] ) : ?>
                 <div class="mt-3 pt-3 d-flex align-items-start gap-2" style="border-top: 1px solid #e8d0d8;">
-                    <i class="bi bi-info-circle text-muted flex-shrink-0" style="font-size: 13px; margin-top: 2px;"></i>
+                    <svg class="text-muted flex-shrink-0" style="font-size: 13px; margin-top: 2px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                     <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $grupo['nota'] ); ?></span>
                 </div>
                 <?php endif; ?>

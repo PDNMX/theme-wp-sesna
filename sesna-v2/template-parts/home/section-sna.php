@@ -1,12 +1,12 @@
-<section class="py-5 sna-about-section">
-    <div class="container my-4">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-5 text-center text-md-end mb-4 mb-md-0 pe-md-5">
+<section class="py--56 sna-about-section">
+    <div class="contenedor my--32">
+        <div class="fila align-items-center justify-content-center">
+            <div class="columna__5--md text-center text-md-end mb--24 mb-md-0 pe-md-5">
                 <!-- Placeholder para el Logo del SNA -->
                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/logo-sna.svg" alt="SNA Logo"
                     class="img-fluid sna-logo" onerror="this.src='https://via.placeholder.com/350x120?text=Logo+SNA';">
             </div>
-            <div class="col-md-7 ps-md-4">
+            <div class="columna__7--md ps-md-4">
                 <h3 class="fw-bold mb-3 font-patria text-burgundi">Sistema Nacional Anticorrupción (<span
                         class="fw-bold font-patria">SNA</span>)</h3>
                     <p class="mb-4">Instancia de coordinación entre autoridades

@@ -1,12 +1,12 @@
-<section class="py-5 sna-programas-section">
-    <div class="container my-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
+<section class="py--56 sna-programas-section">
+    <div class="contenedor my--48">
+        <div class="fila justify-content-center mb--48">
+            <div class="columna__8--md text-center">
                 <h2 class="fw-bold font-patria sesna-section-heading">Acciones y <span class="text-burgundi">Programas</span></h2>
                 <p class="text-muted">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
-        <div class="row g-4 pt-4">
+        <div class="fila gap--24 pt--32">
 
             <?php
             $programas = [
@@ -42,7 +42,7 @@
 
             foreach ($programas as $prog):
                 ?>
-                <div class="col-lg-3 col-md-6">
+                <div class="columna__3--lg columna__6--md">
                     <div class="h-100 border-0 bg-transparent sna-programas-wrapper">
                         <?php $is_external = isset($prog['link']) && strpos($prog['link'], home_url()) === false; ?>
                         <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="d-flex flex-column h-100 sna-programas-card text-decoration-none text-dark">
@@ -68,7 +68,7 @@
 
                                 <div class="mt-auto text-center">
                                     <span class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center text-guinda">
-                                        Leer más <i class="bi bi-arrow-right ms-2"></i>
+                                        Leer más <svg class="ms-2" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                                     </span>
                                 </div>
                             </div>

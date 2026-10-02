@@ -12,10 +12,10 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><svg  aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -32,11 +32,11 @@ get_header();
          BLOQUE 1: La Política Nacional Anticorrupción
          ============================================================ -->
     <section class="pt-4 pb-5">
-        <div class="container">
-            <div class="row g-4 align-items-start justify-content-between">
+        <div class="contenedor">
+            <div class="fila gap--24 align-items-start justify-content-between">
                 
                 <!-- Columna Izquierda: Descripción y Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
-                <div class="col-lg-7 col-xl-7">
+                <div class="columna__7--lg columna__7--xl">
                     <h2 class="fw-bold font-patria text-burgundi mb-3">Política Nacional Anticorrupción</h2>
                     <p class="text-muted mb-4">
                         Documento estratégico de largo aliento que plasma la agenda del Estado mexicano en la materia. Contiene el diagnóstico y las prioridades mínimas que orientan la actuación SNA en materia de prevención, detección, investigación y sanción de faltas administrativas y hechos de corrupción, así como la fiscalización y el control de recursos públicos.
@@ -48,28 +48,30 @@ get_header();
                         <!-- Tarjeta 1: Consultar documento completo -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="bi bi-file-earmark-text text-white fs-4"></i>
+                                <svg class="text-white fs-4" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Consultar documento completo</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Política Nacional Anticorrupción (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="bi bi-box-arrow-up-right text-burgundi fs-5"></i>
+                                <svg class="text-burgundi fs-5" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                             </div>
                         </a>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="bi bi-book text-white fs-4"></i>
+                                <svg class="text-white fs-4" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Documento (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="bi bi-box-arrow-up-right text-burgundi fs-5"></i>
+                                <svg class="text-burgundi fs-5" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                             </div>
                         </a>
 
@@ -80,7 +82,7 @@ get_header();
                                     <div class="accordion-header m-0" id="flush-headingAnexos">
                                         <button class="accordion-button collapsed p-3 bg-transparent shadow-none d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAnexos" aria-expanded="false" aria-controls="flush-collapseAnexos">
                                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                                <i class="bi bi-folder text-white fs-4"></i>
+                                                <svg class="text-white fs-4" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139q.323-.119.684-.12h5.396z"/></svg>
                                             </div>
                                             <div class="flex-grow-1 text-start my-auto">
                                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
@@ -93,19 +95,23 @@ get_header();
                                             <div class="list-group list-group-flush">
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <svg class="text-burgundi ms-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <svg class="text-burgundi ms-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <svg class="text-burgundi ms-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
-                                                    <i class="bi bi-box-arrow-up-right text-burgundi ms-2"></i>
+                                                    <svg class="text-burgundi ms-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+  <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
                                                 </a>
                                             </div>
                                         </div>
@@ -119,7 +125,7 @@ get_header();
                 </div>
 
                 <!-- Columna Derecha: Portada del Documento (Alineada al extremo derecho para aprovechar el ancho del template) -->
-                <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-start mt-5 mt-lg-0">
+                <div class="columna__5--lg columna__5--xl d-flex justify-content-lg-end justify-content-center align-items-start mt-5 mt-lg-0">
                     <div class="pna-doc-cover position-relative" style="max-width: 440px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
                     </div>
@@ -133,7 +139,7 @@ get_header();
          BLOQUE 2: Ejes y Objetivos de la Política Nacional Anticorrupción
          ============================================================ -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
 
             <div class="pna-stats-card p-4 p-md-5">
                 <div class="mb-4">
@@ -145,10 +151,10 @@ get_header();
 
                 <!-- Gráfica Rueda Interactiva y Botones de Ejes (Diseño envolvente 3 columnas como Maqueta 1) -->
                 <!-- Gráfica Rueda Interactiva y Botones de Ejes (Alta Fidelidad - Maqueta 1) -->
-                <div class="row g-4 g-lg-5 align-items-center justify-content-center my-4 position-relative">
+                <div class="fila gap--24 gap--lg-40 align-items-center justify-content-center my-4 position-relative">
                     
                     <!-- Columna Izquierda: Tarjetas Eje 1 y Eje 3 -->
-                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column order-2 order-lg-1" style="gap: 32px !important;">
+                    <div class="col-100 columna__6--md columna__4--lg d-flex flex-column order-2 order-lg-1" style="gap: 32px !important;">
                         
                         <!-- Tarjeta Eje 1 -->
                         <div class="position-relative w-100">
@@ -195,7 +201,7 @@ get_header();
                     </div>
 
                     <!-- Columna Central: Rueda Donut SVG con los 4 Iconos y Centro de Problema Destacado -->
-                    <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center order-1 order-lg-2 my-2 my-lg-0">
+                    <div class="col-100 columna__4--lg d-flex flex-column align-items-center justify-content-center order-1 order-lg-2 my-2 my-lg-0">
                         <div class="pna-wheel-container d-flex flex-column align-items-center justify-content-center w-100">
                             
                             <div class="pna-wheel position-relative d-flex justify-content-center align-items-center my-2" style="max-width: 320px; width: 100%; aspect-ratio: 1/1;">
@@ -253,7 +259,7 @@ get_header();
                     </div>
 
                     <!-- Columna Derecha: Tarjetas Eje 2 y Eje 4 -->
-                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column order-3 order-lg-3" style="gap: 32px !important;">
+                    <div class="col-100 columna__6--md columna__4--lg d-flex flex-column order-3 order-lg-3" style="gap: 32px !important;">
                         
                         <!-- Tarjeta Eje 2 -->
                         <div class="position-relative w-100">
@@ -304,7 +310,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="bi bi-hand-index-thumb"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -314,10 +320,10 @@ get_header();
                     
                     <!-- Panel Eje 1 (Activo por defecto) -->
                     <div class="pna-eje-content active" id="content-eje-1">
-                        <div class="row g-4 align-items-start">
+                        <div class="fila gap--24 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #6AC72C; font-size: 13px;">
                                     Eje 1
                                 </div>
@@ -328,7 +334,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #6AC72C;">Objetivos específicos asociados</h4>
                                 </div>
@@ -351,10 +357,10 @@ get_header();
 
                     <!-- Panel Eje 2 -->
                     <div class="pna-eje-content d-none" id="content-eje-2">
-                        <div class="row g-4 align-items-start">
+                        <div class="fila gap--24 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 13px;">
                                     Eje 2
                                 </div>
@@ -365,7 +371,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #1D70B8;">Objetivos específicos asociados</h4>
                                 </div>
@@ -393,10 +399,10 @@ get_header();
 
                     <!-- Panel Eje 3 -->
                     <div class="pna-eje-content d-none" id="content-eje-3">
-                        <div class="row g-4 align-items-start">
+                        <div class="fila gap--24 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
                                     Eje 3
                                 </div>
@@ -407,7 +413,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #74598F;">Objetivos específicos asociados</h4>
                                 </div>
@@ -430,10 +436,10 @@ get_header();
 
                     <!-- Panel Eje 4 -->
                     <div class="pna-eje-content d-none" id="content-eje-4">
-                        <div class="row g-4 align-items-start">
+                        <div class="fila gap--24 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #E04F67; font-size: 13px;">
                                     Eje 4
                                 </div>
@@ -444,7 +450,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #E04F67;">Objetivos específicos asociados</h4>
                                 </div>
@@ -490,9 +496,9 @@ get_header();
          BLOQUE 3: ¿Cómo se construyó la Política Nacional Anticorrupción?
          ============================================================ -->
     <section class="pb-5" id="bloque-3">
-        <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-12">
+        <div class="contenedor">
+            <div class="fila gap--24 mb-5">
+                <div class="col-100">
                     <h2 class="pna-diseno-title mb-3">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
                     <p class="text-muted mb-0" style="max-width: 800px; font-size: 15px; line-height: 1.6;">
                         La PNA se construyó mediante un proceso participativo nacional que integró consultas ciudadanas, foros regionales y diversos insumos de evidencia y análisis técnico.
@@ -502,14 +508,14 @@ get_header();
 
             <!-- Gráfica Principal Interactiva (Ecuación de 3 Etapas) -->
             <div class="card border rounded-4 p-4 p-md-5 mb-5 shadow-sm bg-white mx-auto" style="border-color: #E9ECEF !important;">
-                <div class="row align-items-stretch justify-content-center text-center g-3 g-lg-4">
+                <div class="fila align-items-stretch justify-content-center text-center gap--24">
                     
                     <!-- Etapa 1: Consejo consultivo y análisis técnico -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="col-100 columna__4--sm columna--lg d-flex">
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="bi bi-people-fill"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
@@ -521,11 +527,11 @@ get_header();
                     </div>
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="col-100 columna__4--sm columna--lg d-flex">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
-                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="bi bi-people"></i></span>
+                                <span class="fs-4" style="color: #00887A; line-height: 1;"><svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
@@ -537,11 +543,12 @@ get_header();
                     </div>
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="col-100 columna__4--sm columna--lg d-flex">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
-                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="bi bi-pin-map-fill"></i></span>
+                                <span class="fs-4" style="color: #D97706; line-height: 1;"><svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"/>
+  <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/></svg></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
@@ -553,7 +560,7 @@ get_header();
                     </div>
 
                     <!-- Resultado: Logo PNA -->
-                    <div class="col-12 col-lg-3 mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <div class="col-100 columna__3--lg mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
                         <div class="d-flex align-items-center justify-content-center p-2 w-100 h-100">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/logo_pna.svg' ); ?>" alt="Política Nacional Anticorrupción" class="img-fluid" style="max-height: 85px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));">
                         </div>
@@ -564,7 +571,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+                        <svg class="me-2 fs-5" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/></svg>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
@@ -584,9 +591,9 @@ get_header();
                         Participaron especialistas y representantes de la academia, sociedad civil organizada, sector empresarial, instituciones gubernamentales y organismos internacionales. Se recabaron insumos técnicos, recomendaciones y evidencia que permitió complementar la percepción de la población con respecto a la corrupción. Se sistematizó la información y se construyó una base de datos.
                     </p>
 
-                    <div class="row g-4 text-center justify-content-center pt-2">
+                    <div class="fila gap--24 text-center justify-content-center pt-2">
                         <!-- Doc 1 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Proceso de Consulta.svg') ); ?>" alt="" width="80" height="80">
@@ -598,7 +605,7 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 2 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Compromisos-Internacionales.xlsx', '2021/06/Base-Compromisos-Internacionales.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="80" height="80">
@@ -610,7 +617,7 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 3 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Datos-IIJ.xlsx', '2021/06/Base-Datos-IIJ.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('numeralia de los costos.svg') ); ?>" alt="" width="80" height="80">
@@ -622,7 +629,7 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 4 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Propuestas-RRC_SFP.xlsx', '2021/06/Base-Propuestas-RRC_SFP.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('acciones para combatir la corrupcion.svg') ); ?>" alt="" width="80" height="80">
@@ -634,7 +641,7 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 5 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Recomendaciones-OSC.xlsx', '2021/06/Base-Recomendaciones-OSC.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('recomendaciones de la sociedad civil.svg') ); ?>" alt="" width="80" height="80">
@@ -646,7 +653,7 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 6 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
+                        <div class="columna__6--sm columna__4--md columna--lg d-flex">
                             <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte_Inteligencia__LNPPcide.pdf', '2020/03/Reporte_Inteligencia__LNPPcide.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('reporte del taller de inteligencia.svg') ); ?>" alt="" width="80" height="80">
@@ -671,9 +678,9 @@ get_header();
                         Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
                     </p>
 
-                    <div class="row g-4 align-items-stretch">
+                    <div class="fila gap--24 align-items-stretch">
                         <!-- Imagen Consulta Ciudadana en línea -->
-                        <div class="col-lg-6">
+                        <div class="columna__6--lg">
                             <div class="bg-light rounded-4 border h-100 d-flex align-items-center justify-content-center p-4">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Consulta Ciudadana en línea.svg') ); ?>"
                                      alt="Consulta Ciudadana en línea"
@@ -682,24 +689,24 @@ get_header();
                         </div>
 
                         <!-- Documentos de consulta -->
-                        <div class="col-lg-6">
+                        <div class="columna__6--lg">
                             <div class="card border rounded-4 p-4 bg-white h-100 shadow-sm d-flex flex-column" style="border-color: #E9ECEF !important;">
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <svg class="fs-3 me-3 flex-shrink-0" style="color: #00887A;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <svg class="fs-3 me-3 flex-shrink-0" style="color: #00887A;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <svg class="fs-3 me-3 flex-shrink-0" style="color: #00887A;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
-                                        <i class="bi bi-file-earmark-text fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <svg class="fs-3 me-3 flex-shrink-0" style="color: #00887A;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
@@ -746,9 +753,9 @@ get_header();
                     </div>
 
                     <!-- 2. Tarjetas resumen -->
-                    <div class="row g-4 mb-5">
+                    <div class="fila gap--24 mb-5">
                         <!-- Tarjeta 1 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-100 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('foros regionales.svg') ); ?>" alt="" width="68" height="68">
@@ -758,7 +765,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 2 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-100 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('8 entidades federativas.svg') ); ?>" alt="" width="68" height="68">
@@ -768,7 +775,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 3 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-100 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/Periodo.svg' ); ?>" alt="" width="68" height="68">
@@ -778,7 +785,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 4 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="col-100 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/asistentes.svg' ); ?>" alt="" width="68" height="68">
@@ -790,9 +797,9 @@ get_header();
                     </div>
 
                     <!-- 3 y 4. Mapa (Izquierda) y Foros realizados (Derecha) -->
-                    <div class="row g-4 mb-5 align-items-stretch">
+                    <div class="fila gap--24 mb-5 align-items-stretch">
                         <!-- Columna Izquierda: Mapa SVG -->
-                        <div class="col-xl-7 col-lg-6 col-12 d-flex">
+                        <div class="col-100 columna__6--lg columna__7--xl d-flex">
                             <div class="card border-0 rounded-4 p-4 mb-0 shadow-sm w-100 d-flex flex-column" style="background-color: #FFFFFF; box-shadow: 0 6px 16px rgba(0,0,0,0.05);">
                                 <div class="border-bottom pb-3 mb-4 text-center flex-shrink-0">
                                     <h4 class="h5 fw-bold mb-0 font-noto-sans" style="color: #D97706;">Cobertura Nacional</h4>
@@ -931,7 +938,7 @@ get_header();
                         </div>
 
                         <!-- Columna Derecha: Foros realizados -->
-                        <div class="col-xl-5 col-lg-6 col-12 d-flex">
+                        <div class="col-100 columna__6--lg columna__5--xl d-flex">
                             <div class="card border-0 rounded-4 p-4 mb-0 shadow-sm w-100 d-flex flex-column" style="background-color: #FFFFFF; box-shadow: 0 6px 16px rgba(0,0,0,0.05);">
                                 <div class="border-bottom pb-3 mb-3 text-center flex-shrink-0">
                                     <h4 class="h5 fw-bold mb-0 font-noto-sans" style="color: #D97706;">Foros realizados</h4>
@@ -944,14 +951,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">23 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Guadalajara, Jalisco</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -962,14 +969,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">25 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Zacatecas, Zacatecas</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -980,14 +987,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">30 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Saltillo, Coahuila</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -998,14 +1005,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">8 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Oaxaca, Oaxaca</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -1016,14 +1023,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">12 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Querétaro, Querétaro</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -1034,14 +1041,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">20 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Hermosillo, Sonora</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -1052,14 +1059,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">22 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Cancún, Quintana Roo</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
 
@@ -1070,14 +1077,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">29 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="bi bi-geo-alt-fill text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <svg class="text-muted flex-shrink-0" style="font-size: 14px;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Ciudad de México, CDMX</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="bi bi-filetype-pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <svg class="tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
                                         </span>
                                     </div>
                             </div>

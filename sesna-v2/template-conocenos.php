@@ -21,7 +21,7 @@ get_header();
   <?php if( is_page('organo-interno-de-control') ): ?>
 
     <div class="conocenosHeader">
-      <div class="container">
+      <div class="contenedor">
         <h1 class="titulo">Conócenos</h1>
         <h2 class="subtitulo"> OFICINA <b> DE <i> REPRESENTACION</i></b></h2>
 *         <img  class="equipo" src="<?php the_field('imagen_seccion_oic', 'option') ?>" alt=""/> 
@@ -32,9 +32,9 @@ get_header();
 
 
     <div class="titularContainer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="contenedor">
+        <div class="fila">
+          <div class="columna__4--lg columna__4--md col-100">
             <img src="<?php the_field('imagen', get_field('titular')->ID ) ?>"/>
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
@@ -62,7 +62,7 @@ get_header();
               <a href="<?php the_field('declaracion', get_field('titular')->ID ) ?>" target="_blank"><img src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/btn_declaracion.png"></a>
             <?php endif; ?>
           </div>
-          <div class="col-lg-8 col-md-8 col-sm-12">
+          <div class="columna__8--lg columna__8--md col-100">
             <h2 class="tituloPerfil"><?php echo get_the_title( get_field('titular')->ID ) ?></h2>
             <h3 class="cargoPerfil"><?php the_field('puesto', get_field('titular')->ID ) ?></h3>
             <p class="descripcionCargo">
@@ -75,7 +75,7 @@ get_header();
 
   <?php else: ?>
     <div class="conocenosHeader">
-      <div class="container">
+      <div class="contenedor">
         <h1 class="titulo">Conócenos</h1>
         <h2 class="subtitulo">Somos un grupo de <b>especialistas</b> trabajando para <b><i>combatir la corrupción.</i></b></h2>
       </div>
@@ -84,7 +84,7 @@ get_header();
 
 
     <div class="conocenosMenu" id="pruebaaaa">
-      <div class="container">
+      <div class="contenedor">
         <div class="d-xs-block d-sm-block d-md-none">
             <ul class="list-group list-group-horizontal justify-content-center" style="display: none;">
               <a href="conocenos.html"><li class="list-group-item active">1</li></a>
@@ -103,7 +103,7 @@ get_header();
         </div>
       </div>
 
-        <div class="container d-none d-md-block d-lg-block">
+        <div class="contenedor d-none d-md-block d-lg-block">
 
 
             <div class="d-flex justify-content-center flex-wrap">
@@ -161,9 +161,9 @@ get_header();
 
 
     <div class="titularContainer1">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 col-md-5 col-sm-12">
+      <div class="contenedor">
+        <div class="fila">
+          <div class="columna__5--lg columna__5--md col-100">
             <h2 class="tituloPerfil"><?php echo get_the_title( get_field('titular')->ID ) ?></h2>
             <h3 class="cargoPerfil"><?php the_field('puesto', get_field('titular')->ID ) ?></h3>
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
@@ -191,7 +191,7 @@ get_header();
               <a href="<?php the_field('declaracion', get_sub_field('titular')->ID ) ?>" target="_blank"><img class="declaracion" src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/btn_declaracion.png"></a>
             <?php endif; ?>
           </div>
-          <div class="col-lg-7 col-md-7 col-sm-12">
+          <div class="columna__7--lg columna__7--md col-100">
             
             <p class="descripcionCargo">
               <?php echo get_the_content(null, false, get_field('titular')->ID ) ?>
@@ -213,7 +213,7 @@ get_header();
     <div class="fraseContainer">
       <img src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/ellipse_frase_conocenos.png" class="ellipse_izq"/>
       <img src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/tx2.png" class="tx2"/>
-      <div class="container">
+      <div class="contenedor">
         <div class="d-flex align-items-center justify-content-center">
           <div class="p-2 flex-fill d-none d-sm-block">
             <p class="comilla">"</p>
@@ -253,21 +253,21 @@ get_header();
     <?php if( have_rows('funciones') ): ?>
     <div class="functionesContainer">
       <img class="ellipse_funciones" src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/ellipse_funciones.png"/>
-      <div class="container">
+      <div class="contenedor">
         <h1 class="containerTitulo">FUNCIONES</h1>
       </div>
 
 
-      <div class="container">
-        <div class="row">
+      <div class="contenedor">
+        <div class="fila">
 
           
             <?php while ( have_rows('funciones') ) : the_row(); ?>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="columna__6--lg columna__6--md col-100">
               <div class="funcionBox">
-                <div class="row">
-                  <div class="col-lg-3 col-md-12 col-sm-12">
+                <div class="fila">
+                  <div class="columna__3--lg col-100">
                     <div class="circleContainer">
                       <div class="d-flex align-self-center justify-content-center iconContainer">
                         <div class="p-2">
@@ -276,7 +276,7 @@ get_header();
                       </div><!--  ICON CONTAINER  -->
                     </div><!--    CIRCLE CONTAINER -->
                   </div>
-                  <div class="col-lg-9 col-md-12 col-sm-12">
+                  <div class="columna__9--lg col-100">
                       <h2  class="tituloPerfil"><?php the_sub_field('titulo'); ?></h2>
                       <p class="descripcionCargo">
                       <?php the_sub_field('contenido', false, false); ?>
@@ -306,22 +306,22 @@ get_header();
 
     <?php if( have_rows('equipo') ): ?>
     <div class="equipoContainer">
-      <div class="container">
+      <div class="contenedor">
         <h1 class="containerTitulo">EQUIPO</h1>
       </div>
 
       <img class="ellipse_der" src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/ellipse_der.png" alt="ellipse"/>
-      <div class="container">
-        <div class="row">
+      <div class="contenedor">
+        <div class="fila">
 
         
             <?php while ( have_rows('equipo') ) : the_row(); ?>
 
-              <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="columna__6--lg columna__6--md col-100">
                 <div class="perfilContainer">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-12 col-lg-3">
+                  <div class="contenedor">
+                    <div class="fila">
+                      <div class="col-100 columna__3--lg">
 
                         <?php if( empty( get_field('imagen', get_sub_field('funcionario')->ID ) ) ): ?>
                         
@@ -341,7 +341,7 @@ get_header();
                           <img src="<?php the_field('imagen', get_sub_field('funcionario')->ID ) ?>"/>
                         <?php endif; ?>
                       </div>
-                      <div class="col-12 col-lg-9">
+                      <div class="col-100 columna__9--lg">
                         <p class="nombreFuncionario"><?php echo get_the_title( get_sub_field('funcionario')->ID ) ?></p>
                         <p class="cargoFuncionario"><?php the_field('puesto', get_sub_field('funcionario')->ID ) ?></p>
 
@@ -383,8 +383,8 @@ get_header();
                         <?php endif; ?>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-12">
+                    <div class="fila">
+                      <div class="col-100">
                         <p class="descripcionCargo"><?php echo get_the_content(null, false, get_sub_field('funcionario')->ID ) ?> </p>
                       </div>
                     </div>
@@ -411,7 +411,7 @@ get_header();
     <?php if( !is_page('organo-interno-de-control') ): ?>
 
     <div class="conocenosHeader">
-      <div class="container">
+      <div class="contenedor">
 	<h2 class="subtitulo"> OFICINA <b> DE <i> REPRESENTACION</i></b></h2>        
         <a class="btn_equipo" href="/conocenos/organo-interno-de-control/"><img src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/btn_equipo.png"></a>
         <img  class="equipo" src="<?php the_field('imagen_banner_oic', 'option') ?>" alt="ORGANO Interno DE CONTROL"/>

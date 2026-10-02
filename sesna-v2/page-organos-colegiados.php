@@ -27,11 +27,11 @@ rsort($oc_anios_organo);
 
     <!-- Migas de pan (Breadcrumb) -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="bi bi-house-door"></i> Inicio
+                        <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -44,16 +44,16 @@ rsort($oc_anios_organo);
 
     <!-- HERO SECTION -->
     <section class="sesna-page-hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
+        <div class="contenedor">
+            <div class="fila align-items-center">
+                <div class="columna__6--lg columna__8--md position-relative z-1 mb--24 mb-lg-0">
                     <h1 class="sesna-hero__title">Órganos Colegiados</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle">
                         Información de los diversos órganos colegiados en los que participa la SESNA: Comité Coordinador, Órgano de Gobierno y Comisión Ejecutiva.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                <div class="columna__6--lg columna__4--md d-none d-md-flex align-items-center justify-content-end position-relative">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/Organos_Colegiados_Encabezado.png' ); ?>"
                          alt="Órganos Colegiados"
                          class="sesna-hero__img"
@@ -64,44 +64,44 @@ rsort($oc_anios_organo);
     </section>
 
     <!-- MAIN CONTENT -->
-    <div class="container py-5">
-        <div class="row">
+    <div class="contenedor py--56">
+        <div class="fila">
             
             <!-- SIDEBAR -->
-            <aside class="col-12 col-lg-3 mb-5 mb-lg-0 pe-lg-4">
+            <aside class="col-100 columna__3--lg mb--48 mb-lg-0 pe-lg-4">
                 <!-- Órganos Colegiados Nav -->
                 <h2 class="h6 fw-bold font-noto-sans mb-3 text-uppercase" style="color: var(--color-burgundi); letter-spacing: 0.5px;">ÓRGANOS COLEGIADOS</h2>
                 <div class="ocn-sidebar-nav mb-5" id="sidebar-nav-colegiados">
                     <a href="#" data-target="comite" class="ocn-sidebar-link js-tab-link active d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Comité Coordinador</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <svg class="fw-bold" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                     </a>
                     <a href="#" data-target="comision" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Comisión Ejecutiva</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <svg class="fw-bold" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                     </a>
                     <a href="#" data-target="organo" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Órgano de Gobierno</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <svg class="fw-bold" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                     </a>
                     <a href="#" data-target="recomendaciones" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans lh-sm">Recomendaciones<br>no vinculantes</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <svg class="fw-bold" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                     </a>
                     <a href="#" data-target="exhortos" class="ocn-sidebar-link js-tab-link d-flex justify-content-between align-items-center px-3 py-3 text-decoration-none">
                         <span class="fw-bold font-noto-sans">Exhortos</span>
-                        <i class="bi bi-chevron-right fw-bold"></i>
+                        <svg class="fw-bold" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                     </a>
                 </div>
             </aside>
 
             <!-- MAIN COLUMN -->
-            <div class="col-12 col-lg-9 ps-lg-4">
+            <div class="col-100 columna__9--lg ps-lg-4">
                 
                 <!-- SECTION: COMITÉ COORDINADOR -->
                 <div class="content-section" id="sec-comite">
-                <div class="row mb-5">
-                    <div class="col-12">
+                <div class="fila mb--48">
+                    <div class="col-100">
                         <h2 class="cp-recursos__titulo mb-2">COMITÉ COORDINADOR</h2>
                     </div>
                 </div>
@@ -109,13 +109,13 @@ rsort($oc_anios_organo);
                 <?php sesna_render_oc_stats_cards($oc_stats_comite); ?>
 
                 <!-- SUBSECTION: SESIONES -->
-                <div class="row mb-3">
-                    <div class="col-12">
+                <div class="fila mb--24">
+                    <div class="col-100">
                         <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                     </div>
                 </div>
-                <div class="row mb-4">
-                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <div class="fila mb--24">
+                    <div class="col-100 columna__6--md mb--24 mb-md-0">
                         <label for="filter-anio-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
@@ -124,7 +124,7 @@ rsort($oc_anios_organo);
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-100 columna__6--md">
                         <label for="filter-tipo-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                         <select id="filter-tipo-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todas">Todas</option>
@@ -145,28 +145,28 @@ rsort($oc_anios_organo);
                 <!-- VER MÁS BTN -->
                 <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
                     <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="bi bi-chevron-down"></i>
+                        Ver más sesiones <svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                     </a>
                 </div>
                 </div> <!-- END sec-comite -->
 
                 <!-- SECTION: COMISIÓN EJECUTIVA -->
                 <div class="content-section d-none" id="sec-comision">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="fila mb--48">
+                        <div class="col-100">
                             <h2 class="cp-recursos__titulo mb-2">COMISIÓN EJECUTIVA</h2>
                         </div>
                     </div>
 
                     <?php sesna_render_oc_stats_cards($oc_stats_comision, false); ?>
 
-                    <div class="row mb-3">
-                        <div class="col-12">
+                    <div class="fila mb--24">
+                        <div class="col-100">
                             <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="fila mb--24">
+                        <div class="col-100 columna__6--md mb--24 mb-md-0">
                             <label for="filter-anio-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                             <select id="filter-anio-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todos">Todos</option>
@@ -175,7 +175,7 @@ rsort($oc_anios_organo);
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-100 columna__6--md">
                             <label for="filter-tipo-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                             <select id="filter-tipo-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todas">Todas</option>
@@ -194,28 +194,28 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
                         <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comision">
-                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                            Ver más sesiones <svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: ÓRGANO DE GOBIERNO -->
                 <div class="content-section d-none" id="sec-organo">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="fila mb--48">
+                        <div class="col-100">
                             <h2 class="cp-recursos__titulo mb-2">ÓRGANO DE GOBIERNO</h2>
                         </div>
                     </div>
 
                     <?php sesna_render_oc_stats_cards($oc_stats_organo, false); ?>
 
-                    <div class="row mb-3">
-                        <div class="col-12">
+                    <div class="fila mb--24">
+                        <div class="col-100">
                             <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="fila mb--24">
+                        <div class="col-100 columna__6--md mb--24 mb-md-0">
                             <label for="filter-anio-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                             <select id="filter-anio-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todos">Todos</option>
@@ -224,7 +224,7 @@ rsort($oc_anios_organo);
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-100 columna__6--md">
                             <label for="filter-tipo-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                             <select id="filter-tipo-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todas">Todas</option>
@@ -243,15 +243,15 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
                         <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-organo">
-                            Ver más sesiones <i class="bi bi-chevron-down"></i>
+                            Ver más sesiones <svg  width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: RECOMENDACIONES -->
                 <div class="content-section d-none" id="sec-recomendaciones">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="fila mb--48">
+                        <div class="col-100">
                             <h2 class="cp-recursos__titulo mb-2">RECOMENDACIONES NO VINCULANTES</h2>
                         </div>
                     </div>
@@ -267,8 +267,8 @@ rsort($oc_anios_organo);
 
                 <!-- SECTION: EXHORTOS -->
                 <div class="content-section d-none" id="sec-exhortos">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="fila mb--48">
+                        <div class="col-100">
                             <h2 class="cp-recursos__titulo mb-2">EXHORTOS</h2>
                         </div>
                     </div>

@@ -119,7 +119,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="bi bi-bar-chart-line" style="color: #fff;"></i>
+                <svg  style="color: #fff;" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1zm1 12h2V2h-2zm-3 0V7H7v7zm-5 0v-3H2v3z"/></svg>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Información Financiera</h2>
@@ -127,7 +127,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="bi bi-search"></i>
+            <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             <input type="search" id="finSearchInput" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
@@ -141,7 +141,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                 <div class="d-flex align-items-center justify-content-between mb-2 px-1 pt-1">
                     <div class="d-flex align-items-center gap-2">
                         <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: #F9F0F3;">
-                            <i class="bi bi-file-earmark-text" style="color: #611232;"></i>
+                            <svg  style="color: #611232;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                         </div>
                         <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232;">Estados Financieros</h3>
                     </div>
@@ -154,7 +154,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                         <div class="fin-tree-node">
                             <button type="button" class="fin-tree-label" data-fin-toggle="<?php echo esc_attr( $anio_id ); ?>">
                                 <span><?php echo esc_html( $anio ); ?></span>
-                                <i class="bi bi-chevron-down fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>"></i>
+                                <svg class="fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                             </button>
                             <div class="fin-tree-children <?php echo $anio_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $anio_id ); ?>">
                                 <?php foreach ( $fin_orden_trimestres as $trimestre ) :
@@ -170,7 +170,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                         <div class="fin-tree-node fin-tree-node--sub">
                                             <button type="button" class="fin-tree-label fin-tree-label--sub" data-fin-toggle="<?php echo esc_attr( $trim_id ); ?>">
                                                 <span><?php echo esc_html( $trimestre ); ?></span>
-                                                <i class="bi bi-chevron-down fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>"></i>
+                                                <svg class="fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
                                             </button>
                                             <div class="fin-tree-children <?php echo $trim_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $trim_id ); ?>">
                                                 <?php foreach ( $fin_orden_meses as $mes ) :
@@ -216,12 +216,12 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                         <?php
                         $fin_trail_partes = array_map( 'trim', explode( '>', $fin_default_trail ) );
                         foreach ( $fin_trail_partes as $idx => $parte ) :
-                            if ( $idx > 0 ) : ?><i class="bi bi-chevron-right fin-trail__sep"></i><?php endif; ?>
+                            if ( $idx > 0 ) : ?><svg class="fin-trail__sep" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg><?php endif; ?>
                             <span class="fin-trail__item <?php echo ( $idx === count( $fin_trail_partes ) - 1 ) ? 'fin-trail__item--current' : ''; ?>"><?php echo esc_html( $parte ); ?></span>
                         <?php endforeach; ?>
                     </nav>
                     <button type="button" class="fin-collapse-btn" id="finCollapseBtn">
-                        <span id="finCollapseBtnText">Contraer lista</span> <i class="bi bi-chevron-up" id="finCollapseBtnIcon"></i>
+                        <span id="finCollapseBtnText">Contraer lista</span> <svg  id="finCollapseBtnIcon" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/></svg>
                     </button>
                 </div>
 
@@ -249,7 +249,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                                data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                                 <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                                 <span class="fin-doc-action">
-                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
+                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
                                                     <span class="visually-hidden">Ver documento</span>
                                                 </span>
                                             </a>
@@ -272,7 +272,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                            data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                             <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                             <span class="fin-doc-action">
-                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="bi bi-file-earmark-text"></i></span>
+                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></span>
                                                 <span class="visually-hidden">Ver documento</span>
                                             </span>
                                         </a>
@@ -292,20 +292,21 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
         <div class="col-lg-3">
             <div class="card border rounded-4 shadow-sm p-3 mb-4" style="border-color: #E9ECEF !important;">
                 <div class="d-flex align-items-start gap-2 mb-3 px-1 pt-1">
-                    <i class="bi bi-file-earmark-text flex-shrink-0 mt-1" style="color: #611232;"></i>
+                    <svg class="flex-shrink-0 mt-1" style="color: #611232;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                     <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232; line-height: 1.3;">Dictámenes de Estados Financieros y Presupuestarios</h3>
                 </div>
                 <div class="d-flex flex-column">
                     <?php foreach ( $fin_dictamenes as $anio_dict => $doc ) : ?>
                         <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener" class="fin-side-link">
                             <span><?php echo esc_html( $anio_dict ); ?></span>
-                            <i class="bi bi-chevron-right"></i>
+                            <svg  width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
                         </a>
                     <?php endforeach; ?>
                 </div>
             </div>
             <div class="fin-info-box">
-                <i class="bi bi-info-circle flex-shrink-0"></i>
+                <svg class="flex-shrink-0" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
                 <span>Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.</span>
             </div>
         </div>
@@ -315,7 +316,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <!-- Nota al pie -->
     <div class="fin-footer-note d-flex align-items-center gap-3 mt-4">
         <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-            <i class="bi bi-shield-check" style="color: #fff;"></i>
+            <svg  style="color: #fff;" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
         </div>
         <p class="mb-0 font-noto-sans text-muted">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
     </div>
@@ -354,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var trailEl = document.getElementById('finTrail');
             var partes = this.dataset.finTrail.split(' > ');
             trailEl.innerHTML = partes.map(function (p, i) {
-                var sep = i > 0 ? '<i class="bi bi-chevron-right fin-trail__sep"></i>' : '';
+                var sep = i > 0 ? '<svg class="fin-trail__sep" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>' : '';
                 var cls = (i === partes.length - 1) ? 'fin-trail__item fin-trail__item--current' : 'fin-trail__item';
                 return sep + '<span class="' + cls + '">' + p + '</span>';
             }).join('');

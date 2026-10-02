@@ -12,10 +12,10 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="bi bi-house-door" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><svg  aria-hidden="true" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url( '/acciones-y-programas/' ) ); ?>">Acciones y Programas</a>
@@ -28,7 +28,7 @@ get_header();
         </div>
     </nav>
 
-    <div class="container pt-4 pb-5">
+    <div class="contenedor pt--32 pb--56">
         <?php get_template_part( 'template-parts/administracion-finanzas/informacion-financiera-contenido' ); ?>
     </div>
 

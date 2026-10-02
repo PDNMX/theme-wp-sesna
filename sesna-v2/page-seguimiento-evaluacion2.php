@@ -8,16 +8,16 @@ get_header();
 		<b style="font-size:37px; text-align:center;">Sistema de Seguimiento y Evaluación del Sistema Nacional Anticorrupción</b>
 	</h1>
 	</div>
-	<div id="seguimiento" class="container">
-	<div class="row">
-	<div class="col-12">
+	<div id="seguimiento" class="contenedor">
+	<div class="fila">
+	<div class="col-100">
 				
 	<h1>El artículo 6 de la Ley General del Sistema Nacional Anticorrupción (LGSNA) indica que el SNA es una instancia cuya finalidad es establecer, articular y evaluar la política en materia de combate a la corrupción. Dada esta atribución, el 12 de enero de 2024, el Sistema de Seguimiento y Evaluación (SiSE) del SNA fue aprobado por el Comité Coordinador (CC).</h1>
 	<h1>	
 			El SiSE del SNA es un conjunto de herramientas metodológicas e informáticas que brindarán un panorama amplio tanto de los avances en la implementación de la PNA, a través de los PI-PNA y PI-PEA, como de los efectos positivos que el SNA está generando. Estas herramientas facilitarán la obtención de evidencia, para analizar los resultados de la política pública anticorrupción y fortalecer la toma de decisiones en la materia. Asimismo, promoverá la rendición de cuentas a la ciudadanía respecto al desempeño institucional para la atención del problema público de corrupción.
 	</h1>
 		<h1>
-			<div class="col-12 text-center">
+			<div class="col-100 text-center">
 			<a href="https://www.sesna.gob.mx/wp-content/uploads/2024/01/Sistema-de-Seguimiento-y-Evaluacion-SiSE-SNA_CC-SNA.pdf" 			  class="btn btn-secondary mt-auto" target="_blank" role="button">Descargar 
             <i class="fas fa-download"></i>
          	 </a>
@@ -124,7 +124,7 @@ get_header();
 			
 		</h1>	
 		<h1>
-			<div class="col-12 text-center">
+			<div class="col-100 text-center">
 			<a href="https://www.sesna.gob.mx/wp-content/uploads/2024/08/Informe-de-avances-de-los-Indicadores-Nacionales_2024.pdf" 			  class="btn btn-secondary mt-auto" target="_blank" role="button">Descargar informe
             <i class="fas fa-download"></i>
          	 </a>
