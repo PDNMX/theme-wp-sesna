@@ -46,11 +46,11 @@ wp_reset_postdata();
 <div class="page-transparencia-comite front-page-bg pb-5">
     <!-- Migas de pan (Breadcrumb) -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd snd-home"></i> Inicio
+                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -62,11 +62,11 @@ wp_reset_postdata();
     </nav>
 
     <!-- Contenedor Principal -->
-    <div class="container py-4">
-        
+    <div class="contenedor py-4">
+
         <!-- Títulos -->
-        <div class="row mb-4">
-            <div class="col-12">
+        <div class="reticulaGrid__12 mb-4">
+            <div class="columna__12">
                 <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Comité de Transparencia</h1>
             </div>
         </div>
@@ -76,12 +76,12 @@ wp_reset_postdata();
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="snd snd-list"></i> Actas
+                        <i class="snd snd-list" aria-hidden="true"></i> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="resoluciones-tab" data-bs-toggle="tab" data-bs-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="snd snd-checkmark--filled"></i> Resoluciones
+                        <i class="snd snd-checkmark--filled" aria-hidden="true"></i> Resoluciones
                     </button>
                 </li>
             </ul>
@@ -92,12 +92,12 @@ wp_reset_postdata();
             <div class="tab-pane show active" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="snd-star">
                 
                 <!-- Filtros Sesiones -->
-                <div class="row mb-5 align-items-end">
-                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                <div class="reticulaGrid__12 mb-5 align-items-end">
+                    <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
                         <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
-                            <?php 
+                            <?php
                             $anios_sesiones = array_unique(array_column($sesiones, 'anio'));
                             rsort($anios_sesiones);
                             foreach($anios_sesiones as $a): ?>
@@ -105,7 +105,7 @@ wp_reset_postdata();
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="columna__12 columna__6--sm columna__4--md">
                         <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                         <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todas">Todas</option>
@@ -136,11 +136,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon"></i>
+                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -151,8 +151,8 @@ wp_reset_postdata();
 
                 <!-- Ver más Sesiones -->
                 <div class="text-center mt-5" id="sesiones-load-more-container">
-                    <a href="javascript:void(0)" id="sesiones-btn-more" class="tx-comite-btn-more">
-                        Ver más sesiones <i class="snd snd-chevron--down"></i>
+                    <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
+                        Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -162,12 +162,12 @@ wp_reset_postdata();
             <div class="tab-pane" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="snd-star">
                 
                 <!-- Filtros Resoluciones -->
-                <div class="row mb-5 align-items-end">
-                    <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                <div class="reticulaGrid__12 mb-5 align-items-end">
+                    <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
                         <label for="filter-anio-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio-res" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
-                            <?php 
+                            <?php
                             $anios_resoluciones = array_unique(array_column($resoluciones, 'anio'));
                             rsort($anios_resoluciones);
                             foreach($anios_resoluciones as $a): ?>
@@ -175,11 +175,11 @@ wp_reset_postdata();
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="columna__12 columna__6--sm columna__6--md">
                         <label for="search-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Número de resolución</label>
                         <div class="position-relative">
                             <input type="text" id="search-res" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Buscar resolución...">
-                            <i class="snd snd-search tx-comite-search-icon"></i>
+                            <i class="snd snd-search tx-comite-search-icon" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -205,11 +205,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon"></i>
+                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Resolución</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -220,8 +220,8 @@ wp_reset_postdata();
 
                 <!-- Ver más Resoluciones -->
                 <div class="text-center mt-5" id="resoluciones-load-more-container">
-                    <a href="javascript:void(0)" id="resoluciones-btn-more" class="tx-comite-btn-more">
-                        Ver más resoluciones <i class="snd snd-chevron--down"></i>
+                    <a href="javascript:void(0)" id="resoluciones-btn-more" class="boton__fantasma">
+                        Ver más resoluciones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -233,14 +233,14 @@ wp_reset_postdata();
 
 <style>
 .tx-pdf-action-btn {
-    color: #9f2241;
-    border: 1px solid #9f2241;
+    color: var(--color-burgundi);
+    border: 1px solid var(--color-burgundi);
     border-radius: 8px;
     background-color: transparent;
     transition: all 0.2s ease-in-out;
 }
 .tx-pdf-action-btn:hover {
-    background-color: #9f2241;
+    background-color: var(--color-burgundi);
     color: #ffffff;
 </style>
 

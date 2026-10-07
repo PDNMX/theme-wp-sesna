@@ -3,18 +3,18 @@
  * Template part para la sección de Noticias y Actividades
  */
 ?>
-<section class="pt-5 pb-5 sna-noticias-section">
-    <div class="container mt-5 mb-5 pb-4">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
-                <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
+<section class="pt--48 pb--48 sna-noticias-section">
+    <div class="contenedor mt--48 mb--48 pb--24">
+        <div class="fila justify-content-center mb--48">
+            <div class="columna__12 columna__8--md texto--centro">
+                <h2 class="peso--negrita font-patria sna-section-title sesna-section-heading">Noticias y <span class="color--pguinda600">Actividades</span></h2>
                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="sna-entradas-archive-link">
-                    Ver todas las noticias clasificadas <i class="snd snd-arrow--right ms-1"></i>
+                    Ver todas las noticias clasificadas <i class="snd snd-arrow--right ml--4" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
-        
-        <div class="row g-4 justify-content-center">
+
+        <div class="fila justify-content-center">
             <?php
             $args = array(
                 'post_type'           => 'post',
@@ -27,8 +27,8 @@
             if ($noticias_query->have_posts()) :
                 while ($noticias_query->have_posts()) : $noticias_query->the_post();
                     ?>
-                    <div class="col-lg-4 col-md-6">
-                        <a href="<?php the_permalink(); ?>" class="card h-100 border-0 sna-noticias-card position-relative text-decoration-none text-dark d-flex flex-column">
+                    <div class="columna__12 columna__6--md columna__4--lg">
+                        <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
                             
                             <!-- Date Ribbon -->
                             <div class="sna-noticias-date-badge">
@@ -41,23 +41,23 @@
                                 <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
                                 <?php else : ?>
-                                    <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center text-muted sna-noticias-img">
-                                        <i class="snd snd-image fs-1"></i>
+                                    <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 tamano--secundario sna-noticias-img">
+                                        <i class="snd snd-image tamano--1" aria-hidden="true"></i>
                                     </div>
                                 <?php endif; ?>
                             </div>
 
                             <!-- Contenido -->
-                            <div class="card-body d-flex flex-column text-center px-3 pt-4 pb-2">
-                                <h4 class="fw-bold mb-3 sna-noticias-title text-dark">
+                            <div class="flex--1-auto muestra--flex flex-direction-column texto--centro px--16 pt--24 pb--8">
+                                <h3 class="h4 peso--negrita mb--16 sna-noticias-title color--neutro800">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
-                                </h4>
-                                <p class="text-muted mb-4 sna-noticias-excerpt">
+                                </h3>
+                                <p class="color--neutro600 tamano--secundario mb--24 sna-noticias-excerpt">
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
-                                <div class="mt-auto pb-3">
-                                    <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
-                                        Leer más <i class="snd snd-arrow--right ms-2"></i>
+                                <div class="mt--auto pb--16">
+                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda900">
+                                        Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
                                     </span>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                 wp_reset_postdata();
             else :
                 ?>
-                <div class="col-12 text-center">
-                    <p class="text-muted">No hay noticias disponibles por el momento.</p>
+                <div class="columna__12 texto--centro">
+                    <p class="color--neutro600 tamano--secundario">No hay noticias disponibles por el momento.</p>
                 </div>
             <?php endif; ?>
         </div>

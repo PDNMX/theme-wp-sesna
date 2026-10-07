@@ -22,9 +22,9 @@ $sna_meses = [
 	9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre',
 ];
 ?>
-<div class="container">
+<div class="contenedor">
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <ol class="breadcrumb mb-0">
+        <ol class="breadcrumb mb--0">
             <li class="breadcrumb-item">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
             </li>
@@ -33,12 +33,12 @@ $sna_meses = [
     </nav>
 </div>
 
-<section class="pt-5 pb-5 sna-entradas-section" data-active-familia="<?php echo esc_attr($sna_active_familia); ?>">
-    <div class="container mt-4 mb-5 pb-4">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
-                <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
-                <p class="text-muted">Recorre el contenido de la SESNA organizado por tema de interés.</p>
+<section class="pt--48 pb--48 sna-entradas-section" data-active-familia="<?php echo esc_attr($sna_active_familia); ?>">
+    <div class="contenedor mt--24 mb--48 pb--24">
+        <div class="fila justify-content-center mb--48">
+            <div class="columna__12 columna__8--md texto--centro">
+                <h2 class="peso--negrita font-patria sna-section-title sesna-section-heading">Noticias y <span class="color--pguinda600">Actividades</span></h2>
+                <p class="color--neutro600 tamano--secundario">Recorre el contenido de la SESNA organizado por tema de interés.</p>
             </div>
         </div>
 
@@ -68,11 +68,11 @@ $sna_meses = [
             </div>
 
             <button type="button" id="sna-entradas-filter-apply" class="sna-entradas-filter-apply">
-                Aplicar filtro <i class="snd snd-filter ms-1"></i>
+                Aplicar filtro <i class="snd snd-filter ml--4" aria-hidden="true"></i>
             </button>
 
             <button type="button" id="sna-entradas-filter-clear" class="sna-entradas-filter-clear" style="display:none;">
-                Quitar filtros <i class="snd snd-close ms-1"></i>
+                Quitar filtros <i class="snd snd-close ml--4" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -98,7 +98,7 @@ $sna_meses = [
         <?php foreach ($sna_familias as $key => $familia) :
             $is_first = ($key === $sna_active_familia);
         ?>
-            <div class="row g-4 justify-content-center sna-entradas-panel<?php echo $is_first ? ' active' : ''; ?>"
+            <div class="fila justify-content-center sna-entradas-panel<?php echo $is_first ? ' active' : ''; ?>"
                  id="panel-<?php echo esc_attr($key); ?>"
                  role="tabpanel"
                  aria-labelledby="tab-<?php echo esc_attr($key); ?>"
@@ -108,9 +108,9 @@ $sna_meses = [
             </div>
         <?php endforeach; ?>
 
-        <div class="text-center mt-4">
+        <div class="texto--centro mt--24">
             <button type="button" id="sna-entradas-load-more" class="sna-entradas-load-more-btn" style="display:none;">
-                Cargar más <i class="snd snd-renew ms-2"></i>
+                Cargar más <i class="snd snd-renew ml--8" aria-hidden="true"></i>
             </button>
         </div>
     </div>

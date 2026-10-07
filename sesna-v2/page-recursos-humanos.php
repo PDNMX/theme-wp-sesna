@@ -5,18 +5,18 @@ get_header();
 function print_table_headers()
 {
 ?>
-    <div class="container">
-        <div class="row" id="filaTitulos">
-            <div class="col-2 d-md-block d-none">
+    <div class="contenedor">
+        <div class="reticulaGrid__12" id="filaTitulos">
+            <div class="columna__2 d-md-block d-none">
                 <p>AÑO:</p>
             </div>
-            <div class="col-4 d-md-block d-none">
+            <div class="columna__4 d-md-block d-none">
                 <p>NOMBRE:</p>
             </div>
-            <div class="col-2 d-md-block d-none">
+            <div class="columna__2 d-md-block d-none">
                 <p>FECHA:</p>
             </div>
-            <div class="col-4 d-md-block d-none">
+            <div class="columna__4 d-md-block d-none">
                 <p>URL DEL DOCUMENTO:</p>
             </div>
         </div>
@@ -27,9 +27,9 @@ function print_table_headers()
 function print_empty_content()
 {
 ?>
-    <div class="container scrollbar scrollbar-primary" id="tableContainer">
-        <div class="row">
-            <div class="col-12 text-center">
+    <div class="contenedor scrollbar scrollbar-primary" id="tableContainer">
+        <div class="reticulaGrid__12">
+            <div class="columna__12 text-center">
                 <p style="margin: 20px 0; color: #888; font-size: 1.2rem">
                     No hay documentos disponibles en esta sección.
                 </p>
@@ -53,25 +53,25 @@ function print_document($year, $title, $date, $url)
     // Determinar los atributos adicionales para la descarga
     $download_attrs = $is_download ? 'download' : '';
 ?>
-    <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12" id="year">
+    <div class="reticulaGrid__12">
+        <div class="columna__12 columna__2--md" id="year">
             <p class="year"><?php echo $year; ?></p>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="columna__12 columna__4--md">
             <p class="nombreActa" style="text-align: left; margin: 0">
                 <?php echo $title; ?>
             </p>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-12 text-center" id="fechaContainer">
+        <div class="columna__12 columna__2--md text-center" id="fechaContainer">
             <p class="fecha"><?php echo $date; ?></p>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-            <a href="<?php echo $url; ?>"
-                class="btn btn-light"
+        <div class="columna__12 columna__4--md text-center">
+            <a rel="noopener" href="<?php echo $url; ?>"
+                class="boton__secundario"
                 <?php echo $download_attrs; ?>
                 target="_blank">
                 <?php echo $button_text; ?>
-                <i class="fas <?php echo $is_download ? 'fa-download' : 'fa-link'; ?>"></i>
+                <i class="fas <?php echo $is_download ? 'fa-download' : 'fa-link'; ?>" aria-hidden="true"></i>
             </a>
         </div>
     </div>
@@ -92,7 +92,7 @@ function print_nav_tab($id, $icon, $text, $isActive = false)
             aria-selected="<?php echo $isActive ? 'true' : 'false'; ?>"
             style="display: flex; align-items: center; justify-content: center; font-size: 0.85rem; height: 60px; padding: 5px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
             <?php if ($icon): ?>
-                <i class="fas fa-<?php echo $icon; ?>" style="margin-right: 8px; font-size: 1rem"></i>
+                <i class="fas fa-<?php echo $icon; ?>" aria-hidden="true" style="margin-right: 8px; font-size: 1rem"></i>
             <?php endif; ?>
             <span><?php echo $text; ?></span>
         </a>
@@ -290,7 +290,7 @@ $documentos = [
 </div>
 
 <!-- Navegación principal -->
-<div class="container" id="comiteTransparencia">
+<div class="contenedor" id="comiteTransparencia">
     <ul class="nav nav-tabs d-flex justify-content-between flex-nowrap" id="myTab" role="tablist" style="margin-bottom: 5px">
         <?php
         $main_tabs = [
@@ -321,7 +321,7 @@ $documentos = [
 
         <!-- Pestaña SPC -->
         <div class="tab-pane fade" id="spc" role="tabpanel" aria-labelledby="spc-tab">
-            <div class="container" style="padding: 0">
+            <div class="contenedor" style="padding: 0">
                 <!-- Submenú SPC -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" id="tab-spc" role="tablist" style="margin-bottom: 5px; padding: 0">
                     <?php
@@ -351,7 +351,7 @@ $documentos = [
                             <?php
                             print_table_headers();
                             if (isset($documentos['spc'][$tab['id']]) && !empty($documentos['spc'][$tab['id']])) {
-                                echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                                echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                                 foreach ($documentos['spc'][$tab['id']] as $doc) {
                                     print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                                 }
@@ -371,7 +371,7 @@ $documentos = [
             <?php
             print_table_headers();
             if (isset($documentos['cultura']) && !empty($documentos['cultura'])) {
-                echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                 foreach ($documentos['cultura'] as $doc) {
                     print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                 }
@@ -384,7 +384,7 @@ $documentos = [
 
         <!-- Pestaña IGG -->
         <div class="tab-pane fade" id="igg" role="tabpanel" aria-labelledby="igg-tab">
-            <div class="container" style="padding: 0">
+            <div class="contenedor" style="padding: 0">
                 <!-- Submenú IGG -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" role="tablist" style="margin-bottom: 5px; padding: 0">
                     <!-- Continuación del submenú IGG -->
@@ -411,7 +411,7 @@ $documentos = [
                         <?php
                         print_table_headers();
                         if (isset($documentos['igg']['informe-gestion']) && !empty($documentos['igg']['informe-gestion'])) {
-                            echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                            echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                             foreach ($documentos['igg']['informe-gestion'] as $doc) {
                                 print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                             }
@@ -427,7 +427,7 @@ $documentos = [
                         <?php
                         print_table_headers();
                         if (isset($documentos['igg']['memorias-documentales']) && !empty($documentos['igg']['memorias-documentales'])) {
-                            echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                            echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                             foreach ($documentos['igg']['memorias-documentales'] as $doc) {
                                 print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                             }
@@ -443,7 +443,7 @@ $documentos = [
 
         <!-- Pestaña CPC -->
         <div class="tab-pane fade" id="cpc" role="tabpanel" aria-labelledby="cpc-tab">
-            <div class="container" style="padding: 0">
+            <div class="contenedor" style="padding: 0">
                 <!-- Submenú CPC -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" role="tablist" style="margin-bottom: 5px; padding: 0">
                     <li class="nav-item" style="flex: 1">
@@ -461,7 +461,7 @@ $documentos = [
                         <?php
                         print_table_headers();
                         if (isset($documentos['cpc']['informes-mensuales']) && !empty($documentos['cpc']['informes-mensuales'])) {
-                            echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                            echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                             foreach ($documentos['cpc']['informes-mensuales'] as $doc) {
                                 print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                             }
@@ -480,7 +480,7 @@ $documentos = [
             <?php
             print_table_headers();
             if (isset($documentos['otros']) && !empty($documentos['otros'])) {
-                echo '<div class="container scrollbar scrollbar-primary" id="tableContainer">';
+                echo '<div class="contenedor scrollbar scrollbar-primary" id="tableContainer">';
                 foreach ($documentos['otros'] as $doc) {
                     print_document($doc['year'], $doc['title'], $doc['date'], $doc['url']);
                 }

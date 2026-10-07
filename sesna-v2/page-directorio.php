@@ -3,7 +3,7 @@
 <div class="page-directorio">
 
   <!-- Breadcrumb -->
-  <div class="container">
+  <div class="contenedor">
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item">
@@ -16,9 +16,9 @@
 
   <!-- Hero -->
   <section class="sesna-page-hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-7 col-md-9 position-relative z-1 mb-4 mb-lg-0">
+    <div class="contenedor">
+      <div class="fila align-items-center">
+        <div class="columna__12 columna__9--md columna__7--lg position-relative z-1 mb-4 mb-lg-0">
           <h1 class="sesna-hero__title">Directorio</h1>
           <div class="hero-separator"></div>
           <p class="sesna-hero__subtitle">
@@ -89,11 +89,11 @@
 
   <!-- Contenido principal -->
   <section class="dir-content">
-    <div class="container">
-      <div class="row g-4">
+    <div class="contenedor">
+      <div class="reticulaGrid__12 g-4">
 
         <!-- Col izquierda: Estructura Orgánica -->
-        <div class="col-lg-6">
+        <div class="columna__12 columna__6--lg">
           <div class="dir-card">
             <div class="dir-org__header">
               <h2 class="dir-org__title">Estructura Orgánica</h2>
@@ -113,7 +113,7 @@
                        aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"
                        tabindex="snd-star">
                     <span class="dir-org__dot" aria-hidden="true"></span>
-                    <span class="dir-org__item-icon" aria-hidden="true"><i class="snd snd-building"></i></span>
+                    <span class="dir-org__item-icon" aria-hidden="true"><i class="snd snd-building" aria-hidden="true"></i></span>
                     <span class="dir-org__item-text"><?php echo esc_html($area['estructura']); ?></span>
                   </div>
                 <?php endforeach; ?>
@@ -140,7 +140,7 @@
                      aria-selected="false"
                      tabindex="snd-star">
                   <span class="dir-org__dot" aria-hidden="true"></span>
-                  <span class="dir-org__item-icon" aria-hidden="true"><i class="snd snd-building"></i></span>
+                  <span class="dir-org__item-icon" aria-hidden="true"><i class="snd snd-building" aria-hidden="true"></i></span>
                   <span class="dir-org__item-text"><?php echo esc_html($oficina['estructura']); ?></span>
                 </div>
               <?php endforeach; ?>
@@ -152,7 +152,7 @@
         </div>
 
         <!-- Col derecha: Ficha del titular -->
-        <div class="col-lg-6">
+        <div class="columna__12 columna__6--lg">
           <div class="dir-card">
             <div class="dir-ficha" id="dir-ficha">
               <div class="dir-ficha__foto-wrap">
@@ -161,11 +161,11 @@
                        src="<?php echo esc_url($first['foto_titular']); ?>"
                        alt="<?php echo esc_attr($first['nombre_titular']); ?>">
                   <div class="dir-ficha__foto dir-ficha__foto--placeholder d-none" id="dir-foto-placeholder">
-                    <i class="snd snd-user"></i>
+                    <i class="snd snd-user" aria-hidden="true"></i>
                   </div>
                 <?php else : ?>
                   <div class="dir-ficha__foto dir-ficha__foto--placeholder" id="dir-foto-placeholder">
-                    <i class="snd snd-user"></i>
+                    <i class="snd snd-user" aria-hidden="true"></i>
                   </div>
                   <img class="dir-ficha__foto d-none" id="dir-foto" src="" alt="">
                 <?php endif; ?>
@@ -179,7 +179,7 @@
                 </h3>
                 <div class="dir-ficha__cargo-row <?php echo ($first && $first['encargado']) ? '' : 'd-none'; ?>" id="dir-encargado-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-user"></i>
+                    <i class="snd snd-user" aria-hidden="true"></i>
                   </span>
                   <span class="dir-ficha__cargo" id="dir-encargado">
                     <?php echo ($first && $first['encargado']) ? esc_html($first['encargado']) : ''; ?>
@@ -188,7 +188,7 @@
                 <hr class="dir-ficha__separator <?php echo ($first && $first['encargado']) ? '' : 'd-none'; ?>" id="dir-encargado-sep">
                 <div class="dir-ficha__cargo-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-user"></i>
+                    <i class="snd snd-user" aria-hidden="true"></i>
                   </span>
                   <span class="dir-ficha__cargo" id="dir-cargo">
                     <?php echo $first ? esc_html($first['cargo_titular']) : '—'; ?>
@@ -197,7 +197,7 @@
                 <hr class="dir-ficha__separator">
                 <div class="dir-ficha__cargo-row">
                   <span class="dir-ficha__icon-circle" aria-hidden="true">
-                    <i class="snd snd-email"></i>
+                    <i class="snd snd-email" aria-hidden="true"></i>
                   </span>
                   <a class="dir-ficha__email" id="dir-email"
                      href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
@@ -219,10 +219,10 @@
 
   <!-- CTA Contacto institucional -->
   <section class="dir-contact-cta">
-    <div class="container">
+    <div class="contenedor">
       <div class="dir-contact-cta__card">
         <div class="dir-contact-cta__icon" aria-hidden="true">
-          <i class="snd snd-accessibility"></i>
+          <i class="snd snd-accessibility" aria-hidden="true"></i>
         </div>
         <div class="dir-contact-cta__body">
           <h4 class="dir-contact-cta__title">¿Necesitas más información?</h4>
@@ -240,28 +240,28 @@
     <div class="dir-modal__backdrop" id="dir-modal-backdrop"></div>
     <div class="dir-modal__content">
       <button class="dir-modal__close" id="dir-modal-close" aria-label="Cerrar">
-        <i class="snd snd-close"></i>
+        <i class="snd snd-close" aria-hidden="true"></i>
       </button>
       <div class="dir-modal__foto-wrap">
         <img class="dir-modal__foto" id="dir-modal-foto" src="" alt="">
         <div class="dir-modal__foto dir-modal__foto--placeholder d-none" id="dir-modal-placeholder">
-          <i class="snd snd-user"></i>
+          <i class="snd snd-user" aria-hidden="true"></i>
         </div>
       </div>
       <div class="dir-modal__info">
         <h3 class="dir-modal__nombre" id="dir-modal-nombre"></h3>
         <div class="dir-modal__cargo-row d-none" id="dir-modal-encargado-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user" aria-hidden="true"></i></span>
           <span class="dir-modal__cargo" id="dir-modal-encargado"></span>
         </div>
         <hr class="dir-ficha__separator d-none" id="dir-modal-encargado-sep">
         <div class="dir-modal__cargo-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-user" aria-hidden="true"></i></span>
           <span class="dir-modal__cargo" id="dir-modal-cargo"></span>
         </div>
         <hr class="dir-ficha__separator">
         <div class="dir-modal__cargo-row">
-          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-email"></i></span>
+          <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd snd-email" aria-hidden="true"></i></span>
           <a class="dir-ficha__email" id="dir-modal-email" href="#"></a>
         </div>
       </div>

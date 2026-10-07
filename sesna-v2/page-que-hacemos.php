@@ -7,15 +7,15 @@ get_header();
     <!-- Hero Section -->
     <section class="qh-hero">
         <!-- Floating icons -->
-        <i class="snd snd-document qh-floating-icon qh-fi-1"></i>
-        <i class="snd snd-chart--bar qh-floating-icon qh-fi-2"></i>
-        <i class="snd snd-chart--bar qh-floating-icon qh-fi-3"></i>
-        <i class="snd snd-security qh-floating-icon qh-fi-4"></i>
-        <i class="snd snd-screen qh-floating-icon qh-fi-5"></i>
+        <i class="snd snd-document qh-floating-icon qh-fi-1" aria-hidden="true"></i>
+        <i class="snd snd-chart--bar qh-floating-icon qh-fi-2" aria-hidden="true"></i>
+        <i class="snd snd-chart--bar qh-floating-icon qh-fi-3" aria-hidden="true"></i>
+        <i class="snd snd-security qh-floating-icon qh-fi-4" aria-hidden="true"></i>
+        <i class="snd snd-screen qh-floating-icon qh-fi-5" aria-hidden="true"></i>
 
-        <div class="container position-relative z-index-1">
-            <div class="row">
-                <div class="col-lg-7 col-md-8">
+        <div class="contenedor position-relative z-index-1">
+            <div class="reticulaGrid__12">
+                <div class="columna__12 columna__8--md columna__7--lg">
                     <span class="qh-hero-tag">Quiénes somos</span>
                     <h1 class="sesna-hero__title text-white mb-4">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
                     <p class="sesna-hero__subtitle text-white opacity-75 fw-light">
@@ -28,15 +28,15 @@ get_header();
 
     <!-- Video Section -->
     <section class="qh-video-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 col-md-8 mb-4 mb-lg-0 pe-lg-5">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 columna__8--md columna__5--lg mb-4 mb-lg-0 pe-lg-5">
                     <h2 class="sesna-section-title mb-4">Conoce a la SESNA</h2>
                     <p>
                         Descubre el papel de la Secretaría Ejecutiva dentro del Sistema Nacional Anticorrupción y cómo contribuye al fortalecimiento de la coordinación institucional, la generación de información estratégica y el desarrollo de herramientas para la prevención y el combate a la corrupción.
                     </p>
                 </div>
-                <div class="col-lg-7">
+                <div class="columna__12 columna__7--lg">
                     <div class="qh-video-wrapper ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden">
                         <iframe src="https://www.youtube.com/embed/6PQb_xTNpb0?rel=0" title="¿QUÉ HACEMOS? - SESNA" frameborder="snd-star" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
@@ -47,18 +47,18 @@ get_header();
 
     <!-- Misión y Visión Section -->
     <section class="qh-mv-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center">
+        <div class="contenedor">
+            <div class="fila justify-content-center mb-5">
+                <div class="columna__12 columna__8--md text-center">
                     <h2 class="sesna-section-title mb-3">Nuestra razón de ser</h2>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="reticulaGrid__12 justify-content-center">
                 <!-- Misión -->
-                <div class="col-md-6 mb-4">
+                <div class="columna__12 columna__6--md mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-chart--bar"></i>
+                            <i class="snd snd-chart--bar" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">MISIÓN</h3>
@@ -67,10 +67,10 @@ get_header();
                     </div>
                 </div>
                 <!-- Visión -->
-                <div class="col-md-6 mb-4">
+                <div class="columna__12 columna__6--md mb-4">
                     <div class="qh-mv-card rounded-4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-screen"></i>
+                            <i class="snd snd-screen" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="font-patria fw-bold text-burgundi mb-3">VISIÓN</h3>
@@ -84,38 +84,38 @@ get_header();
 
     <!-- Nuestra Labor Section -->
     <section class="qh-labor-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center">
+        <div class="contenedor">
+            <div class="fila justify-content-center mb-5">
+                <div class="columna__12 columna__8--md text-center">
                     <h2 class="sesna-section-title mb-3">Nuestra labor</h2>
                     <p class="text-muted mx-auto">
                         Contribuimos al fortalecimiento del Sistema Nacional Anticorrupción mediante la generación de conocimiento, el desarrollo de herramientas y la coordinación institucional.
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
+            <div class="reticulaGrid__12">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-disenamos.svg" alt="Diseñamos" class="sna-integrantes-icon-circle mb-4">
                         <h3 class="font-patria fw-bold text-burgundi mb-3">Diseñamos</h3>
                         <p class="text-muted mb-0">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-desarrollamos.svg" alt="Desarrollamos" class="sna-integrantes-icon-circle mb-4">
                         <h3 class="font-patria fw-bold text-burgundi mb-3">Desarrollamos</h3>
                         <p class="text-muted mb-0">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-analizamos.svg" alt="Analizamos" class="sna-integrantes-icon-circle mb-4">
                         <h3 class="font-patria fw-bold text-burgundi mb-3">Analizamos</h3>
                         <p class="text-muted mb-0">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-labor-card rounded-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-impulsamos.svg" alt="Impulsamos" class="sna-integrantes-icon-circle mb-4">
                         <h3 class="font-patria fw-bold text-burgundi mb-3">Impulsamos</h3>
@@ -128,89 +128,89 @@ get_header();
 
     <!-- Social Section -->
     <section class="qh-social-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center">
+        <div class="contenedor">
+            <div class="fila justify-content-center mb-5">
+                <div class="columna__12 columna__8--md text-center">
                     <h2 class="sesna-section-title mb-3">Mantente conectado con la SESNA</h2>
                     <p class="text-muted mx-auto">
                         Conoce nuestras actividades, publicaciones, herramientas, eventos y acciones a través de nuestros canales oficiales.
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="reticulaGrid__12">
                 <!-- X (Twitter) -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-x">
-                            <i class="snd snd-earth"></i>
+                            <i class="snd snd-earth" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="snd snd-checkmark--filled"></i>
+                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Noticias, comunicados y actualizaciones institucionales.</p>
-                            <a href="https://x.com/SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
+                            <a rel="noopener" href="https://x.com/SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- YouTube -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-yt">
-                            <i class="snd snd-logo--youtube"></i>
+                            <i class="snd snd-logo--youtube" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="snd snd-checkmark--filled"></i>
+                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb-4">Videos, transmisiones y contenido audiovisual.</p>
-                            <a href="https://www.youtube.com/@SESNAOficial" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
+                            <a rel="noopener" href="https://www.youtube.com/@SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Instagram -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-ig">
-                            <i class="snd snd-logo--instagram"></i>
+                            <i class="snd snd-logo--instagram" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="snd snd-checkmark--filled"></i>
+                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="mb-4">Actividades, campañas y contenido visual.</p>
-                            <a href="https://www.instagram.com/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
+                            <a rel="noopener" href="https://www.instagram.com/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- LinkedIn -->
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="qh-social-card rounded-4 position-relative">
                         <div class="qh-social-header qh-sh-in">
-                            <i class="snd snd-earth"></i>
+                            <i class="snd snd-earth" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt-2">
-                                SESNA <i class="snd snd-checkmark--filled"></i>
+                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="mb-4">Información institucional y profesional.</p>
-                            <a href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right"></i></a>
+                            <a rel="noopener" href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="qh-social-btn mt-auto stretched-link">Visitar <i class="snd snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

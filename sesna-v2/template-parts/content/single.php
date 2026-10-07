@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'sesna-single-article' ); ?>>
 
     <div class="sesna-single-wrapper">
-        <div class="container sesna-single-container">
+        <div class="contenedor sesna-single-container">
 
             <!-- Breadcrumb -->
             <nav class="sesna-single-breadcrumb" aria-label="Ruta de navegación">
@@ -12,8 +12,8 @@
                 <span class="current" aria-current="page"><?php echo esc_html( wp_trim_words( get_the_title(), 8, '…' ) ); ?></span>
             </nav>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-xl-8">
+            <div class="fila justify-content-center">
+                <div class="columna__12 columna__9--lg columna__8--xl">
 
                     <!-- Tarjeta del artículo -->
                     <div class="sesna-single-card">

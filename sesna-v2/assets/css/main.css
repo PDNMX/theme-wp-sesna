@@ -1,3 +1,12 @@
+/* Tipografía SESNA: el SND publica sus fuentes en rutas que hoy devuelven 404.
+   Patria se toma de la ruta oficial de GOB.mx; Noto Sans se autohospeda (OFL). */
+@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
 /* ============================================================
    SESNA v2 — Hoja de estilos principal
    Extiende el framework GOB.mx v3
@@ -236,11 +245,6 @@ html.sesna-highlight a:visited {
 #accessibility ul.accesibility .stepping:nth-child(2) { height: 10px !important; }
 #accessibility ul.accesibility .stepping:nth-child(3) { height: 14px !important; }
 
-/* ------------------------------------------------------------
-   Tipografía Institucional GOB.mx (Google Fonts)
-   ------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Noto+Sans:wght@300;400;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 /* ============================================================
    SND v1 — BRIDGE DE COMPATIBILIDAD
    Mapea variables SESNA a tokens SND para que el CSS existente
@@ -254,9 +258,9 @@ html.sesna-highlight a:visited {
     --color-burgundi:        var(--pguinda600, #9B2247);
     --color-teal-oscuro:     var(--pverde900, #002F2A);
     --color-teal:            var(--pverde500, #335955);
-    --color-dorado:          #a57f2c;
-    --color-dorado-claro:    #DDC9A3;
-    --color-bronce:          #BC955C;
+    --color-dorado:          var(--dorado600, #a57f2c);
+    --color-dorado-claro:    var(--dorado300, #DDC9A3);
+    --color-bronce:          var(--dorado500, #BC955C);
     --color-negro:           var(--neutro800, #161A1D);
     --color-gris:            var(--neutro500, #AAAAAA);
     --color-blanco:          var(--neutro100, #FFFFFF);
@@ -268,13 +272,13 @@ html.sesna-highlight a:visited {
     /* Sub-navbar — pguinda950 del SND */
     --color-subnav:          var(--pguinda950, #4A0C26);
 
-    /* Tipografía — solo Noto Sans y Patria (SND v1 permitidas) */
+    /* Tipografía — solo Noto Sans y Patria (SND v1 permitidas).
+       Ambas ya vienen con @font-face desde snd-guinda.css (CDN) — no requieren import propio. */
     --font-patria:    'Patria', serif;
     --font-noto-sans: 'Noto Sans', sans-serif;
-    /* Montserrat, GMX, Atkinson: NO permitidas en SND — mantener solo como fallback accesibilidad */
+    /* Montserrat y GMX: nombres legacy de v3, mapeados a las fuentes SND permitidas */
     --font-montserrat: var(--font-noto-sans);
     --font-gmx:        var(--font-patria);
-    --font-atkinson:   'Atkinson Hyperlegible', sans-serif; /* solo widget accesibilidad */
 
     /* Color de texto */
     --text-color-main: var(--neutro800, #161A1D);
@@ -339,6 +343,17 @@ h3,
     color: var(--text-color-main);
 }
 
+/* SND Fase 4 — Módulo 4: page-como-vamos.php tenía 3 <h1> "¿Cómo vamos?" repetidos
+   más 9 <h1> de números de tarjeta, todos sin tamaño propio (heredaban el default
+   de <h1> del navegador, 30.72px/700). Al bajar su nivel semántico (h1→h2/h3) para
+   dejar un solo <h1> real por página, fijamos aquí el tamaño por CLASE —no por
+   etiqueta— para que el cambio de jerarquía no altere el estilo visual. */
+.title-vamos,
+.pricing-card-title {
+    font-size: 1.92rem;
+    font-weight: 700;
+}
+
 /* Documentación Oficial / Textos corridos oficiales */
 .font-montserrat {
     font-family: var(--font-montserrat);
@@ -366,6 +381,7 @@ body.home main.page,
 body.front-page main.page {
     padding-top: 0;
 }
+
 
 /* front-page: el banner arranca justo debajo de los navbars.
    El JS (main.js) actualiza --sesna-offset con el valor real. */
@@ -395,81 +411,65 @@ body.front-page main.page {
    header .mexico de GOB.mx (inyectado por gobmx.js a top:0).
    ------------------------------------------------------------ */
 
-/* El SND ya define .subheader con background:var(--gama950) = #4A0C26 */
+/* El ícono hamburger del SND CSS usa una ruta CDN que da 404 en local.
+   Sobreescribimos con nuestra copia local del mismo ícono.
+   Ruta relativa desde assets/css/ → ../../img/icons-base/
+   El SVG fuente es negro (#000, regla SND) — el blanco se aplica aquí con .icono--blanco. */
+.sesna-subheader .mexico__summary {
+    background-image: url('../../img/icons-base/header-menu.svg') !important;
+}
+.sesna-subheader .mexico__summary {
+    filter: brightness(0) invert(1);
+}
+
+/* El SND define .subheader { background:var(--gama950); min-height:52px; position:static }
+   Nosotros solo agregamos la posición fija y z-index para SESNA */
 .sesna-subheader {
     position: fixed;
-    top: 94px; /* fallback — JS actualiza con height real; 94px = altura típica del nav GOB.mx v3 */
+    top: 94px; /* fallback — JS actualiza con height real del nav GOB.mx */
     width: 100%;
     z-index: 999;
-    /* min-height ya viene del SND .subheader */
 }
 
+/* El SND define .subheader__contenedor { display:flex; position:relative; align-items:center }
+   Solo ajustamos max-width para SESNA */
 .sesna-subheader__inner {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
     max-width: 1440px;
-    margin: 0 auto;
-    min-height: 52px;
 }
 
-/* details SND — contenedor principal del menú */
+/* details.mexico__details es flex-item dentro de .subheader__contenedor.
+   NO ponemos display:flex en el <details> — eso rompe el collapse nativo del browser.
+   El SND JS añade [open] en desktop para mostrar el contenido. */
 .sesna-subheader .mexico__details {
     flex: 1;
-    display: flex;
-    align-items: center;
 }
 
-/* nav.navHeader — alineación a la derecha en desktop */
+/* nav.navHeader — el SND lo gestiona via .navHeader__ul.mexico__detailsCont */
 .sesna-nav {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    overflow: hidden;
+    overflow: visible;
 }
 
-/* ---- Estilos de .navHeader__* dentro del contexto SESNA ---- */
-
-/* Lista principal de nav — SND clase, sobreescribimos donde sea necesario */
+/* ---- Desktop: links del menú SESNA ---- */
 .sesna-subheader .navHeader__ul {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 0;
     background: none;
     white-space: nowrap;
     flex-wrap: nowrap;
+    justify-content: flex-end;
 }
 
-/* Items */
 .sesna-subheader .navHeader__li {
     position: relative;
-    width: auto;
+    width: auto; /* SND mobile pone width:100% — revertir en desktop */
 }
 
-/* Links — override de lo que define SND (color ya es blanco, height 52px) */
-.sesna-subheader .navHeader__a {
+.sesna-subheader .navHeader__a,
+.sesna-subheader .navHeader__a:visited {
     font-family: var(--font-noto-sans);
     font-size: 15px;
-    font-weight: 400;
     color: var(--neutro100) !important;
     text-decoration: none !important;
     padding: 0 14px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid transparent;
     white-space: nowrap;
-    transition: border-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
-    list-style: none;
-    background: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
 }
 
 .sesna-subheader .navHeader__a:hover {
@@ -481,30 +481,23 @@ body.front-page main.page {
 .sesna-subheader .navHeader__li--active > .navHeader__a {
     font-weight: 600;
     border-bottom-color: var(--neutro100);
-    color: var(--neutro100) !important;
 }
 
-/* Chevron del toggle */
+/* Quitar marker nativo del <summary> */
+.sesna-subheader summary { list-style: none; }
+.sesna-subheader summary::-webkit-details-marker { display: none; }
+
+/* Chevron de submenús */
 .navHeader__chevron {
     margin-left: 4px;
     font-size: 0.75em;
     transition: transform 0.2s ease;
 }
-
-/* <details> abierto en desktop */
 .sesna-subheader .navHeader__details[open] .navHeader__chevron {
     transform: rotate(180deg);
 }
 
-/* Quitar marker/triángulo nativo del <summary> */
-.sesna-subheader summary.navHeader__a {
-    list-style: none;
-}
-.sesna-subheader summary.navHeader__a::-webkit-details-marker {
-    display: none;
-}
-
-/* Submenu desplegable */
+/* ---- Submenú desplegable (items con hijos) ---- */
 .sesna-subheader .navHeader__submenu {
     display: none;
     position: absolute;
@@ -519,100 +512,64 @@ body.front-page main.page {
     border-radius: 0 0 6px 6px;
 }
 
-/* Mostrar submenu cuando details está open */
+/* Submenú: mostrar al pasar el mouse, al tener foco interno, o cuando [open] */
+.sesna-subheader .navHeader__details:hover .navHeader__submenu,
+.sesna-subheader .navHeader__details:focus-within .navHeader__submenu,
 .sesna-subheader .navHeader__details[open] .navHeader__submenu {
     display: flex;
 }
 
-/* HOVER en desktop: abre automáticamente el submenu */
-@media (min-width: 992px) {
-    .sesna-subheader .navHeader__details:hover {
-        /* No podemos usar JS para this, usamos focus-within como proxy */
-    }
-    .sesna-subheader .navHeader__details:hover .navHeader__submenu,
-    .sesna-subheader .navHeader__details:focus-within .navHeader__submenu {
-        display: flex;
-    }
-}
-
-/* Subitems */
 .sesna-subheader .navHeader__a--sub {
     height: auto;
     padding: 10px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     font-size: 14px;
-    font-weight: 400;
-    width: 100%;
-    border-radius: 0;
 }
-
 .sesna-subheader .navHeader__a--sub:hover {
     background-color: rgba(255,255,255,0.08);
     border-bottom-color: rgba(255,255,255,0.1) !important;
 }
-
 .sesna-subheader .navHeader__li--sub:last-child .navHeader__a--sub {
     border-bottom: none !important;
 }
 
-/* ---- Hamburguesa SND (summary.mexico__summary) — oculto en desktop ---- */
-.sesna-subheader .mexico__summary {
-    display: none;
-    list-style: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: flex-end;
-    color: var(--neutro100);
-    padding: 10px 0;
-    gap: 8px;
-    user-select: none;
-}
-.sesna-subheader .mexico__summary::-webkit-details-marker { display: none; }
-
-/* ---- Mobile: < 768px — SND usa details/summary ---- */
-@media (max-width: 767px) {
-    /* Mostrar hamburguesa */
-    .sesna-subheader .mexico__details {
+/* ---- Mobile: ≤ 767.9px ---- */
+@media (max-width: 767.9px) {
+    /* Ocultar nav cuando details está cerrado; mostrar cuando está abierto */
+    .sesna-subheader .mexico__details:not([open]) .mexico__detailsCont {
+        display: none !important;
+    }
+    .sesna-subheader .mexico__details[open] .mexico__detailsCont {
+        display: flex !important;
         flex-direction: column;
-        align-items: stretch;
-    }
-    .sesna-subheader .mexico__summary {
-        display: flex;
-    }
-
-    /* Menú colapsado: visible solo cuando details está abierto */
-    .sesna-subheader .mexico__details:not([open]) .sesna-nav {
-        display: none;
-    }
-    .sesna-subheader .mexico__details[open] .sesna-nav {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        position: fixed !important;
+        top: 146px !important; /* 94px GOB.mx + 52px subnav */
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
         background: var(--pguinda950, #4A0C26);
-        z-index: 1040;
+        text-align: left;
         box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        z-index: 998;
+        max-height: calc(100vh - 146px);
+        overflow-y: auto;
     }
 
-    .sesna-subheader .navHeader__ul {
-        flex-direction: column;
-        white-space: normal;
-        width: 100%;
-    }
-
+    /* Items de menú: full-width y separador */
     .sesna-subheader .navHeader__li {
         width: 100%;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .sesna-subheader .navHeader__a {
+    .sesna-subheader .navHeader__a,
+    .sesna-subheader .navHeader__a:visited {
         height: auto;
         padding: 14px 20px;
         border-bottom: none;
         justify-content: space-between;
     }
 
+    /* Submenú inline en mobile */
     .sesna-subheader .navHeader__submenu {
         position: static;
         box-shadow: none;
@@ -663,9 +620,8 @@ body.front-page main.page {
    de .btn.btn-primary → [class*="boton__primario"] sin tocar cada PHP.
    ============================================================ */
 
-/* Base para todos los botones del sitio */
-.btn,
-[class*="boton__"] {
+/* Base de los botones Bootstrap (.btn). Los boton__* usan la base oficial del SND. */
+.btn {
     font-family: var(--font-noto-sans);
     font-size: 16px;
     font-weight: 600;
@@ -724,16 +680,14 @@ body.front-page main.page {
 
 /* Fantasma / Ghost — transparente con borde */
 .btn-outline-secondary,
-.btn-outline-dark,
-.boton__fantasma {
+.btn-outline-dark {
     background-color: transparent !important;
     border-color: var(--neutro600, #767676) !important;
     color: var(--neutro800, #161A1D) !important;
 }
 
 .btn-outline-secondary:hover,
-.btn-outline-dark:hover,
-.boton__fantasma:hover {
+.btn-outline-dark:hover {
     background-color: var(--neutro300, #F3F3F3) !important;
 }
 
@@ -867,7 +821,7 @@ h3, .h3, [class*="titulo--md"] {
     color: var(--neutro800);
 }
 
-h4, h5, h6 {
+h4, h5, h6, .h4 {
     font-family: var(--font-noto-sans);
     font-weight: 600;
     line-height: 1.35;
@@ -932,10 +886,30 @@ p, .b1r {
     width: 100%;
 }
 
-/* container-fluid permanece full-width pero con padding SND */
-.container-fluid {
-    padding-left: clamp(1rem, 3.5vw, 3.5rem) !important;
-    padding-right: clamp(1rem, 3.5vw, 3.5rem) !important;
+/* Excluir el .container del navbar GOB.mx del bridge SND.
+   max-width:1440px + clamp padding causan que Trámites/Gobierno
+   queden fuera de pantalla en viewports < 1440px. */
+.navbar-fixed-top .container,
+nav.navbar .container {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* El collapse (Trámites/Gobierno/Búsqueda) desborda por el flex-grow + márgenes negativos del Bootstrap.
+   Solo en desktop: en mobile Bootstrap lo colapsa con display:none — no interferir. */
+@media (min-width: 768px) {
+    .navbar-fixed-top .collapse.navbar-collapse {
+        position: absolute !important;
+        right: 15px !important;
+        top: 0 !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
 }
 
 /* SND pagination component */
@@ -993,7 +967,7 @@ p, .b1r {
 }
 .form__inset .form-control,
 .form__inset .form-select {
-    border: 1px solid var(--neutro400, #C6C6C6);
+    border: 1px solid var(--neutro400, #DDDDDD);
     border-radius: 4px;
     padding: 0.5rem 1rem;
     font-family: var(--font-noto-sans);
@@ -1474,6 +1448,11 @@ p, .b1r {
     color: var(--color-negro);
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
+}
+
+.sna-programas-title {
+    font-size: 20px;
+    line-height: 1.4;
 }
 
 .sna-programas-link:hover {
@@ -2279,138 +2258,6 @@ p, .b1r {
    Tres variantes globales + link-arrow. Sin scope por página.
    ============================================================ */
 
-/* 1 · Sólido guinda — CTA principal */
-.btn-sesna {
-    background-color: var(--color-guinda);
-    color: #ffffff;
-    border: 2px solid var(--color-guinda);
-    border-radius: 6px;
-    padding: 12px 28px;
-    font-size: 15px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-.btn-sesna:hover {
-    background-color: var(--color-burgundi);
-    border-color: var(--color-burgundi);
-    color: #ffffff;
-    transform: translateY(-1px);
-}
-
-/* Variante grande — CTAs de hero y secciones prominentes */
-.btn-sesna--lg {
-    padding: 16px 40px;
-    font-size: 16px;
-}
-
-/* 2 · Outline guinda — secundario sobre fondo claro */
-.btn-sesna-outline {
-    background-color: transparent;
-    color: var(--color-guinda);
-    border: 2px solid var(--color-guinda);
-    border-radius: 6px;
-    padding: 10px 24px;
-    font-size: 15px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-.btn-sesna-outline:hover {
-    background-color: var(--color-guinda);
-    color: #ffffff;
-}
-
-/* 3 · Blanco sólido — CTA sobre fondo oscuro (cards guinda, degradados) */
-.btn-sesna-white {
-    background-color: #ffffff;
-    color: var(--color-guinda);
-    border: 2px solid #ffffff;
-    border-radius: 6px;
-    padding: 10px 24px;
-    font-size: 15px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-.btn-sesna-white:hover {
-    background-color: #f0f0f0;
-    border-color: #f0f0f0;
-    color: var(--color-burgundi);
-}
-
-/* 4 · Link con flecha — navegación secundaria inline */
-.btn-sesna-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--color-burgundi);
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: gap 0.15s ease, color 0.15s ease;
-}
-.btn-sesna-link:hover {
-    color: var(--color-guinda);
-    gap: 10px;
-}
-
-/* ──────────────────────────────────────────────────────────── */
-
-.cp-btn-ver {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 9px 16px;
-    border: 2px solid var(--color-burgundi);
-    color: var(--color-burgundi);
-    background: transparent;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
-    white-space: nowrap;
-}
-
-.cp-btn-ver:hover {
-    background-color: var(--color-burgundi);
-    color: #fff;
-}
-
-.cp-btn-pdf {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 9px 16px;
-    background-color: var(--color-teal-oscuro);
-    color: #fff;
-    border: 2px solid var(--color-teal-oscuro);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease;
-    white-space: nowrap;
-}
-
-.cp-btn-pdf:hover {
-    background-color: var(--color-teal);
-    border-color: var(--color-teal);
-    color: #fff;
-}
-
 /* Nota informativa */
 .cp-nota__inner {
     background-color: #fdf8ee;
@@ -2454,8 +2301,8 @@ p, .b1r {
         flex-direction: row;
     }
 
-    .cp-btn-ver,
-    .cp-btn-pdf {
+    .cp-doc-acciones .boton__primario,
+    .cp-doc-acciones .boton__secundario {
         flex: 1;
     }
 }
@@ -5515,26 +5362,6 @@ button[data-bs-target="#pdfViewerModal"]:focus {
     background: transparent !important;
 }
 
-/* Botón Ver Más */
-.tx-comite-btn-more {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    color: var(--color-burgundi);
-    background-color: transparent;
-    border: 1px solid var(--color-burgundi);
-    border-radius: 8px;
-    padding: 0.75rem 2rem;
-    font-weight: 600;
-    font-family: var(--font-noto-sans);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.tx-comite-btn-more:hover {
-    background-color: var(--color-burgundi);
-    color: #fff;
-}
 /* Buscador Resoluciones y Filtros */
 .tx-comite-filter-control {
     min-height: 46px;
@@ -6795,4 +6622,54 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
 .content-section[hidden],
 .content-section.d-none {
     display: none !important;
+}
+
+/* ============================================================
+   BLOQUE 13 — Footer SND v1
+   Ocultar el footer inyectado por gobmx.js (.main-footer) —
+   se reemplaza con nuestro footer.php SND-compliant.
+   ============================================================ */
+
+/* Ocultar footer GOB.mx v3 inyectado dinámicamente */
+.main-footer {
+    display: none !important;
+}
+
+/* Asegurar que el footer SND empuje al fondo (flex en body) */
+.sesna-footer {
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+/* Todos los links del footer SND deben ser blancos — la regla global a:not(.btn)
+   del BLOQUE de tipografía los pinta de verde (#004D40) sin este override. */
+.sesna-footer a,
+.sesna-footer .footer__enlacesLink,
+.sesna-footer .footer__denuncia a,
+.sesna-footer .footer__summary,
+.sesna-footer .mexico__detailsp a {
+    color: var(--neutro100, #ffffff) !important;
+    text-decoration: none;
+}
+
+.sesna-footer .footer__enlacesLink:hover,
+.sesna-footer .footer__denuncia a:hover,
+.sesna-footer .mexico__detailsp a:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+/* Los iconos de redes sociales del footer: tamaño SND (24px).
+   Fuente SVG negra (regla SND) — blanco aplicado aquí por CSS, no hardcodeado en el archivo. */
+.footer__redes__ul img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* La imagen de la flor 079 — mismo criterio: SVG fuente negro, blanco vía CSS */
+.footer__079img {
+    height: 32px;
+    filter: brightness(0) invert(1);
 }

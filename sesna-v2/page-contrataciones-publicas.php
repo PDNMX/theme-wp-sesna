@@ -12,11 +12,11 @@ get_header();
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>">
-                        <i class="snd snd-home"></i> Inicio
+                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -32,15 +32,15 @@ get_header();
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
     <section class="sesna-page-hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center g-5">
 
                 <!-- Card ilustración -->
-                <div class="col-lg-4 col-md-5">
+                <div class="columna__12 columna__5--md columna__4--lg">
                     <div class="cp-hero-card">
                         <div class="cp-hero-card__img">
-                            <i class="snd snd-list cp-hero-card__icon-main"></i>
-                            <i class="snd snd-building cp-hero-card__icon-sub"></i>
+                            <i class="snd snd-list cp-hero-card__icon-main" aria-hidden="true"></i>
+                            <i class="snd snd-building cp-hero-card__icon-sub" aria-hidden="true"></i>
                         </div>
                         <div class="cp-hero-card__body">
                             <h2 class="cp-hero-card__title">Contrataciones Públicas</h2>
@@ -50,7 +50,7 @@ get_header();
                 </div>
 
                 <!-- Texto descriptivo -->
-                <div class="col-lg-8 col-md-7 position-relative z-1">
+                <div class="columna__12 columna__7--md columna__8--lg position-relative z-1">
                     <h1 class="sesna-hero__title">Contrataciones públicas</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
@@ -63,13 +63,13 @@ get_header();
 
     <!-- ── Recursos disponibles ──────────────────────────────── -->
     <section class="cp-recursos py-4 pb-5">
-        <div class="container">
+        <div class="contenedor">
 
             <!-- Encabezado de sección -->
             <div class="cp-recursos__header mb-4">
                 <div class="d-flex align-items-center gap-3">
                     <div class="cp-recursos__icono-box">
-                        <i class="snd snd-folder"></i>
+                        <i class="snd snd-folder" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -135,9 +135,9 @@ get_header();
                         <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
                         <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
                         <div class="cp-doc-meta">
-                            <span><i class="snd snd-calendar"></i> <?php echo esc_html($doc['anio']); ?></span>
+                            <span><i class="snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($doc['anio']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="snd snd-document"></i> <?php echo esc_html($doc['formato']); ?></span>
+                            <span><i class="snd snd-document" aria-hidden="true"></i> <?php echo esc_html($doc['formato']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
                             <span><?php echo esc_html($doc['paginas']); ?></span>
                         </div>
@@ -145,11 +145,11 @@ get_header();
 
                     <!-- Acciones -->
                     <div class="cp-doc-acciones">
-                        <a href="<?php echo esc_url($doc['url_ver']); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                            <i class="snd snd-screen"></i> Ver documento
+                        <a href="<?php echo esc_url($doc['url_ver']); ?>" class="boton__secundario" target="_blank" rel="noopener">
+                            <i class="snd__icono snd-screen" aria-hidden="true"></i> Ver documento
                         </a>
-                        <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                            <i class="snd snd-download"></i> Descargar PDF
+                        <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="boton__primario" target="_blank" rel="noopener" download>
+                            <i class="snd__icono snd-download" aria-hidden="true"></i> Descargar PDF
                         </a>
                     </div>
 
@@ -164,9 +164,9 @@ get_header();
 
     <!-- ── Nota informativa ──────────────────────────────────── -->
     <div class="cp-nota pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="cp-nota__inner">
-                <i class="snd snd-information cp-nota__icono"></i>
+                <i class="snd snd-information cp-nota__icono" aria-hidden="true"></i>
                 <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
             </div>
         </div>

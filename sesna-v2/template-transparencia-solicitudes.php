@@ -25,7 +25,7 @@ get_header();
 
 <div class="container" id="loadMoreContainer">
     <p class="normatividadTitulo">Si tienes dudas, o quieres conocer algo más:</p>
-    <a class="btn btn-black" target="_blank" href="https://www.plataformadetransparencia.org.mx/group/guest/crear-solicitud">Solicita información</a></div>
+    <a rel="noopener" class="btn btn-black" target="_blank" title="El enlace abre en ventana nueva" href="https://www.plataformadetransparencia.org.mx/group/guest/crear-solicitud">Solicita información</a></div>
 </div>
 
     <?php get_template_part( 'template-parts/transparencia/denuncia' ); ?>

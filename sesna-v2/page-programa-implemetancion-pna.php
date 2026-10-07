@@ -72,7 +72,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a></li>
                 <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/acciones-y-programas/')); ?>">Acciones y Programas</a></li>
@@ -84,16 +84,16 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- ── BLOQUE 1: Hero ──────────────────────────────────────── -->
     <section class="pt-4 pb-5">
-        <div class="container">
-            <div class="row g-4 align-items-start justify-content-between">
-                <div class="col-lg-7 col-xl-7 pna-reveal" style="--delay:0s">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-start justify-content-between">
+                <div class="columna__12 columna__7--lg pna-reveal" style="--delay:0s">
                     <h2 class="fw-bold font-patria text-burgundi mb-3">Implementación</h2>
                     <p class="text-muted mb-4">
                         En esta sección se presenta el Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA), instrumento que traduce las prioridades de la PNA en estrategias, líneas de acción e indicadores para orientar su ejecución y seguimiento.
                     </p>
                 </div>
-                <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="snd snd-settings" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
+                <div class="columna__12 columna__5--lg d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
+                    <i class="snd snd-settings" aria-hidden="true" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
                 </div>
             </div>
         </div>
@@ -101,12 +101,12 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- ── BLOQUE 2: PI-PNA ────────────────────────────────────── -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="pna-doc-card pna-chart-card" style="--delay:0s;">
-                <div class="row align-items-stretch" style="display:flex; flex-wrap:wrap; gap:1.5rem;">
+                <div class="fila align-items-stretch" style="display:flex; flex-wrap:wrap; gap:1.5rem;">
 
                     <!-- Izquierda: título + texto + botón -->
-                    <div class="col-lg-6 d-flex flex-column justify-content-between" style="flex:1 1 50%; min-width:280px; border-right:2px solid #e8d0d8; padding-right:2rem;">
+                    <div class="columna__6 d-flex flex-column justify-content-between" style="flex:1 1 50%; min-width:280px; border-right:2px solid #e8d0d8; padding-right:2rem;">
                         <div>
                             <h2 class="cp-recursos__titulo mb-1">Programa de Implementación de la Política Nacional Anticorrupción</h2>
                             <div class="cp-recursos__linea mb-3"></div>
@@ -119,7 +119,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                             </p>
                         </div>
 
-                        <a href="#" class="btn-sesna mt-4"
+                        <a href="#" class="boton__primario mt-4"
                            data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
                            data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
                            data-pdf-title="PI-PNA – Actualización 2024">
@@ -128,10 +128,10 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     </div>
 
                     <!-- Derecha: fecha + portada (ocupa todo el alto) -->
-                    <div class="col-lg-6 d-flex flex-column" style="flex:0 0 45%; min-width:240px; padding-left:2rem;">
+                    <div class="columna__6 d-flex flex-column" style="flex:0 0 45%; min-width:240px; padding-left:2rem;">
                         <div class="pna-hero__badge mb-3">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd snd-calendar"></i>
+                                <i class="snd snd-calendar" aria-hidden="true"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobado el 27 de enero de 2022</p>
@@ -155,7 +155,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- ── BLOQUE 3: Estructura ────────────────────────────────── -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
 
             <!-- Card única: Título + Fases + Donut -->
             <div class="pna-doc-card pna-chart-card" style="--delay:.05s;">
@@ -226,10 +226,10 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                 <hr class="my-4" style="border-color:#f0e8ec;">
 
                 <!-- Donut 4 ejes -->
-                <div class="row align-items-stretch g-4">
+                <div class="reticulaGrid__12 align-items-stretch">
 
                     <!-- Izquierda: Eje 1 y 3 -->
-                    <div class="col-lg-3 col-md-3 d-flex flex-column" style="gap:20px; justify-content:space-evenly;">
+                    <div class="columna__12 columna__3--md d-flex flex-column" style="gap:20px; justify-content:space-evenly;">
                         <?php foreach ([1,3] as $n) :
                             $e = $ejes_data[$n];
                         ?>
@@ -254,7 +254,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     </div>
 
                     <!-- Centro: SVG donut -->
-                    <div class="col-lg-6 col-md-6 d-flex justify-content-center">
+                    <div class="columna__12 columna__6--md d-flex justify-content-center">
                         <div class="position-relative" style="width:300px;height:300px;">
                             <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" width="300" height="300" style="display:block;">
                                 <!-- Eje 1: top-left -->
@@ -279,20 +279,20 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                             </svg>
                             <!-- Íconos sobre segmentos -->
                             <div style="position:absolute; top:74px; left:74px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-security"></i>
+                                <i class="snd snd-security" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:74px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-building"></i>
+                                <i class="snd snd-building" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:74px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-group"></i>
+                                <i class="snd snd-group" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd snd-collaborate"></i>
+                                <i class="snd snd-collaborate" aria-hidden="true"></i>
                             </div>
                             <!-- Texto central -->
                             <div class="position-absolute top-50 start-50 translate-middle text-center px-1" style="width:155px;pointer-events:none;">
-                                <i class="snd snd-user d-block mb-1" style="font-size:22px; color:#611232;"></i>
+                                <i class="snd snd-user d-block mb-1" aria-hidden="true" style="font-size:22px; color:#611232;"></i>
                                 <div class="font-noto-sans fw-bold mb-1" style="font-size:9px;color:#611232;letter-spacing:.02em;">Objetivo de la PNA:</div>
                                 <div class="font-noto-sans" style="font-size:8px;color:#444;line-height:1.4;">
                                     "Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente".
@@ -302,7 +302,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     </div>
 
                     <!-- Derecha: Eje 2 y 4 -->
-                    <div class="col-lg-3 col-md-3 d-flex flex-column" style="gap:20px; justify-content:space-evenly;">
+                    <div class="columna__12 columna__3--md d-flex flex-column" style="gap:20px; justify-content:space-evenly;">
                         <?php foreach ([2,4] as $n) :
                             $e = $ejes_data[$n];
                         ?>
@@ -328,15 +328,15 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                 </div>
 
                 <p class="text-center font-noto-sans text-muted mt-3 mb-3" style="font-size:13px;">
-                    <i class="snd snd-screen me-1"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
+                    <i class="snd snd-screen me-1" aria-hidden="true"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
                 </p>
 
                 <!-- Paneles de eje -->
                 <?php foreach ($ejes_data as $n => $e) : ?>
                 <div id="ejePanel<?php echo $n; ?>" class="eje-panel d-none mt-2 p-4 rounded-3"
                      style="background-color:<?php echo $e['color']; ?>10; border:1.5px solid <?php echo $e['color']; ?>50;">
-                    <div class="row g-4">
-                        <div class="col-lg-5">
+                    <div class="reticulaGrid__12">
+                        <div class="columna__5">
                             <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
                                 <span class="badge fw-bold px-3 py-2" style="background-color:<?php echo $e['color']; ?>; font-size:13px;">Eje <?php echo $n; ?></span>
                                 <span class="fw-bold font-noto-sans" style="font-size:14px;color:#333;"><?php echo esc_html($e['titulo']); ?></span>
@@ -353,7 +353,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                        <div class="columna__7">
                             <div class="fw-semibold font-noto-sans mb-3" style="font-size:12px;color:#777;text-transform:uppercase;letter-spacing:.04em;">Objetivos específicos asociados</div>
                             <?php foreach ($e['objetivos'] as $obj) : ?>
                             <div class="d-flex gap-3 mb-3 align-items-start">
@@ -372,7 +372,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- ── BLOQUE 4: Documentos e informes ────────────────────── -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="cp-recursos__header mb-4 pna-reveal" style="--delay:0s">
                 <div>
                     <h2 class="cp-recursos__titulo mb-0">Documentos e informes del PI-PNA</h2>
@@ -394,15 +394,15 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                 ]],
             ];
             ?>
-            <div class="row g-4">
+            <div class="reticulaGrid__12">
                 <?php foreach ($docs_cols as $col) : ?>
-                <div class="col-lg-4 col-md-4 pna-chart-card" style="--delay:.05s;">
+                <div class="columna__12 columna__4--md pna-chart-card" style="--delay:.05s;">
                     <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden">
                         <!-- Header -->
                         <div class="d-flex align-items-center gap-3 px-4 pt-4 pb-3 border-bottom" style="border-color:#f0f0f0 !important;">
                             <div class="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
                                  style="width:40px;height:40px;background-color:#61123218;">
-                                <i class="snd <?php echo esc_attr($col['icono']); ?>" style="color:#611232;font-size:1.2rem;"></i>
+                                <i class="snd <?php echo esc_attr($col['icono']); ?>" aria-hidden="true" style="color:#611232;font-size:1.2rem;"></i>
                             </div>
                             <h3 class="h6 fw-bold mb-0 font-patria" style="color:#611232;font-size:15px;"><?php echo esc_html($col['titulo']); ?></h3>
                         </div>
@@ -422,12 +422,12 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                                        data-pdf-title="<?php echo esc_attr($doc['label']); ?>"
                                        class="d-inline-flex align-items-center gap-1 font-noto-sans"
                                        style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:4px 12px;text-decoration:none;">
-                                        <i class="snd snd-screen"></i> Ver
+                                        <i class="snd snd-screen" aria-hidden="true"></i> Ver
                                     </a>
                                     <a href="<?php echo esc_url($url); ?>" download
                                        class="d-inline-flex align-items-center gap-1 font-noto-sans"
                                        style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:4px 12px;text-decoration:none;">
-                                        <i class="snd snd-download"></i> PDF
+                                        <i class="snd snd-download" aria-hidden="true"></i> PDF
                                     </a>
                                     <?php else : ?>
                                     <span class="font-noto-sans" style="font-size:11px;color:#aaa;">Próximamente</span>
@@ -445,7 +445,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
     <!-- ── BLOQUE 5: Fichero ──────────────────────────────────── -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="pna-doc-card pna-chart-card" style="--delay:0s;">
                 <!-- Título + descripción -->
                 <div class="cp-recursos__header mb-3">
@@ -458,9 +458,9 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     Consulta las fichas de análisis que integran el Informe del Programa de Implementación de la PNA por año y por eje temático.
                 </p>
                 <div>
-                <div class="row g-4">
+                <div class="reticulaGrid__12">
                     <!-- Selectores -->
-                    <div class="col-lg-4">
+                    <div class="columna__4">
                         <p class="font-noto-sans fw-semibold mb-2" style="font-size:14px;color:#333;">Selecciona el año:</p>
                         <div class="d-flex flex-wrap gap-2 mb-4">
                             <?php foreach ([2023,2024,2025] as $anio) : $act = $anio===2023; ?>
@@ -492,10 +492,10 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                         </div>
                     </div>
                     <!-- Visor -->
-                    <div class="col-lg-8">
+                    <div class="columna__8">
                         <div id="ficheroVisor" class="border rounded-3 overflow-hidden" style="height:480px;background:#f8f9fa;">
                             <div id="ficheroPlaceholder" class="d-flex flex-column align-items-center justify-content-center h-100 text-muted">
-                                <i class="snd snd-document--pdf" style="font-size:3rem;color:#ccc;"></i>
+                                <i class="snd snd-document--pdf" aria-hidden="true" style="font-size:3rem;color:#ccc;"></i>
                                 <p class="font-noto-sans mt-2 mb-0" style="font-size:14px;">Selecciona un año y un eje para ver las fichas</p>
                             </div>
                             <iframe id="ficheroFrame" src="" class="w-100 h-100 d-none" frameborder="snd-star"></iframe>

@@ -12,7 +12,7 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
@@ -27,9 +27,9 @@ get_header();
 
     <!-- Hero -->
     <section class="sesna-page-hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 position-relative z-1">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 position-relative z-1">
                     <h1 class="sesna-hero__title">Política Nacional Anticorrupción</h1>
                     <div class="hero-separator"></div>
                 </div>
@@ -39,22 +39,22 @@ get_header();
 
     <!-- Documento principal: portada + descarga -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="pna-doc-card">
-                <div class="row g-4 align-items-center">
+                <div class="reticulaGrid__12 align-items-center">
 
                     <!-- Portada -->
-                    <div class="col-lg-4">
+                    <div class="columna__12 columna__4--lg">
                         <div class="pna-doc-cover">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción">
                         </div>
                     </div>
 
                     <!-- Detalle + descargas -->
-                    <div class="col-lg-8">
+                    <div class="columna__12 columna__8--lg">
                         <div class="pna-hero__badge">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd snd-calendar"></i>
+                                <i class="snd snd-calendar" aria-hidden="true"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobada el 29 de enero de 2020</p>
@@ -72,39 +72,39 @@ get_header();
                         </p>
 
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="boton__primario" target="_blank" rel="noopener">
                                 <i class="snd snd-document" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>" class="boton__secundario" target="_blank" rel="noopener">
                                 <i class="snd snd-education" aria-hidden="true"></i> Documento Completo
                             </a>
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="btn-sesna" target="_blank" rel="noopener">
+                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>" class="boton__secundario" target="_blank" rel="noopener">
                                 <i class="snd snd-phone" aria-hidden="true"></i> Guía para la elaboración de las PEA
                             </a>
 
                             <!-- Anexos -->
                             <div class="dropdown pna-anexos-dropdown">
-                                <button class="btn btn-sesna dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="boton__secundario dropdown-toggle" type="button" id="pnaAnexosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="snd snd-document--import" aria-hidden="true"></i> Anexos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="pnaAnexosDropdown">
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
+                                        <a class="dropdown-item" target="_blank" title="El enlace abre en ventana nueva" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                             <i class="snd snd-download" aria-hidden="true"></i> Estadísticos
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
+                                        <a class="dropdown-item" target="_blank" title="El enlace abre en ventana nueva" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                             <i class="snd snd-download" aria-hidden="true"></i> Proceso de integración de la PNA
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
+                                        <a class="dropdown-item" target="_blank" title="El enlace abre en ventana nueva" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                             <i class="snd snd-download" aria-hidden="true"></i> Acciones sugeridas
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" target="_blank" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
+                                        <a class="dropdown-item" target="_blank" title="El enlace abre en ventana nueva" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                             <i class="snd snd-download" aria-hidden="true"></i> Acciones de poderes ejecutivos
                                         </a>
                                     </li>
@@ -124,7 +124,7 @@ get_header();
 
     <!-- Estructura de la Política -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <h2 class="pna-section-title">Estructura de la Política</h2>
             <p class="text-muted mb-4" style="max-width: 640px;">
                 La PNA se organiza en cuatro ejes estratégicos, diez objetivos específicos y cuarenta prioridades de política pública.
@@ -168,7 +168,7 @@ get_header();
 
     <!-- Ciclo de la Política Pública -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
             <div class="pna-ciclo-section">
             <h2 class="pna-section-title pna-section-title--center mx-auto">Ciclo de la Política Pública</h2>
             <p class="pna-ciclo-subtitle">La política se diseña, implementa, se evalúa, se financia y mejora continuamente.</p>
@@ -242,7 +242,7 @@ get_header();
             </div><!-- /.pna-ciclo-diagram -->
 
             <div class="pna-ciclo-hint mt-4">
-                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen"></i></span>
+                <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen" aria-hidden="true"></i></span>
                 <p><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
             </div><!-- /.pna-ciclo-section -->

@@ -1,0 +1,3 @@
+Noto Sans — SIL Open Font License 1.1 (https://openfontlicense.org)
+Copyright 2012 Google Inc. Archivos: NotoSans-Regular.woff2, NotoSans-SemiBold.woff2, NotoSans-Bold.woff2.
+La licencia OFL permite redistribuir estos archivos siempre que se incluya este aviso.

@@ -12,7 +12,7 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
@@ -32,11 +32,11 @@ get_header();
          BLOQUE 1: La Política Nacional Anticorrupción
          ============================================================ -->
     <section class="pt-4 pb-5">
-        <div class="container">
-            <div class="row g-4 align-items-start justify-content-between">
-                
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-start justify-content-between">
+
                 <!-- Columna Izquierda: Descripción y Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
-                <div class="col-lg-7 col-xl-7">
+                <div class="columna__12 columna__7--lg">
                     <h2 class="fw-bold font-patria text-burgundi mb-3">Política Nacional Anticorrupción</h2>
                     <p class="text-muted mb-4">
                         Documento estratégico de largo aliento que plasma la agenda del Estado mexicano en la materia. Contiene el diagnóstico y las prioridades mínimas que orientan la actuación SNA en materia de prevención, detección, investigación y sanción de faltas administrativas y hechos de corrupción, así como la fiscalización y el control de recursos públicos.
@@ -48,28 +48,28 @@ get_header();
                         <!-- Tarjeta 1: Consultar documento completo -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd snd-document text-white fs-4"></i>
+                                <i class="snd snd-document text-white fs-4" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Consultar documento completo</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Política Nacional Anticorrupción (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd snd-launch text-burgundi fs-5"></i>
+                                <i class="snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
                             </div>
                         </a>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd snd-education text-white fs-4"></i>
+                                <i class="snd snd-education text-white fs-4" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Documento (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd snd-launch text-burgundi fs-5"></i>
+                                <i class="snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
                             </div>
                         </a>
 
@@ -80,7 +80,7 @@ get_header();
                                     <div class="accordion-header m-0" id="flush-headingAnexos">
                                         <button class="accordion-button collapsed p-3 bg-transparent shadow-none d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAnexos" aria-expanded="false" aria-controls="flush-collapseAnexos">
                                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                                <i class="snd snd-folder text-white fs-4"></i>
+                                                <i class="snd snd-folder text-white fs-4" aria-hidden="true"></i>
                                             </div>
                                             <div class="flex-grow-1 text-start my-auto">
                                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
@@ -93,19 +93,19 @@ get_header();
                                             <div class="list-group list-group-flush">
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2"></i>
+                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@ get_header();
                 </div>
 
                 <!-- Columna Derecha: Portada del Documento (Alineada al extremo derecho para aprovechar el ancho del template) -->
-                <div class="col-lg-5 col-xl-5 d-flex justify-content-lg-end justify-content-center align-items-start mt-5 mt-lg-0">
+                <div class="columna__12 columna__5--lg d-flex justify-content-lg-end justify-content-center align-items-start mt-5 mt-lg-0">
                     <div class="pna-doc-cover position-relative" style="max-width: 440px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
                     </div>
@@ -133,7 +133,7 @@ get_header();
          BLOQUE 2: Ejes y Objetivos de la Política Nacional Anticorrupción
          ============================================================ -->
     <section class="pb-5">
-        <div class="container">
+        <div class="contenedor">
 
             <div class="pna-stats-card p-4 p-md-5">
                 <div class="mb-4">
@@ -145,10 +145,10 @@ get_header();
 
                 <!-- Gráfica Rueda Interactiva y Botones de Ejes (Diseño envolvente 3 columnas como Maqueta 1) -->
                 <!-- Gráfica Rueda Interactiva y Botones de Ejes (Alta Fidelidad - Maqueta 1) -->
-                <div class="row g-4 g-lg-5 align-items-center justify-content-center my-4 position-relative">
-                    
+                <div class="reticulaGrid__12 align-items-center justify-content-center my-4 position-relative">
+
                     <!-- Columna Izquierda: Tarjetas Eje 1 y Eje 3 -->
-                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column order-2 order-lg-1" style="gap: 32px !important;">
+                    <div class="columna__12 columna__6--md columna__4--lg d-flex flex-column order-2 order-lg-1" style="gap: 32px !important;">
                         
                         <!-- Tarjeta Eje 1 -->
                         <div class="position-relative w-100">
@@ -195,7 +195,7 @@ get_header();
                     </div>
 
                     <!-- Columna Central: Rueda Donut SVG con los 4 Iconos y Centro de Problema Destacado -->
-                    <div class="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center order-1 order-lg-2 my-2 my-lg-0">
+                    <div class="columna__12 columna__4--lg d-flex flex-column align-items-center justify-content-center order-1 order-lg-2 my-2 my-lg-0">
                         <div class="pna-wheel-container d-flex flex-column align-items-center justify-content-center w-100">
                             
                             <div class="pna-wheel position-relative d-flex justify-content-center align-items-center my-2" style="max-width: 320px; width: 100%; aspect-ratio: 1/1;">
@@ -253,7 +253,7 @@ get_header();
                     </div>
 
                     <!-- Columna Derecha: Tarjetas Eje 2 y Eje 4 -->
-                    <div class="col-12 col-md-6 col-lg-4 d-flex flex-column order-3 order-lg-3" style="gap: 32px !important;">
+                    <div class="columna__12 columna__6--md columna__4--lg d-flex flex-column order-3 order-lg-3" style="gap: 32px !important;">
                         
                         <!-- Tarjeta Eje 2 -->
                         <div class="position-relative w-100">
@@ -304,7 +304,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen" aria-hidden="true"></i></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -314,10 +314,10 @@ get_header();
                     
                     <!-- Panel Eje 1 (Activo por defecto) -->
                     <div class="pna-eje-content active" id="content-eje-1">
-                        <div class="row g-4 align-items-start">
+                        <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #6AC72C; font-size: 13px;">
                                     Eje 1
                                 </div>
@@ -328,7 +328,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #6AC72C;">Objetivos específicos asociados</h4>
                                 </div>
@@ -351,10 +351,10 @@ get_header();
 
                     <!-- Panel Eje 2 -->
                     <div class="pna-eje-content d-none" id="content-eje-2">
-                        <div class="row g-4 align-items-start">
+                        <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 13px;">
                                     Eje 2
                                 </div>
@@ -365,7 +365,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #1D70B8;">Objetivos específicos asociados</h4>
                                 </div>
@@ -393,10 +393,10 @@ get_header();
 
                     <!-- Panel Eje 3 -->
                     <div class="pna-eje-content d-none" id="content-eje-3">
-                        <div class="row g-4 align-items-start">
+                        <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
                                     Eje 3
                                 </div>
@@ -407,7 +407,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #74598F;">Objetivos específicos asociados</h4>
                                 </div>
@@ -430,10 +430,10 @@ get_header();
 
                     <!-- Panel Eje 4 -->
                     <div class="pna-eje-content d-none" id="content-eje-4">
-                        <div class="row g-4 align-items-start">
+                        <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="col-lg-5 border-end-lg pe-lg-4">
+                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #E04F67; font-size: 13px;">
                                     Eje 4
                                 </div>
@@ -444,7 +444,7 @@ get_header();
                             </div>
 
                             <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="col-lg-7 ps-lg-4">
+                            <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
                                     <h4 class="h6 fw-bold font-noto-sans mb-0" style="color: #E04F67;">Objetivos específicos asociados</h4>
                                 </div>
@@ -490,9 +490,9 @@ get_header();
          BLOQUE 3: ¿Cómo se construyó la Política Nacional Anticorrupción?
          ============================================================ -->
     <section class="pb-5" id="bloque-3">
-        <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-12">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 mb-5">
+                <div class="columna__12">
                     <h2 class="pna-diseno-title mb-3">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
                     <p class="text-muted mb-0" style="max-width: 800px; font-size: 15px; line-height: 1.6;">
                         La PNA se construyó mediante un proceso participativo nacional que integró consultas ciudadanas, foros regionales y diversos insumos de evidencia y análisis técnico.
@@ -509,7 +509,7 @@ get_header();
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="snd-star" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
@@ -525,7 +525,7 @@ get_header();
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
-                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd snd-group"></i></span>
+                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd snd-group" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
@@ -541,7 +541,7 @@ get_header();
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
-                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd snd-location--filled"></i></span>
+                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd snd-location--filled" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
@@ -564,7 +564,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="snd snd-information me-2 fs-5"></i>
+                        <i class="snd snd-information me-2 fs-5" aria-hidden="true"></i>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
@@ -591,7 +591,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Proceso de Consulta.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción</span>
                                 </div>
@@ -603,7 +603,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Compromisos Internacionales</span>
                                 </div>
@@ -615,7 +615,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('numeralia de los costos.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Numeralia de los costos de la corrupción</span>
                                 </div>
@@ -627,7 +627,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('acciones para combatir la corrupcion.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Acciones para combatir la Corrupción propuestas</span>
                                 </div>
@@ -639,7 +639,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('recomendaciones de la sociedad civil.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Recomendaciones de Organizaciones de la Sociedad Civil</span>
                                 </div>
@@ -651,7 +651,7 @@ get_header();
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('reporte del taller de inteligencia.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
-                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: #9d2449;"></div>
+                                <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
                                     <span class="fw-bold text-dark d-block font-noto-sans" style="font-size: 14px; line-height: 1.35;">Reporte del taller de inteligencia colectiva</span>
                                 </div>
@@ -671,9 +671,9 @@ get_header();
                         Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
                     </p>
 
-                    <div class="row g-4 align-items-stretch">
+                    <div class="reticulaGrid__12 align-items-stretch">
                         <!-- Imagen Consulta Ciudadana en línea -->
-                        <div class="col-lg-6">
+                        <div class="columna__6">
                             <div class="bg-light rounded-4 border h-100 d-flex align-items-center justify-content-center p-4">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Consulta Ciudadana en línea.svg') ); ?>"
                                      alt="Consulta Ciudadana en línea"
@@ -682,24 +682,24 @@ get_header();
                         </div>
 
                         <!-- Documentos de consulta -->
-                        <div class="col-lg-6">
+                        <div class="columna__6">
                             <div class="card border rounded-4 p-4 bg-white h-100 shadow-sm d-flex flex-column" style="border-color: #E9ECEF !important;">
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" style="color: #00887A;"></i>
+                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
@@ -746,9 +746,9 @@ get_header();
                     </div>
 
                     <!-- 2. Tarjetas resumen -->
-                    <div class="row g-4 mb-5">
+                    <div class="reticulaGrid__12 mb-5">
                         <!-- Tarjeta 1 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="columna__12 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('foros regionales.svg') ); ?>" alt="" width="68" height="68">
@@ -758,7 +758,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 2 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="columna__12 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('8 entidades federativas.svg') ); ?>" alt="" width="68" height="68">
@@ -768,7 +768,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 3 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="columna__12 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/Periodo.svg' ); ?>" alt="" width="68" height="68">
@@ -778,7 +778,7 @@ get_header();
                             </div>
                         </div>
                         <!-- Tarjeta 4 -->
-                        <div class="col-lg-3 col-md-6 col-12">
+                        <div class="columna__12 columna__6--md columna__3--lg">
                             <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: #FFFFFF; border-color: #E9ECEF !important; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/asistentes.svg' ); ?>" alt="" width="68" height="68">
@@ -790,9 +790,9 @@ get_header();
                     </div>
 
                     <!-- 3 y 4. Mapa (Izquierda) y Foros realizados (Derecha) -->
-                    <div class="row g-4 mb-5 align-items-stretch">
+                    <div class="reticulaGrid__12 mb-5 align-items-stretch">
                         <!-- Columna Izquierda: Mapa SVG -->
-                        <div class="col-xl-7 col-lg-6 col-12 d-flex">
+                        <div class="columna__12 columna__6--lg columna__7--xl d-flex">
                             <div class="card border-0 rounded-4 p-4 mb-0 shadow-sm w-100 d-flex flex-column" style="background-color: #FFFFFF; box-shadow: 0 6px 16px rgba(0,0,0,0.05);">
                                 <div class="border-bottom pb-3 mb-4 text-center flex-shrink-0">
                                     <h4 class="h5 fw-bold mb-0 font-noto-sans" style="color: #D97706;">Cobertura Nacional</h4>
@@ -800,7 +800,7 @@ get_header();
                                 <div class="svg-map-wrapper position-relative text-center d-flex justify-content-center align-items-center mx-auto flex-grow-1 w-100" style="min-height: 380px;">
                             <svg class="pna-mexico-map mx-auto d-block" viewBox="0 0 793 498" style="height: 380px; max-height: 380px; width: auto; max-width: 100%; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));">
                                         <!-- Fondo República Mexicana (32 Estados en Escala de grises pura) -->
-                                        <g class="mexico-base" fill="#E5E7EB" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round">
+                                        <g class="mexico-base" fill="var(--neutro400, #DDDDDD)" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round">
                                             <!-- Aguascalientes -->
                                             <path class="estado-base" d="m 390.52786,309.79244 -2.34,-2.26 -0.07,-1.21 1.24,-2.87 3.33,-4.59 0.93,-3.24 1.07,-0.73 1.79,-0.38 3.47,-1.97 1.21,-0.92 0.39,-1.26 0.73,-0.17 0.77,1.39 1.33,1.34 4.44,2.63 0.59,2.44 1.14,2.04 0,0 0.26,0.59 -0.24,1.6 1.96,2.14 -4.28,1.97 -2.55,3.55 -0.72,0.5 -3.02,1.04 -1.26,0.06 -2.17,-1.02 -1.74,-1.41 -4.21,-0.38 z" />
                                             <!-- Baja California -->
@@ -851,21 +851,21 @@ get_header();
                                             <path class="estado-base" d="m 771.88786,315.18244 0.33,5.3 -0.14,0.76 -0.88,0.87 -0.47,3.16 1.33,3.2 -0.1,0.97 -1.14,2.05 -0.49,2.45 -0.86,1.08 -0.26,1.58 -0.86,1.17 -1.72,0.82 -3.13,2.7 -3.11,1.84 -1.51,-0.11 -1.53,0.44 -1.14,-1 -1.17,0.56 -1.5,2.76 0.25,2.19 -0.36,0.05 -0.93,-1.68 -1.01,-0.01 -0.5,0.42 -0.79,2.37 -0.46,0.48 -5.51,1.98 -1.78,1.04 -1.88,1.6 0.27,0.69 -0.3,0.32 -1.08,-0.92 -1.92,1.78 -1.19,0.41 -2.43,0.03 -2.43,1.05 -1.39,1.39 -3.54,0.17 -0.56,0.49 0.17,0.87 -0.32,1.45 -0.93,2.01 0,0 -0.44,-0.46 -0.79,-3.44 -3.16,-3.58 -1.18,-2.49 -3.85,-2.1 -1.99,-4.46 -1.82,-1.16 -0.57,-1.04 0.11,-0.91 -1.03,-1.76 -0.42,-0.28 -0.79,0.73 -0.4,1.01 -0.48,0.09 -0.94,-0.98 -1.12,0.34 -0.44,-0.18 -0.97,-2.01 -4.13,-0.52 0.16,-7.29 0,0 0.07,-1.38 0.61,-0.59 0.72,-1.71 -0.15,-0.52 -0.33,0.21 -1.11,3.43 -0.56,0.54 0.3,-1.55 1.02,-2.96 1.05,-1.38 5.6,-3.54 2.5,-0.57 2.08,-1.28 0.92,-0.01 0.26,-0.45 0.98,-0.31 2.9,-0.67 0.06,0.4 0.57,-0.01 -0.12,-0.29 0.65,-0.36 4,-0.73 16.6,-2.2 5.03,-1.91 0.56,-1.4 5.5,-1.17 3.23,0.26 1.33,-0.37 2.26,-1.47 2.09,0.47 -0.17,0.45 1.73,0.63 3.59,0.25 0.5,0.81 1.01,0.57 2.17,0.09 1.9,0.54 0.42,-0.41 -3.78,-0.93 z" />
                                             <!-- Estados Sede de los Foros Regionales -->
                                             <!-- Sede 1: Guadalajara, Jalisco -->
-                                            <path id="map-jalisco" class="estado-mapa" data-sede="1" d="m 390.52786,309.79244 2.05,-1.12 4.21,0.38 1.74,1.41 2.17,1.02 1.26,-0.06 3.02,-1.04 0.72,-0.5 2.55,-3.55 4.28,-1.97 -1.96,-2.14 0.24,-1.6 -0.26,-0.59 0,0 3.54,0.91 2.13,1.14 2.67,2.35 2.09,0.75 0.28,0.39 0,0 -1.22,1.29 0.74,0.83 -1.2,1.36 0.12,0.7 -1.52,5.53 0.7,0.12 -0.58,2.19 0.81,0.47 -0.67,1.37 -0.43,0.37 -1.47,0.09 -0.52,0.74 0.11,0.65 -1.12,2.71 -2.49,1.91 -1.91,3.95 -1.81,1.5 -0.12,0.83 -2.01,1.96 0.55,1.31 1.65,0.43 1.57,2.87 -1.79,3.43 -0.38,2.77 0,0 -2.8,0.01 -2.14,1.04 -1.71,-0.17 -1.33,0.46 -1.68,-0.13 -1.07,0.34 -2.06,1.64 -1.06,-0.08 -1.01,1.05 -0.94,0.33 -0.28,1.43 -2.97,0.73 -0.23,0.81 -0.44,0.04 -1.05,-1.3 -2.47,-0.45 -0.3,1.15 -0.93,-0.2 -0.36,0.27 -0.02,2.35 -0.89,1.51 0.5,0.84 0.5,0.05 0.45,-0.56 2.27,0.28 3.21,0.94 0.66,0.64 0.61,2.21 -0.33,0.81 -0.93,0.74 1.91,4.2 -0.63,2.59 3.36,-0.07 0.61,0.68 0.06,1.56 -2.36,2.5 -0.85,2.31 -2.31,-0.58 -1.37,0.72 -4.02,3.58 -2.2,1.21 -1.59,1.74 -0.29,0.09 -1.26,-1.76 -0.53,-0.1 -2.22,1.7 -1.55,-0.3 -1.66,0.41 0,0 -0.05,-1.96 -0.82,-1.54 0.56,-1.32 -0.07,-3.12 0.5,-1.8 -1.07,-0.48 -0.21,-0.78 -0.97,-0.83 0.16,-1.02 -0.48,-2.89 -0.61,-0.13 -2.51,2.41 -3.22,1.68 -1.41,0.21 -3.25,-0.32 -3.1,2.32 -1.13,0.29 -1.27,-0.38 -3.77,0.88 -0.55,-0.4 -0.87,0.58 -0.48,0.84 -0.56,0.11 -1.14,-0.48 -1.48,1.79 -1.92,-0.05 0,0 -0.56,-0.53 -0.63,0.09 -0.08,-0.51 -0.66,0.26 -0.49,-0.3 -0.85,0.13 0.01,-0.64 0.51,-0.55 -0.13,-0.46 -0.89,-0.29 -0.23,0.43 -0.93,0.19 -2,-1.07 -1.89,-1.72 0.36,-0.72 -0.37,-0.73 -0.84,-0.47 0.09,-0.85 -0.45,-0.22 -0.22,-1.49 -0.76,-0.74 -0.84,-0.03 0.04,-0.36 -2.83,-2.11 -0.26,-0.73 -1.43,-1.51 -0.4,-1.11 -3.92,-5.33 -1.12,-2.32 0.21,-2.21 -0.34,-1.22 -0.68,-0.24 -0.13,-0.6 -2.24,-2.34 -0.46,-1.65 1.05,-0.51 0.95,-1.13 7.41,-1.16 1.5,-1.1 0.66,-1.61 -0.31,-0.97 -1.28,-1.06 0,0 4.45,-5.62 1.17,-0.45 2.33,0.47 3.19,-2.44 1.25,-0.21 1.5,0.73 1.21,1.43 3.08,0.78 2.66,3.01 1.08,0.56 2.3,2.12 0.67,0.78 0.5,1.55 0.51,0.32 0.03,-1.46 -1.18,-1.46 0.29,-0.35 -0.73,-0.75 -0.37,-1.53 0.45,-0.64 0.82,-0.18 1.5,-8.51 4.04,-0.23 0.95,-0.4 0.97,-0.97 1.71,-0.28 2.25,-1.28 0.4,-0.82 0.4,-4.22 -0.24,-1.48 -1.39,-1.24 -1.74,-4.29 -4.5,-0.6 -0.85,-1.61 -0.11,-2.72 -0.53,-0.48 -1.11,-0.09 -1.2,-1.16 -1.65,0.52 -0.46,-3.02 1.24,-4.89 -0.18,-0.48 0,0 1.08,-1.21 1.35,0.34 0.36,-3.03 3.1,-1.17 0.53,0.37 -1.05,3.24 0.27,0.49 1.8,-1.14 1.03,-1.18 -0.16,-1.43 -1.74,-3.84 0.11,-0.79 2.16,-1.53 2.66,-0.38 1.81,1.01 -0.17,0.91 -1.1,0.82 -1.45,1.87 -1.69,4.22 -0.04,3.32 1.21,1.78 1.16,0.17 0.38,-1.16 0,-7.04 0.63,-0.57 3.43,-0.67 1.42,0.51 1.4,1.32 0.6,1.93 -0.04,1.16 -3.78,6.17 -0.09,0.45 0.58,0.66 1.93,0.02 0.69,-0.8 1.27,0.2 0.71,0.52 0.9,-0.44 0.93,-1.73 2.39,-1.89 -1.24,-1.03 0.31,-1.87 1.88,-0.73 2.17,0.17 0.41,0.86 -0.76,1.51 0.5,0.44 2.15,0.14 0.51,0.38 -0.7,3.47 -1.19,2.91 -0.74,0.69 -1.26,0.2 -3.28,1.68 -1.77,1.73 -2.92,2.07 0.18,1.79 -0.33,2.47 -1.62,1.88 -1.79,0.46 0.85,2.48 0.93,0.54 1.02,-0.49 0.67,0.14 0.34,0.58 -0.1,1.02 -1.17,1.12 -4.04,1.81 0.17,0.5 2.5,0.62 0.75,0.81 0.75,1.7 0.94,0.49 2.26,-0.19 2.9,1.61 0.99,-0.48 0.88,0.07 0.22,-0.56 1.34,-0.26 1.71,0.43 0.11,-0.37 1.47,-0.52 0.33,-2.02 0.63,-0.54 1.37,-0.49 1.52,0.5 3.58,-2.91 2.29,-1.4 0.96,-1.31 0.48,-2.69 -2.78,-1.78 -0.65,-1.85 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-jalisco" class="estado-mapa" data-sede="1" d="m 390.52786,309.79244 2.05,-1.12 4.21,0.38 1.74,1.41 2.17,1.02 1.26,-0.06 3.02,-1.04 0.72,-0.5 2.55,-3.55 4.28,-1.97 -1.96,-2.14 0.24,-1.6 -0.26,-0.59 0,0 3.54,0.91 2.13,1.14 2.67,2.35 2.09,0.75 0.28,0.39 0,0 -1.22,1.29 0.74,0.83 -1.2,1.36 0.12,0.7 -1.52,5.53 0.7,0.12 -0.58,2.19 0.81,0.47 -0.67,1.37 -0.43,0.37 -1.47,0.09 -0.52,0.74 0.11,0.65 -1.12,2.71 -2.49,1.91 -1.91,3.95 -1.81,1.5 -0.12,0.83 -2.01,1.96 0.55,1.31 1.65,0.43 1.57,2.87 -1.79,3.43 -0.38,2.77 0,0 -2.8,0.01 -2.14,1.04 -1.71,-0.17 -1.33,0.46 -1.68,-0.13 -1.07,0.34 -2.06,1.64 -1.06,-0.08 -1.01,1.05 -0.94,0.33 -0.28,1.43 -2.97,0.73 -0.23,0.81 -0.44,0.04 -1.05,-1.3 -2.47,-0.45 -0.3,1.15 -0.93,-0.2 -0.36,0.27 -0.02,2.35 -0.89,1.51 0.5,0.84 0.5,0.05 0.45,-0.56 2.27,0.28 3.21,0.94 0.66,0.64 0.61,2.21 -0.33,0.81 -0.93,0.74 1.91,4.2 -0.63,2.59 3.36,-0.07 0.61,0.68 0.06,1.56 -2.36,2.5 -0.85,2.31 -2.31,-0.58 -1.37,0.72 -4.02,3.58 -2.2,1.21 -1.59,1.74 -0.29,0.09 -1.26,-1.76 -0.53,-0.1 -2.22,1.7 -1.55,-0.3 -1.66,0.41 0,0 -0.05,-1.96 -0.82,-1.54 0.56,-1.32 -0.07,-3.12 0.5,-1.8 -1.07,-0.48 -0.21,-0.78 -0.97,-0.83 0.16,-1.02 -0.48,-2.89 -0.61,-0.13 -2.51,2.41 -3.22,1.68 -1.41,0.21 -3.25,-0.32 -3.1,2.32 -1.13,0.29 -1.27,-0.38 -3.77,0.88 -0.55,-0.4 -0.87,0.58 -0.48,0.84 -0.56,0.11 -1.14,-0.48 -1.48,1.79 -1.92,-0.05 0,0 -0.56,-0.53 -0.63,0.09 -0.08,-0.51 -0.66,0.26 -0.49,-0.3 -0.85,0.13 0.01,-0.64 0.51,-0.55 -0.13,-0.46 -0.89,-0.29 -0.23,0.43 -0.93,0.19 -2,-1.07 -1.89,-1.72 0.36,-0.72 -0.37,-0.73 -0.84,-0.47 0.09,-0.85 -0.45,-0.22 -0.22,-1.49 -0.76,-0.74 -0.84,-0.03 0.04,-0.36 -2.83,-2.11 -0.26,-0.73 -1.43,-1.51 -0.4,-1.11 -3.92,-5.33 -1.12,-2.32 0.21,-2.21 -0.34,-1.22 -0.68,-0.24 -0.13,-0.6 -2.24,-2.34 -0.46,-1.65 1.05,-0.51 0.95,-1.13 7.41,-1.16 1.5,-1.1 0.66,-1.61 -0.31,-0.97 -1.28,-1.06 0,0 4.45,-5.62 1.17,-0.45 2.33,0.47 3.19,-2.44 1.25,-0.21 1.5,0.73 1.21,1.43 3.08,0.78 2.66,3.01 1.08,0.56 2.3,2.12 0.67,0.78 0.5,1.55 0.51,0.32 0.03,-1.46 -1.18,-1.46 0.29,-0.35 -0.73,-0.75 -0.37,-1.53 0.45,-0.64 0.82,-0.18 1.5,-8.51 4.04,-0.23 0.95,-0.4 0.97,-0.97 1.71,-0.28 2.25,-1.28 0.4,-0.82 0.4,-4.22 -0.24,-1.48 -1.39,-1.24 -1.74,-4.29 -4.5,-0.6 -0.85,-1.61 -0.11,-2.72 -0.53,-0.48 -1.11,-0.09 -1.2,-1.16 -1.65,0.52 -0.46,-3.02 1.24,-4.89 -0.18,-0.48 0,0 1.08,-1.21 1.35,0.34 0.36,-3.03 3.1,-1.17 0.53,0.37 -1.05,3.24 0.27,0.49 1.8,-1.14 1.03,-1.18 -0.16,-1.43 -1.74,-3.84 0.11,-0.79 2.16,-1.53 2.66,-0.38 1.81,1.01 -0.17,0.91 -1.1,0.82 -1.45,1.87 -1.69,4.22 -0.04,3.32 1.21,1.78 1.16,0.17 0.38,-1.16 0,-7.04 0.63,-0.57 3.43,-0.67 1.42,0.51 1.4,1.32 0.6,1.93 -0.04,1.16 -3.78,6.17 -0.09,0.45 0.58,0.66 1.93,0.02 0.69,-0.8 1.27,0.2 0.71,0.52 0.9,-0.44 0.93,-1.73 2.39,-1.89 -1.24,-1.03 0.31,-1.87 1.88,-0.73 2.17,0.17 0.41,0.86 -0.76,1.51 0.5,0.44 2.15,0.14 0.51,0.38 -0.7,3.47 -1.19,2.91 -0.74,0.69 -1.26,0.2 -3.28,1.68 -1.77,1.73 -2.92,2.07 0.18,1.79 -0.33,2.47 -1.62,1.88 -1.79,0.46 0.85,2.48 0.93,0.54 1.02,-0.49 0.67,0.14 0.34,0.58 -0.1,1.02 -1.17,1.12 -4.04,1.81 0.17,0.5 2.5,0.62 0.75,0.81 0.75,1.7 0.94,0.49 2.26,-0.19 2.9,1.61 0.99,-0.48 0.88,0.07 0.22,-0.56 1.34,-0.26 1.71,0.43 0.11,-0.37 1.47,-0.52 0.33,-2.02 0.63,-0.54 1.37,-0.49 1.52,0.5 3.58,-2.91 2.29,-1.4 0.96,-1.31 0.48,-2.69 -2.78,-1.78 -0.65,-1.85 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 2: Zacatecas, Zacatecas -->
-                                            <path id="map-zacatecas" class="estado-mapa" data-sede="2" d="m 391.19786,219.24244 0.02,-1.63 0.63,-0.53 5.4,-1.07 9.4,0.61 2.54,1.71 2.5,0.97 1.96,1.66 2.16,3.07 1.47,-0.41 1.16,0.32 0.62,3.56 2.83,0.02 0.92,-0.88 2.27,-0.51 2.96,0.37 1.25,0.82 1.92,3.76 1.37,1.3 2.09,0.81 1.44,-0.37 0.18,-0.78 0.75,-0.32 2.12,0.47 0,0 -0.55,0.42 0,0 -0.81,0.44 -0.36,1.78 -1.19,1 -0.69,1.72 -0.98,0.5 -1.58,-0.07 -0.67,0.52 -0.21,1.49 -0.92,1.78 -1.36,0.88 -1.87,0.48 -0.64,0.62 -0.83,3.45 1.01,1.18 -1.18,2.96 -1.1,1.54 -4.74,1.59 -3.48,5.14 -3.56,2.13 -2.28,0.84 -0.85,1.03 -0.52,1.44 -2.94,0.58 -2.32,-0.93 -0.66,0.2 -0.87,1.67 0.62,0.81 -0.51,1.69 1.03,3.02 -1.26,3.99 -0.2,1.26 0.25,1.51 0.94,1 4.18,2.53 1.11,1.32 2.31,0.34 1.07,0.58 0.92,2 1.48,2.02 2.08,0.05 2.43,-0.73 4.45,-4.61 1.46,-0.7 0.71,-0.05 1.97,2.58 -0.19,1.65 -3.3,7.3 1.38,3.86 -0.36,1.64 -0.39,-0.03 -0.13,0.55 0.26,0.18 -0.35,0.96 -1.93,3.97 0,0 -0.81,0.94 -0.97,-0.63 0,0 -0.28,-0.39 -2.09,-0.75 -2.67,-2.35 -2.13,-1.14 -3.54,-0.91 0,0 -1.14,-2.04 -0.59,-2.44 -4.44,-2.63 -1.33,-1.34 -0.77,-1.39 -0.73,0.17 -0.39,1.26 -1.21,0.92 -3.47,1.97 -1.79,0.38 -1.07,0.73 -0.93,3.24 -3.33,4.59 -1.24,2.87 0.07,1.21 2.34,2.26 0,0 -0.09,2.21 0.65,1.85 2.78,1.78 -0.48,2.69 -0.96,1.31 -2.29,1.4 -3.58,2.91 -1.52,-0.5 -1.37,0.49 -0.63,0.54 -0.33,2.02 -1.47,0.52 -0.11,0.37 -1.71,-0.43 -1.34,0.26 -0.22,0.56 -0.88,-0.07 -0.99,0.48 -2.9,-1.61 -2.26,0.19 -0.94,-0.49 -0.75,-1.7 -0.75,-0.81 -2.5,-0.62 -0.17,-0.5 4.04,-1.81 1.17,-1.12 0.1,-1.02 -0.34,-0.58 -0.67,-0.14 -1.02,0.49 -0.93,-0.54 -0.85,-2.48 1.79,-0.46 1.62,-1.88 0.33,-2.47 -0.18,-1.79 2.92,-2.07 1.77,-1.73 3.28,-1.68 1.26,-0.2 0.74,-0.69 1.19,-2.91 0.7,-3.47 -0.51,-0.38 -2.15,-0.14 -0.5,-0.44 0.76,-1.51 -0.41,-0.86 -2.17,-0.17 -1.88,0.73 -0.31,1.87 1.24,1.03 -2.39,1.89 -0.93,1.73 -0.9,0.44 -0.71,-0.52 -1.27,-0.2 -0.69,0.8 -1.93,-0.02 -0.58,-0.66 0.09,-0.45 3.78,-6.17 0.04,-1.16 -0.6,-1.93 -1.4,-1.32 -1.42,-0.51 -3.43,0.67 -0.63,0.57 0,7.04 -0.38,1.16 -1.16,-0.17 -1.21,-1.78 0.04,-3.32 1.69,-4.22 1.45,-1.87 1.1,-0.82 0.17,-0.91 -1.81,-1.01 -2.66,0.38 -2.16,1.53 -0.11,0.79 1.74,3.84 0.16,1.43 -1.03,1.18 -1.8,1.14 -0.27,-0.49 1.05,-3.24 -0.53,-0.37 -3.1,1.17 -0.36,3.03 -1.35,-0.34 -1.08,1.21 0,0 -0.72,-0.43 -0.43,-0.96 -0.2,-2.77 0,0 1.16,-3.05 1.01,-1.51 3.21,-1.42 0.25,-0.63 0.16,-5.55 -0.85,-3.09 0.08,-1.28 1.37,-2.73 0.61,-0.37 1.29,-5.77 0.09,-1.88 2.32,-2.89 2.8,-2.42 -0.89,-4.27 0.45,-1.2 -0.37,-1.89 0.31,-1.68 -0.37,-1.65 -0.78,-0.51 0.23,-1.32 2.4,-0.72 2.26,-2.14 2.07,-2.83 2.4,-1.82 0.47,-1.34 1.71,-1.37 3.9,0.27 2.23,0.7 2.25,-0.8 1.12,0.1 1,0.7 2.66,0.87 0.76,-0.91 1.68,0.23 6.07,-0.58 0.12,-0.68 -0.5,-0.37 0.02,-0.41 0.97,-0.52 -1.02,-4 -1.21,-0.45 0.81,-4.9 -0.8,-0.94 -1.53,-0.71 -0.36,-1.1 -0.75,-0.34 -0.04,-1.65 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-zacatecas" class="estado-mapa" data-sede="2" d="m 391.19786,219.24244 0.02,-1.63 0.63,-0.53 5.4,-1.07 9.4,0.61 2.54,1.71 2.5,0.97 1.96,1.66 2.16,3.07 1.47,-0.41 1.16,0.32 0.62,3.56 2.83,0.02 0.92,-0.88 2.27,-0.51 2.96,0.37 1.25,0.82 1.92,3.76 1.37,1.3 2.09,0.81 1.44,-0.37 0.18,-0.78 0.75,-0.32 2.12,0.47 0,0 -0.55,0.42 0,0 -0.81,0.44 -0.36,1.78 -1.19,1 -0.69,1.72 -0.98,0.5 -1.58,-0.07 -0.67,0.52 -0.21,1.49 -0.92,1.78 -1.36,0.88 -1.87,0.48 -0.64,0.62 -0.83,3.45 1.01,1.18 -1.18,2.96 -1.1,1.54 -4.74,1.59 -3.48,5.14 -3.56,2.13 -2.28,0.84 -0.85,1.03 -0.52,1.44 -2.94,0.58 -2.32,-0.93 -0.66,0.2 -0.87,1.67 0.62,0.81 -0.51,1.69 1.03,3.02 -1.26,3.99 -0.2,1.26 0.25,1.51 0.94,1 4.18,2.53 1.11,1.32 2.31,0.34 1.07,0.58 0.92,2 1.48,2.02 2.08,0.05 2.43,-0.73 4.45,-4.61 1.46,-0.7 0.71,-0.05 1.97,2.58 -0.19,1.65 -3.3,7.3 1.38,3.86 -0.36,1.64 -0.39,-0.03 -0.13,0.55 0.26,0.18 -0.35,0.96 -1.93,3.97 0,0 -0.81,0.94 -0.97,-0.63 0,0 -0.28,-0.39 -2.09,-0.75 -2.67,-2.35 -2.13,-1.14 -3.54,-0.91 0,0 -1.14,-2.04 -0.59,-2.44 -4.44,-2.63 -1.33,-1.34 -0.77,-1.39 -0.73,0.17 -0.39,1.26 -1.21,0.92 -3.47,1.97 -1.79,0.38 -1.07,0.73 -0.93,3.24 -3.33,4.59 -1.24,2.87 0.07,1.21 2.34,2.26 0,0 -0.09,2.21 0.65,1.85 2.78,1.78 -0.48,2.69 -0.96,1.31 -2.29,1.4 -3.58,2.91 -1.52,-0.5 -1.37,0.49 -0.63,0.54 -0.33,2.02 -1.47,0.52 -0.11,0.37 -1.71,-0.43 -1.34,0.26 -0.22,0.56 -0.88,-0.07 -0.99,0.48 -2.9,-1.61 -2.26,0.19 -0.94,-0.49 -0.75,-1.7 -0.75,-0.81 -2.5,-0.62 -0.17,-0.5 4.04,-1.81 1.17,-1.12 0.1,-1.02 -0.34,-0.58 -0.67,-0.14 -1.02,0.49 -0.93,-0.54 -0.85,-2.48 1.79,-0.46 1.62,-1.88 0.33,-2.47 -0.18,-1.79 2.92,-2.07 1.77,-1.73 3.28,-1.68 1.26,-0.2 0.74,-0.69 1.19,-2.91 0.7,-3.47 -0.51,-0.38 -2.15,-0.14 -0.5,-0.44 0.76,-1.51 -0.41,-0.86 -2.17,-0.17 -1.88,0.73 -0.31,1.87 1.24,1.03 -2.39,1.89 -0.93,1.73 -0.9,0.44 -0.71,-0.52 -1.27,-0.2 -0.69,0.8 -1.93,-0.02 -0.58,-0.66 0.09,-0.45 3.78,-6.17 0.04,-1.16 -0.6,-1.93 -1.4,-1.32 -1.42,-0.51 -3.43,0.67 -0.63,0.57 0,7.04 -0.38,1.16 -1.16,-0.17 -1.21,-1.78 0.04,-3.32 1.69,-4.22 1.45,-1.87 1.1,-0.82 0.17,-0.91 -1.81,-1.01 -2.66,0.38 -2.16,1.53 -0.11,0.79 1.74,3.84 0.16,1.43 -1.03,1.18 -1.8,1.14 -0.27,-0.49 1.05,-3.24 -0.53,-0.37 -3.1,1.17 -0.36,3.03 -1.35,-0.34 -1.08,1.21 0,0 -0.72,-0.43 -0.43,-0.96 -0.2,-2.77 0,0 1.16,-3.05 1.01,-1.51 3.21,-1.42 0.25,-0.63 0.16,-5.55 -0.85,-3.09 0.08,-1.28 1.37,-2.73 0.61,-0.37 1.29,-5.77 0.09,-1.88 2.32,-2.89 2.8,-2.42 -0.89,-4.27 0.45,-1.2 -0.37,-1.89 0.31,-1.68 -0.37,-1.65 -0.78,-0.51 0.23,-1.32 2.4,-0.72 2.26,-2.14 2.07,-2.83 2.4,-1.82 0.47,-1.34 1.71,-1.37 3.9,0.27 2.23,0.7 2.25,-0.8 1.12,0.1 1,0.7 2.66,0.87 0.76,-0.91 1.68,0.23 6.07,-0.58 0.12,-0.68 -0.5,-0.37 0.02,-0.41 0.97,-0.52 -1.02,-4 -1.21,-0.45 0.81,-4.9 -0.8,-0.94 -1.53,-0.71 -0.36,-1.1 -0.75,-0.34 -0.04,-1.65 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 3: Saltillo, Coahuila -->
-                                            <path id="map-coahuila" class="estado-mapa" data-sede="3" d="m 463.90786,143.13244 -0.26,0.61 -1.09,0.79 -0.95,0.06 -1.92,1.3 -5.52,-0.92 -3.67,0.26 -1.13,0.63 -0.55,2.34 -1.69,2.6 -0.29,0.79 0.16,2.29 -0.63,0.49 -2.23,-0.12 -2.1,0.92 -1.19,-0.38 -1.19,1.04 -1.83,2.98 0.25,3.34 2.82,2.07 0.59,-0.05 0.7,-3.12 0.63,0.07 2.05,1.48 0.42,5.13 -0.84,2.24 -1.05,0.77 -1.14,2.19 -3.2,-0.04 -2.61,1.7 -3.51,0.28 -0.87,0.9 -1.04,2.73 -2.42,2.42 0.02,1.3 4.54,4.78 2.7,2.02 1.05,3.11 1.42,1.15 0.86,0.08 0.38,0.64 -0.99,2.9 0.24,2.47 0.84,1.78 1.11,0.14 0.84,0.66 2.13,0.08 0.35,0.36 0.56,3.41 0.82,0.85 3.28,1.88 -0.51,1.05 3.6,0.63 0.5,0.8 0.88,0.32 0.39,0.95 -0.75,0.89 -0.15,1.15 -0.34,0.2 -1.94,-0.03 -3.41,-0.88 -1.31,-1.53 -1.74,-0.17 -0.94,0.31 0.29,0.81 -1.79,0.57 -1.7,3.22 0.89,2.93 0.09,2.16 -0.2,0.39 -2.41,0.06 -0.16,0.37 0.29,0.83 -0.32,1.2 1.38,1.55 0.11,1.39 0.65,1.23 -1,3.26 0,0 -2.12,-0.47 -0.75,0.32 -0.18,0.78 -1.44,0.37 -2.09,-0.81 -1.37,-1.3 -1.92,-3.76 -1.25,-0.82 -2.96,-0.37 -2.27,0.51 -0.92,0.88 -2.83,-0.02 -0.62,-3.56 -1.16,-0.32 -1.47,0.41 -2.16,-3.07 -1.96,-1.66 -2.5,-0.97 -2.54,-1.71 -9.4,-0.61 -5.4,1.07 -0.63,0.53 -0.02,1.63 0,0 -3.05,2.03 -0.58,1.01 -0.51,2.14 0.5,1.72 -0.28,0.52 -0.69,0.21 -2.1,-1.35 -2.78,-0.16 -3.42,-1.59 -1.3,-1.2 -0.62,-0.86 -0.54,-3.12 -2.43,-1.93 -0.6,-1.74 -1.77,-2.12 -0.63,-3.15 1.36,-1.36 2.26,-0.45 -0.8,-1.23 -1.34,-0.26 -0.67,-0.82 0.09,-0.86 1.4,-2.15 1.06,-0.81 1.2,-3.11 -1.2,-4.47 -0.18,-1.99 0.41,-2.28 -1.68,-3.95 -0.17,-1.39 0.44,-2.93 -1.38,-3.97 -2.3,-2.13 -0.82,-1.21 -1.22,-1.18 -2.98,-0.79 -0.72,-0.63 0,0 -1.08,-1.83 -2.15,-1.9 0.1,-1.31 -0.44,-0.8 1.92,-0.91 1.07,-1 1.15,-0.04 0.41,-1.54 -1.83,-0.79 -0.54,-0.68 -0.22,-4.82 -0.68,-3.68 0.48,-1.14 -0.09,-1.06 -0.24,-0.83 -1.13,-0.5 -0.81,-4.52 1.09,-1.16 -0.14,-0.72 -0.72,-0.78 0.57,-0.82 0.06,-0.83 -0.76,-1.44 1.9,-0.38 0.34,-0.48 -0.49,-1.46 -1.12,-0.18 0.01,-1.55 1.77,0.71 0.6,-0.38 2.66,-6.81 0.94,-1.38 -0.87,-1.42 0.56,-1.1 2.27,-3.78 1.64,-0.61 1.41,-1.11 1.73,-4.01 0.7,-0.34 0.84,0.32 0.66,-0.98 -0.01,-1.04 -1.71,-0.61 -0.02,-0.35 2.26,-4.16 0,0 0.69,0.07 0.27,-0.63 0.42,0.08 -0.26,0.57 1.36,0.71 0.1,0.51 0.44,-0.45 0.34,0.4 1.61,-0.11 0.85,0.38 0.89,-0.36 0.51,-2.25 0.27,0.2 0.29,-1.06 0.82,-0.11 1.09,-1.72 0.02,-0.59 0.62,-0.25 0.37,0.29 0.99,-0.47 0.17,-0.71 0.63,0.22 0.46,-0.35 -0.2,-0.65 -0.8,-0.45 0.43,-0.810002 0.17,-1.76 1.03,-0.22 -0.08,-0.33 0.71,-0.91 -0.38,-0.25 0.05,-0.9 0.7,-1.25 -0.13,-1.05 0.74,-0.6 0.32,-1.55 0.54,0.13 0.07,-1.24 1.18,-1.1 -0.12,-0.42 0.69,-1.56 1.11,0.23 1.38,-0.59 0.63,0.32 0.86,-0.59 -0.08,-0.5 2.68,0.52 0.7,-0.64 0.41,-1.62 1.08,-0.99 1.4,0.32 0.01,0.39 2.13,0.35 1.61,1.42 1.4,0.17 0.5,-0.14 0.02,-0.33 1.03,-0.13 1.58,0.23 0.27,0.4 0.45,-0.39 2.05,-0.32 0.47,0.29 -0.06,0.54 0.78,-0.25 1.68,0.75 0.43,-0.19 0.37,0.32 0.41,-0.29 0.28,0.4 1.91,-0.56 0.08,-0.56 0.61,-0.5 0.19,1.49 1.98,-0.84 0.2,1.05 1.06,-0.53 0.23,0.21 -0.41,0.31 0.38,1.02 0.55,0.4 0.33,1.42 1.2,-0.21 0.38,0.59 -0.28,1.53 0.61,0.44 0.23,-1.33 0.31,-0.35 0.46,0.14 0.15,1.62 -0.49,1.07 0.3,0.34 1.91,0.18 0.56,1.05 2.21,0.49 1.3,2.52 1.64,0.75 1.43,1.03 0.3,0.800002 1.97,1.01 0.76,1.68 -0.24,0.42 2.38,1.79 0.4,0.88 0.35,3.74 0.46,1.22 0.74,0.07 0.66,2.01 0.68,0.11 0.34,0.61 0.1,1.32 0.61,0.6 0.19,2.13 1.31,0.64 0.02,0.81 1.25,0.77 -0.37,1.12 0.64,0.85 1.24,0.37 -0.12,0.41 -0.65,0.17 0.69,0.94 -0.23,1.37 1.5,2.4 -0.04,1.08 0.97,1.12 0.76,0.09 0.3,1.1 3.14,1.37 0.88,1.8 0.81,0.46 0.19,1.02 0.82,1.19 0.91,0.12 -0.02,1.09 1,1.01 -0.18,1.02 0.71,1.06 0,1.06 0.67,0.11 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-coahuila" class="estado-mapa" data-sede="3" d="m 463.90786,143.13244 -0.26,0.61 -1.09,0.79 -0.95,0.06 -1.92,1.3 -5.52,-0.92 -3.67,0.26 -1.13,0.63 -0.55,2.34 -1.69,2.6 -0.29,0.79 0.16,2.29 -0.63,0.49 -2.23,-0.12 -2.1,0.92 -1.19,-0.38 -1.19,1.04 -1.83,2.98 0.25,3.34 2.82,2.07 0.59,-0.05 0.7,-3.12 0.63,0.07 2.05,1.48 0.42,5.13 -0.84,2.24 -1.05,0.77 -1.14,2.19 -3.2,-0.04 -2.61,1.7 -3.51,0.28 -0.87,0.9 -1.04,2.73 -2.42,2.42 0.02,1.3 4.54,4.78 2.7,2.02 1.05,3.11 1.42,1.15 0.86,0.08 0.38,0.64 -0.99,2.9 0.24,2.47 0.84,1.78 1.11,0.14 0.84,0.66 2.13,0.08 0.35,0.36 0.56,3.41 0.82,0.85 3.28,1.88 -0.51,1.05 3.6,0.63 0.5,0.8 0.88,0.32 0.39,0.95 -0.75,0.89 -0.15,1.15 -0.34,0.2 -1.94,-0.03 -3.41,-0.88 -1.31,-1.53 -1.74,-0.17 -0.94,0.31 0.29,0.81 -1.79,0.57 -1.7,3.22 0.89,2.93 0.09,2.16 -0.2,0.39 -2.41,0.06 -0.16,0.37 0.29,0.83 -0.32,1.2 1.38,1.55 0.11,1.39 0.65,1.23 -1,3.26 0,0 -2.12,-0.47 -0.75,0.32 -0.18,0.78 -1.44,0.37 -2.09,-0.81 -1.37,-1.3 -1.92,-3.76 -1.25,-0.82 -2.96,-0.37 -2.27,0.51 -0.92,0.88 -2.83,-0.02 -0.62,-3.56 -1.16,-0.32 -1.47,0.41 -2.16,-3.07 -1.96,-1.66 -2.5,-0.97 -2.54,-1.71 -9.4,-0.61 -5.4,1.07 -0.63,0.53 -0.02,1.63 0,0 -3.05,2.03 -0.58,1.01 -0.51,2.14 0.5,1.72 -0.28,0.52 -0.69,0.21 -2.1,-1.35 -2.78,-0.16 -3.42,-1.59 -1.3,-1.2 -0.62,-0.86 -0.54,-3.12 -2.43,-1.93 -0.6,-1.74 -1.77,-2.12 -0.63,-3.15 1.36,-1.36 2.26,-0.45 -0.8,-1.23 -1.34,-0.26 -0.67,-0.82 0.09,-0.86 1.4,-2.15 1.06,-0.81 1.2,-3.11 -1.2,-4.47 -0.18,-1.99 0.41,-2.28 -1.68,-3.95 -0.17,-1.39 0.44,-2.93 -1.38,-3.97 -2.3,-2.13 -0.82,-1.21 -1.22,-1.18 -2.98,-0.79 -0.72,-0.63 0,0 -1.08,-1.83 -2.15,-1.9 0.1,-1.31 -0.44,-0.8 1.92,-0.91 1.07,-1 1.15,-0.04 0.41,-1.54 -1.83,-0.79 -0.54,-0.68 -0.22,-4.82 -0.68,-3.68 0.48,-1.14 -0.09,-1.06 -0.24,-0.83 -1.13,-0.5 -0.81,-4.52 1.09,-1.16 -0.14,-0.72 -0.72,-0.78 0.57,-0.82 0.06,-0.83 -0.76,-1.44 1.9,-0.38 0.34,-0.48 -0.49,-1.46 -1.12,-0.18 0.01,-1.55 1.77,0.71 0.6,-0.38 2.66,-6.81 0.94,-1.38 -0.87,-1.42 0.56,-1.1 2.27,-3.78 1.64,-0.61 1.41,-1.11 1.73,-4.01 0.7,-0.34 0.84,0.32 0.66,-0.98 -0.01,-1.04 -1.71,-0.61 -0.02,-0.35 2.26,-4.16 0,0 0.69,0.07 0.27,-0.63 0.42,0.08 -0.26,0.57 1.36,0.71 0.1,0.51 0.44,-0.45 0.34,0.4 1.61,-0.11 0.85,0.38 0.89,-0.36 0.51,-2.25 0.27,0.2 0.29,-1.06 0.82,-0.11 1.09,-1.72 0.02,-0.59 0.62,-0.25 0.37,0.29 0.99,-0.47 0.17,-0.71 0.63,0.22 0.46,-0.35 -0.2,-0.65 -0.8,-0.45 0.43,-0.810002 0.17,-1.76 1.03,-0.22 -0.08,-0.33 0.71,-0.91 -0.38,-0.25 0.05,-0.9 0.7,-1.25 -0.13,-1.05 0.74,-0.6 0.32,-1.55 0.54,0.13 0.07,-1.24 1.18,-1.1 -0.12,-0.42 0.69,-1.56 1.11,0.23 1.38,-0.59 0.63,0.32 0.86,-0.59 -0.08,-0.5 2.68,0.52 0.7,-0.64 0.41,-1.62 1.08,-0.99 1.4,0.32 0.01,0.39 2.13,0.35 1.61,1.42 1.4,0.17 0.5,-0.14 0.02,-0.33 1.03,-0.13 1.58,0.23 0.27,0.4 0.45,-0.39 2.05,-0.32 0.47,0.29 -0.06,0.54 0.78,-0.25 1.68,0.75 0.43,-0.19 0.37,0.32 0.41,-0.29 0.28,0.4 1.91,-0.56 0.08,-0.56 0.61,-0.5 0.19,1.49 1.98,-0.84 0.2,1.05 1.06,-0.53 0.23,0.21 -0.41,0.31 0.38,1.02 0.55,0.4 0.33,1.42 1.2,-0.21 0.38,0.59 -0.28,1.53 0.61,0.44 0.23,-1.33 0.31,-0.35 0.46,0.14 0.15,1.62 -0.49,1.07 0.3,0.34 1.91,0.18 0.56,1.05 2.21,0.49 1.3,2.52 1.64,0.75 1.43,1.03 0.3,0.800002 1.97,1.01 0.76,1.68 -0.24,0.42 2.38,1.79 0.4,0.88 0.35,3.74 0.46,1.22 0.74,0.07 0.66,2.01 0.68,0.11 0.34,0.61 0.1,1.32 0.61,0.6 0.19,2.13 1.31,0.64 0.02,0.81 1.25,0.77 -0.37,1.12 0.64,0.85 1.24,0.37 -0.12,0.41 -0.65,0.17 0.69,0.94 -0.23,1.37 1.5,2.4 -0.04,1.08 0.97,1.12 0.76,0.09 0.3,1.1 3.14,1.37 0.88,1.8 0.81,0.46 0.19,1.02 0.82,1.19 0.91,0.12 -0.02,1.09 1,1.01 -0.18,1.02 0.71,1.06 0,1.06 0.67,0.11 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 4: Oaxaca, Oaxaca -->
-                                            <path id="map-oaxaca" class="estado-mapa" data-sede="4" d="m 543.86786,396.11244 1.17,-2.18 0.3,-0.96 -0.49,-0.74 0.05,-0.86 0.65,-0.61 1.15,1.16 1,0.35 -0.58,1.27 0.61,2.74 0.64,0.9 1.96,1.55 1.3,-0.38 1.39,0.81 1.02,1.89 1.38,0.09 -0.54,0.9 0.7,0.35 2.47,-0.78 1.43,0.52 1.15,-0.19 2.03,0.48 0.52,0.44 1,3.79 -0.22,1.25 -0.81,1.12 -0.99,2.57 -0.72,0.68 0.34,0.72 -0.17,1.18 2.17,4.42 1.96,0.58 1.26,-0.65 2.87,-0.17 3.01,-2.1 3.66,-0.92 1.21,-1.09 0.42,0.07 1.37,0.84 -0.18,0.68 -1.49,0.66 -0.23,1.13 3.36,4.41 3.45,2.79 -0.01,0.99 0.64,0.57 -0.33,1.37 28.57,1.75 0,0 -0.34,0.94 0.03,2 -0.76,1.02 -0.8,3.49 -2.94,2.62 -2.19,6.29 -0.08,0.85 1.24,2.93 -0.52,1.46 0.12,2.11 0,0 0.04,0.44 -1.98,0.89 -0.49,-0.09 -0.52,-0.43 -0.72,0.07 -0.79,-0.87 -0.87,0.02 -0.89,-1.51 -1.12,0.39 0.02,0.99 -0.66,0.05 -0.02,0.63 1.12,0.96 4.37,0.32 3.07,2.29 0,0 -0.18,0.64 0,0 -4.71,-2.07 -2.96,-0.91 -7.69,-1.12 -0.24,-0.45 2.64,-0.9 0.73,-0.65 0.4,-1.13 -2.38,-0.84 -1.29,0.9 -0.39,0.77 -0.96,0.05 -0.27,0.61 -0.51,-0.15 -0.1,-0.39 1.1,-0.94 -1.1,-0.93 0.24,-0.61 -1.39,-1.05 -1.67,0.44 -1.3,2.23 -1.25,-0.03 -0.92,0.82 0.21,0.86 -0.61,0.06 -0.44,0.8 6.42,-0.01 1.84,0.24 0.12,0.29 -3.64,0.06 -3.99,0.67 -1.85,-0.16 -0.16,0.61 -2.02,0.17 -0.48,0.46 -0.63,0 -0.16,1 -2.02,0.89 -0.34,0.52 0.21,0.78 -1.37,0.46 -0.18,0.54 -1.55,-0.18 -0.11,0.58 -1.97,0 -0.11,0.47 -2.03,0.89 -2.44,0.34 -1.28,0.85 -3.85,1.01 -2.73,1.26 0.01,0.26 -1.46,0.4 0.18,0.33 -2.95,1.43 -4.45,-0.27 -1.87,0.97 -1.57,-0.03 -3.54,-1.49 -4.01,-0.6 -1.55,-0.95 -2.43,-0.76 -0.77,-0.54 -0.27,-0.77 -3.76,-1.7 -3.26,-0.61 -2.02,0.13 -2.64,-0.73 -0.74,0.18 -2.57,-0.4 -0.44,0.39 -2.43,-0.37 -5.68,-3.74 -5.44,-2.9 -4.67,-0.84 -3.82,-1.38 0,0 4.64,-3.55 0.46,-2.01 4.11,-3.59 0.19,-1.35 0.93,-0.67 1.22,-0.23 0.9,-0.91 0.92,-2.88 -0.36,-1.55 -0.42,-0.54 -1.16,-0.26 -0.27,-0.59 0.11,-1.91 -0.45,-1.17 -2.29,-0.78 -0.56,-0.51 0.18,-2.07 0.92,-0.83 -0.61,-4.58 -2.73,-6.06 0.17,-1.42 1.74,-3.95 0,0 1.2,-1.4 2.07,-1.35 1.57,-0.36 3.46,-0.01 1.45,-0.59 2.19,1.61 1.18,0.36 0.72,-0.21 1.77,-1.64 -0.07,-0.43 -2.35,-1.64 -0.44,-0.76 2.03,-4.33 1.56,-0.68 1.59,-0.2 0.48,0.34 0.23,0.97 -0.1,0.46 -1.33,0.9 0.1,0.4 1.31,0.96 0.74,1.08 1.44,2.82 0.36,1.64 0.82,0.7 0.87,-0.85 0.91,-1.9 2.6,-2.58 1.36,-0.29 3.72,0.89 1.78,-1.48 0.11,-0.89 0.29,0.56 1.36,-0.9 2.39,-0.51 1.92,-3.45 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-oaxaca" class="estado-mapa" data-sede="4" d="m 543.86786,396.11244 1.17,-2.18 0.3,-0.96 -0.49,-0.74 0.05,-0.86 0.65,-0.61 1.15,1.16 1,0.35 -0.58,1.27 0.61,2.74 0.64,0.9 1.96,1.55 1.3,-0.38 1.39,0.81 1.02,1.89 1.38,0.09 -0.54,0.9 0.7,0.35 2.47,-0.78 1.43,0.52 1.15,-0.19 2.03,0.48 0.52,0.44 1,3.79 -0.22,1.25 -0.81,1.12 -0.99,2.57 -0.72,0.68 0.34,0.72 -0.17,1.18 2.17,4.42 1.96,0.58 1.26,-0.65 2.87,-0.17 3.01,-2.1 3.66,-0.92 1.21,-1.09 0.42,0.07 1.37,0.84 -0.18,0.68 -1.49,0.66 -0.23,1.13 3.36,4.41 3.45,2.79 -0.01,0.99 0.64,0.57 -0.33,1.37 28.57,1.75 0,0 -0.34,0.94 0.03,2 -0.76,1.02 -0.8,3.49 -2.94,2.62 -2.19,6.29 -0.08,0.85 1.24,2.93 -0.52,1.46 0.12,2.11 0,0 0.04,0.44 -1.98,0.89 -0.49,-0.09 -0.52,-0.43 -0.72,0.07 -0.79,-0.87 -0.87,0.02 -0.89,-1.51 -1.12,0.39 0.02,0.99 -0.66,0.05 -0.02,0.63 1.12,0.96 4.37,0.32 3.07,2.29 0,0 -0.18,0.64 0,0 -4.71,-2.07 -2.96,-0.91 -7.69,-1.12 -0.24,-0.45 2.64,-0.9 0.73,-0.65 0.4,-1.13 -2.38,-0.84 -1.29,0.9 -0.39,0.77 -0.96,0.05 -0.27,0.61 -0.51,-0.15 -0.1,-0.39 1.1,-0.94 -1.1,-0.93 0.24,-0.61 -1.39,-1.05 -1.67,0.44 -1.3,2.23 -1.25,-0.03 -0.92,0.82 0.21,0.86 -0.61,0.06 -0.44,0.8 6.42,-0.01 1.84,0.24 0.12,0.29 -3.64,0.06 -3.99,0.67 -1.85,-0.16 -0.16,0.61 -2.02,0.17 -0.48,0.46 -0.63,0 -0.16,1 -2.02,0.89 -0.34,0.52 0.21,0.78 -1.37,0.46 -0.18,0.54 -1.55,-0.18 -0.11,0.58 -1.97,0 -0.11,0.47 -2.03,0.89 -2.44,0.34 -1.28,0.85 -3.85,1.01 -2.73,1.26 0.01,0.26 -1.46,0.4 0.18,0.33 -2.95,1.43 -4.45,-0.27 -1.87,0.97 -1.57,-0.03 -3.54,-1.49 -4.01,-0.6 -1.55,-0.95 -2.43,-0.76 -0.77,-0.54 -0.27,-0.77 -3.76,-1.7 -3.26,-0.61 -2.02,0.13 -2.64,-0.73 -0.74,0.18 -2.57,-0.4 -0.44,0.39 -2.43,-0.37 -5.68,-3.74 -5.44,-2.9 -4.67,-0.84 -3.82,-1.38 0,0 4.64,-3.55 0.46,-2.01 4.11,-3.59 0.19,-1.35 0.93,-0.67 1.22,-0.23 0.9,-0.91 0.92,-2.88 -0.36,-1.55 -0.42,-0.54 -1.16,-0.26 -0.27,-0.59 0.11,-1.91 -0.45,-1.17 -2.29,-0.78 -0.56,-0.51 0.18,-2.07 0.92,-0.83 -0.61,-4.58 -2.73,-6.06 0.17,-1.42 1.74,-3.95 0,0 1.2,-1.4 2.07,-1.35 1.57,-0.36 3.46,-0.01 1.45,-0.59 2.19,1.61 1.18,0.36 0.72,-0.21 1.77,-1.64 -0.07,-0.43 -2.35,-1.64 -0.44,-0.76 2.03,-4.33 1.56,-0.68 1.59,-0.2 0.48,0.34 0.23,0.97 -0.1,0.46 -1.33,0.9 0.1,0.4 1.31,0.96 0.74,1.08 1.44,2.82 0.36,1.64 0.82,0.7 0.87,-0.85 0.91,-1.9 2.6,-2.58 1.36,-0.29 3.72,0.89 1.78,-1.48 0.11,-0.89 0.29,0.56 1.36,-0.9 2.39,-0.51 1.92,-3.45 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 5: Querétaro, Querétaro -->
-                                            <path id="map-queretaro" class="estado-mapa" data-sede="5" d="m 483.94786,320.33244 -1.28,3.13 -4.11,1.29 -1.21,-0.71 -1.65,1.43 0.27,1.11 -0.83,1.56 -0.47,2.21 -0.81,1.2 -1.16,0.42 -1.15,2.56 0.63,2.02 -2.32,1.61 -2.93,0.72 -0.91,0.68 -1.58,0.49 -1.01,6.54 0,0 -1.1,0.79 -0.3,0.63 0.21,0.72 -0.66,0.12 -0.88,-0.6 -0.24,0.31 0.54,0.96 0.29,1.73 -1.92,2.01 -2.55,0.31 0,0 -3.29,-3.04 0.18,-0.75 -1.22,-1.92 -1.55,-0.99 0,0 -0.72,-1.67 -2.02,-1.41 -1.09,-1.86 0.01,-2.71 -0.65,-1.74 -0.96,-0.71 -0.14,-0.76 0.65,-3.8 0.72,-1.41 4.58,-0.28 1.5,-0.71 2.72,0.38 0.66,-0.4 0.22,-1.1 0.82,0.48 0.67,-1.6 -0.1,-1.45 2.25,-3.34 1.52,-0.56 1.73,1.75 1.1,-0.17 0.56,-1.03 1.45,-0.67 0.71,-1.44 0.04,-1.17 -2.48,-0.61 1.15,-1.91 0.11,-2.06 -0.5,-0.49 0,0 -0.59,-0.57 1.54,-0.38 -0.28,-0.45 0.18,-0.48 1.1,0.04 1.51,1 0.59,1.89 0.63,0.66 2.49,0.25 1.94,-0.5 0.58,0.36 1.06,-2.77 0.56,-0.37 0.8,0.24 0.48,-0.28 0.99,2.2 3.22,3.35 0.82,1.46 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-queretaro" class="estado-mapa" data-sede="5" d="m 483.94786,320.33244 -1.28,3.13 -4.11,1.29 -1.21,-0.71 -1.65,1.43 0.27,1.11 -0.83,1.56 -0.47,2.21 -0.81,1.2 -1.16,0.42 -1.15,2.56 0.63,2.02 -2.32,1.61 -2.93,0.72 -0.91,0.68 -1.58,0.49 -1.01,6.54 0,0 -1.1,0.79 -0.3,0.63 0.21,0.72 -0.66,0.12 -0.88,-0.6 -0.24,0.31 0.54,0.96 0.29,1.73 -1.92,2.01 -2.55,0.31 0,0 -3.29,-3.04 0.18,-0.75 -1.22,-1.92 -1.55,-0.99 0,0 -0.72,-1.67 -2.02,-1.41 -1.09,-1.86 0.01,-2.71 -0.65,-1.74 -0.96,-0.71 -0.14,-0.76 0.65,-3.8 0.72,-1.41 4.58,-0.28 1.5,-0.71 2.72,0.38 0.66,-0.4 0.22,-1.1 0.82,0.48 0.67,-1.6 -0.1,-1.45 2.25,-3.34 1.52,-0.56 1.73,1.75 1.1,-0.17 0.56,-1.03 1.45,-0.67 0.71,-1.44 0.04,-1.17 -2.48,-0.61 1.15,-1.91 0.11,-2.06 -0.5,-0.49 0,0 -0.59,-0.57 1.54,-0.38 -0.28,-0.45 0.18,-0.48 1.1,0.04 1.51,1 0.59,1.89 0.63,0.66 2.49,0.25 1.94,-0.5 0.58,0.36 1.06,-2.77 0.56,-0.37 0.8,0.24 0.48,-0.28 0.99,2.2 3.22,3.35 0.82,1.46 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 6: Hermosillo, Sonora -->
-                                            <path id="map-sonora" class="estado-mapa" data-sede="6" d="m 230.32786,183.56244 -1.03,-0.12 0,0 0.1,-0.52 0.48,0 0.45,0.64 z m -1.68,-0.71 0.1,-1.54 0.22,0.97 -0.32,0.57 z m -34.04,-28.51 0.63,0.87 -0.19,0.34 1.34,0.61 -0.29,0.39 -1.5,-0.91 0.01,-1.3 z m -42.07,-52.81 0.48,1.56 -0.27,1.14 0.96,1.2 1.04,2.6 -0.42,0.37 -0.1,1.38 -1.54,3.96 -0.05,1.02 -0.74,0.63 -0.48,-0.47 -0.77,0.11 -1.21,-1.14 -1.34,-0.07 -0.31,-0.56 -0.52,-0.01 -0.13,-0.37 -2.03,-1.13 1.66,-1.22 0.59,-0.87 -0.39,-3.25 0.71,-2.99 0.59,-0.87 1.34,0.23 0.99,-0.9 1.94,-0.35 z m -58.919998,-72.960002 0.83,0.13 -0.05,0.64 -1.46,-0.41 -0.02,-0.35 0.7,0 z m -3.73,-1.81 1,0.48 0.71,1.44 1.33,0.95 0.53,1.09 -0.28,0.68 -0.8,-0.65 -0.7,0.08 -1.04,-0.54 -0.88,-0.91 -0.39,-0.99 0.16,-1.44 0.36,-0.19 z m 150.529998,14.22 1.05,1.04 -0.94,1.28 0.52,1.91 1.64,2.84 0.24,1.6 -0.5,1.28 0.02,1.81 -1.57,0.07 -0.04,0.62 2.73,2.65 0.08,2.42 1.04,0.92 -0.67,1.61 0.11,0.81 1.1,1.47 -0.06,1.19 1.93,6.15 -0.28,1.81 -0.85,0.53 0.16,0.99 1.45,1.32 0,1.11 -1.27,2.57 -0.59,4.93 0.34,1 0.57,0.03 0.75,0.96 0.67,6.22 -0.01,2.6 -0.8,0.95 -0.16,0.9 0.25,5.670002 -0.29,0.51 -1.38,0.68 -0.1,2.69 -1.49,1.27 0.46,2.54 -0.85,1.28 0.8,2.65 -1.48,2.62 -0.19,1.04 0.83,1.95 -0.42,2.9 1.55,1.81 2.25,0.86 -0.59,1.19 -0.93,0.1 -0.97,1.22 -1.15,0.12 -1.4,1.05 -0.51,0.03 -1.77,-1.31 -0.77,-0.14 -1.45,0.85 -2.53,0.49 -1.04,1.39 0.19,0.6 1.56,1.08 -0.59,2.75 0.39,0.7 1.83,0.74 2.09,2.98 0.38,1.66 -0.7,2.45 0.52,0.65 2.82,1.7 0.63,2.09 0.97,1.42 1.63,4.07 0.04,1.72 -1.25,3.14 0.47,3.45 -0.73,0.42 -0.02,0.46 3.54,1.84 2.02,-0.62 1.77,0.39 0,0 -0.31,1.78 -3.12,3.88 0.29,2.49 -1.86,0.55 -2.06,3.86 -4.09,0.98 -0.47,0.87 -0.11,2.49 -2,0.58 -1.28,1.17 -2.93,1.7 -0.34,-0.35 0.05,-0.81 -0.48,0.08 -0.13,-0.78 -0.79,-0.91 -0.5,0.94 -0.39,-0.17 -0.24,-1.87 -0.29,0.19 0.15,1.56 0,0 -0.42,0.01 -0.24,0.54 -1.26,-1.71 0.12,-1.01 -1.35,-2.45 -2.29,-2.56 -1.45,-1.02 -0.85,-0.13 1.05,0.16 0.05,-0.36 -0.4,-0.93 -0.57,0.04 -0.36,-0.75 -0.64,0.2 -0.07,-0.57 -0.39,-0.09 -0.73,1.06 0.42,0.75 -2.67,-0.07 -0.5,0.65 -2.54,-1 -1.19,-1.04 -0.93,-1.27 0.01,-0.96 -1.03,-2.8 -1.35,-1.86 0.19,-0.15 0.97,1.35 0.18,-0.86 -0.63,-0.42 0.25,-0.38 -0.31,-1.63 -1.73,-1.38 -0.3,0.36 -0.42,-0.41 -1.08,0.96 -1.03,-0.68 -4.98,-1.24 -3.05,-3.03 -1.39,-0.7 0.31,-0.23 -0.41,-0.92 0.08,-1.29 -0.63,-0.39 -0.52,0.37 -0.7,-0.53 -0.15,-1.27 -0.39,-0.05 -0.4,-0.75 0.25,-2.06 -0.62,-1.18 0.23,-0.39 -0.81,-0.79 0.11,-0.77 1.37,-0.98 -0.75,-0.12 -0.24,0.79 0.17,-1.54 0.69,-0.35 -0.69,-0.12 -0.29,-1.11 0.48,-0.37 -0.15,-0.75 0.41,-0.77 0.86,0.18 0.29,-0.52 -0.99,-0.79 -0.82,-0.19 -0.54,0.48 -0.63,-0.53 -3.87,-0.91 -0.33,-0.84 -1.64,0.87 0.56,0.91 -0.19,1.05 -1.22,-0.44 -0.97,-1.01 0.4,-0.56 -0.58,-0.15 -0.02,-0.71 -1.34,-0.27 -1.32,0.75 -1.49,-1.36 -0.98,-0.33 -0.88,-1.28 -0.97,-0.3 -0.69,-0.84 -0.19,-0.87 -1.06,-1.24 -0.08,-0.87 -0.69,-0.9 -0.39,0.08 -0.46,-1.58 -0.4,0 -1.16,-1.13 -0.1,-1.37 -0.87,-0.75 -5.45,-2.01 -0.16,-1.14 -1.16,-2.62 -4.01,-3.66 -0.48,-1.25 0.57,-0.07 0.51,-0.58 0.53,1.17 0.64,-0.41 -0.02,-0.85 -0.63,-0.49 -0.53,0.38 -0.48,-0.74 -0.27,0.21 -1.28,-1.02 -1.21,-0.29 -0.44,-1.13 -0.97,-0.77 -0.27,-0.74 -1.91,-0.55 0.56,-0.73 -0.42,-0.83 -0.05,-1.32 -0.34,-0.19 0.46,-0.98 -0.47,-1.12 -0.4,-0.14 -0.05,-0.62 -0.69,-0.07 0.53,-1.81 -0.62,-1.810002 -0.64,-0.59 -1.32,0.01 -0.82,0.4 -1.66,-0.87 -0.21,-1.1 1,-2.8 -0.3,-0.57 -0.99,-0.54 -0.16,-1.18 -1,-0.83 -1.67,-2.84 -0.93,-0.65 -0.65,-1.94 -1.14,-1.61 -0.33,-1.6 -1.19,-0.57 -0.64,0.18 -0.24,-0.33 0.35,-2.46 -0.62,-1.47 0.13,-3.46 -0.51,-1.41 -1.95,-1.89 -0.11,-3.05 -0.97,-2 -2.41,-2.05 -2.54,-4.66 -0.91,-3.44 0.73,-2.28 0.06,-3.03 0.3,0.08 0.67,-1.01 0.08,-1.12 -0.5,-2.75 -0.31,0.11 -0.19,-0.79 -0.47,0.03 -2.31,-1.36 -0.67,-1.1 -0.82,0.73 -3.88,-0.94 -0.24,-0.35 -0.31,0.24 -2.58,-0.49 -0.1,-0.48 -0.56,-0.27 -1.29,-0.16 0.23,-1.47 -0.57,-1.59 0.06,-0.83 -0.54,-0.92 -1.19,-0.97 -4.33,-1.85 -0.13,-0.59 -0.38,0.14 -0.22,-0.52 -0.38,0.58 -0.79,-0.55 -0.58,0.69 -0.18,0.62 0.35,-0.07 0.21,0.52 -0.71,0.95 -0.71,-0.08 -0.41,1.19 -2.85,-0.1 -3.13,-1.43 -1.44,-1.55 -2.909998,-1.6 -0.44,-0.59 -0.75,-0.16 -2.41,-2.33 -2.15,-0.14 -1.28,-0.58 -0.98,-1.17 -0.82,0 0,0 -3.82,-2.76 -0.92,-0.13 -0.96,-0.95 0.6,-0.98 -0.24,-0.98 0.42,-2.67 -0.29,-1.14 0.62,-1.83 -1.4,-1.99 1.81,-2.43 0.05,-1.34 0.47,-0.48 0.6,-2.05 1.34,-0.01 0.47,0.4 0.85,-0.51 0,0 93.649998,34.22 57.68,-0.13 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-sonora" class="estado-mapa" data-sede="6" d="m 230.32786,183.56244 -1.03,-0.12 0,0 0.1,-0.52 0.48,0 0.45,0.64 z m -1.68,-0.71 0.1,-1.54 0.22,0.97 -0.32,0.57 z m -34.04,-28.51 0.63,0.87 -0.19,0.34 1.34,0.61 -0.29,0.39 -1.5,-0.91 0.01,-1.3 z m -42.07,-52.81 0.48,1.56 -0.27,1.14 0.96,1.2 1.04,2.6 -0.42,0.37 -0.1,1.38 -1.54,3.96 -0.05,1.02 -0.74,0.63 -0.48,-0.47 -0.77,0.11 -1.21,-1.14 -1.34,-0.07 -0.31,-0.56 -0.52,-0.01 -0.13,-0.37 -2.03,-1.13 1.66,-1.22 0.59,-0.87 -0.39,-3.25 0.71,-2.99 0.59,-0.87 1.34,0.23 0.99,-0.9 1.94,-0.35 z m -58.919998,-72.960002 0.83,0.13 -0.05,0.64 -1.46,-0.41 -0.02,-0.35 0.7,0 z m -3.73,-1.81 1,0.48 0.71,1.44 1.33,0.95 0.53,1.09 -0.28,0.68 -0.8,-0.65 -0.7,0.08 -1.04,-0.54 -0.88,-0.91 -0.39,-0.99 0.16,-1.44 0.36,-0.19 z m 150.529998,14.22 1.05,1.04 -0.94,1.28 0.52,1.91 1.64,2.84 0.24,1.6 -0.5,1.28 0.02,1.81 -1.57,0.07 -0.04,0.62 2.73,2.65 0.08,2.42 1.04,0.92 -0.67,1.61 0.11,0.81 1.1,1.47 -0.06,1.19 1.93,6.15 -0.28,1.81 -0.85,0.53 0.16,0.99 1.45,1.32 0,1.11 -1.27,2.57 -0.59,4.93 0.34,1 0.57,0.03 0.75,0.96 0.67,6.22 -0.01,2.6 -0.8,0.95 -0.16,0.9 0.25,5.670002 -0.29,0.51 -1.38,0.68 -0.1,2.69 -1.49,1.27 0.46,2.54 -0.85,1.28 0.8,2.65 -1.48,2.62 -0.19,1.04 0.83,1.95 -0.42,2.9 1.55,1.81 2.25,0.86 -0.59,1.19 -0.93,0.1 -0.97,1.22 -1.15,0.12 -1.4,1.05 -0.51,0.03 -1.77,-1.31 -0.77,-0.14 -1.45,0.85 -2.53,0.49 -1.04,1.39 0.19,0.6 1.56,1.08 -0.59,2.75 0.39,0.7 1.83,0.74 2.09,2.98 0.38,1.66 -0.7,2.45 0.52,0.65 2.82,1.7 0.63,2.09 0.97,1.42 1.63,4.07 0.04,1.72 -1.25,3.14 0.47,3.45 -0.73,0.42 -0.02,0.46 3.54,1.84 2.02,-0.62 1.77,0.39 0,0 -0.31,1.78 -3.12,3.88 0.29,2.49 -1.86,0.55 -2.06,3.86 -4.09,0.98 -0.47,0.87 -0.11,2.49 -2,0.58 -1.28,1.17 -2.93,1.7 -0.34,-0.35 0.05,-0.81 -0.48,0.08 -0.13,-0.78 -0.79,-0.91 -0.5,0.94 -0.39,-0.17 -0.24,-1.87 -0.29,0.19 0.15,1.56 0,0 -0.42,0.01 -0.24,0.54 -1.26,-1.71 0.12,-1.01 -1.35,-2.45 -2.29,-2.56 -1.45,-1.02 -0.85,-0.13 1.05,0.16 0.05,-0.36 -0.4,-0.93 -0.57,0.04 -0.36,-0.75 -0.64,0.2 -0.07,-0.57 -0.39,-0.09 -0.73,1.06 0.42,0.75 -2.67,-0.07 -0.5,0.65 -2.54,-1 -1.19,-1.04 -0.93,-1.27 0.01,-0.96 -1.03,-2.8 -1.35,-1.86 0.19,-0.15 0.97,1.35 0.18,-0.86 -0.63,-0.42 0.25,-0.38 -0.31,-1.63 -1.73,-1.38 -0.3,0.36 -0.42,-0.41 -1.08,0.96 -1.03,-0.68 -4.98,-1.24 -3.05,-3.03 -1.39,-0.7 0.31,-0.23 -0.41,-0.92 0.08,-1.29 -0.63,-0.39 -0.52,0.37 -0.7,-0.53 -0.15,-1.27 -0.39,-0.05 -0.4,-0.75 0.25,-2.06 -0.62,-1.18 0.23,-0.39 -0.81,-0.79 0.11,-0.77 1.37,-0.98 -0.75,-0.12 -0.24,0.79 0.17,-1.54 0.69,-0.35 -0.69,-0.12 -0.29,-1.11 0.48,-0.37 -0.15,-0.75 0.41,-0.77 0.86,0.18 0.29,-0.52 -0.99,-0.79 -0.82,-0.19 -0.54,0.48 -0.63,-0.53 -3.87,-0.91 -0.33,-0.84 -1.64,0.87 0.56,0.91 -0.19,1.05 -1.22,-0.44 -0.97,-1.01 0.4,-0.56 -0.58,-0.15 -0.02,-0.71 -1.34,-0.27 -1.32,0.75 -1.49,-1.36 -0.98,-0.33 -0.88,-1.28 -0.97,-0.3 -0.69,-0.84 -0.19,-0.87 -1.06,-1.24 -0.08,-0.87 -0.69,-0.9 -0.39,0.08 -0.46,-1.58 -0.4,0 -1.16,-1.13 -0.1,-1.37 -0.87,-0.75 -5.45,-2.01 -0.16,-1.14 -1.16,-2.62 -4.01,-3.66 -0.48,-1.25 0.57,-0.07 0.51,-0.58 0.53,1.17 0.64,-0.41 -0.02,-0.85 -0.63,-0.49 -0.53,0.38 -0.48,-0.74 -0.27,0.21 -1.28,-1.02 -1.21,-0.29 -0.44,-1.13 -0.97,-0.77 -0.27,-0.74 -1.91,-0.55 0.56,-0.73 -0.42,-0.83 -0.05,-1.32 -0.34,-0.19 0.46,-0.98 -0.47,-1.12 -0.4,-0.14 -0.05,-0.62 -0.69,-0.07 0.53,-1.81 -0.62,-1.810002 -0.64,-0.59 -1.32,0.01 -0.82,0.4 -1.66,-0.87 -0.21,-1.1 1,-2.8 -0.3,-0.57 -0.99,-0.54 -0.16,-1.18 -1,-0.83 -1.67,-2.84 -0.93,-0.65 -0.65,-1.94 -1.14,-1.61 -0.33,-1.6 -1.19,-0.57 -0.64,0.18 -0.24,-0.33 0.35,-2.46 -0.62,-1.47 0.13,-3.46 -0.51,-1.41 -1.95,-1.89 -0.11,-3.05 -0.97,-2 -2.41,-2.05 -2.54,-4.66 -0.91,-3.44 0.73,-2.28 0.06,-3.03 0.3,0.08 0.67,-1.01 0.08,-1.12 -0.5,-2.75 -0.31,0.11 -0.19,-0.79 -0.47,0.03 -2.31,-1.36 -0.67,-1.1 -0.82,0.73 -3.88,-0.94 -0.24,-0.35 -0.31,0.24 -2.58,-0.49 -0.1,-0.48 -0.56,-0.27 -1.29,-0.16 0.23,-1.47 -0.57,-1.59 0.06,-0.83 -0.54,-0.92 -1.19,-0.97 -4.33,-1.85 -0.13,-0.59 -0.38,0.14 -0.22,-0.52 -0.38,0.58 -0.79,-0.55 -0.58,0.69 -0.18,0.62 0.35,-0.07 0.21,0.52 -0.71,0.95 -0.71,-0.08 -0.41,1.19 -2.85,-0.1 -3.13,-1.43 -1.44,-1.55 -2.909998,-1.6 -0.44,-0.59 -0.75,-0.16 -2.41,-2.33 -2.15,-0.14 -1.28,-0.58 -0.98,-1.17 -0.82,0 0,0 -3.82,-2.76 -0.92,-0.13 -0.96,-0.95 0.6,-0.98 -0.24,-0.98 0.42,-2.67 -0.29,-1.14 0.62,-1.83 -1.4,-1.99 1.81,-2.43 0.05,-1.34 0.47,-0.48 0.6,-2.05 1.34,-0.01 0.47,0.4 0.85,-0.51 0,0 93.649998,34.22 57.68,-0.13 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 7: Cancún, Quintana Roo -->
-                                            <path id="map-qroo" class="estado-mapa" data-sede="7" d="m 792.18786,339.01244 -1.08,2.58 -1.14,1.48 -0.35,0.05 -2.56,3.35 -1.57,0.97 -0.67,-1.71 0.12,-1.91 2.29,-3.75 0.7,-0.36 0.72,0.76 0.34,-0.33 0.46,0.28 1.55,-0.4 1.19,-1.01 z m -60.53,69.87 -0.25,-2.46 2.44,-2.83 0.57,-1.26 -0.28,-4.7 -0.47,-1.38 0.57,-1.67 -0.82,-0.46 0.51,-1.37 -0.15,-0.71 -0.99,-1.24 -0.17,-1.27 0.8,-5.13 -0.22,-2.52 0.41,-0.67 1.17,-0.66 0.18,-5.85 -3.41,-4.67 -5.3,-4.25 -1.34,-1.81 0,0 0.93,-2 0.33,-1.46 -0.17,-0.87 0.56,-0.49 3.54,-0.17 1.39,-1.39 2.43,-1.05 2.43,-0.04 1.18,-0.41 1.92,-1.78 1.08,0.92 0.3,-0.32 -0.27,-0.69 1.87,-1.6 1.78,-1.04 5.51,-1.98 0.46,-0.47 0.79,-2.37 0.51,-0.42 1,0.01 0.93,1.68 0.36,-0.05 -0.25,-2.19 1.5,-2.76 1.17,-0.56 1.14,1 1.54,-0.44 1.51,0.1 3.11,-1.83 3.13,-2.7 1.72,-0.82 0.86,-1.17 0.27,-1.58 0.86,-1.08 0.48,-2.46 1.15,-2.05 0.1,-0.97 -1.33,-3.21 0.47,-3.16 0.88,-0.86 0.13,-0.76 -0.33,-5.31 0,0 1.33,0.09 -0.04,0.41 0.57,0.28 0.67,-0.32 2.09,0.59 0.33,0.39 0.65,-0.25 1.63,0.19 0.44,0.4 0.29,-0.53 2.71,-0.87 0.23,-1.96 -0.63,-0.27 0.64,-0.78 0.46,-0.16 0.44,0.5 1.44,0.39 0.56,0.83 0.34,-0.16 0.54,0.45 0.05,0.79 1.58,2.18 0.97,4.05 0.43,-0.1 0.22,-1.61 0.74,-0.67 -0.07,-0.9 -0.65,-1.07 0.65,0.22 0.11,1.72 -0.64,1.63 0.4,1.16 -0.16,1.37 0.19,0.8 1.2,0.85 -0.69,2.49 -0.75,0.05 -0.31,0.71 -1.27,4.05 -1.18,1.14 -1.11,1.59 0.04,0.49 -1.15,0.68 -0.33,0.81 -1.92,2.16 -3.88,3.04 -1.73,2.42 -1.02,2.47 -1.46,1.73 -1.41,3.98 -0.01,1.89 0.64,1.93 0.42,0.14 0.16,1.15 -0.58,1.37 -0.85,0.83 0.41,-0.93 0.44,0.01 0.56,-1.33 -0.06,-0.59 -0.62,-0.38 0.07,1.29 -1.05,1.79 -0.77,0.28 -0.34,-0.38 -0.92,0.55 -1.62,2.72 -2.43,0.42 -0.19,1.9 1,0.69 0.15,0.59 0.7,-0.34 -0.1,0.78 0.36,0.14 -0.25,0.71 0.58,-0.08 0.89,-1.26 1.58,-0.34 0.6,0.65 0.82,-0.78 -0.27,-0.41 1.72,-0.22 0.54,0.8 -0.74,2.5 -1.98,1.91 -0.47,-0.03 0.08,-0.79 -2.46,1.48 -0.62,1.69 0,1.25 -0.67,0.79 0.36,0.08 -0.06,0.74 1.4,-0.05 2.03,-2.79 0.8,-0.38 0.45,0.17 -0.34,1.4 0.35,-1.12 0.97,-0.08 -2.21,2.63 -0.28,3.21 -2.04,4.14 -1.12,4.75 -0.9,0.96 -0.82,4.76 -0.45,0.9 -0.04,2.04 -1.44,2.34 -0.56,3.33 -0.73,-0.54 -0.64,0.06 0.02,-0.68 0.56,-0.38 -0.12,-0.96 -0.41,0.1 0.4,-1.48 -0.52,-0.3 -0.15,-0.62 -0.81,-0.24 0.19,-1.03 -2.62,-0.79 -1.04,-1.23 0.74,-0.46 0.34,-2.04 0.93,-1.7 -0.47,-0.53 0.38,-1.24 -0.41,-1.43 -0.73,-0.62 0.24,-0.91 -0.79,-0.29 -2.26,3.58 -1.09,0.38 0.01,0.25 0.98,-0.43 -3.24,5.92 -2.26,0.13 -0.21,-0.27 -1.06,0.42 -1.2,-0.28 -0.92,0.82 -0.88,3.01 -1.06,1.13 -0.45,2.03 -1.09,1.38 -1.15,2.88 -1.42,0.78 -0.58,1.42 -1.62,1.31 0.11,1.6 -0.93,-1.04 -0.91,-0.39 -0.63,-0.95 -1.05,0.04 -0.96,-1.16 -1.8,0.39 -1.27,1.2 z m 50.74,-96.48 -0.21,0.54 -2,1.2 -1.46,-0.03 -0.56,0.38 -0.91,-0.52 -0.48,-0.76 1.72,0.56 1.4,-0.1 2.5,-1.27 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-qroo" class="estado-mapa" data-sede="7" d="m 792.18786,339.01244 -1.08,2.58 -1.14,1.48 -0.35,0.05 -2.56,3.35 -1.57,0.97 -0.67,-1.71 0.12,-1.91 2.29,-3.75 0.7,-0.36 0.72,0.76 0.34,-0.33 0.46,0.28 1.55,-0.4 1.19,-1.01 z m -60.53,69.87 -0.25,-2.46 2.44,-2.83 0.57,-1.26 -0.28,-4.7 -0.47,-1.38 0.57,-1.67 -0.82,-0.46 0.51,-1.37 -0.15,-0.71 -0.99,-1.24 -0.17,-1.27 0.8,-5.13 -0.22,-2.52 0.41,-0.67 1.17,-0.66 0.18,-5.85 -3.41,-4.67 -5.3,-4.25 -1.34,-1.81 0,0 0.93,-2 0.33,-1.46 -0.17,-0.87 0.56,-0.49 3.54,-0.17 1.39,-1.39 2.43,-1.05 2.43,-0.04 1.18,-0.41 1.92,-1.78 1.08,0.92 0.3,-0.32 -0.27,-0.69 1.87,-1.6 1.78,-1.04 5.51,-1.98 0.46,-0.47 0.79,-2.37 0.51,-0.42 1,0.01 0.93,1.68 0.36,-0.05 -0.25,-2.19 1.5,-2.76 1.17,-0.56 1.14,1 1.54,-0.44 1.51,0.1 3.11,-1.83 3.13,-2.7 1.72,-0.82 0.86,-1.17 0.27,-1.58 0.86,-1.08 0.48,-2.46 1.15,-2.05 0.1,-0.97 -1.33,-3.21 0.47,-3.16 0.88,-0.86 0.13,-0.76 -0.33,-5.31 0,0 1.33,0.09 -0.04,0.41 0.57,0.28 0.67,-0.32 2.09,0.59 0.33,0.39 0.65,-0.25 1.63,0.19 0.44,0.4 0.29,-0.53 2.71,-0.87 0.23,-1.96 -0.63,-0.27 0.64,-0.78 0.46,-0.16 0.44,0.5 1.44,0.39 0.56,0.83 0.34,-0.16 0.54,0.45 0.05,0.79 1.58,2.18 0.97,4.05 0.43,-0.1 0.22,-1.61 0.74,-0.67 -0.07,-0.9 -0.65,-1.07 0.65,0.22 0.11,1.72 -0.64,1.63 0.4,1.16 -0.16,1.37 0.19,0.8 1.2,0.85 -0.69,2.49 -0.75,0.05 -0.31,0.71 -1.27,4.05 -1.18,1.14 -1.11,1.59 0.04,0.49 -1.15,0.68 -0.33,0.81 -1.92,2.16 -3.88,3.04 -1.73,2.42 -1.02,2.47 -1.46,1.73 -1.41,3.98 -0.01,1.89 0.64,1.93 0.42,0.14 0.16,1.15 -0.58,1.37 -0.85,0.83 0.41,-0.93 0.44,0.01 0.56,-1.33 -0.06,-0.59 -0.62,-0.38 0.07,1.29 -1.05,1.79 -0.77,0.28 -0.34,-0.38 -0.92,0.55 -1.62,2.72 -2.43,0.42 -0.19,1.9 1,0.69 0.15,0.59 0.7,-0.34 -0.1,0.78 0.36,0.14 -0.25,0.71 0.58,-0.08 0.89,-1.26 1.58,-0.34 0.6,0.65 0.82,-0.78 -0.27,-0.41 1.72,-0.22 0.54,0.8 -0.74,2.5 -1.98,1.91 -0.47,-0.03 0.08,-0.79 -2.46,1.48 -0.62,1.69 0,1.25 -0.67,0.79 0.36,0.08 -0.06,0.74 1.4,-0.05 2.03,-2.79 0.8,-0.38 0.45,0.17 -0.34,1.4 0.35,-1.12 0.97,-0.08 -2.21,2.63 -0.28,3.21 -2.04,4.14 -1.12,4.75 -0.9,0.96 -0.82,4.76 -0.45,0.9 -0.04,2.04 -1.44,2.34 -0.56,3.33 -0.73,-0.54 -0.64,0.06 0.02,-0.68 0.56,-0.38 -0.12,-0.96 -0.41,0.1 0.4,-1.48 -0.52,-0.3 -0.15,-0.62 -0.81,-0.24 0.19,-1.03 -2.62,-0.79 -1.04,-1.23 0.74,-0.46 0.34,-2.04 0.93,-1.7 -0.47,-0.53 0.38,-1.24 -0.41,-1.43 -0.73,-0.62 0.24,-0.91 -0.79,-0.29 -2.26,3.58 -1.09,0.38 0.01,0.25 0.98,-0.43 -3.24,5.92 -2.26,0.13 -0.21,-0.27 -1.06,0.42 -1.2,-0.28 -0.92,0.82 -0.88,3.01 -1.06,1.13 -0.45,2.03 -1.09,1.38 -1.15,2.88 -1.42,0.78 -0.58,1.42 -1.62,1.31 0.11,1.6 -0.93,-1.04 -0.91,-0.39 -0.63,-0.95 -1.05,0.04 -0.96,-1.16 -1.8,0.39 -1.27,1.2 z m 50.74,-96.48 -0.21,0.54 -2,1.2 -1.46,-0.03 -0.56,0.38 -0.91,-0.52 -0.48,-0.76 1.72,0.56 1.4,-0.1 2.5,-1.27 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                             <!-- Sede 8: CDMX -->
-                                            <path id="map-cdmx" class="estado-mapa" data-sede="8" d="m 488.38786,379.24244 -0.95,-0.02 -2.35,0.75 -0.91,-0.8 -0.63,0.12 -1.3,1.09 -1.33,-1.17 -1.33,0.24 0,0 -2.63,-4.38 -0.09,-0.98 3.17,-2.75 0.55,-1.98 2.24,-2.46 0.33,0.36 -0.05,1.06 1.57,1.92 0.48,1.55 2.14,1.79 0.32,1.48 0.47,-0.38 0.23,0.49 0.35,1.58 -0.47,1.67 z" fill="#E5E7EB" style="transition: fill 0.25s ease; cursor: pointer;" />
+                                            <path id="map-cdmx" class="estado-mapa" data-sede="8" d="m 488.38786,379.24244 -0.95,-0.02 -2.35,0.75 -0.91,-0.8 -0.63,0.12 -1.3,1.09 -1.33,-1.17 -1.33,0.24 0,0 -2.63,-4.38 -0.09,-0.98 3.17,-2.75 0.55,-1.98 2.24,-2.46 0.33,0.36 -0.05,1.06 1.57,1.92 0.48,1.55 2.14,1.79 0.32,1.48 0.47,-0.38 0.23,0.49 0.35,1.58 -0.47,1.67 z" fill="var(--neutro400, #DDDDDD)" style="transition: fill 0.25s ease; cursor: pointer;" />
                                         </g>
 
                                         <!-- Marcadores / Pines de las 8 Sedes en Naranja (#D97706) -->
@@ -931,7 +931,7 @@ get_header();
                         </div>
 
                         <!-- Columna Derecha: Foros realizados -->
-                        <div class="col-xl-5 col-lg-6 col-12 d-flex">
+                        <div class="columna__12 columna__6--lg columna__5--xl d-flex">
                             <div class="card border-0 rounded-4 p-4 mb-0 shadow-sm w-100 d-flex flex-column" style="background-color: #FFFFFF; box-shadow: 0 6px 16px rgba(0,0,0,0.05);">
                                 <div class="border-bottom pb-3 mb-3 text-center flex-shrink-0">
                                     <h4 class="h5 fw-bold mb-0 font-noto-sans" style="color: #D97706;">Foros realizados</h4>
@@ -944,14 +944,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">23 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Guadalajara, Jalisco</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -962,14 +962,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">25 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Zacatecas, Zacatecas</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -980,14 +980,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">30 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Saltillo, Coahuila</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -998,14 +998,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">8 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Oaxaca, Oaxaca</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1016,14 +1016,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">12 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Querétaro, Querétaro</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1034,14 +1034,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">20 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Hermosillo, Sonora</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1052,14 +1052,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">22 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Cancún, Quintana Roo</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1070,14 +1070,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">29 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" style="font-size: 14px;"></i>
+                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Ciudad de México, CDMX</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" style="font-size: 26px; color: #9d2449 !important;"></i>
+                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
                             </div>

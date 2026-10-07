@@ -69,6 +69,8 @@ function sesna_theme_scripts()
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 	// Hoja principal del tema — carga al último, después de SND
 	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('snd-v1'), filemtime( get_template_directory() . '/assets/css/main.css' ));
+	// Utilidades propias del tema — al final de la cascada para ganar a los componentes de main.css
+	wp_enqueue_style('sesna-utilidades', get_template_directory_uri() . '/assets/css/utilidades-tema.css', array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/utilidades-tema.css' ));
 
 	// GOB.mx v3 JS — mantener para Bootstrap 5 JS (modales, dropdown, carousel, jQuery)
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
@@ -2121,9 +2123,9 @@ function sesna_oc_doc_icon($nombre) {
  * y las de Sesiones/Acuerdos ocupan el ancho completo.
  */
 function sesna_render_oc_stats_cards($stats, $mostrar_recomendaciones_exhortos = true) {
-    $col_class = $mostrar_recomendaciones_exhortos ? 'col-12 col-md-6 col-lg-3' : 'col-12 col-md-6';
+    $col_class = $mostrar_recomendaciones_exhortos ? 'columna__12 columna__6--md columna__3--lg' : 'columna__12 columna__6--md';
     ?>
-    <div class="row g-3 mb-5">
+    <div class="reticulaGrid__12 gap--16 mb-5">
         <div class="<?= esc_attr($col_class) ?>">
             <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
                 <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['sesiones'] ?></span>
@@ -2272,7 +2274,7 @@ function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
     <a href="#<?= esc_attr($panel_id) ?>" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
-        <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+        <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
     </a>
     <?php
@@ -2294,7 +2296,7 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="snd snd-document flex-shrink-0" style="color: #9F2241; font-size: 16px;" aria-hidden="true"></i>
+                        <i class="snd snd-document flex-shrink-0" style="color: var(--color-burgundi); font-size: 16px;" aria-hidden="true"></i>
                         <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
                     <i class="snd snd-document--pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
@@ -2318,19 +2320,19 @@ function sesna_render_oc_sesion_card($sesion) {
     ?>
     <div class="card border border-light shadow-sm rounded-3 mb-3 tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>">
         <div class="card-body p-0">
-            <div class="row g-0 h-100 align-items-center">
-                <div class="col-12 col-md-2 tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
+            <div class="reticulaGrid__12 gap--0 h-100 align-items-center">
+                <div class="columna__12 columna__2--md tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
                     <div class="fw-bold tx-sesion-date-day lh-1 text-secondary"><?= esc_html($dia) ?></div>
                     <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;"><?= esc_html($mes) ?></div>
                     <div class="fw-bold tx-sesion-date-year text-secondary mt-1"><?= esc_html($anio) ?></div>
                 </div>
 
-                <div class="col-12 col-md-4 p-4 d-flex flex-column justify-content-center">
+                <div class="columna__12 columna__4--md p-4 d-flex flex-column justify-content-center">
                     <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
                     <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> <?= esc_html($sesion['tipo_sesion']) ?></p>
                 </div>
 
-                <div class="col-12 col-md-5 tx-sesion-action p-3 p-md-4 d-flex align-items-center">
+                <div class="columna__12 columna__5--md tx-sesion-action p-3 p-md-4 d-flex align-items-center">
                     <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
                         <?php foreach ($slots as $slot_key => $slot) :
                             if ($slot_key === 'anexos' && $tiene_anexos_panel) :
@@ -2351,18 +2353,18 @@ function sesna_render_oc_sesion_card($sesion) {
                             $es_ver_sesion = ($slot_key === 'ver_sesion');
                             $youtube_id = $es_ver_sesion ? ($slot['youtube_id'] ?? '') : '';
                         ?>
-                        <a href="<?= $href ?>"
+                        <a rel="noopener" href="<?= $href ?>"
                            <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-bs-toggle="modal" data-bs-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
                            class="<?= esc_attr($link_class) ?>">
-                            <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon"></i>
+                            <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
                             <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
                         </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-1 d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                    <i class="snd snd-chevron--right text-muted fs-5"></i>
+                <div class="columna__12 columna__1--md d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
+                    <i class="snd snd-chevron--right text-muted fs-5" aria-hidden="true"></i>
                 </div>
             </div>
             <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
@@ -2375,14 +2377,14 @@ function sesna_render_oc_lista_directa_item($item) {
     ?>
     <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card">
         <div class="card-body p-0">
-            <div class="row g-0 h-100 align-items-center">
-                <div class="col-12 col-md-9 p-4 d-flex flex-column justify-content-center">
+            <div class="reticulaGrid__12 gap--0 h-100 align-items-center">
+                <div class="columna__12 columna__9--md p-4 d-flex flex-column justify-content-center">
                     <h3 class="h5 fw-bold mb-0 font-noto-sans tx-sesion-info-title"><?= esc_html($item['titulo']) ?></h3>
                 </div>
-                <div class="col-12 col-md-3 tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
+                <div class="columna__12 columna__3--md tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
                     <?php foreach ($item['documentos'] as $doc) : ?>
                     <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                        <i class="snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon"></i>
+                        <i class="snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
                         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
                     </a>
                     <?php endforeach; ?>
@@ -2563,7 +2565,7 @@ function sesna_dh_campania_meta_box_html($post) {
     $icono          = get_post_meta($post->ID, '_dh_icono',          true) ?: 'snd-star';
     $icono_img      = get_post_meta($post->ID, '_dh_icono_img',      true) ?: '';
     $infografia_ids = get_post_meta($post->ID, '_dh_infografia_ids', true) ?: '';
-    $color          = get_post_meta($post->ID, '_dh_color',          true) ?: '#9d2449';
+    $color          = get_post_meta($post->ID, '_dh_color',          true) ?: '#9B2247';
     $galeria_ids    = get_post_meta($post->ID, '_dh_galeria_ids',    true) ?: '';
     $video_url      = get_post_meta($post->ID, '_dh_video_url',      true) ?: '';
     $banner_texto   = get_post_meta($post->ID, '_dh_banner_texto',   true) ?: '';
@@ -2600,14 +2602,14 @@ function sesna_dh_campania_meta_box_html($post) {
     <div class="dh-mb-row">
         <label for="dh_icono">Ícono Bootstrap Icons (respaldo) <span class="dh-mb-hint">(solo aplica si no hay imagen de ícono cargada)</span></label>
         <input type="text" id="dh_icono" name="_dh_icono" value="<?php echo esc_attr($icono); ?>" placeholder="bi-heart-pulse">
-        <p class="dh-mb-hint">Ver íconos disponibles en <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a></p>
+        <p class="dh-mb-hint">Ver íconos disponibles en <a rel="noopener" href="https://icons.getbootstrap.com/" target="_blank" title="El enlace abre en ventana nueva">icons.getbootstrap.com</a></p>
     </div>
 
     <div class="dh-mb-row">
         <label for="dh_color">Color institucional de la campaña</label>
         <div style="display:flex; align-items:center; gap:10px;">
             <input type="color" id="dh_color_picker" value="<?php echo esc_attr($color); ?>">
-            <input type="text" id="dh_color" name="_dh_color" value="<?php echo esc_attr($color); ?>" placeholder="#9d2449" style="max-width:120px;">
+            <input type="text" id="dh_color" name="_dh_color" value="<?php echo esc_attr($color); ?>" placeholder="#9B2247" style="max-width:120px;">
         </div>
     </div>
 
@@ -3587,9 +3589,9 @@ function sesna_render_recurso_card($post) {
             <h3 class="cp-doc-titulo"><?php echo esc_html($titulo); ?></h3>
             <p class="cp-doc-desc"><?php echo esc_html($descripcion); ?></p>
             <div class="cp-doc-meta">
-                <span><i class="snd snd-calendar"></i> <?php echo esc_html($anio); ?></span>
+                <span><i class="snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="snd snd-document"></i> <?php echo esc_html($formato); ?></span>
+                <span><i class="snd snd-document" aria-hidden="true"></i> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3600,12 +3602,12 @@ function sesna_render_recurso_card($post) {
         <!-- Acciones -->
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
-            <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-ver" target="_blank" rel="noopener">
-                <i class="snd snd-screen"></i> Ver documento
+            <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario" target="_blank" rel="noopener">
+                <i class="snd__icono snd-screen" aria-hidden="true"></i> Ver documento
             </a>
             <?php endif; ?>
-            <a href="<?php echo esc_url($archivo); ?>" class="cp-btn-pdf" target="_blank" rel="noopener" download>
-                <i class="snd snd-download"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+            <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
+                <i class="snd__icono snd-download" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
 

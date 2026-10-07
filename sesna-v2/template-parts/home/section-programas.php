@@ -1,12 +1,12 @@
-<section class="py-5 sna-programas-section">
-    <div class="container my-5">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8 text-center">
-                <h2 class="fw-bold font-patria sesna-section-heading">Acciones y <span class="text-burgundi">Programas</span></h2>
-                <p class="text-muted">Conoce y accede a nuestros micrositios</p>
+<section class="py--48 sna-programas-section">
+    <div class="contenedor my--48">
+        <div class="fila justify-content-center mb--48">
+            <div class="columna__12 columna__8--md texto--centro">
+                <h2 class="peso--negrita font-patria sesna-section-heading">Acciones y <span class="color--pguinda600">Programas</span></h2>
+                <p class="color--neutro600 tamano--secundario">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
-        <div class="row g-4 pt-4">
+        <div class="reticulaGrid__12 pt--24">
 
             <?php
             $programas = [
@@ -42,33 +42,33 @@
 
             foreach ($programas as $prog):
                 ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="h-100 border-0 bg-transparent sna-programas-wrapper">
+                <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="alto--100 borde--ninguno fondo--ninguno sna-programas-wrapper">
                         <?php $is_external = isset($prog['link']) && strpos($prog['link'], home_url()) === false; ?>
-                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="d-flex flex-column h-100 sna-programas-card text-decoration-none text-dark">
+                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="muestra--flex flex-direction-column alto--100 sna-programas-card decoracion--ninguna color--neutro800">
 
                             <!-- Contenedor del grupo superior (Imagen + Icono) que sobresale -->
                             <div class="sna-programas-img-outer">
                                 <!-- Imagen -->
                                 <div class="sna-programas-img-inner">
-                                    <img src="<?php echo $prog['img']; ?>" class="w-100 h-100 sna-programas-img"
+                                    <img src="<?php echo $prog['img']; ?>" class="ancho--100 alto--100 sna-programas-img"
                                         alt="<?php echo strip_tags($prog['title']); ?>">
                                 </div>
                             </div>
 
                             <!-- Cuerpo de la tarjeta -->
-                            <div class="pt-4 pb-4 px-4 text-start d-flex flex-column flex-grow-1">
-                                <h5 class="fw-bold mb-3 sna-programas-title text-dark">
+                            <div class="pt--24 pb--24 px--24 texto--izquierda muestra--flex flex-direction-column flex-grow">
+                                <h3 class="h4 peso--negrita mb--16 sna-programas-title color--neutro800">
                                     <?php echo $prog['title']; ?>
-                                </h5>
+                                </h3>
 
-                                <p class="text-muted mb-3">
+                                <p class="color--neutro600 tamano--secundario mb--16">
                                     <?php echo $prog['desc']; ?>
                                 </p>
 
-                                <div class="mt-auto text-center">
-                                    <span class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center text-guinda">
-                                        Leer más <i class="snd snd-arrow--right ms-2"></i>
+                                <div class="mt--auto texto--centro">
+                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-programas-link muestra--flex-linea align-items-center color--pguinda900">
+                                        Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
                                     </span>
                                 </div>
                             </div>

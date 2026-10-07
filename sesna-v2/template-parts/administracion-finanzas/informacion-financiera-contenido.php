@@ -119,7 +119,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd snd-chart--bar" style="color: #fff;"></i>
+                <i class="snd snd-chart--bar" aria-hidden="true" style="color: #fff;"></i>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Información Financiera</h2>
@@ -127,21 +127,21 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="snd snd-search"></i>
+            <i class="snd snd-search" aria-hidden="true"></i>
             <input type="search" id="finSearchInput" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
 
     <!-- Contenido principal -->
-    <div class="row g-4 align-items-start">
+    <div class="reticulaGrid__12 align-items-start">
 
         <!-- Columna izquierda: árbol Estados Financieros -->
-        <div class="col-lg-3">
+        <div class="columna__12 columna__3--lg">
             <div class="card border rounded-4 shadow-sm p-3 fin-tree-panel" style="border-color: #E9ECEF !important;">
                 <div class="d-flex align-items-center justify-content-between mb-2 px-1 pt-1">
                     <div class="d-flex align-items-center gap-2">
                         <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: #F9F0F3;">
-                            <i class="snd snd-document" style="color: #611232;"></i>
+                            <i class="snd snd-document" aria-hidden="true" style="color: #611232;"></i>
                         </div>
                         <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232;">Estados Financieros</h3>
                     </div>
@@ -154,7 +154,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                         <div class="fin-tree-node">
                             <button type="button" class="fin-tree-label" data-fin-toggle="<?php echo esc_attr( $anio_id ); ?>">
                                 <span><?php echo esc_html( $anio ); ?></span>
-                                <i class="snd snd-chevron--down fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>"></i>
+                                <i class="snd snd-chevron--down fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
                             </button>
                             <div class="fin-tree-children <?php echo $anio_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $anio_id ); ?>">
                                 <?php foreach ( $fin_orden_trimestres as $trimestre ) :
@@ -170,7 +170,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                         <div class="fin-tree-node fin-tree-node--sub">
                                             <button type="button" class="fin-tree-label fin-tree-label--sub" data-fin-toggle="<?php echo esc_attr( $trim_id ); ?>">
                                                 <span><?php echo esc_html( $trimestre ); ?></span>
-                                                <i class="snd snd-chevron--down fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>"></i>
+                                                <i class="snd snd-chevron--down fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
                                             </button>
                                             <div class="fin-tree-children <?php echo $trim_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $trim_id ); ?>">
                                                 <?php foreach ( $fin_orden_meses as $mes ) :
@@ -209,19 +209,19 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
         </div>
 
         <!-- Columna central: listado de documentos -->
-        <div class="col-lg-6">
+        <div class="columna__12 columna__6--lg">
             <div class="card border rounded-4 shadow-sm p-4" style="border-color: #E9ECEF !important;">
                 <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                     <nav class="fin-trail" id="finTrail" aria-label="Ubicación del listado">
                         <?php
                         $fin_trail_partes = array_map( 'trim', explode( '>', $fin_default_trail ) );
                         foreach ( $fin_trail_partes as $idx => $parte ) :
-                            if ( $idx > 0 ) : ?><i class="snd snd-chevron--right fin-trail__sep"></i><?php endif; ?>
+                            if ( $idx > 0 ) : ?><i class="snd snd-chevron--right fin-trail__sep" aria-hidden="true"></i><?php endif; ?>
                             <span class="fin-trail__item <?php echo ( $idx === count( $fin_trail_partes ) - 1 ) ? 'fin-trail__item--current' : ''; ?>"><?php echo esc_html( $parte ); ?></span>
                         <?php endforeach; ?>
                     </nav>
                     <button type="button" class="fin-collapse-btn" id="finCollapseBtn">
-                        <span id="finCollapseBtnText">Contraer lista</span> <i class="snd snd-chevron--up" id="finCollapseBtnIcon"></i>
+                        <span id="finCollapseBtnText">Contraer lista</span> <i class="snd snd-chevron--up" aria-hidden="true" id="finCollapseBtnIcon"></i>
                     </button>
                 </div>
 
@@ -249,7 +249,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                                data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                                 <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                                 <span class="fin-doc-action">
-                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document"></i></span>
+                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document" aria-hidden="true"></i></span>
                                                     <span class="visually-hidden">Ver documento</span>
                                                 </span>
                                             </a>
@@ -272,7 +272,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                            data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                             <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                             <span class="fin-doc-action">
-                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document"></i></span>
+                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document" aria-hidden="true"></i></span>
                                                 <span class="visually-hidden">Ver documento</span>
                                             </span>
                                         </a>
@@ -289,23 +289,23 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
         </div>
 
         <!-- Columna derecha: Dictámenes -->
-        <div class="col-lg-3">
+        <div class="columna__12 columna__3--lg">
             <div class="card border rounded-4 shadow-sm p-3 mb-4" style="border-color: #E9ECEF !important;">
                 <div class="d-flex align-items-start gap-2 mb-3 px-1 pt-1">
-                    <i class="snd snd-document flex-shrink-0 mt-1" style="color: #611232;"></i>
+                    <i class="snd snd-document flex-shrink-0 mt-1" aria-hidden="true" style="color: #611232;"></i>
                     <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232; line-height: 1.3;">Dictámenes de Estados Financieros y Presupuestarios</h3>
                 </div>
                 <div class="d-flex flex-column">
                     <?php foreach ( $fin_dictamenes as $anio_dict => $doc ) : ?>
                         <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener" class="fin-side-link">
                             <span><?php echo esc_html( $anio_dict ); ?></span>
-                            <i class="snd snd-chevron--right"></i>
+                            <i class="snd snd-chevron--right" aria-hidden="true"></i>
                         </a>
                     <?php endforeach; ?>
                 </div>
             </div>
             <div class="fin-info-box">
-                <i class="snd snd-information flex-shrink-0"></i>
+                <i class="snd snd-information flex-shrink-0" aria-hidden="true"></i>
                 <span>Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.</span>
             </div>
         </div>
@@ -315,7 +315,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <!-- Nota al pie -->
     <div class="fin-footer-note d-flex align-items-center gap-3 mt-4">
         <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-            <i class="snd snd-security" style="color: #fff;"></i>
+            <i class="snd snd-security" aria-hidden="true" style="color: #fff;"></i>
         </div>
         <p class="mb-0 font-noto-sans text-muted">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
     </div>
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var trailEl = document.getElementById('finTrail');
             var partes = this.dataset.finTrail.split(' > ');
             trailEl.innerHTML = partes.map(function (p, i) {
-                var sep = i > 0 ? '<i class="snd snd-chevron--right fin-trail__sep"></i>' : '';
+                var sep = i > 0 ? '<i class="snd snd-chevron--right fin-trail__sep" aria-hidden="true"></i>' : '';
                 var cls = (i === partes.length - 1) ? 'fin-trail__item fin-trail__item--current' : 'fin-trail__item';
                 return sep + '<span class="' + cls + '">' + p + '</span>';
             }).join('');

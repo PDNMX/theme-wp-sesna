@@ -1,10 +1,10 @@
 <!-- MIGAS DE PAN (BREADCRUMB) -->
 <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-    <div class="container">
+    <div class="contenedor">
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
                 <a href="<?php echo esc_url( home_url('/') ); ?>">
-                    <i class="snd snd-home"></i> Inicio
+                    <i class="snd snd-home" aria-hidden="true"></i> Inicio
                 </a>
             </li>
             <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
 
 <div class="transparenciaHeader">
 
-    <div class="container">
+    <div class="contenedor">
       <p class="titulo">RENDICIÓN DE CUENTAS</p>
       <p class="dependencia"><?php the_title_transparencia(); ?></p>
       <p class="subtitulo"><?php if ( function_exists('the_field') ) { the_field('subtitulo'); } ?></p>

@@ -44,8 +44,9 @@
   <section class="subheader sesna-subheader" aria-label="Navegación institucional">
     <div class="subheader__contenedor sesna-subheader__inner">
 
-      <!-- Hamburguesa SND: details/summary (patrón nativo móvil) -->
-      <details class="mexico__details navHeader__details" id="sesna-nav-details">
+      <!-- Hamburguesa SND: details/summary (patrón nativo móvil)
+           Solo tiene mexico__details — navHeader__details es para los dropdown items del walker. -->
+      <details class="mexico__details" id="sesna-nav-details">
         <summary class="mexico__summary">
           <span class="mexico__span">Menú</span>
         </summary>

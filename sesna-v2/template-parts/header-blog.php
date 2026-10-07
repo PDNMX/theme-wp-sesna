@@ -95,7 +95,7 @@
 
 
         <hr class="divisor">
-        <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <button class="boton__secundario" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <img src="<?php bloginfo('stylesheet_directory') ?>/img/blog/ojo.png"/>
         </button>
         <p class="tituloEtiquetas">VER TODAS LAS CATEGORÍAS</p>

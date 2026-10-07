@@ -129,7 +129,7 @@ unset( $cf_col );
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd snd-portfolio" style="color: #fff;"></i>
+                <i class="snd snd-portfolio" aria-hidden="true" style="color: #fff;"></i>
             </div>
             <div>
                 <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Contrataciones y Adquisiciones</h2>
@@ -137,18 +137,18 @@ unset( $cf_col );
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="snd snd-search"></i>
+            <i class="snd snd-search" aria-hidden="true"></i>
             <input type="search" class="cf-search-input" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
 
-    <div class="row g-4">
+    <div class="reticulaGrid__12">
         <?php foreach ( $cf_columnas as $col_key => $col ) : ?>
-        <div class="col-lg-3 col-md-6 pna-chart-card" style="--delay:0s">
+        <div class="columna__12 columna__6--md columna__3--lg pna-chart-card" style="--delay:0s">
             <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $col['bg'] ); ?>;">
-                        <i class="snd <?php echo esc_attr( $col['icono'] ); ?>" style="color: <?php echo esc_attr( $col['color'] ); ?>;"></i>
+                        <i class="snd <?php echo esc_attr( $col['icono'] ); ?>" aria-hidden="true" style="color: <?php echo esc_attr( $col['color'] ); ?>;"></i>
                     </div>
                     <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232; line-height: 1.3;"><?php echo esc_html( $col['titulo'] ); ?></h3>
                 </div>
@@ -166,7 +166,7 @@ unset( $cf_col );
                         <?php if ( $multi ) : ?>
                         <button type="button" class="cf-year-toggle" data-cf-toggle="<?php echo esc_attr( $group_id ); ?>">
                             <span><?php echo esc_html( $anio ); ?></span>
-                            <i class="snd <?php echo $abierto ? 'snd-chevron--down' : 'snd-chevron--right'; ?> cf-year-chevron"></i>
+                            <i class="snd <?php echo $abierto ? 'snd-chevron--down' : 'snd-chevron--right'; ?> cf-year-chevron" aria-hidden="true"></i>
                         </button>
                         <?php else : ?>
                         <div class="cf-year-label"><?php echo esc_html( $anio ); ?></div>
@@ -183,7 +183,7 @@ unset( $cf_col );
                                data-cf-search="<?php echo $search_attr; ?>"
                                style="color: #333;">
                                 <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document"></i></span>
+                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd snd-document" aria-hidden="true"></i></span>
                                 <span class="visually-hidden">Ver documento</span>
                             </a>
                             <?php else : ?>
@@ -199,7 +199,7 @@ unset( $cf_col );
                 </div>
 
                 <div class="mt-3 pt-3 d-flex align-items-start gap-2" style="border-top: 1px solid #e8d0d8;">
-                    <i class="snd snd-information text-muted flex-shrink-0" style="font-size: 13px; margin-top: 2px;"></i>
+                    <i class="snd snd-information text-muted flex-shrink-0" aria-hidden="true" style="font-size: 13px; margin-top: 2px;"></i>
                     <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $col['nota'] ); ?></span>
                 </div>
             </div>
@@ -210,7 +210,7 @@ unset( $cf_col );
     <!-- Nota al pie -->
     <div class="fin-footer-note d-flex align-items-center gap-3 mt-4">
         <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-            <i class="snd snd-security" style="color: #fff;"></i>
+            <i class="snd snd-security" aria-hidden="true" style="color: #fff;"></i>
         </div>
         <p class="mb-0 font-noto-sans text-muted">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
     </div>

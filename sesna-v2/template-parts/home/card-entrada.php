@@ -20,8 +20,8 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
 	$sna_entrada_cat = $sna_entrada_cats[0]->name;
 }
 ?>
-<div class="col-lg-4 col-md-6">
-    <a href="<?php the_permalink(); ?>" class="card h-100 border-0 sna-noticias-card position-relative text-decoration-none text-dark d-flex flex-column">
+<div class="columna__12 columna__6--md columna__4--lg">
+    <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
 
         <?php if ($sna_entrada_cat) : ?>
             <span class="sna-entradas-card-category"><?php echo esc_html($sna_entrada_cat); ?></span>
@@ -38,23 +38,23 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
             <?php else : ?>
-                <div class="w-100 h-100 bg-light d-flex align-items-center justify-content-center text-muted sna-noticias-img">
-                    <i class="snd snd-image fs-1"></i>
+                <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 tamano--secundario sna-noticias-img">
+                    <i class="snd snd-image tamano--1" aria-hidden="true"></i>
                 </div>
             <?php endif; ?>
         </div>
 
         <!-- Contenido -->
-        <div class="card-body d-flex flex-column text-center px-3 pt-4 pb-2">
-            <h4 class="fw-bold mb-3 sna-noticias-title text-dark">
+        <div class="flex--1-auto muestra--flex flex-direction-column texto--centro px--16 pt--24 pb--8">
+            <h4 class="peso--negrita mb--16 sna-noticias-title color--neutro800">
                 <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
             </h4>
-            <p class="text-muted mb-4 sna-noticias-excerpt">
+            <p class="color--neutro600 tamano--secundario mb--24 sna-noticias-excerpt">
                 <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
             </p>
-            <div class="mt-auto pb-3">
-                <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
-                    Leer más <i class="snd snd-arrow--right ms-2"></i>
+            <div class="mt--auto pb--16">
+                <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda900">
+                    Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
                 </span>
             </div>
         </div>

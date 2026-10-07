@@ -13,11 +13,11 @@ $documentos = sesna_get_datos_personales_docs();
 <div class="page-transparencia-datos front-page-bg pb-5">
     <!-- Migas de pan (Breadcrumb) -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd snd-home"></i> Inicio
+                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -29,17 +29,17 @@ $documentos = sesna_get_datos_personales_docs();
     </nav>
 
     <!-- Contenedor Principal -->
-    <div class="container py-4">
-        
+    <div class="contenedor py-4">
+
         <!-- Títulos -->
-        <div class="row mb-4">
-            <div class="col-12">
+        <div class="reticulaGrid__12 mb-4">
+            <div class="columna__12">
                 <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Datos Personales</h1>
             </div>
         </div>
-        
-        <div class="row mb-4">
-            <div class="col-12">
+
+        <div class="reticulaGrid__12 mb-4">
+            <div class="columna__12">
                 <p class="text-muted fs-5">
                     Consulta los avisos de privacidad y otros documentos importantes respecto al tratamiento de los datos personales en posesión de la SESNA.
                 </p>
@@ -48,12 +48,12 @@ $documentos = sesna_get_datos_personales_docs();
 
         <div class="tx-comite-tab-content">
             <!-- Filtros -->
-            <div class="row mb-5 align-items-end">
-                <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+            <div class="reticulaGrid__12 mb-5 align-items-end">
+                <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
                     <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                     <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                         <option value="Todos">Todos</option>
-                        <?php 
+                        <?php
                         $anios_doc = array_unique(array_column($documentos, 'anio'));
                         rsort($anios_doc);
                         foreach($anios_doc as $a): ?>
@@ -61,7 +61,7 @@ $documentos = sesna_get_datos_personales_docs();
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="columna__12 columna__6--sm columna__4--md">
                     <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de documento</label>
                     <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                         <option value="Todos">Todos</option>
@@ -96,11 +96,11 @@ $documentos = sesna_get_datos_personales_docs();
                         <!-- Action Column -->
                         <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                <i class="snd snd-document--pdf tx-sesion-pdf-icon"></i>
+                                <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
                                 <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Consultar</div>
                             </a>
                             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                <i class="snd snd-chevron--right tx-sesion-chevron-icon" style="stroke-width: 2px;"></i>
+                                <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                             </a>
                         </div>
 
@@ -111,8 +111,8 @@ $documentos = sesna_get_datos_personales_docs();
 
             <!-- Ver más Documentos -->
             <div class="text-center mt-5" id="documentos-load-more-container">
-                <a href="javascript:void(0)" id="documentos-btn-more" class="tx-comite-btn-more">
-                    Ver más documentos <i class="snd snd-chevron--down"></i>
+                <a href="javascript:void(0)" id="documentos-btn-more" class="boton__fantasma">
+                    Ver más documentos <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -123,14 +123,14 @@ $documentos = sesna_get_datos_personales_docs();
 
 <style>
 .tx-pdf-action-btn {
-    color: #9f2241;
-    border: 1px solid #9f2241;
+    color: var(--color-burgundi);
+    border: 1px solid var(--color-burgundi);
     border-radius: 8px;
     background-color: transparent;
     transition: all 0.2s ease-in-out;
 }
 .tx-pdf-action-btn:hover {
-    background-color: #9f2241;
+    background-color: var(--color-burgundi);
     color: #ffffff;
 }
 </style>

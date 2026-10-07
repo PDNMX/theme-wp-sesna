@@ -48,13 +48,13 @@ $tx_cards = [
 
         <!-- Botón flotante -->
         <div class="position-absolute w-100 text-center" style="bottom: 6%; left: 0; z-index: 10;">
-            <div class="container">
+            <div class="contenedor">
                 <a href="https://www.plataformadetransparencia.org.mx" target="_blank" rel="noopener noreferrer"
                     class="btn d-inline-flex align-items-center gap-2"
                     style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 16px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
                     onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
                     aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                    <i class="snd snd-document--import"></i>
+                    <i class="snd snd-document--import" aria-hidden="true"></i>
                     Solicitar información &rsaquo;
                 </a>
             </div>
@@ -62,21 +62,21 @@ $tx_cards = [
     </section>
 
     <section class="tx-accesos py-5" aria-labelledby="tx-accesos-titulo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class="contenedor">
+            <div class="fila">
+                <div class="columna__12 columna__8--md">
                     <h2 class="cp-recursos__titulo" id="tx-accesos-titulo">Accesos rápidos</h2>
                     <div class="cp-recursos__linea mb-3"></div>
                 </div>
             </div>
 
-            <div class="row g-4 mt-3">
-                <div class="col-12 col-sm-6 col-lg-3">
+            <div class="reticulaGrid__12 mt-3">
+                <div class="columna__12 columna__6--sm columna__3--lg">
                     <a href="<?= esc_url(home_url('/transparencia/comite-de-transparencia/')) ?>"
                         class="tx-card rounded-4 h-100 d-flex flex-column"
                         aria-label="Comité de Transparencia — abre el detalle de sesiones y actas">
                         <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                            <i class="snd snd-group"></i>
+                            <i class="snd snd-group" aria-hidden="true"></i>
                         </span>
                         <strong class="tx-card__title d-block mb-2">Comité de Transparencia</strong>
                         <p class="tx-card__desc flex-grow-1 mb-0">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
@@ -84,12 +84,12 @@ $tx_cards = [
                     </a>
                 </div>
                 <?php foreach ($tx_cards as $card): ?>
-                    <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="columna__12 columna__6--sm columna__3--lg">
                         <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
                             <?= isset($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer"' : '' ?>
                             class="tx-card rounded-4 h-100 d-flex flex-column position-relative overflow-hidden" aria-label="<?= esc_attr($card['title']) ?>">
                             <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                                <i class="snd <?= esc_attr($card['icon']) ?>"></i>
+                                <i class="snd <?= esc_attr($card['icon']) ?>" aria-hidden="true"></i>
                             </span>
                             <strong class="tx-card__title d-block mb-2"><?= esc_html($card['title']) ?></strong>
                             <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html($card['desc']) ?></p>
@@ -97,7 +97,7 @@ $tx_cards = [
                             
                             <?php if ($card['title'] === 'Obligaciones de Transparencia'): ?>
                                 <div class="tx-card-manual-overlay" onclick="event.preventDefault(); window.open('<?= home_url('/wp-content/uploads/2026/07/MAUAL-DE-ACCESO-AL-PORTAL-DE-OBLIGACIONES-DE-TRANSPARENCIA.pdf') ?>', '_blank');">
-                                    <i class="snd snd-document--pdf fs-5"></i> Consultar manual
+                                    <i class="snd snd-document--pdf fs-5" aria-hidden="true"></i> Consultar manual
                                 </div>
                             <?php endif; ?>
                         </a>
@@ -108,22 +108,22 @@ $tx_cards = [
     </section>
 
     <section class="tx-consulta py-5" aria-labelledby="tx-consulta-titulo">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class="contenedor">
+            <div class="fila">
+                <div class="columna__12 columna__8--md">
                     <h2 class="cp-recursos__titulo" id="tx-consulta-titulo">Consulta información pública</h2>
                     <div class="cp-recursos__linea mb-3"></div>
                 </div>
             </div>
 
-            <div class="row g-4 mt-2">
+            <div class="reticulaGrid__12 mt-2">
 
-                <div class="col-12 col-md-6">
+                <div class="columna__12 columna__6--md">
                     <a href="<?= esc_url(get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/') ?>" target="_blank" rel="noopener noreferrer" class="tx-consulta-card rounded-4 h-100 d-block text-decoration-none text-dark">
                         <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
-                                    <i class="snd snd-group"></i>
+                                    <i class="snd snd-group" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
@@ -137,7 +137,7 @@ $tx_cards = [
                                         aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         Ir al portal
                                         <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="snd snd-launch"></i>
+                                            <i class="snd snd-launch" aria-hidden="true"></i>
                                         </span>
                                     </span>
                                 </div>
@@ -146,12 +146,12 @@ $tx_cards = [
                     </a>
                 </div>
 
-                <div class="col-12 col-md-6">
-                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener noreferrer" class="tx-consulta-card rounded-4 h-100 d-block text-decoration-none text-dark">
+                <div class="columna__12 columna__6--md">
+                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="tx-consulta-card rounded-4 h-100 d-block text-decoration-none text-dark">
                         <div class="d-flex align-items-start gap-3 h-100">
                             <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
                                 <span class="bootstrap-icons">
-                                    <i class="snd snd-search"></i>
+                                    <i class="snd snd-search" aria-hidden="true"></i>
                                 </span>
                             </div>
                             <div class="d-flex flex-column h-100">
@@ -164,7 +164,7 @@ $tx_cards = [
                                         aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         Acceder
                                         <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="snd snd-launch"></i>
+                                            <i class="snd snd-launch" aria-hidden="true"></i>
                                         </span>
                                     </span>
                                 </div>
@@ -178,14 +178,14 @@ $tx_cards = [
     </section>
 
     <section class="tx-contacto py-4" aria-label="Datos de contacto de la Unidad de Transparencia">
-        <div class="container">
-            <div class="row align-items-center justify-content-center g-4 text-center">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center justify-content-center g-4 text-center">
 
-                <div class="col-12 col-md-6">
+                <div class="columna__12 columna__6--md">
                     <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
-                                <i class="snd snd-email"></i>
+                                <i class="snd snd-email" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div>
@@ -196,11 +196,11 @@ $tx_cards = [
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="columna__12 columna__6--md">
                     <div class="d-flex align-items-center justify-content-center gap-3">
                         <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
                             <span class="bootstrap-icons">
-                                <i class="snd snd-phone"></i>
+                                <i class="snd snd-phone" aria-hidden="true"></i>
                             </span>
                         </div>
                         <div>

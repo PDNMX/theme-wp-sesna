@@ -11,7 +11,7 @@ $slider_query = new WP_Query( $slider_args );
 
 if ( $slider_query->have_posts() ) :
 ?>
-<section class="sesna-carousel-section container-fluid px-0">
+<section class="sesna-carousel-section contenedor--fluido px--0">
     <div id="homeCarousel" class="carousel slide sesna-carousel" data-bs-ride="carousel" data-bs-interval="4000">
     <!-- Indicadores -->
     <div class="carousel-indicators">
@@ -39,11 +39,11 @@ if ( $slider_query->have_posts() ) :
         ?>
             <div class="carousel-item <?php echo esc_attr( $active_class ); ?>" data-bs-interval="4000">
                 <?php if ( $image_url ) : ?>
-                    <img src="<?php echo esc_url( $image_url ); ?>" class="d-block w-100" alt="<?php echo esc_attr( get_the_title() ); ?>">
+                    <img src="<?php echo esc_url( $image_url ); ?>" class="muestra--bloque ancho--100" alt="<?php echo esc_attr( get_the_title() ); ?>">
                 <?php else : ?>
                     <!-- Imagen de respaldo por si no se sube imagen destacada -->
                     <div class="fallback-img">
-                        <span class="text-muted">Sin imagen destacada</span>
+                        <span class="color--neutro600 tamano--secundario">Sin imagen destacada</span>
                     </div>
                 <?php endif; ?>
                 
@@ -53,8 +53,8 @@ if ( $slider_query->have_posts() ) :
                 
                 if ( $show_text === '1' ) : 
                 ?>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><?php the_title(); ?></h5>
+                    <div class="carousel-caption muestra--ninguno muestra--bloque--md">
+                        <p class="peso--negrita mb--4"><?php the_title(); ?></p>
                         <?php if ( has_excerpt() ) : ?>
                             <p><?php echo get_the_excerpt(); ?></p>
                         <?php endif; ?>
@@ -69,16 +69,16 @@ if ( $slider_query->have_posts() ) :
 
     <!-- Controles -->
     <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-        <span class="bootstrap-icons text-white" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="snd snd-chevron--left"></i>
+        <span class="bootstrap-icons color--blanco" aria-hidden="true" style="font-size: 2.5rem;">
+            <i class="snd snd-chevron--left" aria-hidden="true"></i>
         </span>
-        <span class="visually-hidden">Anterior</span>
+        <span class="oculto">Anterior</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-        <span class="bootstrap-icons text-white" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="snd snd-chevron--right"></i>
+        <span class="bootstrap-icons color--blanco" aria-hidden="true" style="font-size: 2.5rem;">
+            <i class="snd snd-chevron--right" aria-hidden="true"></i>
         </span>
-        <span class="visually-hidden">Siguiente</span>
+        <span class="oculto">Siguiente</span>
     </button>
     </div>
 </section>

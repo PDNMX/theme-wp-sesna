@@ -1,11 +1,11 @@
 
 <div class="informacionRecienteContainer">
-    <div class="container">
+    <div class="contenedor">
         <div class="d-flex justify-content-center">
         <p class="notasRelacionadas">INFORMACIÓN <b>RECIENTE</b></p>
         </div>
 
-        <div class="row">
+        <div class="reticulaGrid__12">
 
 
         <?php 
@@ -29,7 +29,7 @@
         <?php if( $my_query->have_posts() ): ?>
             <?php while( $my_query->have_posts() ) : $my_query->the_post(); ?>
             
-                <div class="col-12 col-lg-4 col-md-4">
+                <div class="columna__12 columna__4--md">
                     <a href="<?php the_permalink(); ?>">
                     <div class="thumbnailContainer">
 
@@ -46,7 +46,7 @@
             <?php endwhile; wp_reset_query(); ?>
         <?php else: ?>
 
-        <div class="col-12 col-lg-12 col-md-12 text-center">
+        <div class="columna__12 text-center">
             NO HAY NOTAS RELACIONADAS
         </div>
 
@@ -55,9 +55,9 @@
         </div>
     </div>
 
- <div class="container btnContainer">
-    <div class="row">
-        <div class="col-12 col-md-6">
+ <div class="contenedor btnContainer">
+    <div class="reticulaGrid__12">
+        <div class="columna__12 columna__6--md">
           <a href="/informacion"><img class="btn_info" src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/btn_info.png"></a>
         </div>
 

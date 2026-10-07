@@ -14,7 +14,7 @@
 <div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-noticias' ); ?>
 
-    <div class="container pb-5">
+    <div class="contenedor pb--48">
         <?php
         // Loop principal requerido por Elementor
         if ( have_posts() ) :

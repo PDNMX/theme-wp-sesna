@@ -27,11 +27,11 @@ rsort($oc_anios_organo);
 
     <!-- Migas de pan (Breadcrumb) -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd snd-home"></i> Inicio
+                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -44,16 +44,16 @@ rsort($oc_anios_organo);
 
     <!-- HERO SECTION -->
     <section class="sesna-page-hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-8 position-relative z-1 mb-4 mb-lg-0">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 columna__8--md columna__6--lg position-relative z-1 mb-4 mb-lg-0">
                     <h1 class="sesna-hero__title">Órganos Colegiados</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle">
                         Información de los diversos órganos colegiados en los que participa la SESNA: Comité Coordinador, Órgano de Gobierno y Comisión Ejecutiva.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                <div class="columna__12 columna__4--md columna__6--lg d-none d-md-flex align-items-center justify-content-end position-relative">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/Organos_Colegiados_Encabezado.png' ); ?>"
                          alt="Órganos Colegiados"
                          class="sesna-hero__img"
@@ -64,7 +64,7 @@ rsort($oc_anios_organo);
     </section>
 
     <!-- MAIN CONTENT -->
-    <div class="container py-5">
+    <div class="contenedor py-5">
 
         <!-- TABS HORIZONTALES SND -->
         <nav class="ocn-tabs-nav mb-5" aria-label="Secciones de órganos colegiados">
@@ -87,14 +87,14 @@ rsort($oc_anios_organo);
             </div>
         </nav>
 
-        <div class="row">
+        <div class="reticulaGrid__12">
             <!-- MAIN COLUMN (full width) -->
-            <div class="col-12">
+            <div class="columna__12">
                 
                 <!-- SECTION: COMITÉ COORDINADOR -->
                 <div class="content-section" id="sec-comite" role="tabpanel" aria-labelledby="tab-comite">
-                <div class="row mb-5">
-                    <div class="col-12">
+                <div class="reticulaGrid__12 mb-5">
+                    <div class="columna__12">
                         <h2 class="cp-recursos__titulo mb-2">Comité Coordinador</h2>
                     </div>
                 </div>
@@ -102,13 +102,13 @@ rsort($oc_anios_organo);
                 <?php sesna_render_oc_stats_cards($oc_stats_comite); ?>
 
                 <!-- SUBSECTION: SESIONES -->
-                <div class="row mb-3">
-                    <div class="col-12">
+                <div class="reticulaGrid__12 mb-3">
+                    <div class="columna__12">
                         <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                     </div>
                 </div>
-                <div class="row mb-4">
-                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <div class="reticulaGrid__12 mb-4">
+                    <div class="columna__12 columna__6--md mb-3 mb-md-0">
                         <label for="filter-anio-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                         <select id="filter-anio-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todos">Todos</option>
@@ -117,7 +117,7 @@ rsort($oc_anios_organo);
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="columna__12 columna__6--md">
                         <label for="filter-tipo-comite" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                         <select id="filter-tipo-comite" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                             <option value="Todas">Todas</option>
@@ -137,29 +137,29 @@ rsort($oc_anios_organo);
 
                 <!-- VER MÁS BTN -->
                 <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
-                    <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="snd snd-chevron--down"></i>
+                    <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comite">
+                        Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
                 </div> <!-- END sec-comite -->
 
                 <!-- SECTION: COMISIÓN EJECUTIVA -->
                 <div class="content-section d-none" id="sec-comision" role="tabpanel" aria-labelledby="tab-comision">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-5">
+                        <div class="columna__12">
                             <h2 class="cp-recursos__titulo mb-2">Comisión Ejecutiva</h2>
                         </div>
                     </div>
 
                     <?php sesna_render_oc_stats_cards($oc_stats_comision, false); ?>
 
-                    <div class="row mb-3">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-3">
+                        <div class="columna__12">
                             <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="reticulaGrid__12 mb-4">
+                        <div class="columna__12 columna__6--md mb-3 mb-md-0">
                             <label for="filter-anio-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                             <select id="filter-anio-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todos">Todos</option>
@@ -168,7 +168,7 @@ rsort($oc_anios_organo);
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="columna__12 columna__6--md">
                             <label for="filter-tipo-comision" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                             <select id="filter-tipo-comision" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todas">Todas</option>
@@ -186,29 +186,29 @@ rsort($oc_anios_organo);
                     </div>
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
-                        <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-comision">
-                            Ver más sesiones <i class="snd snd-chevron--down"></i>
+                        <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comision">
+                            Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: ÓRGANO DE GOBIERNO -->
                 <div class="content-section d-none" id="sec-organo" role="tabpanel" aria-labelledby="tab-organo">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-5">
+                        <div class="columna__12">
                             <h2 class="cp-recursos__titulo mb-2">Órgano de Gobierno</h2>
                         </div>
                     </div>
 
                     <?php sesna_render_oc_stats_cards($oc_stats_organo, false); ?>
 
-                    <div class="row mb-3">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-3">
+                        <div class="columna__12">
                             <h3 class="font-patria fw-bold text-dark m-0" style="font-size: 20px;">Sesiones</h3>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="reticulaGrid__12 mb-4">
+                        <div class="columna__12 columna__6--md mb-3 mb-md-0">
                             <label for="filter-anio-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
                             <select id="filter-anio-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todos">Todos</option>
@@ -217,7 +217,7 @@ rsort($oc_anios_organo);
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="columna__12 columna__6--md">
                             <label for="filter-tipo-organo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
                             <select id="filter-tipo-organo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
                                 <option value="Todas">Todas</option>
@@ -235,16 +235,16 @@ rsort($oc_anios_organo);
                     </div>
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
-                        <a href="#" class="tx-comite-btn-more" id="sesiones-vermas-btn-organo">
-                            Ver más sesiones <i class="snd snd-chevron--down"></i>
+                        <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-organo">
+                            Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: RECOMENDACIONES -->
                 <div class="content-section d-none" id="sec-recomendaciones" role="tabpanel" aria-labelledby="tab-recomendaciones">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-5">
+                        <div class="columna__12">
                             <h2 class="cp-recursos__titulo mb-2">Recomendaciones no vinculantes</h2>
                         </div>
                     </div>
@@ -260,8 +260,8 @@ rsort($oc_anios_organo);
 
                 <!-- SECTION: EXHORTOS -->
                 <div class="content-section d-none" id="sec-exhortos" role="tabpanel" aria-labelledby="tab-exhortos">
-                    <div class="row mb-5">
-                        <div class="col-12">
+                    <div class="reticulaGrid__12 mb-5">
+                        <div class="columna__12">
                             <h2 class="cp-recursos__titulo mb-2">Exhortos</h2>
                         </div>
                     </div>
@@ -287,7 +287,7 @@ rsort($oc_anios_organo);
     <div class="modal-dialog" style="max-width: 900px !important; margin: 5vh auto !important;">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
-                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="oc-video-modal-label" style="color: #9f2241; font-size: 1.25rem;">Ver sesión</h5>
+                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="oc-video-modal-label" style="color: var(--color-burgundi); font-size: 1.25rem;">Ver sesión</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
             <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">

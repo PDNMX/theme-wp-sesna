@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería de botones — SND vs sitio actual</title>
+<link rel="stylesheet" href="https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css">
+<link rel="stylesheet" href="https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css">
+<link rel="stylesheet" href="../../../../sesna-v2/assets/css/main.css">
+<link rel="stylesheet" href="../../../../sesna-v2/assets/css/utilidades-tema.css">
+<style>
+  body { padding: 32px; background: #f4f4f4; font-family: "Noto Sans", sans-serif; }
+  h2 { font-size: 22px; margin: 36px 0 12px; color: #611232; }
+  h3 { font-size: 14px; margin: 18px 0 8px; color: #434343; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .fila { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; background: #fff; padding: 16px; border-radius: 8px; }
+  .etiqueta { font-size: 12px; color: #767676; width: 100%; }
+  .caso { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+  .caso code { font-size: 11px; color: #767676; }
+</style>
+</head>
+<body>
+
+<h2>1. Botones del SND oficial (referencia)</h2>
+
+<h3>Primario</h3>
+<div class="fila">
+  <div class="caso"><a class="boton__primario" href="#">Normal</a><code>boton__primario</code></div>
+  <div class="caso"><a class="boton__primario boton--grande" href="#">Grande</a><code>+ boton--grande</code></div>
+  <div class="caso"><a class="boton__primario boton--redondeado" href="#">Redondeado</a><code>+ boton--redondeado</code></div>
+  <div class="caso"><a class="boton__primario" href="#"><i class="snd__icono snd-chevron--left" aria-hidden="true"></i> Con ícono <i class="snd__icono snd-chevron--right" aria-hidden="true"></i></a><code>snd__icono (oficial)</code></div>
+  <div class="caso"><button class="boton__primario boton--vertical" type="button"><i class="snd__icono snd-document--import" aria-hidden="true"></i> Vertical</button><code>+ boton--vertical</code></div>
+  <div class="caso"><button class="boton__primario boton--100sm" type="button">Ancho 100 móvil</button><code>+ boton--100sm</code></div>
+  <div class="caso"><button class="boton__primario boton--wrap" type="button" style="max-width:160px">Texto largo que puede saltar de línea</button><code>+ boton--wrap</code></div>
+  <div class="caso"><a class="boton__primario--disabled" href="#">boton__primario--disabled</a><code>a + --disabled (oficial)</code></div>
+  <div class="caso"><button class="boton__primario" type="button" disabled>Button disabled</button><code>button[disabled]</code></div>
+</div>
+
+<h3>Secundario</h3>
+<div class="fila">
+  <div class="caso"><a class="boton__secundario" href="#">Normal</a><code>boton__secundario</code></div>
+  <div class="caso"><a class="boton__secundario boton--grande" href="#">Grande</a><code>+ boton--grande</code></div>
+  <div class="caso"><a class="boton__secundario boton--redondeado" href="#">Redondeado</a><code>+ boton--redondeado</code></div>
+  <div class="caso"><a class="boton__secundario--disabled" href="#">boton__secundario--disabled</a><code>a + --disabled</code></div>
+</div>
+
+<h3>Fantasma</h3>
+<div class="fila">
+  <div class="caso"><a class="boton__fantasma" href="#">Normal</a><code>boton__fantasma</code></div>
+  <div class="caso"><a class="boton__fantasma--disabled" href="#">boton__fantasma--disabled</a><code>a + --disabled</code></div>
+  <div class="caso" style="background:#611232;padding:12px;border-radius:6px"><button class="boton__fantasma fantasma--blanco" type="button">Fantasma blanco</button><code>+ fantasma--blanco (sobre color)</code></div>
+</div>
+
+<h2>2. Botones y componentes actuales del sitio</h2>
+
+<h3>Acciones principales (CTA)</h3>
+<div class="fila">
+  <div class="caso"><a class="btn-sesna radio--pildora" href="#">Conoce el SNA</a><code>btn-sesna + radio--pildora (nuestro)</code></div>
+  <div class="caso"><a class="boton__primario boton--redondeado" href="#">Conoce el SNA</a><code>boton__primario boton--redondeado (oficial)</code></div>
+  <div class="caso"><a class="btn-sesna btn-sesna--lg" href="#">Acceder a la herramienta</a><code>btn-sesna btn-sesna--lg</code></div>
+  <div class="caso"><a class="btn-sesna-outline" href="#">Ver más documentos</a><code>btn-sesna-outline</code></div>
+  <div class="caso"><a class="btn-sesna-white" href="#">Blanco</a><code>btn-sesna-white</code></div>
+</div>
+
+<h3>Enlaces con flecha (tarjetas)</h3>
+<div class="fila">
+  <div class="caso"><span class="btn-sesna-link">Leer más <i class="snd snd-arrow--right ms-1" aria-hidden="true"></i></span><code>btn-sesna-link (span)</code></div>
+  <div class="caso"><span class="tx-comite-btn-more">Ver más sesiones <i class="snd snd-chevron--down" aria-hidden="true"></i></span><code>tx-comite-btn-more (span)</code></div>
+</div>
+
+<h3>Acciones de documento</h3>
+<div class="fila">
+  <div class="caso"><a class="cp-btn-ver" href="#">Ver documento <i class="snd snd-screen" aria-hidden="true"></i></a><code>cp-btn-ver</code></div>
+  <div class="caso"><a class="cp-btn-pdf" href="#">Descargar PDF <i class="snd snd-download" aria-hidden="true"></i></a><code>cp-btn-pdf</code></div>
+</div>
+
+<h3>Bootstrap aún cargado (base .btn y colores)</h3>
+<div class="fila">
+  <div class="caso"><a class="btn btn-light" href="#">Descargar PDF <i class="fas fa-download" aria-hidden="true"></i></a><code>btn btn-light</code></div>
+  <div class="caso"><a class="btn btn-success" href="#">Descarga todos los archivos</a><code>btn btn-success</code></div>
+  <div class="caso"><a class="btn btn-danger" href="#">Ver categorías</a><code>btn btn-danger</code></div>
+  <div class="caso"><a class="btn btn-dark" href="#">Conocer acuerdos</a><code>btn btn-dark</code></div>
+  <div class="caso"><a class="btn btn-sm" href="#">Año 2026</a><code>btn btn-sm</code></div>
+  <div class="caso"><a class="btn btn-black" href="#">Plataforma</a><code>btn btn-black</code></div>
+</div>
+
+<h3>Estado de carga (regla obligatoria del SND, no existe en el sitio)</h3>
+<div class="fila">
+  <div class="caso"><button class="boton__primario boton--cargando" disabled="" aria-busy="true"><span class="oculto">Acción del botón</span><i class="snd__icono snd-snd-loading2 icono__spin" aria-hidden="true"></i></button><code>boton--cargando (oficial)</code></div>
+  <div class="caso"><button class="boton__primario" type="button">Ver más sesiones</button><code>sitio: sin estado de carga</code></div>
+</div>
+
+</body>
+</html>

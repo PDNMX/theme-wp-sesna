@@ -11,23 +11,23 @@ get_header();
 <?php get_template_part( 'template-parts/transparencia/header' ); ?>
 
 <div class="transparenciaContainer" id="normatividadContainer">
-      <div class="container">
+      <div class="contenedor">
 		<p class="normatividadTitulo">Consulta <b>información relevante</b> en materia de <b><i>archivos de la SESNA.</i><b/></b></p>
       </div>
 
 
-        <div class="container" >
-          <div class="row" id="filaTitulos">
-            <div class="col-9 d-md-block d-none">
+        <div class="contenedor" >
+          <div class="reticulaGrid__12" id="filaTitulos">
+            <div class="columna__9 d-md-block d-none">
               <p>DESCRIPCIÓN </p>
             </div>
-            <div class="col-3 d-md-block d-none">
+            <div class="columna__3 d-md-block d-none">
               <p>DESCARGAS </p>
             </div>
           </div>
         </div>
 
-        <div class="container scrollbar scrollbar-primary" id="tableContainer">
+        <div class="contenedor scrollbar scrollbar-primary" id="tableContainer">
 
         <?php 
           global $post;
@@ -38,12 +38,12 @@ get_header();
           ?>
 
           <?php foreach( $archivos as $archivo ): $post = $archivo; setup_postdata($post);?>
-            <div class="row">
-              <div class="col-lg-9 col-md-9 col-sm-12" id="year">
+            <div class="reticulaGrid__12">
+              <div class="columna__12 columna__9--md" id="year">
                 <p class="nombreActa"><?php the_title(); ?></p>
               </div>
-              <div class="col-lg-3 col-md-3 col-sm-12">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="btn btn-light d-inline-flex align-items-center gap-2">Consultar <i class="snd snd-document--pdf fs-5" style="color: #9f2241;"></i></a>
+              <div class="columna__12 columna__3--md">
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="boton__secundario muestra--flex-linea align-items-center gap--8">Consultar <i class="snd snd-document--pdf fs-5" aria-hidden="true" style="color: var(--color-burgundi);"></i></a>
               </div>
             </div>
 

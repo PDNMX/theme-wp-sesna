@@ -11,10 +11,10 @@ get_header(); ?>
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -26,16 +26,16 @@ get_header(); ?>
 
     <!-- Hero Banner -->
     <section class="sesna-page-hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-8 position-relative z-1">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 columna__8--md columna__6--lg position-relative z-1">
                     <h1 class="sesna-hero__title">Riesgos e <br>Inteligencia Anticorrupción</h1>
                     <div class="hero-separator"></div>
                     <p class="sesna-hero__subtitle">
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-4 d-none d-md-flex align-items-center justify-content-end position-relative">
+                <div class="columna__12 columna__4--md columna__6--lg d-none d-md-flex align-items-center justify-content-end position-relative">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode('Riegos e Inteligencia Encabezado.png') ); ?>"
                          alt="Riesgos e Inteligencia Anticorrupción"
                          class="sesna-hero__img"
@@ -46,9 +46,9 @@ get_header(); ?>
     </section>
 
     <!-- Documentos Section -->
-    <section class="container mb-5">
+    <section class="contenedor mb-5">
         <div class="d-flex align-items-center mb-4">
-            <i class="snd snd-document text-guinda me-3 flex-shrink-0" style="font-size: 32px; line-height: 1;"></i>
+            <i class="snd snd-document text-guinda me-3 flex-shrink-0" aria-hidden="true" style="font-size: 32px; line-height: 1;"></i>
             <h2 class="cp-recursos__titulo m-0 me-4">Documentos</h2>
 
             <!-- Separador vertical en desktop -->
@@ -65,49 +65,49 @@ get_header(); ?>
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
         </div>
 
-        <div class="row g-4 pt-4">
+        <div class="reticulaGrid__12 pt-4">
             <!-- Card 1 -->
-            <div class="col-lg-3 col-md-6">
+            <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-portfolio tx-card__icon"></i>
+                        <i class="snd snd-portfolio tx-card__icon" aria-hidden="true"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
                     <p class="tx-card__desc text-muted mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
+                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right ms-2" aria-hidden="true"></i></span>
                 </a>
             </div>
             <!-- Card 2 -->
-            <div class="col-lg-3 col-md-6">
+            <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-group tx-card__icon"></i>
+                        <i class="snd snd-group tx-card__icon" aria-hidden="true"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
                     <p class="tx-card__desc text-muted mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
+                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right ms-2" aria-hidden="true"></i></span>
                 </a>
             </div>
             <!-- Card 3 -->
-            <div class="col-lg-3 col-md-6">
+            <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-security tx-card__icon"></i>
+                        <i class="snd snd-security tx-card__icon" aria-hidden="true"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
                     <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
+                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right ms-2" aria-hidden="true"></i></span>
                 </a>
             </div>
             <!-- Card 4 -->
-            <div class="col-lg-3 col-md-6">
+            <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
                     <div class="icon-bg-circle mb-4">
-                        <i class="snd snd-chart--bar tx-card__icon"></i>
+                        <i class="snd snd-chart--bar tx-card__icon" aria-hidden="true"></i>
                     </div>
                     <h5 class="tx-card__title mb-3">Deporte</h5>
                     <p class="tx-card__desc text-muted mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
-                    <span class="btn-sesna-link mt-auto">Consultar <i class="snd snd-arrow--right ms-2"></i></span>
+                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right ms-2" aria-hidden="true"></i></span>
                 </a>
             </div>
         </div>
@@ -188,26 +188,28 @@ get_header(); ?>
     </style>
 
     <!-- CONTENEDORES DINÁMICOS -->
-    <div id="dinamic-content-wrapper" class="container mt-5 mb-5 pt-4 border-top" style="display: none; scroll-margin-top: 100px;">
+    <div id="dinamic-content-wrapper" class="contenedor mt-5 mb-5 pt-4 border-top" style="display: none; scroll-margin-top: 100px;">
 
         <div id="sec-contrataciones" class="dinamic-section" style="display: none;">
             <!-- Texto descriptivo -->
-            <div class="col-lg-8 col-md-7 position-relative z-1">
-                <h1 class="sesna-hero__title">Contrataciones públicas</h1>
-                <div class="hero-separator"></div>
-                <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                <p class="sesna-hero__subtitle mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+            <div class="fila">
+                <div class="columna__12 columna__7--md columna__8--lg position-relative z-1">
+                    <h2 class="sesna-hero__title">Contrataciones públicas</h2>
+                    <div class="hero-separator"></div>
+                    <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
+                    <p class="sesna-hero__subtitle mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+                </div>
             </div>
 
             <!-- ── Recursos disponibles ──────────────────────────────── -->
             <section class="cp-recursos py-4 pb-5">
-                <div class="container">
+                <div class="contenedor">
 
                     <!-- Encabezado de sección -->
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder"></i>
+                                <i class="snd snd-folder" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -233,9 +235,9 @@ get_header(); ?>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb-5">
-                <div class="container">
+                <div class="contenedor">
                     <div class="cp-nota__inner">
-                        <i class="snd snd-information cp-nota__icono"></i>
+                        <i class="snd snd-information cp-nota__icono" aria-hidden="true"></i>
                         <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
@@ -245,12 +247,12 @@ get_header(); ?>
         <div id="sec-verificacion" class="dinamic-section" style="display: none;">
             <!-- ── Recursos metodológicos ─────────────────────────────── -->
             <section class="cp-recursos py-4 pb-5">
-                <div class="container">
+                <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder"></i>
+                                <i class="snd snd-folder" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos metodológicos</h2>
@@ -284,14 +286,14 @@ get_header(); ?>
                         <!-- Enlace externo (no es un documento): herramienta ALEA -->
                         <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
                             <div class="cp-subsec-enlace__icono">
-                                <i class="snd snd-launch"></i>
+                                <i class="snd snd-launch" aria-hidden="true"></i>
                             </div>
                             <div class="cp-subsec-enlace__texto">
                                 <span class="cp-subsec-enlace__badge">Enlace externo</span>
                                 <p class="cp-subsec-enlace__titulo">ALEA, Muestreo Aleatorio Simple</p>
                             </div>
-                            <a href="https://alea.sesna.gob.mx" class="btn-sesna" target="_blank" rel="noopener">
-                                Visitar sitio <i class="snd snd-launch ms-1"></i>
+                            <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
+                                Visitar sitio <i class="snd snd-launch ms-1" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -303,9 +305,9 @@ get_header(); ?>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb-5">
-                <div class="container">
+                <div class="contenedor">
                     <div class="cp-nota__inner">
-                        <i class="snd snd-information cp-nota__icono"></i>
+                        <i class="snd snd-information cp-nota__icono" aria-hidden="true"></i>
                         <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
@@ -318,12 +320,12 @@ get_header(); ?>
         <div id="sec-conflicto" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_conflicto ) ) : ?>
             <section class="cp-recursos py-4 pb-5">
-                <div class="container">
+                <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder"></i>
+                                <i class="snd snd-folder" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -340,7 +342,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="text-center py-5">
-                <i class="snd snd-settings text-muted mb-3" style="font-size: 3rem;"></i>
+                <i class="snd snd-settings text-muted mb-3" aria-hidden="true" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
@@ -353,12 +355,12 @@ get_header(); ?>
         <div id="sec-deporte" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_deporte ) ) : ?>
             <section class="cp-recursos py-4 pb-5">
-                <div class="container">
+                <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
                         <div class="d-flex align-items-center gap-3">
                             <div class="cp-recursos__icono-box">
-                                <i class="snd snd-folder"></i>
+                                <i class="snd snd-folder" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -375,7 +377,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="text-center py-5">
-                <i class="snd snd-settings text-muted mb-3" style="font-size: 3rem;"></i>
+                <i class="snd snd-settings text-muted mb-3" aria-hidden="true" style="font-size: 3rem;"></i>
                 <h3 class="fw-bold">Contenido en construcción</h3>
                 <p class="text-muted">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>

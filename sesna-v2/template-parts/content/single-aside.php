@@ -21,7 +21,7 @@
             <div class="d-flex">
                 <?php if( have_rows('files') ): ?>
                     <?php while ( have_rows('files') ) : the_row(); ?>
-                        <div class="p-2"><a href="<?php the_sub_field('file'); ?>" target="_blank"> <i class="far fa-file-alt"></i> <?php the_sub_field('nombre'); ?></p></div>
+                        <div class="p-2"><a rel="noopener" href="<?php the_sub_field('file'); ?>" target="_blank"> <i class="far fa-file-alt" aria-hidden="true"></i> <?php the_sub_field('nombre'); ?></p></div>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
