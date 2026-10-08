@@ -415,27 +415,7 @@ main.page {
     flex: 1 0 auto;
 }
 
-/* Portada: WordPress añade .home (y .front-page) al body.
-   Zeroing main.page y dejando que el wrapper hijo tome el offset
-   evita doble padding con el banner hero. */
-body.home main.page,
-body.front-page main.page {
-    padding-top: 0;
-}
 
-
-/* front-page: "fullbleed" real — SIN padding-top.
-   .mexico y .sesna-subheader son position:fixed, es decir, están FUERA del flujo
-   normal del documento: no empujan nada, solo se pintan encima de lo que haya
-   ahí. Cualquier padding-top manual que intente "despejarlos" exactamente deja
-   una caja visible del color de fondo del wrapper en cuanto el valor no calza
-   al pixel (así se vieron los huecos anteriores, con --bodyTop y con --mexico-h
-   solo). La solución sin ese riesgo: la imagen del hero arranca en y:0 y las
-   barras fijas (opacas) simplemente tapan su franja superior — no hay fondo de
-   color posible de exponer porque ahí ya hay imagen, no padding. */
-.front-page-bg.has-fullbleed-hero {
-    padding-top: 0;
-}
 
 /* gobmx.js (el script en sí, no lo que inyecta de forma async) aplica
    document.body.style.marginTop='70px' en cuanto detecta CUALQUIER <nav> en la
@@ -443,6 +423,7 @@ body.front-page main.page {
    real ya lo maneja main.page/.front-page-bg arriba con valores oficiales. */
 body {
     margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* El navbar Bootstrap/GOB.mx v3 heredado que gobmx.js inyecta vía secBuilder()
@@ -495,7 +476,7 @@ body {
     position: fixed;
     top: var(--mexico-h);
     width: 100%;
-    z-index: 999;
+    z-index: 999999;
 }
 
 /* El SND define .subheader__contenedor { display:flex; position:relative; align-items:center }
@@ -591,6 +572,9 @@ body {
     padding: 10px 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     font-size: 14px;
+    width: 100% !important;
+    justify-content: space-between !important;
+    text-align: left !important;
 }
 .sesna-subheader .navHeader__a--sub:hover {
     background-color: rgba(255,255,255,0.08);
@@ -3245,11 +3229,19 @@ nav.navbar .container {
     vertical-align: 0.15em;
 }
 
-/* Mostrar dropdown en hover para pantallas grandes */
+/* Mostrar dropdown en hover para pantallas grandes (Adaptado al nuevo walker SND) */
 @media (min-width: 992px) {
-    .sesna-nav .nav-item.dropdown:hover > .dropdown-menu {
-        display: block;
-        margin-top: 0;
+    /* Forzar visibilidad del submenú al hacer hover o focus sobrecargando el Shadow DOM */
+    .sesna-subheader .navHeader__details:hover .navHeader__submenu,
+    .sesna-subheader .navHeader__details:focus-within .navHeader__submenu,
+    .sesna-subheader .navHeader__details[open] .navHeader__submenu {
+        display: flex !important;
+        flex-direction: column;
+    }
+    /* Rotar el chevron (flechita) para indicar que está abierto */
+    .navHeader__details:hover > .navHeader__a--toggle .navHeader__chevron,
+    .navHeader__details:focus-within > .navHeader__a--toggle .navHeader__chevron {
+        transform: rotate(180deg);
     }
 }
 
