@@ -253,6 +253,25 @@ html.sesna-highlight a:visited {
 #accessibility ul.accesibility .stepping:nth-child(2) { height: 10px !important; }
 #accessibility ul.accesibility .stepping:nth-child(3) { height: 14px !important; }
 
+/* ------------------------------------------------------------
+   P00 Fix: Mover panel de accesibilidad al lado derecho
+   El CDN posiciona el panel a la izquierda y lo desliza a la derecha.
+   Nosotros lo escondemos a la derecha y lo deslizamos a la izquierda.
+   ------------------------------------------------------------ */
+.menu-container .menu-slide {
+    left: auto !important;
+    right: -270px !important;
+}
+/* Al abrir (el widget del CDN usa :hover), invertimos el movimiento hacia la izquierda */
+.menu-container:hover .menu-slide,
+.menu-container:focus-within .menu-slide {
+    transform: translate(-270px, 0) !important;
+}
+/* Al quitar el hover, se regresa a su sitio original gracias a la transición del CDN */
+.menu-container:not(:hover) .menu-slide {
+    transform: translate(0, 0) !important;
+}
+
 /* ============================================================
    SND v1 — BRIDGE DE COMPATIBILIDAD
    Mapea variables SESNA a tokens SND para que el CSS existente
@@ -303,11 +322,11 @@ html.sesna-highlight a:visited {
    ------------------------------------------------------------ */
 
 /* Links: color verde institucional SND (--pverde600 = #004D40) */
-a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item) {
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a) {
     color: var(--pverde600, #004D40);
     text-decoration: none;
 }
-a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):hover {
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):hover {
     color: var(--pverde700, #004339);
     text-decoration: underline;
 }
