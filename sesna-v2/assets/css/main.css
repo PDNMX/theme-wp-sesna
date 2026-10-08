@@ -370,17 +370,29 @@ h3,
 
 /* ------------------------------------------------------------
    Offset para el header .mexico (fijo, SND) + subheader SESNA (fijo, debajo).
-   --bodyTop es la variable OFICIAL de snd-guinda.css para el alto real de
-   .mexico (75px desktop / 56px ≤767.98px — snd-guinda.css ya trae el breakpoint).
-   Le sumamos el alto fijo del subheader (52px, .subheader min-height oficial).
-   Antes esto se calculaba por JS esperando una inyección async de gobmx.js que
-   en realidad nunca escribía el .mexico oficial (ver .navbar-fixed-top abajo) —
-   ahora que .mexico es markup estático de header.php, es aritmética fija. */
+
+   --bodyTop (variable oficial de snd-guinda.css, 75px/56px) resultó tener ~3px
+   de margen extra sobre el alto REAL de .mexico — pensada para separar contenido
+   normal del header, no para que otra barra fija se pegue justo debajo (se veía
+   una línea/hueco entre .mexico y el subheader al usarla para eso). En su lugar,
+   --mexico-h se deriva directamente de las reglas oficiales de .mexico/.mexico__img
+   en snd-guinda.css (no es un valor adivinado):
+     Desktop: padding 12px arriba/abajo (.mexico) + .mexico__img 48px = 72px.
+     Mobile (≤767.98px, mismo breakpoint que usa snd-guinda.css para .mexico):
+       padding 0.5rem=8px arriba/abajo + .mexico__img 35px = 51px.
+   --sesna-subheader-h viene de la clase oficial .subheader { min-height:52px }. */
 :root {
+    --mexico-h: 72px;
     --sesna-subheader-h: 52px;
 }
+@media (max-width: 767.98px) {
+    :root {
+        --mexico-h: 51px;
+    }
+}
+
 main.page {
-    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
+    padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h));
     flex: 1 0 auto;
 }
 
@@ -393,9 +405,17 @@ body.front-page main.page {
 }
 
 
-/* front-page: el banner arranca justo debajo de los navbars. */
+/* front-page: "fullbleed" real — SIN padding-top.
+   .mexico y .sesna-subheader son position:fixed, es decir, están FUERA del flujo
+   normal del documento: no empujan nada, solo se pintan encima de lo que haya
+   ahí. Cualquier padding-top manual que intente "despejarlos" exactamente deja
+   una caja visible del color de fondo del wrapper en cuanto el valor no calza
+   al pixel (así se vieron los huecos anteriores, con --bodyTop y con --mexico-h
+   solo). La solución sin ese riesgo: la imagen del hero arranca en y:0 y las
+   barras fijas (opacas) simplemente tapan su franja superior — no hay fondo de
+   color posible de exponer porque ahí ya hay imagen, no padding. */
 .front-page-bg.has-fullbleed-hero {
-    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
+    padding-top: 0;
 }
 
 /* gobmx.js (el script en sí, no lo que inyecta de forma async) aplica
@@ -449,11 +469,12 @@ body {
 }
 
 /* El SND define .subheader { background:var(--gama950); min-height:52px; position:static }
-   Nosotros solo agregamos la posición fija y z-index para SESNA, justo debajo
-   de .mexico usando la misma variable oficial --bodyTop (ver bloque de offset arriba). */
+   Nosotros solo agregamos la posición fija y z-index para SESNA, pegado justo
+   debajo de .mexico usando --mexico-h (alto real derivado, ver bloque de offset
+   arriba — --bodyTop deja 3px de más y se nota como línea entre ambas barras). */
 .sesna-subheader {
     position: fixed;
-    top: var(--bodyTop);
+    top: var(--mexico-h);
     width: 100%;
     z-index: 999;
 }
@@ -570,7 +591,7 @@ body {
         display: flex !important;
         flex-direction: column;
         position: fixed !important;
-        top: calc(var(--bodyTop) + var(--sesna-subheader-h)) !important;
+        top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
@@ -578,7 +599,7 @@ body {
         text-align: left;
         box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         z-index: 998;
-        max-height: calc(100vh - (var(--bodyTop) + var(--sesna-subheader-h)));
+        max-height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h)));
         overflow-y: auto;
     }
 
@@ -2335,7 +2356,7 @@ nav.navbar .container {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
+    padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h));
     padding-bottom: 80px;
     background-color: var(--color-negro);
 }
