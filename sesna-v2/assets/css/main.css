@@ -7,6 +7,14 @@
 @font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
 @font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
 
+/* Fix bug CSS oficial SND: el selector real que vincula la tipografía Patria es
+   [class*="__patria"], no la clase .patria documentada en el PDF — por eso .patria
+   sola no pinta la fuente en el CDN oficial. Hallazgo verificado en vivo (rama
+   snd-migracion), portado aquí al reconciliar snd-dev. */
+.patria {
+    font-family: 'Patria', serif !important;
+}
+
 /* ============================================================
    SESNA v2 — Hoja de estilos principal
    Extiende el framework GOB.mx v3

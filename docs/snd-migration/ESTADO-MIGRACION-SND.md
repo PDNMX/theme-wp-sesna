@@ -4,7 +4,36 @@ Documento único de referencia. Reemplaza a los documentos individuales anterior
 (inventario, auditoría, checklist, plan maestro, mapeo de utilidades, comparativas de
 botones) con un solo lugar donde ver qué está hecho y qué falta.
 
-Rama de trabajo: `snd-alan`. Sin commits hasta confirmar al 100% con el usuario.
+Rama de trabajo: `snd-dev` (nace de `snd-alan`, reconciliada con el trabajo paralelo
+de `snd-migracion` — ver nota de reconciliación abajo).
+
+---
+
+## 0. Nota de reconciliación (snd-alan + snd-migracion → snd-dev)
+
+Este tema se migró en paralelo en dos ramas sin coordinación: `snd-alan` (este
+documento) y `snd-migracion` (más agresiva: quitó `gm/v3` antes de tiempo, pero usó
+clases tipográficas oficiales del SND de forma más literal en varios archivos).
+`snd-dev` nace de `snd-alan` como base arquitectónica — ver justificación completa en
+`REFERENCIA-TECNICA-SND.md` (antes `SND-GUINDA-CONTEXTO.md` de la otra rama, ahora
+consolidado aquí como referencia técnica del framework) y en
+`historico-snd-migracion/` (documentos de progreso de `snd-migracion`, conservados
+como referencia histórica, superados por este documento).
+
+**Hallazgo ya portado desde `snd-migracion`:** el CSS oficial del SND vincula la
+tipografía Patria al selector `[class*="__patria"]` en vez de a la clase oficial
+`.patria` documentada en el PDF — por eso la clase oficial no pinta la fuente tal
+cual. Pendiente de aplicar el fix en `main.css` de esta rama (snd-alan evita el
+problema usando su propia clase `.font-patria` en vez de la oficial `.patria`;
+decidir si conviene migrar a la clase oficial en la auditoría tipográfica de la
+sección 4.1).
+
+**Pendiente de este proceso de reconciliación:** auditar archivo por archivo (lista
+completa de archivos en conflicto entre ambas ramas obtenida vía `git merge-tree`)
+contra el PDF oficial del SND, no solo contra la otra rama — ya se confirmó que
+ninguna de las dos cumple el estándar al 100% en todos los componentes (ver ejemplo
+en `section-sna.php`: snd-alan usa el botón oficial pero tipografía no oficial;
+snd-migracion usa tipografía oficial pero el botón sigue sin migrar).
 
 ---
 
