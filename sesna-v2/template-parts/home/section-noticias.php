@@ -56,8 +56,8 @@
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
                                 <div class="mt--auto pb--16">
-                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda900">
-                                        Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
+                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda600">
+                                        Leer más
                                     </span>
                                 </div>
                             </div>

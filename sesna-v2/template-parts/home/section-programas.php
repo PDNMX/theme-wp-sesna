@@ -45,7 +45,7 @@
                 <div class="columna__12 columna__6--md columna__3--lg">
                     <div class="alto--100 borde--ninguno fondo--ninguno sna-programas-wrapper">
                         <?php $is_external = isset($prog['link']) && strpos($prog['link'], home_url()) === false; ?>
-                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="muestra--flex flex-direction-column alto--100 sna-programas-card decoracion--ninguna color--neutro800">
+                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="muestra--flex flex-direction-column alto--100 sna-programas-card decoracion--ninguna color--neutro800 fondo--blanco">
 
                             <!-- Contenedor del grupo superior (Imagen + Icono) que sobresale -->
                             <div class="sna-programas-img-outer">
@@ -67,8 +67,8 @@
                                 </p>
 
                                 <div class="mt--auto texto--centro">
-                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-programas-link muestra--flex-linea align-items-center color--pguinda900">
-                                        Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
+                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-programas-link muestra--flex-linea align-items-center color--pguinda600">
+                                        Leer más
                                     </span>
                                 </div>
                             </div>

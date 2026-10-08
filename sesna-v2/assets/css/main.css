@@ -1192,7 +1192,6 @@ nav.navbar .container {
 }
 
 .sna-integrantes-card {
-    background-color: var(--color-fondo-claro);
     border-radius: 8px;
     padding: 24px;
     text-align: left;
@@ -1440,7 +1439,6 @@ nav.navbar .container {
 }
 
 .sna-programas-card {
-    background-color: var(--color-fondo-claro);
     border-radius: 8px;
     overflow: hidden;
     padding: 0;

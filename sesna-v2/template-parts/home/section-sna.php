@@ -16,8 +16,6 @@
                         <a href="https://www.sna.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer"
                             class="boton__primario boton--redondeado sombraLV1">
                             Conoce el SNA
-                            <span class="ml--8 fondo--dorado600 radio--circulo muestra--flex align-items-center justify-content-center sna-about-btn-icon-circle">
-                                <span class="icon-arrow color--blanco sna-about-btn-icon" aria-hidden="true"></span>
                             </span>
                         </a>
                     </div>
