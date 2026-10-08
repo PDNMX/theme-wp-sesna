@@ -2,8 +2,8 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__8--md text-center">
-                <h2 class="fw-bold font-patria sesna-section-heading">Acciones y <span class="text-burgundi">Programas</span></h2>
-                <p class="text-muted">Conoce y accede a nuestros micrositios</p>
+                <h2 class="h2b patria sesna-section-heading">Acciones y <span class="color--pguinda600">Programas</span></h2>
+                <p class="b1r color--neutro600">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
         <div class="fila gap--24 pt--32">
@@ -58,16 +58,16 @@
 
                             <!-- Cuerpo de la tarjeta -->
                             <div class="pt-4 pb-4 px-4 text-start d-flex flex-column flex-grow-1">
-                                <h5 class="fw-bold mb-3 sna-programas-title text-dark">
+                                <h3 class="sh0b mb-3 sna-programas-title color--neutro800">
                                     <?php echo $prog['title']; ?>
-                                </h5>
+                                </h3>
 
-                                <p class="text-muted mb-3">
+                                <p class="b1r color--neutro600 mb-3">
                                     <?php echo $prog['desc']; ?>
                                 </p>
 
                                 <div class="mt-auto text-center">
-                                    <span class="text-decoration-none fw-bold fs-5 sna-programas-link d-inline-flex align-items-center text-guinda">
+                                    <span class="sh1b color--pguinda600 text-decoration-none sna-programas-link d-inline-flex align-items-center">
                                         Leer más <svg class="ms-2" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                                     </span>
                                 </div>

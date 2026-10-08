@@ -14,6 +14,32 @@
     --MaxWidth: 1440px !important;
 }
 
+/* P00 Fix: Prevenir error 404 del CDN al intentar descargar la fuente Patria.
+   Se sobreescribe el @font-face del framework para redirigir la descarga al path funcional antiguo,
+   evitando la descarga rota desde framework-gb.cdn.gob.mx/fonts/ */
+@font-face {
+    font-family: 'Patria';
+    src: url("https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Regular.otf") format("opentype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Patria';
+    src: url("https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Bold.otf") format("opentype");
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Patria';
+    src: url("https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Bold.otf") format("opentype");
+    font-weight: 800;
+}
+
+/* P00 Fix: Parche para la clase .patria del SND.
+   El CDN oficial olvidó vincular la familia tipográfica a la clase .patria
+   (erróneamente usaron [class*="__patria"]). Aquí lo corregimos globalmente. */
+.patria {
+    font-family: 'Patria', serif !important;
+}
+
 /* P00 Fix: Forzar que el grid de 1440px se respete en resoluciones ultra-anchas.
    El CDN inyecta .wrapper--ancho y hace max-width: unset rompiendo la retícula. */
 body.wrapper--ancho .mexico__contenedor,

@@ -59,6 +59,10 @@ function sesna_theme_scripts()
 	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('snd-guinda'), filemtime( get_template_directory() . '/assets/css/main.css' ));
 	// P00: Framework SND GUINDA (Oficial)
 	wp_enqueue_style('snd-guinda', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css', array(), null);
+	
+	// P00 Fix: Cargar fuente Noto Sans desde Google Fonts debido a error 404 en el CDN de GOB.mx
+	wp_enqueue_style('google-fonts-noto-sans', 'https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap', array('snd-guinda'), null);
+
 	// Barra de accesibilidad GOB.mx — CDN oficial (no descargar localmente)
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 

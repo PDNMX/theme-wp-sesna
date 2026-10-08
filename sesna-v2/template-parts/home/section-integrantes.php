@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__8--md text-center">
-                <h2 class="fw-bold mb-0 font-patria sesna-section-heading">¿Quiénes integran el SNA?</h2>
+                <h2 class="h2b patria mb-0 sesna-section-heading">¿Quiénes integran el SNA?</h2>
             </div>
         </div>
         <div class="fila gap--24">
@@ -13,14 +13,14 @@
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
                             alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-shrink-0">
-                        <h4 class="fw-bold ms-3 mb-0 sna-integrantes-title text-dark">Comité Coordinador</h4>
+                        <h3 class="sh0b ms-3 mb-0 sna-integrantes-title color--neutro800">Comité Coordinador</h3>
                     </div>
-                    <p class="mb-4 text-muted">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
+                    <p class="b1r color--neutro600 mb-4">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
                         que tiene bajo su encargo el diseño, promoción y evaluación de políticas públicas de combate a
                         la corrupción</p>
                     <div class="mt-auto text-center text-md-end">
                         <span
-                            class="text-decoration-none fw-bold text-burgundi d-inline-flex align-items-center fs-8">
+                            class="sdsb color--pguinda600 text-decoration-none d-inline-flex align-items-center">
                             Conoce más
                             <span
                                 class="ms-2 bg-dorado rounded-circle d-flex align-items-center justify-content-center sna-integrantes-chevron-circle">
@@ -38,14 +38,14 @@
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
                             alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-shrink-0">
-                        <h4 class="fw-bold ms-3 mb-0 sna-integrantes-title text-dark">Comité de Participación Ciudadana</h4>
+                        <h3 class="sh0b ms-3 mb-0 sna-integrantes-title color--neutro800">Comité de Participación Ciudadana</h3>
                     </div>
-                    <p class="mb-4 text-muted">Instancia de vinculación con las organizaciones sociales y académicas
+                    <p class="b1r color--neutro600 mb-4">Instancia de vinculación con las organizaciones sociales y académicas
                         relacionadas con materias del SNA que coadyuven en el cumplimiento de los objetivos del Comité
                         Coordinador.</p>
                     <div class="mt-auto text-center text-md-end">
                         <span
-                            class="text-decoration-none fw-bold text-burgundi d-inline-flex align-items-center fs-8">
+                            class="sdsb color--pguinda600 text-decoration-none d-inline-flex align-items-center">
                             Conoce más
                             <span
                                 class="ms-2 bg-dorado rounded-circle d-flex align-items-center justify-content-center sna-integrantes-chevron-circle">
@@ -63,13 +63,13 @@
                     <div class="d-flex align-items-center mb-4">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"
                             alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-shrink-0">
-                        <h4 class="fw-bold ms-3 mb-0 sna-integrantes-title text-dark">Sistemas Estatales Anticorrupción</h4>
+                        <h3 class="sh0b ms-3 mb-0 sna-integrantes-title color--neutro800">Sistemas Estatales Anticorrupción</h3>
                     </div>
-                    <p class="mb-4 text-muted">Conoce la integración de cada sistema anticorrupción de las 32 entidades
+                    <p class="b1r color--neutro600 mb-4">Conoce la integración de cada sistema anticorrupción de las 32 entidades
                         federativas.</p>
                     <div class="mt-auto text-center text-md-end">
                         <span
-                            class="text-decoration-none fw-bold text-burgundi d-inline-flex align-items-center fs-8">
+                            class="sdsb color--pguinda600 text-decoration-none d-inline-flex align-items-center">
                             Conoce más
                             <span
                                 class="ms-2 bg-dorado rounded-circle d-flex align-items-center justify-content-center sna-integrantes-chevron-circle">

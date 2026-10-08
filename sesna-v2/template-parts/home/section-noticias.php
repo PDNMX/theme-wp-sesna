@@ -7,8 +7,8 @@
     <div class="contenedor mt--48 mb--48 pb--32">
         <div class="fila justify-content-center mb--48">
             <div class="columna__8--md text-center">
-                <h2 class="fw-bold font-patria sna-section-title sesna-section-heading">Noticias y <span class="text-burgundi">Actividades</span></h2>
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="sna-entradas-archive-link">
+                <h2 class="h2b patria sna-section-title sesna-section-heading">Noticias y <span class="color--pguinda600">Actividades</span></h2>
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="b1sb color--pguinda600 sna-entradas-archive-link">
                     Ver todas las noticias clasificadas <svg class="ms-1" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                 </a>
             </div>
@@ -50,14 +50,14 @@
 
                             <!-- Contenido -->
                             <div class="card-body d-flex flex-column text-center px-3 pt-4 pb-2">
-                                <h4 class="fw-bold mb-3 sna-noticias-title text-dark">
+                                <h3 class="sh0b mb-3 sna-noticias-title color--neutro800">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
-                                </h4>
-                                <p class="text-muted mb-4 sna-noticias-excerpt">
+                                </h3>
+                                <p class="b1r color--neutro600 mb-4 sna-noticias-excerpt">
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
                                 <div class="mt-auto pb-3">
-                                    <span class="text-decoration-none fw-bold fs-5 sna-noticias-link d-inline-flex align-items-center text-guinda">
+                                    <span class="sh1b color--pguinda600 text-decoration-none sna-noticias-link d-inline-flex align-items-center">
                                         Leer más <svg class="ms-2" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                                     </span>
                                 </div>
@@ -71,7 +71,7 @@
             else :
                 ?>
                 <div class="col-100 text-center">
-                    <p class="text-muted">No hay noticias disponibles por el momento.</p>
+                    <p class="b1r color--neutro600">No hay noticias disponibles por el momento.</p>
                 </div>
             <?php endif; ?>
         </div>
