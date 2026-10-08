@@ -8,8 +8,8 @@
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
                 <h2 class="peso--negrita font-patria sna-section-title sesna-section-heading">Noticias y <span class="color--pguinda600">Actividades</span></h2>
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="sna-entradas-archive-link">
-                    Ver todas las noticias clasificadas <i class="snd snd-arrow--right ml--4" aria-hidden="true"></i>
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="boton__primario boton--redondeado">
+                    Ver todas las noticias clasificadas
                 </a>
             </div>
         </div>

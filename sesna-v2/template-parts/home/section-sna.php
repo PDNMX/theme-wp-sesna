@@ -14,7 +14,7 @@
                         México.</p>
                     <div class="texto--izquierda--md texto--derecha--lg mt--24">
                         <a href="https://www.sna.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer"
-                            class="boton__primario boton--redondeado sombraLV1">
+                            class="boton__primario boton--grande boton--redondeado sombraLV1">
                             Conoce el SNA
                             </span>
                         </a>
