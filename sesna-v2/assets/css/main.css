@@ -294,10 +294,6 @@ html.sesna-highlight a:visited {
     /* Espaciado */
     --buffer: 64px;
 
-    /* Offset navbars fijos (actualizado por main.js en runtime)
-       fallback = total stack (94px GOB.mx + 52px SESNA) - 80px body padding-top v3 = 66px */
-    --sesna-offset: 66px;
-
     /* Configuración de componentes */
     --sesna-banner-max-height: auto;
 }
@@ -373,12 +369,18 @@ h3,
 }
 
 /* ------------------------------------------------------------
-   Offset para el SESNA subheader fijo.
-   body ya tiene padding-top:80px del v3 CSS (compensa el header GOB.mx).
-   --sesna-offset es actualizado por JS al alto del .sesna-subheader (~52px).
-   ------------------------------------------------------------ */
+   Offset para el header .mexico (fijo, SND) + subheader SESNA (fijo, debajo).
+   --bodyTop es la variable OFICIAL de snd-guinda.css para el alto real de
+   .mexico (75px desktop / 56px ≤767.98px — snd-guinda.css ya trae el breakpoint).
+   Le sumamos el alto fijo del subheader (52px, .subheader min-height oficial).
+   Antes esto se calculaba por JS esperando una inyección async de gobmx.js que
+   en realidad nunca escribía el .mexico oficial (ver .navbar-fixed-top abajo) —
+   ahora que .mexico es markup estático de header.php, es aritmética fija. */
+:root {
+    --sesna-subheader-h: 52px;
+}
 main.page {
-    padding-top: var(--sesna-offset, 52px);
+    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
     flex: 1 0 auto;
 }
 
@@ -391,10 +393,25 @@ body.front-page main.page {
 }
 
 
-/* front-page: el banner arranca justo debajo de los navbars.
-   El JS (main.js) actualiza --sesna-offset con el valor real. */
+/* front-page: el banner arranca justo debajo de los navbars. */
 .front-page-bg.has-fullbleed-hero {
-    padding-top: var(--sesna-offset, 44px);
+    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
+}
+
+/* gobmx.js (el script en sí, no lo que inyecta de forma async) aplica
+   document.body.style.marginTop='70px' en cuanto detecta CUALQUIER <nav> en la
+   página — y nuestro propio .navHeader es un <nav>. Lo neutralizamos: el offset
+   real ya lo maneja main.page/.front-page-bg arriba con valores oficiales. */
+body {
+    margin-top: 0 !important;
+}
+
+/* El navbar Bootstrap/GOB.mx v3 heredado que gobmx.js inyecta vía secBuilder()
+   (prepended a <body>) NUNCA fue el .mexico oficial del SND — es el navbar-fixed-top
+   de v3 (misma pieza de código que ya ocultábamos para el footer con .main-footer).
+   Se reemplaza con el .mexico estático y SND-compliant de header.php. */
+.navbar-fixed-top {
+    display: none !important;
 }
 
 /* ------------------------------------------------------------
@@ -416,7 +433,8 @@ body.front-page main.page {
 /* ------------------------------------------------------------
    Navbar institucional SESNA — SND v1
    Estructura: .sesna-subheader (extends .subheader SND) fixed debajo del
-   header .mexico de GOB.mx (inyectado por gobmx.js a top:0).
+   header .mexico — ambos markup estático de header.php, .mexico con su
+   position:fixed propio (snd-guinda.css) y top:0.
    ------------------------------------------------------------ */
 
 /* El ícono hamburger del SND CSS usa una ruta CDN que da 404 en local.
@@ -431,10 +449,11 @@ body.front-page main.page {
 }
 
 /* El SND define .subheader { background:var(--gama950); min-height:52px; position:static }
-   Nosotros solo agregamos la posición fija y z-index para SESNA */
+   Nosotros solo agregamos la posición fija y z-index para SESNA, justo debajo
+   de .mexico usando la misma variable oficial --bodyTop (ver bloque de offset arriba). */
 .sesna-subheader {
     position: fixed;
-    top: 94px; /* fallback — JS actualiza con height real del nav GOB.mx */
+    top: var(--bodyTop);
     width: 100%;
     z-index: 999;
 }
@@ -551,7 +570,7 @@ body.front-page main.page {
         display: flex !important;
         flex-direction: column;
         position: fixed !important;
-        top: 146px !important; /* 94px GOB.mx + 52px subnav */
+        top: calc(var(--bodyTop) + var(--sesna-subheader-h)) !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
@@ -559,7 +578,7 @@ body.front-page main.page {
         text-align: left;
         box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         z-index: 998;
-        max-height: calc(100vh - 146px);
+        max-height: calc(100vh - (var(--bodyTop) + var(--sesna-subheader-h)));
         overflow-y: auto;
     }
 
@@ -894,30 +913,14 @@ p, .b1r {
     width: 100%;
 }
 
-/* Excluir el .container del navbar GOB.mx del bridge SND.
-   max-width:1440px + clamp padding causan que Trámites/Gobierno
-   queden fuera de pantalla en viewports < 1440px. */
-.navbar-fixed-top .container,
+/* nav.navbar .container: regla heredada que ya no aplica a .navbar-fixed-top
+   (oculto por completo, ver bloque de offset arriba) — se conserva solo por si
+   algún .navbar suelto de Bootstrap sigue vivo en alguna página sin migrar. */
 nav.navbar .container {
     max-width: none !important;
     width: 100% !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
-}
-
-/* El collapse (Trámites/Gobierno/Búsqueda) desborda por el flex-grow + márgenes negativos del Bootstrap.
-   Solo en desktop: en mobile Bootstrap lo colapsa con display:none — no interferir. */
-@media (min-width: 768px) {
-    .navbar-fixed-top .collapse.navbar-collapse {
-        position: absolute !important;
-        right: 15px !important;
-        top: 0 !important;
-        height: 100% !important;
-        display: flex !important;
-        align-items: center !important;
-        width: auto !important;
-        margin: 0 !important;
-    }
 }
 
 /* SND pagination component */
@@ -2332,7 +2335,7 @@ nav.navbar .container {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: var(--sesna-offset, 140px);
+    padding-top: calc(var(--bodyTop) + var(--sesna-subheader-h));
     padding-bottom: 80px;
     background-color: var(--color-negro);
 }

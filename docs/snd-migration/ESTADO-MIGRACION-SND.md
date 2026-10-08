@@ -35,6 +35,54 @@ ninguna de las dos cumple el estándar al 100% en todos los componentes (ver eje
 en `section-sna.php`: snd-alan usa el botón oficial pero tipografía no oficial;
 snd-migracion usa tipografía oficial pero el botón sigue sin migrar).
 
+### Bloque P00 (header, footer, functions.php) — CERRADO
+
+Auditoría inicial por código (comparando `snd-dev` vs `snd-migracion`) concluyó que
+`snd-dev` ya cumplía el PDF en header/footer/nav y que no había nada que portar. Una
+verificación en vivo posterior (entorno Docker local, trazando los scripts CDN reales
+que carga `gobmx-framework-js`) **corrigió esa conclusión**: el header `.mexico`
+nunca se inyectaba. `gobmx.js` carga en cadena `gm/v3/assets/js/main.js`, cuya función
+`MX.secBuilder()` (auto-ejecutada en `$(function(){ MX.secBuilder(); })`) inyecta un
+`<header><nav class="navbar ... navbar-fixed-top">` — el navbar Bootstrap **heredado
+de GOB.mx v3**, sin ninguna clase del SND — tanto como header *y* como footer
+duplicado (este último ya estaba oculto con `.main-footer { display:none }`, pero el
+header nunca tuvo el equivalente). El comentario original en `header.php` ("El
+encabezado .mexico es inyectado por gobmx.js automáticamente") era incorrecto.
+
+**Cambios aplicados en `snd-dev` (commit de este bloque):**
+- `header.php`: se agregó el `.mexico` estático y oficial (estructura exacta del PDF,
+  escudo + menú Trámites/Gobierno), envuelto en `<header class="header">` con el
+  skip link `.irContent` dentro, tal como especifica el PDF.
+- `main.css`: se oculta `.navbar-fixed-top` (mismo patrón ya usado para `.main-footer`)
+  y se reemplazó todo el sistema de offset basado en JS (`--sesna-offset`, calculado
+  por `getBoundingClientRect()` esperando la inyección async) por aritmética CSS fija
+  usando `--bodyTop`, la variable **oficial** de `snd-guinda.css` para el alto real de
+  `.mexico` (75px desktop / 56px ≤767.98px, confirmado leyendo el CSS fuente del CDN)
+  más el alto fijo del subheader (52px, oficial). También se neutraliza
+  `document.body.style.marginTop='70px'` que el propio `gobmx.js` aplica en cuanto
+  detecta cualquier `<nav>` en la página (nuestro `.navHeader` cuenta).
+- `assets/js/main.js`: se eliminó `adjustNavbar()`, el `ResizeObserver` y el polling
+  con `requestAnimationFrame` que esperaban a que el header inyectado tuviera altura
+  real — ya no aplica, el header es estático y está disponible de inmediato. El loader
+  de transición ahora se oculta directo en `DOMContentLoaded` en vez de esperar esa
+  condición.
+- Limpieza de reglas CSS que parchaban overflow del `.navbar-fixed-top` (ya inerte al
+  estar oculto) y de la variable `--sesna-offset` huérfana.
+
+**Lo que NO cambió (ya era correcto en `snd-dev`, no se portó nada de `snd-migracion`):**
+subheader/menú (`Sesna_Bootstrap_Nav_Walker`, patrón `<details>/<summary>` oficial —
+la alternativa de `snd-migracion`, `SND_Subheader_Menu_Walker`, todavía emite markup
+Bootstrap `dropdown-menu`/`dropdown-toggle`) y el footer propio (ya cumplía el PDF en
+ambas ramas; se mantuvieron los íconos sociales autoalojados de `snd-dev` en vez de la
+ruta no documentada `www.snd.gob.mx/assets/icons-base/*` de `snd-migracion`).
+
+**Verificado:** entorno Docker local (`docker-compose.yml` de la raíz), HTML servido
+confirma el `.mexico` estático presente y bien anidado; CSS/JS/PHP syntax-checked sin
+errores; CDN oficiales (`snd-guinda.css`, `snd-js.js`, `gobmx.js`) e íconos locales del
+footer responden 200. **Pendiente:** confirmación visual en navegador real (hover de
+submenús, breakpoint móvil, que no aparezca el navbar legado ni un salto/encimado
+visual) — no se pudo renderizar JS en este entorno de verificación.
+
 ---
 
 ## 1. Resumen ejecutivo

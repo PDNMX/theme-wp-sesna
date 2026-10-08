@@ -25,13 +25,41 @@
 
 <body <?php body_class(); ?>>
 
-  <!-- Skip link — SND: clase irContent, apunta a #mainContent (WCAG 2.4.1) -->
-  <a href="#mainContent" class="irContent">Ir al contenido principal</a>
-
   <!-- Loader / Transición Inicial -->
   <div id="sesna-page-loader" class="sesna-loader">
     <div class="sesna-spinner"></div>
   </div>
+
+  <!--
+    Header institucional SND — estructura oficial (Componentes > Encabezado del PDF).
+    gobmx.js sigue cargado por sus efectos secundarios (jQuery, Bootstrap JS que
+    aún usan scripts de página sueltos) pero el navbar que inyecta (.navbar-fixed-top,
+    legado GOB.mx v3, NO es .mexico del SND) se oculta en main.css — este bloque
+    estático es el header real que se muestra.
+  -->
+  <header class="header">
+    <!-- Skip link — SND: clase irContent, apunta a #mainContent (WCAG 2.4.1) -->
+    <a href="#mainContent" class="irContent">Ir al contenido principal</a>
+
+    <section class="mexico">
+      <div class="mexico__contenedor">
+        <div class="mexico__escudo">
+          <a href="https://www.gob.mx/" class="mexico__aescudo">
+            <img src="https://framework-gb.cdn.gob.mx/gobmx/img/logo_blanco.svg" class="mexico__img" alt="Ir a la pagina de inicio del Gobierno de Mexico" />
+          </a>
+        </div>
+        <div class="mexico__menu">
+          <details class="mexico__details">
+            <summary class="mexico__summary"><span class="mexico__span">Menu</span></summary>
+            <div class="mexico__detailsCont">
+              <a href="https://www.gob.mx/tramites" class="mexico__a">Trámites</a>
+              <a href="https://www.gob.mx/gobierno" class="mexico__a">Gobierno</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </header>
 
   <!--
     Barra institucional SESNA — SND v1
@@ -39,7 +67,6 @@
                 > details.mexico__details.navHeader__details (hamburguesa móvil)
                   > summary.mexico__summary
                   > nav.navHeader > ul.navHeader__ul.mexico__detailsCont
-    El encabezado .mexico (Gobierno de México) es inyectado por gobmx.js automáticamente.
   -->
   <section class="subheader sesna-subheader" aria-label="Navegación institucional">
     <div class="subheader__contenedor sesna-subheader__inner">
