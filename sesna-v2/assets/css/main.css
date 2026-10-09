@@ -272,6 +272,16 @@ html.sesna-highlight a:visited {
     transform: translate(0, 0) !important;
 }
 
+/* Garantizar que el botón de accesibilidad y su panel estén por encima de todo (.sesna-subheader es 999999) */
+#accessibility,
+.menu-container {
+    z-index: 9999999 !important;
+    position: fixed; /* Asegurar contexto de apilamiento */
+}
+.menu-container a.menu-btn {
+    z-index: 9999999 !important;
+}
+
 /* ============================================================
    SND v1 — BRIDGE DE COMPATIBILIDAD
    Mapea variables SESNA a tokens SND para que el CSS existente
