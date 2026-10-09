@@ -33,6 +33,13 @@ html {
 body {
     height: auto !important;
     min-height: 100vh;
+    /* gobmx-framework (CSS externo v3, fuera de nuestro control) trae
+       body { text-align: justify } de fábrica, heredado por todo el documento.
+       A tamaño de párrafo casi no se nota, pero en encabezados grandes
+       (.h0b, .h1b, .h2b...) produce espaciado irregular entre palabras.
+       Se resetea aquí, una sola vez; las utilidades de alineación
+       (.texto--centro, etc.) siguen mandando donde se usan, vía !important. */
+    text-align: left;
 }
 
 /* ------------------------------------------------------------
@@ -357,12 +364,19 @@ small,
     font-size: 16px !important;
 }
 
-/* Encabezados principales Web */
+/* Encabezados principales Web
+   h2 se quitó de este grupo: el SND solo aplica Patria vía [class*="__patria"]
+   (opt-in explícito), no por defecto en cada encabezado — h1/h3 quedan
+   pendientes de la misma revisión. */
 h1,
-h2,
 h3,
 .font-patria {
     font-family: var(--font-patria);
+    color: var(--text-color-main);
+}
+
+
+h2 {
     color: var(--text-color-main);
 }
 
@@ -873,7 +887,6 @@ h1, .h1, [class*="titulo--xl"] {
 }
 
 h2, .h2, [class*="titulo--lg"] {
-    font-family: var(--font-patria);
     font-size: clamp(1.375rem, 2.5vw, 2rem);
     font-weight: 700;
     line-height: 1.25;

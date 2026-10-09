@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="peso--negrita mb--0 font-patria sesna-section-heading">¿Quiénes integran el SNA?</h2>
+                <h2 class="h2b patria">¿Quiénes integran el SNA?</h2>
             </div>
         </div>
         <div class="reticulaGrid__12">
@@ -15,7 +15,7 @@
                             alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-none">
                         <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Comité Coordinador</h3>
                     </div>
-                    <p class="mb--24 color--neutro600 tamano--secundario">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
+                    <p class="b1r texto--justify">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
                         que tiene bajo su encargo el diseño, promoción y evaluación de políticas públicas de combate a
                         la corrupción</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
@@ -35,7 +35,7 @@
                             alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-none">
                         <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Comité de Participación Ciudadana</h3>
                     </div>
-                    <p class="mb--24 color--neutro600 tamano--secundario">Instancia de vinculación con las organizaciones sociales y académicas
+                    <p class="b1r texto--justify">Instancia de vinculación con las organizaciones sociales y académicas
                         relacionadas con materias del SNA que coadyuven en el cumplimiento de los objetivos del Comité
                         Coordinador.</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
@@ -55,7 +55,7 @@
                             alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-none">
                         <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Sistemas Estatales Anticorrupción</h3>
                     </div>
-                    <p class="mb--24 color--neutro600 tamano--secundario">Conoce la integración de cada sistema anticorrupción de las 32 entidades
+                    <p class="b1r texto--justify">Conoce la integración de cada sistema anticorrupción de las 32 entidades
                         federativas.</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
                         <span

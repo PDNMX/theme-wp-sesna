@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="peso--negrita font-patria sesna-section-heading">Acciones y <span class="color--pguinda600">Programas</span></h2>
+                <h2 class="h2b patria">Acciones y Programas</span></h2>
                 <p class="color--neutro600 tamano--secundario">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
@@ -62,7 +62,7 @@
                                     <?php echo $prog['title']; ?>
                                 </h3>
 
-                                <p class="color--neutro600 tamano--secundario mb--16">
+                                <p class="color--neutro600 tamano--secundario mb--16 texto--justify">
                                     <?php echo $prog['desc']; ?>
                                 </p>
 

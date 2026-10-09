@@ -36,6 +36,7 @@
 .texto--centro { text-align: center !important; }
 .texto--izquierda { text-align: left !important; }
 .texto--derecha { text-align: right !important; }
+.texto--justify { text-align: justify !important; }
 
 @media (min-width: 640px) {
     .texto--izquierda--md { text-align: left !important; }
