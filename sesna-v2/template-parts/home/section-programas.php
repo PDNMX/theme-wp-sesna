@@ -3,7 +3,7 @@
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
                 <h2 class="h2b patria">Acciones y Programas</span></h2>
-                <p class="color--neutro600 tamano--secundario">Conoce y accede a nuestros micrositios</p>
+                <p class="sh1r color--neutro600">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
         <div class="reticulaGrid__12 pt--24">
@@ -58,16 +58,16 @@
 
                             <!-- Cuerpo de la tarjeta -->
                             <div class="pt--24 pb--24 px--24 texto--izquierda muestra--flex flex-direction-column flex-grow">
-                                <h3 class="h4 peso--negrita mb--16 sna-programas-title color--neutro800">
+                                <h4 class="sh1b">
                                     <?php echo $prog['title']; ?>
-                                </h3>
+                                </h4>
 
-                                <p class="color--neutro600 tamano--secundario mb--16 texto--justify">
+                                <p class="b1r mb--16 texto--justify">
                                     <?php echo $prog['desc']; ?>
                                 </p>
 
-                                <div class="mt--auto texto--centro">
-                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-programas-link muestra--flex-linea align-items-center color--pguinda600">
+                                <div class="mt--auto texto--centro texto--derecha--md">
+                                    <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
                                         Leer más
                                     </span>
                                 </div>

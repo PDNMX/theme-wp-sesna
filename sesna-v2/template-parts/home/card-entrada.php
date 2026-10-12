@@ -52,7 +52,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             <p class="color--neutro600 tamano--secundario mb--24 sna-noticias-excerpt">
                 <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
             </p>
-            <div class="mt--auto pb--16">
+            <div class="mt--auto pb--16 texto--derecha--md">
                 <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda900">
                     Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
                 </span>

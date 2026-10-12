@@ -49,14 +49,14 @@
 
                             <!-- Contenido -->
                             <div class="flex--1-auto muestra--flex flex-direction-column texto--centro px--16 pt--24 pb--8">
-                                <h3 class="h4 peso--negrita mb--16 sna-noticias-title color--neutro800">
+                                <h4 class="sh1b mb--16 texto--centro">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
-                                </h3>
-                                <p class="color--neutro600 tamano--secundario mb--24 sna-noticias-excerpt">
+                                </h4>
+                                <p class="b1r mb--24 sna-noticias-excerpt">
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
-                                <div class="mt--auto pb--16">
-                                    <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda600">
+                                <div class="mt--auto pb--16 texto--derecha--md">
+                                    <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
                                         Leer más
                                     </span>
                                 </div>

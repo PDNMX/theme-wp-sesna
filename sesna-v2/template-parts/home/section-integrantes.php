@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria">¿Quiénes integran el SNA?</h2>
+                <h3 class="h2b patria">¿Quiénes integran el SNA?</h3>
             </div>
         </div>
         <div class="reticulaGrid__12">
@@ -13,14 +13,14 @@
                     <div class="muestra--flex align-items-center mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
                             alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Comité Coordinador</h3>
+                        <h4 class="sh1b ml--16 mb--0">Comité Coordinador</h4>
                     </div>
                     <p class="b1r texto--justify">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
                         que tiene bajo su encargo el diseño, promoción y evaluación de políticas públicas de combate a
                         la corrupción</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
                         <span
-                            class="decoracion--ninguna peso--negrita color--pguinda600 muestra--flex-linea align-items-center">
+                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
                             Conoce más
                         </span>
                     </div>
@@ -33,14 +33,14 @@
                     <div class="muestra--flex align-items-center mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
                             alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Comité de Participación Ciudadana</h3>
+                        <h4 class="sh1b ml--16 mb--0">Comité de Participación Ciudadana</h4>
                     </div>
                     <p class="b1r texto--justify">Instancia de vinculación con las organizaciones sociales y académicas
                         relacionadas con materias del SNA que coadyuven en el cumplimiento de los objetivos del Comité
                         Coordinador.</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
                         <span
-                            class="decoracion--ninguna peso--negrita color--pguinda600 muestra--flex-linea align-items-center">
+                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
                             Conoce más
                         </span>
                     </div>
@@ -53,13 +53,13 @@
                     <div class="muestra--flex align-items-center mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"
                             alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="h4 peso--negrita ml--16 mb--0 sna-integrantes-title color--neutro800">Sistemas Estatales Anticorrupción</h3>
+                        <h4 class="sh1b ml--16 mb--0">Sistemas Estatales Anticorrupción</h4>
                     </div>
                     <p class="b1r texto--justify">Conoce la integración de cada sistema anticorrupción de las 32 entidades
                         federativas.</p>
                     <div class="mt--auto texto--centro texto--derecha--md">
                         <span
-                            class="decoracion--ninguna peso--negrita color--pguinda600 muestra--flex-linea align-items-center">
+                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
                             Conoce más
                         </span>
                     </div>

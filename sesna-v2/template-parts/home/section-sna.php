@@ -8,12 +8,12 @@
             </div>
             <div class="columna__12 columna__7--md ps--24--md">
                 <h1 class="h1b patria color--pguinda900">Sistema Nacional Anticorrupción (SNA)</h1>
-                    <p class="b1r">Instancia de coordinación entre autoridades
+                    <p class="sh1r texto--justify">Instancia de coordinación entre autoridades
                         de los tres órdenes de gobierno para prevenir, detectar, fiscalizar y sancionar la corrupción en
                         México.</p>
                     <div class="texto--izquierda--md texto--derecha--lg mt--24">
                         <a href="https://www.sna.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer"
-                            class="boton__primario boton--grande boton--redondeado sombraLV1">
+                            class="boton__primario boton--grande boton--redondeado ">
                             Conoce el SNA
                         </a>
                     </div>
