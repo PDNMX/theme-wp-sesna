@@ -43,7 +43,7 @@ if ( $slider_query->have_posts() ) :
                 <?php else : ?>
                     <!-- Imagen de respaldo por si no se sube imagen destacada -->
                     <div class="fallback-img">
-                        <span class="color--neutro600 tamano--secundario">Sin imagen destacada</span>
+                        <span class="color--neutro600 sd">Sin imagen destacada</span>
                     </div>
                 <?php endif; ?>
                 

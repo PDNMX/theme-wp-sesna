@@ -36,9 +36,9 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
         <!-- Imagen -->
         <div class="sna-noticias-img-wrapper">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
+                <?php the_post_thumbnail('medium_large', ['class' => 'ancho--100 alto--100 sna-noticias-img']); ?>
             <?php else : ?>
-                <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 tamano--secundario sna-noticias-img">
+                <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 sd sna-noticias-img">
                     <i class="snd snd-image tamano--1" aria-hidden="true"></i>
                 </div>
             <?php endif; ?>
@@ -46,14 +46,14 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
 
         <!-- Contenido -->
         <div class="flex--1-auto muestra--flex flex-direction-column texto--centro px--16 pt--24 pb--8">
-            <h4 class="peso--negrita mb--16 sna-noticias-title color--neutro800">
+            <h3 class="sh1b">
                 <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
-            </h4>
-            <p class="color--neutro600 tamano--secundario mb--24 sna-noticias-excerpt">
+            </h3>
+            <p class="b1r mb--24 sna-noticias-excerpt">
                 <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
             </p>
             <div class="mt--auto pb--16 texto--derecha--md">
-                <span class="decoracion--ninguna peso--negrita tamano--5 sna-noticias-link muestra--flex-linea align-items-center color--pguinda900">
+                <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
                     Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
                 </span>
             </div>

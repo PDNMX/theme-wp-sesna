@@ -34,8 +34,8 @@
                                     $cat = $categories[0];
                                 ?>
                                     <a href="<?= esc_url( get_category_link( $cat->term_id ) ) ?>"
-                                       class="sesna-single-cat">
-                                        <i class="snd snd-tag me-1" aria-hidden="true"></i>
+                                       class="boton__primario boton--redondeado">
+                                        <i class="snd__icono snd-tag" aria-hidden="true"></i>
                                         <?= esc_html( $cat->name ) ?>
                                     </a>
                                 <?php endif; ?>
@@ -105,7 +105,7 @@
                                 <div class="sesna-single-cats">
                                     <?php foreach ( $categories as $cat ) : ?>
                                         <a href="<?= esc_url( get_category_link( $cat->term_id ) ) ?>"
-                                           class="sesna-single-cats__tag">
+                                           class="boton__secundario boton--redondeado">
                                             <?= esc_html( $cat->name ) ?>
                                         </a>
                                     <?php endforeach; ?>

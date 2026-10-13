@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria">Acciones y Programas</span></h2>
+                <h2 class="h2b patria">Acciones y Programas</h2>
                 <p class="sh1r color--neutro600">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
@@ -58,9 +58,9 @@
 
                             <!-- Cuerpo de la tarjeta -->
                             <div class="pt--24 pb--24 px--24 texto--izquierda muestra--flex flex-direction-column flex-grow">
-                                <h4 class="sh1b">
+                                <h3 class="sh1b">
                                     <?php echo $prog['title']; ?>
-                                </h4>
+                                </h3>
 
                                 <p class="b1r mb--16 texto--justify">
                                     <?php echo $prog['desc']; ?>
@@ -68,7 +68,7 @@
 
                                 <div class="mt--auto texto--centro texto--derecha--md">
                                     <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
-                                        Leer más
+                                        Conoce más
                                     </span>
                                 </div>
                             </div>

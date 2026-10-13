@@ -4,7 +4,7 @@
             <div class="columna__12 columna__5--md texto--centro texto--derecha--md mb--24 mb--0--md pe--48--md">
                 <!-- Placeholder para el Logo del SNA -->
                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/logo-sna.svg" alt="SNA Logo"
-                    class="img-fluid sna-logo" onerror="this.src='https://via.placeholder.com/350x120?text=Logo+SNA';">
+                    class="wh-100 sna-logo" onerror="this.src='https://via.placeholder.com/350x120?text=Logo+SNA';">
             </div>
             <div class="columna__12 columna__7--md ps--24--md">
                 <h1 class="h1b patria color--pguinda900">Sistema Nacional Anticorrupción (SNA)</h1>

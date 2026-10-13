@@ -39,9 +39,9 @@
                             <!-- Imagen -->
                             <div class="sna-noticias-img-wrapper">
                                 <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('medium_large', ['class' => 'w-100 h-100 sna-noticias-img']); ?>
+                                    <?php the_post_thumbnail('medium_large', ['class' => 'ancho--100 alto--100 sna-noticias-img']); ?>
                                 <?php else : ?>
-                                    <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 tamano--secundario sna-noticias-img">
+                                    <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 sd sna-noticias-img">
                                         <i class="snd snd-image tamano--1" aria-hidden="true"></i>
                                     </div>
                                 <?php endif; ?>
@@ -49,9 +49,9 @@
 
                             <!-- Contenido -->
                             <div class="flex--1-auto muestra--flex flex-direction-column texto--centro px--16 pt--24 pb--8">
-                                <h4 class="sh1b mb--16 texto--centro">
+                                <h3 class="sh1b">
                                     <?php echo wp_trim_words(get_the_title(), 12, '...'); ?>
-                                </h4>
+                                </h3>
                                 <p class="b1r mb--24 sna-noticias-excerpt">
                                     <?php echo wp_trim_words(get_the_excerpt(), 35, '...'); ?>
                                 </p>
@@ -70,7 +70,7 @@
             else :
                 ?>
                 <div class="columna__12 texto--centro">
-                    <p class="color--neutro600 tamano--secundario">No hay noticias disponibles por el momento.</p>
+                    <p class="color--neutro600 sd">No hay noticias disponibles por el momento.</p>
                 </div>
             <?php endif; ?>
         </div>
