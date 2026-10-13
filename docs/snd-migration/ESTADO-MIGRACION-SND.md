@@ -248,6 +248,13 @@ carrusel, acordeón o tabs. Ya existe un CSS de reemplazo escrito (`assets/css/b
 de un intento anterior) pero **no está activado** — falta decidir si se usa tal cual o se
 revisa, y activarlo en el contexto correcto.
 
+**Caso concreto, ya con el home 100% migrado en todo lo demás:** `template-parts/home/carousel.php`
+("Ofertas PAA") sigue siendo 100% Bootstrap (`data-bs-ride`, `data-bs-target`, `.carousel-control-prev/next`,
+`.carousel-indicators`) — ni una clase del SND. Es la única pieza del home que depende
+de Bootstrap JS/CSS en este momento. Queda anotado para resolver junto con el resto de
+4.2, no se tocó porque es una decisión de alcance (migrar a algo propio documentado,
+pedir criterio al SND, o dejarlo para la Fase F), no un ajuste de clase suelta.
+
 ### 4.3 Fase F — Retirar Bootstrap CSS/JS por completo
 Bloqueada hasta cerrar 4.1 y 4.2. Intento anterior: se quitó `gm/v3/assets/styles/main.css`
 y el sitio se rompió (utilidades y layout dependían de él) — se revirtió de inmediato.

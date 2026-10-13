@@ -1082,13 +1082,6 @@ nav.navbar .container {
     padding: 80px 0;
 }
 
-.sesna-hero__title {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 300;
-    line-height: 1.4;
-    font-family: var(--font-patria);
-}
-
 .sesna-hero__title strong {
     font-weight: 700;
 }
@@ -1323,15 +1316,6 @@ nav.navbar .container {
    Título de sección centrado — páginas institucionales (Qué hacemos, etc.)
    Diferente de cp-recursos__titulo (uppercase, izquierda)
    ------------------------------------------------------------ */
-.sesna-section-title {
-    font-family: var(--font-patria);
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--color-burgundi);
-    margin-bottom: 12px;
-    line-height: 1.2;
-}
-
 /* ------------------------------------------------------------
    Hero de Página Interna — componente estándar
    Reemplaza: .ocn-hero, .vp-hero, .pna-hero, .qh-hero, "py-5 mb-5"
@@ -1358,7 +1342,6 @@ nav.navbar .container {
     color: rgba(33, 37, 41, 0.72);
     line-height: 1.65;
     margin-bottom: 0;
-    text-align: justify;
     max-width: 640px;
 }
 
@@ -3484,6 +3467,16 @@ nav.navbar .container {
     color: rgba(255,255,255,0.2);
 }
 
+/* Íconos de marca propios (img/icons-base) — snd no trae logos de marca.
+   filter los fuerza a blanco para que se vean igual que los íconos de fuente
+   que reemplazan, sea cual sea el color nativo del SVG. */
+.qh-social-header img {
+    width: 36px;
+    height: 36px;
+    opacity: 0.2;
+    filter: brightness(0) invert(1);
+}
+
 .qh-sh-x { background-color: #0f1419; }
 .qh-sh-yt { background-color: #ff0000; }
 .qh-sh-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
@@ -3542,29 +3535,6 @@ nav.navbar .container {
 
 .qh-social-handle--sm {
     font-size: 11px;
-}
-
-.qh-social-btn {
-    display: inline-block;
-    padding: 0.4rem 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    color: #333;
-    font-weight: 600;
-    font-size: 13px;
-    text-decoration: none;
-    align-self: flex-start;
-    transition: all 0.2s;
-}
-
-.qh-social-btn:hover {
-    background-color: #f5f5f5;
-    color: var(--color-burgundi);
-    border-color: #aaa;
-}
-
-.qh-social-btn i {
-    margin-left: 5px;
 }
 
 /* ============================================================

@@ -117,3 +117,18 @@
 /* ===== Flex y tamaño mínimo (propiedades que Bootstrap .card y .card-body aportaban) ===== */
 .ancho-minimo--0 { min-width: 0 !important; }
 .flex--1-auto { flex: 1 1 auto !important; }
+
+/* ===== Desbordamiento (Bootstrap .overflow-hidden) ===== */
+.desborde--oculto { overflow: hidden !important; }
+
+/* ===== Opacidad (Bootstrap .opacity-75; el SND no define utilidades de opacidad) ===== */
+.opacidad--75 { opacity: .75 !important; }
+
+/* ===== Relación de aspecto (Bootstrap .ratio/.ratio-16x9; el SND no define esta familia).
+   Requiere un solo hijo (iframe/video/img) que llene el contenedor. ===== */
+.relacion--16x9 { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+.relacion--16x9 > * { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ===== Enlace expandido (Bootstrap .stretched-link: hace clicable toda la tarjeta
+   a través de un elemento interno). El contenedor necesita posicion--relativa. ===== */
+.enlace--expandido::after { content: ""; position: absolute; inset: 0; z-index: 1; }
