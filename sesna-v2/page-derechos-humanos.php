@@ -303,7 +303,7 @@ get_header();
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
                         <div class="dh-acciones-card__img bg-light d-flex align-items-center justify-content-center p-2 p-md-3">
-                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/acciones_integridad_800x2000_final.png') ); ?>"
+                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/acciones_x_integridad.png') ); ?>"
                                  alt="Acciones X la Integridad"
                                  class="img-fluid dh-acciones-img--portrait"
                                  onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'bi bi-image fs-1 text-muted\'></i></div>';">
