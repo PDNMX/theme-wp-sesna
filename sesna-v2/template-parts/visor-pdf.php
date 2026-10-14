@@ -89,13 +89,30 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.appendChild(temp);
             temp.focus();
             temp.select();
+            let copied = false;
             try {
-                document.execCommand('copy');
-                onSuccess();
+                // execCommand devuelve false (sin lanzar error) cuando el
+                // navegador bloquea el copiado silenciosamente, así que hay
+                // que revisar el resultado y no solo el try/catch.
+                copied = document.execCommand('copy');
             } catch (err) {
-                // Silencioso: si tampoco funciona el fallback, el usuario aún puede copiar el enlace de "Descargar PDF".
+                copied = false;
             }
             document.body.removeChild(temp);
+
+            if (copied) {
+                onSuccess();
+                return;
+            }
+
+            // Último recurso: tanto el Clipboard API moderno como
+            // execCommand('copy') requieren/favorecen un contexto seguro
+            // (HTTPS o localhost). Al publicar el sitio en un servidor con
+            // IP directa sin certificado, ambos pueden fallar sin avisar,
+            // y el botón "no copiaba nada". Mostrar el enlace en un prompt
+            // ya seleccionado permite copiarlo a mano (Ctrl+C/Cmd+C) sin
+            // depender de esos permisos del navegador.
+            window.prompt('Copia el enlace manualmente (Ctrl+C / Cmd+C):', url);
         }
         // Evita que 'show.bs.modal' reprocese con relatedTarget cuando el click ya resolvió el documento.
         let lastResolvedByClick = false;
