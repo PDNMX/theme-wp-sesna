@@ -32,10 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (navigator.clipboard && window.isSecureContext) {
                     navigator.clipboard.writeText(url).then(showCopied).catch(function () {
-                        copyLinkFallback(url, showCopied);
+                        showManualCopyPrompt(url);
                     });
                 } else {
-                    copyLinkFallback(url, showCopied);
+                    // Fuera de un contexto seguro (sin HTTPS ni localhost),
+                    // document.execCommand('copy') puede devolver true sin
+                    // haber escrito realmente al portapapeles del sistema:
+                    // algunos navegadores (comprobado en Firefox) "fingen"
+                    // éxito ahí como medida de seguridad, en vez de avisar
+                    // que no pudieron. Como ese resultado no es confiable,
+                    // se va directo al método que sí funciona siempre.
+                    showManualCopyPrompt(url);
                 }
             });
         }
@@ -81,37 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        function copyLinkFallback(url, onSuccess) {
-            const temp = document.createElement('textarea');
-            temp.value = url;
-            temp.style.position = 'fixed';
-            temp.style.opacity = '0';
-            document.body.appendChild(temp);
-            temp.focus();
-            temp.select();
-            let copied = false;
-            try {
-                // execCommand devuelve false (sin lanzar error) cuando el
-                // navegador bloquea el copiado silenciosamente, así que hay
-                // que revisar el resultado y no solo el try/catch.
-                copied = document.execCommand('copy');
-            } catch (err) {
-                copied = false;
-            }
-            document.body.removeChild(temp);
-
-            if (copied) {
-                onSuccess();
-                return;
-            }
-
-            // Último recurso: tanto el Clipboard API moderno como
-            // execCommand('copy') requieren/favorecen un contexto seguro
-            // (HTTPS o localhost). Al publicar el sitio en un servidor con
-            // IP directa sin certificado, ambos pueden fallar sin avisar,
-            // y el botón "no copiaba nada". Mostrar el enlace en un prompt
-            // ya seleccionado permite copiarlo a mano (Ctrl+C/Cmd+C) sin
-            // depender de esos permisos del navegador.
+        function showManualCopyPrompt(url) {
+            // Único método confirmado 100% confiable sin HTTPS: un prompt()
+            // nunca depende de permisos de portapapeles del navegador, así
+            // que el enlace siempre se puede copiar a mano (Ctrl+C/Cmd+C).
             window.prompt('Copia el enlace manualmente (Ctrl+C / Cmd+C):', url);
         }
         // Evita que 'show.bs.modal' reprocese con relatedTarget cuando el click ya resolvió el documento.
