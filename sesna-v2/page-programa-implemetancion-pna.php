@@ -55,16 +55,11 @@ $ejes_data = [
     ],
 ];
 
-$fichero_pdfs = [
-    2023 => [1=>'Fichas-Eje1-2023.pdf', 2=>'Fichas-Eje2-2023.pdf', 3=>'Fichas-Eje3-2023.pdf', 4=>'Fichas-Eje4-2023.pdf'],
-    2024 => [1=>'Fichas-Eje1-2024.pdf', 2=>'Fichas-Eje2-2024.pdf', 3=>'Fichas-Eje3-2024.pdf', 4=>'Fichas-Eje4-2024.pdf'],
-    2025 => [1=>'Fichas-Eje1-2025.pdf', 2=>'Fichas-Eje2-2025.pdf', 3=>'Fichas-Eje3-2025.pdf', 4=>'Fichas-Eje4-2025.pdf'],
-];
-$fichero_url_map = [];
-foreach ($fichero_pdfs as $anio => $ejes) {
-    foreach ($ejes as $eje => $fname) {
-        $fichero_url_map[$anio][$eje] = sesna_get_media_attachment_url($fname, '') ?: '';
-    }
+$fichero_url_map = sesna_get_pna_fichero_map();
+$fichero_anios   = array_keys($fichero_url_map);
+sort($fichero_anios);
+if (empty($fichero_anios)) {
+    $fichero_anios = [(int) date('Y')];
 }
 ?>
 
@@ -382,7 +377,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
             <?php
             $docs_cols = [
                 ['icono'=>'bi-file-earmark-text','titulo'=>'Programa','desc'=>'Versiones del Programa de Implementación de la PNA.','color'=>'#3A90C5','docs'=>[
-                    ['label'=>'PI-PNA aprobado 2022','nota'=>'Versión original aprobada por el CC-SNA','file'=>'PI_PNA_aprobado.pdf','path'=>'2022/09/PI_PNA_aprobado.pdf'],
+                    ['label'=>'PI-PNA aprobado 2022','nota'=>'Versión original aprobada por el CC-SNA','file'=>'Programa_Implementacion_PNA_.pdf','path'=>'2024/04/Programa_Implementacion_PNA_.pdf'],
                     ['label'=>'Actualización 2024','nota'=>'Actualización de indicadores','file'=>'PI-PNA_actualizacion-indicadores_2024-1.pdf','path'=>'2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf'],
                 ]],
                 ['icono'=>'bi-clipboard-data','titulo'=>'Informes','desc'=>'Seguimiento a la ejecución del PI-PNA por periodo.','color'=>'#72588F','docs'=>[
@@ -414,20 +409,15 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                             <div class="rounded-3 p-3" style="background:#f8f9fa;">
                                 <div class="font-noto-sans fw-semibold mb-1" style="font-size:13px;color:#333;"><?php echo esc_html($doc['label']); ?></div>
                                 <div class="font-noto-sans text-muted mb-2" style="font-size:11px;"><?php echo esc_html($doc['nota']); ?></div>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex">
                                     <?php if ($url) : ?>
                                     <a href="#"
                                        data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
                                        data-pdf-url="<?php echo esc_url($url); ?>"
                                        data-pdf-title="<?php echo esc_attr($doc['label']); ?>"
-                                       class="d-inline-flex align-items-center gap-1 font-noto-sans"
-                                       style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:4px 12px;text-decoration:none;">
-                                        <i class="bi bi-eye"></i> Ver
-                                    </a>
-                                    <a href="<?php echo esc_url($url); ?>" download
-                                       class="d-inline-flex align-items-center gap-1 font-noto-sans"
-                                       style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:4px 12px;text-decoration:none;">
-                                        <i class="bi bi-download"></i> PDF
+                                       class="d-inline-flex align-items-center justify-content-center gap-1 font-noto-sans w-100"
+                                       style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:6px 12px;text-decoration:none;">
+                                        <i class="bi bi-eye"></i> Ver documento
                                     </a>
                                     <?php else : ?>
                                     <span class="font-noto-sans" style="font-size:11px;color:#aaa;">Próximamente</span>
@@ -463,7 +453,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
                     <div class="col-lg-4">
                         <p class="font-noto-sans fw-semibold mb-2" style="font-size:14px;color:#333;">Selecciona el año:</p>
                         <div class="d-flex flex-wrap gap-2 mb-4">
-                            <?php foreach ([2023,2024,2025] as $anio) : $act = $anio===2023; ?>
+                            <?php foreach ($fichero_anios as $anio) : $act = $anio === $fichero_anios[0]; ?>
                             <button type="button" class="btn fichero-anio-btn font-noto-sans fw-semibold"
                                     data-anio="<?php echo $anio; ?>"
                                     style="font-size:14px;min-width:76px;border-radius:8px;padding:8px 14px;
@@ -508,7 +498,7 @@ foreach ($fichero_pdfs as $anio => $ejes) {
 
 </div><!-- .page-pna-implementacion -->
 
-<?php get_template_part('template-parts/transparencia/visor-pdf'); ?>
+<?php get_template_part('template-parts/visor-pdf'); ?>
 
 <style>
 /* Hover cards de eje */
@@ -591,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fichero
     var ficheroMap = <?php echo json_encode($fichero_url_map); ?>;
-    var selAnio = 2023, selEje = 1;
+    var selAnio = <?php echo (int) $fichero_anios[0]; ?>, selEje = 1;
 
     function updateFichero() {
         var url = ficheroMap[selAnio] && ficheroMap[selAnio][selEje] ? ficheroMap[selAnio][selEje] : '';
