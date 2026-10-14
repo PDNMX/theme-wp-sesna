@@ -16,7 +16,7 @@ get_header();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/') ); ?>">
-                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -39,8 +39,8 @@ get_header();
                 <div class="columna__12 columna__5--md columna__4--lg">
                     <div class="cp-hero-card">
                         <div class="cp-hero-card__img">
-                            <i class="snd snd-list cp-hero-card__icon-main" aria-hidden="true"></i>
-                            <i class="snd snd-building cp-hero-card__icon-sub" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-list cp-hero-card__icon-main" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-building cp-hero-card__icon-sub" aria-hidden="true"></i>
                         </div>
                         <div class="cp-hero-card__body">
                             <h2 class="cp-hero-card__title">Contrataciones Públicas</h2>
@@ -69,7 +69,7 @@ get_header();
             <div class="cp-recursos__header mb-4">
                 <div class="d-flex align-items-center gap-3">
                     <div class="cp-recursos__icono-box">
-                        <i class="snd snd-folder" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-folder" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h2 class="cp-recursos__titulo mb-0">Recursos disponibles</h2>
@@ -135,9 +135,9 @@ get_header();
                         <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
                         <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
                         <div class="cp-doc-meta">
-                            <span><i class="snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($doc['anio']); ?></span>
+                            <span><i class="snd__icono snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($doc['anio']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="snd snd-document" aria-hidden="true"></i> <?php echo esc_html($doc['formato']); ?></span>
+                            <span><i class="snd__icono snd snd-document" aria-hidden="true"></i> <?php echo esc_html($doc['formato']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
                             <span><?php echo esc_html($doc['paginas']); ?></span>
                         </div>
@@ -146,10 +146,10 @@ get_header();
                     <!-- Acciones -->
                     <div class="cp-doc-acciones">
                         <a href="<?php echo esc_url($doc['url_ver']); ?>" class="boton__secundario" target="_blank" rel="noopener">
-                            <i class="snd__icono snd-screen" aria-hidden="true"></i> Ver documento
+                            <i class="snd snd__icono snd-screen" aria-hidden="true"></i> Ver documento
                         </a>
                         <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="boton__primario" target="_blank" rel="noopener" download>
-                            <i class="snd__icono snd-download" aria-hidden="true"></i> Descargar PDF
+                            <i class="snd snd__icono snd-download" aria-hidden="true"></i> Descargar PDF
                         </a>
                     </div>
 
@@ -166,7 +166,7 @@ get_header();
     <div class="cp-nota pb-5">
         <div class="contenedor">
             <div class="cp-nota__inner">
-                <i class="snd snd-information cp-nota__icono" aria-hidden="true"></i>
+                <i class="snd__icono snd snd-information cp-nota__icono" aria-hidden="true"></i>
                 <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
             </div>
         </div>

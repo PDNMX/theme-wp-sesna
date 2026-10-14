@@ -26,7 +26,7 @@ $sna_meses = [
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <ol class="breadcrumb mb--0">
             <li class="breadcrumb-item">
-                <a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Noticias y Actividades</li>
         </ol>
@@ -45,7 +45,7 @@ $sna_meses = [
         <div class="sna-entradas-filters" role="search" aria-label="Filtrar por fecha">
             <div class="sna-entradas-filter-field">
                 <label for="sna-entradas-filter-year">
-                    <i class="snd snd-calendar" aria-hidden="true"></i> Año
+                    <i class="snd__icono snd snd-calendar" aria-hidden="true"></i> Año
                 </label>
                 <select id="sna-entradas-filter-year" class="sna-entradas-filter-select">
                     <option value="">Todos</option>
@@ -57,7 +57,7 @@ $sna_meses = [
 
             <div class="sna-entradas-filter-field">
                 <label for="sna-entradas-filter-month">
-                    <i class="snd snd-calendar" aria-hidden="true"></i> Mes
+                    <i class="snd__icono snd snd-calendar" aria-hidden="true"></i> Mes
                 </label>
                 <select id="sna-entradas-filter-month" class="sna-entradas-filter-select">
                     <option value="">Todos</option>
@@ -68,11 +68,11 @@ $sna_meses = [
             </div>
 
             <button type="button" id="sna-entradas-filter-apply" class="sna-entradas-filter-apply">
-                Aplicar filtro <i class="snd snd-filter ml--4" aria-hidden="true"></i>
+                Aplicar filtro <i class="snd__icono snd snd-filter ml--4" aria-hidden="true"></i>
             </button>
 
             <button type="button" id="sna-entradas-filter-clear" class="sna-entradas-filter-clear" style="display:none;">
-                Quitar filtros <i class="snd snd-close ml--4" aria-hidden="true"></i>
+                Quitar filtros <i class="snd__icono snd snd-close ml--4" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -88,7 +88,7 @@ $sna_meses = [
                         aria-selected="<?php echo $is_first ? 'true' : 'false'; ?>"
                         aria-controls="panel-<?php echo esc_attr($key); ?>"
                         data-familia="<?php echo esc_attr($key); ?>">
-                    <i class="snd <?php echo esc_attr($familia['icon']); ?>" aria-hidden="true"></i>
+                    <i class="snd__icono snd <?php echo esc_attr($familia['icon']); ?>" aria-hidden="true"></i>
                     <span class="sna-entradas-tab-label"><?php echo esc_html($familia['label']); ?></span>
                     <span class="sna-entradas-tab-count"><?php echo (int) $count; ?></span>
                 </button>
@@ -110,7 +110,7 @@ $sna_meses = [
 
         <div class="texto--centro mt--24">
             <button type="button" id="sna-entradas-load-more" class="sna-entradas-load-more-btn" style="display:none;">
-                Cargar más <i class="snd snd-renew ml--8" aria-hidden="true"></i>
+                Cargar más <i class="snd__icono snd snd-renew ml--8" aria-hidden="true"></i>
             </button>
         </div>
     </div>

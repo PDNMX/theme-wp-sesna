@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -48,28 +48,28 @@ get_header();
                         <!-- Tarjeta 1: Consultar documento completo -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd snd-document text-white fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd snd-document text-white fs-4" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Consultar documento completo</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Política Nacional Anticorrupción (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
+                                <i class="snd__icono snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
                             </div>
                         </a>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
                         <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd snd-education text-white fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd snd-education text-white fs-4" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Documento (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
+                                <i class="snd__icono snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
                             </div>
                         </a>
 
@@ -80,7 +80,7 @@ get_header();
                                     <div class="accordion-header m-0" id="flush-headingAnexos">
                                         <button class="accordion-button collapsed p-3 bg-transparent shadow-none d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAnexos" aria-expanded="false" aria-controls="flush-collapseAnexos">
                                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                                <i class="snd snd-folder text-white fs-4" aria-hidden="true"></i>
+                                                <i class="snd__icono snd snd-folder text-white fs-4" aria-hidden="true"></i>
                                             </div>
                                             <div class="flex-grow-1 text-start my-auto">
                                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
@@ -93,19 +93,19 @@ get_header();
                                             <div class="list-group list-group-flush">
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
+                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
+                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
+                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                                 <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                                     <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
-                                                    <i class="snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
+                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -304,7 +304,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd snd-screen" aria-hidden="true"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd__icono snd snd-screen" aria-hidden="true"></i></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -509,7 +509,7 @@ get_header();
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="snd-star" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd snd-group" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
@@ -525,7 +525,7 @@ get_header();
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
-                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd snd-group" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
@@ -541,7 +541,7 @@ get_header();
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
-                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd snd-location--filled" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd__icono snd snd-location--filled" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
@@ -564,7 +564,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="snd snd-information me-2 fs-5" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-information me-2 fs-5" aria-hidden="true"></i>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
@@ -687,19 +687,19 @@ get_header();
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
-                                        <i class="snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
@@ -944,14 +944,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">23 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Guadalajara, Jalisco</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -962,14 +962,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">25 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Zacatecas, Zacatecas</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -980,14 +980,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">30 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Saltillo, Coahuila</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -998,14 +998,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">8 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Oaxaca, Oaxaca</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1016,14 +1016,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">12 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Querétaro, Querétaro</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1034,14 +1034,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">20 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Hermosillo, Sonora</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1052,14 +1052,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">22 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Cancún, Quintana Roo</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
@@ -1070,14 +1070,14 @@ get_header();
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">29 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Ciudad de México, CDMX</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
                             </div>

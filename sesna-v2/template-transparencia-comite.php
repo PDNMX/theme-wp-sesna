@@ -50,7 +50,7 @@ wp_reset_postdata();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -76,12 +76,12 @@ wp_reset_postdata();
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="snd snd-list" aria-hidden="true"></i> Actas
+                        <i class="snd__icono snd snd-list" aria-hidden="true"></i> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="resoluciones-tab" data-bs-toggle="tab" data-bs-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="snd snd-checkmark--filled" aria-hidden="true"></i> Resoluciones
+                        <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i> Resoluciones
                     </button>
                 </li>
             </ul>
@@ -136,11 +136,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
+                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
+                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -152,7 +152,7 @@ wp_reset_postdata();
                 <!-- Ver más Sesiones -->
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -179,7 +179,7 @@ wp_reset_postdata();
                         <label for="search-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Número de resolución</label>
                         <div class="position-relative">
                             <input type="text" id="search-res" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Buscar resolución...">
-                            <i class="snd snd-search tx-comite-search-icon" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-search tx-comite-search-icon" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -205,11 +205,11 @@ wp_reset_postdata();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
+                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Resolución</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
+                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -221,7 +221,7 @@ wp_reset_postdata();
                 <!-- Ver más Resoluciones -->
                 <div class="text-center mt-5" id="resoluciones-load-more-container">
                     <a href="javascript:void(0)" id="resoluciones-btn-more" class="boton__fantasma">
-                        Ver más resoluciones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más resoluciones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
 

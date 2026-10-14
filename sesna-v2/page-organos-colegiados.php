@@ -31,7 +31,7 @@ rsort($oc_anios_organo);
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -138,7 +138,7 @@ rsort($oc_anios_organo);
                 <!-- VER MÁS BTN -->
                 <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
                     <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
                 </div> <!-- END sec-comite -->
@@ -187,7 +187,7 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
                         <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comision">
-                            Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                            Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -236,7 +236,7 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
                         <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-organo">
-                            Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                            Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>

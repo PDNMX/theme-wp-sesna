@@ -63,8 +63,8 @@ function sesna_theme_scripts()
 	// GOB.mx v3 — se mantiene SOLO para Bootstrap CSS (grid, .row, .col-*, modales, carousel)
 	// TODO BLOQUE 13: remover cuando todas las páginas migren a .fila/.columna__N de SND
 	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
-	// SND v1 — Sistema Nacional de Diseño (carga después de v3; tokens, tipografía y componentes SND toman prioridad)
-	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css', array('gobmx-framework'), null);
+	// SND v1.1.0 — Sistema Nacional de Diseño (carga después de v3; tokens, tipografía y componentes SND toman prioridad)
+	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd-guinda.css', array('gobmx-framework'), null);
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 	// Hoja principal del tema — carga al último, después de SND
@@ -74,8 +74,8 @@ function sesna_theme_scripts()
 
 	// GOB.mx v3 JS — mantener para Bootstrap 5 JS (modales, dropdown, carousel, jQuery)
 	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
-	// SND v1 JS — IBM Carbon Design System icons
-	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1/snd-js.js', array(), null, true);
+	// SND v1.1.0 JS — procesa i.snd__icono / i.snd__pictograma (IBM Carbon Design System icons)
+	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd.js', array(), null, true);
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array(), null, true);
 
@@ -1061,7 +1061,7 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
                         in_array( 'current-menu-ancestor', $item->classes );
         $is_external  = $this->is_external( $item );
         $current_attr = $is_active ? ' aria-current="page"' : '';
-        $ext_icon     = $is_external ? ' <i class="snd snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;"></i>' : '';
+        $ext_icon     = $is_external ? ' <i class="snd__icono snd snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;"></i>' : '';
         $ext_attr     = $is_external ? ' target="_blank" rel="noopener noreferrer"' : '';
 
         if ( $depth === 0 ) {
@@ -1073,7 +1073,7 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
                 $output .= '<details class="navHeader__details">';
                 $output .= '<summary class="navHeader__a navHeader__a--toggle"' . $current_attr . '>'
                     . esc_html( $item->title )
-                    . '<i class="snd snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
+                    . '<i class="snd__icono snd snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
                     . '</summary>';
                 // end_lvl closes </ul></details>
             } else {
@@ -2274,7 +2274,7 @@ function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
     <a href="#<?= esc_attr($panel_id) ?>" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
-        <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+        <i class="snd__icono snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
     </a>
     <?php
@@ -2288,7 +2288,7 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
         <div class="border-top px-4 py-4">
             <?php if ($mostrar_buscador) : ?>
             <div class="position-relative mb-3" style="max-width: 340px;">
-                <i class="snd snd-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
+                <i class="snd__icono snd snd-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
                 <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
             </div>
             <?php endif; ?>
@@ -2296,10 +2296,10 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="snd snd-document flex-shrink-0" style="color: var(--color-burgundi); font-size: 16px;" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-document flex-shrink-0" style="color: var(--color-burgundi); font-size: 16px;" aria-hidden="true"></i>
                         <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="snd snd-document--pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
                 </a>
                 <?php endforeach; ?>
             </div>
@@ -2356,7 +2356,7 @@ function sesna_render_oc_sesion_card($sesion) {
                         <a rel="noopener" href="<?= $href ?>"
                            <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-bs-toggle="modal" data-bs-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
                            class="<?= esc_attr($link_class) ?>">
-                            <i class="snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+                            <i class="snd__icono snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
                             <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
                         </a>
                         <?php endforeach; ?>
@@ -2364,7 +2364,7 @@ function sesna_render_oc_sesion_card($sesion) {
                 </div>
 
                 <div class="columna__12 columna__1--md d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                    <i class="snd snd-chevron--right text-muted fs-5" aria-hidden="true"></i>
+                    <i class="snd__icono snd snd-chevron--right text-muted fs-5" aria-hidden="true"></i>
                 </div>
             </div>
             <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
@@ -2384,7 +2384,7 @@ function sesna_render_oc_lista_directa_item($item) {
                 <div class="columna__12 columna__3--md tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
                     <?php foreach ($item['documentos'] as $doc) : ?>
                     <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                        <i class="snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+                        <i class="snd__icono snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
                         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
                     </a>
                     <?php endforeach; ?>
@@ -3589,9 +3589,9 @@ function sesna_render_recurso_card($post) {
             <h3 class="cp-doc-titulo"><?php echo esc_html($titulo); ?></h3>
             <p class="cp-doc-desc"><?php echo esc_html($descripcion); ?></p>
             <div class="cp-doc-meta">
-                <span><i class="snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($anio); ?></span>
+                <span><i class="snd__icono snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="snd snd-document" aria-hidden="true"></i> <?php echo esc_html($formato); ?></span>
+                <span><i class="snd__icono snd snd-document" aria-hidden="true"></i> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3603,11 +3603,11 @@ function sesna_render_recurso_card($post) {
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario" target="_blank" rel="noopener">
-                <i class="snd__icono snd-screen" aria-hidden="true"></i> Ver documento
+                <i class="snd snd__icono snd-screen" aria-hidden="true"></i> Ver documento
             </a>
             <?php endif; ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
-                <i class="snd__icono snd-download" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+                <i class="snd snd__icono snd-download" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
 

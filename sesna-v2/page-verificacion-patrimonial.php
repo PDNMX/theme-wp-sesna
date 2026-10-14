@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -69,7 +69,7 @@ get_header();
 
                 <div class="vp-func-item">
                     <div class="vp-func-item__icon">
-                        <i class="snd snd-tag" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-tag" aria-hidden="true"></i>
                     </div>
                     <div class="vp-func-item__text">
                         <h5 class="vp-func-item__title">Generación automatizada</h5>
@@ -81,7 +81,7 @@ get_header();
 
                 <div class="vp-func-item">
                     <div class="vp-func-item__icon">
-                        <i class="snd snd-security" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-security" aria-hidden="true"></i>
                     </div>
                     <div class="vp-func-item__text">
                         <h5 class="vp-func-item__title">Apoyo a la verificación</h5>
@@ -93,7 +93,7 @@ get_header();
 
                 <div class="vp-func-item">
                     <div class="vp-func-item__icon">
-                        <i class="snd snd-document" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-document" aria-hidden="true"></i>
                     </div>
                     <div class="vp-func-item__text">
                         <h5 class="vp-func-item__title">Criterios técnicos</h5>
@@ -106,9 +106,9 @@ get_header();
             <!-- CTA -->
             <div class="text-center mt-5 pt-2">
                 <a href="#" class="boton__primario boton--grande" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
-                    <i class="snd snd-screen fs-5" aria-hidden="true"></i>
+                    <i class="snd__icono snd snd-screen fs-5" aria-hidden="true"></i>
                     Acceder a la herramienta
-                    <i class="snd snd-launch fs-6" aria-hidden="true"></i>
+                    <i class="snd__icono snd snd-launch fs-6" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -123,7 +123,7 @@ get_header();
             <div class="cp-recursos__header mb-4">
                 <div class="d-flex align-items-center gap-3">
                     <div class="cp-recursos__icono-box">
-                        <i class="snd snd-folder" aria-hidden="true"></i>
+                        <i class="snd__icono snd snd-folder" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h2 class="cp-recursos__titulo mb-0">Recursos metodológicos</h2>
@@ -174,7 +174,7 @@ get_header();
 
                 <div class="cp-doc-item">
                     <div class="cp-doc-thumb cp-doc-thumb--<?php echo esc_attr($doc['color']); ?>">
-                        <div class="cp-doc-thumb__logo"><i class="snd snd-security" aria-hidden="true"></i> SESNA</div>
+                        <div class="cp-doc-thumb__logo"><i class="snd__icono snd snd-security" aria-hidden="true"></i> SESNA</div>
                         <p class="cp-doc-thumb__nombre"><?php echo esc_html($doc['titulo']); ?></p>
                         <div class="cp-doc-thumb__footer">
                             <span>DOCUMENTO<br>TÉCNICO</span>
@@ -186,19 +186,19 @@ get_header();
                         <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
                         <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
                         <div class="cp-doc-meta">
-                            <span><i class="snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($doc['anio']); ?></span>
+                            <span><i class="snd__icono snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($doc['anio']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
-                            <span><i class="snd snd-document" aria-hidden="true"></i> <?php echo esc_html($doc['formato']); ?></span>
+                            <span><i class="snd__icono snd snd-document" aria-hidden="true"></i> <?php echo esc_html($doc['formato']); ?></span>
                             <span class="cp-doc-meta__sep">·</span>
                             <span><?php echo esc_html($doc['paginas']); ?></span>
                         </div>
                     </div>
                     <div class="cp-doc-acciones">
                         <a href="<?php echo esc_url($doc['url_ver']); ?>" class="boton__secundario" target="_blank" rel="noopener">
-                            <i class="snd__icono snd-screen" aria-hidden="true"></i> Ver documento
+                            <i class="snd snd__icono snd-screen" aria-hidden="true"></i> Ver documento
                         </a>
                         <a href="<?php echo esc_url($doc['url_pdf']); ?>" class="boton__primario" target="_blank" rel="noopener" download>
-                            <i class="snd__icono snd-download" aria-hidden="true"></i> Descargar PDF
+                            <i class="snd snd__icono snd-download" aria-hidden="true"></i> Descargar PDF
                         </a>
                     </div>
                 </div>
@@ -214,7 +214,7 @@ get_header();
     <div class="cp-nota pb-5">
         <div class="contenedor">
             <div class="cp-nota__inner">
-                <i class="snd snd-information cp-nota__icono" aria-hidden="true"></i>
+                <i class="snd__icono snd snd-information cp-nota__icono" aria-hidden="true"></i>
                 <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
             </div>
         </div>

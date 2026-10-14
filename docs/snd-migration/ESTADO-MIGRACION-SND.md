@@ -241,6 +241,13 @@ verificación), con especial cuidado en:
   de pasar a `boton__*` o si pertenecen a componentes de Bootstrap (dropdown, modal) que
   son parte de la sección 4.2.
 
+**Familia nueva detectada en la auditoría 1.1.0 (no estaba en la tabla de arriba, no es
+Bootstrap — ver sección 7.6):** marcador de ícono viejo `class="snd ...">` (suelto) vs.
+el oficial `class="snd__icono ...">` + `.icono--{tamaño}`. **35 archivos** todavía usan
+la convención vieja; es bloqueante para poder actualizar las rutas del CDN (css y js) sin
+romper nada. Lista completa y conteos por archivo en la sección 7.6. **Este es ahora el
+punto de entrada elegido para retomar la Fase D** (ver sección 6, actualizada).
+
 ### 4.2 Componentes Bootstrap sin reemplazo documentado en el SND
 Modal, dropdown, carousel, accordion y tabs/collapse no están documentados en el SND v1.
 Detectados **17 archivos** que todavía usan `data-bs-toggle` de modal/dropdown/collapse,
@@ -294,8 +301,243 @@ sin sanitizar.
 
 ## 6. Próximo paso sugerido
 
-Dado el volumen de la Fase D (~4,000 ocurrencias), la forma más rápida de avanzar sin
-arriesgar el sitio es: cerrar primero D9–D12 de botones (rápido), y luego migrar las
-utilidades por lotes con script + lint masivo, dejando la verificación visual en vivo
-para una muestra representativa de páginas en vez de cada archivo — aceptando que eso
-cambia el nivel de verificación respecto al resto del proyecto hasta ahora.
+**Actualizado 2026-10-13, tras la auditoría SND v1.1.0 (sección 7).** Se decidió empezar
+la Fase D por la familia de íconos (`class="snd ">` → `snd__icono` + `.icono--*`), no por
+las utilidades de Bootstrap de la tabla 4.1, porque es lo que bloquea actualizar las
+rutas del CDN (css/js) sin romper nada — ver 7.6.
+
+Orden acordado:
+1. **Piloto: `template-parts/content/single.php`.** Ya está a medias (7 íconos sueltos,
+   1 ya migrado), es plantilla de alto tráfico (cada entrada de blog) y es chico — sirve
+   para fijar el criterio de qué `.icono--{tamaño}` corresponde según el contexto (ícono
+   inline junto a texto vs. suelto en botón vs. de cabecera), criterio que todavía no
+   existía de forma consistente.
+2. Con ese criterio fijado, seguir con el resto de los 35 archivos listados en 7.6,
+   ordenados de menor a mayor número de ocurrencias (de 1 hasta 59), para ganar
+   velocidad y detectar patrones repetidos rápido.
+3. Solo cuando ese backlog llegue a cero: cambiar las dos rutas del CDN (css + js) juntas
+   y hacer una sola pasada de QA visual de íconos en todo el sitio.
+4. Después de eso, retomar la Fase D "grande" (tabla de utilidades Bootstrap de 4.1,
+   ~4,000 ocurrencias) con el mismo criterio ya usado: lotes + lint masivo, verificación
+   visual en una muestra representativa en vez de cada archivo.
+
+Nota: esto reemplaza la sugerencia anterior de empezar por D9–D12 de botones — ese punto
+sigue pendiente (sección 3) pero ya no es el primer paso.
+
+---
+
+## 7. Auditoría SND v1.1.0 (2026-10-13)
+
+El usuario extrajo manualmente la documentación pública del sitio snd.gob.mx en su
+versión 1.1.0 (`docs/snd-migration/snd-1-1-0/snd-v1.1.0-extraccion.md`, 1206 líneas).
+Esta sección documenta la auditoría hecha **contra el CSS/JS real del CDN**, no solo
+contra el texto del sitio, para separar lo que es un cambio real de lo que es solo
+reorganización de la documentación pública.
+
+### 7.1 Verificación directa del CDN (hallazgo clave: el CSS no cambió)
+
+Se descargaron y compararon byte a byte (por selector, no por tamaño de archivo) los
+dos bundles:
+- Actual en `functions.php`: `https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css`
+  (sin minificar, comentario interno `v8.0.1`).
+- Ruta nueva documentada en el sitio: `https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd-guinda.css`
+  (minificado, comentario interno `v1.3.0`).
+
+Mismo conteo exacto de ocurrencias en ambos para cada selector probado: `reticulaGrid`,
+`reticulaFlex`, `menuMain__*`, `mexico__details`, `subheader`, `navHeader`, `idioma__*`,
+`boton--cargando`, `boton--vertical`, `fantasma--blanco`, `tooltip__burbuja` (32 en ambos), etc.
+**Conclusión: es el mismo framework, solo servido en dos rutas/formatos distintos** (uno
+minificado). No hay componentes ni clases nuevas en el CSS entre lo que ya usamos y la
+"v1.1.0" del sitio — el salto de versión público no se tradujo en un cambio de código
+en este momento. No es urgente cambiar la ruta del CDN en `functions.php`; se puede
+hacer por prolijidad (alinear con la convención oficial) sin que cambie nada visualmente.
+
+### 7.2 Hallazgo real y accionable: la librería de íconos de marca SÍ cambió
+
+Esto **no está en el CSS**, está en los archivos SVG que `snd.js` descarga en vivo desde
+`https://framework-gb.cdn.gob.mx/snd/v1/assets/iconos/` (ruta fija, no versionada, compartida
+por ambos CSS). Se decompiló la lógica real de `snd.js`:
+
+```js
+function(t){return t.startsWith("snd-")?t.slice(4):t}  // quita UN SOLO "snd-" del nombre de clase
+// luego hace fetch(`${base}/${nombreResultante}.svg`)
+```
+
+Es decir: una clase `snd-tag` pide `tag.svg` (íconos genéricos IBM Carbon, prefijo simple).
+Una clase `snd-snd-facebook` (doble prefijo) pide `snd-facebook.svg` (íconos propios del SND).
+
+Se probó cada archivo directamente contra el CDN:
+
+| Clase correcta (doble prefijo) | Archivo real | Estado |
+|---|---|---|
+| `snd-snd-facebook` | `snd-facebook.svg` | ✅ 200 — existe |
+| `snd-snd-instagram` | `snd-instagram.svg` | ✅ 200 — existe |
+| `snd-snd-youtube` | `snd-youtube.svg` | ✅ 200 — existe |
+| `snd-snd-whatsapp` | `snd-whatsapp.svg` | ✅ 200 — existe |
+| `snd-snd-x` | `snd-x.svg` | ✅ 200 — existe |
+| `snd-snd-linkedin` / `snd-linkedin` (cualquier variante) | `linkedin.svg` / `snd-linkedin.svg` | ❌ 404 — **no existe, confirmado en ambas formas** |
+
+Y para los íconos que ya usamos en el proyecto (genéricos, prefijo simple) se confirmó
+que la convención actual ya es correcta: `snd-tag`, `snd-calendar`, `snd-document`,
+`snd-document--import`, `snd-phone`, `snd-earth`, `snd-arrow--left/right`,
+`snd-chevron--left/right`, `snd-search`, `snd-help` → todos resuelven 200.
+
+**Esto cambia la resolución pendiente de íconos sociales que traíamos arrastrando**
+(ver Bloque P00 / `page-que-hacemos.php` en secciones anteriores):
+
+- `template-parts/content/single.php` líneas 87 y 93: usan clases rotas/incorrectas
+  (`snd snd-logo--facebook`, `snd snd-earth` para "Twitter") → deben pasar a
+  `snd__icono snd-snd-facebook` y `snd__icono snd-snd-x`. La línea 99 usa `snd snd-phone`
+  para WhatsApp — ahora existe el ícono real `snd__icono snd-snd-whatsapp`, más correcto
+  semánticamente.
+- `footer.php` (líneas ~123–150): usa `<img>` autoalojados (`img/icons-base/facebook.svg`,
+  `twitter-x.svg`, `instagram.svg`, `youtube.svg`) como solución de respaldo porque en su
+  momento se confirmó que `snd-logo--facebook` etc. no existían. Ahora sí hay equivalente
+  oficial (`snd__icono snd-snd-facebook`, etc.) — candidato a reemplazar el `<img>` por el
+  ícono oficial, mismo criterio de "clases literales del SND" que el resto del proyecto.
+- `page-que-hacemos.php` (líneas ~145–203): mismo patrón `<img>` de respaldo para
+  X/YouTube/Instagram, más el comentario `<!-- Pendiente: LinkedIn -->` con `snd-earth`
+  como marcador temporal.
+- **LinkedIn sigue sin ícono oficial** (confirmado de nuevo, ahora contra el CDN real,
+  no solo contra el CSS) — la brecha documentada en secciones anteriores **se mantiene
+  sin resolver**; seguimos necesitando un SVG propio o un placeholder permanente para ese
+  único caso.
+
+Ninguno de estos reemplazos se hizo todavía — queda pendiente de aprobación antes de tocar
+código, por instrucción explícita del usuario de auditar primero.
+
+### 7.3 Componente "nuevo" (para nosotros) ya disponible sin cambios de CDN: Tooltip
+
+El componente **Tooltip / Mensajes emergentes** (sección 4.8 del documento de extracción)
+ya tiene su CSS completo en el bundle que usamos hoy (`tooltip__burbuja`, `tooltip__boton`,
+`tooltip__ajuste`, `accesibilidadLector`, 32 ocurrencias) — no lo habíamos detectado ni usado
+en ningún archivo del tema. Si en algún punto el proyecto necesita un tooltip de ayuda,
+ya existe soporte oficial completo, sin esperar ninguna actualización.
+
+### 7.4 Componentes documentados en v1.1.0 que NO tienen CSS/JS publicado todavía
+
+Confirmado contra el CSS real (búsqueda de clases, no solo lectura del sitio) que estos
+componentes —aunque el sitio ya los describe con anatomía Figma— **no tienen código
+implementado** en el framework que consumimos (coincide con que la propia documentación
+pública los marca con "solo pestañas Descripción/Diseño, sin Desarrollo"):
+Barra de progreso/stepper, Tabla con filtros, Selector de fecha, Casilla de verificación
+(estilos propios más allá del navegador), Radio botones (ídem), Texturas, Mensajes
+informativos (banners no descartables). No hay nada que migrar ahí todavía porque no
+existe clase oficial que adoptar — quedan anotados para revisar cuando el SND publique
+su código.
+
+### 7.5 Sin impacto detectado en lo ya migrado
+
+Grid (`reticulaGrid__*`, `fila`, `columna__*`), tipografía (`h0b…sh1b…b1…sd…` + `.patria`),
+botones (`boton__primario/secundario/fantasma` + modificadores), header/footer/navbar
+(`mexico__details`, `subheader`, `navHeader`, `menuMain__*`, `idioma__*`) — todas las
+clases que ya adoptamos en el home, `single.php` y `page-que-hacemos.php` existen
+idénticas en el bundle "v1.1.0". **No hay que deshacer ni revisar de nuevo nada de lo ya
+homologado por este motivo** — el trabajo previo sigue siendo 100% válido.
+
+### 7.6 Corrección — el `.js` del CDN NO es cosmético (bug real confirmado en vivo)
+
+A diferencia del CSS, `snd-js.js` **sí cambió de forma funcional** entre lo que cargamos
+hoy y la versión nueva, y esto ya está rompiendo íconos en producción ahora mismo:
+
+- JS actual (`/snd/v1/snd-js.js`, archivo `iconos.js`, autor Luis Humberto Braulio
+  González Romero, v1.4.0): procesa el selector **`i.snd`** (clase vieja suelta).
+- JS nuevo (`/snd/v1.1.0/snd.js`): procesa **`i.snd__icono, i.snd__pictograma`**
+  (la convención oficial que ya venimos aplicando en home, `single.php` y
+  `page-que-hacemos.php`).
+
+**Verificado en vivo** en `http://localhost:8080/que-hacemos/`: los 4 íconos
+`snd__icono snd-arrow--right` de los botones "Visitar" siguen siendo `<i>` sin procesar
+(`data-snd-procesado` es `null`, nunca se reemplazan por `<svg>`) porque el script viejo
+no reconoce `snd__icono`. **Todo lo que ya migramos a la clase oficial `snd__icono` está
+renderizando como ícono vacío/invisible ahora mismo**, no es un problema hipotético.
+
+**Por qué no se puede cambiar el JS de inmediato:** `grep` del proyecto completo muestra
+que **~35 archivos todavía usan `class="snd ...">` suelta** (todo el backlog de Fase D sin
+tocar: `page-marco-normativo.php`, `page-directorio.php`, `page-diseno-pna.php`, los
+`template-transparencia-*.php`, `template-parts/administracion-finanzas/*`, etc.). El JS
+nuevo no soporta ese selector viejo en absoluto — si se cambia la ruta hoy, esos ~35
+archivos se quedan sin íconos en vez de los que ya migramos.
+
+Tampoco es un rename trivial: nuestro propio `main.css` define `svg.snd { width:1em;
+height:1em; ... }` (escala con el tamaño de fuente, convención heredada de FontAwesome),
+mientras que `.snd__icono` del SND usa tamaño fijo en píxeles vía `.icono--{tamaño}`
+(12/16/20/24/32/48/64/80/96). Cada ocurrencia de `class="snd ...">` necesita revisión
+página por página (misma clase `snd__icono` + elegir el `.icono--*` correcto), no un
+find-replace masivo.
+
+**Conclusión:** cambiar la ruta del `.css` es cosmético y sin riesgo, se puede hacer
+cuando se quiera. Cambiar la ruta del `.js` es necesario para que los íconos ya
+migrados funcionen, pero debe ir **junto con** terminar de migrar los ~35 archivos
+pendientes de `class="snd ">` a `class="snd__icono" + .icono--*`, no antes — si no,
+se cambia qué parte del sitio está rota, no se arregla nada.
+
+### 7.7 CERRADO — Cambio a v1.1.0 ejecutado (2026-10-13)
+
+El usuario pidió explícitamente dejar el proyecto al día con la 1.1.0 hoy mismo, en
+vez de esperar a la migración fina página por página. Se hizo con un barrido
+automático de bajo riesgo en lugar del plan lento original:
+
+**Qué se hizo:**
+1. Script (`fix_snd_icons.py`, en el scratchpad de la sesión) recorrió **todo el tema**
+   (no solo los 35 archivos listados) y, en cada `class="..."` que es marcador de
+   ícono (`snd` y/o `snd-<nombre>`), agregó la clase que faltara para que el elemento
+   tenga **ambas** — `snd` (compatibilidad con JS viejo) y `snd__icono` (oficial
+   v1.1.0) — sin tocar ningún otro atributo ni clase. **36 archivos** modificados.
+2. Hallazgo durante la verificación en vivo: el script no detectó los casos donde el
+   nombre del ícono es dinámico vía PHP (`class="snd <?= $slot['icono'] ?> ...">`,
+   12 ocurrencias en `functions.php` y 7 template-parts más) porque el texto no
+   empieza literalmente con `snd-`. Se corrigieron a mano (mismo criterio: agregar
+   `snd__icono`). Una de ellas (`functions.php`, función de documentos de sesión) se
+   renderiza cientos de veces por página — explica por qué una verificación en vivo
+   temprana mostró ~550–1900 íconos "sin procesar": no era un bug, era el barrido
+   incompleto por ese caso dinámico.
+3. Se corrigieron además, en `template-parts/content/single.php`, los 3 íconos
+   sociales con nombre incorrecto detectados en 7.2: `snd-logo--facebook` →
+   `snd-snd-facebook`, `snd-earth` (usado como X) → `snd-snd-x`,
+   `snd-phone` (usado como WhatsApp) → `snd-snd-whatsapp`.
+4. `functions.php`: las dos rutas del CDN cambiadas de `/snd/v1/` a `/snd/v1.1.0/`
+   (`snd-guinda.css` y `snd.js`).
+5. Lint PHP limpio en los 37 archivos tocados (`php -l` vía Docker).
+6. Verificación en vivo (no solo lint):
+   - Script cargado confirmado: `https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd.js`.
+   - Home, `single.php` (post real `?p=6036`) y `page-que-hacemos.php`: 0 íconos sin
+     procesar, tamaños idénticos a los de antes del cambio (16px donde ya eran 16px),
+     el badge de categoría roto de la sección 7.6 (`snd-tag`, medía 0×0) ya mide 16×16.
+   - `organos-colegiados` (la página con más volumen, ~1,900 íconos renderizados vía
+     tabla de documentos): 0 sin procesar tras esperar el procesamiento async (el
+     script de íconos procesa un elemento a la vez, por lo que una página con miles
+     de íconos tarda unos segundos en terminar — normal, no es una regresión).
+   - Captura de los botones "Compartir" de `single.php`: ya se ven los logos reales
+     de Facebook (azul), X (negro) y WhatsApp (verde) en vez de los íconos
+     genéricos/rotos de antes.
+   - Consola sin errores nuevos atribuibles a este cambio (los `jQuery is not defined`,
+     404 de medios locales y el error de Popper/`detectOverflow` ya eran preexistentes,
+     documentados en la sección 4.5 y en el bloque P00).
+
+**Hallazgo nuevo, no corregido todavía (fuera de alcance de hoy):** dos nombres de
+ícono inválidos, preexistentes, ahora visibles como advertencia en consola
+(`icono-snd-clipboard no encontrado`, `icono-snd-play--outline--filled no encontrado`)
+porque antes ni siquiera se procesaban. Confirmado contra el CDN que ninguno de los
+dos existe (`clipboard.svg` y `play--outline--filled.svg` responden 404); sí existen
+`play.svg` y `play--outline.svg`. Origen: `functions.php` líneas 2105, 2193 y 2199
+(función que arma las tarjetas de "Convocatoria" y "Ver sesión"). Antes de este cambio
+ya estaban rotos (el `<i>` nunca se procesaba), solo que no se veía ninguna advertencia
+porque el ícono no llegaba a intentarse. Antes eran invisibles; ahora caen al ícono de
+interrogación de respaldo del propio script — visible, pero no correcto. Pendiente:
+decidir el nombre correcto (probablemente `snd-document--multiple-01` o similar para
+"Convocatoria", y `snd-play--outline` para "Ver sesión") y corregirlo en esas 3 líneas.
+
+**Lo que queda pendiente de la lista original (ya no bloquea nada, es afinación):**
+1. ¿Reemplazar los `<img>` autoalojados de redes sociales en `footer.php` y
+   `page-que-hacemos.php` por los íconos oficiales `snd-snd-{facebook,instagram,
+   youtube,whatsapp}` ahora que ya funcionan (confirmado en `single.php`)?
+2. LinkedIn sigue sin ícono oficial — sigue pendiente de decisión (SVG propio o
+   placeholder documentado); `page-que-hacemos.php` sigue con `snd-earth` como
+   marcador temporal, comentario ya presente en el código.
+3. Corregir los 2 nombres de ícono inválidos encontrados arriba.
+4. Quitar la clase puente `snd` cuando ya no haga falta (cuando se decida retirar
+   definitivamente cualquier dependencia del comportamiento del script viejo) y, si se
+   quiere, afinar `.icono--{tamaño}` por contexto en vez de depender de `svg.snd{
+   width:1em }` — ninguna de las dos cosas es urgente, el sitio ya cumple 1.1.0 hoy.
+5. Retomar la Fase D grande (tabla de utilidades Bootstrap, sección 4.1).

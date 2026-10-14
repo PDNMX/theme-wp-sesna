@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -78,7 +78,7 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
-                        <i class="snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                        <i class="snd__icono snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                     </a>
                 </div>
                 <div class="columna__12 columna__6--md">
@@ -95,7 +95,7 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
-                        <i class="snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                        <i class="snd__icono snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
                     </a>
                 </div>
             </div>
@@ -214,12 +214,12 @@ get_header();
                         <div class="dh-campania-card__img"
                              style="background-color: <?php echo esc_attr($dh_c_color); ?>18; <?php if ($dh_c_icono_img): ?>background-image: url('<?php echo esc_url($dh_c_icono_img); ?>');<?php endif; ?>">
                             <?php if (!$dh_c_icono_img): ?>
-                                <i class="snd <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>; font-size: 34px;"></i>
+                                <i class="snd__icono snd <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>; font-size: 34px;"></i>
                             <?php endif; ?>
                         </div>
                         <h5 class="dh-campania-card__title"><?php echo esc_html($dh_c_titulo); ?></h5>
                         <p class="dh-campania-card__desc flex-grow-1 mb-3"><?php echo esc_html($dh_c_resumen); ?></p>
-                        <span class="dh-campania-card__link mt-auto">Ver más <i class="snd snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                        <span class="dh-campania-card__link mt-auto">Ver más <i class="snd__icono snd snd-arrow--right ms-1" aria-hidden="true"></i></span>
                     </div>
                 </div>
                 <?php
@@ -302,9 +302,9 @@ get_header();
                             <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
                             <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                <span class="boton__fantasma">Leer más <i class="snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma">Leer más <i class="snd snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
                             <?php else : ?>
-                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -399,11 +399,11 @@ get_header();
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 1.5rem; color: var(--color-burgundi);"></i>
+                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 1.5rem; color: var(--color-burgundi);"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text" style="color: var(--color-burgundi);">Acta</div>
                                 </a>
                                 <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px; font-size: 1.5rem; color: var(--color-burgundi);"></i>
+                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px; font-size: 1.5rem; color: var(--color-burgundi);"></i>
                                 </a>
                             </div>
 
@@ -416,7 +416,7 @@ get_header();
                 <?php if (count($sesiones) > 5) : ?>
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
                     </a>
                 </div>
                 <?php endif; ?>

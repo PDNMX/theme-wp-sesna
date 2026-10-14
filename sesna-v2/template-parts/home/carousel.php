@@ -70,13 +70,13 @@ if ( $slider_query->have_posts() ) :
     <!-- Controles -->
     <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
         <span class="bootstrap-icons color--blanco" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="snd snd-chevron--left" aria-hidden="true"></i>
+            <i class="snd__icono snd snd-chevron--left" aria-hidden="true"></i>
         </span>
         <span class="oculto">Anterior</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
         <span class="bootstrap-icons color--blanco" aria-hidden="true" style="font-size: 2.5rem;">
-            <i class="snd snd-chevron--right" aria-hidden="true"></i>
+            <i class="snd__icono snd snd-chevron--right" aria-hidden="true"></i>
         </span>
         <span class="oculto">Siguiente</span>
     </button>

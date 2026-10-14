@@ -39,7 +39,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
                 <?php the_post_thumbnail('medium_large', ['class' => 'ancho--100 alto--100 sna-noticias-img']); ?>
             <?php else : ?>
                 <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 sd sna-noticias-img">
-                    <i class="snd snd-image tamano--1" aria-hidden="true"></i>
+                    <i class="snd__icono snd snd-image tamano--1" aria-hidden="true"></i>
                 </div>
             <?php endif; ?>
         </div>
@@ -54,7 +54,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             </p>
             <div class="mt--auto pb--16 texto--derecha--md">
                 <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
-                    Leer más <i class="snd snd-arrow--right ml--8" aria-hidden="true"></i>
+                    Leer más <i class="snd__icono snd snd-arrow--right ml--8" aria-hidden="true"></i>
                 </span>
             </div>
         </div>

@@ -7,11 +7,11 @@ get_header();
     <!-- Hero Section -->
     <section class="qh-hero">
         <!-- Floating icons -->
-        <i class="snd snd-document qh-floating-icon qh-fi-1" aria-hidden="true"></i>
-        <i class="snd snd-chart--bar qh-floating-icon qh-fi-2" aria-hidden="true"></i>
-        <i class="snd snd-chart--bar qh-floating-icon qh-fi-3" aria-hidden="true"></i>
-        <i class="snd snd-security qh-floating-icon qh-fi-4" aria-hidden="true"></i>
-        <i class="snd snd-screen qh-floating-icon qh-fi-5" aria-hidden="true"></i>
+        <i class="snd__icono snd snd-document qh-floating-icon qh-fi-1" aria-hidden="true"></i>
+        <i class="snd__icono snd snd-chart--bar qh-floating-icon qh-fi-2" aria-hidden="true"></i>
+        <i class="snd__icono snd snd-chart--bar qh-floating-icon qh-fi-3" aria-hidden="true"></i>
+        <i class="snd__icono snd snd-security qh-floating-icon qh-fi-4" aria-hidden="true"></i>
+        <i class="snd__icono snd snd-screen qh-floating-icon qh-fi-5" aria-hidden="true"></i>
 
         <div class="contenedor posicion--relativa z--1">
             <div class="reticulaGrid__12">
@@ -58,7 +58,7 @@ get_header();
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card radio--4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-chart--bar" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-chart--bar" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b patria color--pguinda600">MISIÓN</h3>
@@ -70,7 +70,7 @@ get_header();
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card radio--4">
                         <div class="qh-mv-icon">
-                            <i class="snd snd-screen" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-screen" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b patria color--pguinda600">VISIÓN</h3>
@@ -149,11 +149,11 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb--24">Noticias, comunicados y actualizaciones institucionales.</p>
-                            <a rel="noopener" href="https://x.com/SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd__icono snd-arrow--right" aria-hidden="true"></i></a>
+                            <a rel="noopener" href="https://x.com/SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd snd__icono snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -168,11 +168,11 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="mb--24">Videos, transmisiones y contenido audiovisual.</p>
-                            <a rel="noopener" href="https://www.youtube.com/@SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd__icono snd-arrow--right" aria-hidden="true"></i></a>
+                            <a rel="noopener" href="https://www.youtube.com/@SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd snd__icono snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -187,11 +187,11 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="mb--24">Actividades, campañas y contenido visual.</p>
-                            <a rel="noopener" href="https://www.instagram.com/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd__icono snd-arrow--right" aria-hidden="true"></i></a>
+                            <a rel="noopener" href="https://www.instagram.com/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd snd__icono snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -200,18 +200,18 @@ get_header();
                     <div class="qh-social-card radio--4 posicion--relativa">
                         <!-- Pendiente: no tenemos ícono propio de LinkedIn en img/icons-base (sí existen facebook/twitter-x/instagram/youtube). snd-earth es un marcador genérico temporal. -->
                         <div class="qh-social-header qh-sh-in">
-                            <i class="snd snd-earth" aria-hidden="true"></i>
+                            <i class="snd__icono snd snd-earth" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="mb--24">Información institucional y profesional.</p>
-                            <a rel="noopener" href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd__icono snd-arrow--right" aria-hidden="true"></i></a>
+                            <a rel="noopener" href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="boton__secundario boton--redondeado mt--auto align-self-start enlace--expandido">Visitar <i class="snd snd__icono snd-arrow--right" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
