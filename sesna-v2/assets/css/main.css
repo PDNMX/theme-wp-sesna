@@ -3633,6 +3633,19 @@ nav.navbar .container {
     object-fit: cover;
 }
 
+/* Portada en formato vertical (800x2000): se recorta a un marco casi
+   cuadrado con "cover" (en vez de mostrarla completa y muy angosta),
+   dentro de la misma altura que ya ocupaba el ícono anterior, para no
+   alterar el tamaño de la tarjeta. */
+.page-derechos-humanos .dh-acciones-card__img img.dh-acciones-img--portrait {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px;
+}
+
 .page-derechos-humanos .dh-acciones-card__body {
     padding: 32px 36px;
 }

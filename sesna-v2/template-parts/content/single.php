@@ -7,7 +7,7 @@
             <nav class="sesna-breadcrumb" aria-label="Ruta de navegación">
                 <a href="<?= esc_url( home_url( '/' ) ) ?>">Inicio</a>
                 <span aria-hidden="true">&rsaquo;</span>
-                <a href="<?= esc_url( home_url( '/informacion/' ) ) ?>">Noticias</a>
+                <a href="<?= esc_url( home_url( '/noticias-y-actividades/' ) ) ?>">Noticias</a>
                 <span aria-hidden="true">&rsaquo;</span>
                 <span class="current" aria-current="page"><?php echo esc_html( wp_trim_words( get_the_title(), 8, '…' ) ); ?></span>
             </nav>
@@ -117,7 +117,7 @@
 
                     <!-- Volver a noticias -->
                     <nav class="sesna-single-nav" aria-label="Navegación de artículos">
-                        <a href="<?= esc_url( home_url( '/informacion/' ) ) ?>"
+                        <a href="<?= esc_url( home_url( '/noticias-y-actividades/' ) ) ?>"
                            class="sesna-single-nav__back">
                             <i class="snd__icono snd snd-arrow--left me-2" aria-hidden="true"></i>Volver a Noticias
                         </a>
