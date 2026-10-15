@@ -93,6 +93,9 @@
     .ps--24--md { padding-inline-start: 24px !important; }
     .pe--48--md { padding-inline-end: 48px !important; }
 }
+@media (min-width: 1024px) {
+    .mb--0--lg { margin-bottom: 0 !important; }
+}
 
 /* ===== Decoración y fondo ===== */
 .decoracion--ninguna { text-decoration: none !important; }

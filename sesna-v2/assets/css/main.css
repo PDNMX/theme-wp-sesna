@@ -2884,7 +2884,7 @@ nav.navbar .container {
 }
 
 /* Breadcrumb — sobre fondo var(--color-fondo-claro), texto oscuro */
-.sesna-single-breadcrumb {
+.sesna-breadcrumb {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -2894,18 +2894,18 @@ nav.navbar .container {
     flex-wrap: wrap;
 }
 
-.sesna-single-breadcrumb a {
+.sesna-breadcrumb a {
     color: var(--color-burgundi);
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.sesna-single-breadcrumb a:hover {
+.sesna-breadcrumb a:hover {
     color: var(--color-guinda);
     text-decoration: underline;
 }
 
-.sesna-single-breadcrumb .current {
+.sesna-breadcrumb .current {
     color: rgba(22, 26, 29, 0.85);
     font-weight: 600;
 }
@@ -3891,10 +3891,6 @@ body:has(.page-directorio) main.page {
 }
 
 .page-directorio .dir-org__title {
-    font-family: var(--font-patria);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--color-guinda);
     padding-left: 13px;
     border-left: 4px solid var(--color-burgundi);
     margin-bottom: 0;
@@ -4049,10 +4045,6 @@ body:has(.page-directorio) main.page {
 }
 
 .page-directorio .dir-ficha__nombre {
-    font-family: var(--font-patria);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--color-guinda);
     margin-bottom: 20px;
     line-height: 1.25;
 }
@@ -4199,10 +4191,6 @@ body:has(.page-directorio) main.page {
 }
 
 .page-directorio .dir-contact-cta__title {
-    font-family: var(--font-patria);
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-blanco);
     margin-bottom: 4px;
 }
 
@@ -4212,25 +4200,8 @@ body:has(.page-directorio) main.page {
     margin-bottom: 0;
 }
 
-.page-directorio .dir-contact-cta__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-burgundi);
-    background: var(--color-blanco);
-    border-radius: 6px;
-    padding: 10px 20px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: opacity 0.2s ease;
+.page-directorio .dir-contact-cta__card .boton__secundario {
     flex-shrink: 0;
-}
-
-.page-directorio .dir-contact-cta__btn:hover {
-    opacity: 0.88;
-    color: var(--color-guinda);
 }
 
 /* ── Modal móvil ── */

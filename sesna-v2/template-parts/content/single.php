@@ -4,7 +4,7 @@
         <div class="contenedor sesna-single-container">
 
             <!-- Breadcrumb -->
-            <nav class="sesna-single-breadcrumb" aria-label="Ruta de navegación">
+            <nav class="sesna-breadcrumb" aria-label="Ruta de navegación">
                 <a href="<?= esc_url( home_url( '/' ) ) ?>">Inicio</a>
                 <span aria-hidden="true">&rsaquo;</span>
                 <a href="<?= esc_url( home_url( '/informacion/' ) ) ?>">Noticias</a>

@@ -41,11 +41,11 @@
 
     if (d.encargado) {
       encargado.textContent = d.encargado;
-      encargadoRow.classList.remove('d-none');
-      encargadoSep.classList.remove('d-none');
+      encargadoRow.classList.remove('muestra--ninguno');
+      encargadoSep.classList.remove('muestra--ninguno');
     } else {
-      encargadoRow.classList.add('d-none');
-      encargadoSep.classList.add('d-none');
+      encargadoRow.classList.add('muestra--ninguno');
+      encargadoSep.classList.add('muestra--ninguno');
     }
 
     cargo.textContent = d.cargo_titular || '—';
@@ -59,11 +59,11 @@
     if (d.foto_titular) {
       foto.src = d.foto_titular;
       foto.alt = d.nombre_titular;
-      foto.classList.remove('d-none');
-      if (placeholder) placeholder.classList.add('d-none');
+      foto.classList.remove('muestra--ninguno');
+      if (placeholder) placeholder.classList.add('muestra--ninguno');
     } else {
-      foto.classList.add('d-none');
-      if (placeholder) placeholder.classList.remove('d-none');
+      foto.classList.add('muestra--ninguno');
+      if (placeholder) placeholder.classList.remove('muestra--ninguno');
     }
   }
 
@@ -72,11 +72,11 @@
 
     if (d.encargado) {
       modalEncargado.textContent = d.encargado;
-      modalEncargadoRow.classList.remove('d-none');
-      modalEncargadoSep.classList.remove('d-none');
+      modalEncargadoRow.classList.remove('muestra--ninguno');
+      modalEncargadoSep.classList.remove('muestra--ninguno');
     } else {
-      modalEncargadoRow.classList.add('d-none');
-      modalEncargadoSep.classList.add('d-none');
+      modalEncargadoRow.classList.add('muestra--ninguno');
+      modalEncargadoSep.classList.add('muestra--ninguno');
     }
 
     modalCargo.textContent = d.cargo_titular || '—';
@@ -86,11 +86,11 @@
     if (d.foto_titular) {
       modalFoto.src = d.foto_titular;
       modalFoto.alt = d.nombre_titular;
-      modalFoto.classList.remove('d-none');
-      modalPlaceholder.classList.add('d-none');
+      modalFoto.classList.remove('muestra--ninguno');
+      modalPlaceholder.classList.add('muestra--ninguno');
     } else {
-      modalFoto.classList.add('d-none');
-      modalPlaceholder.classList.remove('d-none');
+      modalFoto.classList.add('muestra--ninguno');
+      modalPlaceholder.classList.remove('muestra--ninguno');
     }
 
     modal.classList.add('dir-modal--open');

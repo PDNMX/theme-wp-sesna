@@ -515,18 +515,16 @@ automático de bajo riesgo en lugar del plan lento original:
      404 de medios locales y el error de Popper/`detectOverflow` ya eran preexistentes,
      documentados en la sección 4.5 y en el bloque P00).
 
-**Hallazgo nuevo, no corregido todavía (fuera de alcance de hoy):** dos nombres de
-ícono inválidos, preexistentes, ahora visibles como advertencia en consola
-(`icono-snd-clipboard no encontrado`, `icono-snd-play--outline--filled no encontrado`)
-porque antes ni siquiera se procesaban. Confirmado contra el CDN que ninguno de los
-dos existe (`clipboard.svg` y `play--outline--filled.svg` responden 404); sí existen
-`play.svg` y `play--outline.svg`. Origen: `functions.php` líneas 2105, 2193 y 2199
-(función que arma las tarjetas de "Convocatoria" y "Ver sesión"). Antes de este cambio
-ya estaban rotos (el `<i>` nunca se procesaba), solo que no se veía ninguna advertencia
-porque el ícono no llegaba a intentarse. Antes eran invisibles; ahora caen al ícono de
-interrogación de respaldo del propio script — visible, pero no correcto. Pendiente:
-decidir el nombre correcto (probablemente `snd-document--multiple-01` o similar para
-"Convocatoria", y `snd-play--outline` para "Ver sesión") y corregirlo en esas 3 líneas.
+**Hallazgo del 2026-10-13, CORREGIDO el 2026-10-14:** dos nombres de ícono inválidos,
+preexistentes (`snd-clipboard`, `snd-play--outline--filled` — ninguno existe en el
+CDN, confirmado por 404 directo). Antes de cambiar de versión ya estaban rotos pero
+invisibles (el `<i>` nunca se procesaba); al quedar sin el bug de 7.6 empezaron a caer
+al ícono de interrogación de respaldo del script — visible, pero no correcto.
+Corregidos en `functions.php` (líneas 2105, 2193, 2199, función `sesna_oc_doc_icon` /
+`sesna_oc_map_slots_fijos`): `snd-clipboard` → `snd-document--requirements`
+("Convocatoria"), `snd-play--outline--filled` → `snd-play--outline` ("Ver sesión").
+Ambos verificados contra el CDN (200) y en vivo en `/organos-colegiados/` (cero
+advertencias "no encontrado" en consola tras el cambio, ~1,900 íconos de la página).
 
 **Lo que queda pendiente de la lista original (ya no bloquea nada, es afinación):**
 1. ¿Reemplazar los `<img>` autoalojados de redes sociales en `footer.php` y
@@ -535,7 +533,7 @@ decidir el nombre correcto (probablemente `snd-document--multiple-01` o similar 
 2. LinkedIn sigue sin ícono oficial — sigue pendiente de decisión (SVG propio o
    placeholder documentado); `page-que-hacemos.php` sigue con `snd-earth` como
    marcador temporal, comentario ya presente en el código.
-3. Corregir los 2 nombres de ícono inválidos encontrados arriba.
+3. ~~Corregir los 2 nombres de ícono inválidos encontrados arriba.~~ Hecho (ver arriba).
 4. Quitar la clase puente `snd` cuando ya no haga falta (cuando se decida retirar
    definitivamente cualquier dependencia del comportamiento del script viejo) y, si se
    quiere, afinar `.icono--{tamaño}` por contexto en vez de depender de `svg.snd{

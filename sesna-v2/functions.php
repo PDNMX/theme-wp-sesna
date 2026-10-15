@@ -2102,7 +2102,7 @@ function sesna_get_oc_entries($organo) {
 function sesna_oc_doc_icon($nombre) {
     $nombre_lower = strtolower($nombre);
     if (strpos($nombre_lower, 'convocatoria') !== false) {
-        return 'snd-clipboard';
+        return 'snd-document--requirements';
     }
     if (strpos($nombre_lower, 'acta') !== false) {
         return 'snd-list';
@@ -2190,13 +2190,13 @@ function sesna_oc_extraer_youtube_id($url) {
 
 function sesna_oc_map_slots_fijos($sesion) {
     $slots = array(
-        'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'snd-clipboard', 'enlace' => ''),
+        'convocatoria'  => array('label' => 'Convocatoria', 'icon' => 'snd-document--requirements', 'enlace' => ''),
         'orden_del_dia' => array('label' => 'Orden del día', 'icon' => 'snd-document', 'enlace' => ''),
         'acta'          => array('label' => 'Acta', 'icon' => 'snd-list', 'enlace' => ''),
         // 'anexos' puede tener 0, 1 o varios documentos: si hay más de uno,
         // el render pinta un dropdown en vez de un link directo.
         'anexos'        => array('label' => 'Anexos', 'icon' => 'snd-folder', 'enlace' => '', 'documentos' => array()),
-        'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'snd-play--outline--filled', 'enlace' => ''),
+        'ver_sesion'    => array('label' => 'Ver sesión', 'icon' => 'snd-play--outline', 'enlace' => ''),
     );
 
     $modo_anexos = false;
