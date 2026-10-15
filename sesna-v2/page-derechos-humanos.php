@@ -30,9 +30,9 @@ get_header();
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg position-relative z-1 mb-4 mb-lg-0">
-                    <h1 class="sesna-hero__title">Derechos Humanos<br>y Perspectiva de Género</h1>
+                    <h1 class="h1b patria color--pguinda900">Derechos Humanos<br>y Perspectiva de Género</h1>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle">
+                    <p class="sh1r">
                         Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>
                 </div>

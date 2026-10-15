@@ -31,9 +31,9 @@ get_header(); ?>
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg position-relative z-1">
-                    <h1 class="sesna-hero__title">Administración y<br>Finanzas</h1>
+                    <h1 class="h1b patria color--pguinda900">Administración y<br>Finanzas</h1>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle">
+                    <p class="sh1r">
                         Consulta información institucional relacionada con la planeación, estados financieros, adquisiciones, contrataciones y gestión documental de la SESNA.
                     </p>
                 </div>

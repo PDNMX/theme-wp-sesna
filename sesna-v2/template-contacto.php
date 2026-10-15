@@ -24,7 +24,7 @@ get_header();
     <div class="contenedor py--24">
         <div class="reticulaGrid__12 align-items-center mb--24">
             <div class="columna__12 position-relative z-1">
-                <h1 class="sesna-hero__title">Contacto</h1>
+                <h1 class="h1b patria color--pguinda900">Contacto</h1>
                 <div class="hero-separator"></div>
             </div>
         </div>

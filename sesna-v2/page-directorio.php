@@ -16,9 +16,9 @@
     <div class="contenedor">
       <div class="fila align-items-center">
         <div class="columna__12 columna__9--md columna__7--lg posicion--relativa z--1 mb--24 mb--0--lg">
-          <h1 class="sesna-hero__title">Directorio</h1>
+          <h1 class="h1b patria color--pguinda900">Directorio</h1>
           <div class="hero-separator"></div>
-          <p class="sesna-hero__subtitle">
+          <p class="sh1r">
             Conoce a las personas titulares de las áreas que integran
             la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
           </p>

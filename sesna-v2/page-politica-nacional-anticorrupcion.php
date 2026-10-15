@@ -30,7 +30,7 @@ get_header();
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 position-relative z-1">
-                    <h1 class="sesna-hero__title">Política Nacional Anticorrupción</h1>
+                    <h1 class="h1b patria color--pguinda900">Política Nacional Anticorrupción</h1>
                     <div class="hero-separator"></div>
                 </div>
             </div>

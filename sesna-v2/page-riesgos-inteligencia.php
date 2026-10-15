@@ -28,10 +28,10 @@ get_header(); ?>
     <section class="sesna-page-hero">
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
-                <div class="columna__12 columna__8--md columna__6--lg position-relative z-1">
-                    <h1 class="sesna-hero__title">Riesgos e <br>Inteligencia Anticorrupción</h1>
+                <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda900">Riesgos e <br>Inteligencia Anticorrupción</h1>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle">
+                    <p class="sh1r">
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
@@ -193,11 +193,11 @@ get_header(); ?>
         <div id="sec-contrataciones" class="dinamic-section" style="display: none;">
             <!-- Texto descriptivo -->
             <div class="fila">
-                <div class="columna__12 columna__7--md columna__8--lg position-relative z-1">
-                    <h2 class="sesna-hero__title">Contrataciones públicas</h2>
+                <div class="columna__12 columna__7--md columna__8--lg posicion--relativa z--1">
+                    <h2 class="h2b patria color--pguinda900">Contrataciones públicas</h2>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle mb-3" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                    <p class="sesna-hero__subtitle mb-0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+                    <p class="sh1r mb--16" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
+                    <p class="sh1r mb--0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
                 </div>
             </div>
 

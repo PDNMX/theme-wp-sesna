@@ -36,10 +36,10 @@ get_header();
                 <!-- Izquierda: texto -->
                 <div class="columna__12 columna__8--md columna__6--lg position-relative z-1">
                     <span class="vp-hero__badge mb-2 fw-bold">Herramienta Especializada</span>
-                    <h1 class="sesna-hero__title">Generador de muestras aleatorio</h1>
+                    <h1 class="h1b patria color--pguinda900">Generador de muestras aleatorio</h1>
                     <p class="vp-hero__subtitle mb-3">Verificación patrimonial</p>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle">Herramienta para apoyar ejercicios de verificación patrimonial mediante la generación automatizada de muestras, con base en criterios técnicos y parámetros normativos.</p>
+                    <p class="sh1r">Herramienta para apoyar ejercicios de verificación patrimonial mediante la generación automatizada de muestras, con base en criterios técnicos y parámetros normativos.</p>
                 </div>
 
                 <!-- Derecha: imagen laptop -->

@@ -27,9 +27,9 @@ get_header();
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg position-relative z-1 mb-4 mb-lg-0">
-                    <h1 class="sesna-hero__title">Marco Normativo</h1>
+                    <h1 class="h1b patria color--pguinda900">Marco Normativo</h1>
                     <div class="hero-separator"></div>
-                    <p class="sesna-hero__subtitle">
+                    <p class="sh1r">
 Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como las disposiciones jurídicas que orientan su actuación y participación en el cumplimiento de los objetivos del Sistema Nacional Anticorrupción.
                     </p>
                 </div>

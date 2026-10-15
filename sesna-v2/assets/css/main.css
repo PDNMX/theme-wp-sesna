@@ -1082,10 +1082,6 @@ nav.navbar .container {
     padding: 80px 0;
 }
 
-.sesna-hero__title strong {
-    font-weight: 700;
-}
-
 /* Animación de texto deslizante vertical */
 .sesna-hero__slide {
     font-weight: 700;
@@ -1297,28 +1293,26 @@ nav.navbar .container {
 
 /* ============================================================
    ESCALA TIPOGRÁFICA — SESNA
-   Referencia única. CDN GOB.mx v3: html { font-size: 62.5% } → 1rem = 10px
-   SIEMPRE usar px, nunca rem en componentes visuales.
+   El H1/Body de hero de página interna ya NO usa clases propias
+   (.sesna-hero__title/.sesna-hero__subtitle, removidas): usa las
+   clases literales del SND — h1b patria (+ color--*) y sh1r.
+   Referencia única para lo que sigue siendo custom (no cubierto
+   por el SND). SIEMPRE usar px, nunca rem en componentes visuales.
 
-   H1 Hero     44px  .sesna-hero__title       Patria Bold
    H2 Centrado 28px  .sesna-section-title      Patria Bold — burgundi
    H2 Izquierda 26px .cp-recursos__titulo      Patria Bold — uppercase
    H3 Card Lg  20px  .qh-mv-content h3         Patria Bold — burgundi
    H3 Card Std 18px  .qh-labor-card h3         Patria Bold — burgundi
    H4 Card     16px  .tx-card__title           Noto Sans 600
-   Body        16px  .sesna-hero__subtitle      Noto Sans 400
    Card desc   15px  .btn-sesna-link, desc      Noto Sans 400
    Small       14px  .cp-btn-ver, subtítulos    Noto Sans 400
    Caption     12px  .sna-noticias-date-month   Noto Sans 700
    ============================================================ */
 
 /* ------------------------------------------------------------
-   Título de sección centrado — páginas institucionales (Qué hacemos, etc.)
-   Diferente de cp-recursos__titulo (uppercase, izquierda)
-   ------------------------------------------------------------ */
-/* ------------------------------------------------------------
    Hero de Página Interna — componente estándar
    Reemplaza: .ocn-hero, .vp-hero, .pna-hero, .qh-hero, "py-5 mb-5"
+   Tipografía del H1/subtítulo: clases literales del SND (ver arriba).
    ------------------------------------------------------------ */
 .sesna-page-hero {
     padding-top: 40px;
@@ -1326,34 +1320,7 @@ nav.navbar .container {
     margin-bottom: 40px;
 }
 
-.sesna-hero__title {
-    font-family: var(--font-patria);
-    font-size: 44px;
-    font-weight: 700;
-    color: var(--color-negro);
-    letter-spacing: -0.8px;
-    margin-bottom: 12px;
-    line-height: 1.15;
-    text-align: left;
-}
-
-.sesna-hero__subtitle {
-    font-size: 17px;
-    color: rgba(33, 37, 41, 0.72);
-    line-height: 1.65;
-    margin-bottom: 0;
-    max-width: 640px;
-}
-
 @media (max-width: 768px) {
-    .sesna-hero__title {
-        font-size: 32px;
-        letter-spacing: -0.4px;
-    }
-    .sesna-hero__subtitle {
-        text-align: left;
-        max-width: 100%;
-    }
     .sesna-page-hero {
         padding-top: 28px;
         padding-bottom: 20px;
