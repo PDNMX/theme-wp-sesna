@@ -272,6 +272,19 @@ get_header();
                         }
                     }
                 }
+
+                // La portada (campo "Portada" del catálogo en wp-admin) se
+                // antepone como página 0: con showCover:true el flipbook abre
+                // "cerrado" mostrando esta imagen sola, y al hojear pasa a las
+                // páginas reales del catálogo.
+                if (!empty($dh_catalogo_paginas)) {
+                    $dh_catalogo_portada_id  = get_post_meta(get_the_ID(), '_dh_cat_portada_id', true) ?: '';
+                    $dh_catalogo_portada_url = $dh_catalogo_portada_id ? wp_get_attachment_image_url(intval($dh_catalogo_portada_id), 'large') : '';
+                    if ($dh_catalogo_portada_url) {
+                        array_unshift($dh_catalogo_paginas, $dh_catalogo_portada_url);
+                    }
+                }
+
                 wp_reset_postdata();
             }
             ?>
@@ -290,10 +303,9 @@ get_header();
                 <div class="reticulaGrid__12 gap--0 align-items-center">
                     <div class="columna__12 columna__4--md">
                         <div class="dh-acciones-card__img bg-light d-flex align-items-center justify-content-center p-2 p-md-3">
-                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/Acciones_X_la_integridad.svg') ); ?>"
+                            <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/acciones_x_integridad.png') ); ?>"
                                  alt="Acciones X la Integridad"
-                                 class="img-fluid"
-                                 style="object-fit: contain; width: 90%; max-height: 280px;"
+                                 class="img-fluid dh-acciones-img--portrait"
                                  onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'snd snd-image fs-1 text-muted\'></i></div>';">
                         </div>
                     </div>
