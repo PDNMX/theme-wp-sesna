@@ -32,7 +32,7 @@ get_header();
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__5--lg mb--24 mb--0--lg pe--48--lg">
                     <h2 class="h2b patria color--pguinda600 mb--24">Conoce a la SESNA</h2>
-                    <p class="b1r texto--justify">
+                    <p class="sh1r texto--justify">
                         Descubre el papel de la Secretaría Ejecutiva dentro del Sistema Nacional Anticorrupción y cómo contribuye al fortalecimiento de la coordinación institucional, la generación de información estratégica y el desarrollo de herramientas para la prevención y el combate a la corrupción.
                     </p>
                 </div>

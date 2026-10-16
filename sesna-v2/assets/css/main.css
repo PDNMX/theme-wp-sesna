@@ -3901,6 +3901,7 @@ nav.navbar .container {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
+    align-items: flex-start;
     gap: 1.5rem;
 }
 
@@ -3913,6 +3914,7 @@ nav.navbar .container {
     font-size: 32px;
     color: var(--color-burgundi);
     flex-shrink: 0;
+    display: flex;
 }
 
 .qh-mv-content h3,
