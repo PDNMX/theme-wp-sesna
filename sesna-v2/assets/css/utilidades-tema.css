@@ -8,30 +8,6 @@
  * Se usan con !important para mantener la misma prioridad que las clases de Bootstrap que reemplazan.
  */
 
-/* ===== Display ===== */
-.muestra--ninguno { display: none !important; }
-.muestra--bloque { display: block !important; }
-.muestra--flex { display: flex !important; }
-.muestra--flex-linea { display: inline-flex !important; }
-.muestra--bloque-linea { display: inline-block !important; }
-.muestra--linea { display: inline !important; }
-
-@media (min-width: 576px) {
-    .muestra--ninguno--sm { display: none !important; }
-    .muestra--bloque--sm { display: block !important; }
-    .muestra--flex--sm { display: flex !important; }
-}
-@media (min-width: 640px) {
-    .muestra--ninguno--md { display: none !important; }
-    .muestra--bloque--md { display: block !important; }
-    .muestra--flex--md { display: flex !important; }
-}
-@media (min-width: 1024px) {
-    .muestra--ninguno--lg { display: none !important; }
-    .muestra--bloque--lg { display: block !important; }
-    .muestra--flex--lg { display: flex !important; }
-}
-
 /* ===== Texto: alineación y peso ===== */
 .texto--centro { text-align: center !important; }
 .texto--izquierda { text-align: left !important; }
@@ -379,6 +355,37 @@ img {
     font-size: 1rem;
     border-radius: 0.375rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* ===== Display (SND) =====
+   Declarado al final a propósito: con la misma especificidad (una clase) y
+   !important en ambos lados, el empate lo gana la regla que aparece después
+   en el archivo. Si .muestra--ninguno fuera declarada antes que .d-flex/
+   .d-block/etc. (arriba), un elemento con ambas clases (p. ej. un panel con
+   "d-flex" que JS oculta agregando "muestra--ninguno") NUNCA se ocultaría,
+   porque .d-flex ganaría el empate. Esta utilidad de ocultar debe ganar
+   siempre sobre cualquier utilidad de layout legacy, así que va al final. */
+.muestra--ninguno { display: none !important; }
+.muestra--bloque { display: block !important; }
+.muestra--flex { display: flex !important; }
+.muestra--flex-linea { display: inline-flex !important; }
+.muestra--bloque-linea { display: inline-block !important; }
+.muestra--linea { display: inline !important; }
+
+@media (min-width: 576px) {
+    .muestra--ninguno--sm { display: none !important; }
+    .muestra--bloque--sm { display: block !important; }
+    .muestra--flex--sm { display: flex !important; }
+}
+@media (min-width: 640px) {
+    .muestra--ninguno--md { display: none !important; }
+    .muestra--bloque--md { display: block !important; }
+    .muestra--flex--md { display: flex !important; }
+}
+@media (min-width: 1024px) {
+    .muestra--ninguno--lg { display: none !important; }
+    .muestra--bloque--lg { display: block !important; }
+    .muestra--flex--lg { display: flex !important; }
 }
 
 /* Homologación Iconos Breadcrumb SND v1.1.0 (8px separación estándar) */
