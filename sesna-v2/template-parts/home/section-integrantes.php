@@ -2,7 +2,7 @@
     <div class="contenedor my--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria">¿Quiénes integran el SNA?</h2>
+                <h2 class="h2b patria color--pguinda600">¿Quiénes integran el SNA?</h2>
             </div>
         </div>
         <div class="reticulaGrid__12">

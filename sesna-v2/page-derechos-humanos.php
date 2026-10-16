@@ -214,12 +214,12 @@ get_header();
                         <div class="dh-campania-card__img"
                              style="background-color: <?php echo esc_attr($dh_c_color); ?>18; <?php if ($dh_c_icono_img): ?>background-image: url('<?php echo esc_url($dh_c_icono_img); ?>');<?php endif; ?>">
                             <?php if (!$dh_c_icono_img): ?>
-                                <i class="snd__icono snd <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>; font-size: 34px;"></i>
+                                <i class="snd__icono snd icono--32 <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>;"></i>
                             <?php endif; ?>
                         </div>
-                        <h5 class="dh-campania-card__title"><?php echo esc_html($dh_c_titulo); ?></h5>
-                        <p class="dh-campania-card__desc flex-grow-1 mb-3"><?php echo esc_html($dh_c_resumen); ?></p>
-                        <span class="dh-campania-card__link mt-auto">Ver más <i class="snd__icono snd snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                        <h3 class="dh-campania-card__title sh1b patria color--pguinda600"><?php echo esc_html($dh_c_titulo); ?></h3>
+                        <p class="dh-campania-card__desc sdr flex-grow-1 mb--16"><?php echo esc_html($dh_c_resumen); ?></p>
+                        <span class="boton__fantasma mt-auto">Ver más <i class="snd__icono snd snd-arrow--right" aria-hidden="true"></i></span>
                     </div>
                 </div>
                 <?php

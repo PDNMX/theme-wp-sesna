@@ -3253,8 +3253,6 @@ nav.navbar .container {
 }
 
 .qh-hero-tag {
-    font-size: 12px;
-    font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--color-dorado-claro);
@@ -3368,10 +3366,6 @@ nav.navbar .container {
 
 .qh-mv-content h3,
 .qh-mv-card h3 {
-    font-family: var(--font-patria);
-    color: var(--color-burgundi);
-    font-size: 20px;
-    font-weight: 700;
     margin-bottom: 14px;
 }
 
@@ -3395,9 +3389,6 @@ nav.navbar .container {
     box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
 }
 .qh-labor-card h3 {
-    color: var(--color-burgundi);
-    font-weight: 700;
-    font-size: 18px;
     margin-bottom: 12px;
 }
 
@@ -3578,39 +3569,22 @@ nav.navbar .container {
 }
 
 .page-derechos-humanos .dh-campania-card__title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--color-burgundi);
     padding: 16px 18px 0;
     margin-bottom: 6px;
 }
 
 .page-derechos-humanos .dh-campania-card__desc {
-    font-size: 14px;
-    color: #666;
     padding: 0 18px;
     margin-bottom: 8px;
     flex: 1;
-    line-height: 1.55;
 }
 
 .page-derechos-humanos .dh-campania-card:focus {
     outline: none;
 }
 
-.page-derechos-humanos .dh-campania-card__link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-burgundi);
-    padding: 0 18px 18px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    margin-top: auto;
-}
-
-.page-derechos-humanos .dh-campania-card__link:hover {
-    text-decoration: underline;
+.page-derechos-humanos .dh-campania-card .boton__fantasma {
+    margin: 0 10px 10px;
 }
 
 /* ── Acciones X la Integridad ─── */

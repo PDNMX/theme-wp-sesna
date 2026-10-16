@@ -7,7 +7,7 @@
                     class="wh-100 sna-logo" onerror="this.src='https://via.placeholder.com/350x120?text=Logo+SNA';">
             </div>
             <div class="columna__12 columna__7--md ps--24--md">
-                <h1 class="h1b patria color--pguinda900">Sistema Nacional Anticorrupción (SNA)</h1>
+                <h1 class="h1b patria color--pguinda600">Sistema Nacional Anticorrupción (SNA)</h1>
                     <p class="sh1r texto--justify">Instancia de coordinación entre autoridades
                         de los tres órdenes de gobierno para prevenir, detectar, fiscalizar y sancionar la corrupción en
                         México.</p>

@@ -95,6 +95,7 @@
 }
 @media (min-width: 1024px) {
     .mb--0--lg { margin-bottom: 0 !important; }
+    .pe--48--lg { padding-inline-end: 48px !important; }
 }
 
 /* ===== Decoración y fondo ===== */
@@ -113,6 +114,7 @@
 .color--neutro600 { color: var(--neutro600, #767676) !important; }
 .color--blanco { color: var(--neutro100, #FFFFFF) !important; }
 .color--pguinda600 { color: var(--pguinda600, #9B2247) !important; }
+.color--pguinda700 { color: var(--pguinda700, #8E1D3F) !important; }
 .color--pguinda900 { color: var(--pguinda900, #611232) !important; }
 .fondo--dorado600 { background-color: var(--dorado600, #A57F2C) !important; }
 .fondo--neutro200 { background-color: var(--neutro200, #F9F9F9) !important; }
