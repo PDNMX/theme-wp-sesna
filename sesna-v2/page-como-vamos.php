@@ -80,7 +80,7 @@ get_header();
           <div class="columna__12 columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
-        <div class="sesiones_container" id="sesiones_comite" data-page="snd-star">
+        <div class="sesiones_container" id="sesiones_comite" data-page="0">
 
         </div>
 
@@ -163,7 +163,7 @@ get_header();
         </div>
 
 
-        <div class="sesiones_container" id="sesiones_comision" data-page="snd-star">
+        <div class="sesiones_container" id="sesiones_comision" data-page="0">
         </div>
 
         <div class="reticulaGrid__12">
@@ -232,7 +232,7 @@ get_header();
         </div>
 
 
-        <div class="sesiones_container" id="sesiones_organo_gobierno" data-page="snd-star">
+        <div class="sesiones_container" id="sesiones_organo_gobierno" data-page="0">
         </div>
 
         <div class="reticulaGrid__12">

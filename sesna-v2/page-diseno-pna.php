@@ -152,7 +152,7 @@ get_header();
                         
                         <!-- Tarjeta Eje 1 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn active d-flex flex-column justify-content-center" data-eje="1" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn active d-flex flex-column justify-content-center" data-eje="1" role="button" tabindex="0" style="background: linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #6AC72C;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -173,7 +173,7 @@ get_header();
 
                         <!-- Tarjeta Eje 3 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="0" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #74598F;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -202,7 +202,7 @@ get_header();
                                 <!-- Sectores SVG divididos con borde blanco y 4 iconos representativos en vectores nativos -->
                                 <svg class="pna-wheel-svg w-100 h-100" viewBox="0 0 320 320" style="filter: drop-shadow(0 8px 24px rgba(0,0,0,0.08));">
                                     <!-- EJE 1: Verde (Superior Izquierdo) -> Escudo con candado (Protección y combate a la impunidad) -->
-                                    <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="snd-star" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice active" data-eje="1" role="button" tabindex="0" aria-label="Eje 1: Combatir la corrupción y la impunidad" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 20 160 A 140 140 0 0 1 160 20 Z" fill="#6AC72C" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="56" y="56" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -211,7 +211,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 2: Azul (Superior Derecho) -> Auditoría, control interno y profesionalización -->
-                                    <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="snd-star" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="0" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="208" y="56" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -220,7 +220,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 4: Rosa/Fucsia (Inferior Derecho) -> Sociedad y sector privado -->
-                                    <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="snd-star" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="4" role="button" tabindex="0" aria-label="Eje 4: Involucrar a la sociedad y el sector privado" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 300 160 A 140 140 0 0 1 160 300 Z" fill="#E04F67" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="208" y="208" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -229,7 +229,7 @@ get_header();
                                         </foreignObject>
                                     </g>
                                     <!-- EJE 3: Morado (Inferior Izquierdo) -> Interconexión, gestión y puntos de contacto -->
-                                    <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="snd-star" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
+                                    <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="0" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
                                         <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="56" y="208" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
@@ -257,7 +257,7 @@ get_header();
                         
                         <!-- Tarjeta Eje 2 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="0" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #1D70B8;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -278,7 +278,7 @@ get_header();
 
                         <!-- Tarjeta Eje 4 -->
                         <div class="position-relative w-100">
-                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="4" role="button" tabindex="snd-star" style="background: linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card border-0 rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="4" role="button" tabindex="0" style="background: linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #E04F67;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
@@ -506,7 +506,7 @@ get_header();
                     
                     <!-- Etapa 1: Consejo consultivo y análisis técnico -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="snd-star" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
                                 <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
@@ -522,7 +522,7 @@ get_header();
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
                                 <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
@@ -538,7 +538,7 @@ get_header();
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
                     <div class="col-12 col-sm-4 col-lg d-flex">
-                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="snd-star" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
+                        <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
                                 <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd__icono snd snd-location--filled" aria-hidden="true"></i></span>
@@ -871,52 +871,52 @@ get_header();
                                         <!-- Marcadores / Pines de las 8 Sedes en Naranja (#D97706) -->
                                         <g class="sedes-pins">
                                             <!-- Sede 1: Guadalajara, Jalisco -->
-                                            <g class="sede-pin" data-sede="1" role="button" tabindex="snd-star" transform="translate(345, 315)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="1" role="button" tabindex="0" transform="translate(345, 315)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
                                             </g>
                                             <!-- Sede 2: Zacatecas, Zacatecas -->
-                                            <g class="sede-pin" data-sede="2" role="button" tabindex="snd-star" transform="translate(365, 250)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="2" role="button" tabindex="0" transform="translate(365, 250)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
                                             </g>
                                             <!-- Sede 3: Saltillo, Coahuila -->
-                                            <g class="sede-pin" data-sede="3" role="button" tabindex="snd-star" transform="translate(440, 180)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="3" role="button" tabindex="0" transform="translate(440, 180)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
                                             </g>
                                             <!-- Sede 4: Oaxaca, Oaxaca -->
-                                            <g class="sede-pin" data-sede="4" role="button" tabindex="snd-star" transform="translate(560, 405)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="4" role="button" tabindex="0" transform="translate(560, 405)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
                                             </g>
                                             <!-- Sede 5: Querétaro, Querétaro -->
-                                            <g class="sede-pin" data-sede="5" role="button" tabindex="snd-star" transform="translate(468, 320)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="5" role="button" tabindex="0" transform="translate(468, 320)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">5</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">5</text>
                                             </g>
                                             <!-- Sede 6: Hermosillo, Sonora -->
-                                            <g class="sede-pin" data-sede="6" role="button" tabindex="snd-star" transform="translate(175, 115)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="6" role="button" tabindex="0" transform="translate(175, 115)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">6</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">6</text>
                                             </g>
                                             <!-- Sede 7: Cancún, Quintana Roo -->
-                                            <g class="sede-pin" data-sede="7" role="button" tabindex="snd-star" transform="translate(770, 345)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="7" role="button" tabindex="0" transform="translate(770, 345)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">7</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">7</text>
                                             </g>
                                             <!-- Sede 8: CDMX -->
-                                            <g class="sede-pin" data-sede="8" role="button" tabindex="snd-star" transform="translate(488, 375)" style="cursor: pointer;">
+                                            <g class="sede-pin" data-sede="8" role="button" tabindex="0" transform="translate(488, 375)" style="cursor: pointer;">
                                                 <circle r="16" fill="#D97706" fill-opacity="0.3" class="pin-pulse"/>
                                                 <circle r="9" fill="#D97706" stroke="#fff" stroke-width="2"/>
-                                                <text x="snd-star" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">8</text>
+                                                <text x="0" y="4" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">8</text>
                                             </g>
                                         </g>
                                     </svg>

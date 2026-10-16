@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const temp = document.createElement('textarea');
             temp.value = url;
             temp.style.position = 'fixed';
-            temp.style.opacity = 'snd-star';
+            temp.style.opacity = '0';
             document.body.appendChild(temp);
             temp.focus();
             temp.select();
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (downloadBtn) downloadBtn.href = pdfUrl;
             
             if (iframe) {
-                iframe.style.opacity = 'snd-star';
+                iframe.style.opacity = '0';
                 if (loader) loader.style.display = 'block';
                 
                 if (pdfUrl === '#' || !pdfUrl || pdfUrl === '') {
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (downloadBtn) downloadBtn.href = pdfUrl;
 
             if (iframe && iframe.src !== pdfUrl) {
-                iframe.style.opacity = 'snd-star';
+                iframe.style.opacity = '0';
                 if (loader) loader.style.display = 'block';
                 if (pdfUrl !== '#' && pdfUrl !== '') {
                     iframe.src = pdfUrl;

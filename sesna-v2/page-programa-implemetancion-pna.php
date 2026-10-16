@@ -228,7 +228,7 @@ if (empty($fichero_anios)) {
                         <?php foreach ([1,3] as $n) :
                             $e = $ejes_data[$n];
                         ?>
-                        <div class="eje-btn font-noto-sans" role="button" tabindex="snd-star"
+                        <div class="eje-btn font-noto-sans" role="button" tabindex="0"
                              data-eje="<?php echo $n; ?>" data-color="<?php echo esc_attr($e['color']); ?>"
                              style="display:flex; align-items:center; gap:12px; cursor:pointer; transition:all .2s;
                                     border-radius:10px; padding:14px 14px; flex:1;
@@ -301,7 +301,7 @@ if (empty($fichero_anios)) {
                         <?php foreach ([2,4] as $n) :
                             $e = $ejes_data[$n];
                         ?>
-                        <div class="eje-btn font-noto-sans" role="button" tabindex="snd-star"
+                        <div class="eje-btn font-noto-sans" role="button" tabindex="0"
                              data-eje="<?php echo $n; ?>" data-color="<?php echo esc_attr($e['color']); ?>"
                              style="display:flex; align-items:center; gap:12px; cursor:pointer; transition:all .2s;
                                     border-radius:10px; padding:14px 14px; flex:1;
@@ -488,7 +488,7 @@ if (empty($fichero_anios)) {
                                 <i class="snd__icono snd snd-document--pdf" aria-hidden="true" style="font-size:3rem;color:#ccc;"></i>
                                 <p class="font-noto-sans mt-2 mb-0" style="font-size:14px;">Selecciona un año y un eje para ver las fichas</p>
                             </div>
-                            <iframe id="ficheroFrame" src="" class="w-100 h-100 d-none" frameborder="snd-star"></iframe>
+                            <iframe id="ficheroFrame" src="" class="w-100 h-100 d-none" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>

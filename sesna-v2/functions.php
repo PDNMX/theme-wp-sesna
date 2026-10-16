@@ -821,7 +821,7 @@ function sesna_save_slider_meta_data($post_id)
 	if (isset($_POST['_show_text_slider'])) {
 		update_post_meta($post_id, '_show_text_slider', '1');
 	} else {
-		update_post_meta($post_id, '_show_text_slider', 'snd-star');
+		update_post_meta($post_id, '_show_text_slider', '0');
 	}
 }
 add_action('save_post_slider', 'sesna_save_slider_meta_data');
@@ -1012,7 +1012,7 @@ function sesna_save_directorio_meta($post_id)
 	if (isset($_POST['_dir_show_encargado'])) {
 		update_post_meta($post_id, '_dir_show_encargado', '1');
 	} else {
-		update_post_meta($post_id, '_dir_show_encargado', 'snd-star');
+		update_post_meta($post_id, '_dir_show_encargado', '0');
 	}
 }
 add_action('save_post_directorio', 'sesna_save_directorio_meta');
@@ -1760,7 +1760,7 @@ function sesna_oc_sesion_meta_box_html($post) {
         </div>
         <div class="oc-row">
             <label for="oc_acuerdos">Número de acuerdos tomados</label>
-            <input type="number" id="oc_acuerdos" name="_oc_acuerdos" value="<?php echo esc_attr($acuerdos !== '' ? $acuerdos : 'snd-star'); ?>" min="snd-star">
+            <input type="number" id="oc_acuerdos" name="_oc_acuerdos" value="<?php echo esc_attr($acuerdos !== '' ? $acuerdos : '0'); ?>" min="0">
         </div>
         <div class="oc-row">
             <label for="oc_video_url">Ver sesión (URL de YouTube o video)</label>
@@ -2591,7 +2591,7 @@ function sesna_dh_campania_meta_box_html($post) {
     $galeria_ids    = get_post_meta($post->ID, '_dh_galeria_ids',    true) ?: '';
     $video_url      = get_post_meta($post->ID, '_dh_video_url',      true) ?: '';
     $banner_texto   = get_post_meta($post->ID, '_dh_banner_texto',   true) ?: '';
-    $orden          = get_post_meta($post->ID, '_dh_orden',          true) ?: 'snd-star';
+    $orden          = get_post_meta($post->ID, '_dh_orden',          true) ?: '0';
     ?>
     <style>
         .dh-mb-row { margin-bottom: 16px; }
@@ -2696,7 +2696,7 @@ function sesna_dh_campania_meta_box_html($post) {
 
     <div class="dh-mb-row">
         <label for="dh_orden">Orden de aparición en la página <span class="dh-mb-hint">(número menor = aparece primero)</span></label>
-        <input type="number" id="dh_orden" name="_dh_orden" value="<?php echo esc_attr($orden); ?>" min="snd-star" max="999" style="max-width:100px;">
+        <input type="number" id="dh_orden" name="_dh_orden" value="<?php echo esc_attr($orden); ?>" min="0" max="999" style="max-width:100px;">
     </div>
 
     <div class="dh-mb-row">

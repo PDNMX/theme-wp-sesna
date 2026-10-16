@@ -103,8 +103,8 @@ $sna_meses = [
                  role="tabpanel"
                  aria-labelledby="tab-<?php echo esc_attr($key); ?>"
                  data-familia="<?php echo esc_attr($key); ?>"
-                 data-page="snd-star"
-                 data-loaded="snd-star">
+                 data-page="0"
+                 data-loaded="0">
             </div>
         <?php endforeach; ?>
 

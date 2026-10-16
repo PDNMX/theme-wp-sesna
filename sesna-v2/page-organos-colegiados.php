@@ -292,7 +292,7 @@ rsort($oc_anios_organo);
             </div>
             <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">
                 <div class="embed-responsive embed-responsive-16by9 h-100">
-                    <iframe id="oc-video-iframe" class="w-100 h-100 border-0" src="" title="Video de la sesión" frameborder="snd-star" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="oc-video-iframe" class="w-100 h-100 border-0" src="" title="Video de la sesión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

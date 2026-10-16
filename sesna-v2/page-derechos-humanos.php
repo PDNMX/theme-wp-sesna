@@ -197,7 +197,7 @@ get_header();
                 <div class="columna__12 columna__6--md columna__3--lg mb-4">
                     <div class="dh-campania-card dh-campania-trigger h-100 d-flex flex-column"
                          role="button"
-                         tabindex="snd-star"
+                         tabindex="0"
                          data-bs-toggle="modal"
                          data-bs-target="#modal-campania"
                          data-titulo="<?php echo esc_attr($dh_c_titulo); ?>"
@@ -292,7 +292,7 @@ get_header();
             <?php if (!empty($dh_catalogo_paginas)) : ?>
                 <div class="dh-acciones-card cd-clickable mt-4"
                      role="button"
-                     tabindex="snd-star"
+                     tabindex="0"
                      data-bs-toggle="modal"
                      data-bs-target="#modal-catalogo"
                      data-titulo="<?php echo esc_attr($dh_catalogo_titulo); ?>"

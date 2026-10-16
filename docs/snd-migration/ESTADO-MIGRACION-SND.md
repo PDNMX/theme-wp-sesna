@@ -539,3 +539,52 @@ advertencias "no encontrado" en consola tras el cambio, ~1,900 íconos de la pá
    quiere, afinar `.icono--{tamaño}` por contexto en vez de depender de `svg.snd{
    width:1em }` — ninguna de las dos cosas es urgente, el sitio ya cumple 1.1.0 hoy.
 5. Retomar la Fase D grande (tabla de utilidades Bootstrap, sección 4.1).
+
+---
+
+## 8. Bug sistémico corregido — corrupción "0" → "snd-star" (2026-10-15)
+
+Detectado al auditar `page-derechos-humanos.php` a pedido del usuario: **no es un bug
+aislado de íconos**, es una corrupción de find-replace descuidado en algún punto del
+historial del proyecto que reemplazó el literal `"0"` por el string `"snd-star"` en
+contextos completamente ajenos a íconos — atributos HTML (`tabindex`, `frameborder`,
+`marginheight`, `marginwidth`), coordenadas SVG (`x="0"`), atributos `data-*`
+(`data-page`, `data-loaded`), valores de formulario (`min="0"`, valor por defecto de
+campos numéricos), metadatos de WordPress guardados como string (`update_post_meta`)
+y hasta un valor de `opacity` en JavaScript embebido.
+
+**Regla para distinguir legítimo de corrupto:** `snd-star` SÍ es un ícono real del SND
+(confirmado en el catálogo — "star", "star--filled", "star--half"), así que cuando
+aparece como fallback de un campo de ícono (`$icono ?: 'snd-star'`, usado después como
+`class="snd__icono snd <?= $icono ?>"`) es correcto y no se tocó. Se identificaron y
+preservaron **2 casos legítimos** (`functions.php:2587` y `page-derechos-humanos.php:131`,
+ambos fallback del campo "ícono de campaña").
+
+**Corregido a `"0"` en 10 archivos:**
+- `functions.php`: 2 `update_post_meta(..., 'snd-star')` (checkboxes `_show_text_slider`,
+  `_dir_show_encargado`, debían guardar `'0'` cuando no están marcados), 2 `min="snd-star"`
+  en inputs numéricos, 1 fallback de valor numérico (`$acuerdos`), 1 fallback de orden
+  numérico (`$orden` del campo `_dh_orden` — nunca debió ser texto, rompía el `orderby
+  meta_value_num` de las campañas).
+- `page-diseno-pna.php`: 8× `x="snd-star"` (coordenadas de texto SVG).
+- `page-programa-implemetancion-pna.php`, `page-derechos-humanos.php`,
+  `template-transparencia-comite.php`: `tabindex="snd-star"` → `tabindex="0"`
+  (19 + 2 + 2 ocurrencias; mismo patrón ya corregido antes en `que-hacemos` y
+  `directorio`, confirma que no era exclusivo de esas dos páginas).
+- `page-organos-colegiados.php`, `page-programa-implemetancion-pna.php`,
+  `template-parts/sesion/content-publish.php`: `frameborder="snd-star"` → `"0"`.
+- `template-parts/sesion/content-publish.php`: además `marginheight`/`marginwidth`
+  corruptos, y un glitch de HTML inválido (`marginwidth="snd-star"width="640.8"` sin
+  espacio entre atributos) corregido de paso.
+- `page-como-vamos.php` (3×) y `template-parts/home/section-entradas.php` (2×):
+  `data-page`/`data-loaded="snd-star"` → `"0"`.
+- `template-parts/visor-pdf.php`: 3× `style.opacity = 'snd-star'` (JS embebido) → `'0'`.
+
+Lint PHP limpio en los 10 archivos, verificado en vivo en `derechos-humanos` (0
+`tabindex="snd-star"` restantes, solo valores válidos `0`/`-1`).
+
+**Pendiente:** no se buscó este patrón de corrupción más allá del literal `"0"` — si
+aparece texto extraño en otro contexto numérico/booleano durante la revisión manual
+página por página, probablemente sea el mismo origen y conviene aplicar el mismo
+criterio (¿se usa como ícono real? no lo toques. ¿se usa como número/booleano/atributo
+técnico? era un "0").

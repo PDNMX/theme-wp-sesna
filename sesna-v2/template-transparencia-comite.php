@@ -89,7 +89,7 @@ wp_reset_postdata();
 
         <div class="tab-content tx-comite-tab-content" id="comiteTabsContent">
             <!-- TAB: SESIONES -->
-            <div class="tab-pane show active" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="snd-star">
+            <div class="tab-pane show active" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="0">
                 
                 <!-- Filtros Sesiones -->
                 <div class="reticulaGrid__12 mb-5 align-items-end">
@@ -159,7 +159,7 @@ wp_reset_postdata();
             </div>
 
             <!-- TAB: RESOLUCIONES -->
-            <div class="tab-pane" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="snd-star">
+            <div class="tab-pane" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
                 
                 <!-- Filtros Resoluciones -->
                 <div class="reticulaGrid__12 mb-5 align-items-end">
