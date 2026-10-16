@@ -29,8 +29,7 @@ get_header(); ?>
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
-                    <h1 class="h1b patria color--pguinda900">Riesgos e <br>Inteligencia Anticorrupción</h1>
-                    <div class="hero-separator"></div>
+                    <h1 class="h1b patria color--pguinda600">Riesgos e <br>Inteligencia Anticorrupción</h1>
                     <p class="sh1r">
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
@@ -47,21 +46,12 @@ get_header(); ?>
 
     <!-- Documentos Section -->
     <section class="contenedor mb-5">
-        <div class="d-flex align-items-center mb-4">
-            <i class="snd__icono snd-document icono--32 text-guinda me-3 flex-shrink-0" aria-hidden="true"></i>
-            <h2 class="cp-recursos__titulo h2b patria m-0 me-4">Documentos</h2>
-
-            <!-- Separador vertical en desktop -->
-            <div class="muestra--ninguno muestra--bloque--md flex-shrink-0 me-4" style="width: 1px; height: 45px; background-color: #ccc;"></div>
-
-            <!-- Texto descriptivo desktop -->
-            <div class="tx-hero__subtitle text-muted muestra--ninguno muestra--bloque--md" style="max-width: 600px;">
-                Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
-            </div>
+        <div class="cp-recursos__header mb-4">
+            <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Documentos</h2>
         </div>
 
-        <!-- Texto descriptivo mobile -->
-        <div class="tx-hero__subtitle text-muted muestra--bloque muestra--ninguno--md mb-4">
+        <!-- Texto descriptivo -->
+        <div class="tx-hero__subtitle b1r color--neutro600 mb-4" style="max-width: 600px;">
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
         </div>
 
@@ -72,9 +62,9 @@ get_header(); ?>
                     <div class="icon-bg-circle mb-4">
                         <i class="snd__icono snd-portfolio icono--24 tx-card__icon" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title mb-3">Contrataciones<br>públicas</h5>
-                    <p class="tx-card__desc text-muted mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right icono--16 ms-2" aria-hidden="true"></i></span>
+                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Contrataciones<br>públicas</h5>
+                    <p class="tx-card__desc b1r color--neutro600 mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
+                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 2 -->
@@ -83,9 +73,9 @@ get_header(); ?>
                     <div class="icon-bg-circle mb-4">
                         <i class="snd__icono snd-group icono--24 tx-card__icon" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title mb-3">Conflicto<br>de interés</h5>
-                    <p class="tx-card__desc text-muted mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
-                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right icono--16 ms-2" aria-hidden="true"></i></span>
+                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Conflicto<br>de interés</h5>
+                    <p class="tx-card__desc b1r color--neutro600 mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
+                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 3 -->
@@ -94,9 +84,9 @@ get_header(); ?>
                     <div class="icon-bg-circle mb-4">
                         <i class="snd__icono snd-security icono--24 tx-card__icon" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title mb-3">Verificación<br>patrimonial</h5>
-                    <p class="tx-card__desc text-muted mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right icono--16 ms-2" aria-hidden="true"></i></span>
+                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Verificación<br>patrimonial</h5>
+                    <p class="tx-card__desc b1r color--neutro600 mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
+                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 4 -->
@@ -105,9 +95,9 @@ get_header(); ?>
                     <div class="icon-bg-circle mb-4">
                         <i class="snd__icono snd-chart--bar icono--24 tx-card__icon" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title mb-3">Deporte</h5>
-                    <p class="tx-card__desc text-muted mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
-                    <span class="boton__fantasma mt-auto">Consultar <i class="snd__icono snd-arrow--right icono--16 ms-2" aria-hidden="true"></i></span>
+                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Deporte</h5>
+                    <p class="tx-card__desc b1r color--neutro600 mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
+                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
         </div>
@@ -194,7 +184,7 @@ get_header(); ?>
             <!-- Texto descriptivo -->
             <div class="fila">
                 <div class="columna__12 columna__7--md columna__8--lg posicion--relativa z--1">
-                    <h2 class="h2b patria color--pguinda900">Contrataciones públicas</h2>
+                    <h2 class="h2b patria color--pguinda600">Contrataciones públicas</h2>
                     <div class="hero-separator"></div>
                     <p class="sh1r mb--16" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
                     <p class="sh1r mb--0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
@@ -207,15 +197,7 @@ get_header(); ?>
 
                     <!-- Encabezado de sección -->
                     <div class="cp-recursos__header mb-4">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="cp-recursos__icono-box">
-                                <i class="snd__icono snd-folder icono--24" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="cp-recursos__titulo h2b patria mb-0">Recursos disponibles</h2>
-                                <div class="cp-recursos__linea"></div>
-                            </div>
-                        </div>
+                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
                     </div>
 
                     <!-- Lista de documentos -->
@@ -238,7 +220,7 @@ get_header(); ?>
                 <div class="contenedor">
                     <div class="cp-nota__inner">
                         <i class="snd__icono snd-information icono--20 cp-nota__icono" aria-hidden="true"></i>
-                        <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
+                        <p class="cp-nota__texto b1r mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
             </div>
@@ -250,15 +232,7 @@ get_header(); ?>
                 <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="cp-recursos__icono-box">
-                                <i class="snd__icono snd-folder icono--24" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="cp-recursos__titulo h2b patria mb-0">Recursos metodológicos</h2>
-                                <div class="cp-recursos__linea"></div>
-                            </div>
-                        </div>
+                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos metodológicos</h2>
                     </div>
 
                     <?php
@@ -308,7 +282,7 @@ get_header(); ?>
                 <div class="contenedor">
                     <div class="cp-nota__inner">
                         <i class="snd__icono snd-information icono--20 cp-nota__icono" aria-hidden="true"></i>
-                        <p class="cp-nota__texto mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
+                        <p class="cp-nota__texto b1r mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
             </div>
@@ -323,15 +297,7 @@ get_header(); ?>
                 <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="cp-recursos__icono-box">
-                                <i class="snd__icono snd-folder icono--24" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="cp-recursos__titulo h2b patria mb-0">Recursos disponibles</h2>
-                                <div class="cp-recursos__linea"></div>
-                            </div>
-                        </div>
+                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
                     </div>
 
                     <div class="cp-docs-lista">
@@ -343,8 +309,8 @@ get_header(); ?>
             <?php else : ?>
             <div class="text-center py-5">
                 <i class="snd__icono snd-settings icono--48 text-muted mb-3" aria-hidden="true"></i>
-                <h3 class="fw-bold">Contenido en construcción</h3>
-                <p class="text-muted">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
+                <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
+                <p class="b1r color--neutro600">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
             <?php endif; ?>
         </div>
@@ -358,15 +324,7 @@ get_header(); ?>
                 <div class="contenedor">
 
                     <div class="cp-recursos__header mb-4">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="cp-recursos__icono-box">
-                                <i class="snd__icono snd-folder icono--24" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="cp-recursos__titulo h2b patria mb-0">Recursos disponibles</h2>
-                                <div class="cp-recursos__linea"></div>
-                            </div>
-                        </div>
+                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
                     </div>
 
                     <div class="cp-docs-lista">
@@ -378,8 +336,8 @@ get_header(); ?>
             <?php else : ?>
             <div class="text-center py-5">
                 <i class="snd__icono snd-settings icono--48 text-muted mb-3" aria-hidden="true"></i>
-                <h3 class="fw-bold">Contenido en construcción</h3>
-                <p class="text-muted">Los recursos para Deporte estarán disponibles próximamente.</p>
+                <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
+                <p class="b1r color--neutro600">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>
             <?php endif; ?>
         </div>

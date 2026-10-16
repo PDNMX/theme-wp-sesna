@@ -2739,13 +2739,8 @@ nav.navbar .container {
 }
 
 .cp-recursos__titulo {
-    font-family: var(--font-patria);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--color-burgundi) !important;
     text-transform: none;
     letter-spacing: normal;
-    line-height: 1.2;
     margin-bottom: 0;
 }
 
