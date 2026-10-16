@@ -75,15 +75,15 @@ if ( file_exists( $ad_json_path ) ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd__icono snd snd-document" aria-hidden="true" style="color: #fff;"></i>
+                <i class="snd__icono snd-document icono--24" aria-hidden="true" style="color: #fff;"></i>
             </div>
             <div>
-                <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Archivo Documental</h2>
+                <h2 class="h2b patria mb-1" style="color: #611232;">Archivo Documental</h2>
                 <p class="text-muted mb-0" style="font-size: 15px;">Instrumentos para la organización, conservación y administración de los archivos institucionales.</p>
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="snd__icono snd snd-search" aria-hidden="true"></i>
+            <i class="snd__icono snd-search icono--16" aria-hidden="true"></i>
             <input type="search" class="cf-search-input" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
@@ -96,7 +96,7 @@ if ( file_exists( $ad_json_path ) ) {
             <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                        <i class="snd__icono snd <?php echo esc_attr( $meta['icono'] ); ?>" aria-hidden="true" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
+                        <i class="snd__icono <?php echo esc_attr( $meta['icono'] ); ?> icono--20" aria-hidden="true" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
                     </div>
                     <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232; line-height: 1.3;"><?php echo esc_html( $grupo['titulo'] ); ?></h3>
                 </div>
@@ -107,13 +107,13 @@ if ( file_exists( $ad_json_path ) ) {
                         if ( $doc['es_pdf'] ) : ?>
                     <a href="<?php echo esc_url( $doc['url'] ); ?>"
                        class="pna-doc-item cf-doc-row px-2 py-2 rounded-3 text-decoration-none"
-                       data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                       data-modal-target="#pdfViewerModal"
                        data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                        data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd snd-document" aria-hidden="true"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd-document icono--16" aria-hidden="true"></i></span>
                         <span class="visually-hidden">Ver documento</span>
                     </a>
                     <?php else : ?>
@@ -122,7 +122,7 @@ if ( file_exists( $ad_json_path ) ) {
                        data-cf-search="<?php echo $search_attr; ?>"
                        style="color: #333;">
                         <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="snd__icono snd snd-launch" aria-hidden="true"></i></span>
+                        <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="snd__icono snd-launch icono--16" aria-hidden="true"></i></span>
                         <span class="visually-hidden">Abrir enlace</span>
                     </a>
                     <?php endif; ?>
@@ -131,7 +131,7 @@ if ( file_exists( $ad_json_path ) ) {
 
                 <?php if ( $grupo['nota'] ) : ?>
                 <div class="mt-3 pt-3 d-flex align-items-start gap-2" style="border-top: 1px solid #e8d0d8;">
-                    <i class="snd__icono snd snd-information text-muted flex-shrink-0" aria-hidden="true" style="font-size: 13px; margin-top: 2px;"></i>
+                    <i class="snd__icono snd-information text-muted flex-shrink-0 icono--16" aria-hidden="true" style="margin-top: 2px;"></i>
                     <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $grupo['nota'] ); ?></span>
                 </div>
                 <?php endif; ?>

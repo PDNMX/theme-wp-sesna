@@ -69,7 +69,7 @@ if (empty($fichero_anios)) {
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a></li>
                 <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/acciones-y-programas/')); ?>">Acciones y Programas</a></li>
                 <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/acciones-y-programas/politica-nacional-anticorrupcion/')); ?>">Política Nacional Anticorrupción</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Implementación</li>
@@ -82,13 +82,13 @@ if (empty($fichero_anios)) {
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-start justify-content-between">
                 <div class="columna__12 columna__7--lg pna-reveal" style="--delay:0s">
-                    <h2 class="fw-bold font-patria text-burgundi mb-3">Implementación</h2>
+                    <h1 class="h1b patria text-burgundi mb-3">Implementación</h1>
                     <p class="text-muted mb-4">
                         En esta sección se presenta el Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA), instrumento que traduce las prioridades de la PNA en estrategias, líneas de acción e indicadores para orientar su ejecución y seguimiento.
                     </p>
                 </div>
                 <div class="columna__12 columna__5--lg d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="snd__icono snd snd-settings" aria-hidden="true" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
+                    <i class="snd__icono snd-settings" aria-hidden="true" style="font-size: 220px; color: #3A90C5; opacity: 0.15;"></i>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@ if (empty($fichero_anios)) {
                     <!-- Izquierda: título + texto + botón -->
                     <div class="columna__6 d-flex flex-column justify-content-between" style="flex:1 1 50%; min-width:280px; border-right:2px solid #e8d0d8; padding-right:2rem;">
                         <div>
-                            <h2 class="cp-recursos__titulo mb-1">Programa de Implementación de la Política Nacional Anticorrupción</h2>
+                            <h2 class="cp-recursos__titulo h2b patria mb-1">Programa de Implementación de la Política Nacional Anticorrupción</h2>
                             <div class="cp-recursos__linea mb-3"></div>
 
                             <p class="pna-doc-desc mb-2">
@@ -115,10 +115,10 @@ if (empty($fichero_anios)) {
                         </div>
 
                         <a href="#" class="boton__primario mt-4"
-                           data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                           data-modal-target="#pdfViewerModal"
                            data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
                            data-pdf-title="PI-PNA – Actualización 2024">
-                            <i class="snd__icono snd snd-screen" aria-hidden="true"></i> Consultar PI-PNA (Actualización 2024)
+                            <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Consultar PI-PNA (Actualización 2024)
                         </a>
                     </div>
 
@@ -126,7 +126,7 @@ if (empty($fichero_anios)) {
                     <div class="columna__6 d-flex flex-column" style="flex:0 0 45%; min-width:240px; padding-left:2rem;">
                         <div class="pna-hero__badge mb-3">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd__icono snd snd-calendar" aria-hidden="true"></i>
+                                <i class="snd__icono snd-calendar icono--20" aria-hidden="true"></i>
                             </span>
                             <div>
                                 <p class="pna-hero__badge-title">Aprobado el 27 de enero de 2022</p>
@@ -134,7 +134,7 @@ if (empty($fichero_anios)) {
                             </div>
                         </div>
                         <a href="#" class="pna-doc-cover flex-grow-1 text-decoration-none d-flex"
-                           data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                           data-modal-target="#pdfViewerModal"
                            data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
                            data-pdf-title="PI-PNA – Actualización 2024"
                            title="Consultar PI-PNA (Actualización 2024)"
@@ -157,7 +157,7 @@ if (empty($fichero_anios)) {
 
                 <div class="cp-recursos__header mb-4">
                     <div>
-                        <h2 class="cp-recursos__titulo mb-0">Estructura del Programa de Implementación</h2>
+                        <h2 class="cp-recursos__titulo h2b patria mb-0">Estructura del Programa de Implementación</h2>
                         <div class="cp-recursos__linea"></div>
                     </div>
                 </div>
@@ -274,20 +274,20 @@ if (empty($fichero_anios)) {
                             </svg>
                             <!-- Íconos sobre segmentos -->
                             <div style="position:absolute; top:74px; left:74px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd__icono snd snd-security" aria-hidden="true"></i>
+                                <i class="snd__icono snd-security icono--24" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:74px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd__icono snd snd-building" aria-hidden="true"></i>
+                                <i class="snd__icono snd-building icono--24" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:74px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd__icono snd snd-group" aria-hidden="true"></i>
+                                <i class="snd__icono snd-group icono--24" aria-hidden="true"></i>
                             </div>
                             <div style="position:absolute; top:226px; left:226px; transform:translate(-50%,-50%); color:white; font-size:21px; pointer-events:none; filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));">
-                                <i class="snd__icono snd snd-collaborate" aria-hidden="true"></i>
+                                <i class="snd__icono snd-collaborate icono--24" aria-hidden="true"></i>
                             </div>
                             <!-- Texto central -->
                             <div class="position-absolute top-50 start-50 translate-middle text-center px-1" style="width:155px;pointer-events:none;">
-                                <i class="snd__icono snd snd-user d-block mb-1" aria-hidden="true" style="font-size:22px; color:#611232;"></i>
+                                <i class="snd__icono snd-user icono--24 d-block mb-1" aria-hidden="true" style="color:#611232;"></i>
                                 <div class="font-noto-sans fw-bold mb-1" style="font-size:9px;color:#611232;letter-spacing:.02em;">Objetivo de la PNA:</div>
                                 <div class="font-noto-sans" style="font-size:8px;color:#444;line-height:1.4;">
                                     "Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente".
@@ -323,12 +323,12 @@ if (empty($fichero_anios)) {
                 </div>
 
                 <p class="text-center font-noto-sans text-muted mt-3 mb-3" style="font-size:13px;">
-                    <i class="snd__icono snd snd-screen me-1" aria-hidden="true"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
+                    <i class="snd__icono snd-screen icono--16 me-1" aria-hidden="true"></i> Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.
                 </p>
 
                 <!-- Paneles de eje -->
                 <?php foreach ($ejes_data as $n => $e) : ?>
-                <div id="ejePanel<?php echo $n; ?>" class="eje-panel d-none mt-2 p-4 rounded-3"
+                <div id="ejePanel<?php echo $n; ?>" class="eje-panel muestra--ninguno mt-2 p-4 rounded-3"
                      style="background-color:<?php echo $e['color']; ?>10; border:1.5px solid <?php echo $e['color']; ?>50;">
                     <div class="reticulaGrid__12">
                         <div class="columna__5">
@@ -370,7 +370,7 @@ if (empty($fichero_anios)) {
         <div class="contenedor">
             <div class="cp-recursos__header mb-4 pna-reveal" style="--delay:0s">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">Documentos e informes del PI-PNA</h2>
+                    <h2 class="cp-recursos__titulo h2b patria mb-0">Documentos e informes del PI-PNA</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -412,12 +412,12 @@ if (empty($fichero_anios)) {
                                 <div class="d-flex">
                                     <?php if ($url) : ?>
                                     <a href="#"
-                                       data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                                       data-modal-target="#pdfViewerModal"
                                        data-pdf-url="<?php echo esc_url($url); ?>"
                                        data-pdf-title="<?php echo esc_attr($doc['label']); ?>"
                                        class="d-inline-flex align-items-center justify-content-center gap-1 font-noto-sans w-100"
                                        style="background:#61123215;color:#611232;border:1px solid #61123240;border-radius:6px;font-size:12px;padding:6px 12px;text-decoration:none;">
-                                        <i class="snd__icono snd snd-screen" aria-hidden="true"></i> Ver documento
+                                        <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
                                     </a>
                                     <?php else : ?>
                                     <span class="font-noto-sans" style="font-size:11px;color:#aaa;">Próximamente</span>
@@ -440,7 +440,7 @@ if (empty($fichero_anios)) {
                 <!-- Título + descripción -->
                 <div class="cp-recursos__header mb-3">
                     <div>
-                        <h2 class="cp-recursos__titulo mb-0">Fichero del Informe PI-PNA</h2>
+                        <h2 class="cp-recursos__titulo h2b patria mb-0">Fichero del Informe PI-PNA</h2>
                         <div class="cp-recursos__linea"></div>
                     </div>
                 </div>
@@ -485,10 +485,10 @@ if (empty($fichero_anios)) {
                     <div class="columna__8">
                         <div id="ficheroVisor" class="border rounded-3 overflow-hidden" style="height:480px;background:#f8f9fa;">
                             <div id="ficheroPlaceholder" class="d-flex flex-column align-items-center justify-content-center h-100 text-muted">
-                                <i class="snd__icono snd snd-document--pdf" aria-hidden="true" style="font-size:3rem;color:#ccc;"></i>
+                                <i class="snd__icono snd-document--pdf icono--48" aria-hidden="true" style="color:#ccc;"></i>
                                 <p class="font-noto-sans mt-2 mb-0" style="font-size:14px;">Selecciona un año y un eje para ver las fichas</p>
                             </div>
-                            <iframe id="ficheroFrame" src="" class="w-100 h-100 d-none" frameborder="0"></iframe>
+                            <iframe id="ficheroFrame" src="" class="w-100 h-100 muestra--ninguno" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
@@ -524,7 +524,7 @@ if (empty($fichero_anios)) {
     from { opacity: 0; transform: translateY(-10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-.eje-panel:not(.d-none) {
+.eje-panel:not(.muestra--ninguno) {
     animation: ejeSlideIn .3s ease forwards;
 }
 </style>
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
             s.style.opacity = '0.9';
         });
         document.querySelectorAll('.eje-panel').forEach(function(p) {
-            p.classList.add('d-none');
+            p.classList.add('muestra--ninguno');
         });
     }
 
@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         document.querySelectorAll('.eje-panel').forEach(function(p) {
             var n = p.id.replace('ejePanel','');
-            n == num ? p.classList.remove('d-none') : p.classList.add('d-none');
+            n == num ? p.classList.remove('muestra--ninguno') : p.classList.add('muestra--ninguno');
         });
         var panel = document.getElementById('ejePanel' + num);
         if (panel) panel.scrollIntoView({behavior:'smooth', block:'nearest'});
@@ -589,12 +589,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var ph = document.getElementById('ficheroPlaceholder');
         if (url) {
             frame.src = url;
-            frame.classList.remove('d-none');
-            ph.classList.add('d-none');
+            frame.classList.remove('muestra--ninguno');
+            ph.classList.add('muestra--ninguno');
         } else {
             frame.src = '';
-            frame.classList.add('d-none');
-            ph.classList.remove('d-none');
+            frame.classList.add('muestra--ninguno');
+            ph.classList.remove('muestra--ninguno');
         }
     }
 

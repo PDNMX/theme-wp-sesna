@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url( '/acciones-y-programas/' ) ); ?>">Acciones y Programas</a>
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var rows = scope.querySelectorAll('.cf-doc-row');
             rows.forEach(function (r) {
                 var match = (r.dataset.cfSearch || '').indexOf(query) !== -1;
-                r.classList.toggle('d-none', !match);
+                r.classList.toggle('muestra--ninguno', !match);
             });
         });
     });

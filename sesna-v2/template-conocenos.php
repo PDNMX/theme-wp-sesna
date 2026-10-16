@@ -22,9 +22,9 @@ get_header();
 
     <div class="conocenosHeader">
       <div class="contenedor">
-        <h1 class="titulo">Conócenos</h1>
+        <h1 class="titulo h1b patria">Conócenos</h1>
         <h2 class="subtitulo"> OFICINA <b> DE <i> REPRESENTACION</i></b></h2>
-*         <img  class="equipo" src="<?php the_field('imagen_seccion_oic', 'option') ?>" alt=""/> 
+        <img class="equipo" src="<?php the_field('imagen_seccion_oic', 'option') ?>" alt=""/> 
       </div>
     </div>
 
@@ -39,7 +39,7 @@ get_header();
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                <i class="fab fa-twitter"></i>
+                <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="http://twitter.com/<?php the_field('twitter', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('twitter', get_field('titular')->ID ) ?></a>
@@ -49,7 +49,7 @@ get_header();
             <?php if( !empty( get_field('correo', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="mailto:<?php the_field('correo', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('correo', get_field('titular')->ID ) ?></a>
@@ -76,7 +76,7 @@ get_header();
   <?php else: ?>
     <div class="conocenosHeader">
       <div class="contenedor">
-        <h1 class="titulo">Conócenos</h1>
+        <h1 class="titulo h1b patria">Conócenos</h1>
         <h2 class="subtitulo">Somos un grupo de <b>especialistas</b> trabajando para <b><i>combatir la corrupción.</i></b></h2>
       </div>
     </div>
@@ -85,7 +85,7 @@ get_header();
 
     <div class="conocenosMenu" id="pruebaaaa">
       <div class="contenedor">
-        <div class="d-xs-block d-sm-block d-md-none">
+        <div class="muestra--bloque muestra--ninguno--md">
             <ul class="list-group list-group-horizontal justify-content-center" style="display: none;">
               <a href="conocenos.html"><li class="list-group-item active">1</li></a>
               <a href="conocenos_unidad_de_riesgos.html"><li class="list-group-item">2</li></a>
@@ -103,7 +103,7 @@ get_header();
         </div>
       </div>
 
-        <div class="contenedor d-none d-md-block d-lg-block">
+        <div class="contenedor muestra--ninguno muestra--bloque--md">
 
 
             <div class="d-flex justify-content-center flex-wrap">
@@ -169,7 +169,7 @@ get_header();
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                <i class="fab fa-twitter"></i>
+                <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="http://twitter.com/<?php the_field('twitter', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('twitter', get_field('titular')->ID ) ?></a>
@@ -179,7 +179,7 @@ get_header();
             <?php if( !empty( get_field('correo', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="mailto:<?php the_field('correo', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('correo', get_field('titular')->ID ) ?></a>
@@ -215,7 +215,7 @@ get_header();
       <img src="<?php bloginfo('stylesheet_directory') ?>/img/transparencia/tx2.png" class="tx2"/>
       <div class="contenedor">
         <div class="d-flex align-items-center justify-content-center">
-          <div class="p-2 flex-fill d-none d-sm-block">
+          <div class="p-2 flex-fill muestra--ninguno muestra--bloque--sm">
             <p class="comilla">"</p>
           </div>
 
@@ -225,7 +225,7 @@ get_header();
             </p>
           </div>
 
-          <div class="p-2 flex-fill d-none d-sm-block">
+          <div class="p-2 flex-fill muestra--ninguno muestra--bloque--sm">
             <p class="comilla2">"</p>
           </div>
         </div>
@@ -254,7 +254,7 @@ get_header();
     <div class="functionesContainer">
       <img class="ellipse_funciones" src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/ellipse_funciones.png"/>
       <div class="contenedor">
-        <h2 class="containerTitulo">FUNCIONES</h2>
+        <h2 class="containerTitulo h2b patria">FUNCIONES</h2>
       </div>
 
 
@@ -307,7 +307,7 @@ get_header();
     <?php if( have_rows('equipo') ): ?>
     <div class="equipoContainer">
       <div class="contenedor">
-        <h2 class="containerTitulo">EQUIPO</h2>
+        <h2 class="containerTitulo h2b patria">EQUIPO</h2>
       </div>
 
       <img class="ellipse_der" src="<?php bloginfo('stylesheet_directory') ?>/img/conocenos/ellipse_der.png" alt="ellipse"/>
@@ -348,7 +348,7 @@ get_header();
                         <?php if( !empty( get_field('twitter', get_sub_field('funcionario')->ID ) ) ): ?>
                         <div class="d-flex">
                           <div class="p-2 grayLink">
-                            <i class="fas fa-twitter" aria-hidden="true"></i>
+                            <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
                           </div>
                           <div class="p-2 grayLink">
                             <a rel="noopener" href="http//twiiter.com/<?php the_field('twitter', get_sub_field('funcionario')->ID ) ?>" target="_blank"><?php the_field('twitter', get_sub_field('funcionario')->ID ) ?></a>
@@ -359,7 +359,7 @@ get_header();
                         <?php if( !empty( get_field('correo', get_sub_field('funcionario')->ID ) ) ): ?>
                         <div class="d-flex">
                           <div class="p-2 grayLink">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
                           </div>
                           <div class="p-2 grayLink">
                             <a rel="noopener" href="mailto:<?php the_field('correo', get_sub_field('funcionario')->ID ) ?>" target="_blank"><?php the_field('correo', get_sub_field('funcionario')->ID ) ?></a>
@@ -370,7 +370,7 @@ get_header();
                         <?php if( !empty( get_field('declaracion', get_sub_field('funcionario')->ID )  ) ): ?>
                           <div class="d-flex">
                             <div class="p-2 redLink">
-                              <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                              <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
                             </div>
 
                             

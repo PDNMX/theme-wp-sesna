@@ -9,9 +9,9 @@ get_header();
       <div class="contenedor--fluido comovamoscontainer" id="comite_coordinador">
         <div class="contenedor">
           <div class="reticulaGrid__12">
-            <div class="columna__12" align="center">
-              <h1 class="title-vamos">¿Cómo vamos?</h1>
-              <h2 class="comite-title">Sesiones del <span>Comité Coordinador</span></h2>
+            <div class="columna__12 texto--centro">
+              <h1 class="title-vamos h1b patria">¿Cómo vamos?</h1>
+              <h2 class="comite-title h2b patria">Sesiones del <span>Comité Coordinador</span></h2>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ get_header();
 
             <div class="columna__6 columna__3--xl mb-4">
               <div class="card-deck text-center">
-                <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-toggle="modal" data-target="#modal-recomendaciones">
+                <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-modal-target="#modal-recomendaciones">
                   <div class="card-body">
                     <h3 class="card-title pricing-card-title"><?= get_option('options_comite_recomendaciones') ?></h3>
                     <h4 class="my-0 font-weight-bold">RECOMENDACIONES</h4>
@@ -53,7 +53,7 @@ get_header();
 
             <div class="columna__6 columna__3--xl mb-4">
               <div class="card-deck text-center">
-                <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-toggle="modal" data-target="#modal-exhortos">
+                <div style="cursor: pointer;" class="card mb-4 shadow-sm" data-modal-target="#modal-exhortos">
                   <div class="card-body">
                     <h3 class="card-title pricing-card-title"><?= get_option('options_comite_exhortos') ?></h3>
                     <h4 class="my-0 font-weight-bold">EXHORTOS</h4>
@@ -76,8 +76,8 @@ get_header();
         </div>
 
         <div class="reticulaGrid__12 titulosFilas">
-          <div class="columna__12 columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="columna__12 columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+          <div class="columna__12 columna__3--lg muestra--ninguno muestra--bloque--lg"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__12 columna__9--lg muestra--ninguno muestra--bloque--lg"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
         <div class="sesiones_container" id="sesiones_comite" data-page="0">
@@ -86,7 +86,7 @@ get_header();
 
         <div class="reticulaGrid__12">
           <div class="columna__12 loadSesiones" id="btn_sesiones_comite">
-          <p>Cargar sesiones anteriores <i class="fas fa-redo-alt" aria-hidden="true"></i></p>
+          <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
           </div>
         </div>
       </div>
@@ -101,9 +101,9 @@ get_header();
     <div class="contenedor--fluido comovamoscontainer" id="comision_ejecutiva">
         <div class="contenedor">
             <div class="reticulaGrid__12">
-            <div class="columna__12" align="center">
-                <h2 class="title-vamos">¿Cómo vamos?</h2>
-                <h2 class="comite-title">Sesiones de la <span>Comisión Ejecutiva</span></h2>
+            <div class="columna__12 texto--centro">
+                <h2 class="title-vamos h2b patria">¿Cómo vamos?</h2>
+                <h2 class="comite-title h2b patria">Sesiones de la <span>Comisión Ejecutiva</span></h2>
             </div>
             </div>
 
@@ -158,8 +158,8 @@ get_header();
         </div>
 
         <div class="reticulaGrid__12 titulosFilas">
-          <div class="columna__12 columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="columna__12 columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+          <div class="columna__12 columna__3--lg muestra--ninguno muestra--bloque--lg"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__12 columna__9--lg muestra--ninguno muestra--bloque--lg"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
 
@@ -168,7 +168,7 @@ get_header();
 
         <div class="reticulaGrid__12">
             <div class="columna__12 loadSesiones" id="btn_sesiones_comision">
-                <p>Cargar sesiones anteriores <i class="fas fa-redo-alt" aria-hidden="true"></i></p>
+                <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
             </div>
         </div>
     </div>
@@ -180,9 +180,9 @@ get_header();
       <div class="contenedor--fluido comovamoscontainer" id="organo_gobierno">
         <div class="contenedor">
             <div class="reticulaGrid__12">
-            <div class="columna__12" align="center">
-                <h2 class="title-vamos">¿Cómo vamos?</h2>
-                <h2 class="comite-title">Sesiones del <span>Órgano de Gobierno</span></h2>
+            <div class="columna__12 texto--centro">
+                <h2 class="title-vamos h2b patria">¿Cómo vamos?</h2>
+                <h2 class="comite-title h2b patria">Sesiones del <span>Órgano de Gobierno</span></h2>
             </div>
             </div>
 
@@ -227,8 +227,8 @@ get_header();
         </div>
 
         <div class="reticulaGrid__12 titulosFilas">
-          <div class="columna__12 columna__3--lg d-md-none d-lg-block"><div class="boxF"><p>EVENTO:</p></div></div>
-          <div class="columna__12 columna__9--lg d-md-none d-lg-block"><p>DESCARGAR DE RECURSOS: </p></div>
+          <div class="columna__12 columna__3--lg muestra--ninguno muestra--bloque--lg"><div class="boxF"><p>EVENTO:</p></div></div>
+          <div class="columna__12 columna__9--lg muestra--ninguno muestra--bloque--lg"><p>DESCARGAR DE RECURSOS: </p></div>
         </div>
 
 
@@ -237,29 +237,26 @@ get_header();
 
         <div class="reticulaGrid__12">
             <div class="columna__12 loadSesiones" id="btn_sesiones_organo_gobierno">
-                <p>Cargar sesiones anteriores <i class="fas fa-redo-alt" aria-hidden="true"></i></p>
+                <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
             </div>
         </div>
     </div>
 
-
-
-
-<!-- Modal RECOMENDACIONES -->
-<div class="modal fade" id="modal-recomendaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Modal RECOMENDACIONES (SND v1.1.0) -->
+<div class="modal snd-modal" id="modal-recomendaciones" tabindex="-1" role="dialog" aria-labelledby="modalRecomendacionesTitle" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" style="background-color: #fff">
-         <div class="modal-header" style="display: flex;">
-            <h5 style="color: #e2211c; font-weight: 550;" class="modal-title">RECOMENDACIONES</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <div class="modal-header d-flex align-items-center justify-content-between p-3 border-bottom">
+            <h5 id="modalRecomendacionesTitle" style="color: var(--color-guinda, #9d2449); font-weight: 600;" class="modal-title m-0">RECOMENDACIONES</h5>
+            <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+               <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
             </button>
          </div>
-         <div class="modal-body" style="text-align: left;">
+         <div class="modal-body p-4" style="text-align: left;">
 			 <h6><a rel="noopener" target="_blank" title="El enlace abre en ventana nueva" href="/wp-content/uploads/2021/06/1.-recomen-jueces-y-magistrados.pdf" class="linkRecomendacionesExhortos">1.- Recomendación No Vinculante a las legislaturas de los estados, relacionada con la selección de jueces y magistrados (Informe Anual 2017)</a></h6>
 			 <br>
 			 <h6><a rel="noopener" target="_blank" title="El enlace abre en ventana nueva" href="/wp-content/uploads/2021/08/2Recomen_Sist_locales_fiscalizacion.pdf" class="linkRecomendacionesExhortos">2.- Recomendación No Vinculante a los Congresos de las entidades federativas, para que se realicen las reformas legales conducentes para funcionamiento de los Sistemas Locales Anticorrupción (Informe Anual 2020)</a></h6>
-             <br>
+              <br>
 			 <h6><a rel="noopener" target="_blank" title="El enlace abre en ventana nueva" href="/wp-content/uploads/2022/03/Recomen_PDN-27Ene2022.pdf" class="linkRecomendacionesExhortos">3.- Recomendación No Vinculante para interconectarse con la Plataforma Digital Nacional (Informe Anual 2021)</a></h6>
 			  <br>
 			 <h6><a rel="noopener" target="_blank" title="El enlace abre en ventana nueva" href="/wp-content/uploads/2024/08/Recomendacion-no-vinculante.pdf" class="linkRecomendacionesExhortos">4.- Recomendación No Vinculante para la Óptima Integración de los Sistemas Locales Anticorrupción </a></h6>
@@ -268,17 +265,17 @@ get_header();
    </div>
 </div>
 
-<!-- Modal EXHORTOS -->
-<div class="modal fade" id="modal-exhortos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- Modal EXHORTOS (SND v1.1.0) -->
+<div class="modal snd-modal" id="modal-exhortos" tabindex="-1" role="dialog" aria-labelledby="modalExhortosTitle" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content" style="background-color: #fff">
-         <div class="modal-header" style="display: flex;">
-            <h5 style="color: #e2211c; font-weight: 550;" class="modal-title">EXHORTOS</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+         <div class="modal-header d-flex align-items-center justify-content-between p-3 border-bottom">
+            <h5 id="modalExhortosTitle" style="color: var(--color-guinda, #9d2449); font-weight: 600;" class="modal-title m-0">EXHORTOS</h5>
+            <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+               <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
             </button>
          </div>
-         <div class="modal-body" style="text-align: left;">
+         <div class="modal-body p-4" style="text-align: left;">
             <h6>
 				<a rel="noopener" target="_blank" title="El enlace abre en ventana nueva" href="/wp-content/uploads/2021/06/1.-Exhorto-Caso-Odebrecht.pdf" class="linkRecomendacionesExhortos">1.- Exhorto del caso Odebretch</a>
 			 </h6>
@@ -288,4 +285,6 @@ get_header();
 </div>
 
 <?php
+get_template_part('template-parts/visor-pdf');
 get_footer();
+?>

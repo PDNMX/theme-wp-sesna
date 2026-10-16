@@ -73,9 +73,9 @@
     /** Construye el grid de evidencias (2 o 3 columnas según cantidad) */
     function buildGaleriaGrid(galeria, color) {
         if (!galeria || galeria.length === 0) return '';
-        var cols = galeria.length <= 2 ? 'col-6' : 'col-4';
+        var cols = galeria.length <= 2 ? 'columna__6' : 'columna__4';
         var containerHeight = galeria.length <= 2 ? '240px' : '150px';
-        var html = '<div class="row g-2 mt-1">';
+        var html = '<div class="reticulaGrid__12 mt-1">';
         for (var i = 0; i < galeria.length; i++) {
             html += '<div class="' + cols + '">' +
                 '<div class="rounded-2 overflow-hidden bg-light d-flex align-items-center justify-content-center p-2" style="height:' + containerHeight + ';">' +
@@ -89,7 +89,7 @@
     /* ── Constructor principal del modal body ───────────────────── */
     function buildModalContent(data) {
         var titulo    = data.titulo    || '';
-        var icono     = data.icono     || 'bi-star';
+        var icono     = data.icono     || 'snd-star';
         var color     = data.color     || '#9d2449';
         var contenido = data.contenido || '';
         var infografia= data.infografia|| [];
@@ -112,11 +112,11 @@
         var soloVideo = hasVideo && !hasInfo && !hasGal;
 
         /* ─ Bloque de texto base (siempre presente en izquierda) ── */
-        var leftCols = soloTexto ? 'col-12' : 'col-lg-6';
+        var leftCols = soloTexto ? 'columna__12' : 'columna__12 columna__6--lg';
 
         var textoHtml =
             '<div class="mb-2" style="height:48px; display:flex; align-items:center;">' +
-                '<i class="bi ' + escHtml(icono) + '" style="font-size:2.5rem; line-height:1; color:' + escHtml(color) + ';"></i>' +
+                '<i class="snd__icono ' + escHtml(icono) + ' icono--32" style="color:' + escHtml(color) + ';"></i>' +
             '</div>' +
             '<h3 class="fw-bold mb-3 sna-programas-title" style="color:' + escHtml(color) + ';">' + escHtml(titulo) + '</h3>' +
             '<div style="width:30px; height:3px; background-color:' + escHtml(color) + '; margin-bottom:1.5rem;"></div>' +
@@ -126,15 +126,15 @@
 
         if (soloTexto) {
             /* ── CASO A ── */
-            leftHtml  = '<div class="col-12 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
+            leftHtml  = '<div class="columna__12 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml = '';
 
         } else if (soloImagen) {
             /* ── CASO B: texto izq / imagen der ── */
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' +
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' +
                     '<div style="height:48px; width:100%;" class="mb-2"></div>' +
                     '<p class="fw-semibold text-muted mb-2" style="font-size:0.82rem; letter-spacing:.05em; text-transform:uppercase;">Infografía</p>';
             for (var i = 0; i < infografia.length; i++) {
@@ -149,9 +149,9 @@
         } else if (soloVideo) {
             /* ── CASO D: texto izq / video der ── */
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + textoHtml + '</div>';
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' + textoHtml + '</div>';
             rightHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + 
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' + 
                     '<div style="height:48px; width:100%;" class="mb-2"></div>' +
                     buildVideoBlock(videoUrl) + 
                 '</div>';
@@ -165,7 +165,7 @@
                     buildVideoBlock(videoUrl);
             }
             leftHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' +
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' +
                     textoHtml + videoSection +
                 '</div>';
 
@@ -192,7 +192,7 @@
                     buildGaleriaGrid(galeria, color);
             }
             rightHtml =
-                '<div class="col-lg-6 d-flex flex-column justify-content-start">' + rightInner + '</div>';
+                '<div class="columna__12 columna__6--lg d-flex flex-column justify-content-start">' + rightInner + '</div>';
         }
 
         /* ─ Banner inferior ──────────────────────────────────────── */
@@ -201,13 +201,13 @@
             bannerHtml =
                 '<div class="mt-4 p-3 rounded-3 d-flex align-items-start align-items-md-center gap-3"' +
                 '     style="background-color:#fcf4f5; border:1px solid rgba(157,36,73,0.1);">' +
-                    '<i class="bi bi-box2-heart flex-shrink-0 mt-1 mt-md-0"' +
+                    '<i class="snd__icono snd-heart flex-shrink-0 mt-1 mt-md-0 icono--24"' +
                     '   style="font-size:1.5rem; color:' + escHtml(color) + ';"></i>' +
                     '<p class="mb-0 text-muted fw-light">' + escHtml(banner) + '</p>' +
                 '</div>';
         }
 
-        return '<div class="row g-4 align-items-stretch">' + leftHtml + rightHtml + '</div>' + bannerHtml;
+        return '<div class="reticulaGrid__12 align-items-stretch">' + leftHtml + rightHtml + '</div>' + bannerHtml;
     }
 
     /* ── Listener: abrir modal ──────────────────────────────────── */
@@ -236,7 +236,7 @@
 
         modalBody.innerHTML = buildModalContent({
             titulo:    trigger.getAttribute('data-titulo')    || '',
-            icono:     trigger.getAttribute('data-icono')     || 'bi-star',
+            icono:     trigger.getAttribute('data-icono')     || 'snd-star',
             color:     trigger.getAttribute('data-color')     || '#9d2449',
             contenido: trigger.getAttribute('data-contenido') || '',
             infografia: infografia,
@@ -244,6 +244,18 @@
             video:     trigger.getAttribute('data-video')     || '',
             banner:    trigger.getAttribute('data-banner')    || ''
         });
+
+        if (window.sndModal) {
+            window.sndModal.show(document.getElementById('modal-campania'), trigger);
+        }
+    });
+
+    // Abrir modal de catálogo con controlador nativo
+    document.addEventListener('click', function (e) {
+        var catTrigger = e.target.closest('[data-modal-target="#modal-catalogo"]');
+        if (catTrigger && window.sndModal) {
+            window.sndModal.show(document.getElementById('modal-catalogo'), catTrigger);
+        }
     });
 
     /* ── Listener: limpiar al cerrar modal ──────────────────────── */
@@ -263,9 +275,7 @@
         if (modalBody) {
             modalBody.innerHTML =
                 '<div class="d-flex justify-content-center align-items-center" style="min-height:200px;">' +
-                    '<div class="spinner-border text-secondary" role="status">' +
-                        '<span class="visually-hidden">Cargando...</span>' +
-                    '</div>' +
+                    '<i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" aria-hidden="true"></i>' +
                 '</div>';
         }
     });

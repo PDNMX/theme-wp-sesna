@@ -1,27 +1,247 @@
 <?php
 /**
- * Visor Universal de PDF en Modal
- * Utilizado en páginas de Transparencia y Política Nacional Anticorrupción.
+ * Visor Universal de PDF en Modal (SND v1.1.0)
+ * Utilizado en páginas de Transparencia, PNA y Administración.
  */
 ?>
-<!-- Script del Visor Universal de PDF -->
+<!-- Estilos del Modal Nativo Accesible SND v1.1.0 -->
+<style>
+.snd-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    background-color: rgba(22, 26, 29, 0.56); /* neutro-800 al 56% según SND Sección 3.1 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+}
+.snd-modal-backdrop.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal.snd-modal,
+.modal.tx-pdf-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1055;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+}
+.modal.snd-modal.is-open,
+.modal.tx-pdf-modal.is-open {
+    display: block;
+}
+.modal.snd-modal .modal-dialog,
+.modal.tx-pdf-modal .modal-dialog {
+    transform: translateY(-20px);
+    transition: transform 0.25s ease-out;
+}
+.modal.snd-modal.is-open .modal-dialog,
+.modal.tx-pdf-modal.is-open .modal-dialog {
+    transform: translateY(0);
+}
+.modal.snd-modal .modal-content,
+.modal.tx-pdf-modal .modal-content {
+    background-color: #ffffff;
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2); /* Sombra Drop LV 3 SND */
+    border-radius: 16px;
+    border: none;
+}
+body.snd-modal-open {
+    overflow: hidden !important;
+}
+</style>
+
+<!-- Script del Visor Universal y Controlador Modal Nativo SND v1.1.0 -->
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const pdfModalEl = document.getElementById('pdfViewerModal');
-    if (pdfModalEl) {
-        const iframe = document.getElementById('pdfIframe');
-        const downloadBtn = document.getElementById('pdfDownloadBtn');
-        const copyLinkBtn = document.getElementById('pdfCopyLinkBtn');
-        const copyLinkBtnText = document.getElementById('pdfCopyLinkBtnText');
-        const loader = document.getElementById('pdfLoader');
-        const title = document.getElementById('pdfViewerModalLabel');
+(function() {
+    'use strict';
+
+    // ── Controlador Global de Modales SND ─────────────────────────
+    var backdropEl = null;
+
+    function getOrCreateBackdrop() {
+        if (!backdropEl) {
+            backdropEl = document.getElementById('snd-modal-backdrop');
+            if (!backdropEl) {
+                backdropEl = document.createElement('div');
+                backdropEl.id = 'snd-modal-backdrop';
+                backdropEl.className = 'snd-modal-backdrop';
+                document.body.appendChild(backdropEl);
+                backdropEl.addEventListener('click', function() {
+                    var openModal = document.querySelector('.modal.is-open');
+                    if (openModal) {
+                        window.sndModal.hide(openModal);
+                    }
+                });
+            }
+        }
+        return backdropEl;
+    }
+
+    window.sndModal = {
+        show: function(modalEl, trigger) {
+            if (typeof modalEl === 'string') {
+                modalEl = document.querySelector(modalEl);
+            }
+            if (!modalEl) return;
+
+            // Disparar evento de apertura (compatible con show.bs.modal)
+            var showEvent = new CustomEvent('show.bs.modal', {
+                bubbles: true,
+                cancelable: true,
+                detail: { relatedTarget: trigger }
+            });
+            showEvent.relatedTarget = trigger;
+            modalEl.dispatchEvent(showEvent);
+            if (showEvent.defaultPrevented) return;
+
+            var bd = getOrCreateBackdrop();
+            bd.classList.add('is-visible');
+
+            modalEl.classList.add('is-open');
+            modalEl.setAttribute('aria-modal', 'true');
+            modalEl.removeAttribute('aria-hidden');
+            document.body.classList.add('snd-modal-open');
+
+            // Foco accesible al diálogo o botón de cierre
+            var closeBtn = modalEl.querySelector('[data-modal-dismiss], .btn-close');
+            if (closeBtn) {
+                closeBtn.focus();
+            }
+
+            // Disparar shown
+            setTimeout(function() {
+                var shownEvent = new CustomEvent('shown.bs.modal', {
+                    bubbles: true,
+                    cancelable: false,
+                    detail: { relatedTarget: trigger }
+                });
+                shownEvent.relatedTarget = trigger;
+                modalEl.dispatchEvent(shownEvent);
+            }, 250);
+        },
+        hide: function(modalEl) {
+            if (typeof modalEl === 'string') {
+                modalEl = document.querySelector(modalEl);
+            }
+            if (!modalEl) return;
+
+            var hideEvent = new CustomEvent('hide.bs.modal', {
+                bubbles: true,
+                cancelable: true
+            });
+            modalEl.dispatchEvent(hideEvent);
+            if (hideEvent.defaultPrevented) return;
+
+            modalEl.classList.remove('is-open');
+            modalEl.setAttribute('aria-hidden', 'true');
+            modalEl.removeAttribute('aria-modal');
+
+            // Si no quedan más modales abiertos, ocultar backdrop
+            var remaining = document.querySelectorAll('.modal.is-open');
+            if (remaining.length === 0) {
+                var bd = getOrCreateBackdrop();
+                bd.classList.remove('is-visible');
+                document.body.classList.remove('snd-modal-open');
+            }
+
+            setTimeout(function() {
+                var hiddenEvent = new CustomEvent('hidden.bs.modal', {
+                    bubbles: true,
+                    cancelable: false
+                });
+                modalEl.dispatchEvent(hiddenEvent);
+            }, 250);
+        }
+    };
+
+    // Shim de compatibilidad para código externo que invoque la API modal
+    var bsObj = window['bootstrap'] = window['bootstrap'] || {};
+    if (!bsObj['Modal']) {
+        bsObj['Modal'] = function(el) {
+            return {
+                show: function() { window.sndModal.show(el); },
+                hide: function() { window.sndModal.hide(el); }
+            };
+        };
+        bsObj['Modal']['getInstance'] = function(el) {
+            return new bsObj['Modal'](el);
+        };
+    }
+    if (window.jQuery && !window.jQuery.fn.modal) {
+        window.jQuery.fn.modal = function(action) {
+            return this.each(function() {
+                if (action === 'hide') {
+                    window.sndModal.hide(this);
+                } else {
+                    window.sndModal.show(this);
+                }
+            });
+        };
+    }
+
+    // Delegación global: abrir modal por atributo data-modal-target
+    document.addEventListener('click', function(e) {
+        var openTrigger = e.target.closest('[data-modal-target]');
+        if (openTrigger) {
+            var targetSelector = openTrigger.getAttribute('data-modal-target');
+            if (targetSelector && targetSelector !== '#pdfViewerModal') {
+                var targetModal = document.querySelector(targetSelector);
+                if (targetModal) {
+                    e.preventDefault();
+                    window.sndModal.show(targetModal, openTrigger);
+                }
+            }
+        }
+    });
+
+    // Delegación global: cerrar con botón de cierre o tecla Escape
+    document.addEventListener('click', function(e) {
+        var dismissBtn = e.target.closest('[data-modal-dismiss]');
+        if (dismissBtn) {
+            var modal = dismissBtn.closest('.modal');
+            if (modal) {
+                e.preventDefault();
+                window.sndModal.hide(modal);
+            }
+        }
+
+        // Clic en el área exterior del diálogo modal
+        if (e.target.classList.contains('modal') && e.target.classList.contains('is-open')) {
+            window.sndModal.hide(e.target);
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var openModal = document.querySelector('.modal.is-open');
+            if (openModal) {
+                window.sndModal.hide(openModal);
+            }
+        }
+    });
+
+    // ── Lógica del Visor de Documentos PDF ────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+        var pdfModalEl = document.getElementById('pdfViewerModal');
+        if (!pdfModalEl) return;
+
+        var iframe = document.getElementById('pdfIframe');
+        var downloadBtn = document.getElementById('pdfDownloadBtn');
+        var copyLinkBtn = document.getElementById('pdfCopyLinkBtn');
+        var copyLinkBtnText = document.getElementById('pdfCopyLinkBtnText');
+        var loader = document.getElementById('pdfLoader');
+        var title = document.getElementById('pdfViewerModalLabel');
 
         if (copyLinkBtn) {
             copyLinkBtn.addEventListener('click', function () {
-                const url = downloadBtn ? downloadBtn.href : '';
+                var url = downloadBtn ? downloadBtn.href : '';
                 if (!url || url === '#' || url.endsWith('/#')) return;
 
-                const showCopied = function () {
+                var showCopied = function () {
                     copyLinkBtn.classList.add('is-copied');
                     if (copyLinkBtnText) copyLinkBtnText.textContent = '¡Enlace copiado!';
                     setTimeout(function () {
@@ -42,21 +262,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (downloadBtn) {
             downloadBtn.addEventListener('click', function (e) {
-                const url = downloadBtn.href;
+                var url = downloadBtn.href;
                 if (!url || url === '#' || url.endsWith('/#')) return;
 
                 e.preventDefault();
-
-                let filename = 'documento.pdf';
+                var filename = 'documento.pdf';
                 try {
-                    const path = new URL(url, window.location.href).pathname;
+                    var path = new URL(url, window.location.href).pathname;
                     filename = decodeURIComponent(path.substring(path.lastIndexOf('/') + 1)) || filename;
-                } catch (err) {
-                    // Se conserva el nombre por defecto si la URL no pudo analizarse.
-                }
+                } catch (err) {}
 
-                const triggerDownload = function (href) {
-                    const tempLink = document.createElement('a');
+                var triggerDownload = function (href) {
+                    var tempLink = document.createElement('a');
                     tempLink.href = href;
                     tempLink.download = filename;
                     document.body.appendChild(tempLink);
@@ -70,81 +287,54 @@ document.addEventListener('DOMContentLoaded', function () {
                         return res.blob();
                     })
                     .then(function (blob) {
-                        const blobUrl = URL.createObjectURL(blob);
+                        var blobUrl = URL.createObjectURL(blob);
                         triggerDownload(blobUrl);
                         setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 1000);
                     })
                     .catch(function () {
-                        // Fallback: si el fetch falla (p. ej. CORS en un dominio externo), se intenta la descarga nativa.
                         triggerDownload(url);
                     });
             });
         }
 
         function copyLinkFallback(url, onSuccess) {
-            const temp = document.createElement('textarea');
+            var temp = document.createElement('textarea');
             temp.value = url;
             temp.style.position = 'fixed';
             temp.style.opacity = '0';
             document.body.appendChild(temp);
             temp.focus();
             temp.select();
-            let copied = false;
+            var copied = false;
             try {
-                // execCommand devuelve false (sin lanzar error) cuando el
-                // navegador bloquea el copiado silenciosamente, así que hay
-                // que revisar el resultado y no solo el try/catch.
                 copied = document.execCommand('copy');
             } catch (err) {
                 copied = false;
             }
             document.body.removeChild(temp);
-
             if (copied) {
                 onSuccess();
-                return;
+            } else {
+                window.prompt('Copia el enlace manualmente (Ctrl+C / Cmd+C):', url);
             }
-
-            // Último recurso: tanto el Clipboard API moderno como
-            // execCommand('copy') requieren/favorecen un contexto seguro
-            // (HTTPS o localhost). Al publicar el sitio en un servidor con
-            // IP directa sin certificado, ambos pueden fallar sin avisar,
-            // y el botón "no copiaba nada". Mostrar el enlace en un prompt
-            // ya seleccionado permite copiarlo a mano (Ctrl+C/Cmd+C) sin
-            // depender de esos permisos del navegador.
-            window.prompt('Copia el enlace manualmente (Ctrl+C / Cmd+C):', url);
         }
-        // Evita que 'show.bs.modal' reprocese con relatedTarget cuando el click ya resolvió el documento.
-        let lastResolvedByClick = false;
 
-        // Captura (3er arg `true`) para ejecutarse antes que el listener nativo de Bootstrap en [data-bs-toggle="modal"].
+        // Delegación de apertura para cualquier trigger de PDF
         document.addEventListener('click', function(e) {
             if (e.target.closest('.pna-anexos-header')) return;
 
-            const trigger = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#pdfViewerModal"], .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
+            var trigger = e.target.closest('[data-modal-target="#pdfViewerModal"], .pna-anexo-item, .tx-sesion-pdf-link, .tx-sesion-chevron-link, a[data-pdf-url]');
+            if (!trigger) return;
 
-            // Respeta un modal distinto declarado explícitamente (ej. visor de video).
-            if (trigger && trigger.hasAttribute('data-bs-target') && trigger.getAttribute('data-bs-target') !== '#pdfViewerModal') return;
+            var targetAttr = trigger.getAttribute('data-modal-target');
+            if (targetAttr && targetAttr !== '#pdfViewerModal') return;
 
-            let isPdfTrigger = false;
-            if (trigger) {
-                if (trigger.getAttribute('data-bs-target') === '#pdfViewerModal' || trigger.classList.contains('pna-anexo-item') || trigger.classList.contains('tx-sesion-pdf-link') || trigger.classList.contains('tx-sesion-chevron-link') || trigger.hasAttribute('data-pdf-url')) {
-                    isPdfTrigger = true;
-                } else if (trigger.innerText && (trigger.innerText.includes('PDF') || trigger.innerText.includes('Relatoría') || trigger.innerText.includes('Acta') || trigger.innerText.includes('Resolución'))) {
-                    isPdfTrigger = true;
-                }
-            }
+            var pdfUrl = trigger.getAttribute('data-pdf-url') || trigger.getAttribute('href') || '#';
 
-            if (!isPdfTrigger || !trigger) return;
-
-            const pdfUrl = trigger.getAttribute('data-pdf-url') || trigger.getAttribute('href') || '#';
-
-            // Archivos no-PDF (xlsx, docx, etc.) se descargan directo; stopImmediatePropagation
-            // evita que el listener nativo de Bootstrap abra igualmente el modal.
+            // Archivos no-PDF se descargan directo
             if (pdfUrl && pdfUrl !== '#' && !/\.pdf(\?.*)?$/i.test(pdfUrl)) {
                 e.preventDefault();
-                e.stopImmediatePropagation();
-                const tempLink = document.createElement('a');
+                var tempLink = document.createElement('a');
                 tempLink.href = pdfUrl;
                 tempLink.download = '';
                 document.body.appendChild(tempLink);
@@ -155,9 +345,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             e.preventDefault();
 
-            let pdfTitle = trigger.getAttribute('data-pdf-title') || '';
+            var pdfTitle = trigger.getAttribute('data-pdf-title') || '';
             if (!pdfTitle) {
-                const parentRow = trigger.closest('.pna-foro-item, .pna-step-card, .tx-doc-row, .tx-sesion-row, tr, li, div.row, div.card');
+                var parentRow = trigger.closest('.pna-foro-item, .pna-step-card, .tx-doc-row, .tx-sesion-row, tr, li, div.row, div.card');
                 if (parentRow && parentRow.querySelector('h3, h4, h5, h6, .fw-bold, .nombreActa, .tx-sesion-info-title')) {
                     pdfTitle = parentRow.querySelector('h3, h4, h5, h6, .fw-bold, .nombreActa, .tx-sesion-info-title').innerText.trim();
                 } else {
@@ -168,18 +358,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (title) title.textContent = pdfTitle;
             if (downloadBtn) downloadBtn.href = pdfUrl;
-            
+
             if (iframe) {
                 iframe.style.opacity = '0';
                 if (loader) loader.style.display = 'block';
-                
+
                 if (pdfUrl === '#' || !pdfUrl || pdfUrl === '') {
                     iframe.src = 'about:blank';
                     setTimeout(function() {
-                        const doc = iframe.contentWindow || iframe.contentDocument;
-                        const docEl = doc.document ? doc.document : doc;
+                        var doc = iframe.contentWindow || iframe.contentDocument;
+                        var docEl = doc.document ? doc.document : doc;
                         docEl.open();
-                        docEl.write('<div style="font-family: \'Noto Sans\', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f8f9fa; color: #555; text-align: center; padding: 20px; box-sizing: border-box;"><div style="font-size: 56px; color: #691C32; margin-bottom: 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="snd__icono snd snd-document--pdf" viewBox="0 0 16 16"><path d="M5.523 12.424c.14-.082.293-.162.459-.238a7.878 7.878 0 0 1-.45.606c-.28.337-.498.516-.635.572a.266.266 0 0 1-.035.012.282.282 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548zm2.455-1.647c-.119.025-.237.05-.356.078a21.148 21.148 0 0 0 .5-1.05 12.045 12.045 0 0 0 .51.858c-.217.032-.436.07-.654.114zm2.525.939a3.881 3.881 0 0 1-.435-.41c.228.005.434.022.612.054.317.057.466.147.518.209a.095.095 0 0 1 .026.064.436.436 0 0 1-.06.2.307.307 0 0 1-.094.124.107.107 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256zM8.278 6.97c-.04.244-.108.524-.2.829a4.86 4.86 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.517.517 0 0 1 .145-.04c.013.03.028.092.032.198.005.122-.007.277-.038.465z"/><path fill-rule="evenodd" d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.651 11.651 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.856.856 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.844.844 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.76 5.76 0 0 0-1.335-.05 10.954 10.954 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.238 1.238 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.659.823-.073.31-.069.663-.038 1.042.029.36.082.748.16 1.155a13.266 13.266 0 0 1-1.028 1.543c-.347.432-.676.786-.983 1.04-.3.247-.6.417-.852.477-.247.059-.446.035-.572-.058a.56.56 0 0 1-.168-.23c-.024-.056-.035-.118-.035-.181 0-.107.03-.217.087-.323z"/></svg></div><h3 style="margin: 0 0 12px 0; color: #222; font-weight: 700; font-size: 22px;">' + (title ? title.textContent : pdfTitle) + '</h3><p style="margin: 0 0 24px 0; font-size: 15px; max-width: 480px; line-height: 1.5;">Este documento estará disponible próximamente para consulta e impresión en formato PDF.</p><div style="padding: 10px 20px; background: #E5B8C0; color: #691C32; border-radius: 50px; font-weight: 600; font-size: 13px;">Archivo en vinculación</div></div>');
+                        docEl.write('<div style="font-family: \'Noto Sans\', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f8f9fa; color: #555; text-align: center; padding: 20px; box-sizing: border-box;"><div style="font-size: 56px; color: #691C32; margin-bottom: 20px;"><i class="snd__icono snd-document--pdf icono--64" style="color:#691C32;"></i></div><h3 style="margin: 0 0 12px 0; color: #222; font-weight: 700; font-size: 22px;">' + (title ? title.textContent : pdfTitle) + '</h3><p style="margin: 0 0 24px 0; font-size: 15px; max-width: 480px; line-height: 1.5;">Este documento estará disponible próximamente para consulta e impresión en formato PDF.</p><div style="padding: 10px 20px; background: #E5B8C0; color: #691C32; border-radius: 50px; font-weight: 600; font-size: 13px;">Archivo en vinculación</div></div>');
                         docEl.close();
                         iframe.style.transition = 'opacity 0.4s ease';
                         iframe.style.opacity = '1';
@@ -188,15 +378,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     iframe.src = pdfUrl;
                 }
-
-                lastResolvedByClick = true;
-                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
-                    let modalInstance = bootstrap.Modal.getInstance(pdfModalEl) || new bootstrap.Modal(pdfModalEl);
-                    modalInstance.show();
-                } else if (typeof $ !== 'undefined' && $.fn.modal) {
-                    $(pdfModalEl).modal('show');
-                }
             }
+
+            window.sndModal.show(pdfModalEl, trigger);
         }, true);
 
         pdfModalEl.addEventListener('show.bs.modal', function (event) {
@@ -244,69 +428,39 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
-        const pageLoader = document.getElementById('sesna-page-loader');
-
-        pdfModalEl.addEventListener('show.bs.modal', function () {
-            if (pageLoader) {
-                pageLoader.style.transition = 'none';
-                pageLoader.style.display = 'flex';
-                pageLoader.classList.remove('loader-hidden');
-            }
-        });
-
-        pdfModalEl.addEventListener('shown.bs.modal', function () {
-            if (pageLoader) {
-                pageLoader.style.transition = 'opacity 0.5s ease-out, visibility 0.5s ease-out';
-                pageLoader.classList.add('loader-hidden');
-                setTimeout(() => { pageLoader.style.display = 'none'; }, 600);
-            }
-        });
-
-        pdfModalEl.addEventListener('hide.bs.modal', function () {
-            if (pageLoader) {
-                pageLoader.style.transition = 'none';
-                pageLoader.style.display = 'flex';
-                pageLoader.classList.remove('loader-hidden');
-            }
-        });
-
         pdfModalEl.addEventListener('hidden.bs.modal', function () {
             if (iframe) iframe.src = '';
             if (title) title.textContent = 'Visor de Documento';
             if (loader) loader.style.display = 'block';
-            
-            if (pageLoader) {
-                pageLoader.style.transition = 'opacity 0.5s ease-out, visibility 0.5s ease-out';
-                pageLoader.classList.add('loader-hidden');
-                setTimeout(() => { pageLoader.style.display = 'none'; }, 600);
-            }
         });
-    }
-});
+    });
+})();
 </script>
 
-<!-- Modal Visor de Documento PDF -->
-<div class="modal fade tx-pdf-modal" id="pdfViewerModal" tabindex="-1" aria-labelledby="pdfViewerModalLabel" aria-hidden="true">
+<!-- Modal Visor de Documento PDF (SND v1.1.0) -->
+<div class="modal tx-pdf-modal" id="pdfViewerModal" tabindex="-1" role="dialog" aria-labelledby="pdfViewerModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 900px !important; margin: 5vh auto !important;">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
-                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="pdfViewerModalLabel" style="color: var(--color-burgundi); font-size: 1.25rem;">Visor de Documento</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Cerrar"></button>
+                <h5 class="modal-title h5b patria mb-0" id="pdfViewerModalLabel" style="color: var(--color-burgundi); font-size: 1.25rem;">Visor de Documento</h5>
+                <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                </button>
             </div>
             <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 500px;">
                 <!-- Loader spinner -->
                 <div id="pdfLoader" class="position-absolute top-50 start-50 translate-middle text-white text-center">
-                    <div class="spinner-border mb-2" role="status"></div>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--blanco mb-2" aria-hidden="true"></i>
                     <div class="font-noto-sans small">Cargando documento...</div>
                 </div>
                 <iframe id="pdfIframe" src="" class="w-100 h-100 border-0 position-relative" style="z-index: 2;" allowfullscreen></iframe>
             </div>
             <div class="modal-footer border-0 justify-content-center py-4 bg-white gap-3">
-                <button type="button" id="pdfCopyLinkBtn" class="btn tx-pdf-copy-btn font-noto-sans fw-bold px-4 py-2">
-                    <i class="snd__icono snd snd-launch me-2" aria-hidden="true"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
+                <button type="button" id="pdfCopyLinkBtn" class="boton__secundario boton--redondeado font-noto-sans fw-bold px-4 py-2">
+                    <i class="snd__icono snd-launch icono--16 me-2" aria-hidden="true"></i> <span id="pdfCopyLinkBtnText">Copiar enlace</span>
                 </button>
-                <a href="#" id="pdfDownloadBtn" class="btn tx-pdf-download-btn font-noto-sans fw-bold px-4 py-2" download>
-                    <i class="snd__icono snd snd-download me-2" aria-hidden="true"></i> Descargar PDF
+                <a href="#" id="pdfDownloadBtn" class="boton__primario boton--redondeado font-noto-sans fw-bold px-4 py-2" download>
+                    <i class="snd__icono snd-download icono--16 me-2" aria-hidden="true"></i> Descargar PDF
                 </a>
             </div>
         </div>

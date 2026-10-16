@@ -12,16 +12,16 @@ get_header();
 
 <div class="transparenciaContainer" id="normatividadContainer">
       <div class="contenedor">
-		<p class="normatividadTitulo">Consulta <b>información relevante</b> en materia de <b><i>archivos de la SESNA.</i><b/></b></p>
+		<p class="normatividadTitulo">Consulta <b>información relevante</b> en materia de <b><i>archivos de la SESNA.</i></b></p>
       </div>
 
 
         <div class="contenedor" >
           <div class="reticulaGrid__12" id="filaTitulos">
-            <div class="columna__9 d-md-block d-none">
+            <div class="columna__9 muestra--ninguno muestra--bloque--md">
               <p>DESCRIPCIÓN </p>
             </div>
-            <div class="columna__3 d-md-block d-none">
+            <div class="columna__3 muestra--ninguno muestra--bloque--md">
               <p>DESCARGAS </p>
             </div>
           </div>
@@ -43,7 +43,7 @@ get_header();
                 <p class="nombreActa"><?php the_title(); ?></p>
               </div>
               <div class="columna__12 columna__3--md">
-                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="boton__secundario muestra--flex-linea align-items-center gap--8">Consultar <i class="snd__icono snd snd-document--pdf fs-5" aria-hidden="true" style="color: var(--color-burgundi);"></i></a>
+                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php the_file('archivo'); ?>" data-pdf-title="<?php echo esc_attr(get_the_title()); ?>" class="boton__secundario muestra--flex-linea align-items-center gap--8">Consultar <i class="snd__icono snd-document--pdf icono--20" aria-hidden="true" style="color: var(--color-burgundi);"></i></a>
               </div>
             </div>
 

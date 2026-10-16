@@ -12,10 +12,10 @@ get_header();
 
     <!-- Breadcrumb -->
     <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="container">
+        <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -28,7 +28,7 @@ get_header();
         </div>
     </nav>
 
-    <div class="container pt-4 pb-5">
+    <div class="contenedor pt-4 pb-5">
         <?php get_template_part( 'template-parts/administracion-finanzas/planeacion-institucional-contenido' ); ?>
     </div>
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var target = document.getElementById(this.dataset.cfToggle);
             var chevron = this.querySelector('.cf-year-chevron');
             if (!target) return;
-            var abierto = target.classList.toggle('d-none');
+            var abierto = target.classList.toggle('muestra--ninguno');
             chevron.classList.toggle('snd-chevron--down', !abierto);
             chevron.classList.toggle('snd-chevron--right', abierto);
         });
@@ -68,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var rows = scope.querySelectorAll('.cf-doc-row');
 
             if (!query) {
-                rows.forEach(function (r) { r.classList.remove('d-none'); });
+                rows.forEach(function (r) { r.classList.remove('muestra--ninguno'); });
                 scope.querySelectorAll('.cf-year-docs').forEach(function (g) {
                     var open = g.dataset.cfDefaultOpen === 'true';
-                    g.classList.toggle('d-none', !open);
+                    g.classList.toggle('muestra--ninguno', !open);
                     var toggle = scope.querySelector('[data-cf-toggle="' + g.id + '"] .cf-year-chevron');
                     if (toggle) {
                         toggle.classList.toggle('snd-chevron--down', open);
@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             rows.forEach(function (r) {
                 var match = (r.dataset.cfSearch || '').indexOf(query) !== -1;
-                r.classList.toggle('d-none', !match);
+                r.classList.toggle('muestra--ninguno', !match);
             });
             scope.querySelectorAll('.cf-year-docs').forEach(function (g) {
-                var anyVisible = g.querySelector('.cf-doc-row:not(.d-none)') !== null;
-                g.classList.toggle('d-none', !anyVisible);
+                var anyVisible = g.querySelector('.cf-doc-row:not(.muestra--ninguno)') !== null;
+                g.classList.toggle('muestra--ninguno', !anyVisible);
             });
         });
     });

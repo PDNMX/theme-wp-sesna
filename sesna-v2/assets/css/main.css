@@ -1,8 +1,8 @@
-/* Tipografía SESNA: el SND publica sus fuentes en rutas que hoy devuelven 404.
-   Patria se toma de la ruta oficial de GOB.mx; Noto Sans se autohospeda (OFL). */
-@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Patria'; src: url('https://framework-gb.cdn.gob.mx/applications/cms/fonts/Patria_Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+/* Tipografía SESNA
+   - Patria: la declara snd-guinda.css v1.1.0 (@font-face → /snd/v1.1.0/fuentes/).
+     No redeclarar aquí: main.css carga después y sustituiría la fuente oficial.
+   - Noto Sans: autohospedada (OFL). Pendiente de revisión: v1.1.0 ya publica
+     la fuente variable (100–900, normal e itálica) en /snd/v1.1.0/fuentes/. */
 @font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
 @font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
@@ -17,28 +17,17 @@
 
 /* ============================================================
    SESNA v2 — Hoja de estilos principal
-   Extiende el framework GOB.mx v3
-   El header y footer de GOB.mx son inyectados automáticamente
-   por gobmx.js — no se codifican aquí.
+   Basada 100% en el Sistema Nacional de Diseño (SND) v1.1.0
+   Header y footer institucionales conformes a la norma oficial.
    ============================================================ */
 
-/* ------------------------------------------------------------
-   Fix GOB.mx v3: body { height: 100vh } colapsa el contenido.
-   Usamos min-height para que body/html crezcan con el contenido.
-   ------------------------------------------------------------ */
 html {
     height: auto !important;
-    min-height: 100vh;
+    min-height: 100vh !important;
 }
 body {
     height: auto !important;
-    min-height: 100vh;
-    /* gobmx-framework (CSS externo v3, fuera de nuestro control) trae
-       body { text-align: justify } de fábrica, heredado por todo el documento.
-       A tamaño de párrafo casi no se nota, pero en encabezados grandes
-       (.h0b, .h1b, .h2b...) produce espaciado irregular entre palabras.
-       Se resetea aquí, una sola vez; las utilidades de alineación
-       (.texto--centro, etc.) siguen mandando donde se usan, vía !important. */
+    min-height: 100vh !important;
     text-align: left;
 }
 
@@ -46,11 +35,65 @@ body {
    Fix SND JS: el <svg> generado no tiene width/height explícito.
    width:1em/height:1em lo escala al font-size del contexto.
    ------------------------------------------------------------ */
-svg.snd {
+svg.snd:not(.mexico__img):not(.footer__escudo) {
     width: 1em;
     height: 1em;
     flex-shrink: 0;
     vertical-align: middle;
+}
+
+/* ------------------------------------------------------------
+   Escudos institucionales Gobierno de México (Header y Footer SND)
+   Conforme a SND v1.1.0 Secciones 4.6 y 4.7
+   ------------------------------------------------------------ */
+.mexico__escudo {
+    display: flex;
+    align-items: center;
+}
+.mexico__aescudo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+.mexico__img,
+svg.mexico__img,
+i.mexico__img {
+    height: 48px !important;
+    width: auto !important;
+    max-width: 160px !important;
+    min-width: 120px !important;
+    display: inline-block !important;
+    object-fit: contain;
+}
+
+.footer__mexico {
+    display: flex;
+    align-items: flex-start;
+}
+.footer__escudo,
+svg.footer__escudo,
+i.footer__escudo {
+    width: 206px !important;
+    height: auto !important;
+    max-height: 80px !important;
+    display: block !important;
+    object-fit: contain;
+}
+
+@media (max-width: 767.98px) {
+    .mexico__img,
+    svg.mexico__img,
+    i.mexico__img {
+        height: 35px !important;
+        max-width: 110px !important;
+        min-width: 90px !important;
+    }
+    .footer__escudo,
+    svg.footer__escudo,
+    i.footer__escudo {
+        width: 130px !important;
+        max-height: 55px !important;
+    }
 }
 
 /* ------------------------------------------------------------
@@ -261,32 +304,116 @@ html.sesna-highlight a:visited {
 #accessibility ul.accesibility .stepping:nth-child(3) { height: 14px !important; }
 
 /* ------------------------------------------------------------
-   P00 Fix: Mover panel de accesibilidad al lado derecho
-   El CDN posiciona el panel a la izquierda y lo desliza a la derecha.
-   Nosotros lo escondemos a la derecha y lo deslizamos a la izquierda.
+   BOTÓN Y PANEL DE ACCESIBILIDAD — SND v1.1.0 (Sección 4.4, línea 610)
+   Norma: Círculo 32×32px, fondo #CD353C, radio de borde 200 (circular).
+   Aspect-ratio 1:1, icono snd-accessibility--alt oficial.
    ------------------------------------------------------------ */
-.menu-container .menu-slide {
-    left: auto !important;
-    right: -270px !important;
-}
-/* Al abrir (el widget del CDN usa :hover), invertimos el movimiento hacia la izquierda */
-.menu-container:hover .menu-slide,
-.menu-container:focus-within .menu-slide {
-    transform: translate(-270px, 0) !important;
-}
-/* Al quitar el hover, se regresa a su sitio original gracias a la transición del CDN */
-.menu-container:not(:hover) .menu-slide {
-    transform: translate(0, 0) !important;
+#sesna-btn-accesibilidad {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    z-index: 100 !important;
+    box-sizing: border-box !important;
+    transition: transform 0.2s ease, filter 0.2s ease !important;
 }
 
-/* Garantizar que el botón de accesibilidad y su panel estén por encima de todo (.sesna-subheader es 999999) */
-#accessibility,
-.menu-container {
-    z-index: 9999999 !important;
-    position: fixed; /* Asegurar contexto de apilamiento */
+#sesna-btn-accesibilidad:hover,
+#sesna-btn-accesibilidad:focus {
+    transform: scale(1.08) !important;
+    outline: none !important;
 }
-.menu-container a.menu-btn {
-    z-index: 9999999 !important;
+
+#sesna-btn-accesibilidad .icono--circuloRojo {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background-color: #CD353C !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 !important;
+}
+
+#sesna-btn-accesibilidad svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Ocultar el botón antiguo redundante inyectado por el CDN */
+nav.menu-container a.menu-btn {
+    display: none !important;
+}
+
+/* Panel flotante de accesibilidad (.menu-slide) posicionado limpiamente */
+#accessibility {
+    max-width: none !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 10000000 !important;
+}
+
+.menu-container {
+    position: static !important;
+    z-index: 10000000 !important;
+}
+
+#accessibility .menu-slide,
+.menu-container .menu-slide {
+    position: fixed !important;
+    top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
+    right: -320px !important;
+    left: auto !important;
+    width: 280px !important;
+    height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h))) !important;
+    background-color: #ffffff !important;
+    box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.25) !important;
+    z-index: 10000000 !important;
+    overflow-y: auto !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transition: right 0.25s ease, opacity 0.2s ease, visibility 0.25s !important;
+    -webkit-transition: right 0.25s ease, opacity 0.2s ease, visibility 0.25s !important;
+}
+
+/* Al abrir por interacción con el botón oficial o foco */
+#accessibility.is-open .menu-slide,
+#accessibility .menu-slide.is-open,
+.menu-container:hover .menu-slide,
+.menu-container:focus-within .menu-slide {
+    right: 0 !important;
+    left: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
 }
 
 /* ============================================================
@@ -414,50 +541,42 @@ h3 {
 }
 
 /* ------------------------------------------------------------
-   Offset para el header .mexico (fijo, SND) + subheader SESNA (fijo, debajo).
-
-   --bodyTop (variable oficial de snd-guinda.css, 75px/56px) resultó tener ~3px
-   de margen extra sobre el alto REAL de .mexico — pensada para separar contenido
-   normal del header, no para que otra barra fija se pegue justo debajo (se veía
-   una línea/hueco entre .mexico y el subheader al usarla para eso). En su lugar,
-   --mexico-h se deriva directamente de las reglas oficiales de .mexico/.mexico__img
-   en snd-guinda.css (no es un valor adivinado):
-     Desktop: padding 12px arriba/abajo (.mexico) + .mexico__img 48px = 72px.
-     Mobile (≤767.98px, mismo breakpoint que usa snd-guinda.css para .mexico):
-       padding 0.5rem=8px arriba/abajo + .mexico__img 35px = 51px.
-   --sesna-subheader-h viene de la clase oficial .subheader { min-height:52px }. */
+   HEADER Y NAVBAR INSTITUCIONAL — SND v1.1.0 (Sección 4.7 y Sección 4.4)
+   Dimensiones y alturas oficiales del Sistema Nacional de Diseño:
+     - Header institucional (.header / .mexico):
+         Desktop (≥ 700px): alto 80px, fondo presidencia guinda-950 (#4A0C26)
+         Mobile (< 699px): alto 56px
+     - Barra institucional SESNA (.subheader / .sesna-subheader):
+         Alto oficial: 52px (min-height: 52px)
+     - Retícula institucional base: 1440px centrado
+         Margen lateral Desktop (≥ 1024px): 56px
+         Margen lateral Tablet (< 1024px): 24px
+         Margen lateral Mobile (< 640px): 16px
+   ------------------------------------------------------------ */
 :root {
-    --mexico-h: 72px;
+    --mexico-h: 80px;
     --sesna-subheader-h: 52px;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 699.98px) {
     :root {
-        --mexico-h: 51px;
+        --mexico-h: 56px;
     }
 }
 
-main.page {
-    padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h));
-    flex: 1 0 auto;
+main,
+main.page,
+#mainContent {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    flex: 1 0 auto !important;
+    padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
+    display: block !important;
 }
 
-
-
-/* gobmx.js (el script en sí, no lo que inyecta de forma async) aplica
-   document.body.style.marginTop='70px' en cuanto detecta CUALQUIER <nav> en la
-   página — y nuestro propio .navHeader es un <nav>. Lo neutralizamos: el offset
-   real ya lo maneja main.page/.front-page-bg arriba con valores oficiales. */
 body {
     margin-top: 0 !important;
     padding-top: 0 !important;
-}
-
-/* El navbar Bootstrap/GOB.mx v3 heredado que gobmx.js inyecta vía secBuilder()
-   (prepended a <body>) NUNCA fue el .mexico oficial del SND — es el navbar-fixed-top
-   de v3 (misma pieza de código que ya ocultábamos para el footer con .main-footer).
-   Se reemplaza con el .mexico estático y SND-compliant de header.php. */
-.navbar-fixed-top {
-    display: none !important;
 }
 
 /* ------------------------------------------------------------
@@ -476,191 +595,619 @@ body {
     margin-bottom: var(--buffer);
 }
 
-/* ------------------------------------------------------------
-   Navbar institucional SESNA — SND v1
-   Estructura: .sesna-subheader (extends .subheader SND) fixed debajo del
-   header .mexico — ambos markup estático de header.php, .mexico con su
-   position:fixed propio (snd-guinda.css) y top:0.
-   ------------------------------------------------------------ */
+/* ============================================================
+   HEADER INSTITUCIONAL SND v1.1.0 (Sección 4.7)
+   Estructura: header.header > .irContent + section.mexico > .mexico__contenedor
+   ============================================================ */
+header.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: var(--mexico-h) !important;
+    z-index: 1000000 !important;
+    background-color: var(--principal, #611232) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
-/* El ícono hamburger del SND CSS usa una ruta CDN que da 404 en local.
-   Sobreescribimos con nuestra copia local del mismo ícono.
-   Ruta relativa desde assets/css/ → ../../img/icons-base/
-   El SVG fuente es negro (#000, regla SND) — el blanco se aplica aquí con .icono--blanco. */
+.mexico {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: var(--mexico-h) !important;
+    z-index: 1000000 !important;
+    background-color: var(--principal, #611232) !important;
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Retícula del contenedor del header: 1440px máximo, padding responsivo */
+.mexico__contenedor {
+    width: 100% !important;
+    max-width: 1440px !important;
+    height: 100% !important;
+    margin-inline: auto !important;
+    padding-inline: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1023.98px) {
+    .mexico__contenedor {
+        padding-inline: 24px !important;
+    }
+}
+
+@media (max-width: 698.98px) {
+    .mexico__contenedor {
+        padding-inline: 16px !important;
+    }
+}
+
+.mexico__escudo {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    text-align: left !important;
+}
+
+.mexico__aescudo {
+    display: inline-flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+}
+
+.mexico__img,
+svg.mexico__img,
+i.mexico__img {
+    height: 48px !important;
+    width: auto !important;
+    display: block !important;
+}
+
+@media (max-width: 699.98px) {
+    .mexico__img,
+    svg.mexico__img,
+    i.mexico__img {
+        height: 36px !important;
+    }
+}
+
+.mexico__menu {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.mexico .mexico__details {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Trámites y Gobierno — Sin caja ni fondo residual, enlaces tipo Ghost limpios */
+.mexico .mexico__detailsCont {
+    display: flex !important;
+    align-items: center !important;
+    column-gap: 24px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+    .mexico .mexico__detailsCont {
+        position: static !important;
+        width: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
+
+.mexico__a,
+.mexico__a:focus,
+a.mexico__a:visited {
+    color: #ffffff !important;
+    font-family: var(--font-noto-sans) !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    padding: 6px 12px !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.mexico__a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+    opacity: 0.85 !important;
+}
+
+/* ============================================================
+   NAVBAR / SUBHEADER INSTITUCIONAL SND v1.1.0 (Sección 4.4)
+   Estructura: section.subheader > .subheader__contenedor
+   Fondo oficial del estándar: presidencia guinda-950 (--gama950, #4A0C26)
+   Sombra oficial: 0 4px 4px rgba(0, 0, 0, 0.25)
+   ============================================================ */
 .sesna-subheader .mexico__summary {
     background-image: url('../../img/icons-base/header-menu.svg') !important;
-}
-.sesna-subheader .mexico__summary {
     filter: brightness(0) invert(1);
 }
 
-/* El SND define .subheader { background:var(--gama950); min-height:52px; position:static }
-   Nosotros solo agregamos la posición fija y z-index para SESNA, pegado justo
-   debajo de .mexico usando --mexico-h (alto real derivado, ver bloque de offset
-   arriba — --bodyTop deja 3px de más y se nota como línea entre ambas barras). */
+.subheader,
 .sesna-subheader {
-    position: fixed;
-    top: var(--mexico-h);
-    width: 100%;
-    z-index: 999999;
+    position: fixed !important;
+    top: var(--mexico-h) !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: var(--sesna-subheader-h) !important;
+    min-height: var(--sesna-subheader-h) !important;
+    z-index: 999999 !important;
+    background-color: var(--gama950, #4A0C26) !important;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* El SND define .subheader__contenedor { display:flex; position:relative; align-items:center }
-   Solo ajustamos max-width para SESNA */
+/* Retícula del subheader: 1440px máximo, padding responsivo */
+.subheader__contenedor,
 .sesna-subheader__inner {
-    max-width: 1440px;
+    width: 100% !important;
+    max-width: 1440px !important;
+    height: 100% !important;
+    margin-inline: auto !important;
+    padding-inline: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    box-sizing: border-box !important;
 }
 
-/* details.mexico__details es flex-item dentro de .subheader__contenedor.
-   NO ponemos display:flex en el <details> — eso rompe el collapse nativo del browser.
-   El SND JS añade [open] en desktop para mostrar el contenido. */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 32px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 20px !important;
+    }
+}
+
+@media (max-width: 767.9px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 16px !important;
+    }
+}
+
+/* details móvil / contenedor del menú */
 .sesna-subheader .mexico__details {
-    flex: 1;
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
-/* nav.navHeader — el SND lo gestiona via .navHeader__ul.mexico__detailsCont */
 .sesna-nav {
-    overflow: visible;
+    overflow: visible !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
-/* ---- Desktop: links del menú SESNA ---- */
-.sesna-subheader .navHeader__ul {
-    background: none;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+@media (min-width: 768px) {
+    .sesna-subheader #sesna-nav-details,
+    .sesna-subheader #sesna-nav-details:not([open]),
+    .sesna-subheader .mexico__details {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        height: 100% !important;
+        align-items: center !important;
+        margin-right: auto !important;
+    }
+    .sesna-subheader #sesna-nav-details > nav.sesna-nav,
+    .sesna-subheader #sesna-nav-details:not([open]) > nav.sesna-nav,
+    .sesna-subheader .mexico__details > nav.navHeader {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        height: 100% !important;
+        align-items: center !important;
+        margin-left: 0 !important;
+    }
+    .sesna-subheader .navHeader__ul.mexico__detailsCont {
+        display: flex !important;
+    }
+    .sesna-subheader summary.mexico__summary {
+        display: none !important;
+    }
 }
 
-.sesna-subheader .navHeader__li {
-    position: relative;
-    width: auto; /* SND mobile pone width:100% — revertir en desktop */
-}
-
-.sesna-subheader .navHeader__a,
-.sesna-subheader .navHeader__a:visited {
-    font-family: var(--font-noto-sans);
-    font-size: 15px;
-    color: var(--neutro100) !important;
-    text-decoration: none !important;
-    padding: 0 14px;
-    white-space: nowrap;
-}
-
-.sesna-subheader .navHeader__a:hover {
-    border-bottom-color: var(--pguinda100, #F3E4E9);
-    color: var(--neutro100) !important;
-}
-
-.sesna-subheader .navHeader__a[aria-current="page"],
-.sesna-subheader .navHeader__li--active > .navHeader__a {
-    font-weight: 600;
-    border-bottom-color: var(--neutro100);
-}
+/* ---- Navegación Institucional SESNA (SND v1.1.0) ---- */
 
 /* Quitar marker nativo del <summary> */
-.sesna-subheader summary { list-style: none; }
-.sesna-subheader summary::-webkit-details-marker { display: none; }
+.sesna-subheader summary {
+    list-style: none !important;
+}
+.sesna-subheader summary::-webkit-details-marker {
+    display: none !important;
+}
 
-/* Chevron de submenús */
+/* Chevron indicador de submenú */
 .navHeader__chevron {
-    margin-left: 4px;
-    font-size: 0.75em;
-    transition: transform 0.2s ease;
+    margin-left: 6px !important;
+    font-size: 0.8em !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: transform 0.2s ease !important;
 }
-.sesna-subheader .navHeader__details[open] .navHeader__chevron {
-    transform: rotate(180deg);
-}
-
-/* ---- Submenú desplegable (items con hijos) ---- */
-.sesna-subheader .navHeader__submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    background: var(--pguinda950, #4A0C26);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    flex-direction: column;
-    z-index: 1050;
-    padding: 6px 0;
-    border-radius: 0 0 6px 6px;
+.sesna-subheader .navHeader__details[open] > summary .navHeader__chevron,
+.sesna-subheader .navHeader__details:hover > summary .navHeader__chevron {
+    transform: rotate(180deg) !important;
 }
 
-/* Submenú: mostrar al pasar el mouse, al tener foco interno, o cuando [open] */
-.sesna-subheader .navHeader__details:hover .navHeader__submenu,
-.sesna-subheader .navHeader__details:focus-within .navHeader__submenu,
-.sesna-subheader .navHeader__details[open] .navHeader__submenu {
-    display: flex;
+/* ============================================================
+   ESCRITORIO (>= 768px): Barra institucional y Submenú desplegable
+   Construcción de UI: Enlaces a la izquierda, Accesibilidad a la derecha
+   ============================================================ */
+@media (min-width: 768px) {
+    /* Lista de navegación principal de primer nivel */
+    .sesna-subheader .sesna-nav__list {
+        display: flex !important;
+        background: none !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-right: 0 !important;
+        list-style: none !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        flex-shrink: 0 !important;
+        margin-left: 20px !important; /* Espaciado normativo entre navegación y botón de accesibilidad (item spacing: 24 del SND) */
+    }
+
+    /* Ítems de primer nivel */
+    .sesna-subheader .sesna-nav__list > .navHeader__li {
+        position: relative !important;
+        width: auto !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details {
+        position: relative !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Enlaces y toggles de primer nivel en escritorio estándar (>= 1280px) */
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+        font-size: 15px !important;
+        font-weight: 400 !important;
+        color: var(--neutro100, #ffffff) !important;
+        text-decoration: none !important;
+        padding: 0 12px !important;
+        height: 52px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        border-bottom: 3px solid transparent !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        transition: border-color 0.2s ease, color 0.2s ease !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:hover,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:hover {
+        border-bottom-color: var(--pguinda100, #F3E4E9) !important;
+        color: #ffffff !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a[aria-current="page"],
+    .sesna-subheader .sesna-nav__list > .navHeader__li--active > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li--active > details.navHeader__details > summary.navHeader__a {
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        border-bottom-color: var(--neutro100, #ffffff) !important;
+    }
+
+    /* Submenú desplegable oficial SND v1.1.0 */
+    .sesna-subheader .navHeader__submenu {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        min-width: 290px !important;
+        width: max-content !important;
+        max-width: 380px !important;
+        height: auto !important;
+        background: var(--gama950, #4A0C26) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-top: none !important;
+        border-radius: 0 0 8px 8px !important;
+        padding: 6px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        white-space: normal !important;
+        z-index: 1050 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Apertura del submenú en hover, focus-within o [open] */
+    .sesna-subheader .navHeader__details:hover > .navHeader__submenu,
+    .sesna-subheader .navHeader__details:focus-within > .navHeader__submenu,
+    .sesna-subheader .navHeader__details[open] > .navHeader__submenu {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Sub-ítem del menú desplegable */
+    .sesna-subheader .navHeader__li--sub {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Enlace del sub-ítem del menú desplegable */
+    .sesna-subheader .navHeader__a--sub {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 10px 20px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        color: #ffffff !important;
+        font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.35 !important;
+        text-decoration: none !important;
+        text-align: left !important;
+        white-space: normal !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        transition: background-color 0.15s ease, color 0.15s ease !important;
+    }
+
+    .sesna-subheader .navHeader__li--sub:last-child > .navHeader__a--sub {
+        border-bottom: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub:hover,
+    .sesna-subheader .navHeader__a--sub:focus {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+        outline: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub[aria-current="page"],
+    .sesna-subheader .navHeader__li--subActive > .navHeader__a--sub {
+        color: var(--dorado300, #DBCCAB) !important;
+        font-weight: 700 !important;
+        background-color: rgba(255, 255, 255, 0.04) !important;
+    }
 }
 
-.sesna-subheader .navHeader__a--sub {
-    height: auto;
-    padding: 10px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-    font-size: 14px;
-    width: 100% !important;
-    justify-content: space-between !important;
-    text-align: left !important;
-}
-.sesna-subheader .navHeader__a--sub:hover {
-    background-color: rgba(255,255,255,0.08);
-    border-bottom-color: rgba(255,255,255,0.1) !important;
-}
-.sesna-subheader .navHeader__li--sub:last-child .navHeader__a--sub {
-    border-bottom: none !important;
+/* ============================================================
+   LAPTOP (1024px a 1279.98px, ej. 1080px): Escalamiento fluido
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        padding: 0 8px !important;
+        font-size: 13.5px !important;
+    }
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: 14px !important;
+    }
 }
 
-/* ---- Mobile: ≤ 767.9px ---- */
+/* ============================================================
+   TABLETA (768px a 1023.98px): Escalamiento compacto
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .sesna-subheader nav.sesna-nav {
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+    }
+    .sesna-subheader nav.sesna-nav::-webkit-scrollbar {
+        display: none !important;
+    }
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        padding: 0 5px !important;
+        font-size: 12px !important;
+    }
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: 10px !important;
+    }
+}
+
+/* ============================================================
+   MÓVIL (≤ 767.9px): Menú hamburguesa colapsable y acordeón
+   ============================================================ */
 @media (max-width: 767.9px) {
-    /* Ocultar nav cuando details está cerrado; mostrar cuando está abierto */
+    /* Menú principal móvil: panel vertical apilado */
     .sesna-subheader .mexico__details:not([open]) .mexico__detailsCont {
         display: none !important;
     }
     .sesna-subheader .mexico__details[open] .mexico__detailsCont {
         display: flex !important;
-        flex-direction: column;
+        flex-direction: column !important;
         position: fixed !important;
         top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
-        background: var(--pguinda950, #4A0C26);
-        text-align: left;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-        z-index: 998;
-        max-height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h)));
-        overflow-y: auto;
+        background: var(--pguinda950, #4A0C26) !important;
+        text-align: left !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+        z-index: 998 !important;
+        max-height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h))) !important;
+        overflow-y: auto !important;
+        padding: 8px 0 24px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
     }
 
-    /* Items de menú: full-width y separador */
+    /* Ítems de menú móvil a ancho completo con separador */
     .sesna-subheader .navHeader__li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        width: 100% !important;
+        display: block !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .sesna-subheader .navHeader__a,
     .sesna-subheader .navHeader__a:visited {
-        height: auto;
-        padding: 14px 20px;
-        border-bottom: none;
-        justify-content: space-between;
+        display: flex !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 14px 20px !important;
+        border-bottom: none !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        color: #ffffff !important;
+        font-size: 15px !important;
+        text-decoration: none !important;
     }
 
-    /* Submenú inline en mobile */
+    .sesna-subheader details.navHeader__details {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .sesna-subheader summary.navHeader__a--toggle {
+        cursor: pointer !important;
+    }
+
+    /* Submenú anidado móvil en acordeón */
     .sesna-subheader .navHeader__submenu {
-        position: static;
-        box-shadow: none;
-        border-radius: 0;
-        background: rgba(0,0,0,0.15);
-        padding: 0;
+        display: none;
+        position: static !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .sesna-subheader details.navHeader__details[open] > .navHeader__submenu {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .sesna-subheader .navHeader__li--sub {
+        width: 100% !important;
+        display: block !important;
     }
 
     .sesna-subheader .navHeader__a--sub {
-        padding: 10px 32px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 12px 20px 12px 32px !important; /* Sangría jerárquica de 32px */
+        font-size: 14px !important;
+        line-height: 1.35 !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        box-sizing: border-box !important;
     }
 
-    .sesna-subheader .navHeader__details[open] .navHeader__submenu {
-        display: flex;
+    .sesna-subheader .navHeader__li--sub:last-child > .navHeader__a--sub {
+        border-bottom: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub:hover,
+    .sesna-subheader .navHeader__a--sub:active {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub[aria-current="page"],
+    .sesna-subheader .navHeader__li--subActive > .navHeader__a--sub {
+        color: var(--dorado300, #DBCCAB) !important;
+        font-weight: 700 !important;
+    }
+
+    /* Subheader móvil: contenedor en barra horizontal con menú a la izquierda y accesibilidad a la derecha */
+    .sesna-subheader .subheader__contenedor,
+    .sesna-subheader .sesna-subheader__inner {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-inline: 16px !important;
+        height: 100% !important;
+    }
+
+    .sesna-subheader #sesna-nav-details {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        height: 100% !important;
+        align-items: center !important;
+    }
+
+    .sesna-subheader summary.mexico__summary {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        cursor: pointer !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: auto !important;
+        position: relative !important;
+        z-index: 1000 !important;
     }
 }
 
@@ -1337,51 +1884,133 @@ nav.navbar .container {
 }
 
 /* ------------------------------------------------------------
-   Breadcrumb SESNA — extiende .cp-breadcrumb del CDN GOB.mx v3
+   Breadcrumb SESNA — SND v1.1.0 (Variante Guinda)
    ------------------------------------------------------------ */
-.cp-breadcrumb {
-    font-size: 16px;
-    font-family: var(--font-noto-sans);
+.cp-breadcrumb,
+.sesna-breadcrumb {
+    width: 100% !important;
+    background-color: transparent !important;
     padding-top: 16px !important;
-    padding-bottom: 12px;
-    background-color: transparent;
+    padding-bottom: 12px !important;
+    margin-bottom: 0 !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
 }
 
-.cp-breadcrumb .breadcrumb {
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    flex-wrap: wrap;
-    align-items: center;
+.cp-breadcrumb .breadcrumb,
+.breadcrumb,
+.sesna-breadcrumb {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
 }
 
-.cp-breadcrumb .breadcrumb-item a {
-    color: var(--color-burgundi);
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.2s;
+.cp-breadcrumb .breadcrumb-item,
+.breadcrumb-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    color: var(--neutro800, #33383C) !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.cp-breadcrumb .breadcrumb-item a:hover {
-    color: var(--color-guinda);
-    text-decoration: underline;
+.cp-breadcrumb ol,
+.cp-breadcrumb li,
+.cp-breadcrumb .breadcrumb-item::marker,
+.breadcrumb-item::marker,
+.breadcrumb::marker {
+    display: none !important;
+    content: '' !important;
 }
 
-.cp-breadcrumb .breadcrumb-item.active {
-    color: rgba(22, 26, 29, 0.65);
-    font-weight: 600;
+.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before,
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '›' !important;
+    display: inline-block !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    color: var(--neutro500, #7B828A) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    vertical-align: baseline !important;
+    float: none !important;
 }
 
-.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    content: '›';
-    color: var(--color-gris);
-    font-size: 20px;
-    line-height: 1;
-    padding: 0 0.5rem;
-    float: none;
-    vertical-align: middle;
-    position: relative;
-    top: -5px;
+.cp-breadcrumb > span[aria-hidden="true"],
+.sesna-breadcrumb > span[aria-hidden="true"] {
+    display: inline-block !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    color: var(--neutro500, #7B828A) !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+}
+
+.cp-breadcrumb a,
+.cp-breadcrumb .breadcrumb-item a,
+.breadcrumb-item a,
+.sesna-breadcrumb a {
+    color: var(--pguinda600, #9B2247) !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: color 0.15s ease, text-decoration 0.15s ease !important;
+}
+
+.cp-breadcrumb a:hover,
+.cp-breadcrumb .breadcrumb-item a:hover,
+.breadcrumb-item a:hover,
+.sesna-breadcrumb a:hover {
+    color: var(--pguinda900, #4A0C26) !important;
+    text-decoration: underline !important;
+}
+
+/* Ícono de Casa (Home) SND — soporte oficial para <i> y <svg> generado por snd.js con separación de 8px */
+.cp-breadcrumb .snd__icono,
+.cp-breadcrumb i.snd__icono,
+.cp-breadcrumb svg.snd__icono,
+.cp-breadcrumb .breadcrumb-item a .snd__icono,
+.cp-breadcrumb .breadcrumb-item a i.snd__icono,
+.cp-breadcrumb .breadcrumb-item a svg.snd__icono,
+.breadcrumb-item a .snd__icono,
+.breadcrumb-item a i.snd__icono,
+.breadcrumb-item a svg.snd__icono,
+.sesna-breadcrumb .snd__icono,
+.sesna-breadcrumb i.snd__icono,
+.sesna-breadcrumb svg.snd__icono {
+    margin-right: 8px !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    display: inline-block !important;
+    vertical-align: -2px !important;
+    flex-shrink: 0 !important;
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+.cp-breadcrumb .breadcrumb-item.active,
+.breadcrumb-item.active,
+.cp-breadcrumb .current,
+.sesna-breadcrumb .current {
+    color: var(--neutro900, #161A1D) !important;
+    font-weight: 600 !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
 }
 
 /* ------------------------------------------------------------
@@ -2855,25 +3484,26 @@ nav.navbar .container {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 16px;
-    color: rgba(22, 26, 29, 0.75);
-    margin-bottom: 1.75rem;
+    font-size: 15px;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    color: var(--neutro800, #33383C);
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
 .sesna-breadcrumb a {
-    color: var(--color-burgundi);
+    color: var(--pguinda600, #9B2247);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.15s ease, text-decoration 0.15s ease;
 }
 
 .sesna-breadcrumb a:hover {
-    color: var(--color-guinda);
+    color: var(--pguinda900, #4A0C26);
     text-decoration: underline;
 }
 
 .sesna-breadcrumb .current {
-    color: rgba(22, 26, 29, 0.85);
+    color: var(--neutro900, #161A1D);
     font-weight: 600;
 }
 
@@ -3106,88 +3736,9 @@ nav.navbar .container {
 .sesna-single-nav__back:hover { color: var(--color-burgundi); }
 
 /* ------------------------------------------------------------
-   Dropdown del menú principal SESNA
+   Menú desplegable SESNA migrado a estándar SND v1.1.0 (.navHeader__submenu)
+   Ver sección de Navegación Institucional SESNA arriba
    ------------------------------------------------------------ */
-.sesna-dropdown {
-    background-color: var(--color-fondo-claro);
-    border: none;
-    border-top: 3px solid var(--color-burgundi);
-    border-radius: 0 0 10px 10px;
-    padding: 6px 0 10px;
-    min-width: fit-content;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15);
-}
-
-.sesna-dropdown .dropdown-item {
-    color: var(--color-negro);
-    font-size: 13.5px;
-    font-weight: 500;
-    padding: 9px 18px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.15s, color 0.15s;
-}
-
-.sesna-dropdown .dropdown-item::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-dorado);
-    flex-shrink: 0;
-    opacity: 0.8;
-    transition: opacity 0.15s, transform 0.15s;
-}
-
-.sesna-dropdown .dropdown-item:hover,
-.sesna-dropdown .dropdown-item:focus {
-    background-color: var(--color-burgundi-tenue) !important;
-    color: var(--color-burgundi) !important;
-}
-
-.sesna-dropdown .dropdown-item:hover::before,
-.sesna-dropdown .dropdown-item:focus::before {
-    opacity: 1;
-    transform: scale(1.4);
-    background-color: var(--color-dorado);
-}
-
-.sesna-dropdown .dropdown-item.active,
-.sesna-dropdown .dropdown-item:active {
-    background-color: var(--color-burgundi-tenue) !important;
-    color: var(--color-burgundi) !important;
-    font-weight: 600;
-}
-
-.sesna-dropdown .dropdown-item.active::before,
-.sesna-dropdown .dropdown-item:active::before {
-    opacity: 1;
-}
-
-/* Caret del dropdown-toggle */
-.sesna-nav .dropdown-toggle::after {
-    border-top-color: rgba(255, 255, 255, 0.85);
-    vertical-align: 0.15em;
-}
-
-/* Mostrar dropdown en hover para pantallas grandes (Adaptado al nuevo walker SND) */
-@media (min-width: 992px) {
-    /* Forzar visibilidad del submenú al hacer hover o focus sobrecargando el Shadow DOM */
-    .sesna-subheader .navHeader__details:hover .navHeader__submenu,
-    .sesna-subheader .navHeader__details:focus-within .navHeader__submenu,
-    .sesna-subheader .navHeader__details[open] .navHeader__submenu {
-        display: flex !important;
-        flex-direction: column;
-    }
-    /* Rotar el chevron (flechita) para indicar que está abierto */
-    .navHeader__details:hover > .navHeader__a--toggle .navHeader__chevron,
-    .navHeader__details:focus-within > .navHeader__a--toggle .navHeader__chevron {
-        transform: rotate(180deg);
-    }
-}
 
 /* ============================================================
    Loader de carga inicial de página
@@ -5150,8 +5701,8 @@ body:has(.page-directorio) main.page {
 }
 .tx-sesion-pdf-link:focus,
 .tx-sesion-chevron-link:focus,
-a[data-bs-target="#pdfViewerModal"]:focus,
-button[data-bs-target="#pdfViewerModal"]:focus {
+a[data-modal-target="#pdfViewerModal"]:focus,
+button[data-modal-target="#pdfViewerModal"]:focus {
     outline: none !important;
 }
 
@@ -6555,20 +7106,48 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
 }
 
 /* ============================================================
-   BLOQUE 13 — Footer SND v1
-   Ocultar el footer inyectado por gobmx.js (.main-footer) —
-   se reemplaza con nuestro footer.php SND-compliant.
+   Footer SND v1.1.0 Oficial
    ============================================================ */
 
-/* Ocultar footer GOB.mx v3 inyectado dinámicamente */
-.main-footer {
-    display: none !important;
+/* Asegurar que el footer SND empuje al fondo y se posicione siempre al final */
+footer.footer,
+footer.footer.sesna-footer {
+    width: 100% !important;
+    margin-top: auto !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    clear: both !important;
 }
 
-/* Asegurar que el footer SND empuje al fondo (flex en body) */
-.sesna-footer {
-    margin-top: auto;
-    flex-shrink: 0;
+/* Retícula del contenedor del footer: base 1440px máximo centrado, padding acorde a SND v1.1.0 */
+.footer__contenedor {
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+    padding: 32px 56px !important;
+}
+
+@media (max-width: 1023.98px) {
+    .footer__contenedor {
+        padding: 32px 24px !important;
+    }
+}
+
+@media (max-width: 698.98px) {
+    .footer__contenedor {
+        padding: 24px 16px !important;
+    }
+}
+
+/* Flujo vertical de títulos y contenido en los details del footer (¿Qué es gob.mx? y Enlaces) */
+.footer .mexico__details {
+    display: block !important;
+}
+
+.footer .mexico__details > summary {
+    display: block !important;
 }
 
 /* Todos los links del footer SND deben ser blancos — la regla global a:not(.btn)
@@ -6589,17 +7168,28 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
     opacity: 0.85;
 }
 
-/* Los iconos de redes sociales del footer: tamaño SND (24px).
-   Fuente SVG negra (regla SND) — blanco aplicado aquí por CSS, no hardcodeado en el archivo. */
-.footer__redes__ul img {
-    width: 24px;
-    height: 24px;
+/* Los iconos de redes sociales del footer: tamaño SND (24px) y color blanco oficial */
+.footer__redes__ul img,
+.footer__redes__ul svg,
+.footer__redes__ul .snd__icono,
+.footer__redes__ul i {
+    width: 24px !important;
+    height: 24px !important;
+    color: var(--neutro100, #ffffff) !important;
+    fill: currentColor !important;
     object-fit: contain;
     filter: brightness(0) invert(1);
+    display: inline-block;
 }
 
-/* La imagen de la flor 079 — mismo criterio: SVG fuente negro, blanco vía CSS */
-.footer__079img {
-    height: 32px;
+/* La imagen de la flor y logotipo 079 — SND v1.1.0 */
+.footer__079img,
+svg.footer__079img,
+i.footer__079img {
+    width: 32px !important;
+    height: 32px !important;
+    color: var(--neutro100, #ffffff) !important;
+    fill: currentColor !important;
     filter: brightness(0) invert(1);
+    display: inline-block;
 }

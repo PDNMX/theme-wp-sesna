@@ -60,11 +60,8 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
    ============================================================ */
 function sesna_theme_scripts()
 {
-	// GOB.mx v3 — se mantiene SOLO para Bootstrap CSS (grid, .row, .col-*, modales, carousel)
-	// TODO BLOQUE 13: remover cuando todas las páginas migren a .fila/.columna__N de SND
-	wp_enqueue_style('gobmx-framework', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/styles/main.css', array(), null);
-	// SND v1.1.0 — Sistema Nacional de Diseño (carga después de v3; tokens, tipografía y componentes SND toman prioridad)
-	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd-guinda.css', array('gobmx-framework'), null);
+	// SND v1.1.0 — Sistema Nacional de Diseño Oficial (Gobierno de México)
+	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd-guinda.css', array(), null);
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
 	// Hoja principal del tema — carga al último, después de SND
@@ -72,15 +69,14 @@ function sesna_theme_scripts()
 	// Utilidades propias del tema — al final de la cascada para ganar a los componentes de main.css
 	wp_enqueue_style('sesna-utilidades', get_template_directory_uri() . '/assets/css/utilidades-tema.css', array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/utilidades-tema.css' ));
 
-	// GOB.mx v3 JS — mantener para Bootstrap 5 JS (modales, dropdown, carousel, jQuery)
-	wp_enqueue_script('gobmx-framework-js', 'https://framework-gb.cdn.gob.mx/gm/v3/assets/js/gobmx.js', array(), null, true);
 	// SND v1.1.0 JS — procesa i.snd__icono / i.snd__pictograma (IBM Carbon Design System icons)
 	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd.js', array(), null, true);
-	// Barra de accesibilidad GOB.mx — CDN oficial
-	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array(), null, true);
+	// Barra de accesibilidad GOB.mx — CDN oficial (requiere jQuery global $)
+	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array('jquery'), null, true);
+	wp_add_inline_script('jquery-core', 'window.$ = window.$ || window.jQuery;', 'after');
 
-	// JS global del tema (depende del framework para jQuery/Bootstrap)
-	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+	// JS global del tema (Vanilla JS autónomo)
+	wp_enqueue_script('sesna-main-script', get_template_directory_uri() . '/assets/js/main.js', array(), wp_get_theme()->get('Version'), true);
 
 	// Parche de accesibilidad — mejoras sobre el widget CDN de GOB.mx
 	wp_enqueue_script('sesna-accesibilidad-patch', get_template_directory_uri() . '/script/accesibilidad-patch.js', array('gobmx-accesibilidad-js'), wp_get_theme()->get('Version'), true);
@@ -90,49 +86,49 @@ function sesna_theme_scripts()
 		'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
 	));
 
-	// Scripts por página — dependen del framework (Bootstrap y jQuery ya vienen en él)
+	// Scripts por página
 	
 	if (!is_home() && !is_front_page()) {
 		wp_enqueue_style('sesna-components-style', get_theme_file_uri('/assets/css/components.css'), array('sesna-main-style'), wp_get_theme()->get('Version'));
 	}
 
 	if (is_page('como-vamos')) {
-		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('sesiones-script', get_theme_file_uri('/script/sesiones.js'), array('jquery'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('directorio')) {
-		wp_enqueue_script('directorio-script', get_theme_file_uri('/script/directorio.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('directorio-script', get_theme_file_uri('/script/directorio.js'), array(), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('que-hacemos')) {
-		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('jquery'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('transparencia')) {
-		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array(), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page('politica-nacional-anticorrupcion')) {
-		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array('gobmx-framework-js'), 'v4', true);
-		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('gobmx-framework-js', 'd3-script'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('d3-script', 'https://d3js.org/d3.v4.min.js', array(), 'v4', true);
+		wp_enqueue_script('pna-script', get_theme_file_uri('/script/pna.js'), array('d3-script'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_page_template('page-derechos-humanos.php') || is_page('derechos-humanos-y-perspectiva-de-genero')) {
-		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array('gobmx-framework-js'), filemtime( get_template_directory() . '/script/derechos-humanos.js' ), true);
+		wp_enqueue_script('dh-campania-script', get_theme_file_uri('/script/derechos-humanos.js'), array(), filemtime( get_template_directory() . '/script/derechos-humanos.js' ), true);
 
 		// Catálogo digital tipo flipbook — sección "Acciones X la Integridad"
 		wp_enqueue_style('catalogo-digital-style', get_theme_file_uri('/assets/css/catalogo-digital.css'), array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/catalogo-digital.css' ));
 		wp_enqueue_script('page-flip-vendor-script', get_theme_file_uri('/js/vendor/page-flip.browser.js'), array(), wp_get_theme()->get('Version'), true);
-		wp_enqueue_script('catalogo-digital-script', get_theme_file_uri('/script/catalogo-digital.js'), array('gobmx-framework-js', 'page-flip-vendor-script'), filemtime( get_template_directory() . '/script/catalogo-digital.js' ), true);
+		wp_enqueue_script('catalogo-digital-script', get_theme_file_uri('/script/catalogo-digital.js'), array('page-flip-vendor-script'), filemtime( get_template_directory() . '/script/catalogo-digital.js' ), true);
 	}
 
 	if (is_archive() || is_search()) {
-		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
-		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('home-script', get_theme_file_uri('/script/home.js'), array('jquery'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('blog-script', get_theme_file_uri('/script/blog.js'), array('jquery'), wp_get_theme()->get('Version'), true);
 	}
 
 	if (is_front_page() || is_home() || is_page('noticias-y-actividades') || is_category()) {
-		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('gobmx-framework-js'), wp_get_theme()->get('Version'), true);
+		wp_enqueue_script('home-entries-script', get_theme_file_uri('/script/home-entries.js'), array('jquery'), wp_get_theme()->get('Version'), true);
 		wp_localize_script('home-entries-script', 'ajax_object', array(
 			'ajax_url'    => admin_url('admin-ajax.php'),
 			'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
@@ -287,6 +283,46 @@ function get_sesiones()
 	wp_reset_postdata();
 
 	wp_die();
+}
+
+// Funciones de fallback defensivas para entornos sin ACF activo
+if (!function_exists('get_field')) {
+	function get_field($selector, $post_id = false, $format_value = true) {
+		return false;
+	}
+}
+if (!function_exists('the_field')) {
+	function the_field($selector, $post_id = false, $format_value = true) {
+		$value = get_field($selector, $post_id, $format_value);
+		if (is_array($value)) {
+			$value = implode(', ', $value);
+		}
+		echo $value ? esc_html($value) : '';
+	}
+}
+if (!function_exists('have_rows')) {
+	function have_rows($selector, $post_id = false) {
+		return false;
+	}
+}
+if (!function_exists('the_row')) {
+	function the_row() {
+		return false;
+	}
+}
+if (!function_exists('get_sub_field')) {
+	function get_sub_field($selector, $format_value = true) {
+		return false;
+	}
+}
+if (!function_exists('the_sub_field')) {
+	function the_sub_field($selector, $format_value = true) {
+		$value = get_sub_field($selector, $format_value);
+		if (is_array($value)) {
+			$value = implode(', ', $value);
+		}
+		echo $value ? esc_html($value) : '';
+	}
 }
 
 function the_file($file, $sub = false)
@@ -1045,7 +1081,7 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
 
     public function start_lvl( &$output, $depth = 0, $args = null ) {
         if ( $depth === 0 ) {
-            $output .= '<ul class="navHeader__ul navHeader__submenu">';
+            $output .= '<ul class="navHeader__submenu">';
         }
     }
 
@@ -1061,19 +1097,18 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
                         in_array( 'current-menu-ancestor', $item->classes );
         $is_external  = $this->is_external( $item );
         $current_attr = $is_active ? ' aria-current="page"' : '';
-        $ext_icon     = $is_external ? ' <i class="snd__icono snd snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;"></i>' : '';
+        $ext_icon     = $is_external ? ' <i class="snd__icono snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;margin-left:4px;"></i>' : '';
         $ext_attr     = $is_external ? ' target="_blank" rel="noopener noreferrer"' : '';
 
         if ( $depth === 0 ) {
             $output .= '<li class="navHeader__li' . ( $is_active ? ' navHeader__li--active' : '' ) . '">';
 
             if ( $has_children ) {
-                // <details> abre/cierra el submenu; JS/CSS controla hover en desktop.
-                // NO se pone open por defecto — el hover JS maneja la apertura.
-                $output .= '<details class="navHeader__details">';
+                // <details> abre/cierra el submenu nativamente; hover en desktop vía CSS/JS
+                $output .= '<details class="navHeader__details detailsClickOut">';
                 $output .= '<summary class="navHeader__a navHeader__a--toggle"' . $current_attr . '>'
                     . esc_html( $item->title )
-                    . '<i class="snd__icono snd snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
+                    . '<i class="snd__icono snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
                     . '</summary>';
                 // end_lvl closes </ul></details>
             } else {
@@ -1089,8 +1124,8 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
             // Nivel 1 — subitems dentro del <details>
             $is_sub_active = in_array( 'current-menu-item', $item->classes );
             $sub_current   = $is_sub_active ? ' aria-current="page"' : '';
-            $output .= '<li class="navHeader__li--sub">';
-            $output .= '<a class="navHeader__a navHeader__a--sub"'
+            $output .= '<li class="navHeader__li--sub' . ( $is_sub_active ? ' navHeader__li--subActive' : '' ) . '">';
+            $output .= '<a class="navHeader__a--sub"'
                 . ' href="' . esc_url( $item->url ) . '"'
                 . $sub_current
                 . $ext_attr . '>'
@@ -1101,13 +1136,7 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
     }
 
     public function end_el( &$output, $item, $depth = 0, $args = null ) {
-        $has_children = in_array( 'menu-item-has-children', $item->classes );
-        // end_lvl cierra </details> para items con hijos en depth 0
-        if ( $depth === 0 && ! $has_children ) {
-            $output .= '</li>';
-        } elseif ( $depth > 0 ) {
-            $output .= '</li>';
-        }
+        $output .= '</li>';
     }
 }
 
@@ -2295,8 +2324,8 @@ function sesna_oc_map_slots_fijos($sesion) {
 function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
-    <a href="#<?= esc_attr($panel_id) ?>" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
-        <i class="snd__icono snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+    <a href="#<?= esc_attr($panel_id) ?>" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" onclick="var p=document.getElementById('<?= esc_attr($panel_id) ?>'); if(p){ p.classList.toggle('muestra--ninguno'); this.setAttribute('aria-expanded', !p.classList.contains('muestra--ninguno')); } return false;" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
+        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
     </a>
     <?php
@@ -2306,26 +2335,26 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
     $total = count($slot['documentos']);
     $mostrar_buscador = $total > 8;
     ?>
-    <div class="collapse tx-oc-anexos-panel" id="<?= esc_attr($panel_id) ?>">
+    <div class="muestra--ninguno tx-oc-anexos-panel" id="<?= esc_attr($panel_id) ?>">
         <div class="border-top px-4 py-4">
             <?php if ($mostrar_buscador) : ?>
             <div class="position-relative mb-3" style="max-width: 340px;">
-                <i class="snd__icono snd snd-search position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 14px;" aria-hidden="true"></i>
+                <i class="snd__icono snd-search icono--16 position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa;" aria-hidden="true"></i>
                 <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
             </div>
             <?php endif; ?>
             <div class="d-flex flex-column gap-2 tx-oc-anexos-list">
                 <?php foreach ($slot['documentos'] as $doc) : ?>
-                <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
+                <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="snd__icono snd snd-document flex-shrink-0" style="color: var(--color-burgundi); font-size: 16px;" aria-hidden="true"></i>
+                        <i class="snd__icono snd-document icono--16 flex-shrink-0" style="color: var(--color-burgundi);" aria-hidden="true"></i>
                         <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                    <i class="snd__icono snd-document--pdf icono--20 tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
                 </a>
                 <?php endforeach; ?>
             </div>
-            <p class="text-center text-muted small font-noto-sans mt-3 mb-0 d-none tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
+            <p class="text-center text-muted small font-noto-sans mt-3 mb-0 muestra--ninguno tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
         </div>
     </div>
     <?php
@@ -2376,17 +2405,17 @@ function sesna_render_oc_sesion_card($sesion) {
                             $youtube_id = $es_ver_sesion ? ($slot['youtube_id'] ?? '') : '';
                         ?>
                         <a rel="noopener" href="<?= $href ?>"
-                           <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-bs-toggle="modal" data-bs-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
+                           <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-modal-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
                            class="<?= esc_attr($link_class) ?>">
-                            <i class="snd__icono snd <?= esc_attr($slot['icon']) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+                            <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
                             <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
                         </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
 
-                <div class="columna__12 columna__1--md d-none d-md-flex align-items-center justify-content-center p-3 p-md-4">
-                    <i class="snd__icono snd snd-chevron--right text-muted fs-5" aria-hidden="true"></i>
+                <div class="columna__12 columna__1--md muestra--ninguno muestra--flex--md align-items-center justify-content-center p-3 p-md-4">
+                    <i class="snd__icono snd-chevron--right icono--16 text-muted" aria-hidden="true"></i>
                 </div>
             </div>
             <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
@@ -2405,8 +2434,8 @@ function sesna_render_oc_lista_directa_item($item) {
                 </div>
                 <div class="columna__12 columna__3--md tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
                     <?php foreach ($item['documentos'] as $doc) : ?>
-                    <a href="<?= esc_url($doc['enlace']) ?>" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                        <i class="snd__icono snd <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> tx-sesion-pdf-icon" aria-hidden="true"></i>
+                    <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
+                        <i class="snd__icono <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
                         <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
                     </a>
                     <?php endforeach; ?>
@@ -2622,9 +2651,9 @@ function sesna_dh_campania_meta_box_html($post) {
     </div>
 
     <div class="dh-mb-row">
-        <label for="dh_icono">Ícono Bootstrap Icons (respaldo) <span class="dh-mb-hint">(solo aplica si no hay imagen de ícono cargada)</span></label>
-        <input type="text" id="dh_icono" name="_dh_icono" value="<?php echo esc_attr($icono); ?>" placeholder="bi-heart-pulse">
-        <p class="dh-mb-hint">Ver íconos disponibles en <a rel="noopener" href="https://icons.getbootstrap.com/" target="_blank" title="El enlace abre en ventana nueva">icons.getbootstrap.com</a></p>
+        <label for="dh_icono">Ícono representativo (respaldo) <span class="dh-mb-hint">(solo aplica si no hay imagen de ícono cargada)</span></label>
+        <input type="text" id="dh_icono" name="_dh_icono" value="<?php echo esc_attr($icono); ?>" placeholder="snd-heart">
+        <p class="dh-mb-hint">Ver íconos disponibles en el catálogo del Sistema Nacional de Diseño (SND).</p>
     </div>
 
     <div class="dh-mb-row">

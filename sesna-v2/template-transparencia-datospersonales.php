@@ -17,7 +17,7 @@ $documentos = sesna_get_datos_personales_docs();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -31,10 +31,10 @@ $documentos = sesna_get_datos_personales_docs();
     <!-- Contenedor Principal -->
     <div class="contenedor py-4">
 
-        <!-- Títulos -->
+        <!-- Títulos — SND Sección 3.4: h1b patria -->
         <div class="reticulaGrid__12 mb-4">
             <div class="columna__12">
-                <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Datos Personales</h1>
+                <h1 class="h1b patria tx-section-title mb-2 tx-comite-title">Datos Personales</h1>
             </div>
         </div>
 
@@ -89,18 +89,18 @@ $documentos = sesna_get_datos_personales_docs();
 
                         <!-- Info Column -->
                         <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                            <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($doc['titulo']) ?></h3>
+                            <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($doc['titulo']) ?></h3>
                             <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Categoría:</strong> <?= esc_html($doc['tipo']) ?></p>
                         </div>
 
                         <!-- Action Column -->
                         <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
+                            <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
+                                <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
                                 <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Consultar</div>
                             </a>
-                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
+                            <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
+                                <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -112,7 +112,7 @@ $documentos = sesna_get_datos_personales_docs();
             <!-- Ver más Documentos -->
             <div class="text-center mt-5" id="documentos-load-more-container">
                 <a href="javascript:void(0)" id="documentos-btn-more" class="boton__fantasma">
-                    Ver más documentos <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                    Ver más documentos <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                 </a>
             </div>
 

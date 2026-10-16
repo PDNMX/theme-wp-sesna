@@ -50,7 +50,7 @@ wp_reset_postdata();
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -64,24 +64,25 @@ wp_reset_postdata();
     <!-- Contenedor Principal -->
     <div class="contenedor py-4">
 
-        <!-- Títulos -->
+        <!-- Títulos — SND Sección 3.4: h1b patria -->
         <div class="reticulaGrid__12 mb-4">
             <div class="columna__12">
-                <h1 class="tx-section-title font-patria mb-2 tx-comite-title">Comité de Transparencia</h1>
+                <h1 class="h1b patria tx-section-title mb-2 tx-comite-title">Comité de Transparencia</h1>
             </div>
         </div>
 
         <!-- Tabs -->
+        <!-- Tabs -->
         <div class="tx-comite-tabs-container">
             <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="sesiones-tab" data-bs-toggle="tab" data-bs-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="snd__icono snd snd-list" aria-hidden="true"></i> Actas
+                    <button class="nav-link active" id="sesiones-tab" data-tab-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
+                        <i class="snd__icono snd-list icono--20 me-1" aria-hidden="true"></i> Actas
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="resoluciones-tab" data-bs-toggle="tab" data-bs-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i> Resoluciones
+                    <button class="nav-link" id="resoluciones-tab" data-tab-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
+                        <i class="snd__icono snd-checkmark--filled icono--20 me-1" aria-hidden="true"></i> Resoluciones
                     </button>
                 </li>
             </ul>
@@ -129,18 +130,18 @@ wp_reset_postdata();
 
                             <!-- Info Column -->
                             <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
+                                <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
                                 <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> <?= esc_html($sesion['tipo']) ?></p>
                             </div>
 
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
+                                    <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
                                 </a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
+                                    <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -152,14 +153,14 @@ wp_reset_postdata();
                 <!-- Ver más Sesiones -->
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                     </a>
                 </div>
 
             </div>
 
             <!-- TAB: RESOLUCIONES -->
-            <div class="tab-pane" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
+            <div class="tab-pane muestra--ninguno" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
                 
                 <!-- Filtros Resoluciones -->
                 <div class="reticulaGrid__12 mb-5 align-items-end">
@@ -179,7 +180,7 @@ wp_reset_postdata();
                         <label for="search-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Número de resolución</label>
                         <div class="position-relative">
                             <input type="text" id="search-res" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Buscar resolución...">
-                            <i class="snd__icono snd snd-search tx-comite-search-icon" aria-hidden="true"></i>
+                            <i class="snd__icono snd-search icono--20 tx-comite-search-icon" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -198,18 +199,18 @@ wp_reset_postdata();
 
                             <!-- Info Column -->
                             <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($res['titulo']) ?></h3>
+                                <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($res['titulo']) ?></h3>
                                 <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Número:</strong> <?= esc_html($res['numero']) ?></p>
                             </div>
 
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
+                                    <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Resolución</div>
                                 </a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
+                                    <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
                                 </a>
                             </div>
 
@@ -221,7 +222,7 @@ wp_reset_postdata();
                 <!-- Ver más Resoluciones -->
                 <div class="text-center mt-5" id="resoluciones-load-more-container">
                     <a href="javascript:void(0)" id="resoluciones-btn-more" class="boton__fantasma">
-                        Ver más resoluciones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más resoluciones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -354,6 +355,31 @@ document.addEventListener('DOMContentLoaded', function() {
             applyResFilters();
         });
     }
+
+    // Controlador nativo de pestañas SND v1.1.0
+    document.querySelectorAll('#comiteTabs [role="tab"]').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var targetId = tab.getAttribute('data-tab-target');
+            if (!targetId) return;
+
+            document.querySelectorAll('#comiteTabs [role="tab"]').forEach(function(t) {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+
+            document.querySelectorAll('#comiteTabsContent .tab-pane').forEach(function(pane) {
+                pane.classList.remove('show', 'active');
+                pane.classList.add('muestra--ninguno');
+            });
+            var targetPane = document.querySelector(targetId);
+            if (targetPane) {
+                targetPane.classList.remove('muestra--ninguno');
+                targetPane.classList.add('show', 'active');
+            }
+        });
+    });
 
     // Initial load
     applySesionesFilters();

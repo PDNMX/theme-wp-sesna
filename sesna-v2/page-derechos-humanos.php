@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -36,7 +36,7 @@ get_header();
                         Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
-                <div class="columna__12 columna__4--md columna__6--lg d-none d-md-flex align-items-center justify-content-end position-relative">
+                <div class="columna__12 columna__4--md columna__6--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end position-relative">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode('Derechos humanos Encabezado.png') ); ?>"
                          alt="Derechos Humanos y Perspectiva de Género"
                          class="sesna-hero__img"
@@ -57,7 +57,7 @@ get_header();
         <div class="contenedor">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">Pronunciamientos</h2>
+                    <h2 class="cp-recursos__titulo h2b patria mb-0">Pronunciamientos</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -66,8 +66,7 @@ get_header();
             <div class="reticulaGrid__12 mt-2">
                 <div class="columna__12 columna__6--md">
                     <a href="javascript:void(0)"
-                       data-bs-toggle="modal"
-                       data-bs-target="#pdfViewerModal"
+                       data-modal-target="#pdfViewerModal"
                        data-pdf-url="<?php echo esc_url( $dh_pdf_nondiscriminacion ); ?>"
                        data-pdf-title="Pronunciamiento de No Discriminación 2026"
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
@@ -78,13 +77,12 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
-                        <i class="snd__icono snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                        <i class="snd__icono snd-chevron--right text-muted flex-shrink-0 icono--16" aria-hidden="true" style="font-size: 14px;"></i>
                     </a>
                 </div>
                 <div class="columna__12 columna__6--md">
                     <a href="javascript:void(0)"
-                       data-bs-toggle="modal"
-                       data-bs-target="#pdfViewerModal"
+                       data-modal-target="#pdfViewerModal"
                        data-pdf-url="<?php echo esc_url( $dh_pdf_acoso ); ?>"
                        data-pdf-title="Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual 2026"
                        class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
@@ -95,7 +93,7 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
                         <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
-                        <i class="snd__icono snd snd-chevron--right text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                        <i class="snd__icono snd-chevron--right text-muted flex-shrink-0 icono--16" aria-hidden="true" style="font-size: 14px;"></i>
                     </a>
                 </div>
             </div>
@@ -107,7 +105,7 @@ get_header();
         <div class="contenedor">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">Campañas de Sensibilización</h2>
+                    <h2 class="cp-recursos__titulo h2b patria mb-0">Campañas de Sensibilización</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -198,8 +196,7 @@ get_header();
                     <div class="dh-campania-card dh-campania-trigger h-100 d-flex flex-column"
                          role="button"
                          tabindex="0"
-                         data-bs-toggle="modal"
-                         data-bs-target="#modal-campania"
+                         data-modal-target="#modal-campania"
                          data-titulo="<?php echo esc_attr($dh_c_titulo); ?>"
                          data-icono="<?php echo esc_attr($dh_c_icono); ?>"
                          data-color="<?php echo esc_attr($dh_c_color); ?>"
@@ -241,7 +238,7 @@ get_header();
         <div class="contenedor">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">Acciones x la Integridad</h2>
+                    <h2 class="cp-recursos__titulo h2b patria mb-0">Acciones x la Integridad</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -293,8 +290,7 @@ get_header();
                 <div class="dh-acciones-card cd-clickable mt-4"
                      role="button"
                      tabindex="0"
-                     data-bs-toggle="modal"
-                     data-bs-target="#modal-catalogo"
+                     data-modal-target="#modal-catalogo"
                      data-titulo="<?php echo esc_attr($dh_catalogo_titulo); ?>"
                      data-paginas="<?php echo esc_attr( json_encode($dh_catalogo_paginas) ); ?>">
             <?php else : ?>
@@ -306,7 +302,7 @@ get_header();
                             <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/acciones_x_integridad.png') ); ?>"
                                  alt="Acciones X la Integridad"
                                  class="img-fluid dh-acciones-img--portrait"
-                                 onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'snd snd-image fs-1 text-muted\'></i></div>';">
+                                 onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'snd__icono snd-image icono--32 text-muted\'></i></div>';">
                         </div>
                     </div>
                     <div class="columna__12 columna__8--md">
@@ -314,9 +310,9 @@ get_header();
                             <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
                             <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                <span class="boton__fantasma">Leer más <i class="snd snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma">Leer más <i class="snd__icono snd-arrow--right ms-1 icono--16" aria-hidden="true"></i></span>
                             <?php else : ?>
-                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd snd__icono snd-arrow--right ms-1" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd__icono snd-arrow--right ms-1 icono--16" aria-hidden="true"></i></span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -330,7 +326,7 @@ get_header();
         <div class="contenedor">
             <div class="cp-recursos__header mb-2">
                 <div>
-                    <h2 class="cp-recursos__titulo mb-0">Comité de Igualdad de Género</h2>
+                    <h2 class="cp-recursos__titulo h2b patria mb-0">Comité de Igualdad de Género</h2>
                     <div class="cp-recursos__linea"></div>
                 </div>
             </div>
@@ -410,12 +406,12 @@ get_header();
 
                             <!-- Action Column -->
                             <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 1.5rem; color: var(--color-burgundi);"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
+                                    <i class="snd__icono snd-document--pdf tx-sesion-pdf-icon icono--24" aria-hidden="true" style="color: var(--color-burgundi);"></i>
                                     <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text" style="color: var(--color-burgundi);">Acta</div>
                                 </a>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd snd-chevron--right tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px; font-size: 1.5rem; color: var(--color-burgundi);"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
+                                    <i class="snd__icono snd-chevron--right tx-sesion-chevron-icon icono--24" aria-hidden="true" style="color: var(--color-burgundi);"></i>
                                 </a>
                             </div>
 
@@ -428,7 +424,7 @@ get_header();
                 <?php if (count($sesiones) > 5) : ?>
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--16" aria-hidden="true"></i>
                     </a>
                 </div>
                 <?php endif; ?>
@@ -438,38 +434,36 @@ get_header();
 
 </div>
 
-<!-- ── Modal Unificada: Campañas de Sensibilización ──────── -->
-<div class="modal fade" id="modal-campania" tabindex="-1" aria-hidden="true">
+<!-- ── Modal Unificada: Campañas de Sensibilización (SND v1.1.0) ──────── -->
+<div class="modal tx-pdf-modal snd-modal" id="modal-campania" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
             <!-- Botón de Cerrar -->
-            <button type="button" class="btn-close position-absolute top-0 end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Cerrar"
-                style="background-color: white; border: 1px solid var(--color-burgundi, #9d2449); border-radius: 50%; padding: .4rem; opacity: 1; background-size: 0.8em;"></button>
+            <button type="button" class="boton__fantasma position-absolute top-0 end-0 m-3 z-3 p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+            </button>
 
             <div class="modal-body p-4 p-md-5 position-relative" id="dh-modal-body">
                 <!-- Contenido inyectado dinámicamente por derechos-humanos.js -->
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
-                    <div class="spinner-border text-secondary" role="status">
-                        <span class="visually-hidden">Cargando...</span>
-                    </div>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ── Modal: Catálogo Digital (flipbook) ────────────────── -->
-<div class="modal fade" id="modal-catalogo" tabindex="-1" aria-hidden="true">
+<!-- ── Modal: Catálogo Digital (flipbook) (SND v1.1.0) ────────────────── -->
+<div class="modal tx-pdf-modal snd-modal" id="modal-catalogo" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen-lg-down cd-flipbook-dialog">
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden cd-flipbook-content">
-            <button type="button" class="btn-close cd-flipbook-close" data-bs-dismiss="modal" aria-label="Cerrar"
-                style="background-color: white; border: 1px solid var(--color-burgundi, #9d2449); border-radius: 50%; padding: .4rem; opacity: 1; background-size: 0.8em;"></button>
+            <button type="button" class="boton__fantasma position-absolute top-0 end-0 m-3 z-3 p-2 rounded-circle cd-flipbook-close" data-modal-dismiss aria-label="Cerrar modal">
+                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+            </button>
 
             <div class="modal-body p-0" id="cd-flipbook-container">
                 <div class="d-flex justify-content-center align-items-center" style="min-height:300px;">
-                    <div class="spinner-border text-secondary" role="status">
-                        <span class="visually-hidden">Cargando...</span>
-                    </div>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" aria-hidden="true"></i>
                 </div>
             </div>
         </div>

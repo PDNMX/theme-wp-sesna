@@ -119,15 +119,15 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div class="d-flex align-items-center gap-3">
             <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-                <i class="snd__icono snd snd-chart--bar" aria-hidden="true" style="color: #fff;"></i>
+                <i class="snd__icono snd-chart--bar icono--20" aria-hidden="true" style="color: #fff;"></i>
             </div>
             <div>
-                <h2 class="h3 fw-bold font-patria mb-1" style="color: #611232;">Información Financiera</h2>
+                <h1 class="h1b patria mb-1" style="color: #611232;">Información Financiera</h1>
                 <p class="text-muted mb-0" style="font-size: 15px;">Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.</p>
             </div>
         </div>
         <div class="fin-search flex-shrink-0">
-            <i class="snd__icono snd snd-search" aria-hidden="true"></i>
+            <i class="snd__icono snd-search icono--16" aria-hidden="true"></i>
             <input type="search" id="finSearchInput" placeholder="Buscar documento" aria-label="Buscar documento">
         </div>
     </div>
@@ -141,7 +141,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                 <div class="d-flex align-items-center justify-content-between mb-2 px-1 pt-1">
                     <div class="d-flex align-items-center gap-2">
                         <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: #F9F0F3;">
-                            <i class="snd__icono snd snd-document" aria-hidden="true" style="color: #611232;"></i>
+                            <i class="snd__icono snd-document icono--16" aria-hidden="true" style="color: #611232;"></i>
                         </div>
                         <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232;">Estados Financieros</h3>
                     </div>
@@ -154,9 +154,9 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                         <div class="fin-tree-node">
                             <button type="button" class="fin-tree-label" data-fin-toggle="<?php echo esc_attr( $anio_id ); ?>">
                                 <span><?php echo esc_html( $anio ); ?></span>
-                                <i class="snd__icono snd snd-chevron--down fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
+                                <i class="snd__icono snd-chevron--down icono--16 fin-tree-chevron <?php echo $anio_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
                             </button>
-                            <div class="fin-tree-children <?php echo $anio_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $anio_id ); ?>">
+                            <div class="fin-tree-children <?php echo $anio_activo ? '' : 'muestra--ninguno'; ?>" id="<?php echo esc_attr( $anio_id ); ?>">
                                 <?php foreach ( $fin_orden_trimestres as $trimestre ) :
                                     $data_t = $trimestres[ $trimestre ];
                                     if ( empty( $data_t['documentos'] ) && empty( $data_t['meses'] ) ) {
@@ -170,9 +170,9 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                         <div class="fin-tree-node fin-tree-node--sub">
                                             <button type="button" class="fin-tree-label fin-tree-label--sub" data-fin-toggle="<?php echo esc_attr( $trim_id ); ?>">
                                                 <span><?php echo esc_html( $trimestre ); ?></span>
-                                                <i class="snd__icono snd snd-chevron--down fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
+                                                <i class="snd__icono snd-chevron--down icono--16 fin-tree-chevron <?php echo $trim_activo ? 'is-open' : ''; ?>" aria-hidden="true"></i>
                                             </button>
-                                            <div class="fin-tree-children <?php echo $trim_activo ? '' : 'd-none'; ?>" id="<?php echo esc_attr( $trim_id ); ?>">
+                                            <div class="fin-tree-children <?php echo $trim_activo ? '' : 'muestra--ninguno'; ?>" id="<?php echo esc_attr( $trim_id ); ?>">
                                                 <?php foreach ( $fin_orden_meses as $mes ) :
                                                     if ( empty( $data_t['meses'][ $mes ] ) ) {
                                                         continue;
@@ -216,12 +216,12 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                         <?php
                         $fin_trail_partes = array_map( 'trim', explode( '>', $fin_default_trail ) );
                         foreach ( $fin_trail_partes as $idx => $parte ) :
-                            if ( $idx > 0 ) : ?><i class="snd__icono snd snd-chevron--right fin-trail__sep" aria-hidden="true"></i><?php endif; ?>
+                            if ( $idx > 0 ) : ?><i class="snd__icono snd-chevron--right icono--16 fin-trail__sep" aria-hidden="true"></i><?php endif; ?>
                             <span class="fin-trail__item <?php echo ( $idx === count( $fin_trail_partes ) - 1 ) ? 'fin-trail__item--current' : ''; ?>"><?php echo esc_html( $parte ); ?></span>
                         <?php endforeach; ?>
                     </nav>
                     <button type="button" class="fin-collapse-btn" id="finCollapseBtn">
-                        <span id="finCollapseBtnText">Contraer lista</span> <i class="snd__icono snd snd-chevron--up" aria-hidden="true" id="finCollapseBtnIcon"></i>
+                        <span id="finCollapseBtnText">Contraer lista</span> <i class="snd__icono snd-chevron--up icono--16" aria-hidden="true" id="finCollapseBtnIcon"></i>
                     </button>
                 </div>
 
@@ -237,47 +237,47 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
                                     }
                                     $key = $anio . '__' . sanitize_title( $trimestre ) . '__' . sanitize_title( $mes );
                                     ?>
-                                    <div class="fin-doc-panel <?php echo ( $key === $fin_default_key ) ? '' : 'd-none'; ?>" id="fin-panel-<?php echo esc_attr( $key ); ?>">
+                                    <div class="fin-doc-panel <?php echo ( $key === $fin_default_key ) ? '' : 'muestra--ninguno'; ?>" id="fin-panel-<?php echo esc_attr( $key ); ?>">
                                         <?php foreach ( $data_t['meses'][ $mes ] as $doc ) :
                                             $label = $doc['descripcion'] ? $doc['descripcion'] : $doc['contenidoN2'];
                                             ?>
                                             <a href="<?php echo esc_url( $doc['url'] ); ?>"
                                                class="fin-doc-row"
-                                               data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                                               data-modal-target="#pdfViewerModal"
                                                data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                data-pdf-title="<?php echo esc_attr( $label ); ?>"
                                                data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                                 <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                                 <span class="fin-doc-action">
-                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd snd-document" aria-hidden="true"></i></span>
+                                                    <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd-document icono--16" aria-hidden="true"></i></span>
                                                     <span class="visually-hidden">Ver documento</span>
                                                 </span>
                                             </a>
                                         <?php endforeach; ?>
-                                        <p class="fin-doc-empty d-none text-muted text-center py-4 mb-0">No se encontraron documentos que coincidan con la búsqueda.</p>
+                                        <p class="fin-doc-empty muestra--ninguno text-muted text-center py-4 mb-0">No se encontraron documentos que coincidan con la búsqueda.</p>
                                     </div>
                                 <?php endforeach;
                             elseif ( ! empty( $data_t['documentos'] ) ) :
                                 $key = $anio . '__' . sanitize_title( $trimestre );
                                 ?>
-                                <div class="fin-doc-panel <?php echo ( $key === $fin_default_key ) ? '' : 'd-none'; ?>" id="fin-panel-<?php echo esc_attr( $key ); ?>">
+                                <div class="fin-doc-panel <?php echo ( $key === $fin_default_key ) ? '' : 'muestra--ninguno'; ?>" id="fin-panel-<?php echo esc_attr( $key ); ?>">
                                     <?php foreach ( $data_t['documentos'] as $doc ) :
                                         $label = $doc['descripcion'] ? $doc['descripcion'] : $doc['contenidoN2'];
                                         ?>
                                         <a href="<?php echo esc_url( $doc['url'] ); ?>"
                                            class="fin-doc-row"
-                                           data-bs-toggle="modal" data-bs-target="#pdfViewerModal"
+                                           data-modal-target="#pdfViewerModal"
                                            data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                            data-pdf-title="<?php echo esc_attr( $label ); ?>"
                                            data-fin-search="<?php echo esc_attr( mb_strtolower( $label, 'UTF-8' ) ); ?>">
                                             <span class="fin-doc-label"><?php echo esc_html( $label ); ?></span>
                                             <span class="fin-doc-action">
-                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd snd-document" aria-hidden="true"></i></span>
+                                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd-document icono--16" aria-hidden="true"></i></span>
                                                 <span class="visually-hidden">Ver documento</span>
                                             </span>
                                         </a>
                                     <?php endforeach; ?>
-                                    <p class="fin-doc-empty d-none text-muted text-center py-4 mb-0">No se encontraron documentos que coincidan con la búsqueda.</p>
+                                    <p class="fin-doc-empty muestra--ninguno text-muted text-center py-4 mb-0">No se encontraron documentos que coincidan con la búsqueda.</p>
                                 </div>
                                 <?php
                             endif;
@@ -292,20 +292,20 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
         <div class="columna__12 columna__3--lg">
             <div class="card border rounded-4 shadow-sm p-3 mb-4" style="border-color: #E9ECEF !important;">
                 <div class="d-flex align-items-start gap-2 mb-3 px-1 pt-1">
-                    <i class="snd__icono snd snd-document flex-shrink-0 mt-1" aria-hidden="true" style="color: #611232;"></i>
+                    <i class="snd__icono snd-document icono--20 flex-shrink-0 mt-1" aria-hidden="true" style="color: #611232;"></i>
                     <h3 class="h6 fw-bold font-patria mb-0" style="color: #611232; line-height: 1.3;">Dictámenes de Estados Financieros y Presupuestarios</h3>
                 </div>
                 <div class="d-flex flex-column">
                     <?php foreach ( $fin_dictamenes as $anio_dict => $doc ) : ?>
                         <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener" class="fin-side-link">
                             <span><?php echo esc_html( $anio_dict ); ?></span>
-                            <i class="snd__icono snd snd-chevron--right" aria-hidden="true"></i>
+                            <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
                         </a>
                     <?php endforeach; ?>
                 </div>
             </div>
             <div class="fin-info-box">
-                <i class="snd__icono snd snd-information flex-shrink-0" aria-hidden="true"></i>
+                <i class="snd__icono snd-information icono--16 flex-shrink-0" aria-hidden="true"></i>
                 <span>Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.</span>
             </div>
         </div>
@@ -315,7 +315,7 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
     <!-- Nota al pie -->
     <div class="fin-footer-note d-flex align-items-center gap-3 mt-4">
         <div class="icon-bg-circle flex-shrink-0" style="background-color: #611232;">
-            <i class="snd__icono snd snd-security" aria-hidden="true" style="color: #fff;"></i>
+            <i class="snd__icono snd-security icono--20" aria-hidden="true" style="color: #fff;"></i>
         </div>
         <p class="mb-0 font-noto-sans text-muted">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
     </div>
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var target = document.getElementById(this.dataset.finToggle);
             var chevron = this.querySelector('.fin-tree-chevron');
             if (!target) return;
-            target.classList.toggle('d-none');
+            target.classList.toggle('muestra--ninguno');
             chevron.classList.toggle('is-open');
         });
     });
@@ -342,19 +342,19 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.fin-tree-leaf').forEach(function (b) { b.classList.remove('active'); });
             this.classList.add('active');
 
-            document.querySelectorAll('.fin-doc-panel').forEach(function (p) { p.classList.add('d-none'); });
+            document.querySelectorAll('.fin-doc-panel').forEach(function (p) { p.classList.add('muestra--ninguno'); });
             var panel = document.getElementById('fin-panel-' + this.dataset.finPanel);
             if (panel) {
-                panel.classList.remove('d-none');
-                panel.querySelectorAll('.fin-doc-row').forEach(function (row) { row.classList.remove('d-none'); });
+                panel.classList.remove('muestra--ninguno');
+                panel.querySelectorAll('.fin-doc-row').forEach(function (row) { row.classList.remove('muestra--ninguno'); });
                 var empty = panel.querySelector('.fin-doc-empty');
-                if (empty) empty.classList.add('d-none');
+                if (empty) empty.classList.add('muestra--ninguno');
             }
 
             var trailEl = document.getElementById('finTrail');
             var partes = this.dataset.finTrail.split(' > ');
             trailEl.innerHTML = partes.map(function (p, i) {
-                var sep = i > 0 ? '<i class="snd__icono snd snd-chevron--right fin-trail__sep" aria-hidden="true"></i>' : '';
+                var sep = i > 0 ? '<i class="snd__icono snd-chevron--right icono--16 fin-trail__sep" aria-hidden="true"></i>' : '';
                 var cls = (i === partes.length - 1) ? 'fin-trail__item fin-trail__item--current' : 'fin-trail__item';
                 return sep + '<span class="' + cls + '">' + p + '</span>';
             }).join('');
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var collapseIcon = document.getElementById('finCollapseBtnIcon');
     if (collapseBtn) {
         collapseBtn.addEventListener('click', function () {
-            var collapsed = listWrap.classList.toggle('d-none');
+            var collapsed = listWrap.classList.toggle('muestra--ninguno');
             collapseText.textContent = collapsed ? 'Expandir lista' : 'Contraer lista';
             collapseIcon.classList.toggle('snd-chevron--up', !collapsed);
             collapseIcon.classList.toggle('snd-chevron--down', collapsed);
@@ -383,17 +383,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (searchInput) {
         searchInput.addEventListener('input', function () {
             var query = this.value.trim().toLowerCase();
-            var panel = document.querySelector('.fin-doc-panel:not(.d-none)');
+            var panel = document.querySelector('.fin-doc-panel:not(.muestra--ninguno)');
             if (!panel) return;
             var rows = panel.querySelectorAll('.fin-doc-row');
             var visibles = 0;
             rows.forEach(function (row) {
                 var match = row.dataset.finSearch.indexOf(query) !== -1;
-                row.classList.toggle('d-none', !match);
+                row.classList.toggle('muestra--ninguno', !match);
                 if (match) visibles++;
             });
             var empty = panel.querySelector('.fin-doc-empty');
-            if (empty) empty.classList.toggle('d-none', visibles !== 0);
+            if (empty) empty.classList.toggle('muestra--ninguno', visibles !== 0);
         });
     }
 

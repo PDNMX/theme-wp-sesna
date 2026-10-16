@@ -32,7 +32,7 @@
 <div class="blogHeaderContainer">
     <div class="d-flex justify-content-center align-items-center">
         <div class="p-2">
-        <h1 class="sentence">SESNA <b>INFORMA</b></h1>
+        <h1 class="sentence h1b patria">SESNA <b>INFORMA</b></h1>
         <p><b>Documentos, estudios,</b><br>datos y noticias</p>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
 
     <!--   CONTAINER BLOG RELATED  -->
-    <div class="container" id="etiquetasContainer">
+    <div class="contenedor" id="etiquetasContainer">
         <p class="tituloEtiquetas">Visualiza las notas más recientes o selecciona la categoría de tu preferencia:</p>
 
 
@@ -74,7 +74,7 @@
 
         </div>
 
-        <div class="collapse" id="collapseExample">
+        <div class="muestra--ninguno" id="collapseExample">
             <div class="d-flex flex-wrap justify-content-center align-content-center etiquetasContainer">
 
                 
@@ -95,8 +95,8 @@
 
 
         <hr class="divisor">
-        <button class="boton__secundario" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <img src="<?php bloginfo('stylesheet_directory') ?>/img/blog/ojo.png"/>
+        <button class="boton__secundario" type="button" aria-expanded="false" aria-controls="collapseExample" onclick="var el=document.getElementById('collapseExample'); if(el){ el.classList.toggle('muestra--ninguno'); this.setAttribute('aria-expanded', !el.classList.contains('muestra--ninguno')); }">
+        <img src="<?php bloginfo('stylesheet_directory') ?>/img/blog/ojo.png" alt="Ver categorías"/>
         </button>
         <p class="tituloEtiquetas">VER TODAS LAS CATEGORÍAS</p>
 

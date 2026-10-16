@@ -83,14 +83,20 @@
             });
         }
 
-        /* Submenús de desktop: cerrar al hacer clic fuera */
+        /* Submenús de desktop: cerrar al hacer clic fuera (solo submenús dentro de <li>, NUNCA el navbar principal) */
         document.addEventListener('click', function(e) {
-            var subDetails = document.querySelectorAll('.sesna-subheader .navHeader__details[open]');
+            var subDetails = document.querySelectorAll('.sesna-subheader .navHeader__li details.navHeader__details[open]');
             subDetails.forEach(function(d) {
+                if (d.id === 'sesna-nav-details') return;
                 if (!d.contains(e.target)) {
                     d.removeAttribute('open');
                 }
             });
+
+            // En escritorio, garantizar que el navbar principal institucional permanezca siempre abierto
+            if (window.innerWidth >= 768 && navDetails && !navDetails.hasAttribute('open')) {
+                navDetails.setAttribute('open', '');
+            }
         });
     });
 

@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
@@ -37,7 +37,7 @@ get_header();
 
                 <!-- Columna Izquierda: Descripción y Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
                 <div class="columna__12 columna__7--lg">
-                    <h2 class="fw-bold font-patria text-burgundi mb-3">Política Nacional Anticorrupción</h2>
+                    <h1 class="h1b patria text-burgundi mb-3">Política Nacional Anticorrupción</h1>
                     <p class="text-muted mb-4">
                         Documento estratégico de largo aliento que plasma la agenda del Estado mexicano en la materia. Contiene el diagnóstico y las prioridades mínimas que orientan la actuación SNA en materia de prevención, detección, investigación y sanción de faltas administrativas y hechos de corrupción, así como la fiscalización y el control de recursos públicos.
                     </p>
@@ -46,73 +46,66 @@ get_header();
                     <div class="d-flex flex-column gap-3">
                         
                         <!-- Tarjeta 1: Consultar documento completo -->
-                        <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
+                        <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd__icono snd snd-document text-white fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd-document icono--24 text-white" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Consultar documento completo</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Política Nacional Anticorrupción (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd__icono snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
+                                <i class="snd__icono snd-launch icono--20 text-burgundi" aria-hidden="true"></i>
                             </div>
                         </a>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
-                        <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
+                        <a href="#" class="card border rounded-3 p-3 text-decoration-none shadow-sm pna-doc-card-compact pna-doc-item d-flex flex-row align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                             <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                <i class="snd__icono snd snd-education text-white fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd-education icono--24 text-white" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 text-start my-auto">
                                 <div class="fw-bold text-burgundi pna-card-title mb-0">Guía para el Diseño de PEA</div>
                                 <div class="text-muted pna-card-subtitle mb-0">Documento (PDF)</div>
                             </div>
                             <div class="ms-3 flex-shrink-0">
-                                <i class="snd__icono snd snd-launch text-burgundi fs-5" aria-hidden="true"></i>
+                                <i class="snd__icono snd-launch icono--20 text-burgundi" aria-hidden="true"></i>
                             </div>
                         </a>
 
-                        <!-- Tarjeta 3: Anexos (Accordion Flush de Bootstrap, cerrado por defecto) -->
-                        <div class="card border rounded-3 shadow-sm overflow-hidden pna-accordion-card">
-                            <div class="accordion accordion-flush" id="accordionAnexos">
-                                <div class="accordion-item border-0 bg-transparent">
-                                    <div class="accordion-header m-0" id="flush-headingAnexos">
-                                        <button class="accordion-button collapsed p-3 bg-transparent shadow-none d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseAnexos" aria-expanded="false" aria-controls="flush-collapseAnexos">
-                                            <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
-                                                <i class="snd__icono snd snd-folder text-white fs-4" aria-hidden="true"></i>
-                                            </div>
-                                            <div class="flex-grow-1 text-start my-auto">
-                                                <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
-                                                <div class="text-muted pna-card-subtitle mb-0">Consulta los documentos disponibles</div>
-                                            </div>
-                                        </button>
-                                    </div>
-                                    <div id="flush-collapseAnexos" class="accordion-collapse collapse" aria-labelledby="flush-headingAnexos" data-bs-parent="#accordionAnexos">
-                                        <div class="accordion-body p-0 border-top">
-                                            <div class="list-group list-group-flush">
-                                                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
-                                                    <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
-                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
-                                                    <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
-                                                    <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
-                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
-                                                    <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
-                                                    <i class="snd__icono snd snd-launch text-burgundi ms-2" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <!-- Tarjeta 3: Anexos (Details nativo accesible SND v1.1.0) -->
+                        <details class="card border rounded-3 shadow-sm overflow-hidden pna-accordion-card">
+                            <summary class="p-3 bg-transparent d-flex align-items-center text-decoration-none list-unstyled cursor-pointer" style="cursor: pointer;">
+                                <div class="pna-guinda-icon-box me-3 flex-shrink-0 d-flex align-items-center justify-content-center rounded-3">
+                                    <i class="snd__icono snd-folder icono--24 text-white" aria-hidden="true"></i>
+                                </div>
+                                <div class="flex-grow-1 text-start my-auto">
+                                    <div class="fw-bold text-burgundi pna-card-title mb-0">Anexos</div>
+                                    <div class="text-muted pna-card-subtitle mb-0">Consulta los documentos disponibles</div>
+                                </div>
+                                <i class="snd__icono snd-chevron--down icono--16 text-burgundi ms-2" aria-hidden="true"></i>
+                            </summary>
+                            <div class="border-top p-0">
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
+                                        <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Estadísticos</span>
+                                        <i class="snd__icono snd-launch icono--16 text-burgundi ms-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
+                                        <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Proceso de consulta, integración y presentación de la PNA</span>
+                                        <i class="snd__icono snd-launch icono--16 text-burgundi ms-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 border-bottom pna-anexo-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
+                                        <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones sugeridas</span>
+                                        <i class="snd__icono snd-launch icono--16 text-burgundi ms-2" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between py-3 px-4 text-decoration-none border-0 pna-anexo-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
+                                        <span class="text-burgundi fw-medium pna-anexo-text">&bull; Anexos-Acciones de poderes ejecutivos</span>
+                                        <i class="snd__icono snd-launch icono--16 text-burgundi ms-2" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
-                        </div>
+                        </details>
 
                     </div>
 
@@ -137,7 +130,7 @@ get_header();
 
             <div class="pna-stats-card p-4 p-md-5">
                 <div class="mb-4">
-                    <h2 class="pna-diseno-title mb-3">Ejes y Objetivos de la Política Nacional Anticorrupción</h2>
+                    <h2 class="h2b patria mb-3">Ejes y Objetivos de la Política Nacional Anticorrupción</h2>
                     <p class="text-muted mb-0 font-noto-sans" style="max-width: 900px; font-size: 15px; line-height: 1.6;">
                         La Política Nacional Anticorrupción se estructura en cuatro ejes estratégicos que agrupan diez objetivos específicos orientados a atender las principales causas y manifestaciones de la corrupción en México.
                     </p>
@@ -165,7 +158,7 @@ get_header();
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
-                            <div class="pna-connector pna-connector--right d-none d-lg-flex align-items-center" aria-hidden="true">
+                            <div class="pna-connector pna-connector--right muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
                                 <span class="pna-connector__line" style="background-color: #6AC72C;"></span>
                                 <span class="pna-connector__dot" style="background-color: #6AC72C;"></span>
                             </div>
@@ -186,7 +179,7 @@ get_header();
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
-                            <div class="pna-connector pna-connector--right d-none d-lg-flex align-items-center" aria-hidden="true">
+                            <div class="pna-connector pna-connector--right muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
                                 <span class="pna-connector__line" style="background-color: #74598F;"></span>
                                 <span class="pna-connector__dot" style="background-color: #74598F;"></span>
                             </div>
@@ -270,7 +263,7 @@ get_header();
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
-                            <div class="pna-connector pna-connector--left d-none d-lg-flex align-items-center" aria-hidden="true">
+                            <div class="pna-connector pna-connector--left muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
                                 <span class="pna-connector__line" style="background-color: #1D70B8;"></span>
                                 <span class="pna-connector__dot" style="background-color: #1D70B8;"></span>
                             </div>
@@ -291,7 +284,7 @@ get_header();
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
-                            <div class="pna-connector pna-connector--left d-none d-lg-flex align-items-center" aria-hidden="true">
+                            <div class="pna-connector pna-connector--left muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
                                 <span class="pna-connector__line" style="background-color: #E04F67;"></span>
                                 <span class="pna-connector__dot" style="background-color: #E04F67;"></span>
                             </div>
@@ -304,7 +297,7 @@ get_header();
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="d-flex justify-content-center mt-1 mb-4">
                     <div class="pna-ciclo-hint shadow-sm mx-auto justify-content-center" style="max-width: 580px; width: 100%;">
-                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd__icono snd snd-screen" aria-hidden="true"></i></span>
+                        <span class="pna-ciclo-hint__icon" aria-hidden="true"><i class="snd__icono snd-screen icono--16" aria-hidden="true"></i></span>
                         <p class="font-montserrat mb-0 fs-6">Selecciona un <strong style="color: var(--color-burgundi, #9d2449);">eje</strong> para conocer sus objetivos específicos.</p>
                     </div>
                 </div>
@@ -350,7 +343,7 @@ get_header();
                     </div>
 
                     <!-- Panel Eje 2 -->
-                    <div class="pna-eje-content d-none" id="content-eje-2">
+                    <div class="pna-eje-content muestra--ninguno" id="content-eje-2">
                         <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
@@ -392,7 +385,7 @@ get_header();
                     </div>
 
                     <!-- Panel Eje 3 -->
-                    <div class="pna-eje-content d-none" id="content-eje-3">
+                    <div class="pna-eje-content muestra--ninguno" id="content-eje-3">
                         <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
@@ -429,7 +422,7 @@ get_header();
                     </div>
 
                     <!-- Panel Eje 4 -->
-                    <div class="pna-eje-content d-none" id="content-eje-4">
+                    <div class="pna-eje-content muestra--ninguno" id="content-eje-4">
                         <div class="reticulaGrid__12 align-items-start">
                             
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
@@ -493,7 +486,7 @@ get_header();
         <div class="contenedor">
             <div class="reticulaGrid__12 mb-5">
                 <div class="columna__12">
-                    <h2 class="pna-diseno-title mb-3">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
+                    <h2 class="h2b patria mb-3">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
                     <p class="text-muted mb-0" style="max-width: 800px; font-size: 15px; line-height: 1.6;">
                         La PNA se construyó mediante un proceso participativo nacional que integró consultas ciudadanas, foros regionales y diversos insumos de evidencia y análisis técnico.
                     </p>
@@ -502,58 +495,58 @@ get_header();
 
             <!-- Gráfica Principal Interactiva (Ecuación de 3 Etapas) -->
             <div class="card border rounded-4 p-4 p-md-5 mb-5 shadow-sm bg-white mx-auto" style="border-color: #E9ECEF !important;">
-                <div class="row align-items-stretch justify-content-center text-center g-3 g-lg-4">
+                <div class="fila align-items-stretch justify-content-center text-center">
                     
                     <!-- Etapa 1: Consejo consultivo y análisis técnico -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="columna__12 columna__4--sm columna__auto--lg d-flex flex-grow">
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
-                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #74598F; line-height: 1;"><i class="snd__icono snd-group icono--24" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
                         </div>
                     </div>
 
                     <!-- Operador + -->
-                    <div class="col-auto d-none d-sm-flex align-items-center justify-content-center">
+                    <div class="columna__auto muestra--ninguno muestra--flex--sm align-items-center justify-content-center">
                         <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="columna__12 columna__4--sm columna__auto--lg d-flex flex-grow">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
-                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd__icono snd snd-group" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #00887A; line-height: 1;"><i class="snd__icono snd-group icono--24" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
                         </div>
                     </div>
 
                     <!-- Operador + -->
-                    <div class="col-auto d-none d-sm-flex align-items-center justify-content-center">
+                    <div class="columna__auto muestra--ninguno muestra--flex--sm align-items-center justify-content-center">
                         <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
-                    <div class="col-12 col-sm-4 col-lg d-flex">
+                    <div class="columna__12 columna__4--sm columna__auto--lg d-flex flex-grow">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
-                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd__icono snd snd-location--filled" aria-hidden="true"></i></span>
+                                <span class="fs-4" style="color: #D97706; line-height: 1;"><i class="snd__icono snd-location--filled icono--24" aria-hidden="true"></i></span>
                             </div>
                             <span class="d-block font-noto-sans fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
                         </div>
                     </div>
 
                     <!-- Operador = -->
-                    <div class="col-auto d-none d-lg-flex align-items-center justify-content-center">
+                    <div class="col-auto muestra--ninguno muestra--flex--lg align-items-center justify-content-center">
                         <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">=</span>
                     </div>
 
                     <!-- Resultado: Logo PNA -->
-                    <div class="col-12 col-lg-3 mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <div class="columna__12 columna__3--lg mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
                         <div class="d-flex align-items-center justify-content-center p-2 w-100 h-100">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/logo_pna.svg' ); ?>" alt="Política Nacional Anticorrupción" class="img-fluid" style="max-height: 85px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));">
                         </div>
@@ -564,7 +557,7 @@ get_header();
                 <!-- Banner azul de instrucciones -->
                 <div class="mt-4 pt-3 border-top text-center">
                     <div class="d-inline-flex align-items-center justify-content-center py-2 px-4 rounded-3 shadow-sm" style="background-color: #F0F6FC; color: #1D70B8; max-width: 700px; width: 100%;">
-                        <i class="snd__icono snd snd-information me-2 fs-5" aria-hidden="true"></i>
+                        <i class="snd__icono snd-information icono--20 me-2" aria-hidden="true"></i>
                         <span class="fw-semibold small">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
                     </div>
                 </div>
@@ -584,10 +577,10 @@ get_header();
                         Participaron especialistas y representantes de la academia, sociedad civil organizada, sector empresarial, instituciones gubernamentales y organismos internacionales. Se recabaron insumos técnicos, recomendaciones y evidencia que permitió complementar la percepción de la población con respecto a la corrupción. Se sistematizó la información y se construyó una base de datos.
                     </p>
 
-                    <div class="row g-4 text-center justify-content-center pt-2">
+                    <div class="reticulaGrid__12 pt-2">
                         <!-- Doc 1 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Proceso de Consulta.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -598,8 +591,8 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 2 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Compromisos-Internacionales.xlsx', '2021/06/Base-Compromisos-Internacionales.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Compromisos-Internacionales.xlsx', '2021/06/Base-Compromisos-Internacionales.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -610,8 +603,8 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 3 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Datos-IIJ.xlsx', '2021/06/Base-Datos-IIJ.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Datos-IIJ.xlsx', '2021/06/Base-Datos-IIJ.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('numeralia de los costos.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -622,8 +615,8 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 4 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Propuestas-RRC_SFP.xlsx', '2021/06/Base-Propuestas-RRC_SFP.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Propuestas-RRC_SFP.xlsx', '2021/06/Base-Propuestas-RRC_SFP.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('acciones para combatir la corrupcion.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -634,8 +627,8 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 5 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Recomendaciones-OSC.xlsx', '2021/06/Base-Recomendaciones-OSC.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Recomendaciones-OSC.xlsx', '2021/06/Base-Recomendaciones-OSC.xlsx' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('recomendaciones de la sociedad civil.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -646,8 +639,8 @@ get_header();
                             </a>
                         </div>
                         <!-- Doc 6 -->
-                        <div class="col-6 col-md-4 col-lg d-flex">
-                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte_Inteligencia__LNPPcide.pdf', '2020/03/Reporte_Inteligencia__LNPPcide.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
+                        <div class="columna__6 columna__4--md columna__2--lg d-flex">
+                            <a href="#" class="text-decoration-none d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte_Inteligencia__LNPPcide.pdf', '2020/03/Reporte_Inteligencia__LNPPcide.pdf' ) ); ?>" style="border-color: #E9ECEF !important; min-height: 250px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 80px; height: 80px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('reporte del taller de inteligencia.svg') ); ?>" alt="" width="80" height="80">
                                 </div>
@@ -661,7 +654,7 @@ get_header();
                 </div>
 
                 <!-- TARJETA ETAPA 2: Consulta Ciudadana en línea (Oculta inicialmente) -->
-                <div class="pna-stage-card card border rounded-4 p-4 p-md-5 shadow-sm bg-white transition-all d-none" data-stage-card="2" style="border-color: #E9ECEF !important;">
+                <div class="pna-stage-card card border rounded-4 p-4 p-md-5 shadow-sm bg-white transition-all muestra--ninguno" data-stage-card="2" style="border-color: #E9ECEF !important;">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 shadow-sm flex-shrink-0" style="background-color: #00887A; width: 44px; height: 44px;">2</span>
                         <h3 class="h4 mb-0 fw-bold font-noto-sans" style="color: #00887A;">Consulta Ciudadana en línea</h3>
@@ -686,20 +679,20 @@ get_header();
                             <div class="card border rounded-4 p-4 bg-white h-100 shadow-sm d-flex flex-column" style="border-color: #E9ECEF !important;">
                                 <h4 class="h5 fw-bold mb-3 font-noto-sans" style="color: #00887A;">Documentos de la consulta</h4>
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
-                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
-                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
+                                        <i class="snd__icono snd-document icono--24 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
-                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
-                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
+                                        <i class="snd__icono snd-document icono--24 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
-                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
-                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                    <a href="#" class="d-flex align-items-center py-3 border-bottom text-decoration-none transition-all pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
+                                        <i class="snd__icono snd-document icono--24 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
-                                    <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
-                                        <i class="snd__icono snd snd-document fs-3 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
+                                    <a href="#" class="d-flex align-items-center py-3 text-decoration-none transition-all pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
+                                        <i class="snd__icono snd-document icono--24 me-3 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
                                         <div class="fw-normal text-dark mb-0 font-noto-sans fs-5">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
@@ -709,7 +702,7 @@ get_header();
                 </div>
 
                 <!-- TARJETA ETAPA 3: Foros de Consulta Regional (Oculta inicialmente) -->
-                <div class="pna-stage-card card border rounded-4 p-4 p-md-5 shadow-sm bg-white transition-all d-none" data-stage-card="3" style="border-color: #E9ECEF !important;">
+                <div class="pna-stage-card card border rounded-4 p-4 p-md-5 shadow-sm bg-white transition-all muestra--ninguno" data-stage-card="3" style="border-color: #E9ECEF !important;">
                     <style>
                         .pna-stat-card {
                             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -922,7 +915,7 @@ get_header();
                                     </svg>
 
                                     <!-- Tooltip flotante del mapa -->
-                                    <div id="mapTooltip" class="pna-map-tooltip position-absolute bg-dark text-white p-3 rounded shadow d-none text-start" style="width: 220px; z-index: 10;">
+                                    <div id="mapTooltip" class="pna-map-tooltip position-absolute bg-dark text-white p-3 rounded shadow muestra--ninguno text-start" style="width: 220px; z-index: 10;">
                                         <span class="badge bg-warning text-dark mb-1" id="tooltipDate">23 Oct 2018</span>
                                         <h5 class="h6 mb-1 fw-bold text-white" id="tooltipCity">Guadalajara, Jalisco</h5>
                                                              </div>
@@ -938,146 +931,146 @@ get_header();
                                 </div>
                                 <div class="d-flex flex-column justify-content-around flex-grow-1 gap-2">
                                     <!-- Foro 1 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="1" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="1" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">23 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Guadalajara, Jalisco</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 2 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="2" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="2" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">25 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Zacatecas, Zacatecas</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 3 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="3" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="3" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">30 Oct 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Saltillo, Coahuila</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 4 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="4" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="4" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">8 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Oaxaca, Oaxaca</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 5 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="5" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="5" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">12 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Querétaro, Querétaro</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 6 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="6" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="6" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">20 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Hermosillo, Sonora</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 7 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="7" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="7" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">22 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Cancún, Quintana Roo</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
 
                                     <!-- Foro 8 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="8" data-bs-toggle="modal" data-bs-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>" style="cursor: pointer;">
+                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="8" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>" style="cursor: pointer;">
                                         <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
                                             <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
                                             <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden">
                                                 <span class="fw-semibold text-dark flex-shrink-0 font-noto-sans" style="font-size: 14px;">29 Nov 2018</span>
                                                 <div class="d-flex align-items-center gap-1 text-truncate">
-                                                    <i class="snd__icono snd snd-location--filled text-muted flex-shrink-0" aria-hidden="true" style="font-size: 14px;"></i>
+                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
                                                     <span class="fw-medium text-dark text-truncate font-noto-sans" style="font-size: 14px;">Ciudad de México, CDMX</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="d-inline-flex align-items-center gap-2 text-decoration-none flex-shrink-0 ms-2" style="white-space: nowrap;">
                                             <span class="fw-bold text-dark font-noto-sans" style="font-size: 15px;">Relatoría</span>
-                                            <i class="snd__icono snd snd-document--pdf tx-sesion-pdf-icon" aria-hidden="true" style="font-size: 26px; color: var(--color-burgundi) !important;"></i>
+                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
                                         </span>
                                     </div>
                             </div>

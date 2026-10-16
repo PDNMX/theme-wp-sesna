@@ -4,7 +4,7 @@
         <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
                 <a href="<?php echo esc_url( home_url('/') ); ?>">
-                    <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
+                    <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
                 </a>
             </li>
             <li class="breadcrumb-item">
@@ -24,21 +24,22 @@
       <p class="dependencia"><?php the_title_transparencia(); ?></p>
       <p class="subtitulo"><?php if ( function_exists('the_field') ) { the_field('subtitulo'); } ?></p>
 
-
-      <div class="row">
+      <!-- Menú de navegación horizontal Transparencia — SND Sección 3.5: .fila y .columna__auto.flex-grow -->
+      <div class="fila justify-content-center">
         
       <?php
 
         $items = wp_get_nav_menu_items('transparencia');
 
+        if ( !empty($items) && is_array($items) ):
         foreach( $items as $item ):
 
         ?>
 
-            <div class="col <?= (get_the_ID() == $item->object_id)?'active':'' ?>" style="padding-left:0px; padding-right: 0px">
-                <a href="<?= $item->url ?>" target="<?= $item->target ?>" class="d-block w-100 h-100 text-decoration-none text-dark">
+            <div class="columna__auto flex-grow <?= (get_the_ID() == $item->object_id)?'active':'' ?>" style="padding-left:0px; padding-right: 0px">
+                <a href="<?= $item->url ?>" target="<?= $item->target ?>" class="muestra--bloque col-100 h-100 text-decoration-none text-dark">
                 <div class="circleContainer">
-                    <div class="d-flex align-self-center justify-content-center iconContainer">
+                    <div class="reticulaFlex align-self-center justify-content-center iconContainer">
                         <div class="p-2">
                         
                             <?php if ( function_exists('the_field') ) { the_field('icono', $item); } ?>
@@ -51,6 +52,7 @@
 
         <?php
         endforeach;
+        endif;
         ?>
         
       </div>

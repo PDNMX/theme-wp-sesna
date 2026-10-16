@@ -13,7 +13,7 @@ get_header();
 
 <div class="transparenciaContainer" id="normatividadContainer">
       <div class="contenedor">
-        <p class="normatividadTitulo">Preguntas Frecuentes</p>
+        <h1 class="normatividadTitulo h1b patria">Preguntas Frecuentes</h1>
       </div>
 
       <div class="contenedor">
@@ -23,10 +23,10 @@ get_header();
 
         <div class="contenedor" >
           <div class="reticulaGrid__12" id="filaTitulos">
-            <div class="columna__9 d-md-block d-none">
+            <div class="columna__9 muestra--ninguno muestra--bloque--md">
               <p>LISTA DE DOCUMENTOS </p>
             </div>
-            <div class="columna__3 d-md-block d-none">
+            <div class="columna__3 muestra--ninguno muestra--bloque--md">
               <p>DESCARGAS </p>
             </div>
           </div>
@@ -52,7 +52,7 @@ get_header();
                 <p class="nombreActa"><?php the_title(); ?></p>
               </div>
               <div class="columna__12 columna__3--md">
-                <a href="<?php the_file('archivo'); ?>" class="boton__secundario">Descargar PDF  <i class="fas fa-download" aria-hidden="true"></i></a>
+                <a href="<?php the_file('archivo'); ?>" class="boton__secundario" aria-label="Descargar PDF de <?php echo esc_attr(get_the_title()); ?>">Descargar PDF <i class="snd__icono snd-download icono--16 ms-2" aria-hidden="true"></i></a>
               </div>
             </div>
 

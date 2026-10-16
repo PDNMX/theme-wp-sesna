@@ -7,16 +7,16 @@ get_header();
     <!-- Hero Section -->
     <section class="qh-hero">
         <!-- Floating icons -->
-        <i class="snd__icono snd snd-document qh-floating-icon qh-fi-1" aria-hidden="true"></i>
-        <i class="snd__icono snd snd-chart--bar qh-floating-icon qh-fi-2" aria-hidden="true"></i>
-        <i class="snd__icono snd snd-chart--bar qh-floating-icon qh-fi-3" aria-hidden="true"></i>
-        <i class="snd__icono snd snd-security qh-floating-icon qh-fi-4" aria-hidden="true"></i>
-        <i class="snd__icono snd snd-screen qh-floating-icon qh-fi-5" aria-hidden="true"></i>
+        <i class="snd__icono snd-document icono--24 qh-floating-icon qh-fi-1" aria-hidden="true"></i>
+        <i class="snd__icono snd-chart--bar icono--24 qh-floating-icon qh-fi-2" aria-hidden="true"></i>
+        <i class="snd__icono snd-chart--bar icono--24 qh-floating-icon qh-fi-3" aria-hidden="true"></i>
+        <i class="snd__icono snd-security icono--32 qh-floating-icon qh-fi-4" aria-hidden="true"></i>
+        <i class="snd__icono snd-screen icono--24 qh-floating-icon qh-fi-5" aria-hidden="true"></i>
 
         <div class="contenedor posicion--relativa z--1">
             <div class="reticulaGrid__12">
                 <div class="columna__12 columna__8--md columna__7--lg">
-                    <span class="qh-hero-tag xsdsb">Quiénes somos</span>
+                    <span class="qh-hero-tag">Quiénes somos</span>
                     <h1 class="h1b patria color--blanco mb--24">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
                     <p class="sh1r color--blanco opacidad--75 peso--normal texto--justify">
                         Somos el órgano técnico de apoyo del Sistema Nacional Anticorrupción encargado de generar insumos técnicos especializados, desarrollar herramientas estratégicas, coordinar esfuerzos institucionales y contribuir al fortalecimiento de las políticas públicas para prevenir y combatir la corrupción en México.
@@ -58,7 +58,7 @@ get_header();
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card radio--4">
                         <div class="qh-mv-icon">
-                            <i class="snd__icono snd snd-chart--bar" aria-hidden="true"></i>
+                            <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b">MISIÓN</h3>
@@ -70,7 +70,7 @@ get_header();
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card radio--4">
                         <div class="qh-mv-icon">
-                            <i class="snd__icono snd snd-screen" aria-hidden="true"></i>
+                            <i class="snd__icono snd-screen icono--24" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b">VISIÓN</h3>
@@ -149,7 +149,7 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd-checkmark--filled icono--16" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="b1r mb--24">Noticias, comunicados y actualizaciones institucionales.</p>
@@ -170,7 +170,7 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd-checkmark--filled icono--16" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="b1r mb--24">Videos, transmisiones y contenido audiovisual.</p>
@@ -191,7 +191,7 @@ get_header();
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd-checkmark--filled icono--16" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="b1r mb--24">Actividades, campañas y contenido visual.</p>
@@ -206,14 +206,14 @@ get_header();
                     <div class="qh-social-card radio--4 posicion--relativa">
                         <!-- Pendiente: no tenemos ícono propio de LinkedIn en img/icons-base (sí existen facebook/twitter-x/instagram/youtube). snd-earth es un marcador genérico temporal. -->
                         <div class="qh-social-header qh-sh-in">
-                            <i class="snd__icono snd snd-earth" aria-hidden="true"></i>
+                            <i class="snd__icono snd-earth icono--24" aria-hidden="true"></i>
                         </div>
                         <div class="qh-social-body">
                             <div class="qh-social-avatar">
                                 <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon_logo_sesna.png?v=2" alt="SESNA">
                             </div>
                             <div class="qh-social-account mt--8">
-                                SESNA <i class="snd__icono snd snd-checkmark--filled" aria-hidden="true"></i>
+                                SESNA <i class="snd__icono snd-checkmark--filled icono--16" aria-hidden="true"></i>
                             </div>
                             <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="b1r mb--24">Información institucional y profesional.</p>

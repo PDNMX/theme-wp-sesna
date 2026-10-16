@@ -1,11 +1,9 @@
 $(document).ready(function(){
-	// $('.dropdown-toggle').dropdown(('toggle'))
-	$('#datepickerInicio').datepicker({
-	    uiLibrary: 'bootstrap4'
-	});
-	$('#datepickerFinal').datepicker({
-	    uiLibrary: 'bootstrap4'
-	});
+	if (typeof $.fn.datepicker === 'function') {
+		$('#datepickerInicio, #datepickerFinal').datepicker({
+			uiLibrary: 'bootstrap4'
+		});
+	}
 
 	$('#datepickerInicio').change(function(){
 
@@ -29,12 +27,12 @@ $(document).ready(function(){
 
 	
 	$(".orderPost").on("change",function(){
-		$('#collapseIntervalo').collapse('hide');
+		$('#collapseIntervalo').addClass('muestra--ninguno').hide();
 		var value = $(this).val();
 		console.log(value);
 		switch(value){
 			case '4':
-				$('#collapseIntervalo').collapse('show');
+				$('#collapseIntervalo').removeClass('muestra--ninguno').show();
 			break;
 		}
 		jQuery('.blogEntriesList').empty().data('page', 0);
@@ -77,7 +75,7 @@ $(document).ready(function(){
 		
 		$(".filtradoPersonalizado").removeClass("filtradoActive");
 		$(".orderPost ").val(0);
-		$('#collapseIntervalo').collapse('hide');
+		$('#collapseIntervalo').addClass('muestra--ninguno').hide();
 		$(".desde_intervalo").text("");
 		$(".hasta_intervalo").text("");
 		$('#datepickerInicio').val(actual_desde);

@@ -11,9 +11,7 @@
 
     <!-- Identidad institucional -->
     <div class="footer__mexico">
-      <img src="https://framework-gb.cdn.gob.mx/gobmx/img/logo_blanco.svg"
-           alt="Gobierno de México"
-           class="footer__escudo" />
+      <i class="snd__icono snd-gobierno-mexico footer__escudo color--origen" aria-hidden="true"></i>
     </div>
 
     <!-- Columna central: ¿Qué es gob.mx? + Enlaces -->
@@ -119,8 +117,7 @@
                title="El enlace abre en ventana nueva"
                href="https://www.facebook.com/gobmexico"
                aria-label="Facebook de Presidencia">
-              <img alt="Facebook"
-                   src="<?php echo get_template_directory_uri(); ?>/img/icons-base/facebook.svg" />
+              <i class="snd__icono snd-snd-facebook" aria-hidden="true"></i>
             </a>
           </li>
           <li>
@@ -128,8 +125,7 @@
                title="El enlace abre en ventana nueva"
                href="https://twitter.com/GobiernoMX"
                aria-label="Twitter de Presidencia">
-              <img alt="Twitter"
-                   src="<?php echo get_template_directory_uri(); ?>/img/icons-base/twitter-x.svg" />
+              <i class="snd__icono snd-snd-x" aria-hidden="true"></i>
             </a>
           </li>
           <li>
@@ -137,8 +133,7 @@
                title="El enlace abre en ventana nueva"
                href="https://www.instagram.com/gobmexico/"
                aria-label="Instagram de Presidencia">
-              <img alt="instagram"
-                   src="<?php echo get_template_directory_uri(); ?>/img/icons-base/instagram.svg" />
+              <i class="snd__icono snd-snd-instagram" aria-hidden="true"></i>
             </a>
           </li>
           <li>
@@ -146,8 +141,7 @@
                title="El enlace abre en ventana nueva"
                href="https://www.youtube.com/@gobiernodemexico"
                aria-label="Youtube de Presidencia">
-              <img alt="youtube"
-                   src="<?php echo get_template_directory_uri(); ?>/img/icons-base/youtube.svg" />
+              <i class="snd__icono snd-snd-youtube" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
@@ -155,8 +149,7 @@
 
       <div class="footer__079">
         <div class="footer__079col1">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/icons-base/footer-flor.svg"
-               alt="" class="footer__079img" />
+          <i class="snd__icono snd-snd-079 footer__079img" aria-hidden="true"></i>
           <span class="footer__079num">079</span>
         </div>
         <div class="footer__079info">

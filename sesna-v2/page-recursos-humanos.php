@@ -7,16 +7,16 @@ function print_table_headers()
 ?>
     <div class="contenedor">
         <div class="reticulaGrid__12" id="filaTitulos">
-            <div class="columna__2 d-md-block d-none">
+            <div class="columna__2 muestra--ninguno muestra--bloque--md">
                 <p>AÑO:</p>
             </div>
-            <div class="columna__4 d-md-block d-none">
+            <div class="columna__4 muestra--ninguno muestra--bloque--md">
                 <p>NOMBRE:</p>
             </div>
-            <div class="columna__2 d-md-block d-none">
+            <div class="columna__2 muestra--ninguno muestra--bloque--md">
                 <p>FECHA:</p>
             </div>
-            <div class="columna__4 d-md-block d-none">
+            <div class="columna__4 muestra--ninguno muestra--bloque--md">
                 <p>URL DEL DOCUMENTO:</p>
             </div>
         </div>
@@ -71,7 +71,7 @@ function print_document($year, $title, $date, $url)
                 <?php echo $download_attrs; ?>
                 target="_blank">
                 <?php echo $button_text; ?>
-                <i class="fas <?php echo $is_download ? 'fa-download' : 'fa-link'; ?>" aria-hidden="true"></i>
+                <i class="snd__icono <?php echo $is_download ? 'snd-download' : 'snd-launch'; ?> icono--16 ms-2" aria-hidden="true"></i>
             </a>
         </div>
     </div>
@@ -85,14 +85,14 @@ function print_nav_tab($id, $icon, $text, $isActive = false)
     <li class="nav-item" style="flex: 1">
         <a class="nav-link <?php echo $activeClass; ?>"
             id="<?php echo $id; ?>-tab"
-            data-toggle="tab"
+            data-tab-target="#<?php echo $id; ?>"
             href="#<?php echo $id; ?>"
             role="tab"
             aria-controls="<?php echo $id; ?>"
             aria-selected="<?php echo $isActive ? 'true' : 'false'; ?>"
             style="display: flex; align-items: center; justify-content: center; font-size: 0.85rem; height: 60px; padding: 5px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
             <?php if ($icon): ?>
-                <i class="fas fa-<?php echo $icon; ?>" aria-hidden="true" style="margin-right: 8px; font-size: 1rem"></i>
+                <i class="snd__icono <?php echo $icon; ?> icono--16 me-2" aria-hidden="true"></i>
             <?php endif; ?>
             <span><?php echo $text; ?></span>
         </a>
@@ -279,9 +279,9 @@ $documentos = [
 
 <!-- Banner principal -->
 <div style="background-color: #54565a; position: relative; z-index: 10; padding: 80px 0; background-image: url('/wp-content/themes/sesna-300819-2/img/pna/banner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <div class="d-flex align-items-center justify-content-center text-center">
+    <div class="muestra--flex align-items-center justify-content-center texto--centro">
         <div style="padding: 20px; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px;">
-            <h1 style="color: #fff; max-width: 660px; margin: 0 auto; line-height: 1.4; font-size: 2.5rem; font-weight: bold;">
+            <h1 class="h1b patria" style="color: #fff; max-width: 660px; margin: 0 auto; line-height: 1.4; font-size: 2.5rem; font-weight: bold;">
                 <span style="color: #c22521">R</span>ecursos <br />
                 <span style="color: #c22521">H</span>umanos
             </h1>
@@ -294,13 +294,13 @@ $documentos = [
     <ul class="nav nav-tabs d-flex justify-content-between flex-nowrap" id="myTab" role="tablist" style="margin-bottom: 5px">
         <?php
         $main_tabs = [
-            ['id' => 'home', 'icon' => 'file', 'text' => 'Ingresos', 'active' => true],
-            ['id' => 'spc', 'icon' => 'folder', 'text' => 'SPC'],
-            ['id' => 'servicio', 'icon' => 'users', 'text' => 'Servicio Social'],
-            ['id' => 'cultura', 'icon' => 'people-carry', 'text' => 'Cultura Organizacional'],
-            ['id' => 'igg', 'icon' => 'chart-line', 'text' => 'IGG 2018-2024'],
-            ['id' => 'cpc', 'icon' => 'users', 'text' => 'CPC'],
-            ['id' => 'otros', 'icon' => 'ellipsis-h', 'text' => 'Otros']
+            ['id' => 'home', 'icon' => 'snd-document', 'text' => 'Ingresos', 'active' => true],
+            ['id' => 'spc', 'icon' => 'snd-folder', 'text' => 'SPC'],
+            ['id' => 'servicio', 'icon' => 'snd-group', 'text' => 'Servicio Social'],
+            ['id' => 'cultura', 'icon' => 'snd-collaborate', 'text' => 'Cultura Organizacional'],
+            ['id' => 'igg', 'icon' => 'snd-chart--bar', 'text' => 'IGG 2018-2024'],
+            ['id' => 'cpc', 'icon' => 'snd-group', 'text' => 'CPC'],
+            ['id' => 'otros', 'icon' => 'snd-overflow-menu--horizontal', 'text' => 'Otros']
         ];
 
         foreach ($main_tabs as $tab) {
@@ -312,7 +312,8 @@ $documentos = [
     <!-- Contenido de las pestañas -->
     <div class="tab-content" id="myTabContent">
         <!-- Pestaña Ingresos -->
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <!-- Pestaña Ingresos -->
+        <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?php
             print_table_headers();
             print_empty_content();
@@ -320,7 +321,7 @@ $documentos = [
         </div>
 
         <!-- Pestaña SPC -->
-        <div class="tab-pane fade" id="spc" role="tabpanel" aria-labelledby="spc-tab">
+        <div class="tab-pane muestra--ninguno" id="spc" role="tabpanel" aria-labelledby="spc-tab">
             <div class="contenedor" style="padding: 0">
                 <!-- Submenú SPC -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" id="tab-spc" role="tablist" style="margin-bottom: 5px; padding: 0">
@@ -344,7 +345,7 @@ $documentos = [
                 <!-- Contenido subpestañas SPC -->
                 <div class="tab-content" id="tab-spc-content">
                     <?php foreach ($spc_tabs as $tab): ?>
-                        <div class="tab-pane fade <?php echo isset($tab['active']) ? 'show active' : ''; ?>"
+                        <div class="tab-pane <?php echo isset($tab['active']) ? 'show active' : 'muestra--ninguno'; ?>"
                             id="<?php echo $tab['id']; ?>"
                             role="tabpanel"
                             aria-labelledby="<?php echo $tab['id']; ?>-tab">
@@ -366,8 +367,8 @@ $documentos = [
             </div>
         </div>
 
-        <!-- Pestaña Servicio Social -->
-        <div class="tab-pane fade" id="cultura" role="tabpanel" aria-labelledby="cultura-tab">
+        <!-- Pestaña Servicio Social / Cultura -->
+        <div class="tab-pane muestra--ninguno" id="cultura" role="tabpanel" aria-labelledby="cultura-tab">
             <?php
             print_table_headers();
             if (isset($documentos['cultura']) && !empty($documentos['cultura'])) {
@@ -383,20 +384,19 @@ $documentos = [
         </div>
 
         <!-- Pestaña IGG -->
-        <div class="tab-pane fade" id="igg" role="tabpanel" aria-labelledby="igg-tab">
+        <div class="tab-pane muestra--ninguno" id="igg" role="tabpanel" aria-labelledby="igg-tab">
             <div class="contenedor" style="padding: 0">
                 <!-- Submenú IGG -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" role="tablist" style="margin-bottom: 5px; padding: 0">
-                    <!-- Continuación del submenú IGG -->
                     <li class="nav-item" style="flex: 1">
-                        <a class="nav-link active" id="informe-gestion-tab" data-toggle="tab" href="#informe-gestion" role="tab"
+                        <a class="nav-link active" id="informe-gestion-tab" data-tab-target="#informe-gestion" href="#informe-gestion" role="tab"
                             aria-controls="informe-gestion" aria-selected="true"
                             style="display: flex; align-items: center; justify-content: center; font-size: 0.8rem; height: 50px; padding: 0 2px; text-align: center;">
                             <span>Informe de Gestión</span>
                         </a>
                     </li>
                     <li class="nav-item" style="flex: 1">
-                        <a class="nav-link" id="memorias-documentales-tab" data-toggle="tab" href="#memorias-documentales" role="tab"
+                        <a class="nav-link" id="memorias-documentales-tab" data-tab-target="#memorias-documentales" href="#memorias-documentales" role="tab"
                             aria-controls="memorias-documentales" aria-selected="false"
                             style="display: flex; align-items: center; justify-content: center; font-size: 0.8rem; height: 50px; padding: 0 2px; text-align: center;">
                             <span>Memorias Documentales</span>
@@ -407,7 +407,7 @@ $documentos = [
                 <!-- Contenido subpestañas IGG -->
                 <div class="tab-content" id="tab-igg-content">
                     <!-- Sección Informe de Gestión -->
-                    <div class="tab-pane fade show active" id="informe-gestion" role="tabpanel" aria-labelledby="informe-gestion-tab">
+                    <div class="tab-pane show active" id="informe-gestion" role="tabpanel" aria-labelledby="informe-gestion-tab">
                         <?php
                         print_table_headers();
                         if (isset($documentos['igg']['informe-gestion']) && !empty($documentos['igg']['informe-gestion'])) {
@@ -423,7 +423,7 @@ $documentos = [
                     </div>
 
                     <!-- Sección Memorias Documentales -->
-                    <div class="tab-pane fade" id="memorias-documentales" role="tabpanel" aria-labelledby="memorias-documentales-tab">
+                    <div class="tab-pane muestra--ninguno" id="memorias-documentales" role="tabpanel" aria-labelledby="memorias-documentales-tab">
                         <?php
                         print_table_headers();
                         if (isset($documentos['igg']['memorias-documentales']) && !empty($documentos['igg']['memorias-documentales'])) {
@@ -442,12 +442,12 @@ $documentos = [
         </div>
 
         <!-- Pestaña CPC -->
-        <div class="tab-pane fade" id="cpc" role="tabpanel" aria-labelledby="cpc-tab">
+        <div class="tab-pane muestra--ninguno" id="cpc" role="tabpanel" aria-labelledby="cpc-tab">
             <div class="contenedor" style="padding: 0">
                 <!-- Submenú CPC -->
                 <ul class="nav nav-tabs d-flex justify-content-between flex-wrap" role="tablist" style="margin-bottom: 5px; padding: 0">
                     <li class="nav-item" style="flex: 1">
-                        <a class="nav-link active" id="informes-mensuales-tab" data-toggle="tab" href="#informes-mensuales" role="tab"
+                        <a class="nav-link active" id="informes-mensuales-tab" data-tab-target="#informes-mensuales" href="#informes-mensuales" role="tab"
                             aria-controls="informes-mensuales" aria-selected="true"
                             style="display: flex; align-items: center; justify-content: center; font-size: 0.8rem; height: 50px; padding: 0 2px; text-align: center;">
                             <span>Informes Mensuales de Actividades</span>
@@ -457,7 +457,7 @@ $documentos = [
 
                 <!-- Contenido CPC -->
                 <div class="tab-content" id="tab-cpc-content">
-                    <div class="tab-pane fade show active" id="informes-mensuales" role="tabpanel" aria-labelledby="informes-mensuales-tab">
+                    <div class="tab-pane show active" id="informes-mensuales" role="tabpanel" aria-labelledby="informes-mensuales-tab">
                         <?php
                         print_table_headers();
                         if (isset($documentos['cpc']['informes-mensuales']) && !empty($documentos['cpc']['informes-mensuales'])) {
@@ -476,7 +476,7 @@ $documentos = [
         </div>
 
         <!-- Pestaña Otros -->
-        <div class="tab-pane fade" id="otros" role="tabpanel" aria-labelledby="otros-tab">
+        <div class="tab-pane muestra--ninguno" id="otros" role="tabpanel" aria-labelledby="otros-tab">
             <?php
             print_table_headers();
             if (isset($documentos['otros']) && !empty($documentos['otros'])) {
@@ -490,6 +490,46 @@ $documentos = [
             }
             ?>
         </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[role="tablist"]').forEach(function(tablist) {
+        tablist.addEventListener('click', function(e) {
+            var tab = e.target.closest('[role="tab"]');
+            if (!tab) return;
+            e.preventDefault();
+
+            var targetSelector = tab.getAttribute('data-tab-target') || tab.getAttribute('href');
+            if (!targetSelector || !targetSelector.startsWith('#')) return;
+            var targetPane = document.querySelector(targetSelector);
+            if (!targetPane) return;
+
+            // Deseleccionar hermanos
+            tablist.querySelectorAll('[role="tab"]').forEach(function(t) {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+
+            // Ocultar paneles hermanos
+            var container = targetPane.parentElement;
+            if (container) {
+                Array.from(container.children).forEach(function(pane) {
+                    if (pane.getAttribute('role') === 'tabpanel' || pane.classList.contains('tab-pane')) {
+                        pane.classList.remove('show', 'active');
+                        pane.classList.add('muestra--ninguno');
+                    }
+                });
+            }
+            targetPane.classList.remove('muestra--ninguno');
+            targetPane.classList.add('show', 'active');
+        });
+    });
+});
+</script>
     </div>
 </div>
 

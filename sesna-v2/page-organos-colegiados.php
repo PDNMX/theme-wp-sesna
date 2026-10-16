@@ -31,7 +31,7 @@ rsort($oc_anios_organo);
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item">
@@ -53,7 +53,7 @@ rsort($oc_anios_organo);
                         Información de los diversos órganos colegiados en los que participa la SESNA: Comité Coordinador, Órgano de Gobierno y Comisión Ejecutiva.
                     </p>
                 </div>
-                <div class="columna__12 columna__4--md columna__6--lg d-none d-md-flex align-items-center justify-content-end position-relative">
+                <div class="columna__12 columna__4--md columna__6--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end posicion--relativa">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/Organos_Colegiados_Encabezado.png' ); ?>"
                          alt="Órganos Colegiados"
                          class="sesna-hero__img"
@@ -95,7 +95,7 @@ rsort($oc_anios_organo);
                 <div class="content-section" id="sec-comite" role="tabpanel" aria-labelledby="tab-comite">
                 <div class="reticulaGrid__12 mb-5">
                     <div class="columna__12">
-                        <h2 class="cp-recursos__titulo mb-2">Comité Coordinador</h2>
+                        <h2 class="cp-recursos__titulo h2b patria mb-2">Comité Coordinador</h2>
                     </div>
                 </div>
 
@@ -138,16 +138,16 @@ rsort($oc_anios_organo);
                 <!-- VER MÁS BTN -->
                 <div class="text-center mt-5" id="sesiones-vermas-wrap-comite">
                     <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                     </a>
                 </div>
                 </div> <!-- END sec-comite -->
 
                 <!-- SECTION: COMISIÓN EJECUTIVA -->
-                <div class="content-section d-none" id="sec-comision" role="tabpanel" aria-labelledby="tab-comision">
+                <div class="content-section muestra--ninguno" id="sec-comision" role="tabpanel" aria-labelledby="tab-comision">
                     <div class="reticulaGrid__12 mb-5">
                         <div class="columna__12">
-                            <h2 class="cp-recursos__titulo mb-2">Comisión Ejecutiva</h2>
+                            <h2 class="cp-recursos__titulo h2b patria mb-2">Comisión Ejecutiva</h2>
                         </div>
                     </div>
 
@@ -187,16 +187,16 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-comision">
                         <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-comision">
-                            Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                            Ver más sesiones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: ÓRGANO DE GOBIERNO -->
-                <div class="content-section d-none" id="sec-organo" role="tabpanel" aria-labelledby="tab-organo">
+                <div class="content-section muestra--ninguno" id="sec-organo" role="tabpanel" aria-labelledby="tab-organo">
                     <div class="reticulaGrid__12 mb-5">
                         <div class="columna__12">
-                            <h2 class="cp-recursos__titulo mb-2">Órgano de Gobierno</h2>
+                            <h2 class="cp-recursos__titulo h2b patria mb-2">Órgano de Gobierno</h2>
                         </div>
                     </div>
 
@@ -236,16 +236,16 @@ rsort($oc_anios_organo);
 
                     <div class="text-center mt-5" id="sesiones-vermas-wrap-organo">
                         <a href="#" class="boton__fantasma" id="sesiones-vermas-btn-organo">
-                            Ver más sesiones <i class="snd snd__icono snd-chevron--down" aria-hidden="true"></i>
+                            Ver más sesiones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- SECTION: RECOMENDACIONES -->
-                <div class="content-section d-none" id="sec-recomendaciones" role="tabpanel" aria-labelledby="tab-recomendaciones">
+                <div class="content-section muestra--ninguno" id="sec-recomendaciones" role="tabpanel" aria-labelledby="tab-recomendaciones">
                     <div class="reticulaGrid__12 mb-5">
                         <div class="columna__12">
-                            <h2 class="cp-recursos__titulo mb-2">Recomendaciones no vinculantes</h2>
+                            <h2 class="cp-recursos__titulo h2b patria mb-2">Recomendaciones no vinculantes</h2>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-3 mb-4">
@@ -259,10 +259,10 @@ rsort($oc_anios_organo);
                 </div>
 
                 <!-- SECTION: EXHORTOS -->
-                <div class="content-section d-none" id="sec-exhortos" role="tabpanel" aria-labelledby="tab-exhortos">
+                <div class="content-section muestra--ninguno" id="sec-exhortos" role="tabpanel" aria-labelledby="tab-exhortos">
                     <div class="reticulaGrid__12 mb-5">
                         <div class="columna__12">
-                            <h2 class="cp-recursos__titulo mb-2">Exhortos</h2>
+                            <h2 class="cp-recursos__titulo h2b patria mb-2">Exhortos</h2>
                         </div>
                     </div>
                     <div class="d-flex flex-column gap-3 mb-4">
@@ -282,13 +282,15 @@ rsort($oc_anios_organo);
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
-<!-- Modal Visor de Video (Ver sesión) -->
-<div class="modal fade tx-pdf-modal" id="oc-video-modal" tabindex="-1" aria-labelledby="oc-video-modal-label" aria-hidden="true">
+<!-- Modal Visor de Video (Ver sesión) SND v1.1.0 -->
+<div class="modal tx-pdf-modal snd-modal" id="oc-video-modal" tabindex="-1" role="dialog" aria-labelledby="oc-video-modal-label" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 900px !important; margin: 5vh auto !important;">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
-                <h5 class="modal-title fw-bold font-noto-sans mb-0" id="oc-video-modal-label" style="color: var(--color-burgundi); font-size: 1.25rem;">Ver sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <h5 class="modal-title h5b patria mb-0" id="oc-video-modal-label" style="color: var(--color-burgundi); font-size: 1.25rem;">Ver sesión</h5>
+                <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                </button>
             </div>
             <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">
                 <div class="embed-responsive embed-responsive-16by9 h-100">
@@ -305,6 +307,25 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!videoModalEl) return;
     var iframe = document.getElementById('oc-video-iframe');
     var title = document.getElementById('oc-video-modal-label');
+
+    // Manejar apertura tanto por show.bs.modal como por clic directo
+    document.addEventListener('click', function(e) {
+        var trigger = e.target.closest('[data-video-id]');
+        if (!trigger) return;
+        var targetAttr = trigger.getAttribute('data-modal-target');
+        if (targetAttr && targetAttr !== '#oc-video-modal') return;
+
+        e.preventDefault();
+        var videoId = trigger.getAttribute('data-video-id') || '';
+        var videoTitle = trigger.getAttribute('data-video-title') || 'Ver sesión';
+        if (title) title.textContent = videoTitle;
+        if (iframe && videoId) {
+            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+        }
+        if (window.sndModal) {
+            window.sndModal.show(videoModalEl, trigger);
+        }
+    });
 
     videoModalEl.addEventListener('show.bs.modal', function (event) {
         var trigger = event.relatedTarget;

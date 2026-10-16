@@ -4,12 +4,16 @@
         <div class="contenedor sesna-single-container">
 
             <!-- Breadcrumb -->
-            <nav class="sesna-breadcrumb" aria-label="Ruta de navegación">
-                <a href="<?= esc_url( home_url( '/' ) ) ?>">Inicio</a>
-                <span aria-hidden="true">&rsaquo;</span>
-                <a href="<?= esc_url( home_url( '/noticias-y-actividades/' ) ) ?>">Noticias</a>
-                <span aria-hidden="true">&rsaquo;</span>
-                <span class="current" aria-current="page"><?php echo esc_html( wp_trim_words( get_the_title(), 8, '…' ) ); ?></span>
+            <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="<?= esc_url( home_url( '/' ) ) ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="<?= esc_url( home_url( '/noticias-y-actividades/' ) ) ?>">Noticias</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( wp_trim_words( get_the_title(), 8, '…' ) ); ?></li>
+                </ol>
             </nav>
 
             <div class="fila justify-content-center">
@@ -35,16 +39,16 @@
                                 ?>
                                     <a href="<?= esc_url( get_category_link( $cat->term_id ) ) ?>"
                                        class="boton__primario boton--redondeado">
-                                        <i class="snd snd__icono snd-tag" aria-hidden="true"></i>
+                                        <i class="snd__icono snd-tag icono--16 me-1" aria-hidden="true"></i>
                                         <?= esc_html( $cat->name ) ?>
                                     </a>
                                 <?php endif; ?>
                                 <span class="sesna-single-date">
-                                    <i class="snd__icono snd snd-calendar me-1" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-calendar icono--16 me-1" aria-hidden="true"></i>
                                     <?php echo get_the_date( 'd / m / Y' ); ?>
                                 </span>
                             </div>
-                            <h1 class="sesna-single-title"><?php the_title(); ?></h1>
+                            <h1 class="sesna-single-title h1b patria"><?php the_title(); ?></h1>
                         </div>
 
                         <!-- Cuerpo: contenido -->
@@ -58,7 +62,7 @@
                             <?php if ( function_exists( 'have_rows' ) && have_rows( 'files' ) ) : ?>
                                 <div class="sesna-single-files">
                                     <h3 class="sesna-single-files__title">
-                                        <i class="snd__icono snd snd-document--import me-2" aria-hidden="true"></i>Documentos adjuntos
+                                        <i class="snd__icono snd-document--import icono--20 me-2" aria-hidden="true"></i>Documentos adjuntos
                                     </h3>
                                     <ul class="sesna-single-files__list list-unstyled mb-0">
                                         <?php while ( have_rows( 'files' ) ) : the_row(); ?>
@@ -66,7 +70,7 @@
                                                 <a href="<?php the_sub_field( 'file' ); ?>"
                                                    target="_blank" rel="noopener noreferrer"
                                                    class="sesna-single-files__link">
-                                                    <i class="snd__icono snd snd-document me-2" aria-hidden="true"></i>
+                                                    <i class="snd__icono snd-document icono--16 me-2" aria-hidden="true"></i>
                                                     <?php the_sub_field( 'nombre' ); ?>
                                                 </a>
                                             </li>
@@ -84,19 +88,19 @@
                                    onclick="window.open(this.href,'_blank','width=600,height=700'); return false;"
                                    class="sesna-single-share__btn sesna-single-share__btn--fb"
                                    aria-label="Compartir en Facebook">
-                                    <i class="snd__icono snd snd-snd-facebook" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-snd-facebook icono--20" aria-hidden="true"></i>
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url=<?= urlencode( get_the_permalink() ) ?>&text=<?= urlencode( get_the_title() ) ?>"
                                    onclick="window.open(this.href,'_blank','width=600,height=300'); return false;"
                                    class="sesna-single-share__btn sesna-single-share__btn--tw"
                                    aria-label="Compartir en Twitter / X">
-                                    <i class="snd__icono snd snd-snd-x" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-snd-x icono--20" aria-hidden="true"></i>
                                 </a>
                                 <a href="https://api.whatsapp.com/send?text=<?= urlencode( get_the_title() . ' — ' . get_the_permalink() ) ?>"
                                    target="_blank" rel="noopener noreferrer"
                                    class="sesna-single-share__btn sesna-single-share__btn--wa"
                                    aria-label="Compartir por WhatsApp">
-                                    <i class="snd__icono snd snd-snd-whatsapp" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-snd-whatsapp icono--20" aria-hidden="true"></i>
                                 </a>
                             </div>
 
@@ -119,7 +123,7 @@
                     <nav class="sesna-single-nav" aria-label="Navegación de artículos">
                         <a href="<?= esc_url( home_url( '/noticias-y-actividades/' ) ) ?>"
                            class="sesna-single-nav__back">
-                            <i class="snd__icono snd snd-arrow--left me-2" aria-hidden="true"></i>Volver a Noticias
+                            <i class="snd__icono snd-arrow--left icono--16 me-2" aria-hidden="true"></i>Volver a Noticias
                         </a>
                     </nav>
 

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ind.style.background = '#e9edf2';
             ind.style.color = '#54565a';
         });
-        ejeContents.forEach(content => content.classList.add('d-none'));
+        ejeContents.forEach(content => content.classList.add('muestra--ninguno'));
 
         // Activar seleccionados
         document.querySelectorAll(`[data-eje="${ejeId}"]`).forEach(el => {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const targetContent = document.getElementById(`content-eje-${ejeId}`);
         if(targetContent) {
-            targetContent.classList.remove('d-none');
+            targetContent.classList.remove('muestra--ninguno');
             targetContent.classList.add('active');
         }
         const objPanel = document.getElementById('objectivesPanel');
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Ocultar todas las tarjetas y mostrar la seleccionada
             stageCards.forEach(card => {
-                card.classList.add('d-none');
+                card.classList.add('muestra--ninguno');
                 if(card.getAttribute('data-stage-card') === stageId) {
-                    card.classList.remove('d-none');
+                    card.classList.remove('muestra--ninguno');
                 }
             });
         });
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tooltipForum.textContent = data.forum;
             if(tooltipLink) tooltipLink.href = data.url;
 
-            tooltip.classList.remove('d-none');
+            tooltip.classList.remove('muestra--ninguno');
             
             // Posicionar tooltip sobre el mapa
             const wrapper = document.querySelector('.svg-map-wrapper');
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function hideTooltip() {
-        if(tooltip) tooltip.classList.add('d-none');
+        if(tooltip) tooltip.classList.add('muestra--ninguno');
         document.querySelectorAll('.sede-pin circle:nth-child(2)').forEach(c => { c.setAttribute('fill', '#D97706'); c.setAttribute('r', '9'); });
         document.querySelectorAll('.estado-mapa').forEach(e => e.setAttribute('fill', '#E5E7EB'));
         foroItems.forEach(item => { item.classList.remove('bg-warning', 'bg-opacity-25', 'border-warning', 'shadow-sm'); });
@@ -220,11 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------------------------------------------
     document.querySelectorAll('.pna-doc-card-compact:not(.pna-accordion-card)').forEach(card => {
         card.addEventListener('click', function() {
-            document.querySelectorAll('.accordion-collapse.show').forEach(openAccordion => {
-                if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
-                    const bsCollapse = bootstrap.Collapse.getInstance(openAccordion) || new bootstrap.Collapse(openAccordion, { toggle: false });
-                    bsCollapse.hide();
-                }
+            document.querySelectorAll('details.pna-accordion-card[open]').forEach(openAccordion => {
+                openAccordion.removeAttribute('open');
             });
         });
     });

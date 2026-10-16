@@ -13,7 +13,7 @@ get_header();
             <ol class="breadcrumb mb--0">
                 <li class="breadcrumb-item">
                     <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd snd-home" aria-hidden="true"></i> Inicio
+                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Contacto</li>
@@ -43,7 +43,7 @@ get_header();
                         
                         <div class="muestra--flex align-items-start">
                             <div class="rounded-circle muestra--flex align-items-center justify-content-center me--16 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="snd__icono snd snd-location fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd-location icono--24" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h5 class="peso--negrita mb--8 color--pguinda600 h5">Dirección:</h5>
@@ -57,7 +57,7 @@ get_header();
 
                         <div class="muestra--flex align-items-center mt--24">
                             <div class="rounded-circle muestra--flex align-items-center justify-content-center me--16 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="snd__icono snd snd-phone fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd-phone icono--24" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h5 class="peso--negrita mb--8 color--pguinda600 h5">Teléfono:</h5>
@@ -67,7 +67,7 @@ get_header();
                         
                         <div class="muestra--flex align-items-start mt--24">
                             <div class="rounded-circle muestra--flex align-items-center justify-content-center me--16 tx-unidad-icon-circle flex-shrink-0" style="width: 50px; height: 50px;">
-                                <i class="snd__icono snd snd-timer fs-4" aria-hidden="true"></i>
+                                <i class="snd__icono snd-timer icono--24" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h5 class="peso--negrita mb--8 color--pguinda600 h5">Horarios:</h5>
@@ -91,10 +91,10 @@ get_header();
             <div class="posicion--relativa muestra--flex align-items-center px--24 px--48--md py--24 mt--8" style="background-color: #fbf4f5; overflow: hidden;">
                 <div class="muestra--flex align-items-center posicion--relativa z-1 ancho--100 pe--48--lg">
                     <div class="rounded-circle muestra--flex align-items-center justify-content-center me--16 flex-shrink-0 tx-unidad-icon-circle" style="width: 50px; height: 50px;">
-                        <i class="snd__icono snd snd-security fs-4" aria-hidden="true"></i>
+                        <i class="snd__icono snd-security icono--24" aria-hidden="true"></i>
                     </div>
                     <p class="mb--0 peso--medio color--neutro800">
-                        Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="oculta muestra--block--md">y la participación ciudadana.
+                        Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="muestra--ninguno muestra--bloque--md">y la participación ciudadana.
                     </p>
                 </div>
                 

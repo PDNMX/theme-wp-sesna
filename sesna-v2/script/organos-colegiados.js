@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
         tab.setAttribute('tabindex', '0');
 
         Object.values(sections).forEach(sec => {
-            if (sec) sec.classList.add('d-none');
+            if (sec) sec.classList.add('muestra--ninguno');
         });
 
         const target = tab.getAttribute('data-target');
         if (sections[target]) {
-            sections[target].classList.remove('d-none');
+            sections[target].classList.remove('muestra--ninguno');
         }
 
         var tabsNav = document.querySelector('.ocn-tabs-nav');
@@ -148,10 +148,10 @@ document.addEventListener('DOMContentLoaded', function () {
             var visibles = 0;
             rows.forEach(function (row) {
                 var coincide = !termino || row.getAttribute('data-anexo-nombre').indexOf(termino) !== -1;
-                row.classList.toggle('d-none', !coincide);
+                row.classList.toggle('muestra--ninguno', !coincide);
                 if (coincide) visibles++;
             });
-            if (emptyMsg) emptyMsg.classList.toggle('d-none', visibles !== 0);
+            if (emptyMsg) emptyMsg.classList.toggle('muestra--ninguno', visibles !== 0);
         });
     });
 });
