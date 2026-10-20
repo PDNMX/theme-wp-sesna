@@ -2849,11 +2849,8 @@ nav.navbar .container {
 }
 
 .cp-doc-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border: 1px solid var(--color-burgundi);
-    border-radius: 20px;
-    margin-bottom: 14px;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .cp-doc-titulo {

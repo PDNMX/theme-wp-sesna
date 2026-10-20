@@ -111,23 +111,6 @@ get_header(); ?>
             gap: 10px;
             margin-bottom: 24px;
         }
-        .cp-subsec-chip {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: 1px solid var(--color-burgundi);
-            background: #fff;
-            color: var(--color-burgundi);
-            cursor: pointer;
-            transition: background-color .2s ease, color .2s ease;
-        }
-        .cp-subsec-chip:hover {
-            background: rgba(157, 36, 73, 0.08);
-        }
-        .cp-subsec-chip.is-active {
-            background: var(--color-burgundi);
-            border-color: var(--color-burgundi);
-            color: #fff;
-        }
 
         /* Enlace externo (no es un documento descargable) dentro de una subsección */
         .cp-subsec-enlace {
@@ -239,7 +222,7 @@ get_header(); ?>
                     <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
                     <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
                         <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
-                        <button type="button" class="cp-subsec-chip sdsb<?php echo $indice === 0 ? ' is-active' : ''; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
+                        <button type="button" class="cp-subsec-chip boton--redondeado <?php echo $indice === 0 ? 'boton__primario is-active' : 'boton__secundario'; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
@@ -255,8 +238,8 @@ get_header(); ?>
                                 <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
                                 <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                             </div>
-                            <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
-                                Visitar sitio <i class="snd__icono snd-launch icono--16 ml--4" aria-hidden="true"></i>
+                            <a href="https://alea.sesna.gob.mx" class="boton__primario boton--vertical" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
+                                <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i> Visitar sitio
                             </a>
                         </div>
 
@@ -383,12 +366,16 @@ get_header(); ?>
             chips.forEach(chip => {
                 chip.addEventListener('click', function() {
                     const yaActivo = this.classList.contains('is-active');
-                    chips.forEach(c => c.classList.remove('is-active'));
+                    chips.forEach(c => {
+                        c.classList.remove('is-active', 'boton__primario');
+                        c.classList.add('boton__secundario');
+                    });
 
                     // Clic sobre el chip ya activo = quitar filtro (mostrar todos)
                     const filtro = yaActivo ? '' : this.getAttribute('data-filter');
                     if (!yaActivo) {
-                        this.classList.add('is-active');
+                        this.classList.add('is-active', 'boton__primario');
+                        this.classList.remove('boton__secundario');
                     }
 
                     aplicarFiltro(filtro);
