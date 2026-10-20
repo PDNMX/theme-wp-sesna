@@ -574,9 +574,21 @@ main.page,
     display: block !important;
 }
 
-body {
+html:root,
+html[lang],
+html:has(body.admin-bar),
+html,
+html body,
+body.admin-bar {
     margin-top: 0 !important;
     padding-top: 0 !important;
+}
+
+#wpadminbar {
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 /* ------------------------------------------------------------
