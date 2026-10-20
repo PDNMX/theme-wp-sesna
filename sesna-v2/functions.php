@@ -3684,13 +3684,13 @@ function sesna_render_recurso_card($post) {
 
         <!-- Info del documento -->
         <div class="cp-doc-info">
-            <span class="cp-doc-badge"><?php echo esc_html($badge); ?></span>
-            <h3 class="cp-doc-titulo"><?php echo esc_html($titulo); ?></h3>
-            <p class="cp-doc-desc"><?php echo esc_html($descripcion); ?></p>
-            <div class="cp-doc-meta">
-                <span><i class="snd__icono snd snd-calendar" aria-hidden="true"></i> <?php echo esc_html($anio); ?></span>
+            <span class="cp-doc-badge xsdsb color--pguinda600"><?php echo esc_html($badge); ?></span>
+            <h3 class="cp-doc-titulo sh1b color--neutro800"><?php echo esc_html($titulo); ?></h3>
+            <p class="cp-doc-desc b1r color--neutro800"><?php echo esc_html($descripcion); ?></p>
+            <div class="cp-doc-meta sdr color--neutro600">
+                <span><i class="snd__icono snd snd-calendar icono--16" aria-hidden="true"></i> <?php echo esc_html($anio); ?></span>
                 <span class="cp-doc-meta__sep">·</span>
-                <span><i class="snd__icono snd snd-document" aria-hidden="true"></i> <?php echo esc_html($formato); ?></span>
+                <span><i class="snd__icono snd snd-document icono--16" aria-hidden="true"></i> <?php echo esc_html($formato); ?></span>
                 <?php if (!empty($paginas)) : ?>
                 <span class="cp-doc-meta__sep">·</span>
                 <span><?php echo esc_html($paginas); ?></span>
@@ -3702,11 +3702,11 @@ function sesna_render_recurso_card($post) {
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario" target="_blank" rel="noopener">
-                <i class="snd snd__icono snd-screen" aria-hidden="true"></i> Ver documento
+                <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
             </a>
             <?php endif; ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
-                <i class="snd snd__icono snd-download" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+                <i class="snd snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
 

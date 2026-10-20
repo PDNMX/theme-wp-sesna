@@ -34,7 +34,7 @@ get_header(); ?>
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
-                <div class="columna__12 columna__4--md columna__6--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end position-relative">
+                <div class="columna__12 columna__4--md columna__6--lg muestra--ninguno muestra--flex--md align-items-center justify-content-flex-end posicion--relativa">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode('Riegos e Inteligencia Encabezado.png') ); ?>"
                          alt="Riesgos e Inteligencia Anticorrupción"
                          class="sesna-hero__img"
@@ -45,59 +45,59 @@ get_header(); ?>
     </section>
 
     <!-- Documentos Section -->
-    <section class="contenedor mb-5">
-        <div class="cp-recursos__header mb-4">
-            <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Documentos</h2>
+    <section class="contenedor mb--48">
+        <div class="mb--24">
+            <h2 class="h2b patria color--pguinda600 mb--0">Documentos</h2>
         </div>
 
         <!-- Texto descriptivo -->
-        <div class="tx-hero__subtitle b1r color--neutro600 mb-4" style="max-width: 600px;">
+        <div class="b1r color--neutro600 mb--24">
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
         </div>
 
-        <div class="reticulaGrid__12 pt-4">
+        <div class="reticulaGrid__12 pt--24">
             <!-- Card 1 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
-                    <div class="icon-bg-circle mb-4">
-                        <i class="snd__icono snd-portfolio icono--24 tx-card__icon" aria-hidden="true"></i>
+                <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                    <div class="icon-bg-circle mb--24">
+                        <i class="snd__icono snd-portfolio icono--24" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Contrataciones<br>públicas</h5>
-                    <p class="tx-card__desc b1r color--neutro600 mb-4">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
-                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
+                    <h3 class="sh1b mb--16">Contrataciones<br>públicas</h3>
+                    <p class="b1r mb--24">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
+                    <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 2 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
-                    <div class="icon-bg-circle mb-4">
-                        <i class="snd__icono snd-group icono--24 tx-card__icon" aria-hidden="true"></i>
+                <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                    <div class="icon-bg-circle mb--24">
+                        <i class="snd__icono snd-group icono--24" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Conflicto<br>de interés</h5>
-                    <p class="tx-card__desc b1r color--neutro600 mb-4">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
-                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
+                    <h3 class="sh1b mb--16">Conflicto<br>de interés</h3>
+                    <p class="b1r mb--24">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
+                    <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 3 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
-                    <div class="icon-bg-circle mb-4">
-                        <i class="snd__icono snd-security icono--24 tx-card__icon" aria-hidden="true"></i>
+                <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                    <div class="icon-bg-circle mb--24">
+                        <i class="snd__icono snd-security icono--24" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Verificación<br>patrimonial</h5>
-                    <p class="tx-card__desc b1r color--neutro600 mb-4">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
-                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
+                    <h3 class="sh1b mb--16">Verificación<br>patrimonial</h3>
+                    <p class="b1r mb--24">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
+                    <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
             <!-- Card 4 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card rounded-4 h-100 d-flex flex-column align-items-center text-center px-4 py-5 w-100 text-decoration-none text-dark sna-tab-trigger">
-                    <div class="icon-bg-circle mb-4">
-                        <i class="snd__icono snd-chart--bar icono--24 tx-card__icon" aria-hidden="true"></i>
+                <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                    <div class="icon-bg-circle mb--24">
+                        <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
                     </div>
-                    <h5 class="tx-card__title b1sb color--pguinda600 mb-3">Deporte</h5>
-                    <p class="tx-card__desc b1r color--neutro600 mb-4">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
-                    <div class="mt-auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
+                    <h3 class="sh1b mb--16">Deporte</h3>
+                    <p class="b1r mb--24">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
+                    <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
         </div>
@@ -112,9 +112,6 @@ get_header(); ?>
             margin-bottom: 24px;
         }
         .cp-subsec-chip {
-            font-family: var(--font-montserrat);
-            font-size: 14px;
-            font-weight: 600;
             padding: 8px 20px;
             border-radius: 20px;
             border: 1px solid var(--color-burgundi);
@@ -161,43 +158,35 @@ get_header(); ?>
         }
         .cp-subsec-enlace__badge {
             display: inline-block;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--color-teal);
             text-transform: uppercase;
             letter-spacing: .5px;
             margin-bottom: 4px;
         }
         .cp-subsec-enlace__titulo {
-            font-family: var(--font-montserrat);
-            font-size: 17px;
-            font-weight: 700;
-            color: var(--color-negro);
             margin: 0;
         }
     </style>
 
     <!-- CONTENEDORES DINÁMICOS -->
-    <div id="dinamic-content-wrapper" class="contenedor mt-5 mb-5 pt-4 border-top" style="display: none; scroll-margin-top: 100px;">
+    <div id="dinamic-content-wrapper" class="contenedor mt--48 mb--48 pt--24 borde--superior" style="display: none; scroll-margin-top: 100px;">
 
         <div id="sec-contrataciones" class="dinamic-section" style="display: none;">
             <!-- Texto descriptivo -->
             <div class="fila">
-                <div class="columna__12 columna__7--md columna__8--lg posicion--relativa z--1">
+                <div class="columna__12 posicion--relativa z--1">
                     <h2 class="h2b patria color--pguinda600">Contrataciones públicas</h2>
-                    <div class="hero-separator"></div>
-                    <p class="sh1r mb--16" style="max-width: 600px;">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                    <p class="sh1r mb--0" style="max-width: 600px;">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+                    <p class="sh1r mb--16 texto--justify">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
+                    <p class="sh1r mb--0">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
                 </div>
             </div>
 
             <!-- ── Recursos disponibles ──────────────────────────────── -->
-            <section class="cp-recursos py-4 pb-5">
+            <section class="py--24 pb--48">
                 <div class="contenedor">
 
                     <!-- Encabezado de sección -->
-                    <div class="cp-recursos__header mb-4">
-                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
+                    <div class="mb--24">
+                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                     </div>
 
                     <!-- Lista de documentos -->
@@ -216,11 +205,11 @@ get_header(); ?>
             </section>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
-            <div class="cp-nota pb-5">
+            <div class="cp-nota pb--48">
                 <div class="contenedor">
-                    <div class="cp-nota__inner">
-                        <i class="snd__icono snd-information icono--20 cp-nota__icono" aria-hidden="true"></i>
-                        <p class="cp-nota__texto b1r mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
+                    <div class="cp-nota__inner fondo--azul100">
+                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                        <p class="cp-nota__texto b1r color--azul500 mb--0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
             </div>
@@ -228,11 +217,11 @@ get_header(); ?>
 
         <div id="sec-verificacion" class="dinamic-section" style="display: none;">
             <!-- ── Recursos metodológicos ─────────────────────────────── -->
-            <section class="cp-recursos py-4 pb-5">
+            <section class="py--24 pb--48">
                 <div class="contenedor">
 
-                    <div class="cp-recursos__header mb-4">
-                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos metodológicos</h2>
+                    <div class="mb--24">
+                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos metodológicos</h2>
                     </div>
 
                     <?php
@@ -250,7 +239,7 @@ get_header(); ?>
                     <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
                     <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
                         <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
-                        <button type="button" class="cp-subsec-chip<?php echo $indice === 0 ? ' is-active' : ''; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
+                        <button type="button" class="cp-subsec-chip sdsb<?php echo $indice === 0 ? ' is-active' : ''; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
                         <?php endforeach; ?>
                     </div>
                     <?php endif; ?>
@@ -263,11 +252,11 @@ get_header(); ?>
                                 <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
                             </div>
                             <div class="cp-subsec-enlace__texto">
-                                <span class="cp-subsec-enlace__badge">Enlace externo</span>
-                                <p class="cp-subsec-enlace__titulo">ALEA, Muestreo Aleatorio Simple</p>
+                                <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
+                                <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                             </div>
                             <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
-                                Visitar sitio <i class="snd__icono snd-launch icono--16 ms-1" aria-hidden="true"></i>
+                                Visitar sitio <i class="snd__icono snd-launch icono--16 ml--4" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -278,11 +267,11 @@ get_header(); ?>
             </section>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
-            <div class="cp-nota pb-5">
+            <div class="cp-nota pb--48">
                 <div class="contenedor">
-                    <div class="cp-nota__inner">
-                        <i class="snd__icono snd-information icono--20 cp-nota__icono" aria-hidden="true"></i>
-                        <p class="cp-nota__texto b1r mb-0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
+                    <div class="cp-nota__inner fondo--azul100">
+                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                        <p class="cp-nota__texto b1r color--azul500 mb--0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                     </div>
                 </div>
             </div>
@@ -293,11 +282,11 @@ get_header(); ?>
         ?>
         <div id="sec-conflicto" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_conflicto ) ) : ?>
-            <section class="cp-recursos py-4 pb-5">
+            <section class="py--24 pb--48">
                 <div class="contenedor">
 
-                    <div class="cp-recursos__header mb-4">
-                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
+                    <div class="mb--24">
+                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                     </div>
 
                     <div class="cp-docs-lista">
@@ -307,8 +296,8 @@ get_header(); ?>
                 </div>
             </section>
             <?php else : ?>
-            <div class="text-center py-5">
-                <i class="snd__icono snd-settings icono--48 text-muted mb-3" aria-hidden="true"></i>
+            <div class="texto--centro py--48">
+                <i class="snd__icono snd-settings icono--48 color--neutro600 mb--24" aria-hidden="true"></i>
                 <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
                 <p class="b1r color--neutro600">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
@@ -320,11 +309,11 @@ get_header(); ?>
         ?>
         <div id="sec-deporte" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_deporte ) ) : ?>
-            <section class="cp-recursos py-4 pb-5">
+            <section class="py--24 pb--48">
                 <div class="contenedor">
 
-                    <div class="cp-recursos__header mb-4">
-                                <h2 class="cp-recursos__titulo h2b patria color--pguinda600 mb-0">Recursos disponibles</h2>
+                    <div class="mb--24">
+                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                     </div>
 
                     <div class="cp-docs-lista">
@@ -334,8 +323,8 @@ get_header(); ?>
                 </div>
             </section>
             <?php else : ?>
-            <div class="text-center py-5">
-                <i class="snd__icono snd-settings icono--48 text-muted mb-3" aria-hidden="true"></i>
+            <div class="texto--centro py--48">
+                <i class="snd__icono snd-settings icono--48 color--neutro600 mb--24" aria-hidden="true"></i>
                 <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
                 <p class="b1r color--neutro600">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>

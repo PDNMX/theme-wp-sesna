@@ -165,9 +165,9 @@ get_header();
     <!-- ── Nota informativa ──────────────────────────────────── -->
     <div class="cp-nota pb-5">
         <div class="contenedor">
-            <div class="cp-nota__inner">
-                <i class="snd__icono snd snd-information cp-nota__icono" aria-hidden="true"></i>
-                <p class="cp-nota__texto mb-0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
+            <div class="cp-nota__inner fondo--azul100">
+                <i class="snd__icono snd snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                <p class="cp-nota__texto b1r color--azul500 mb--0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
             </div>
         </div>
     </div>

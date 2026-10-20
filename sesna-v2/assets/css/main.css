@@ -1455,7 +1455,6 @@ p, .b1r {
     font-family: var(--font-noto-sans);
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--neutro800);
 }
 
 /* Texto secundario — SND .sd */
@@ -2838,39 +2837,25 @@ nav.navbar .container {
 }
 
 .cp-doc-badge {
-    font-family: var(--font-montserrat);
     display: inline-block;
     padding: 6px 16px;
     border: 1px solid var(--color-burgundi);
-    color: var(--color-burgundi);
     border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
     margin-bottom: 14px;
 }
 
 .cp-doc-titulo {
-    font-family: var(--font-montserrat);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-negro);
     margin-bottom: 10px;
-    line-height: 1.3;
 }
 
 .cp-doc-desc {
-    font-size: 15px;
-    color: rgba(22, 26, 29, 0.85);
     margin-bottom: 14px;
-    line-height: 1.6;
 }
 
 .cp-doc-meta {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 13px;
-    color: rgba(22, 26, 29, 0.7);
 }
 
 .cp-doc-meta__sep { color: var(--color-gris); }
@@ -2891,8 +2876,6 @@ nav.navbar .container {
 
 /* Nota informativa */
 .cp-nota__inner {
-    background-color: #fdf8ee;
-    border: 1px solid #e8dcc4;
     border-radius: 8px;
     padding: 16px 20px;
     display: flex;
@@ -2901,16 +2884,8 @@ nav.navbar .container {
 }
 
 .cp-nota__icono {
-    color: var(--color-dorado);
-    font-size: 16px;
     flex-shrink: 0;
     margin-top: 2px;
-}
-
-.cp-nota__texto {
-    font-size: 14px;
-    color: rgba(22, 26, 29, 0.75);
-    line-height: 1.6;
 }
 
 /* ── Responsive ── */

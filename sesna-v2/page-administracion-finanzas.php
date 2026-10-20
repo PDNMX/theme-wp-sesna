@@ -104,7 +104,7 @@ get_header(); ?>
         <!-- Instrucción Banner -->
         <div class="cp-instruccion-banner d-flex align-items-center gap-4">
             <i class="snd__icono snd snd-screen text-guinda flex-shrink-0" aria-hidden="true" style="font-size: 3rem; line-height: 1;"></i>
-            <div class="tx-hero__subtitle text-muted m-0" style="max-width: 800px; line-height: 1.5;">
+            <div class="b1r color--neutro600 mb--0" style="max-width: 800px; line-height: 1.5;">
                 Selecciona una de las siguientes categorías para <span class="text-guinda fw-bold" style="color: var(--color-burgundi);">consultar documentos, informes y recursos relacionados.</span>
             </div>
         </div>
