@@ -3707,11 +3707,11 @@ function sesna_render_recurso_card($post) {
         <!-- Acciones -->
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
-            <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario" target="_blank" rel="noopener">
+            <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario boton--vertical" target="_blank" rel="noopener">
                 <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
             </a>
             <?php endif; ?>
-            <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
+            <a href="<?php echo esc_url($archivo); ?>" class="boton__primario boton--vertical" target="_blank" rel="noopener" download>
                 <i class="snd snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
             </a>
         </div>
