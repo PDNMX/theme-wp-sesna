@@ -32,6 +32,12 @@ if (!function_exists('sesna_theme_setup')):
 endif;
 add_action('after_setup_theme', 'sesna_theme_setup');
 
+// Desactivar admin-bar en el front-end para evitar el bump vertical de 32px sobre el header fijo SND
+add_filter('show_admin_bar', '__return_false');
+add_action('get_header', function() {
+	remove_action('wp_head', '_admin_bar_bump_cb');
+});
+
 
 function twentynineteen_widgets_init()
 {
