@@ -51,7 +51,7 @@ get_header(); ?>
         </div>
 
         <!-- Texto descriptivo -->
-        <div class="b1r color--neutro600 mb--24">
+        <div class="sh1r color--neutro600 mb--24">
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
         </div>
 
