@@ -43,33 +43,37 @@ if ($query->have_posts()) {
 wp_reset_postdata();
 ?>
 
-<div class="page-transparencia-comite front-page-bg pb-5">
-    <!-- Migas de pan (Breadcrumb) -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+<div class="page-transparencia-comite front-page-bg pb--40">
+    <!-- Breadcrumb -->
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
-                    </a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>">Transparencia</a>
+                <li class="ruta__li">
+                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Comité de Transparencia</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Comité de Transparencia</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Contenedor Principal -->
-    <div class="contenedor py-4">
-
-        <!-- Títulos — SND Sección 3.4: h1b patria -->
-        <div class="reticulaGrid__12 mb-4">
-            <div class="columna__12">
-                <h1 class="h1b patria tx-section-title mb-2 tx-comite-title">Comité de Transparencia</h1>
+    <!-- Hero -->
+    <section class="sesna-page-hero">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda600">Comité de Transparencia</h1>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Contenedor Principal -->
+    <div class="contenedor">
 
         <!-- Tabs — SND UI Kit (Tabs 2: 1562:4021 / 16460:3792) -->
         <div class="reticulaGrid__12 mb--32">
@@ -126,37 +130,37 @@ wp_reset_postdata();
                 </div>
 
                 <!-- Lista de Sesiones -->
-                <div class="d-flex flex-column gap-3" id="sesiones-list-container">
-                    <?php foreach ($sesiones as $sesion): ?>
-                    <!-- Card Item -->
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-sesion-card" data-anio="<?= esc_attr($sesion['anio']) ?>" data-tipo="<?= esc_attr($sesion['tipo']) ?>">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-stretch">
-                            
-                            <!-- Date Column -->
-                            <div class="tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center">
-                                <div class="fw-bold fs-3 tx-sesion-date-year" style="color:#666;"><?= esc_html($sesion['anio']) ?></div>
-                            </div>
+                <div class="reticulaGrid__12">
+                    <div class="columna__12">
+                        <div class="tx-comite-card-list" id="sesiones-list-container">
+                            <?php foreach ($sesiones as $sesion): ?>
+                            <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
+                            <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($sesion['anio']) ?>" data-tipo="<?= esc_attr($sesion['tipo']) ?>">
 
-                            <!-- Info Column -->
-                            <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                                <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> <?= esc_html($sesion['tipo']) ?></p>
-                            </div>
+                                <!-- Date Column -->
+                                <div class="tx-comite-card-date">
+                                    <div class="sh0b color--neutro600 mb--0 tx-comite-card-year"><?= esc_html($sesion['anio']) ?></div>
+                                </div>
 
-                            <!-- Action Column -->
-                            <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
-                                    <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Acta</div>
-                                </a>
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
-                                </a>
-                            </div>
+                                <!-- Info Column -->
+                                <div class="tx-comite-card-info">
+                                    <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?= esc_html($sesion['titulo']) ?></h3>
+                                    <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Tipo:</span> <?= esc_html($sesion['tipo']) ?></p>
+                                </div>
 
+                                <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
+                                <div class="tx-comite-card-action">
+                                    <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>">
+                                        <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                        Acta
+                                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
                 </div>
 
                 <!-- Ver más Sesiones -->
@@ -200,37 +204,37 @@ wp_reset_postdata();
                 </div>
 
                 <!-- Lista de Resoluciones -->
-                <div class="d-flex flex-column gap-3" id="resoluciones-list-container">
-                    <?php foreach ($resoluciones as $res): ?>
-                    <!-- Card Item -->
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-resolucion-card" data-anio="<?= esc_attr($res['anio']) ?>" data-titulo="<?= esc_attr(strtolower($res['titulo'])) ?>">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-stretch">
-                            
-                            <!-- Date Column -->
-                            <div class="tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center">
-                                <div class="fw-bold fs-3 tx-sesion-date-year" style="color:#666;"><?= esc_html($res['anio']) ?></div>
-                            </div>
+                <div class="reticulaGrid__12">
+                    <div class="columna__12">
+                        <div class="tx-comite-card-list" id="resoluciones-list-container">
+                            <?php foreach ($resoluciones as $res): ?>
+                            <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
+                            <div class="tx-comite-card tx-resolucion-card" data-anio="<?= esc_attr($res['anio']) ?>" data-titulo="<?= esc_attr(strtolower($res['titulo'])) ?>">
 
-                            <!-- Info Column -->
-                            <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                                <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($res['titulo']) ?></h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Número:</strong> <?= esc_html($res['numero']) ?></p>
-                            </div>
+                                <!-- Date Column -->
+                                <div class="tx-comite-card-date">
+                                    <div class="sh0b color--neutro600 mb--0 tx-comite-card-year"><?= esc_html($res['anio']) ?></div>
+                                </div>
 
-                            <!-- Action Column -->
-                            <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
-                                    <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Resolución</div>
-                                </a>
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true" style="stroke-width: 2px;"></i>
-                                </a>
-                            </div>
+                                <!-- Info Column -->
+                                <div class="tx-comite-card-info">
+                                    <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?= esc_html($res['titulo']) ?></h3>
+                                    <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Número:</span> <?= esc_html($res['numero']) ?></p>
+                                </div>
 
+                                <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
+                                <div class="tx-comite-card-action">
+                                    <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>">
+                                        <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                        Resolución
+                                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <?php endforeach; ?>
                 </div>
 
                 <!-- Ver más Resoluciones -->
@@ -245,19 +249,6 @@ wp_reset_postdata();
 
     </div>
 </div>
-
-<style>
-.tx-pdf-action-btn {
-    color: var(--color-burgundi);
-    border: 1px solid var(--color-burgundi);
-    border-radius: 8px;
-    background-color: transparent;
-    transition: all 0.2s ease-in-out;
-}
-.tx-pdf-action-btn:hover {
-    background-color: var(--color-burgundi);
-    color: #ffffff;
-</style>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
@@ -288,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (matchAnio && matchTipo) {
                 if (totalMatched < sesionesVisibleLimit) {
-                    card.style.display = 'block';
+                    card.style.display = '';
                     visibleCount++;
                 } else {
                     card.style.display = 'none';
@@ -346,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (matchAnio && matchQuery) {
                 if (totalMatched < resVisibleLimit) {
-                    card.style.display = 'block';
+                    card.style.display = '';
                     visibleCount++;
                 } else {
                     card.style.display = 'none';

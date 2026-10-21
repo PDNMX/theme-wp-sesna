@@ -1,144 +1,170 @@
 <?php
+/**
+ * Plantilla de Página: Transparencia (Página Principal)
+ * Homologada al Sistema Nacional de Diseño (SND v1.1.0 — Tema Guinda)
+ *
+ * @package sesna
+ */
+
 get_header();
 
 $tx_cards = [
-    ['icon' => 'snd-security', 'title' => 'Unidad de Transparencia', 'desc' => 'Atención, orientación y canales de contacto con la Unidad.', 'url' => home_url('/transparencia/unidad-de-transparencia/')],
-    ['icon' => 'snd-document', 'title' => 'Solicitudes de Información', 'desc' => 'Consulta el manual para presentar solicitudes de acceso a la información.', 'url' => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'), 'target' => '_blank'],
-    ['icon' => 'snd-security', 'title' => 'Datos Personales', 'desc' => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.', 'url' => home_url('/transparencia/datos-personales/')],
-    ['icon' => 'snd-folder', 'title' => 'Obligaciones de Transparencia', 'desc' => 'Información pública de oficio según el (T&#237;tulo Quinto LGTAIP).', 'url' => 'https://consultapublicamx.plataformadetransparencia.org.mx/', 'target' => '_blank'],
-    ['icon' => 'snd-education', 'title' => 'Normativa', 'desc' => 'Leyes, lineamientos y normas en materia de transparencia.', 'url' => home_url('/transparencia/normatividad/')],
-    ['icon' => 'snd-notification', 'title' => 'Denuncias', 'desc' => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.', 'url' => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys', 'target' => '_blank'],
+    [
+        'icon'  => 'snd-group',
+        'title' => 'Comité de Transparencia',
+        'desc'  => 'Sesiones, actas, resoluciones y criterios del Comité de Transparencia.',
+        'url'   => home_url('/transparencia/comite-de-transparencia/'),
+    ],
+    [
+        'icon'  => 'snd-security',
+        'title' => 'Unidad de Transparencia',
+        'desc'  => 'Atención, orientación y canales de contacto con la Unidad.',
+        'url'   => home_url('/transparencia/unidad-de-transparencia/'),
+    ],
+    [
+        'icon'   => 'snd-document',
+        'title'  => 'Solicitudes de Información',
+        'desc'   => 'Consulta el manual para presentar solicitudes de acceso a la información.',
+        'url'    => home_url('/wp-content/uploads/2026/07/PNT_SISAI_SOLICITANTE.pdf'),
+        'target' => '_blank',
+    ],
+    [
+        'icon'  => 'snd-security',
+        'title' => 'Datos Personales',
+        'desc'  => 'Consulta y ejerce tus derechos de privacidad y acceso ARCO.',
+        'url'   => home_url('/transparencia/datos-personales/'),
+    ],
+    [
+        'icon'   => 'snd-folder',
+        'title'  => 'Obligaciones de Transparencia',
+        'desc'   => 'Información pública de oficio según el (Título Quinto LGTAIP).',
+        'url'    => 'https://consultapublicamx.plataformadetransparencia.org.mx/',
+        'target' => '_blank',
+        'manual' => home_url('/wp-content/uploads/2026/07/MAUAL-DE-ACCESO-AL-PORTAL-DE-OBLIGACIONES-DE-TRANSPARENCIA.pdf'),
+    ],
+    [
+        'icon'  => 'snd-education',
+        'title' => 'Normativa',
+        'desc'  => 'Leyes, lineamientos y normas en materia de transparencia.',
+        'url'   => home_url('/transparencia/normatividad/'),
+    ],
+    [
+        'icon'   => 'snd-notification',
+        'title'  => 'Denuncias',
+        'desc'   => 'Consulta las denuncias por incumplimiento a las obligaciones de transparencia.',
+        'url'    => 'https://sesnamx-my.sharepoint.com/:x:/g/personal/ediaz_sesna_gob_mx/IQBDDzfZrG3oTKikEkDd2XxYASEEXwYBDlpmKd0ChUiwZvU?e=ARg1ys',
+        'target' => '_blank',
+    ],
 ];
-
 ?>
-<style>
-/* CSS para la opción de consultar manual en la tarjeta de Obligaciones */
-.tx-card-manual-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(109, 27, 50, 0.95); /* Guinda semi-transparente */
-    color: white;
-    padding: 15px;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-weight: 500;
-}
-.tx-card:hover .tx-card-manual-overlay {
-    transform: translateY(0);
-}
-.tx-card-manual-overlay:hover {
-    background: #501022;
-}
-</style>
-<div class="page-transparencia has-fullbleed-hero">
 
-    <section class="position-relative" aria-label="Encabezado de Transparencia y acceso a la información">
-        <!-- Imagen del Banner Nativa -->
-        <img src="<?= get_template_directory_uri() ?>/img/home_v2/BannerSESNA_Transparencia.jpg" alt="Transparencia"
-            class="w-100 img-fluid" style="object-fit: cover; min-height: 200px;">
+<div class="page-transparencia front-page-bg">
 
-        <!-- Botón flotante -->
-        <div class="position-absolute w-100 text-center" style="bottom: 6%; left: 0; z-index: 10;">
-            <div class="contenedor">
-                <a href="https://www.plataformadetransparencia.org.mx" target="_blank" rel="noopener noreferrer"
-                    class="btn d-inline-flex align-items-center gap-2"
-                    style="background-color: var(--color-guinda); color: white; border: 2px solid white; padding: 18px 40px; font-size: 16px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.6); transition: transform 0.2s ease;"
-                    onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"
-                    aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                    <i class="snd__icono snd snd-document--import" aria-hidden="true"></i>
-                    Solicitar información &rsaquo;
+
+    <!-- ── Hero Banner Transparencia ──────────────────────────── -->
+    <section class="tx-banner posicion--relativa" aria-label="Banner institucional de Transparencia y acceso a la información">
+        <h1 class="oculto">Transparencia y acceso a la información</h1>
+        <div class="tx-banner__media">
+            <img src="<?= esc_url( get_template_directory_uri() . '/img/home_v2/BannerSESNA_Transparencia.jpg' ); ?>" 
+                 alt="Transparencia y acceso a la información"
+                 class="tx-banner__img"
+                 width="6000"
+                 height="1458"
+                 loading="eager">
+        </div>
+        <div class="tx-banner__action">
+            <div class="contenedor texto--centro">
+                <a href="https://www.plataformadetransparencia.org.mx" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   title="El enlace abre en ventana nueva" 
+                   class="boton__primario boton--redondeado tx-banner__btn" 
+                   aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
+                    <span>Solicitar información</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="tx-accesos py-5" aria-labelledby="tx-accesos-titulo">
+    <!-- ── Accesos Rápidos ────────────────────────────────────── -->
+    <section class="tx-accesos py--48" aria-labelledby="tx-accesos-titulo">
         <div class="contenedor">
-            <div class="fila">
-                <div class="columna__12 columna__8--md">
-                    <h2 class="cp-recursos__titulo" id="tx-accesos-titulo">Accesos rápidos</h2>
-                    <div class="cp-recursos__linea mb-3"></div>
+            <div class="fila mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--0" id="tx-accesos-titulo">Accesos rápidos</h2>
                 </div>
             </div>
 
-            <div class="reticulaGrid__12 mt-3">
-                <div class="columna__12 columna__6--sm columna__3--lg">
-                    <a href="<?= esc_url(home_url('/transparencia/comite-de-transparencia/')) ?>"
-                        class="tx-card rounded-4 h-100 d-flex flex-column"
-                        aria-label="Comité de Transparencia — abre el detalle de sesiones y actas">
-                        <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                            <i class="snd__icono snd snd-group" aria-hidden="true"></i>
-                        </span>
-                        <strong class="tx-card__title d-block mb-2">Comité de Transparencia</strong>
-                        <p class="tx-card__desc flex-grow-1 mb-0">Sesiones, actas, resoluciones y criterios del Comité de Transparencia.</p>
-                        <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
-                    </a>
-                </div>
-                <?php foreach ($tx_cards as $card): ?>
-                    <div class="columna__12 columna__6--sm columna__3--lg">
-                        <a href="<?= $card['url'] !== '#' ? esc_url($card['url']) : '#' ?>"
-                            <?= isset($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer"' : '' ?>
-                            class="tx-card rounded-4 h-100 d-flex flex-column position-relative overflow-hidden" aria-label="<?= esc_attr($card['title']) ?>">
-                            <span class="bootstrap-icons tx-card__icon mb-3" aria-hidden="true">
-                                <i class="snd__icono snd <?= esc_attr($card['icon']) ?>" aria-hidden="true"></i>
-                            </span>
-                            <strong class="tx-card__title d-block mb-2"><?= esc_html($card['title']) ?></strong>
-                            <p class="tx-card__desc flex-grow-1 mb-0"><?= esc_html($card['desc']) ?></p>
-                            <span class="tx-card__arrow mt-3 align-self-end" aria-hidden="true">&rsaquo;</span>
-                            
-                            <?php if ($card['title'] === 'Obligaciones de Transparencia'): ?>
-                                <div class="tx-card-manual-overlay" onclick="event.preventDefault(); window.open('<?= home_url('/wp-content/uploads/2026/07/MAUAL-DE-ACCESO-AL-PORTAL-DE-OBLIGACIONES-DE-TRANSPARENCIA.pdf') ?>', '_blank');">
-                                    <i class="snd__icono snd snd-document--pdf fs-5" aria-hidden="true"></i> Consultar manual
-                                </div>
+            <div class="reticulaGrid__12">
+                <?php foreach ( $tx_cards as $card ): ?>
+                    <div class="columna__12 columna__6--sm columna__6--md columna__3--lg mb--24">
+                        <div class="tx-card radio--4 posicion--relativa desborde--oculto alto--100 muestra--flex flex-direction-column">
+                            <div class="tx-card__icon mb--16" aria-hidden="true">
+                                <i class="snd__icono <?= esc_attr( $card['icon'] ); ?> icono--32 color--pguinda600" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="sh1b tx-card__title mb--8">
+                                <a href="<?= esc_url( $card['url'] ); ?>"
+                                   <?= !empty($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer" title="El enlace abre en ventana nueva"' : '' ?>
+                                   class="enlace--expandido decoracion--ninguna color--neutro800">
+                                    <?= esc_html( $card['title'] ); ?>
+                                </a>
+                            </h3>
+                            <p class="b1r color--neutro600 tx-card__desc flex-grow mb--0">
+                                <?= esc_html( $card['desc'] ); ?>
+                            </p>
+                            <div class="mt--auto pt--16 muestra--flex align-items-center justify-content-flex-end">
+                                <i class="snd__icono snd-chevron--right icono--20 tx-card__arrow" aria-hidden="true"></i>
+                            </div>
+
+                            <?php if ( !empty($card['manual']) ): ?>
+                                <a href="<?= esc_url( $card['manual'] ); ?>"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   title="Consultar manual de acceso en formato PDF (abre en ventana nueva)"
+                                   class="tx-card-manual-overlay z--2 decoracion--ninguna">
+                                    <i class="snd__icono snd-document--pdf icono--20 pe--8" aria-hidden="true"></i>
+                                    <span>Consultar manual</span>
+                                </a>
                             <?php endif; ?>
-                        </a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="tx-consulta py-5" aria-labelledby="tx-consulta-titulo">
+    <!-- ── Consulta Información Pública ───────────────────────── -->
+    <section class="tx-consulta py--48" aria-labelledby="tx-consulta-titulo">
         <div class="contenedor">
-            <div class="fila">
-                <div class="columna__12 columna__8--md">
-                    <h2 class="cp-recursos__titulo" id="tx-consulta-titulo">Consulta información pública</h2>
-                    <div class="cp-recursos__linea mb-3"></div>
+            <div class="fila mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--0" id="tx-consulta-titulo">Consulta información pública</h2>
                 </div>
             </div>
 
-            <div class="reticulaGrid__12 mt-2">
+            <div class="reticulaGrid__12">
 
-                <div class="columna__12 columna__6--md">
-                    <a href="<?= esc_url(get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/') ?>" target="_blank" rel="noopener noreferrer" class="tx-consulta-card rounded-4 h-100 d-block text-decoration-none text-dark">
-                        <div class="d-flex align-items-start gap-3 h-100">
-                            <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
-                                <span class="bootstrap-icons">
-                                    <i class="snd__icono snd snd-group" aria-hidden="true"></i>
-                                </span>
+                <!-- Tarjeta 1: Transparencia para el Pueblo -->
+                <div class="columna__12 columna__6--md mb--24">
+                    <a href="<?= esc_url( get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/' ); ?>" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="El enlace abre en ventana nueva" 
+                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                        <div class="muestra--flex align-items-start gap--16 alto--100">
+                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
+                                <i class="snd__icono snd-group icono--32 color--pguinda600" aria-hidden="true"></i>
                             </div>
-                            <div class="d-flex flex-column h-100">
-                                <strong class="tx-consulta-card__title">Transparencia para el Pueblo</strong>
-                                <p class="tx-consulta-card__desc mt-2 flex-grow-1">
-                                    Conoce el nuevo modelo nacional de transparencia y consulta información de interés
-                                    público.
+                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Transparencia para el Pueblo</h3>
+                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
+                                    Conoce el nuevo modelo nacional de transparencia y consulta información de interés público.
                                 </p>
-                                <div class="mt-3">
-                                    <span class="tx-consulta-card__btn"
-                                        aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
-                                        Ir al portal
-                                        <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="snd__icono snd snd-launch" aria-hidden="true"></i>
-                                        </span>
+                                <div class="mt--auto">
+                                    <span class="tx-consulta-card__btn boton__primario boton--vertical"
+                                          aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
+                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <span>Ir al portal</span>
                                     </span>
                                 </div>
                             </div>
@@ -146,26 +172,27 @@ $tx_cards = [
                     </a>
                 </div>
 
-                <div class="columna__12 columna__6--md">
-                    <a href="https://www.plataformadetransparencia.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="tx-consulta-card rounded-4 h-100 d-block text-decoration-none text-dark">
-                        <div class="d-flex align-items-start gap-3 h-100">
-                            <div class="tx-consulta-card__icon-wrap flex-shrink-0" aria-hidden="true">
-                                <span class="bootstrap-icons">
-                                    <i class="snd__icono snd snd-search" aria-hidden="true"></i>
-                                </span>
+                <!-- Tarjeta 2: Plataforma Nacional de Transparencia -->
+                <div class="columna__12 columna__6--md mb--24">
+                    <a href="https://www.plataformadetransparencia.org.mx/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="El enlace abre en ventana nueva" 
+                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                        <div class="muestra--flex align-items-start gap--16 alto--100">
+                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
+                                <i class="snd__icono snd-search icono--32 color--pguinda600" aria-hidden="true"></i>
                             </div>
-                            <div class="d-flex flex-column h-100">
-                                <strong class="tx-consulta-card__title">Plataforma Nacional de Transparencia</strong>
-                                <p class="tx-consulta-card__desc mt-2 flex-grow-1">
+                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Plataforma Nacional de Transparencia</h3>
+                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
                                     Realiza solicitudes de información y consulta obligaciones de transparencia.
                                 </p>
-                                <div class="mt-3">
-                                    <span class="tx-consulta-card__btn"
-                                        aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
-                                        Acceder
-                                        <span class="bootstrap-icons" aria-hidden="true">
-                                            <i class="snd__icono snd snd-launch" aria-hidden="true"></i>
-                                        </span>
+                                <div class="mt--auto">
+                                    <span class="tx-consulta-card__btn boton__primario boton--vertical"
+                                          aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
+                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <span>Acceder</span>
                                     </span>
                                 </div>
                             </div>
@@ -177,19 +204,19 @@ $tx_cards = [
         </div>
     </section>
 
-    <section class="tx-contacto py-4" aria-label="Datos de contacto de la Unidad de Transparencia">
+    <!-- ── Banda de Contacto ──────────────────────────────────── -->
+    <section class="tx-contacto py--32" aria-label="Datos de contacto de la Unidad de Transparencia">
         <div class="contenedor">
-            <div class="reticulaGrid__12 align-items-center justify-content-center g-4 text-center">
+            <div class="reticulaGrid__12 align-items-center justify-content-center">
 
-                <div class="columna__12 columna__6--md">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
-                            <span class="bootstrap-icons">
-                                <i class="snd__icono snd snd-email" aria-hidden="true"></i>
-                            </span>
+                <div class="columna__12 columna__6--md mb--16 mb--0--md">
+                    <div class="muestra--flex align-items-center justify-content-center gap--16">
+                        <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
+                            <i class="snd__icono snd-email icono--24 color--blanco" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <a href="mailto:unidadtransparencia@sesna.gob.mx" class="tx-contacto__link">
+                            <span class="tx-contacto__label d-block b1r color--neutro600">Correo electrónico:</span>
+                            <a href="mailto:unidadtransparencia@sesna.gob.mx" class="tx-contacto__link sh1b color--pguinda600">
                                 unidadtransparencia@sesna.gob.mx
                             </a>
                         </div>
@@ -197,15 +224,14 @@ $tx_cards = [
                 </div>
 
                 <div class="columna__12 columna__6--md">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <div class="tx-contacto__icon-wrap flex-shrink-0" aria-hidden="true">
-                            <span class="bootstrap-icons">
-                                <i class="snd__icono snd snd-phone" aria-hidden="true"></i>
-                            </span>
+                    <div class="muestra--flex align-items-center justify-content-center gap--16">
+                        <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
+                            <i class="snd__icono snd-phone icono--24 color--blanco" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <a href="tel:+525581178100" class="tx-contacto__link">
-                                55 8117 8100<br>Ext. 1116
+                            <span class="tx-contacto__label d-block b1r color--neutro600">Teléfono y extensión:</span>
+                            <a href="tel:+525581178100" class="tx-contacto__link sh1b color--pguinda600">
+                                55 8117 8100 &nbsp;•&nbsp; Ext. 1116
                             </a>
                         </div>
                     </div>
@@ -214,8 +240,6 @@ $tx_cards = [
             </div>
         </div>
     </section>
-
-
 
 </div><!-- /.page-transparencia -->
 

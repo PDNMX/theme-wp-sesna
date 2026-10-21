@@ -102,9 +102,9 @@
 }
 
 .tx-consulta-card__desc {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .tx-contacto__detail {
@@ -117,7 +117,7 @@
 .tx-search__btn,
 .tx-consulta-card__btn {
     font-family: var(--font-noto-sans);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.01em;
 }
@@ -130,35 +130,44 @@
     font-weight: 600;
 }
 
-.tx-card__icon,
-.tx-card .bootstrap-icons {
-    font-size: 40px;
-    color: var(--color-burgundi);
+.tx-card__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    color: var(--pguinda600, #9B2247);
     display: block;
     margin-bottom: 0;
     line-height: 1;
 }
 
-.tx-hero__cta .bootstrap-icons,
-.tx-search__btn .bootstrap-icons,
-.tx-consulta-card__btn .bootstrap-icons {
-    font-size: 20px;
+.tx-hero__cta .snd__icono,
+.tx-search__btn .snd__icono,
+.tx-consulta-card__btn .snd__icono {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
     vertical-align: middle;
     display: inline-block;
     line-height: 1;
 }
 
-.tx-search__circle .bootstrap-icons {
+.tx-search__circle .snd__icono {
+    width: 32px;
+    height: 32px;
     font-size: 32px;
     line-height: 1;
 }
 
-.tx-consulta-card__icon-wrap .bootstrap-icons {
-    font-size: 26px;
+.tx-consulta-card__icon-wrap .snd__icono {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
     line-height: 1;
 }
 
-.tx-contacto__icon-wrap .bootstrap-icons {
+.tx-contacto__icon-wrap .snd__icono {
+    width: 24px;
+    height: 24px;
     font-size: 24px;
     line-height: 1;
 }

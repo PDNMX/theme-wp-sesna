@@ -4,6 +4,9 @@
 # Dump de base de datos — puede contener datos sensibles
 init.sql
 
+# Respaldos locales (dumps de BD, volúmenes) — nunca subir al repositorio
+backups/
+
 # Dependencias y caché
 node_modules/
 .DS_Store

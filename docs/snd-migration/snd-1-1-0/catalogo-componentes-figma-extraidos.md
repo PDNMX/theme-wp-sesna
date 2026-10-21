@@ -1,6 +1,8 @@
 # Catálogo de Componentes Extraídos de Figma — SND | UI Kit (v1.1.0 Tema Guinda)
 
 > **Propósito de este documento:** Almacenar las especificaciones técnicas completas (anatomía, dimensiones, estados, tokens de color mapeados a variables `:root` de [`docs/snd-guinda.css`](../../snd-guinda.css), estructura HTML accesible WAI-ARIA, CSS y JS) de los componentes extraídos directamente de Figma (`SND | UI Kit`, `kW8LFCzYEiBxCgHu6gBD66`) para reutilizarlos en cualquier página del tema sin volver a consultarlos en Figma.
+> 
+> **Regla Normativa de Íconos:** Los íconos `.snd__icono` renderizan como SVG/imágenes y **no escalan con `font-size`**. Se deben dimensionar obligatoriamente mediante **`width` y `height`** (o clases `.icono--16`, `.icono--20`, `.icono--24`, `.icono--32`, `.icono--48`, `.icono--64`).
 
 ---
 
@@ -27,10 +29,13 @@ En el UI Kit de Figma existen **dos variantes oficiales** de pestañas:
 | Estado (Variante Figma) | Fondo (`background-color`) | Borde (`top/left/right`) | Texto (`color`) | Peso (`font-weight`) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Default** (`7628:527`) | `var(--neutro100)` (`#FFFFFF`) | `1px solid var(--neutro400)` (`#DDDDDD`) | `var(--neutro800)` (`#161A1D`) | `500` (Medium) |
-| **Hover** (`37481:15993`) | `var(--gama100)` (`#F3E4E9`) | `1px solid var(--neutro400)` (`#DDDDDD`) | `var(--neutro800)` (`#161A1D`) | `500` (Medium) |
-| **Seleccionado** (`7628:524`) | `var(--principal)` (`#611232`) | `1px solid var(--neutro400)` (`#DDDDDD`) | `var(--neutro100)` (`#FFFFFF`) | `600` (SemiBold) |
+| **Hover (Figma puro)** (`37481:15993`) | `var(--gama100)` (`#F3E4E9`) | `1px solid var(--neutro400)` (`#DDDDDD`) | `var(--neutro800)` (`#161A1D`) | `500` (Medium) |
+| **Hover (en fondos con tinte / `.front-page-bg`)** | `var(--neutro100)` (`#FFFFFF`) | `1px solid var(--principal)` (`#611232`) | `var(--principal)` (`#611232`) | `500` (Medium) |
+| **Seleccionado** (`7628:524`) | `var(--principal)` (`#611232`) | `1px solid var(--principal)` (`#611232`) | `var(--neutro100)` (`#FFFFFF`) | `600` (SemiBold) |
 | **Focus** (`37481:15996`) | `var(--neutro200)` (`#F9F9F9`) | `2px solid var(--azul500)` (`#224497`) | `var(--neutro800)` (`#161A1D`) | `500` (Medium) |
 | **Inhabilitado** (`1562:4019`) | `var(--neutro200)` (`#F9F9F9`) | `1px solid var(--neutro400)` (`#DDDDDD`) | `var(--neutro600)` (`#767676`) | `500` (Medium) |
+
+> 💡 **Regla de Alto Contraste en Hover:** En el lienzo de Figma el componente fue diseñado sobre fondo blanco puro, por lo que el hover `var(--gama100)` (`#F3E4E9`) se distingue bien. Sin embargo, en páginas o secciones con fondo `.front-page-bg` (`background-color: var(--color-fondo-claro)` que equivale a `#F3E4E9`), dicho hover provoca que la pestaña se funda y se pierda. Por tanto, en esas vistas se mantiene `background-color: var(--neutro100)` (blanco) y se destaca la interactividad virando el borde y el texto al guinda institucional `var(--principal)` (`#611232`).
 
 #### HTML Reutilizable (`Tabs 2`)
 ```html
@@ -93,12 +98,13 @@ En el UI Kit de Figma existen **dos variantes oficiales** de pestañas:
     transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 .tx-comite-tab:hover:not([aria-selected="true"]):not(:disabled) {
-    background-color: var(--gama100);
-    color: var(--neutro800);
+    background-color: var(--neutro100);
+    color: var(--principal);
+    border-color: var(--principal);
 }
 .tx-comite-tab[aria-selected="true"] {
     background-color: var(--principal);
-    border-color: var(--neutro400);
+    border-color: var(--principal);
     color: var(--neutro100);
     font-weight: 600;
 }
@@ -328,3 +334,150 @@ select.tx-comite-filter-control:disabled {
   - **Focus (`:focus-visible`):** fondo `var(--gama100)`, `outline: 2px solid var(--principal)`.
   - **Active (`:active`):** fondo `var(--gama200)`, texto `var(--gama950)`.
   - **Disabled:** texto `var(--neutro500)`, sin fondo.
+
+---
+
+## 5. Componente: Modal / Diálogo Visor de Documentos (`Modales *` en Figma, nodo `1749:13690`)
+
+### Identificación en Documentación SND y Figma
+- **Componente en Figma (`SND | UI Kit`):** Organismo en página `Modales *` (`id=1749:13690`).
+- **Estado en `snd-guinda.css`:** `snd-guinda.css` únicamente incluye avisos de diálogo de sistema (`dialog[class*="aviso--"]`), por lo que los contenedores modales se construyen desacoplados de Bootstrap utilizando variables `:root` oficiales (`--neutro100`, `--neutro400`, `--neutro800`, `--dropLV3`, `--principal`).
+- **Archivo implementado:** [`sesna-v2/template-parts/visor-pdf.php`](../../../sesna-v2/template-parts/visor-pdf.php).
+
+### Especificaciones de Diseño (Desktop y Móvil)
+- **Overlay / Backdrop:** `rgba(22, 26, 29, 0.56)` (color institucional `neutro-800` al 56%).
+- **Superficie de Diálogo:**
+  - **Fondo:** `var(--neutro100)` (`#FFFFFF`).
+  - **Borde:** `1px solid var(--neutro400)` (`#DDDDDD`).
+  - **Radio de esquina (`border-radius`):** `16px`.
+  - **Sombra:** `var(--dropLV3)` (`0 6px 12px rgba(0, 0, 0, 0.20)`).
+  - **Ancho máximo:** `960px`.
+- **Cabecera (`.tx-pdf-modal__header`):**
+  - Fondo blanco, divisor inferior `1px solid var(--neutro400)`, separación interna `16px 24px`.
+  - Título con tipografía Patria: `.sh1b.patria.color--principal` (`line-height: 1.4`).
+  - Botón de cierre: `.boton__fantasma.tx-pdf-modal__close-btn` circular (`44x44px`, radio `50%`) con ícono `snd-close icono--24`.
+- **Cuerpo (`.tx-pdf-modal__body`):**
+  - Fondo oscuro de alto contraste `var(--neutro800)` (`#161A1D`).
+  - Altura desktop: `65vh` (mínimo `480px`, máximo `75vh`).
+  - Altura móvil: `55vh` (mínimo `340px`).
+  - Loader accesible central con animación `icono__spin` e ícono `snd-snd-loading2 icono--32`.
+- **Pie de Acciones (`.tx-pdf-modal__footer`):**
+  - Divisor superior `1px solid var(--neutro400)`, separación interna `16px 24px`.
+  - Acciones centradas con separación `16px`:
+    - Botón secundario: `.boton__secundario` con ícono `snd-launch icono--16` para "Copiar enlace".
+      - **Comportamiento interactivo post-evento (`.is-copied`) (Tema Guinda Oficial)**:
+        | Estado | Fondo | Borde | Texto / Ícono | Token SND (`snd-guinda.css`) |
+        |---|---|---|---|---|
+        | **Post-evento Default** | `var(--principal, #611232)` | `var(--principal, #611232)` | `var(--neutro100, #FFFFFF)` (filtro blanco) | Pestaña DISEÑO (`guinda-900`) |
+        | **Post-evento Hover** | `var(--pguinda600, #9B2247)` | `var(--pguinda600, #9B2247)` | `var(--neutro100, #FFFFFF)` (filtro blanco) | Pestaña DISEÑO (`guinda-600`) |
+        | **Post-evento Focus** | `var(--principal, #611232)` | `outline: 3px solid var(--pguinda300, #CE92A6)` | `var(--neutro100, #FFFFFF)` | Pestaña DISEÑO (`guinda-300`) |
+        | **Post-evento Active** | `var(--pguinda100, #F3E4E9)` | `var(--pguinda100, #F3E4E9)` | `var(--neutro800, #161A1D)` | Pestaña DISEÑO (`guinda-100`) |
+    - Botón primario: `.boton__primario` con ícono `snd-download icono--16` para "Descargar PDF".
+  - En móviles (`< 640px`): botones apilados a ancho completo (`width: 100%`).
+
+### HTML Reutilizable
+```html
+<!-- Modal Visor de Documento PDF (SND v1.1.0) -->
+<div class="modal tx-pdf-modal" id="pdfViewerModal" tabindex="-1" role="dialog" aria-labelledby="pdfViewerModalLabel" aria-hidden="true">
+    <div class="tx-pdf-modal__dialog">
+        <div class="tx-pdf-modal__content">
+            <!-- Header -->
+            <div class="tx-pdf-modal__header">
+                <h2 class="sh1b patria color--principal tx-pdf-modal__title" id="pdfViewerModalLabel">Visor de Documento</h2>
+                <button type="button" class="boton__fantasma tx-pdf-modal__close-btn" data-modal-dismiss aria-label="Cerrar modal">
+                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+            <!-- Body con iframe y spinner SND -->
+            <div class="tx-pdf-modal__body">
+                <div id="pdfLoader" class="tx-pdf-modal__loader">
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--blanco mb--8" aria-hidden="true"></i>
+                    <div class="b2r color--blanco">Cargando documento...</div>
+                </div>
+                <iframe id="pdfIframe" src="" class="tx-pdf-modal__iframe" allowfullscreen title="Documento PDF"></iframe>
+            </div>
+
+            <!-- Footer con acciones oficiales SND (Botón con iconos: radio canónico 8px) -->
+            <div class="tx-pdf-modal__footer">
+                <button type="button" id="pdfCopyLinkBtn" class="boton__secundario">
+                    <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                    <span id="pdfCopyLinkBtnText">Copiar enlace</span>
+                </button>
+                <a href="#" id="pdfDownloadBtn" class="boton__primario" download>
+                    <i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
+                    Descargar PDF
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 6. Componente: Migas de Pan / Ruta de navegación (`.ruta__*`, `snd-guinda.css` L4781–4841)
+
+### Anatomía y Especificación Normativa (SND v1.1.0 — Canónica del Proyecto)
+- **Contenedor exterior (`<nav class="ruta__cont">`):** Etiqueta `<nav class="ruta__cont" aria-label="Ruta de navegación">` que adopta directamente la clase oficial de `snd-guinda.css` L4781.
+- **Contenedor institucional:** Envuelve la lista dentro de `<div class="contenedor">` para respetar el ancho máximo y márgenes responsivos normativos (`16px/24px/56px`).
+- **Lista de ruta (`.ruta__lista`):** `display: flex; list-style-type: none; padding: 0; margin: auto; width: 100%;`
+- **Ítem de lista (`.ruta__li`):**
+  - Tipografía `color: var(--neutro600); padding: 4px 0;`.
+  - **Separador automático (`.ruta__li:after`):** Pseudo-elemento visual con el chevron oficial del CDN (`background-image: url(./iconos/chevron--right.svg); margin: 0 8px 0 16px; opacity: 0.55;`). El último ítem tiene `:last-of-type::after { content: none; }`.
+- **Ícono de Inicio (`.icono--20`):**
+  - `<i class="snd__icono snd-home icono--20" aria-hidden="true"></i>` dimensionado de forma nativa por `.icono--20` (`width: 20px; height: 20px;`) y separado con `margin-right: 6px`.
+- **Enlaces e Ítem Actual (`.ruta__a`):**
+  - Enlaces previos: `<a href="..." class="ruta__a">` con `font-weight: 600; color: var(--neutro800);`.
+  - Página actual: `<span class="ruta__a" aria-current="page">` con `font-weight: 600; color: var(--neutro800);`.
+
+### HTML Reutilizable Canónico (Validado en vivo)
+```html
+<!-- Breadcrumb -->
+<nav class="ruta__cont" aria-label="Ruta de navegación">
+    <div class="contenedor">
+        <ul class="ruta__lista">
+            <li class="ruta__li">
+                <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+            </li>
+            <li class="ruta__li">
+                <a href="<?= esc_url( home_url('/seccion-padre/') ) ?>" class="ruta__a">Sección Padre</a>
+            </li>
+            <li class="ruta__li">
+                <span class="ruta__a" aria-current="page">Página Actual</span>
+            </li>
+        </ul>
+    </div>
+</nav>
+```
+
+---
+
+## 7. Componente: Título Principal H1 y Hero de Página (`.sesna-page-hero`, SND `3.4 Tipografía`)
+
+### Anatomía y Especificación Normativa (Canónica del Proyecto — Basada en Política Nacional)
+- **Contenedor exterior (`<section class="sesna-page-hero">`):**
+  - Espaciado vertical: `padding-top: 40px` (desktop) / `28px` (móvil).
+  - Espaciado hacia el siguiente componente: **`padding-bottom: 20px; margin-bottom: 0;`** (garantiza una separación exacta y uniforme de **20px** hacia las Tabs, tarjetas o secciones de contenido).
+- **Retícula obligatoria (`3.5 Retícula`):** Encapsulado dentro de `<div class="contenedor"><div class="reticulaGrid__12 align-items-center"><div class="columna__12 posicion--relativa z--1">`.
+- **Tipografía H1 (`<h1 class="h1b patria color--pguinda600">`):**
+  - **Fuente:** Patria Regular / Bold (`.patria`).
+  - **Escala de título:** `.h1b` (`font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2;`).
+  - **Color institucional:** **`.color--pguinda600`** (`var(--pguinda600, #9B2247)`). Queda estrictamente prohibido usar color negro (`#000`), gris o tamaños ad-hoc mediante clases legacy como `.tx-section-title` o `.tx-comite-title`.
+
+### HTML Reutilizable Canónico (Validado en vivo con Política Nacional)
+```html
+<!-- Hero -->
+<section class="sesna-page-hero">
+    <div class="contenedor">
+        <div class="reticulaGrid__12 align-items-center">
+            <div class="columna__12 posicion--relativa z--1">
+                <h1 class="h1b patria color--pguinda600"><?= esc_html( get_the_title() ) ?></h1>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+
+

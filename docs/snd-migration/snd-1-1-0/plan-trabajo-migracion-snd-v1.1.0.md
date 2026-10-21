@@ -91,7 +91,7 @@ graph TD
 *Objetivo:* Eliminar todas las clases `.container`, `.row` y `.col-*` de las 28 plantillas del tema, reemplazándolas por `.contenedor`, `.reticulaGrid__12`, `.fila` y `.columna__*` conforme al estándar.
 
 #### Lote 1.1: Módulo de Transparencia (Prioridad Alta)
-Archivos a intervenir:
+- [x] [page-transparencia.php](../../../sesna-v2/page-transparencia.php) *(Migrado: .contenedor, .reticulaGrid__12, cp-breadcrumb, tx-banner responsivo, tarjetas con .enlace--expandido y overlay manual accesible, .h2b.patria, iconos oficiales icono--*, verificado HTTP 200)*
 - [x] [template-transparencia-unidad.php](../../../sesna-v2/template-transparencia-unidad.php) *(Migrado: .contenedor, .reticulaGrid__12, .columna__*, .h1b.patria, .icono--24, verificado HTTP 200)*
 - [x] [template-transparencia-solicitudes.php](../../../sesna-v2/template-transparencia-solicitudes.php) *(Migrado: .contenedor, .boton__primario, blindaje the_field, verificado HTTP 200)*
 - [x] [template-transparencia-normatividad.php](../../../sesna-v2/template-transparencia-normatividad.php) *(Migrado: .contenedor, .reticulaGrid__12, tipografía h1b/h4b/h5b/h6b.patria, iconos oficiales icono--*, verificado HTTP 200)*

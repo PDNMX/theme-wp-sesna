@@ -1,4 +1,3 @@
-version: "3.3"
 
 services:
   db:
@@ -11,10 +10,10 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     volumes:
       - db_data:/var/lib/mysql
-      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   wordpress:
-    image: wordpress:6-apache
+    image: wordpress:6-php8.3-apache
     restart: unless-stopped
     depends_on:
       - db
