@@ -32,7 +32,7 @@ get_header(); ?>
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Riesgos e <br>Inteligencia Anticorrupción</h1>
-                    <p class="sh1r">
+                    <p class="sh1r texto--justify">
                         Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
                     </p>
                 </div>
