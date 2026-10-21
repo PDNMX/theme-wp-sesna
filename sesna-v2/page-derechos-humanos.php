@@ -11,17 +11,19 @@ get_header();
 <div class="page-derechos-humanos front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Derechos Humanos y Perspectiva de Género</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Derechos Humanos y Perspectiva de Género</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -29,10 +31,9 @@ get_header();
     <section class="sesna-page-hero">
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
-                <div class="columna__12 columna__8--md columna__6--lg position-relative z-1 mb-4 mb-lg-0">
-                    <h1 class="h1b patria color--pguinda900">Derechos Humanos<br>y Perspectiva de Género</h1>
-                    <div class="hero-separator"></div>
-                    <p class="sh1r">
+                <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1 mb--24 mb--0--lg">
+                    <h1 class="h1b patria color--pguinda600">Derechos Humanos<br>y Perspectiva de Género</h1>
+                    <p class="sh1r texto--justify">
                         Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
@@ -55,29 +56,24 @@ get_header();
     ?>
     <section class="dh-pronunciamientos pt-3 pb-5">
         <div class="contenedor">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo h2b patria mb-0">Pronunciamientos</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Conoce nuestros pronunciamientos institucionales.</p>
+            <h2 class="h2b patria color--pguinda600 mb--8">Pronunciamientos</h2>
+            <p class="sh1r color--neutro600 mb--0">Conoce nuestros pronunciamientos institucionales.</p>
 
-            <div class="reticulaGrid__12 mt-2">
+            <div class="reticulaGrid__12 mt--16">
                 <div class="columna__12 columna__6--md">
                     <a href="javascript:void(0)"
                        data-modal-target="#pdfViewerModal"
                        data-pdf-url="<?php echo esc_url( $dh_pdf_nondiscriminacion ); ?>"
                        data-pdf-title="Pronunciamiento de No Discriminación 2026"
-                       class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
+                       class="sna-noticias-card alto--100 posicion--relativa decoracion--ninguna color--neutro800 muestra--flex align-items-center ancho--100 gap--16">
                         <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
                             <div class="cp-doc-thumb__logo">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 38px; max-height: 22px; object-fit: contain; filter: brightness(0) invert(1);">
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
-                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de No Discriminación</h5>
-                        <i class="snd__icono snd-chevron--right text-muted flex-shrink-0 icono--16" aria-hidden="true" style="font-size: 14px;"></i>
+                        <h3 class="sh1b color--neutro800 mb--0 flex-grow-1">Pronunciamiento de No Discriminación</h3>
+                        <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="columna__12 columna__6--md">
@@ -85,15 +81,15 @@ get_header();
                        data-modal-target="#pdfViewerModal"
                        data-pdf-url="<?php echo esc_url( $dh_pdf_acoso ); ?>"
                        data-pdf-title="Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual 2026"
-                       class="sna-noticias-card rounded-4 h-100 d-flex align-items-center text-decoration-none text-dark px-4 py-4 w-100 gap-3">
+                       class="sna-noticias-card alto--100 posicion--relativa decoracion--ninguna color--neutro800 muestra--flex align-items-center ancho--100 gap--16">
                         <div class="cp-doc-thumb cp-doc-thumb--burgundi flex-shrink-0">
                             <div class="cp-doc-thumb__logo">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/icon_logo_sesna.png' ); ?>" alt="SESNA" style="max-width: 38px; max-height: 22px; object-fit: contain; filter: brightness(0) invert(1);">
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
-                        <h5 class="fw-bold mb-0 flex-grow-1" style="font-size: 18px; line-height: 1.4;">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h5>
-                        <i class="snd__icono snd-chevron--right text-muted flex-shrink-0 icono--16" aria-hidden="true" style="font-size: 14px;"></i>
+                        <h3 class="sh1b color--neutro800 mb--0 flex-grow-1">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h3>
+                        <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -103,15 +99,10 @@ get_header();
     <!-- ── Campañas de Sensibilización ───────────────────────── -->
     <section class="dh-campanias py-5">
         <div class="contenedor">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo h2b patria mb-0">Campañas de Sensibilización</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Conoce nuestras campañas permanentes para construir espacios libres de violencia y discriminación.</p>
+            <h2 class="h2b patria color--pguinda600 mb--8">Campañas de Sensibilización</h2>
+            <p class="sh1r color--neutro600 mb--0">Conoce nuestras campañas permanentes para construir espacios libres de violencia y discriminación.</p>
 
-            <div class="reticulaGrid__12 mt-2">
+            <div class="reticulaGrid__12 mt--16">
                 <?php
                 $dh_campanias_query = new WP_Query(array(
                     'post_type'      => 'dh_campania',
@@ -225,7 +216,7 @@ get_header();
                 else :
                 ?>
                 <div class="columna__12">
-                    <p class="text-muted">No hay campañas publicadas aún.</p>
+                    <p class="b1r color--neutro600">No hay campañas publicadas aún.</p>
                 </div>
                 <?php endif; ?>
 
@@ -236,13 +227,8 @@ get_header();
     <!-- ── Acciones X la Integridad ──────────────────────────── -->
     <section class="dh-acciones py-5">
         <div class="contenedor">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo h2b patria mb-0">Acciones x la Integridad</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Acciones X la integridad es nuestra publicación permanente sobre integridad, Derechos Humanos y perspectiva de género.</p>
+            <h2 class="h2b patria color--pguinda600 mb--8">Acciones x la Integridad</h2>
+            <p class="sh1r color--neutro600 mb--0">Acciones X la integridad es nuestra publicación permanente sobre integridad, Derechos Humanos y perspectiva de género.</p>
 
             <?php
             $dh_catalogo_titulo  = '';
@@ -298,21 +284,21 @@ get_header();
             <?php endif; ?>
                 <div class="reticulaGrid__12 gap--0 align-items-center">
                     <div class="columna__12 columna__4--md">
-                        <div class="dh-acciones-card__img bg-light d-flex align-items-center justify-content-center p-2 p-md-3">
+                        <div class="dh-acciones-card__img fondo--neutro200 muestra--flex align-items-center justify-content-center p--16">
                             <img src="<?php echo esc_url( get_theme_file_uri('/img/genero/acciones_x_integridad.png') ); ?>"
                                  alt="Acciones X la Integridad"
-                                 class="img-fluid dh-acciones-img--portrait"
-                                 onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center h-100 bg-light\' style=\'min-height:180px;\'><i class=\'snd__icono snd-image icono--32 text-muted\'></i></div>';">
+                                 class="ancho--100 dh-acciones-img--portrait"
+                                 onerror="this.parentElement.innerHTML='<div class=\'muestra--flex align-items-center justify-content-center alto--100 fondo--neutro200\' style=\'min-height:180px;\'><i class=\'snd__icono snd-image icono--32 color--neutro600\'></i></div>';">
                         </div>
                     </div>
                     <div class="columna__12 columna__8--md">
                         <div class="dh-acciones-card__body">
-                            <h3 class="fw-bold mb-3">Acciones X la Integridad</h3>
-                            <p class="text-muted mb-3">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
+                            <h3 class="sh1b color--neutro800 mb--16">Acciones X la Integridad</h3>
+                            <p class="b1r color--neutro600 mb--16">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                <span class="boton__fantasma">Leer más <i class="snd__icono snd-arrow--right ms-1 icono--16" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma">Leer más <i class="snd__icono snd-arrow--right ml--4 icono--16" aria-hidden="true"></i></span>
                             <?php else : ?>
-                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd__icono snd-arrow--right ms-1 icono--16" aria-hidden="true"></i></span>
+                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd__icono snd-arrow--right ml--4 icono--16" aria-hidden="true"></i></span>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -324,16 +310,11 @@ get_header();
     <!-- ── Comité de Igualdad de Género ──────────────────────── -->
     <section class="dh-comite py-5 pb-5 mb-4">
         <div class="contenedor">
-            <div class="cp-recursos__header mb-2">
-                <div>
-                    <h2 class="cp-recursos__titulo h2b patria mb-0">Comité de Igualdad de Género</h2>
-                    <div class="cp-recursos__linea"></div>
-                </div>
-            </div>
-            <p class="dh-section__subtitle">Consulta las sesiones y actas del Comité de Igualdad de Género (CIG-SESNA).</p>
+            <h2 class="h2b patria color--pguinda600 mb--8">Comité de Igualdad de Género</h2>
+            <p class="sh1r color--neutro600 mb--0">Consulta las sesiones y actas del Comité de Igualdad de Género (CIG-SESNA).</p>
 
-            <div class="dh-comite-panel mt-4">
-                <h4 class="fw-bold mb-4 font-noto-sans text-dark">Sesiones del Comité</h4>
+            <div class="dh-comite-panel mt--32">
+                <h3 class="sh0b color--neutro800 mb--24">Sesiones del Comité</h3>
                 <!-- Filtros Sesiones -->
                 <?php
                 $sesiones = [];
@@ -367,51 +348,57 @@ get_header();
                 }
                 rsort($anios_unicos);
                 ?>
-                <div class="reticulaGrid__12 mb-5 align-items-end">
-                    <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
-                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todos">Todos</option>
-                            <?php foreach ($anios_unicos as $a): ?>
-                            <option value="<?php echo esc_attr($a); ?>"><?php echo esc_html($a); ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                <div class="reticulaGrid__12 mb--32 align-items-end">
+                    <div class="columna__12 columna__6--sm columna__3--md mb--16 mb--0--md">
+                        <label for="filter-anio" class="b1sb dblock color--neutro800 mb--8">Año</label>
+                        <div class="tx-select-wrap">
+                            <select id="filter-anio" class="tx-comite-select tx-comite-filter-control">
+                                <option value="Todos">Todos</option>
+                                <?php foreach ($anios_unicos as $a): ?>
+                                <option value="<?php echo esc_attr($a); ?>"><?php echo esc_html($a); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        </div>
                     </div>
                     <div class="columna__12 columna__6--sm columna__4--md">
-                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
-                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todas">Todas</option>
-                            <option value="Ordinaria">Ordinaria</option>
-                            <option value="Extraordinaria">Extraordinaria</option>
-                        </select>
+                        <label for="filter-tipo" class="b1sb dblock color--neutro800 mb--8">Tipo de sesión</label>
+                        <div class="tx-select-wrap">
+                            <select id="filter-tipo" class="tx-comite-select tx-comite-filter-control">
+                                <option value="Todas">Todas</option>
+                                <option value="Ordinaria">Ordinaria</option>
+                                <option value="Extraordinaria">Extraordinaria</option>
+                            </select>
+                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex flex-column gap-3">
+                <div class="muestra--flex flex-column gap--16">
                     <?php foreach ( $sesiones as $sesion ) : ?>
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
-                        <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-stretch">
-                            
+                    <div class="tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
+                        <div class="tx-sesion-card__inner">
+
                             <!-- Date Column -->
-                            <div class="tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center">
-                                <div class="fw-bold fs-3 tx-sesion-date-year" style="color:#666;"><?php echo esc_html($sesion['anio']); ?></div>
+                            <div class="tx-sesion-date texto--centro muestra--flex flex-column justify-content-center">
+                                <div class="sh0b color--neutro600 tx-sesion-date-year"><?php echo esc_html($sesion['anio']); ?></div>
                             </div>
 
                             <!-- Info Column -->
-                            <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                                <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?php echo esc_html($sesion['titulo']); ?></h3>
-                                <p class="mb-0 font-noto-sans tx-sesion-info-type">
-                                    <strong>Tipo:</strong> <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; <strong>Modalidad:</strong> <?php echo esc_html($sesion['modal']); ?>
+                            <div class="tx-sesion-info flex-grow-1 muestra--flex flex-column justify-content-center">
+                                <h3 class="sh1b color--neutro800 mb--8 tx-sesion-info-title"><?php echo esc_html($sesion['titulo']); ?></h3>
+                                <p class="b1r color--neutro700 mb--0 tx-sesion-info-type">
+                                    <span class="b1sb color--neutro800">Tipo:</span> <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; <span class="b1sb color--neutro800">Modalidad:</span> <?php echo esc_html($sesion['modal']); ?>
                                 </p>
                             </div>
 
                             <!-- Action Column -->
-                            <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                    <i class="snd__icono snd-document--pdf tx-sesion-pdf-icon icono--24" aria-hidden="true" style="color: var(--color-burgundi);"></i>
-                                    <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text" style="color: var(--color-burgundi);">Acta</div>
+                            <div class="tx-sesion-action muestra--flex align-items-center gap--24">
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="boton__fantasma boton--vertical tx-sesion-pdf-link">
+                                    <i class="snd__icono snd-document--pdf tx-sesion-pdf-icon icono--24" aria-hidden="true"></i>
+                                    Acta
                                 </a>
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                    <i class="snd__icono snd-chevron--right tx-sesion-chevron-icon icono--24" aria-hidden="true" style="color: var(--color-burgundi);"></i>
+                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link decoracion--ninguna ml--8">
+                                    <i class="snd__icono snd-chevron--right tx-sesion-chevron-icon icono--24" aria-hidden="true"></i>
                                 </a>
                             </div>
 

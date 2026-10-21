@@ -465,13 +465,15 @@ nav.menu-container a.menu-btn {
    SND v1 — Estilos globales obligatorios
    ------------------------------------------------------------ */
 
-/* Links: color verde institucional SND (--pverde600 = #004D40) */
-a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a) {
-    color: var(--pverde600, #004D40);
+/* Links: color institucional SND — "Enlace de texto" (3.4 Tipografía): color--principal
+   .ruta__a excluida: el breadcrumb oficial (.ruta__a en snd-guinda.css) ya define su
+   propio color (neutro800) y no debe pintarse como enlace genérico. */
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):not(.ruta__a) {
+    color: var(--principal);
     text-decoration: none;
 }
-a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):hover {
-    color: var(--pverde700, #004339);
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):not(.ruta__a):hover {
+    color: var(--gama500);
     text-decoration: underline;
 }
 
@@ -2022,6 +2024,13 @@ nav.navbar .container {
     color: var(--neutro900, #161A1D) !important;
     font-weight: 600 !important;
     font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+}
+
+/* Breadcrumb oficial SND v1.1.0 (.ruta__*, snd-guinda.css líneas 4781-4841):
+   el CDN no declara separación entre el ícono de Inicio y su texto — se complementa aquí. */
+.ruta__a svg,
+.ruta__a i {
+    margin-right: 6px;
 }
 
 /* ------------------------------------------------------------
@@ -4058,13 +4067,6 @@ nav.navbar .container {
     height: auto;
 }
 
-/* ── Títulos de sección ─── */
-.page-derechos-humanos .dh-section__subtitle {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 0;
-}
-
 /* ── Pronunciamientos ─── */
 
 /* ── Campañas ─── */
@@ -4187,74 +4189,72 @@ nav.navbar .container {
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
-.page-derechos-humanos .dh-comite-filter {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #333;
-    min-width: 180px;
+/* Card de sesión — Componente SND v1.1.0 "Card" (catalogo-componentes-figma-extraidos.md §4):
+   fondo neutro100, borde neutro400, radio 16px, sombraLV1/LV2; columna de año con
+   divisor (abajo en móvil, a la derecha en tableta/escritorio ≥640px). Reutiliza las
+   clases .tx-sesion-* ya existentes (compartidas con otras plantillas) solo para
+   estructura/JS; el estilo visual se resuelve aquí, scoped a esta página. */
+.page-derechos-humanos .tx-sesion-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    transition: box-shadow 0.2s ease;
 }
 
-.page-derechos-humanos .dh-sesion-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 18px 0;
-    border-bottom: 1px solid #eee;
+.page-derechos-humanos .tx-sesion-card:hover {
+    box-shadow: var(--dropLV2);
 }
 
-.page-derechos-humanos .dh-sesion-row:last-of-type {
-    border-bottom: none;
-}
-
-.page-derechos-humanos .dh-sesion-row__date {
+.page-derechos-humanos .tx-sesion-card__inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-width: 55px;
-    line-height: 1.1;
+    padding: 16px;
+    gap: 16px;
 }
 
-.page-derechos-humanos .dh-sesion-row__dia {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--color-burgundi);
+.page-derechos-humanos .tx-sesion-date {
+    min-width: auto;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--neutro400);
 }
 
-.page-derechos-humanos .dh-sesion-row__mes {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--color-burgundi);
-    text-transform: uppercase;
+.page-derechos-humanos .tx-sesion-date::after {
+    content: none;
 }
 
-.page-derechos-humanos .dh-sesion-row__anio {
-    font-size: 11px;
-    color: var(--color-gris);
+.page-derechos-humanos .tx-sesion-action {
+    flex-wrap: wrap;
 }
 
-.page-derechos-humanos .dh-sesion-row__info {
-    flex: 1;
+.page-derechos-humanos .tx-sesion-pdf-icon,
+.page-derechos-humanos .tx-sesion-chevron-icon {
+    font-size: inherit;
+    color: inherit;
 }
 
-.page-derechos-humanos .dh-sesion-row__info h5 {
-    font-size: 15px;
-    margin-bottom: 4px;
+.page-derechos-humanos .tx-sesion-chevron-link {
+    color: var(--principal);
 }
 
-.page-derechos-humanos .dh-sesion-row__actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
+@media (min-width: 640px) {
+    .page-derechos-humanos .tx-sesion-card__inner {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 24px;
+        gap: 24px;
+    }
 
-.page-derechos-humanos .dh-sesion-btn {
-    color: var(--color-burgundi);
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
+    .page-derechos-humanos .tx-sesion-date {
+        padding-bottom: 0;
+        padding-right: 24px;
+        border-bottom: none;
+        border-right: 1px solid var(--neutro400);
+    }
+
+    .page-derechos-humanos .tx-sesion-action {
+        margin-left: auto;
+    }
 }
 
 .page-derechos-humanos .dh-sesion-btn:hover {

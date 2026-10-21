@@ -10,17 +10,19 @@ get_header(); ?>
 <div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
 
     <!-- Breadcrumb -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Riesgos e Inteligencia Anticorrupción</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Riesgos e Inteligencia Anticorrupción</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
