@@ -60,7 +60,7 @@ get_header(); ?>
         <div class="reticulaGrid__12 pt--24">
             <!-- Card 1 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <div class="icon-bg-circle mb--24">
                         <i class="snd__icono snd-portfolio icono--24" aria-hidden="true"></i>
                     </div>
@@ -71,7 +71,7 @@ get_header(); ?>
             </div>
             <!-- Card 2 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <div class="icon-bg-circle mb--24">
                         <i class="snd__icono snd-group icono--24" aria-hidden="true"></i>
                     </div>
@@ -82,7 +82,7 @@ get_header(); ?>
             </div>
             <!-- Card 3 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <div class="icon-bg-circle mb--24">
                         <i class="snd__icono snd-security icono--24" aria-hidden="true"></i>
                     </div>
@@ -93,7 +93,7 @@ get_header(); ?>
             </div>
             <!-- Card 4 -->
             <div class="columna__12 columna__6--md columna__3--lg">
-                <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card radio--4 alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
+                <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <div class="icon-bg-circle mb--24">
                         <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
                     </div>
@@ -167,35 +167,31 @@ get_header(); ?>
 
             <!-- ── Recursos disponibles ──────────────────────────────── -->
             <section class="py--24 pb--48">
-                <div class="contenedor">
 
-                    <!-- Encabezado de sección -->
-                    <div class="mb--24">
-                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
-                    </div>
-
-                    <!-- Lista de documentos -->
-                    <div class="cp-docs-lista">
-
-                        <?php
-                        $recursos_contrataciones = sesna_get_recursos_por_seccion('contrataciones');
-                        foreach ( $recursos_contrataciones as $recurso ) :
-                            sesna_render_recurso_card( $recurso );
-                        endforeach;
-                        ?>
-
-                    </div><!-- /.cp-docs-lista -->
-
+                <!-- Encabezado de sección -->
+                <div class="mb--24">
+                    <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                 </div>
+
+                <!-- Lista de documentos -->
+                <div class="cp-docs-lista">
+
+                    <?php
+                    $recursos_contrataciones = sesna_get_recursos_por_seccion('contrataciones');
+                    foreach ( $recursos_contrataciones as $recurso ) :
+                        sesna_render_recurso_card( $recurso );
+                    endforeach;
+                    ?>
+
+                </div><!-- /.cp-docs-lista -->
+
             </section>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb--48">
-                <div class="contenedor">
-                    <div class="cp-nota__inner fondo--azul100">
-                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
-                        <p class="cp-nota__texto b1r color--azul500 mb--0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
-                    </div>
+                <div class="cp-nota__inner fondo--azul100">
+                    <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                    <p class="cp-nota__texto b1r color--azul500 mb--0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                 </div>
             </div>
         </div>
@@ -203,61 +199,57 @@ get_header(); ?>
         <div id="sec-verificacion" class="dinamic-section" style="display: none;">
             <!-- ── Recursos metodológicos ─────────────────────────────── -->
             <section class="py--24 pb--48">
-                <div class="contenedor">
 
-                    <div class="mb--24">
-                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos metodológicos</h2>
-                    </div>
-
-                    <?php
-                    $recursos_verificacion     = sesna_get_recursos_por_seccion('verificacion');
-                    $subsecciones_verificacion = array();
-                    foreach ( $recursos_verificacion as $recurso ) {
-                        $nombre_subseccion = get_post_meta( $recurso->ID, '_sesna_recurso_subseccion', true );
-                        if ( ! empty( $nombre_subseccion ) && ! in_array( $nombre_subseccion, $subsecciones_verificacion, true ) ) {
-                            $subsecciones_verificacion[] = $nombre_subseccion;
-                        }
-                    }
-                    ?>
-
-                    <!-- Filtro por subsección -->
-                    <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
-                    <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
-                        <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
-                        <button type="button" class="cp-subsec-chip boton--redondeado <?php echo $indice === 0 ? 'boton__primario is-active' : 'boton__secundario'; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-
-                    <div class="cp-docs-lista" id="vp-metodologicos-lista">
-
-                        <!-- Enlace externo (no es un documento): herramienta ALEA -->
-                        <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
-                            <div class="cp-subsec-enlace__icono">
-                                <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
-                            </div>
-                            <div class="cp-subsec-enlace__texto">
-                                <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
-                                <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
-                            </div>
-                            <a href="https://alea.sesna.gob.mx" class="boton__primario boton--vertical" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
-                                <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i> Visitar sitio
-                            </a>
-                        </div>
-
-                        <?php foreach ( $recursos_verificacion as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
-                    </div>
-
+                <div class="mb--24">
+                    <h2 class="h2b patria color--pguinda600 mb--0">Recursos metodológicos</h2>
                 </div>
+
+                <?php
+                $recursos_verificacion     = sesna_get_recursos_por_seccion('verificacion');
+                $subsecciones_verificacion = array();
+                foreach ( $recursos_verificacion as $recurso ) {
+                    $nombre_subseccion = get_post_meta( $recurso->ID, '_sesna_recurso_subseccion', true );
+                    if ( ! empty( $nombre_subseccion ) && ! in_array( $nombre_subseccion, $subsecciones_verificacion, true ) ) {
+                        $subsecciones_verificacion[] = $nombre_subseccion;
+                    }
+                }
+                ?>
+
+                <!-- Filtro por subsección -->
+                <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
+                <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
+                    <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
+                    <button type="button" class="cp-subsec-chip boton--redondeado <?php echo $indice === 0 ? 'boton__primario is-active' : 'boton__secundario'; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+
+                <div class="cp-docs-lista" id="vp-metodologicos-lista">
+
+                    <!-- Enlace externo (no es un documento): herramienta ALEA -->
+                    <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
+                        <div class="cp-subsec-enlace__icono">
+                            <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
+                        </div>
+                        <div class="cp-subsec-enlace__texto">
+                            <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
+                            <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
+                        </div>
+                        <a href="https://alea.sesna.gob.mx" class="boton__primario boton--vertical" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
+                            <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i> Visitar sitio
+                        </a>
+                    </div>
+
+                    <?php foreach ( $recursos_verificacion as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                </div>
+
             </section>
 
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb--48">
-                <div class="contenedor">
-                    <div class="cp-nota__inner fondo--azul100">
-                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
-                        <p class="cp-nota__texto b1r color--azul500 mb--0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
-                    </div>
+                <div class="cp-nota__inner fondo--azul100">
+                    <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                    <p class="cp-nota__texto b1r color--azul500 mb--0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                 </div>
             </div>
         </div>
@@ -268,17 +260,15 @@ get_header(); ?>
         <div id="sec-conflicto" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_conflicto ) ) : ?>
             <section class="py--24 pb--48">
-                <div class="contenedor">
 
-                    <div class="mb--24">
-                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
-                    </div>
-
-                    <div class="cp-docs-lista">
-                        <?php foreach ( $recursos_conflicto as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
-                    </div>
-
+                <div class="mb--24">
+                    <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                 </div>
+
+                <div class="cp-docs-lista">
+                    <?php foreach ( $recursos_conflicto as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                </div>
+
             </section>
             <?php else : ?>
             <div class="texto--centro py--48">
@@ -295,17 +285,15 @@ get_header(); ?>
         <div id="sec-deporte" class="dinamic-section" style="display: none;">
             <?php if ( ! empty( $recursos_deporte ) ) : ?>
             <section class="py--24 pb--48">
-                <div class="contenedor">
 
-                    <div class="mb--24">
-                                <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
-                    </div>
-
-                    <div class="cp-docs-lista">
-                        <?php foreach ( $recursos_deporte as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
-                    </div>
-
+                <div class="mb--24">
+                    <h2 class="h2b patria color--pguinda600 mb--0">Recursos disponibles</h2>
                 </div>
+
+                <div class="cp-docs-lista">
+                    <?php foreach ( $recursos_deporte as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                </div>
+
             </section>
             <?php else : ?>
             <div class="texto--centro py--48">

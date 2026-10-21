@@ -28,7 +28,7 @@
                 while ($noticias_query->have_posts()) : $noticias_query->the_post();
                     ?>
                     <div class="columna__12 columna__6--md columna__4--lg">
-                        <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
+                        <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
                             
                             <!-- Date Ribbon -->
                             <div class="sna-noticias-date-badge">

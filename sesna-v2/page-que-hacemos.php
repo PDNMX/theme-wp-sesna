@@ -56,7 +56,7 @@ get_header();
             <div class="reticulaGrid__12 justify-content-center">
                 <!-- Misión -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <div class="qh-mv-card radio--4">
+                    <div class="qh-mv-card">
                         <div class="qh-mv-icon">
                             <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
                         </div>
@@ -68,7 +68,7 @@ get_header();
                 </div>
                 <!-- Visión -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <div class="qh-mv-card radio--4">
+                    <div class="qh-mv-card">
                         <div class="qh-mv-icon">
                             <i class="snd__icono snd-screen icono--24" aria-hidden="true"></i>
                         </div>
@@ -95,28 +95,28 @@ get_header();
             </div>
             <div class="reticulaGrid__12">
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card radio--4">
+                    <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-disenamos.svg" alt="Diseñamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Diseñamos</h3>
                         <p class="b1r color--neutro600 mb--0 texto--justify">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card radio--4">
+                    <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-desarrollamos.svg" alt="Desarrollamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Desarrollamos</h3>
                         <p class="b1r color--neutro600 mb--0 texto--justify">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card radio--4">
+                    <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-analizamos.svg" alt="Analizamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Analizamos</h3>
                         <p class="b1r color--neutro600 mb--0 texto--justify">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card radio--4">
+                    <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-impulsamos.svg" alt="Impulsamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Impulsamos</h3>
                         <p class="b1r color--neutro600 mb--0 texto--justify">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
@@ -140,7 +140,7 @@ get_header();
             <div class="reticulaGrid__12">
                 <!-- X (Twitter) -->
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-social-card radio--4 posicion--relativa">
+                    <div class="qh-social-card posicion--relativa">
                         <div class="qh-social-header qh-sh-x">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/icons-base/twitter-x.svg" alt="" aria-hidden="true">
                         </div>
@@ -161,7 +161,7 @@ get_header();
                 </div>
                 <!-- YouTube -->
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-social-card radio--4 posicion--relativa">
+                    <div class="qh-social-card posicion--relativa">
                         <div class="qh-social-header qh-sh-yt">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/icons-base/youtube.svg" alt="" aria-hidden="true">
                         </div>
@@ -182,7 +182,7 @@ get_header();
                 </div>
                 <!-- Instagram -->
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-social-card radio--4 posicion--relativa">
+                    <div class="qh-social-card posicion--relativa">
                         <div class="qh-social-header qh-sh-ig">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/icons-base/instagram.svg" alt="" aria-hidden="true">
                         </div>
@@ -203,7 +203,7 @@ get_header();
                 </div>
                 <!-- LinkedIn -->
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-social-card radio--4 posicion--relativa">
+                    <div class="qh-social-card posicion--relativa">
                         <!-- Pendiente: no tenemos ícono propio de LinkedIn en img/icons-base (sí existen facebook/twitter-x/instagram/youtube). snd-earth es un marcador genérico temporal. -->
                         <div class="qh-social-header qh-sh-in">
                             <i class="snd__icono snd-earth icono--24" aria-hidden="true"></i>

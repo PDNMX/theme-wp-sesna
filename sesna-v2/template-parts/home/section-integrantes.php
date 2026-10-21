@@ -9,7 +9,7 @@
 
             <!-- Card 1 -->
             <div class="columna__12 columna__6--md columna__4--lg">
-                <a href="https://www.sna.org.mx/category/comite-coordinador/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno radio--4 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column fondo--blanco">
+                <a href="https://www.sna.org.mx/category/comite-coordinador/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
                     <div class="muestra--flex align-items-center gap--16 mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
                             alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-none">
@@ -29,7 +29,7 @@
 
             <!-- Card 2 -->
             <div class="columna__12 columna__6--md columna__4--lg">
-                <a href="https://comiteparticipacion.com.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno radio--4 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column fondo--blanco">
+                <a href="https://comiteparticipacion.com.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
                     <div class="muestra--flex align-items-center gap--16 mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
                             alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-none">
@@ -49,7 +49,7 @@
 
             <!-- Card 3 -->
             <div class="columna__12 columna__6--md columna__4--lg mx--auto">
-                <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno radio--4 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column fondo--blanco">
+                <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
                     <div class="muestra--flex align-items-center gap--16 mb--24">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"
                             alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-none">

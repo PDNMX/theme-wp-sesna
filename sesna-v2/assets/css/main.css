@@ -1768,18 +1768,19 @@ nav.navbar .container {
 }
 
 .sna-integrantes-card {
-    border-radius: 8px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 24px;
     text-align: left;
-    /* Sombra más visible en la parte derecha y abajo */
-    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--dropLV1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sna-integrantes-card:hover,
 .sna-integrantes-card:focus {
     transform: translateY(-5px);
-    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--dropLV2);
     outline: none;
     text-decoration: none;
 }
@@ -2055,17 +2056,19 @@ nav.navbar .container {
 .sna-programas-wrapper:hover .sna-programas-card,
 .sna-programas-card:focus {
     transform: translateY(-6px);
-    box-shadow: 12px 12px 28px rgba(0, 0, 0, 0.18);
+    box-shadow: var(--dropLV2);
     outline: none;
     text-decoration: none;
 }
 
 .sna-programas-wrapper {
-    filter: drop-shadow(8px 8px 18px rgba(0, 0, 0, 0.12));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .sna-programas-card {
-    border-radius: 8px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     overflow: hidden;
     padding: 0;
     margin-top: 0;
@@ -2079,7 +2082,7 @@ nav.navbar .container {
 
 .sna-programas-img-inner {
     height: 200px;
-    border-radius: 8px 8px 0 0;
+    border-radius: 16px 16px 0 0;
     overflow: hidden;
     border-bottom: 1px solid var(--color-guinda);
     background-color: #fff;
@@ -2122,18 +2125,19 @@ nav.navbar .container {
 }
 
 .sna-noticias-card {
-    background-color: #fdfdfd;
-    border-radius: 8px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 24px;
     text-align: left;
-    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--dropLV1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sna-noticias-card:hover,
 .sna-noticias-card:focus {
     transform: translateY(-5px);
-    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--dropLV2);
     outline: none;
     text-decoration: none;
 }
@@ -2781,18 +2785,19 @@ nav.navbar .container {
 }
 
 .cp-doc-item {
-    background-color: #fff;
-    border: 1px solid #e4dce4;
-    border-radius: 8px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 24px 28px;
     display: flex;
     align-items: center;
     gap: 28px;
+    box-shadow: var(--dropLV1);
     transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .cp-doc-item:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    box-shadow: var(--dropLV2);
     transform: translateY(-2px);
 }
 
@@ -3881,11 +3886,11 @@ nav.navbar .container {
 }
 
 .qh-mv-card {
-    background: var(--color-blanco);
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 2.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    box-shadow: var(--dropLV1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
@@ -3895,7 +3900,7 @@ nav.navbar .container {
 
 .qh-mv-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: var(--dropLV2);
 }
 
 .qh-mv-icon {
@@ -3916,18 +3921,19 @@ nav.navbar .container {
 }
 
 .qh-labor-card {
-    background: var(--color-blanco);
-    border-radius: 12px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 2rem 1.5rem;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    box-shadow: var(--dropLV1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
 }
 
 .qh-labor-card:hover {
     transform: translateY(-5px);
-    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--dropLV2);
 }
 .qh-labor-card h3 {
     margin-bottom: 12px;
@@ -3939,18 +3945,20 @@ nav.navbar .container {
 }
 
 .qh-social-card {
-    background: var(--color-blanco);
-    border-radius: 12px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    box-shadow: var(--dropLV1);
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .qh-social-card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--dropLV2);
 }
 
 .qh-social-header {
@@ -4071,10 +4079,11 @@ nav.navbar .container {
 
 /* ── Campañas ─── */
 .page-derechos-humanos .dh-campania-card {
-    background: #ffffff;
-    border-radius: 12px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--dropLV1);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -4084,7 +4093,7 @@ nav.navbar .container {
 
 .page-derechos-humanos .dh-campania-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.10);
+    box-shadow: var(--dropLV2);
 }
 
 .page-derechos-humanos .dh-campania-card__img {
@@ -4123,10 +4132,11 @@ nav.navbar .container {
 
 /* ── Acciones X la Integridad ─── */
 .page-derechos-humanos .dh-acciones-card {
-    background: #ffffff;
-    border-radius: 12px;
+    background: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--dropLV1);
 }
 
 .page-derechos-humanos .dh-acciones-card__img {

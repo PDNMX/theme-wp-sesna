@@ -45,7 +45,7 @@
                 <div class="columna__12 columna__6--md columna__3--lg">
                     <div class="alto--100 borde--ninguno fondo--ninguno sna-programas-wrapper">
                         <?php $is_external = isset($prog['link']) && strpos($prog['link'], home_url()) === false; ?>
-                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="muestra--flex flex-direction-column alto--100 sna-programas-card decoracion--ninguna color--neutro800 fondo--blanco">
+                        <a href="<?php echo isset($prog['link']) ? esc_url($prog['link']) : '#'; ?>" <?php if( $is_external ): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?> class="muestra--flex flex-direction-column alto--100 sna-programas-card decoracion--ninguna color--neutro800">
 
                             <!-- Contenedor del grupo superior (Imagen + Icono) que sobresale -->
                             <div class="sna-programas-img-outer">

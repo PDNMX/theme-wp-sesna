@@ -21,7 +21,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
 }
 ?>
 <div class="columna__12 columna__6--md columna__4--lg">
-    <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 borde--ninguno sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
+    <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
 
         <?php if ($sna_entrada_cat) : ?>
             <span class="sna-entradas-card-category"><?php echo esc_html($sna_entrada_cat); ?></span>
