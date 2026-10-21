@@ -235,7 +235,7 @@ get_header(); ?>
                             <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
                             <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                         </div>
-                        <a href="https://alea.sesna.gob.mx" class="boton__primario boton--vertical" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
+                        <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
                             <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i> Visitar sitio
                         </a>
                     </div>

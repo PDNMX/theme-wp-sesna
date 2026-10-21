@@ -8,20 +8,22 @@
 get_header();
 ?>
 
-<div class="page-pna">
+<div class="page-pna front-page-bg">
 
-    <!-- Breadcrumb -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Política Nacional Anticorrupción</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Política Nacional Anticorrupción</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -29,9 +31,8 @@ get_header();
     <section class="sesna-page-hero">
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
-                <div class="columna__12 position-relative z-1">
-                    <h1 class="h1b patria color--pguinda900">Política Nacional Anticorrupción</h1>
-                    <div class="hero-separator"></div>
+                <div class="columna__12 posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda600">Política Nacional Anticorrupción</h1>
                 </div>
             </div>
         </div>
@@ -62,7 +63,7 @@ get_header();
                             </div>
                         </div>
 
-                        <hr class="my-3">
+                        <hr class="mt--16 mb--16">
 
                         <p class="pna-doc-desc">
                             Documento estratégico de largo aliento que plasma la agenda del Estado mexicano en la materia.
@@ -71,7 +72,7 @@ get_header();
                             corrupción, así como la fiscalización y el control de recursos públicos.
                         </p>
 
-                        <div class="d-flex flex-wrap gap-3">
+                        <div class="muestra--flex flex-wrap-wrap gap--16">
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="boton__primario" target="_blank" rel="noopener">
                                 <i class="snd__icono snd-document icono--16" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
@@ -125,8 +126,8 @@ get_header();
     <!-- Estructura de la Política -->
     <section class="pb-5">
         <div class="contenedor">
-            <h2 class="pna-section-title h2b patria">Estructura de la Política</h2>
-            <p class="text-muted mb-4" style="max-width: 640px;">
+            <h2 class="h2b patria color--pguinda600 mb--16">Estructura de la Política</h2>
+            <p class="sh1r color--neutro600 mb--24">
                 La PNA se organiza en cuatro ejes estratégicos, diez objetivos específicos y cuarenta prioridades de política pública.
             </p>
 
@@ -170,12 +171,12 @@ get_header();
     <section class="pb-5">
         <div class="contenedor">
             <div class="pna-ciclo-section">
-            <h2 class="pna-section-title pna-section-title--center h2b patria mx-auto">Ciclo de la Política Pública</h2>
-            <p class="pna-ciclo-subtitle">La política se diseña, implementa, se evalúa, se financia y mejora continuamente.</p>
+            <h2 class="h2b patria color--pguinda600 texto--centro mb--16">Ciclo de la Política Pública</h2>
+            <p class="sh1r color--neutro600 texto--centro">La política se diseña, implementa, se evalúa, se financia y mejora continuamente.</p>
 
             <div class="pna-ciclo-diagram mt-4">
 
-                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/diseno-pna/') ); ?>" class="pna-ciclo-step pna-ciclo-step--1 text-decoration-none">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/diseno-pna/') ); ?>" class="pna-ciclo-step pna-ciclo-step--1 decoracion--ninguna">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">1</span>
@@ -221,7 +222,7 @@ get_header();
                     </div>
                 </div>
 
-                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/presupuestacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--2 text-decoration-none">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/presupuestacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--2 decoracion--ninguna">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/presupuestacion.svg" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">2</span>
@@ -230,7 +231,7 @@ get_header();
                     <p class="pna-ciclo-step__desc">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
                 </a>
 
-                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 text-decoration-none">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 decoracion--ninguna">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">3</span>

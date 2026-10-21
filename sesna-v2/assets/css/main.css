@@ -4903,10 +4903,11 @@ body:has(.page-directorio) main.page {
 
 /* Card principal: portada + descarga */
 .page-pna .pna-doc-card {
-    background-color: var(--color-blanco);
-    border-radius: 8px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 32px;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--dropLV1);
 }
 
 .page-pna .pna-doc-cover {
@@ -4968,41 +4969,6 @@ body:has(.page-directorio) main.page {
     margin-bottom: 1.5rem;
 }
 
-.page-pna .pna-download-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 20px;
-    background-color: #13322e;
-    color: var(--color-blanco) !important;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    border: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.page-pna .pna-download-btn:hover,
-.page-pna .pna-download-btn.show {
-    background-color: #0c1e1c;
-    color: var(--color-blanco) !important;
-    text-decoration: none;
-}
-
-.page-pna .pna-download-btn:hover {
-    transform: translateY(-2px);
-}
-
-.page-pna .pna-download-btn.show {
-    transform: none;
-}
-
-.page-pna .pna-download-btn i {
-    font-size: 16px;
-    margin-right: 8px;
-}
-
 .page-pna .pna-doc-note {
     color: var(--color-gris);
     font-size: 14px;
@@ -5043,42 +5009,13 @@ body:has(.page-directorio) main.page {
     color: var(--color-guinda);
 }
 
-/* Título de sección con separador dorado (reusa patrón sesna-section-heading) */
-.page-pna .pna-section-title {
-    font-family: var(--font-patria);
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--color-negro);
-    position: relative;
-    padding-bottom: 16px;
-    margin-bottom: 8px;
-}
-
-.page-pna .pna-section-title::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 56px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-dorado), var(--color-dorado-claro));
-    border-radius: 2px;
-}
-
-.page-pna .pna-section-title--center {
-    text-align: center;
-}
-
-.page-pna .pna-section-title--center::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 /* Estructura de la Política: stat tiles */
 .page-pna .pna-stats-card {
-    background-color: var(--color-fondo-claro);
-    border-radius: 12px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     padding: 32px;
+    box-shadow: var(--dropLV1);
 }
 
 .page-pna .pna-stats-row {
@@ -5246,14 +5183,6 @@ body:has(.page-directorio) main.page {
     border-radius: 24px;
     padding: 40px 32px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-}
-
-.page-pna .pna-ciclo-subtitle {
-    text-align: center;
-    color: rgba(22, 26, 29, 0.65);
-    font-size: 16px;
-    max-width: 600px;
-    margin: 8px auto 0;
 }
 
 .page-pna .pna-ciclo-diagram {
