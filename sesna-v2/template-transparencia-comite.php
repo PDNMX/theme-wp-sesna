@@ -71,48 +71,57 @@ wp_reset_postdata();
             </div>
         </div>
 
-        <!-- Tabs -->
-        <!-- Tabs -->
-        <div class="tx-comite-tabs-container">
-            <ul class="nav nav-tabs tx-comite-tabs" id="comiteTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="sesiones-tab" data-tab-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
-                        <i class="snd__icono snd-list icono--20 me-1" aria-hidden="true"></i> Actas
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="resoluciones-tab" data-tab-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
-                        <i class="snd__icono snd-checkmark--filled icono--20 me-1" aria-hidden="true"></i> Resoluciones
-                    </button>
-                </li>
-            </ul>
+        <!-- Tabs — SND UI Kit (Tabs 2: 1562:4021 / 16460:3792) -->
+        <div class="reticulaGrid__12 mb--32">
+            <div class="columna__12">
+                <div class="tx-comite-tabs-container">
+                    <ul class="ul--limpio tx-comite-tabs" id="comiteTabs" role="tablist">
+                        <li role="presentation">
+                            <button class="tx-comite-tab" id="sesiones-tab" data-tab-target="#sesiones-pane" type="button" role="tab" aria-controls="sesiones-pane" aria-selected="true">
+                                Actas
+                            </button>
+                        </li>
+                        <li role="presentation">
+                            <button class="tx-comite-tab" id="resoluciones-tab" data-tab-target="#resoluciones-pane" type="button" role="tab" aria-controls="resoluciones-pane" aria-selected="false">
+                                Resoluciones
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="tab-content tx-comite-tab-content" id="comiteTabsContent">
+        <div class="tx-comite-tab-content" id="comiteTabsContent">
             <!-- TAB: SESIONES -->
-            <div class="tab-pane show active" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="0">
+            <div class="tx-comite-tab-pane" id="sesiones-pane" role="tabpanel" aria-labelledby="sesiones-tab" tabindex="0">
                 
                 <!-- Filtros Sesiones -->
-                <div class="reticulaGrid__12 mb-5 align-items-end">
-                    <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
-                        <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                        <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todos">Todos</option>
-                            <?php
-                            $anios_sesiones = array_unique(array_column($sesiones, 'anio'));
-                            rsort($anios_sesiones);
-                            foreach($anios_sesiones as $a): ?>
-                                <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                <div class="reticulaGrid__12 mb--32 align-items-end">
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <label for="filter-anio" class="b1sb dblock color--neutro800 mb--8">Año</label>
+                        <div class="tx-select-wrap">
+                            <select id="filter-anio" class="tx-comite-select tx-comite-filter-control">
+                                <option value="Todos">Todos</option>
+                                <?php
+                                $anios_sesiones = array_unique(array_column($sesiones, 'anio'));
+                                rsort($anios_sesiones);
+                                foreach($anios_sesiones as $a): ?>
+                                    <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        </div>
                     </div>
-                    <div class="columna__12 columna__6--sm columna__4--md">
-                        <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de sesión</label>
-                        <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todas">Todas</option>
-                            <option value="Ordinaria">Ordinaria</option>
-                            <option value="Extraordinaria">Extraordinaria</option>
-                        </select>
+                    <div class="columna__12 columna__6--md columna__4--lg">
+                        <label for="filter-tipo" class="b1sb dblock color--neutro800 mb--8">Tipo de sesión</label>
+                        <div class="tx-select-wrap">
+                            <select id="filter-tipo" class="tx-comite-select tx-comite-filter-control">
+                                <option value="Todas">Todas</option>
+                                <option value="Ordinaria">Ordinaria</option>
+                                <option value="Extraordinaria">Extraordinaria</option>
+                            </select>
+                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        </div>
                     </div>
                 </div>
 
@@ -160,28 +169,33 @@ wp_reset_postdata();
             </div>
 
             <!-- TAB: RESOLUCIONES -->
-            <div class="tab-pane muestra--ninguno" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
+            <div class="tx-comite-tab-pane muestra--ninguno" id="resoluciones-pane" role="tabpanel" aria-labelledby="resoluciones-tab" tabindex="0">
                 
                 <!-- Filtros Resoluciones -->
-                <div class="reticulaGrid__12 mb-5 align-items-end">
-                    <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
-                        <label for="filter-anio-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                        <select id="filter-anio-res" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                            <option value="Todos">Todos</option>
-                            <?php
-                            $anios_resoluciones = array_unique(array_column($resoluciones, 'anio'));
-                            rsort($anios_resoluciones);
-                            foreach($anios_resoluciones as $a): ?>
-                                <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="columna__12 columna__6--sm columna__6--md">
-                        <label for="search-res" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Número de resolución</label>
-                        <div class="position-relative">
-                            <input type="text" id="search-res" class="form-control font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-search-input tx-comite-filter-control" placeholder="Buscar resolución...">
-                            <i class="snd__icono snd-search icono--20 tx-comite-search-icon" aria-hidden="true"></i>
+                <div class="reticulaGrid__12 mb--32 align-items-end">
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <label for="filter-anio-res" class="b1sb dblock color--neutro800 mb--8">Año</label>
+                        <div class="tx-select-wrap">
+                            <select id="filter-anio-res" class="tx-comite-select tx-comite-filter-control">
+                                <option value="Todos">Todos</option>
+                                <?php
+                                $anios_resoluciones = array_unique(array_column($resoluciones, 'anio'));
+                                rsort($anios_resoluciones);
+                                foreach($anios_resoluciones as $a): ?>
+                                    <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
                         </div>
+                    </div>
+                    <div class="columna__12 columna__6--md columna__6--lg">
+                        <label for="search-res" class="b1sb dblock color--neutro800 mb--8">Número de resolución</label>
+                        <form class="search-container" role="search" id="form-search-res" action="javascript:void(0);">
+                            <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
+                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <input type="search" id="search-res" name="q" placeholder="Buscar resolución..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -306,6 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Logic for filtering and pagination (Resoluciones)
     const filterAnioRes = document.getElementById('filter-anio-res');
     const searchRes = document.getElementById('search-res');
+    const formSearchRes = document.getElementById('form-search-res');
+    const searchResBox = searchRes ? searchRes.closest('.tx-comite-search-box') : null;
     const resCards = Array.from(document.querySelectorAll('.tx-resolucion-card'));
     const btnMoreRes = document.getElementById('resoluciones-btn-more');
     const resLoadMoreContainer = document.getElementById('resoluciones-load-more-container');
@@ -314,6 +330,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function applyResFilters() {
         const anio = filterAnioRes.value;
         const query = searchRes.value.toLowerCase().trim();
+        if (searchResBox) {
+            searchResBox.classList.toggle('is-filled', query.length > 0);
+        }
         
         let visibleCount = 0;
         let totalMatched = 0;
@@ -346,7 +365,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if(filterAnioRes) filterAnioRes.addEventListener('change', () => { resVisibleLimit = 5; applyResFilters(); });
-    if(searchRes) searchRes.addEventListener('input', () => { resVisibleLimit = 5; applyResFilters(); });
+    if(searchRes) {
+        searchRes.addEventListener('input', () => { resVisibleLimit = 5; applyResFilters(); });
+        searchRes.addEventListener('search', () => { resVisibleLimit = 5; applyResFilters(); });
+    }
+    if(formSearchRes) {
+        formSearchRes.addEventListener('submit', (e) => {
+            e.preventDefault();
+            resVisibleLimit = 5;
+            applyResFilters();
+        });
+    }
     
     if(btnMoreRes) {
         btnMoreRes.addEventListener('click', function(e) {
@@ -356,27 +385,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Controlador nativo de pestañas SND v1.1.0
-    document.querySelectorAll('#comiteTabs [role="tab"]').forEach(function(tab) {
+    // Controlador nativo de pestañas SND v1.1.0 (Tabs 2)
+    var comiteTabs = Array.from(document.querySelectorAll('#comiteTabs [role="tab"]'));
+    function activateComiteTab(tab) {
+        var targetId = tab.getAttribute('data-tab-target');
+        if (!targetId) return;
+
+        comiteTabs.forEach(function(t) {
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.setAttribute('aria-selected', 'true');
+
+        document.querySelectorAll('#comiteTabsContent [role="tabpanel"]').forEach(function(pane) {
+            pane.classList.add('muestra--ninguno');
+        });
+        var targetPane = document.querySelector(targetId);
+        if (targetPane) {
+            targetPane.classList.remove('muestra--ninguno');
+        }
+    }
+
+    comiteTabs.forEach(function(tab, idx) {
         tab.addEventListener('click', function() {
-            var targetId = tab.getAttribute('data-tab-target');
-            if (!targetId) return;
-
-            document.querySelectorAll('#comiteTabs [role="tab"]').forEach(function(t) {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-
-            document.querySelectorAll('#comiteTabsContent .tab-pane').forEach(function(pane) {
-                pane.classList.remove('show', 'active');
-                pane.classList.add('muestra--ninguno');
-            });
-            var targetPane = document.querySelector(targetId);
-            if (targetPane) {
-                targetPane.classList.remove('muestra--ninguno');
-                targetPane.classList.add('show', 'active');
+            activateComiteTab(tab);
+        });
+        tab.addEventListener('keydown', function(e) {
+            var nextIdx = null;
+            if (e.key === 'ArrowRight') nextIdx = (idx + 1) % comiteTabs.length;
+            else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + comiteTabs.length) % comiteTabs.length;
+            if (nextIdx !== null) {
+                e.preventDefault();
+                comiteTabs[nextIdx].focus();
+                activateComiteTab(comiteTabs[nextIdx]);
             }
         });
     });

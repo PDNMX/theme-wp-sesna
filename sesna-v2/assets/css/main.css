@@ -5779,68 +5779,227 @@ button[data-modal-target="#pdfViewerModal"]:focus {
     }
 }
 
-/* Tabs Comité de Transparencia */
+/* Tabs Comité de Transparencia — SND UI Kit (Tabs 2: 1562:4021 / 16460:3792) */
 .tx-comite-tabs-container {
-    border-bottom: 1px solid #dee2e6;
-    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--neutro400);
 }
 .tx-comite-tabs {
-    border-bottom: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
     margin-bottom: -1px;
 }
-.tx-comite-tabs .nav-link {
-    color: #495057;
-    border: 1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-    border-radius: 6px 6px 0 0;
-    padding: 0.75rem 1.5rem;
+.tx-comite-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    border-top: 1px solid var(--neutro400);
+    border-right: 1px solid var(--neutro400);
+    border-left: 1px solid var(--neutro400);
+    border-bottom: 0;
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.tx-comite-tab:hover:not([aria-selected="true"]):not(:disabled) {
+    background-color: var(--gama100);
+    color: var(--neutro800);
+}
+.tx-comite-tab[aria-selected="true"] {
+    background-color: var(--principal);
+    border-color: var(--neutro400);
+    color: var(--neutro100);
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: #fff;
-    margin-right: 0.5rem;
-    font-family: var(--font-noto-sans);
-    transition: all 0.2s ease-in-out;
 }
-.tx-comite-tabs .nav-link:hover {
-    background-color: #f8f9fa;
-    color: var(--color-burgundi);
+.tx-comite-tab:focus-visible {
+    outline: none;
+    background-color: var(--neutro200);
+    color: var(--neutro800);
+    border-top: 2px solid var(--azul500);
+    border-right: 2px solid var(--azul500);
+    border-left: 2px solid var(--azul500);
 }
-.tx-comite-tabs .nav-link.active,
-.tx-comite-tabs .nav-item.show .nav-link {
-    color: var(--color-burgundi) !important;
-    background-color: #e9ecef !important;
-    border-color: #dee2e6 !important;
-    border-bottom-color: #e9ecef !important;
-    border-top: 4px solid var(--color-burgundi) !important;
+.tx-comite-tab[aria-selected="true"]:focus-visible {
+    background-color: var(--principal);
+    color: var(--neutro100);
 }
-
-/* Evitar marco por defecto de Bootstrap/Gobmx en el contenido de los tabs */
+.tx-comite-tab:disabled {
+    background-color: var(--neutro200);
+    color: var(--neutro600);
+    border-color: var(--neutro400);
+    cursor: not-allowed;
+}
 .tx-comite-tab-content {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    background: transparent !important;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
 }
 
-/* Buscador Resoluciones y Filtros */
+/* Buscador Resoluciones y Filtros — Select / Dropatom SND v1.1.0 */
 .tx-comite-filter-control {
-    min-height: 46px;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
 }
-.tx-comite-search-input {
-    padding-right: 2.5rem;
+.tx-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
 }
-.tx-comite-search-icon {
+.tx-comite-select,
+select.tx-comite-filter-control {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    box-sizing: border-box;
+    padding: 10px 44px 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--neutro400);
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+.tx-comite-select:hover:not(:disabled),
+select.tx-comite-filter-control:hover:not(:disabled) {
+    border-color: var(--neutro600);
+}
+.tx-comite-select:focus,
+.tx-comite-select:focus-visible,
+select.tx-comite-filter-control:focus,
+select.tx-comite-filter-control:focus-visible {
+    outline: none;
+    border-color: var(--principal);
+    box-shadow: 0 0 0 1px var(--principal) inset;
+}
+.tx-comite-select:disabled,
+select.tx-comite-filter-control:disabled {
+    background-color: var(--neutro200);
+    border-color: var(--neutro400);
+    color: var(--neutro600);
+    cursor: not-allowed;
+}
+.tx-select-chevron {
     position: absolute;
-    right: 1rem;
+    right: 14px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--color-burgundi);
-    font-size: 16px;
     pointer-events: none;
+    color: var(--neutro800);
+    transition: transform 0.2s ease;
+}
+.tx-comite-select:focus + .tx-select-chevron {
+    transform: translateY(-50%) rotate(-180deg);
+}
+/* Componente SND v1.1.0: Barra de búsqueda (4.1 Barra de búsqueda - Variante sección interna)
+ * Implementa las 3 pestañas normativas (Descripción, Diseño Desktop/Móvil, Desarrollo)
+ */
+#form-search-res.search-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+.form__inset.general-search.tx-comite-search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    gap: 8px;
+    background-color: var(--neutro200);
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 1px var(--neutro400);
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.form__inset.general-search.tx-comite-search-box.is-filled {
+    box-shadow: inset 0 0 0 1px var(--principal);
+}
+.form__inset.general-search.tx-comite-search-box:active {
+    box-shadow: inset 0 0 0 2px var(--principal);
+}
+.form__inset.general-search.tx-comite-search-box:focus-within {
+    box-shadow: inset 0 0 0 2px var(--principal);
+}
+.tx-comite-search-box .search-icon {
+    margin: 0;
+    flex-shrink: 0;
+    color: var(--neutro600);
+    transition: color 0.2s ease;
+}
+.tx-comite-search-box:focus-within .search-icon,
+.tx-comite-search-box.is-filled .search-icon {
+    color: var(--principal);
+}
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    color: var(--neutro800);
+}
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input::placeholder {
+    color: var(--neutro500);
+    opacity: 1;
+}
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input::-webkit-search-cancel-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+@media (min-width: 640px) {
+    .form__inset.general-search.tx-comite-search-box {
+        padding: 0 20px;
+        gap: 10px;
+    }
+}
+@media (min-width: 1024px) {
+    .form__inset.general-search.tx-comite-search-box {
+        padding: 0 24px 0 32px;
+        gap: 10px;
+    }
+    .tx-comite-search-box .sh0r.js-input.tx-comite-search-input {
+        font-size: 1rem;
+        line-height: 1.375rem;
+        font-weight: 400;
+    }
 }
 
 /* Forzar Modal a Pantalla Completa (Full Screen) en todas las versiones */
