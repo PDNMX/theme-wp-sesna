@@ -4974,14 +4974,22 @@ body:has(.page-directorio) main.page {
 }
 
 .page-pna .pna-anexos-dropdown .dropdown-menu {
-    border-radius: 8px;
-    border: none;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 260px;
+    margin-top: 4px;
+    list-style: none;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
     padding: 8px;
 }
 
 .page-pna .pna-anexos-dropdown .dropdown-item {
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 10px 14px;
     font-size: 14px;
     display: flex;
@@ -4990,8 +4998,8 @@ body:has(.page-directorio) main.page {
 }
 
 .page-pna .pna-anexos-dropdown .dropdown-item:hover {
-    background-color: #f2ecf0;
-    color: var(--color-guinda);
+    background-color: var(--gama100);
+    color: var(--gama600);
 }
 
 /* Estructura de la Política: stat tiles */

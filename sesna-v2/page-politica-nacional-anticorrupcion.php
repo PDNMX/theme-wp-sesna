@@ -88,7 +88,7 @@ get_header();
                                 <summary class="boton__secundario dropdown-toggle">
                                     <i class="snd__icono snd-document--import icono--16" aria-hidden="true"></i> Anexos
                                 </summary>
-                                <ul class="dropdown-menu" style="position: absolute; top: 100%; left: 0; z-index: 1000; min-width: 260px; margin-top: 4px; background: #fff; list-style: none;">
+                                <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" target="_blank" title="El enlace abre en ventana nueva" rel="noopener" href="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                             <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Estadísticos
