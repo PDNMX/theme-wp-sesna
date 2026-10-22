@@ -10,10 +10,10 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "1"
     volumes:
       - db_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   wordpress:
-    image: wordpress:6-php8.3-apache
+    image: wordpress:php8.5-apache
     restart: unless-stopped
     depends_on:
       - db
@@ -33,7 +33,7 @@ services:
       - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
 
   wpcli:
-    image: wordpress:cli
+    image: wordpress:cli-php8.5
     depends_on:
       - db
       - wordpress

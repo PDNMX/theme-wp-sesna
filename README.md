@@ -10,8 +10,8 @@ Entorno local de WordPress para desarrollo y pruebas del theme `sesna-v2`, usand
 | Servicio | Imagen | Uso |
 |---|---|---|
 | `db` | `mysql:8.4` | Base de datos del sitio.[1][2] |
-| `wordpress` | `wordpress:6-apache` | Sitio WordPress accesible desde el navegador.[3] |
-| `wpcli` | `wordpress:cli` | Comandos administrativos y de mantenimiento sobre la misma instalación.[4][7] |
+| `wordpress` | `wordpress:php8.5-apache` | Sitio WordPress accesible desde el navegador.[3] |
+| `wpcli` | `wordpress:cli-php8.5` | Comandos administrativos y de mantenimiento sobre la misma instalación.[4][7] |
 
 ## Primera instalación
 
