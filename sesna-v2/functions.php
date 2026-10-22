@@ -2160,30 +2160,30 @@ function sesna_oc_doc_icon($nombre) {
 function sesna_render_oc_stats_cards($stats, $mostrar_recomendaciones_exhortos = true) {
     $col_class = $mostrar_recomendaciones_exhortos ? 'columna__12 columna__6--md columna__3--lg' : 'columna__12 columna__6--md';
     ?>
-    <div class="reticulaGrid__12 gap--16 mb-5">
+    <div class="reticulaGrid__12 mb--32">
         <div class="<?= esc_attr($col_class) ?>">
-            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['sesiones'] ?></span>
-                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Sesiones</span>
+            <div class="ocn-stat-card">
+                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['sesiones'] ?></span>
+                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Sesiones</span>
             </div>
         </div>
         <div class="<?= esc_attr($col_class) ?>">
-            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['acuerdos'] ?></span>
-                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Acuerdos</span>
+            <div class="ocn-stat-card">
+                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['acuerdos'] ?></span>
+                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Acuerdos</span>
             </div>
         </div>
         <?php if ($mostrar_recomendaciones_exhortos) : ?>
         <div class="<?= esc_attr($col_class) ?>">
-            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['recomendaciones'] ?></span>
-                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Recomendaciones</span>
+            <div class="ocn-stat-card">
+                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['recomendaciones'] ?></span>
+                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Recomendaciones</span>
             </div>
         </div>
         <div class="<?= esc_attr($col_class) ?>">
-            <div class="card border-0 rounded-4 shadow-sm h-100 ocn-stat-card bg-white p-3 d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold font-patria" style="font-size: 32px; color: var(--color-negro);"><?= (int) $stats['exhortos'] ?></span>
-                <span class="font-noto-sans text-uppercase fw-bold text-center" style="font-size: 12px; letter-spacing: 0.5px; color: var(--color-burgundi);">Exhortos</span>
+            <div class="ocn-stat-card">
+                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['exhortos'] ?></span>
+                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Exhortos</span>
             </div>
         </div>
         <?php endif; ?>
@@ -2330,9 +2330,9 @@ function sesna_oc_map_slots_fijos($sesion) {
 function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
-    <a href="#<?= esc_attr($panel_id) ?>" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" onclick="var p=document.getElementById('<?= esc_attr($panel_id) ?>'); if(p){ p.classList.toggle('muestra--ninguno'); this.setAttribute('aria-expanded', !p.classList.contains('muestra--ninguno')); } return false;" class="text-decoration-none text-center d-flex flex-column align-items-center tx-oc-anexos-toggle flex-fill px-1">
-        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
-        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?> (<?= $total ?>)</div>
+    <a href="#<?= esc_attr($panel_id) ?>" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" onclick="var p=document.getElementById('<?= esc_attr($panel_id) ?>'); if(p){ p.classList.toggle('muestra--ninguno'); this.setAttribute('aria-expanded', !p.classList.contains('muestra--ninguno')); } return false;" class="tx-oc-slot-btn tx-oc-anexos-toggle">
+        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--24 tx-oc-slot-icon" aria-hidden="true"></i>
+        <span class="tx-oc-slot-label"><?= esc_html($slot['label']) ?> (<?= $total ?>)</span>
     </a>
     <?php
 }
@@ -2342,25 +2342,25 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
     $mostrar_buscador = $total > 8;
     ?>
     <div class="muestra--ninguno tx-oc-anexos-panel" id="<?= esc_attr($panel_id) ?>">
-        <div class="border-top px-4 py-4">
+        <div class="tx-oc-anexos-panel__inner">
             <?php if ($mostrar_buscador) : ?>
-            <div class="position-relative mb-3" style="max-width: 340px;">
-                <i class="snd__icono snd-search icono--16 position-absolute" style="left: 14px; top: 50%; transform: translateY(-50%); color: #aaa;" aria-hidden="true"></i>
-                <input type="text" class="form-control tx-oc-anexos-search" placeholder="Buscar documento..." style="padding-left: 38px; border-radius: 10px; font-size: 14px;">
+            <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control tx-oc-anexos-search-box mb--16">
+                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                <input type="search" class="sh0r js-input tx-comite-search-input tx-oc-anexos-search" placeholder="Buscar documento..." aria-label="Buscar documento en anexos" autocomplete="off">
             </div>
             <?php endif; ?>
-            <div class="d-flex flex-column gap-2 tx-oc-anexos-list">
+            <div class="tx-oc-anexos-list">
                 <?php foreach ($slot['documentos'] as $doc) : ?>
-                <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row d-flex align-items-center justify-content-between gap-3 rounded-3 px-3 py-2 text-decoration-none" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
-                    <div class="d-flex align-items-center gap-2 flex-grow-1 min-w-0">
-                        <i class="snd__icono snd-document icono--16 flex-shrink-0" style="color: var(--color-burgundi);" aria-hidden="true"></i>
-                        <span class="font-noto-sans tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
+                <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
+                    <div class="tx-oc-anexo-row__info">
+                        <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                        <span class="b1r color--neutro800 tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="snd__icono snd-document--pdf icono--20 tx-sesion-pdf-icon flex-shrink-0" aria-hidden="true"></i>
+                    <i class="snd__icono snd-document--pdf icono--24 color--pguinda600 tx-oc-anexo-row__pdf" aria-hidden="true"></i>
                 </a>
                 <?php endforeach; ?>
             </div>
-            <p class="text-center text-muted small font-noto-sans mt-3 mb-0 muestra--ninguno tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
+            <p class="b1r color--neutro600 texto--centro mt--16 mb--0 muestra--ninguno tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
         </div>
     </div>
     <?php
@@ -2375,78 +2375,69 @@ function sesna_render_oc_sesion_card($sesion) {
     $anexos_panel_id = 'oc-anexos-panel-' . md5($sesion['titulo'] . $sesion['fecha'] . count($slots['anexos']['documentos']));
     $tiene_anexos_panel = count($slots['anexos']['documentos']) > 1;
     ?>
-    <div class="card border border-light shadow-sm rounded-3 mb-3 tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>">
-        <div class="card-body p-0">
-            <div class="reticulaGrid__12 gap--0 h-100 align-items-center">
-                <div class="columna__12 columna__2--md tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center border-end">
-                    <div class="fw-bold tx-sesion-date-day lh-1 text-secondary"><?= esc_html($dia) ?></div>
-                    <div class="fw-bold tx-sesion-date-month text-secondary text-uppercase" style="letter-spacing: 1px;"><?= esc_html($mes) ?></div>
-                    <div class="fw-bold tx-sesion-date-year text-secondary mt-1"><?= esc_html($anio) ?></div>
-                </div>
+    <div class="tx-oc-card tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>">
+        <div class="tx-oc-card__main">
+            <div class="tx-oc-card__date">
+                <span class="h3b color--neutro800 tx-oc-card__day"><?= esc_html($dia) ?></span>
+                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 tx-oc-card__month"><?= esc_html($mes) ?></span>
+                <span class="b2sb color--neutro600 tx-oc-card__year"><?= esc_html($anio) ?></span>
+            </div>
 
-                <div class="columna__12 columna__4--md p-4 d-flex flex-column justify-content-center">
-                    <h3 class="h5 fw-bold mb-2 font-noto-sans tx-sesion-info-title"><?= esc_html($sesion['titulo']) ?></h3>
-                    <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Tipo:</strong> <?= esc_html($sesion['tipo_sesion']) ?></p>
-                </div>
+            <div class="tx-oc-card__info">
+                <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?= esc_html($sesion['titulo']) ?></h3>
+                <p class="b1r color--neutro700 mb--0"><strong class="b1sb color--neutro800">Tipo:</strong> <?= esc_html($sesion['tipo_sesion']) ?></p>
+            </div>
 
-                <div class="columna__12 columna__5--md tx-sesion-action p-3 p-md-4 d-flex align-items-center">
-                    <div class="d-flex flex-wrap flex-md-nowrap align-items-start justify-content-between w-100 gap-2">
-                        <?php foreach ($slots as $slot_key => $slot) :
-                            if ($slot_key === 'anexos' && $tiene_anexos_panel) :
-                                sesna_render_oc_anexos_toggle($anexos_panel_id, $slot);
-                                continue;
-                            endif;
+            <div class="tx-oc-card__actions">
+                <div class="tx-oc-slots">
+                    <?php foreach ($slots as $slot_key => $slot) :
+                        if ($slot_key === 'anexos' && $tiene_anexos_panel) :
+                            sesna_render_oc_anexos_toggle($anexos_panel_id, $slot);
+                            continue;
+                        endif;
 
-                            // "Ver sesión" no aplica a Órgano de Gobierno: se omite por
-                            // completo (sin dejar un icono deshabilitado) sin afectar la
-                            // posición de los demás iconos, que ya vienen antes en $slots.
-                            if ($slot_key === 'ver_sesion' && $sesion['organo'] === 'organo_gobierno') :
-                                continue;
-                            endif;
+                        // "Ver sesión" no aplica a Órgano de Gobierno: se omite por
+                        // completo (sin dejar un icono deshabilitado) sin afectar la
+                        // posición de los demás iconos, que ya vienen antes en $slots.
+                        if ($slot_key === 'ver_sesion' && $sesion['organo'] === 'organo_gobierno') :
+                            continue;
+                        endif;
 
-                            $disabled = ($slot['enlace'] === '');
-                            $href = $disabled ? '#' : esc_url($slot['enlace']);
-                            $link_class = 'text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1' . ($disabled ? ' tx-sesion-pdf-link--disabled' : '');
-                            $es_ver_sesion = ($slot_key === 'ver_sesion');
-                            $youtube_id = $es_ver_sesion ? ($slot['youtube_id'] ?? '') : '';
-                        ?>
-                        <a rel="noopener" href="<?= $href ?>"
-                           <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-modal-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
-                           class="<?= esc_attr($link_class) ?>">
-                            <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
-                            <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text"><?= esc_html($slot['label']) ?></div>
-                        </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
-                <div class="columna__12 columna__1--md muestra--ninguno muestra--flex--md align-items-center justify-content-center p-3 p-md-4">
-                    <i class="snd__icono snd-chevron--right icono--16 text-muted" aria-hidden="true"></i>
+                        $disabled = ($slot['enlace'] === '');
+                        $href = $disabled ? '#' : esc_url($slot['enlace']);
+                        $link_class = 'tx-oc-slot-btn' . ($disabled ? ' tx-oc-slot-btn--disabled' : '');
+                        $es_ver_sesion = ($slot_key === 'ver_sesion');
+                        $youtube_id = $es_ver_sesion ? ($slot['youtube_id'] ?? '') : '';
+                    ?>
+                    <a rel="noopener" href="<?= $href ?>"
+                       <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-modal-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
+                       class="<?= esc_attr($link_class) ?>">
+                        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--24 tx-oc-slot-icon" aria-hidden="true"></i>
+                        <span class="tx-oc-slot-label"><?= esc_html($slot['label']) ?></span>
+                    </a>
+                    <?php endforeach; ?>
                 </div>
             </div>
-            <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
         </div>
+        <?php if ($tiene_anexos_panel) : sesna_render_oc_anexos_panel($anexos_panel_id, $slots['anexos']); endif; ?>
     </div>
     <?php
 }
 
 function sesna_render_oc_lista_directa_item($item) {
     ?>
-    <div class="card border border-light shadow-sm rounded-3 mb-3 overflow-hidden tx-sesion-card">
-        <div class="card-body p-0">
-            <div class="reticulaGrid__12 gap--0 h-100 align-items-center">
-                <div class="columna__12 columna__9--md p-4 d-flex flex-column justify-content-center">
-                    <h3 class="h5 fw-bold mb-0 font-noto-sans tx-sesion-info-title"><?= esc_html($item['titulo']) ?></h3>
-                </div>
-                <div class="columna__12 columna__3--md tx-sesion-action p-3 p-md-4 d-flex align-items-center justify-content-md-end">
-                    <?php foreach ($item['documentos'] as $doc) : ?>
-                    <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link flex-fill px-1">
-                        <i class="snd__icono <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> icono--20 tx-sesion-pdf-icon" aria-hidden="true"></i>
-                        <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Descargar</div>
-                    </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+    <div class="tx-comite-card tx-sesion-card">
+        <div class="tx-comite-card-info">
+            <h3 class="sh1b color--neutro800 mb--0 tx-comite-card-title"><?= esc_html($item['titulo']) ?></h3>
+        </div>
+        <div class="tx-comite-card-action">
+            <?php foreach ($item['documentos'] as $doc) : ?>
+            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" aria-label="Descargar <?= esc_attr($item['titulo']) ?>">
+                <i class="snd__icono <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> icono--24" aria-hidden="true"></i>
+                Descargar
+                <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+            </button>
+            <?php endforeach; ?>
         </div>
     </div>
     <?php

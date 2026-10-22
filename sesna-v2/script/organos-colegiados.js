@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sections[target].classList.remove('muestra--ninguno');
         }
 
-        var tabsNav = document.querySelector('.ocn-tabs-nav');
+        var tabsNav = document.querySelector('.tx-comite-tabs-container, .ocn-tabs-nav');
         if (tabsNav && window.innerWidth < 992) {
             window.scrollTo({ top: tabsNav.offsetTop - 80, behavior: 'smooth' });
         }
@@ -140,11 +140,15 @@ document.addEventListener('DOMContentLoaded', function () {
         var searchInput = panel.querySelector('.tx-oc-anexos-search');
         if (!searchInput) return;
 
+        var searchBox = searchInput.closest('.tx-comite-search-box');
         var rows = Array.prototype.slice.call(panel.querySelectorAll('.tx-oc-anexo-row'));
         var emptyMsg = panel.querySelector('.tx-oc-anexos-empty');
 
         searchInput.addEventListener('input', function () {
             var termino = searchInput.value.toLowerCase().trim();
+            if (searchBox) {
+                searchBox.classList.toggle('is-filled', termino.length > 0);
+            }
             var visibles = 0;
             rows.forEach(function (row) {
                 var coincide = !termino || row.getAttribute('data-anexo-nombre').indexOf(termino) !== -1;

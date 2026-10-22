@@ -5545,7 +5545,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-comite,
 .page-transparencia-datos,
 .page-transparencia-normatividad,
-.page-transparencia-unidad {
+.page-transparencia-unidad,
+.page-organos-colegiados {
     /* Fondo heredado de .front-page-bg */
     min-height: 75vh;
 }
@@ -5553,7 +5554,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-comite .sesna-page-hero,
 .page-transparencia-datos .sesna-page-hero,
 .page-transparencia-normatividad .sesna-page-hero,
-.page-transparencia-unidad .sesna-page-hero {
+.page-transparencia-unidad .sesna-page-hero,
+.page-organos-colegiados .sesna-page-hero {
     padding-bottom: 20px;
     margin-bottom: 0;
 }
@@ -6643,58 +6645,240 @@ select.tx-comite-filter-control:disabled {
 
 /* ============================================================
    ÓRGANOS COLEGIADOS Y NORMATIVIDAD (page-organos-colegiados.php)
-   Scope: .page-organos-colegiados
+   Scope: .page-organos-colegiados — SND UI Kit v1.1.0 (Tema Guinda)
    ============================================================ */
 
-.page-organos-colegiados .ocn-hero {
-    background-color: #FAFAFA !important;
-}
-
-.page-organos-colegiados .ocn-hero h1 {
-    letter-spacing: -0.5px;
-}
-
-/* Tabs horizontales SND — Órganos Colegiados */
-.ocn-tabs-nav {
-    border-bottom: 2px solid var(--neutro200, #E5E7EB);
-}
-.ocn-tabs {
+/* Tarjetas de Estadísticas (Sesiones, Acuerdos, Recomendaciones, Exhortos) */
+.ocn-stat-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 24px 16px;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-}
-.ocn-tabs::-webkit-scrollbar { display: none; }
-.ocn-tab {
-    display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0.75rem 1.25rem;
-    font-family: var(--font-noto-sans);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--neutro600, #767676);
-    text-decoration: none;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    white-space: nowrap;
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
-.ocn-tab:hover {
-    color: var(--pguinda600, #9B2247);
-    text-decoration: none;
-}
-.ocn-tab.active {
-    color: var(--pguinda900, #611232);
-    border-bottom-color: var(--pguinda900, #611232);
-}
-@media (max-width: 767px) {
-    .ocn-tabs { gap: 4px; }
-    .ocn-tab { padding: 0.625rem 0.875rem; font-size: 0.875rem; }
+    justify-content: center;
+    text-align: center;
 }
 
-/* Sidebar Nav - Diseño Premium */
-.page-organos-colegiados .ocn-sidebar-nav,
+/* Tarjeta de Sesión de Órgano Colegiado — SND UI Kit (Cards *: 12022:57247) */
+.tx-oc-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    overflow: hidden;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.tx-oc-card:hover {
+    box-shadow: var(--dropLV2);
+}
+
+.tx-oc-card__main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.tx-oc-card__date {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--neutro400);
+    text-align: center;
+}
+
+.tx-oc-card__day {
+    line-height: 1;
+}
+
+.tx-oc-card__month {
+    letter-spacing: 0.05em;
+}
+
+.tx-oc-card__info {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tx-oc-card__actions {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.tx-oc-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+    gap: 8px;
+    width: 100%;
+}
+
+.tx-oc-slot-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 10px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    color: var(--pguinda600);
+    background-color: transparent;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.tx-oc-slot-btn:hover {
+    background-color: var(--pguinda100);
+    color: var(--principal);
+    text-decoration: none;
+}
+
+.tx-oc-slot-btn:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+    background-color: var(--pguinda100);
+}
+
+.tx-oc-slot-btn[aria-expanded="true"] {
+    background-color: var(--pguinda100);
+    color: var(--principal);
+}
+
+.tx-oc-slot-icon {
+    color: currentColor;
+    flex-shrink: 0;
+}
+
+.tx-oc-slot-label {
+    font-family: var(--notoSans), sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--neutro800);
+}
+
+.tx-oc-slot-btn:hover .tx-oc-slot-label,
+.tx-oc-slot-btn[aria-expanded="true"] .tx-oc-slot-label {
+    color: var(--principal);
+}
+
+.tx-oc-slot-btn--disabled {
+    cursor: default;
+    pointer-events: none;
+    color: var(--neutro500);
+}
+
+.tx-oc-slot-btn--disabled .tx-oc-slot-icon,
+.tx-oc-slot-btn--disabled .tx-oc-slot-label {
+    color: var(--neutro500);
+}
+
+/* Panel desplegable de Anexos dentro de la tarjeta de sesión */
+.tx-oc-anexos-panel {
+    background-color: var(--neutro200);
+    border-top: 1px solid var(--neutro400);
+}
+
+.tx-oc-anexos-panel__inner {
+    padding: 20px 16px;
+}
+
+.tx-oc-anexos-search-box {
+    max-width: 380px;
+}
+
+.tx-oc-anexos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tx-oc-anexo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.tx-oc-anexo-row:hover,
+.tx-oc-anexo-row:focus-visible {
+    background-color: var(--pguinda100);
+    border-color: var(--pguinda300);
+    text-decoration: none;
+}
+
+.tx-oc-anexo-row:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+}
+
+.tx-oc-anexo-row__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.tx-oc-anexo-row__info .snd__icono,
+.tx-oc-anexo-row__pdf {
+    flex-shrink: 0;
+}
+
+.tx-oc-anexo-nombre {
+    word-break: break-word;
+}
+
+@media (min-width: 768px) {
+    .tx-oc-card__main {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .tx-oc-card__date {
+        flex: 0 0 110px;
+        min-width: 110px;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        padding-bottom: 0;
+        padding-right: 24px;
+        border-bottom: 0;
+        border-right: 1px solid var(--neutro400);
+    }
+
+    .tx-oc-card__actions {
+        flex: 0 0 52%;
+        max-width: 540px;
+        margin-left: auto;
+    }
+
+    .tx-oc-anexos-panel__inner {
+        padding: 24px;
+    }
+}
+
+/* Sidebar Nav compartida con page-marco-normativo.php */
 .page-marco-normativo .ocn-sidebar-nav {
     border-radius: 16px;
     background-color: #fff;
@@ -6703,7 +6887,6 @@ select.tx-comite-filter-control:disabled {
     padding: 0.5rem;
 }
 
-.page-organos-colegiados .ocn-sidebar-link,
 .page-marco-normativo .ocn-sidebar-link {
     color: #444;
     border-radius: 10px;
@@ -6714,175 +6897,35 @@ select.tx-comite-filter-control:disabled {
     outline: none !important;
 }
 
-.page-organos-colegiados .ocn-sidebar-link:focus,
-.page-organos-colegiados .ocn-sidebar-link:active,
 .page-marco-normativo .ocn-sidebar-link:focus,
 .page-marco-normativo .ocn-sidebar-link:active {
     outline: none !important;
 }
 
-.page-organos-colegiados .ocn-sidebar-link:last-child,
 .page-marco-normativo .ocn-sidebar-link:last-child {
     margin-bottom: 0;
 }
 
-.page-organos-colegiados .ocn-sidebar-link:hover,
 .page-marco-normativo .ocn-sidebar-link:hover {
     background-color: #f8f9fa;
     color: var(--color-burgundi, #9F2241) !important;
     transform: translateX(4px);
 }
-.page-organos-colegiados .ocn-sidebar-link:hover i,
-.page-organos-colegiados .ocn-sidebar-link:hover span,
+
 .page-marco-normativo .ocn-sidebar-link:hover i,
 .page-marco-normativo .ocn-sidebar-link:hover span {
     color: var(--color-burgundi, #9F2241) !important;
 }
 
-.page-organos-colegiados .ocn-sidebar-link.active,
 .page-marco-normativo .ocn-sidebar-link.active {
     background-color: var(--color-burgundi, #9F2241);
     color: #fff !important;
     box-shadow: 0 4px 12px rgba(159, 34, 65, 0.2);
 }
 
-.page-organos-colegiados .ocn-sidebar-link.active i,
-.page-organos-colegiados .ocn-sidebar-link.active span,
 .page-marco-normativo .ocn-sidebar-link.active i,
 .page-marco-normativo .ocn-sidebar-link.active span {
     color: #fff !important;
-}
-
-/* Enlaces de Normatividad en el Sidebar */
-.page-organos-colegiados .ocn-normatividad-list a {
-    transition: all 0.2s ease;
-    padding: 0.5rem 0.5rem;
-    border-radius: 8px;
-}
-.page-organos-colegiados .ocn-normatividad-list a:hover {
-    background-color: rgba(159, 34, 65, 0.05);
-    color: var(--color-burgundi, #9F2241) !important;
-    transform: translateX(4px);
-}
-.page-organos-colegiados .ocn-normatividad-list a:hover .ocn-dot {
-    background-color: var(--color-burgundi, #9F2241);
-    transform: scale(1.5);
-}
-
-.page-organos-colegiados .ocn-dot {
-    width: 6px;
-    height: 6px;
-    background-color: #adb5bd;
-    border-radius: 50%;
-    display: inline-block;
-    transition: all 0.2s ease;
-}
-
-/* Stats Cards */
-.page-organos-colegiados .ocn-stat-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.page-organos-colegiados .ocn-stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
-}
-
-/* Session Cards */
-.page-organos-colegiados .ocn-session-card {
-    transition: box-shadow 0.2s ease;
-}
-
-.page-organos-colegiados .ocn-session-card:hover {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05) !important;
-}
-
-.page-organos-colegiados .ocn-action-icon {
-    color: #9F2241;
-    font-size: 13px;
-    font-weight: 500;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.page-organos-colegiados .ocn-action-icon:hover {
-    color: #691C32;
-    transform: scale(1.05);
-}
-
-.page-organos-colegiados .ocn-action-icon i {
-    color: #9F2241;
-}
-
-.page-organos-colegiados .ocn-action-icon:hover i {
-    color: #691C32;
-}
-
-/* Button outline */
-.page-organos-colegiados .ocn-btn-outline {
-    color: #9F2241;
-    border-color: #9F2241;
-    background-color: transparent;
-}
-
-.page-organos-colegiados .ocn-btn-outline:hover {
-    background-color: #9F2241;
-    color: #fff;
-}
-
-/* Search input */
-.page-organos-colegiados .ocn-search-input {
-    border-color: #EAEAEA;
-}
-
-.page-organos-colegiados .ocn-search-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(159, 34, 65, 0.25);
-    border-color: #9F2241;
-}
-
-/* Table links */
-.page-organos-colegiados .ocn-table-link {
-    color: #9F2241;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #9F2241;
-    background-color: #fff;
-    transition: all 0.2s ease;
-}
-
-.page-organos-colegiados .ocn-table-link:hover {
-    background-color: #9F2241;
-    color: #fff;
-}
-
-.page-organos-colegiados .ocn-table-link:hover i {
-    color: #fff !important;
-}
-
-.page-organos-colegiados .ocn-table-container table tbody tr:hover {
-    background-color: #FAFAFA;
-}
-
-/* Helpers responsivos para bordes en las cards de sesión */
-@media (max-width: 767px) {
-    .page-organos-colegiados .border-end-md {
-        border-right: none !important;
-        border-bottom: 1px solid #F2F2F2;
-    }
-    .page-organos-colegiados .border-start-md {
-        border-left: none !important;
-    }
-}
-@media (min-width: 768px) {
-    .page-organos-colegiados .border-end-md {
-        border-right: 1px solid #F2F2F2 !important;
-    }
-    .page-organos-colegiados .border-start-md {
-        border-left: 1px solid #F2F2F2 !important;
-    }
 }
 
 
