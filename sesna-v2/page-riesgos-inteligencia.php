@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<div class="page-riesgos-inteligencia front-page-bg" style="min-height: 100vh;">
+<div class="page-riesgos-inteligencia front-page-bg">
 
     <!-- Breadcrumb -->
     <nav class="ruta__cont" aria-label="Ruta de navegación">
@@ -119,16 +119,16 @@ get_header(); ?>
             flex-wrap: wrap;
             gap: 16px 20px;
             padding: 18px 24px;
-            border: 1px solid var(--color-teal);
+            border: 1px solid var(--pguinda600);
             border-radius: 8px;
-            background: rgba(30, 91, 79, 0.06);
+            background: rgba(155, 34, 71, 0.06);
         }
         .cp-subsec-enlace__icono {
             width: 44px;
             height: 44px;
             min-width: 44px;
             border-radius: 50%;
-            background: var(--color-teal);
+            background: var(--pguinda600);
             color: #fff;
             display: flex;
             align-items: center;
@@ -230,7 +230,7 @@ get_header(); ?>
                             <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
                         </div>
                         <div class="cp-subsec-enlace__texto">
-                            <span class="cp-subsec-enlace__badge xsdsb color--pverde500">Enlace externo</span>
+                            <span class="cp-subsec-enlace__badge xsdsb color--pguinda600">Enlace externo</span>
                             <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                         </div>
                         <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">

@@ -7,11 +7,8 @@
 <?php get_template_part( 'template-parts/home/carousel' ); ?>
 
 <?php get_template_part( 'template-parts/home/section-sna' ); ?>
-<div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-integrantes' ); ?>
-<div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-programas' ); ?>
-<div class="sna-section-separator"></div>
 <?php get_template_part( 'template-parts/home/section-noticias' ); ?>
 
     <div class="contenedor pb--48">

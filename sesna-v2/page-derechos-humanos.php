@@ -97,9 +97,9 @@ get_header();
     </section>
 
     <!-- ── Campañas de Sensibilización ───────────────────────── -->
-    <section class="dh-campanias py-5">
+    <section class="dh-campanias pb-5">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--8">Campañas de Sensibilización</h2>
+            <h2 class="h2b patria color--pguinda600 mb--8">Campañas de sensibilización</h2>
             <p class="sh1r color--neutro600 mb--0">Conoce nuestras campañas permanentes para construir espacios libres de violencia y discriminación.</p>
 
             <div class="reticulaGrid__12 mt--16">
@@ -225,9 +225,9 @@ get_header();
     </section>
 
     <!-- ── Acciones X la Integridad ──────────────────────────── -->
-    <section class="dh-acciones py-5">
+    <section class="dh-acciones pb-5">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--8">Acciones x la Integridad</h2>
+            <h2 class="h2b patria color--pguinda600 mb--8">Acciones x la integridad</h2>
             <p class="sh1r color--neutro600 mb--0">Acciones X la integridad es nuestra publicación permanente sobre integridad, Derechos Humanos y perspectiva de género.</p>
 
             <?php
@@ -308,9 +308,9 @@ get_header();
     </section>
 
     <!-- ── Comité de Igualdad de Género ──────────────────────── -->
-    <section class="dh-comite py-5 pb-5 mb-4">
+    <section class="dh-comite pb-5 mb-4">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--8">Comité de Igualdad de Género</h2>
+            <h2 class="h2b patria color--pguinda600 mb--8">Comité de igualdad de género</h2>
             <p class="sh1r color--neutro600 mb--0">Consulta las sesiones y actas del Comité de Igualdad de Género (CIG-SESNA).</p>
 
             <div class="dh-comite-panel mt--32">

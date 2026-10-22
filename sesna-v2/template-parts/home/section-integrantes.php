@@ -1,5 +1,5 @@
-<section class="py--48 sna-integrantes-section">
-    <div class="contenedor my--48">
+<section class="pb--48 sna-integrantes-section">
+    <div class="contenedor mb--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
                 <h2 class="h2b patria color--pguinda600">¿Quiénes integran el SNA?</h2>

@@ -573,7 +573,16 @@ main.page,
     width: 100% !important;
     flex: 1 0 auto !important;
     padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* El fondo de página debe estirarse para llenar <main> cuando el contenido
+   es más corto que el viewport (patrón "sticky footer"); min-height:100%
+   no resuelve de forma confiable contra un alto proveniente de flexbox,
+   por eso main también se vuelve flex y .front-page-bg crece con flex:1. */
+.front-page-bg {
+    flex: 1 0 auto;
 }
 
 html:root,
@@ -1615,6 +1624,7 @@ nav.navbar .container {
    ------------------------------------------------------------ */
 .front-page-bg {
     background-color: var(--color-fondo-claro);
+    min-height: 100%;
 }
 
 /* ------------------------------------------------------------
@@ -2047,12 +2057,6 @@ nav.navbar .container {
 /* ------------------------------------------------------------
    Separador de Secciones
    ------------------------------------------------------------ */
-.sna-section-separator {
-    width: 100%;
-    height: 3px;
-    background-color: #FFFFFF;
-}
-
 /* ------------------------------------------------------------
    Sección Acciones y Programas
    ------------------------------------------------------------ */
@@ -3814,7 +3818,8 @@ nav.navbar .container {
 
 /* Sección Video */
 .qh-video-section {
-    padding: 5rem 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .qh-video-wrapper {
@@ -3868,7 +3873,8 @@ nav.navbar .container {
 
 /* Misión & Visión */
 .qh-mv-section {
-    padding: 4rem 0;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
 }
 
 .qh-mv-card {
@@ -3903,7 +3909,7 @@ nav.navbar .container {
 
 /* Labor */
 .qh-labor-section {
-    padding: 4rem 0;
+    padding-bottom: 3rem;
 }
 
 .qh-labor-card {
@@ -3927,7 +3933,7 @@ nav.navbar .container {
 
 /* Social */
 .qh-social-section {
-    padding: 5rem 0;
+    padding-bottom: 3rem;
 }
 
 .qh-social-card {
