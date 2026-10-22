@@ -377,36 +377,31 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <div class="muestra--flex flex-column gap--16">
+                <div class="tx-comite-card-list" id="sesiones-list-container">
                     <?php foreach ( $sesiones as $sesion ) : ?>
-                    <div class="tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
-                        <div class="tx-sesion-card__inner">
+                    <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
+                    <div class="tx-comite-card tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
 
-                            <!-- Date Column -->
-                            <div class="tx-sesion-date texto--centro muestra--flex flex-column justify-content-center">
-                                <div class="sh0b color--neutro600 tx-sesion-date-year"><?php echo esc_html($sesion['anio']); ?></div>
-                            </div>
-
-                            <!-- Info Column -->
-                            <div class="tx-sesion-info flex-grow-1 muestra--flex flex-column justify-content-center">
-                                <h3 class="sh1b color--neutro800 mb--8 tx-sesion-info-title"><?php echo esc_html($sesion['titulo']); ?></h3>
-                                <p class="b1r color--neutro700 mb--0 tx-sesion-info-type">
-                                    <span class="b1sb color--neutro800">Tipo:</span> <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; <span class="b1sb color--neutro800">Modalidad:</span> <?php echo esc_html($sesion['modal']); ?>
-                                </p>
-                            </div>
-
-                            <!-- Action Column -->
-                            <div class="tx-sesion-action muestra--flex align-items-center gap--24">
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="boton__fantasma boton--vertical tx-sesion-pdf-link">
-                                    <i class="snd__icono snd-document--pdf tx-sesion-pdf-icon icono--24" aria-hidden="true"></i>
-                                    Acta
-                                </a>
-                                <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>" class="tx-sesion-chevron-link decoracion--ninguna ml--8">
-                                    <i class="snd__icono snd-chevron--right tx-sesion-chevron-icon icono--24" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
+                        <!-- Date Column -->
+                        <div class="tx-comite-card-date">
+                            <div class="sh0b color--neutro600 mb--0 tx-comite-card-year"><?php echo esc_html($sesion['anio']); ?></div>
                         </div>
+
+                        <!-- Info Column -->
+                        <div class="tx-comite-card-info">
+                            <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?php echo esc_html($sesion['titulo']); ?></h3>
+                            <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Tipo:</span> <?php echo esc_html($sesion['tipo']); ?> &nbsp;|&nbsp; <span class="b1sb color--neutro800">Modalidad:</span> <?php echo esc_html($sesion['modal']); ?></p>
+                        </div>
+
+                        <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
+                        <div class="tx-comite-card-action">
+                            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>">
+                                <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                Acta
+                                <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
                     </div>
                     <?php endforeach; ?>
                 </div>

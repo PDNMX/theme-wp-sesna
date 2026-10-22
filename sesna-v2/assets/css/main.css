@@ -4183,93 +4183,11 @@ nav.navbar .container {
 
 /* ── Comité de Igualdad de Género ─── */
 .page-derechos-humanos .dh-comite-panel {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 30px 32px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-/* Card de sesión — Componente SND v1.1.0 "Card" (catalogo-componentes-figma-extraidos.md §4):
-   fondo neutro100, borde neutro400, radio 16px, sombraLV1/LV2; columna de año con
-   divisor (abajo en móvil, a la derecha en tableta/escritorio ≥640px). Reutiliza las
-   clases .tx-sesion-* ya existentes (compartidas con otras plantillas) solo para
-   estructura/JS; el estilo visual se resuelve aquí, scoped a esta página. */
-.page-derechos-humanos .tx-sesion-card {
-    background-color: var(--neutro100);
+    background: var(--neutro100);
     border: 1px solid var(--neutro400);
     border-radius: 16px;
+    padding: 30px 32px;
     box-shadow: var(--dropLV1);
-    transition: box-shadow 0.2s ease;
-}
-
-.page-derechos-humanos .tx-sesion-card:hover {
-    box-shadow: var(--dropLV2);
-}
-
-.page-derechos-humanos .tx-sesion-card__inner {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-}
-
-.page-derechos-humanos .tx-sesion-date {
-    min-width: auto;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--neutro400);
-}
-
-.page-derechos-humanos .tx-sesion-date::after {
-    content: none;
-}
-
-.page-derechos-humanos .tx-sesion-action {
-    flex-wrap: wrap;
-}
-
-.page-derechos-humanos .tx-sesion-pdf-icon,
-.page-derechos-humanos .tx-sesion-chevron-icon {
-    font-size: inherit;
-    color: inherit;
-}
-
-.page-derechos-humanos .tx-sesion-chevron-link {
-    color: var(--principal);
-}
-
-@media (min-width: 640px) {
-    .page-derechos-humanos .tx-sesion-card__inner {
-        flex-direction: row;
-        align-items: stretch;
-        padding: 24px;
-        gap: 24px;
-    }
-
-    .page-derechos-humanos .tx-sesion-date {
-        padding-bottom: 0;
-        padding-right: 24px;
-        border-bottom: none;
-        border-right: 1px solid var(--neutro400);
-    }
-
-    .page-derechos-humanos .tx-sesion-action {
-        margin-left: auto;
-    }
-}
-
-.page-derechos-humanos .dh-sesion-btn:hover {
-    text-decoration: underline;
-}
-
-.page-derechos-humanos .dh-sesion-sep {
-    color: #ccc;
-    font-weight: 300;
-}
-
-.page-derechos-humanos .dh-sesion-chevron {
-    color: var(--color-burgundi);
-    font-size: 14px;
-    margin-left: 6px;
 }
 
 /* ── Responsive ─── */
