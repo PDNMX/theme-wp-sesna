@@ -5468,7 +5468,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-datos,
 .page-transparencia-normatividad,
 .page-transparencia-unidad,
-.page-organos-colegiados {
+.page-organos-colegiados,
+.page-marco-normativo {
     /* Fondo heredado de .front-page-bg */
     min-height: 75vh;
 }
@@ -5477,7 +5478,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-datos .sesna-page-hero,
 .page-transparencia-normatividad .sesna-page-hero,
 .page-transparencia-unidad .sesna-page-hero,
-.page-organos-colegiados .sesna-page-hero {
+.page-organos-colegiados .sesna-page-hero,
+.page-marco-normativo .sesna-page-hero {
     padding-bottom: 20px;
     margin-bottom: 0;
 }
@@ -5537,6 +5539,38 @@ body:has(.page-directorio) main.page {
 .tx-comite-subtitle {
     font-size: 20px;
     color: var(--color-guinda);
+}
+
+/* Panel contenedor Comité — Homologado con .dh-comite-panel y 4.11 Panel de filtros SND v1.1.0 */
+.tx-comite-panel {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    padding: 24px 16px;
+    box-shadow: var(--dropLV1);
+}
+@media (min-width: 640px) {
+    .tx-comite-panel {
+        padding: 30px 32px;
+    }
+}
+.tx-comite-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--neutro400);
+}
+/* 4.16 Mensajes informativos (Tipo Informativo) en paneles de comité/datos */
+.tx-comite-panel .aviso.aviso--info {
+    padding: 12px 16px;
+    gap: 12px;
+    align-items: center;
+}
+.tx-comite-panel .aviso .aviso__icon {
+    flex-shrink: 0;
 }
 
 /* Tarjeta de Sesión/Resolución — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
@@ -5804,6 +5838,78 @@ body:has(.page-directorio) main.page {
     background: transparent;
 }
 
+/* Variante Tabs 01 / State (Línea inferior) — SND UI Kit (618:2598 / 1562:3995 / 16460:870) */
+.tx-comite-tabs-container--underline {
+    border-bottom: 1px solid var(--neutro400);
+}
+.tx-comite-tabs-container--underline .tx-comite-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: -1px;
+}
+.tx-comite-tabs-container--underline .tx-comite-tab {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    height: 40px;
+    padding: 8px 16px;
+    gap: 8px;
+    border-radius: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--neutro600);
+    background-color: var(--neutro100);
+    color: var(--neutro700);
+    font-family: "Noto Sans", sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.tx-comite-tabs-container--underline .tx-comite-tab:hover:not([aria-selected="true"]):not(:disabled) {
+    background-color: var(--neutro300);
+    border-bottom: 1px solid var(--neutro600);
+    color: var(--neutro700);
+}
+.tx-comite-tabs-container--underline .tx-comite-tab[aria-selected="true"] {
+    background-color: var(--neutro100);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 3px solid var(--principal);
+    color: var(--principal);
+    font-weight: 600;
+}
+.tx-comite-tabs-container--underline .tx-comite-tab:focus-visible {
+    outline: 2px solid var(--azul500);
+    outline-offset: -2px;
+    border-radius: 4px 4px 0 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+}
+.tx-comite-tabs-container--underline .tx-comite-tab[aria-selected="true"]:focus-visible {
+    background-color: var(--neutro100);
+    border-bottom: 3px solid var(--principal);
+    color: var(--principal);
+}
+.tx-comite-tabs-container--underline .tx-comite-tab:disabled {
+    background-color: var(--neutro200);
+    border-bottom: 1px solid var(--neutro600);
+    color: var(--neutro600);
+    cursor: not-allowed;
+}
+
 /* Buscador Resoluciones y Filtros — Select / Dropatom SND v1.1.0 */
 .tx-comite-filter-control {
     height: 48px;
@@ -5875,7 +5981,10 @@ select.tx-comite-filter-control:disabled {
 /* Componente SND v1.1.0: Barra de búsqueda (4.1 Barra de búsqueda - Variante sección interna)
  * Implementa las 3 pestañas normativas (Descripción, Diseño Desktop/Móvil, Desarrollo)
  */
-#form-search-res.search-container {
+#form-search-sesion.search-container,
+#form-search-res.search-container,
+#form-search-dp.search-container,
+#form-search-doc.search-container {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -6798,56 +6907,6 @@ select.tx-comite-filter-control:disabled {
     .tx-oc-anexos-panel__inner {
         padding: 24px;
     }
-}
-
-/* Sidebar Nav compartida con page-marco-normativo.php */
-.page-marco-normativo .ocn-sidebar-nav {
-    border-radius: 16px;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,0.04);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    padding: 0.5rem;
-}
-
-.page-marco-normativo .ocn-sidebar-link {
-    color: #444;
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-bottom: 0.25rem;
-    position: relative;
-    overflow: hidden;
-    outline: none !important;
-}
-
-.page-marco-normativo .ocn-sidebar-link:focus,
-.page-marco-normativo .ocn-sidebar-link:active {
-    outline: none !important;
-}
-
-.page-marco-normativo .ocn-sidebar-link:last-child {
-    margin-bottom: 0;
-}
-
-.page-marco-normativo .ocn-sidebar-link:hover {
-    background-color: #f8f9fa;
-    color: var(--color-burgundi, #9F2241) !important;
-    transform: translateX(4px);
-}
-
-.page-marco-normativo .ocn-sidebar-link:hover i,
-.page-marco-normativo .ocn-sidebar-link:hover span {
-    color: var(--color-burgundi, #9F2241) !important;
-}
-
-.page-marco-normativo .ocn-sidebar-link.active {
-    background-color: var(--color-burgundi, #9F2241);
-    color: #fff !important;
-    box-shadow: 0 4px 12px rgba(159, 34, 65, 0.2);
-}
-
-.page-marco-normativo .ocn-sidebar-link.active i,
-.page-marco-normativo .ocn-sidebar-link.active span {
-    color: #fff !important;
 }
 
 
