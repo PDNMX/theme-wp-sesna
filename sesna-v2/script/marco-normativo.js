@@ -1,119 +1,158 @@
 document.addEventListener('DOMContentLoaded', function () {
     var PAGE_SIZE = 5;
-    var searchInput = document.getElementById('search-doc');
-    var searchForm = document.getElementById('form-search-doc');
-    var searchBox = searchInput ? searchInput.closest('.tx-comite-search-box') : null;
 
-    var tablas = [
-        {
-            titulo: document.getElementById('normatividad-externa-title'),
-            body: document.getElementById('normatividad-externa-body'),
-            tableWrap: document.getElementById('normatividad-externa-table-wrap'),
-            emptyMsg: document.getElementById('normatividad-externa-empty'),
-            verMasBtn: document.getElementById('normatividad-externa-vermas-btn'),
-            verMasWrap: document.getElementById('normatividad-externa-vermas-wrap'),
-            expandido: false
-        },
-        {
-            titulo: document.getElementById('normatividad-interna-title'),
-            body: document.getElementById('normatividad-interna-body'),
-            tableWrap: document.getElementById('normatividad-interna-table-wrap'),
-            emptyMsg: document.getElementById('normatividad-interna-empty'),
-            verMasBtn: document.getElementById('normatividad-interna-vermas-btn'),
-            verMasWrap: document.getElementById('normatividad-interna-vermas-wrap'),
-            expandido: false
-        }
-    ];
+    function setupNormatividadPanel(config) {
+        var body = document.getElementById(config.bodyId);
+        if (!body) return;
 
-    tablas.forEach(function (tabla) {
-        if (!tabla.body) return;
-        var filas = Array.prototype.slice.call(tabla.body.querySelectorAll('tr'));
-        filas.forEach(function (fila) {
-            var texto = fila.textContent.toLowerCase().trim();
-            fila.setAttribute('data-doc-search', texto);
-        });
-    });
+        var cards = Array.prototype.slice.call(body.querySelectorAll(config.cardSelector));
+        var filterTipo = document.getElementById(config.filterTipoId);
+        var searchInput = document.getElementById(config.searchInputId);
+        var searchForm = document.getElementById(config.searchFormId);
+        var searchBox = searchInput ? searchInput.closest('.tx-comite-search-box') : null;
+        var countStatus = document.getElementById(config.countId);
+        var resetBtn = document.getElementById(config.resetBtnId);
+        var emptyMsg = document.getElementById(config.emptyId);
+        var verMasWrap = document.getElementById(config.verMasWrapId);
+        var verMasBtn = document.getElementById(config.verMasBtnId);
 
-    function filasVisiblesPorBusqueda(fila, termino) {
-        if (!termino) return true;
-        return fila.getAttribute('data-doc-search').indexOf(termino) !== -1;
-    }
+        var visibleLimit = PAGE_SIZE;
 
-    function render() {
-        var termino = searchInput ? searchInput.value.toLowerCase().trim() : '';
-        if (searchBox) {
-            searchBox.classList.toggle('is-filled', termino.length > 0);
+        function matchesCard(card, tipoSel, termino) {
+            var cardTipo = card.getAttribute('data-tipo') || '';
+            var cardSearch = (card.getAttribute('data-doc-search') || '').toLowerCase();
+
+            var matchTipo = (tipoSel === 'Todos') || (cardTipo === tipoSel);
+            var matchSearch = !termino || (cardSearch.indexOf(termino) !== -1);
+
+            return matchTipo && matchSearch;
         }
 
-        tablas.forEach(function (tabla) {
-            if (!tabla.body) return;
-            var filas = Array.prototype.slice.call(tabla.body.querySelectorAll('tr'));
-            var coincidencias = filas.filter(function (fila) {
-                return filasVisiblesPorBusqueda(fila, termino);
+        function render() {
+            var tipoSel = filterTipo ? filterTipo.value : 'Todos';
+            var termino = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            var hasActiveFilters = (tipoSel !== 'Todos') || (termino.length > 0);
+
+            if (searchBox) {
+                searchBox.classList.toggle('is-filled', termino.length > 0);
+            }
+
+            if (resetBtn) {
+                resetBtn.classList.toggle('muestra--ninguno', !hasActiveFilters);
+            }
+
+            var matchingCards = cards.filter(function (card) {
+                return matchesCard(card, tipoSel, termino);
             });
 
-            var limite = (termino || tabla.expandido) ? coincidencias.length : PAGE_SIZE;
-            var hayOcultasPorLimite = !termino && !tabla.expandido && coincidencias.length > PAGE_SIZE;
+            var limit = hasActiveFilters ? matchingCards.length : visibleLimit;
+            var shownCount = 0;
 
-            var visibles = 0;
-            filas.forEach(function (fila) {
-                var coincide = filasVisiblesPorBusqueda(fila, termino);
-                var mostrar = coincide && visibles < limite;
-                fila.style.display = mostrar ? '' : 'none';
-                if (mostrar) visibles++;
+            cards.forEach(function (card) {
+                var match = matchesCard(card, tipoSel, termino);
+                var show = match && (shownCount < limit);
+                card.style.display = show ? '' : 'none';
+                if (show) shownCount++;
             });
 
-            var wrap = tabla.tableWrap || tabla.body.closest('.tx-table-responsive, .table-responsive');
-            if (wrap) {
-                wrap.style.display = coincidencias.length === 0 ? 'none' : '';
+            if (countStatus) {
+                var total = matchingCards.length;
+                var noun = total === 1 ? 'documento' : 'documentos';
+                countStatus.textContent = 'Mostrando ' + shownCount + ' de ' + total + ' ' + noun;
             }
-            if (tabla.emptyMsg) {
-                tabla.emptyMsg.classList.toggle('muestra--ninguno', coincidencias.length !== 0);
-            }
-            if (tabla.verMasWrap) {
-                tabla.verMasWrap.style.display = hayOcultasPorLimite ? '' : 'none';
-            }
-        });
-    }
 
-    tablas.forEach(function (tabla) {
-        if (!tabla.verMasBtn) return;
-        tabla.verMasBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            tabla.expandido = true;
-            render();
-        });
-    });
+            if (body) {
+                body.style.display = matchingCards.length === 0 ? 'none' : '';
+            }
 
-    function onSearchChange() {
-        if (searchInput && searchInput.value.trim() !== '') {
-            tablas.forEach(function (tabla) { tabla.expandido = false; });
+            if (emptyMsg) {
+                emptyMsg.classList.toggle('muestra--ninguno', matchingCards.length !== 0);
+            }
+
+            if (verMasWrap) {
+                var hasMore = !hasActiveFilters && (matchingCards.length > shownCount);
+                verMasWrap.style.display = hasMore ? '' : 'none';
+            }
         }
+
+        if (filterTipo) {
+            filterTipo.addEventListener('change', function () {
+                visibleLimit = PAGE_SIZE;
+                render();
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                visibleLimit = PAGE_SIZE;
+                render();
+            });
+            searchInput.addEventListener('search', function () {
+                visibleLimit = PAGE_SIZE;
+                render();
+            });
+        }
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                render();
+            });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function () {
+                if (filterTipo) filterTipo.value = 'Todos';
+                if (searchInput) searchInput.value = '';
+                visibleLimit = PAGE_SIZE;
+                render();
+            });
+        }
+
+        if (verMasBtn) {
+            verMasBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                visibleLimit += PAGE_SIZE;
+                render();
+            });
+        }
+
         render();
     }
 
-    if (searchInput) {
-        searchInput.addEventListener('input', onSearchChange);
-        searchInput.addEventListener('search', onSearchChange);
-    }
-    if (searchForm) {
-        searchForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            onSearchChange();
-        });
-    }
+    setupNormatividadPanel({
+        bodyId: 'normatividad-externa-body',
+        cardSelector: '.tx-norm-ext-card',
+        filterTipoId: 'filter-tipo-ext',
+        searchInputId: 'search-doc-ext',
+        searchFormId: 'form-search-ext',
+        countId: 'normatividad-externa-count',
+        resetBtnId: 'normatividad-externa-reset',
+        emptyId: 'normatividad-externa-empty',
+        verMasWrapId: 'normatividad-externa-vermas-wrap',
+        verMasBtnId: 'normatividad-externa-vermas-btn'
+    });
 
-    render();
-});
+    setupNormatividadPanel({
+        bodyId: 'normatividad-interna-body',
+        cardSelector: '.tx-norm-int-card',
+        filterTipoId: 'filter-tipo-int',
+        searchInputId: 'search-doc-int',
+        searchFormId: 'form-search-int',
+        countId: 'normatividad-interna-count',
+        resetBtnId: 'normatividad-interna-reset',
+        emptyId: 'normatividad-interna-empty',
+        verMasWrapId: 'normatividad-interna-vermas-wrap',
+        verMasBtnId: 'normatividad-interna-vermas-btn'
+    });
 
-// Controlador accesible de pestañas horizontales SND v1.1.0 (Tabs 2: Normatividad externa / interna)
-document.addEventListener('DOMContentLoaded', function() {
+    // Controlador accesible de pestañas horizontales SND v1.1.0 (Tabs 01: Normatividad externa / interna)
     var tabLinks = Array.from(document.querySelectorAll('.js-tab-link'));
     var normExtContainer = document.getElementById('normatividad-externa-container');
     var normIntContainer = document.getElementById('normatividad-interna-container');
 
     function activateTab(tab) {
-        tabLinks.forEach(function(l) {
+        tabLinks.forEach(function (l) {
             l.classList.remove('active');
             l.setAttribute('aria-selected', 'false');
             l.setAttribute('tabindex', '-1');
@@ -144,15 +183,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    tabLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
+    tabLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             activateTab(this);
             this.focus();
         });
 
         // Navegación por teclado WAI-ARIA (ArrowLeft, ArrowRight, Home, End)
-        link.addEventListener('keydown', function(e) {
+        link.addEventListener('keydown', function (e) {
             var idx = tabLinks.indexOf(this);
             if (e.key === 'ArrowRight') {
                 e.preventDefault();

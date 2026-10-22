@@ -62,71 +62,58 @@ $normatividad_externa = [
     <section class="tx-normativa">
         <div class="contenedor">
 
-            <!-- Card Principal: Tabla de Normativa en Materia de Transparencia -->
-            <div class="reticulaGrid__12 mb--32">
-                <div class="columna__12">
-                    <div class="tx-normativa-card">
+            <!-- Panel Principal Homologado: Normativa en Materia de Transparencia -->
+            <div class="tx-comite-panel mb--32">
 
-                        <!-- Encabezado de la Card -->
-                        <div class="tx-normativa-card__header mb--24">
-                            <div class="tx-normativa-card__icon" aria-hidden="true">
-                                <i class="snd__icono snd-security icono--32 color--pguinda600" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="h4b patria color--pguinda600 mb--4">Normativa en materia de transparencia</h2>
-                                <p class="b1r color--neutro600 mb--0">Consulta la normativa aplicable en materia de transparencia, acceso a la información, protección de datos personales y gestión documental.</p>
-                            </div>
-                        </div>
-
-                        <!-- Tabla SND v1.1.0 (4.11 Tabla, Figma 12022:54768 / 9083:41328) -->
-                        <div class="tx-table-responsive">
-                            <table class="tx-table-normatividad">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Documento</th>
-                                        <th scope="col">Tipo de documento</th>
-                                        <th scope="col">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($normatividad_externa as $doc) : ?>
-                                        <tr>
-                                            <td>
-                                                <span class="b1sb color--neutro800"><?= esc_html($doc['titulo']) ?></span>
-                                            </td>
-                                            <td>
-                                                <span class="b1r color--neutro700"><?= esc_html($doc['tipo']) ?></span>
-                                            </td>
-                                            <td>
-                                                <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener" title="El enlace abre en ventana nueva" class="boton__fantasma" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                                    Consultar <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-
+                <!-- Encabezado del Panel -->
+                <div class="tx-comite-panel__header mb--24">
+                    <div>
+                        <h2 class="sh0b color--neutro800 mb--4">Normativa en materia de transparencia</h2>
+                        <p class="b1r color--neutro600 mb--0">
+                            Consulta la normativa aplicable en materia de transparencia, acceso a la información, protección de datos personales y gestión documental.
+                        </p>
                     </div>
                 </div>
+
+                <!-- Lista de Documentos — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
+                <div class="tx-comite-card-list" id="normativa-list-container">
+                    <?php foreach ($normatividad_externa as $doc) : ?>
+                        <div class="tx-comite-card">
+
+                            <!-- Type Column -->
+                            <div class="tx-comite-card-date">
+                                <div class="sh0b color--neutro600 mb--0 tx-comite-card-year"><?= esc_html($doc['tipo']) ?></div>
+                            </div>
+
+                            <!-- Info Column -->
+                            <div class="tx-comite-card-info">
+                                <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?= esc_html($doc['titulo']) ?></h3>
+                                <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Tipo de documento:</span> <?= esc_html($doc['tipo']) ?></p>
+                            </div>
+
+                            <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
+                            <div class="tx-comite-card-action">
+                                <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener" title="El enlace abre en ventana nueva" class="boton__fantasma" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
+                                    Consultar <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
             </div>
 
             <!-- Card de Redirección: Marco Normativo -->
             <div class="reticulaGrid__12">
                 <div class="columna__12">
                     <div class="tx-normativa-card tx-normativa-card--cta">
-                        <div class="tx-normativa-card__header">
-                            <div class="tx-normativa-card__icon" aria-hidden="true">
-                                <i class="snd__icono snd-building icono--32 color--pguinda600" aria-hidden="true"></i>
-                            </div>
-                            <div>
-                                <h2 class="sh1b color--neutro800 mb--4">¿Deseas consultar más normativa?</h2>
-                                <p class="b1r color--neutro600 mb--0">Visita la sección de Órganos Colegiados y Normativa de la SESNA.</p>
-                            </div>
+                        <div>
+                            <h2 class="sh1b color--neutro800 mb--4">¿Deseas consultar más normativa?</h2>
+                            <p class="b1r color--neutro600 mb--0">Visita la sección de Órganos Colegiados y Normativa de la SESNA.</p>
                         </div>
-                        <a href="<?= esc_url( home_url('/marco-normativo/') ) ?>" class="boton__secundario">
-                            Marco Normativo <i class="snd__icono snd-arrow--right icono--20" aria-hidden="true"></i>
+                        <a href="<?= esc_url( home_url('/marco-normativo/') ) ?>" class="boton__fantasma">
+                            Marco Normativo <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
