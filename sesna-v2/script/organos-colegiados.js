@@ -67,60 +67,123 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Filtros de Año / Tipo de sesión + paginación "Ver más sesiones", por sección (Comité/Comisión/Órgano)
+// Filtros de Año / Tipo de sesión / Buscador + contador, botón Limpiar filtros, estado vacío y paginación "Ver más sesiones"
 document.addEventListener('DOMContentLoaded', function () {
     var SESIONES_PAGE_SIZE = 5;
 
     function initSesionSeccion(sufijo) {
         var filterAnio = document.getElementById('filter-anio-' + sufijo);
         var filterTipo = document.getElementById('filter-tipo-' + sufijo);
+        var searchInput = document.getElementById('search-sesion-' + sufijo);
+        var searchForm = document.getElementById('form-search-' + sufijo);
+        var searchBox = searchInput ? searchInput.closest('.tx-comite-search-box') : null;
+        var countStatus = document.getElementById('sesiones-count-' + sufijo);
+        var resetBtn = document.getElementById('sesiones-reset-' + sufijo);
+        var emptyMsg = document.getElementById('sesiones-empty-' + sufijo);
         var lista = document.getElementById('sesiones-list-' + sufijo);
         var verMasBtn = document.getElementById('sesiones-vermas-btn-' + sufijo);
         var verMasWrap = document.getElementById('sesiones-vermas-wrap-' + sufijo);
 
         if (!lista) return;
 
-        var expandido = false;
+        var visibleLimit = SESIONES_PAGE_SIZE;
         var cards = Array.prototype.slice.call(lista.querySelectorAll('.tx-sesion-card'));
+
+        function matchesCard(card, anio, tipo, termino) {
+            var matchAnio = (anio === 'Todos') || (card.getAttribute('data-anio') === anio);
+            var matchTipo = (tipo === 'Todas') || (card.getAttribute('data-tipo') === tipo);
+            var titulo = (card.getAttribute('data-titulo') || card.textContent || '').toLowerCase();
+            var matchSearch = !termino || (titulo.indexOf(termino) !== -1);
+            return matchAnio && matchTipo && matchSearch;
+        }
 
         function render() {
             var anio = filterAnio ? filterAnio.value : 'Todos';
             var tipo = filterTipo ? filterTipo.value : 'Todas';
+            var termino = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            var hasActiveFilters = (anio !== 'Todos') || (tipo !== 'Todas') || (termino.length > 0);
+
+            if (searchBox) {
+                searchBox.classList.toggle('is-filled', termino.length > 0);
+            }
+
+            if (resetBtn) {
+                resetBtn.classList.toggle('muestra--ninguno', !hasActiveFilters);
+            }
 
             var coincidencias = cards.filter(function (card) {
-                var matchAnio = anio === 'Todos' || card.getAttribute('data-anio') === anio;
-                var matchTipo = tipo === 'Todas' || card.getAttribute('data-tipo') === tipo;
-                return matchAnio && matchTipo;
+                return matchesCard(card, anio, tipo, termino);
             });
 
-            var limite = expandido ? coincidencias.length : SESIONES_PAGE_SIZE;
-            var hayOcultasPorLimite = !expandido && coincidencias.length > SESIONES_PAGE_SIZE;
-
+            var limite = hasActiveFilters ? coincidencias.length : visibleLimit;
             var visibles = 0;
+
             cards.forEach(function (card) {
-                var matchAnio = anio === 'Todos' || card.getAttribute('data-anio') === anio;
-                var matchTipo = tipo === 'Todas' || card.getAttribute('data-tipo') === tipo;
-                var coincide = matchAnio && matchTipo;
-                var mostrar = coincide && visibles < limite;
+                var coincide = matchesCard(card, anio, tipo, termino);
+                var mostrar = coincide && (visibles < limite);
                 card.style.display = mostrar ? '' : 'none';
                 if (mostrar) visibles++;
             });
 
+            if (countStatus) {
+                var total = coincidencias.length;
+                var noun = total === 1 ? 'sesión' : 'sesiones';
+                countStatus.textContent = 'Mostrando ' + visibles + ' de ' + total + ' ' + noun;
+            }
+
+            lista.style.display = coincidencias.length === 0 ? 'none' : '';
+
+            if (emptyMsg) {
+                emptyMsg.classList.toggle('muestra--ninguno', coincidencias.length !== 0);
+            }
+
             if (verMasWrap) {
-                verMasWrap.style.display = hayOcultasPorLimite ? '' : 'none';
+                var hayMas = !hasActiveFilters && (coincidencias.length > visibles);
+                verMasWrap.style.display = hayMas ? '' : 'none';
             }
         }
 
         if (filterAnio) {
-            filterAnio.addEventListener('change', function () { expandido = false; render(); });
+            filterAnio.addEventListener('change', function () {
+                visibleLimit = SESIONES_PAGE_SIZE;
+                render();
+            });
         }
         if (filterTipo) {
-            filterTipo.addEventListener('change', function () { expandido = false; render(); });
+            filterTipo.addEventListener('change', function () {
+                visibleLimit = SESIONES_PAGE_SIZE;
+                render();
+            });
+        }
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                visibleLimit = SESIONES_PAGE_SIZE;
+                render();
+            });
+            searchInput.addEventListener('search', function () {
+                visibleLimit = SESIONES_PAGE_SIZE;
+                render();
+            });
+        }
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                render();
+            });
+        }
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function () {
+                if (filterAnio) filterAnio.value = 'Todos';
+                if (filterTipo) filterTipo.value = 'Todas';
+                if (searchInput) searchInput.value = '';
+                visibleLimit = SESIONES_PAGE_SIZE;
+                render();
+            });
         }
         if (verMasBtn) {
             verMasBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                expandido = true;
+                visibleLimit += SESIONES_PAGE_SIZE;
                 render();
             });
         }
@@ -133,8 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Panel de Anexos (expandido dentro de la propia tarjeta de sesión):
 // buscador interno que filtra las filas de documentos por nombre.
-// Los enlaces "Descarga" son target="_blank" normales del navegador,
-// así que no requieren manejo especial de clic ni de foco.
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.tx-oc-anexos-panel').forEach(function (panel) {
         var searchInput = panel.querySelector('.tx-oc-anexos-search');

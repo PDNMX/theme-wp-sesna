@@ -5994,7 +5994,10 @@ select.tx-comite-filter-control:disabled {
 #form-search-dp.search-container,
 #form-search-doc.search-container,
 #form-search-ext.search-container,
-#form-search-int.search-container {
+#form-search-int.search-container,
+#form-search-comite.search-container,
+#form-search-comision.search-container,
+#form-search-organo.search-container {
     margin: 0;
     padding: 0;
     width: 100%;
