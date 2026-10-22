@@ -4128,8 +4128,8 @@ nav.navbar .container {
     outline: none;
 }
 
-.page-derechos-humanos .dh-campania-card .boton__fantasma {
-    margin: 0 10px 10px;
+.page-derechos-humanos .dh-campania-card__cta {
+    padding: 0 18px 16px;
 }
 
 /* ── Acciones X la Integridad ─── */
@@ -4168,18 +4168,6 @@ nav.navbar .container {
 
 .page-derechos-humanos .dh-acciones-card__body {
     padding: 32px 36px;
-}
-
-.page-derechos-humanos .dh-acciones-card__body h3 {
-    font-size: 20px;
-    font-family: var(--font-patria);
-    font-weight: 700;
-    color: var(--color-burgundi);
-}
-
-.page-derechos-humanos .dh-acciones-card__body p {
-    font-size: 16px;
-    line-height: 1.6;
 }
 
 .page-derechos-humanos .dh-link-burgundi {

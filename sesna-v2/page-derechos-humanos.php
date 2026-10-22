@@ -72,7 +72,7 @@ get_header();
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
-                        <h3 class="sh1b color--neutro800 mb--0 flex-grow-1">Pronunciamiento de No Discriminación</h3>
+                        <h3 class="sh1b mb--0 flex-grow-1">Pronunciamiento de No Discriminación</h3>
                         <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -88,7 +88,7 @@ get_header();
                             </div>
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
-                        <h3 class="sh1b color--neutro800 mb--0 flex-grow-1">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h3>
+                        <h3 class="sh1b mb--0 flex-grow-1">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h3>
                         <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -205,9 +205,11 @@ get_header();
                                 <i class="snd__icono snd icono--32 <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>;"></i>
                             <?php endif; ?>
                         </div>
-                        <h3 class="dh-campania-card__title sh1b patria color--pguinda600"><?php echo esc_html($dh_c_titulo); ?></h3>
-                        <p class="dh-campania-card__desc sdr flex-grow-1 mb--16"><?php echo esc_html($dh_c_resumen); ?></p>
-                        <span class="boton__fantasma mt-auto">Ver más <i class="snd__icono snd snd-arrow--right" aria-hidden="true"></i></span>
+                        <h3 class="dh-campania-card__title sh1b"><?php echo esc_html($dh_c_titulo); ?></h3>
+                        <p class="dh-campania-card__desc sdr flex-grow-1 mb--16 texto--justify"><?php echo esc_html($dh_c_resumen); ?></p>
+                        <div class="dh-campania-card__cta mt-auto texto--derecha--md">
+                            <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Leer más</span>
+                        </div>
                     </div>
                 </div>
                 <?php
@@ -293,13 +295,15 @@ get_header();
                     </div>
                     <div class="columna__12 columna__8--md">
                         <div class="dh-acciones-card__body">
-                            <h3 class="sh1b color--neutro800 mb--16">Acciones X la Integridad</h3>
-                            <p class="b1r color--neutro600 mb--16">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
-                            <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                <span class="boton__fantasma">Leer más <i class="snd__icono snd-arrow--right ml--4 icono--16" aria-hidden="true"></i></span>
-                            <?php else : ?>
-                                <span class="boton__fantasma--disabled" aria-disabled="true">Leer más <i class="snd__icono snd-arrow--right ml--4 icono--16" aria-hidden="true"></i></span>
-                            <?php endif; ?>
+                            <h3 class="sh1b mb--16">Acciones X la Integridad</h3>
+                            <p class="b1r color--neutro600 mb--16 texto--justify">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
+                            <div class="texto--derecha--md">
+                                <?php if (!empty($dh_catalogo_paginas)) : ?>
+                                    <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Leer más</span>
+                                <?php else : ?>
+                                    <span class="sh1b muestra--flex-linea align-items-center color--neutro500" aria-disabled="true">Leer más</span>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
