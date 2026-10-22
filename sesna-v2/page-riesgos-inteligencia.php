@@ -48,14 +48,12 @@ get_header(); ?>
 
     <!-- Documentos Section -->
     <section class="contenedor mb--48">
-        <div class="mb--24">
-            <h2 class="h2b patria color--pguinda600 mb--0">Documentos</h2>
-        </div>
+        <h2 class="h2b patria color--pguinda600 mb--8">Documentos</h2>
 
         <!-- Texto descriptivo -->
-        <div class="sh1r color--neutro600 mb--24">
+        <p class="sh1r color--neutro600 mb--0">
             Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
-        </div>
+        </p>
 
         <div class="reticulaGrid__12 pt--24">
             <!-- Card 1 -->

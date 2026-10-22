@@ -4031,6 +4031,16 @@ nav.navbar .container {
 }
 
 /* ============================================================
+   Página: Riesgos e Inteligencia Anticorrupción
+   ============================================================ */
+
+/* ── Hero ─── */
+.page-riesgos-inteligencia .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* ============================================================
    Página: Derechos Humanos y Perspectiva de Género
    ============================================================ */
 
