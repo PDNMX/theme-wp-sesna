@@ -10,130 +10,125 @@ $documentos = sesna_get_datos_personales_docs();
 
 ?>
 
-<div class="page-transparencia-datos front-page-bg pb-5">
-    <!-- Migas de pan (Breadcrumb) -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+<div class="page-transparencia-datos front-page-bg pb--40">
+    <!-- Breadcrumb -->
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?= esc_url( home_url('/') ) ?>">
-                        <i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio
-                    </a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>">Transparencia</a>
+                <li class="ruta__li">
+                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Datos Personales</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Datos Personales</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
+    <!-- Hero -->
+    <section class="sesna-page-hero">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda600">Datos Personales</h1>
+                    <p class="sh1r color--neutro600 mb--0">
+                        Consulta los avisos de privacidad y otros documentos importantes respecto al tratamiento de los datos personales en posesión de la SESNA.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contenedor Principal -->
-    <div class="contenedor py-4">
-
-        <!-- Títulos — SND Sección 3.4: h1b patria -->
-        <div class="reticulaGrid__12 mb-4">
-            <div class="columna__12">
-                <h1 class="h1b patria tx-section-title mb-2 tx-comite-title">Datos Personales</h1>
-            </div>
-        </div>
-
-        <div class="reticulaGrid__12 mb-4">
-            <div class="columna__12">
-                <p class="text-muted fs-5">
-                    Consulta los avisos de privacidad y otros documentos importantes respecto al tratamiento de los datos personales en posesión de la SESNA.
-                </p>
-            </div>
-        </div>
+    <div class="contenedor">
 
         <div class="tx-comite-tab-content">
             <!-- Filtros -->
-            <div class="reticulaGrid__12 mb-5 align-items-end">
-                <div class="columna__12 columna__6--sm columna__3--md mb-3 mb-md-0">
-                    <label for="filter-anio" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Año</label>
-                    <select id="filter-anio" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                        <option value="Todos">Todos</option>
-                        <?php
-                        $anios_doc = array_unique(array_column($documentos, 'anio'));
-                        rsort($anios_doc);
-                        foreach($anios_doc as $a): ?>
-                            <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+            <div class="reticulaGrid__12 mb--32 align-items-end">
+                <div class="columna__12 columna__6--md columna__3--lg">
+                    <label for="filter-anio" class="b1sb dblock color--neutro800 mb--8">Año</label>
+                    <div class="tx-select-wrap">
+                        <select id="filter-anio" class="tx-comite-select tx-comite-filter-control">
+                            <option value="Todos">Todos</option>
+                            <?php
+                            $anios_doc = array_unique(array_column($documentos, 'anio'));
+                            rsort($anios_doc);
+                            foreach($anios_doc as $a): ?>
+                                <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                    </div>
                 </div>
-                <div class="columna__12 columna__6--sm columna__4--md">
-                    <label for="filter-tipo" class="form-label fw-bold font-noto-sans fs-5 text-dark mb-2">Tipo de documento</label>
-                    <select id="filter-tipo" class="form-select font-noto-sans small text-dark shadow-sm rounded-3 py-2 tx-comite-filter-control">
-                        <option value="Todos">Todos</option>
-                        <?php 
-                        $tipos_doc = array_unique(array_column($documentos, 'tipo'));
-                        sort($tipos_doc);
-                        foreach($tipos_doc as $t): ?>
-                            <option value="<?= esc_attr($t) ?>"><?= esc_html($t) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                <div class="columna__12 columna__6--md columna__4--lg">
+                    <label for="filter-tipo" class="b1sb dblock color--neutro800 mb--8">Tipo de documento</label>
+                    <div class="tx-select-wrap">
+                        <select id="filter-tipo" class="tx-comite-select tx-comite-filter-control">
+                            <option value="Todos">Todos</option>
+                            <?php 
+                            $tipos_doc = array_unique(array_column($documentos, 'tipo'));
+                            sort($tipos_doc);
+                            foreach($tipos_doc as $t): ?>
+                                <option value="<?= esc_attr($t) ?>"><?= esc_html($t) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
 
             <!-- Lista de Documentos -->
-            <div class="d-flex flex-column gap-3" id="documentos-list-container">
-                <?php foreach ($documentos as $doc): ?>
-                <!-- Card Item -->
-                <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-3 tx-sesion-card" data-anio="<?= esc_attr($doc['anio']) ?>" data-tipo="<?= esc_attr($doc['tipo']) ?>">
-                    <div class="card-body p-0 d-flex flex-column flex-md-row align-items-md-stretch">
-                        
-                        <!-- Date Column -->
-                        <div class="tx-sesion-date text-center p-3 p-md-4 d-flex flex-column justify-content-center">
-                            <div class="fw-bold fs-3 tx-sesion-date-year" style="color:#666;"><?= esc_html($doc['anio']) ?></div>
-                        </div>
+            <div class="reticulaGrid__12">
+                <div class="columna__12">
+                    <div class="tx-comite-card-list" id="documentos-list-container">
+                        <?php foreach ($documentos as $doc): ?>
+                        <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
+                        <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($doc['anio']) ?>" data-tipo="<?= esc_attr($doc['tipo']) ?>">
 
-                        <!-- Info Column -->
-                        <div class="p-4 ps-md-4 flex-grow-1 d-flex flex-column justify-content-center">
-                            <h3 class="h5b mb-2 tx-sesion-info-title"><?= esc_html($doc['titulo']) ?></h3>
-                            <p class="mb-0 font-noto-sans tx-sesion-info-type"><strong>Categoría:</strong> <?= esc_html($doc['tipo']) ?></p>
-                        </div>
+                            <!-- Date Column -->
+                            <div class="tx-comite-card-date">
+                                <div class="sh0b color--neutro600 mb--0 tx-comite-card-year"><?= esc_html($doc['anio']) ?></div>
+                            </div>
 
-                        <!-- Action Column -->
-                        <div class="tx-sesion-action d-flex align-items-center justify-content-md-end p-4 gap-4 ms-md-auto">
-                            <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="text-decoration-none text-center d-flex flex-column align-items-center tx-sesion-pdf-link">
-                                <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true"></i>
-                                <div class="fw-bold mt-1 font-noto-sans tx-sesion-pdf-text">Consultar</div>
-                            </a>
-                            <a href="javascript:void(0)" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" class="tx-sesion-chevron-link text-decoration-none ms-2">
-                                <i class="snd__icono snd-chevron--right icono--20 tx-sesion-chevron-icon" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                            <!-- Info Column -->
+                            <div class="tx-comite-card-info">
+                                <h3 class="sh1b color--neutro800 mb--8 tx-comite-card-title"><?= esc_html($doc['titulo']) ?></h3>
+                                <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Categoría:</span> <?= esc_html($doc['tipo']) ?></p>
+                            </div>
 
+                            <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
+                            <div class="tx-comite-card-action">
+                                <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>">
+                                    <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                    Consultar
+                                    <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-                <?php endforeach; ?>
             </div>
 
             <!-- Ver más Documentos -->
-            <div class="text-center mt-5" id="documentos-load-more-container">
-                <a href="javascript:void(0)" id="documentos-btn-more" class="boton__fantasma">
-                    Ver más documentos <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
-                </a>
+            <div class="reticulaGrid__12">
+                <div class="columna__12">
+                    <div class="texto--centro mt--32" id="documentos-load-more-container">
+                        <button type="button" id="documentos-btn-more" class="boton__fantasma">
+                            Ver más documentos <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
 
     </div>
 </div>
-
-<style>
-.tx-pdf-action-btn {
-    color: var(--color-burgundi);
-    border: 1px solid var(--color-burgundi);
-    border-radius: 8px;
-    background-color: transparent;
-    transition: all 0.2s ease-in-out;
-}
-.tx-pdf-action-btn:hover {
-    background-color: var(--color-burgundi);
-    color: #ffffff;
-}
-</style>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
@@ -164,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (matchAnio && matchTipo) {
                 if (totalMatched < visibleLimit) {
-                    card.style.display = 'block';
+                    card.style.display = '';
                     visibleCount++;
                 } else {
                     card.style.display = 'none';

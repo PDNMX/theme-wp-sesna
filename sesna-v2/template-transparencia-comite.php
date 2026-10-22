@@ -164,10 +164,14 @@ wp_reset_postdata();
                 </div>
 
                 <!-- Ver más Sesiones -->
-                <div class="text-center mt-5" id="sesiones-load-more-container">
-                    <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
-                    </a>
+                <div class="reticulaGrid__12">
+                    <div class="columna__12">
+                        <div class="texto--centro mt--32" id="sesiones-load-more-container">
+                            <button type="button" id="sesiones-btn-more" class="boton__fantasma">
+                                Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -238,10 +242,14 @@ wp_reset_postdata();
                 </div>
 
                 <!-- Ver más Resoluciones -->
-                <div class="text-center mt-5" id="resoluciones-load-more-container">
-                    <a href="javascript:void(0)" id="resoluciones-btn-more" class="boton__fantasma">
-                        Ver más resoluciones <i class="snd__icono snd-chevron--down icono--16 ms-2" aria-hidden="true"></i>
-                    </a>
+                <div class="reticulaGrid__12">
+                    <div class="columna__12">
+                        <div class="texto--centro mt--32" id="resoluciones-load-more-container">
+                            <button type="button" id="resoluciones-btn-more" class="boton__fantasma">
+                                Ver más resoluciones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </div>

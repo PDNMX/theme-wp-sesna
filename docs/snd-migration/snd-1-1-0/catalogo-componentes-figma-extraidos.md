@@ -479,5 +479,70 @@ select.tx-comite-filter-control:disabled {
 </section>
 ```
 
+---
+
+## 8. Componente: Tabla (`4.11 Tabla`, Figma `page_id=4083:1840` / `Table` `12022:54768` / `Atomos/Tabla` `9083:41328`)
+
+Extraído de la página **`Tabla` (`4083:1840`)** del archivo `SND | UI Kit` (`kW8LFCzYEiBxCgHu6gBD66`) y alineado con las pestañas **Descripción** y **Diseño** de `4.11 Tabla` en `snd-v1.1.0-extraccion.md` (L988–1011).
+
+### Variantes de Componente en Figma
+1. **Tabla completa (`Table` `12022:54768`):**
+   - `Pantalla=Desktop, Estado=Default` (`9083:44184`)
+   - `Pantalla=Mobile, Estado=Default` (`10926:31270`)
+   - `Pantalla=Desktop, Estado=Vacio` (`23448:9981`) / `Estado=Sin resultados` (`24417:61706`)
+2. **Átomos de Celdas y Cabecera (`Atomos/Tabla` `9083:41328`):**
+   - `Type=Header, Estado=Default` (`9083:41323`): Fondo institucional `var(--principal)` (`#611232`, `guinda-900`), texto e ícono de ordenamiento `var(--neutro100)` (`#FFFFFF`).
+   - `Type=Header, Estado=Secundario` (`9497:22044`): Fondo neutro `var(--neutro300)` (`#F3F3F3`), texto e ícono `var(--neutro800)` (`#161A1D`).
+   - `Type=Texto, Estado=Default` (`9083:41334`) / `Estado=Seleccionado` (`22366:9580`): Texto `var(--neutro800)` (`#161A1D`), tipografía `Noto Sans Regular 16px/22px` (`.b1r`).
+   - `Type=Acción, Estado=Default` (`9083:41317`) / `Estado=Seleccionado` (`22366:11043`): Acción en color `var(--principal)` (`#611232`), implementada en web con `.boton__fantasma` oficial.
+
+### Anatomía y Medidas Normativas
+- **Envolvente responsivo (`.tx-table-responsive` / `.table-responsive`):**
+  - `width: 100%; overflow-x: auto; background-color: var(--neutro100); border: 1px solid var(--neutro400); border-radius: 8px;`
+- **Elemento `<table>` (`.tx-table-normatividad`):**
+  - `width: 100%; border-collapse: collapse; margin-bottom: 0; background-color: var(--neutro100);`
+- **Cabecera (`<thead> th`):**
+  - **Fondo:** `var(--principal)` (`#611232`).
+  - **Texto:** `var(--neutro100)` (`#FFFFFF`), `Noto Sans`, `1rem` (`16px`), `line-height: 1.375rem` (`22px`), `font-weight: 600` (`.b1sb`).
+  - **Padding interno:** `12px 16px` (`padding interno celdas 12px` según pestaña Diseño).
+- **Filas y Celdas (`<tbody> tr`, `<td>`):**
+  - **Fondo Default:** `var(--neutro100)` (`#FFFFFF`).
+  - **Fondo Hover:** `var(--neutro200)` (`#F9F9F9`).
+  - **Divisor horizontal:** `border-bottom: 1px solid var(--neutro300)` (`#F3F3F3`) entre filas (la última fila omite borde inferior).
+  - **Padding interno:** `12px 16px`.
+  - **Tipografía:** `Noto Sans`, `1rem` (`16px`), `line-height: 1.375rem` (`22px`), `color: var(--neutro800)` (`#161A1D`).
+  - **Anchos mínimos de columna:** `min-width: 110px`; columna de acciones centrada/derecha con botón `.boton__fantasma`.
+
+### HTML Reutilizable
+```html
+<div class="tx-table-responsive">
+    <table class="tx-table-normatividad">
+        <thead>
+            <tr>
+                <th scope="col">Documento</th>
+                <th scope="col">Tipo de documento</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="b1sb color--neutro800">Ley General de Transparencia y Acceso a la Información Pública.</span>
+                </td>
+                <td>
+                    <span class="b1r color--neutro700">Ley</span>
+                </td>
+                <td>
+                    <a href="https://..." target="_blank" rel="noopener" title="El enlace abre en ventana nueva" class="boton__fantasma">
+                        Consultar <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+```
+
+
 
 

@@ -130,6 +130,16 @@ for nid, nval in data.get("nodes", {}).items():
     dump_texts(doc)
 ```
 
+### Paso 4.5: Alternativa cuando `/nodes` devuelve `HTTP 429` (`x-figma-rate-limit-type: low`)
+Si el endpoint Tier 1 (`/v1/files/:key/nodes`) devuelve `{"status":429,"err":"Rate limit exceeded"}` por cuota de asiento Viewer, usar el endpoint de metadatos de componentes (que opera en un bucket independiente y devuelve `HTTP 200` con los 1,486 componentes del archivo y sus URLs pre-firmadas de AWS S3 `thumbnail_url`):
+
+```bash
+curl -sL -H "X-Figma-Token: <TU_FIGMA_TOKEN>" \
+  "https://api.figma.com/v1/files/kW8LFCzYEiBxCgHu6gBD66/components" \
+  -o /tmp/figma_components.json
+```
+Desde `/tmp/figma_components.json` se filtran las variantes por `containing_frame.pageId` (ej. `"4083:1840"` para `Tabla`), se descargan directamente sus imágenes PNG desde `s3-alpha.figma.com` (sin consumir cuota de Figma API) y se inspeccionan visualmente con `read_file` y con `PIL.Image` en Python para extraer dimensiones y colores RGB/HEX exactos.
+
 ---
 
 ## 5. Índice Completo de Páginas y Nodos Clave del `SND | UI Kit` (`kW8LFCzYEiBxCgHu6gBD66`)

@@ -78,9 +78,10 @@ $tx_cards = [
                    target="_blank" 
                    rel="noopener noreferrer" 
                    title="El enlace abre en ventana nueva" 
-                   class="boton__primario boton--redondeado tx-banner__btn" 
+                   class="boton__primario" 
                    aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                    <span>Solicitar información</span>
+                    <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                    Solicitar información
                 </a>
             </div>
         </div>
@@ -161,10 +162,10 @@ $tx_cards = [
                                     Conoce el nuevo modelo nacional de transparencia y consulta información de interés público.
                                 </p>
                                 <div class="mt--auto">
-                                    <span class="tx-consulta-card__btn boton__primario boton--vertical"
+                                    <span class="boton__primario"
                                           aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
                                         <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
-                                        <span>Ir al portal</span>
+                                        Ir al portal
                                     </span>
                                 </div>
                             </div>
@@ -189,10 +190,10 @@ $tx_cards = [
                                     Realiza solicitudes de información y consulta obligaciones de transparencia.
                                 </p>
                                 <div class="mt--auto">
-                                    <span class="tx-consulta-card__btn boton__primario boton--vertical"
+                                    <span class="boton__primario"
                                           aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
                                         <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
-                                        <span>Acceder</span>
+                                        Acceder
                                     </span>
                                 </div>
                             </div>
@@ -207,16 +208,16 @@ $tx_cards = [
     <!-- ── Banda de Contacto ──────────────────────────────────── -->
     <section class="tx-contacto py--32" aria-label="Datos de contacto de la Unidad de Transparencia">
         <div class="contenedor">
-            <div class="reticulaGrid__12 align-items-center justify-content-center">
+            <div class="reticulaGrid__12 align-items-center">
 
-                <div class="columna__12 columna__6--md mb--16 mb--0--md">
-                    <div class="muestra--flex align-items-center justify-content-center gap--16">
+                <div class="columna__12 columna__6--md">
+                    <div class="reticulaFlex align-items-center justify-content-flex-start justify-content-center--md gap--16">
                         <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
                             <i class="snd__icono snd-email icono--24 color--blanco" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <span class="tx-contacto__label d-block b1r color--neutro600">Correo electrónico:</span>
-                            <a href="mailto:unidadtransparencia@sesna.gob.mx" class="tx-contacto__link sh1b color--pguinda600">
+                            <span class="sdr dblock color--neutro600 mb--4">Correo electrónico:</span>
+                            <a href="mailto:unidadtransparencia@sesna.gob.mx" class="tx-contacto__link b1b color--pguinda600 mb--0">
                                 unidadtransparencia@sesna.gob.mx
                             </a>
                         </div>
@@ -224,13 +225,13 @@ $tx_cards = [
                 </div>
 
                 <div class="columna__12 columna__6--md">
-                    <div class="muestra--flex align-items-center justify-content-center gap--16">
+                    <div class="reticulaFlex align-items-center justify-content-flex-start justify-content-center--md gap--16">
                         <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
                             <i class="snd__icono snd-phone icono--24 color--blanco" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <span class="tx-contacto__label d-block b1r color--neutro600">Teléfono y extensión:</span>
-                            <a href="tel:+525581178100" class="tx-contacto__link sh1b color--pguinda600">
+                            <span class="sdr dblock color--neutro600 mb--4">Teléfono y extensión:</span>
+                            <a href="tel:+525581178100" class="tx-contacto__link b1b color--pguinda600 mb--0">
                                 55 8117 8100 &nbsp;•&nbsp; Ext. 1116
                             </a>
                         </div>

@@ -2987,32 +2987,6 @@ nav.navbar .container {
     z-index: 5;
 }
 
-.page-transparencia .tx-banner__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--pguinda900, #611232);
-    color: var(--color-blanco) !important;
-    border: 2px solid var(--color-blanco);
-    border-radius: 50rem !important;
-    padding: 8px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    min-height: 48px;
-    line-height: normal;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-    text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.page-transparencia .tx-banner__btn:hover,
-.page-transparencia .tx-banner__btn:focus-visible {
-    background-color: var(--pguinda950, #4a0c26);
-    color: var(--color-blanco) !important;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
-}
-
 @media (max-width: 767.98px) {
     .page-transparencia .tx-banner {
         display: flex;
@@ -3025,15 +2999,6 @@ nav.navbar .container {
         position: static;
         padding: 16px 16px 24px;
         background-color: var(--color-fondo-claro, #f8f9fa);
-    }
-    .page-transparencia .tx-banner__btn {
-        width: 100%;
-        max-width: 320px;
-        min-height: 48px;
-        padding: 8px 24px;
-        font-size: 1rem;
-        border-color: var(--pguinda900, #611232);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -3051,6 +3016,7 @@ nav.navbar .container {
 /* Accesos rápidos — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
 .page-transparencia .tx-card {
     background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
     border-radius: 16px;
     padding: 24px;
     text-align: left;
@@ -3389,6 +3355,7 @@ nav.navbar .container {
 /* Consulta información pública — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
 .page-transparencia .tx-consulta-card {
     background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
     border-radius: 16px;
     padding: 28px 24px;
     text-align: left;
@@ -3436,43 +3403,16 @@ nav.navbar .container {
     line-height: 1.5;
 }
 
-.page-transparencia .tx-consulta-card__btn {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background-color: var(--principal, #611232);
-    color: var(--color-blanco) !important;
-    border: 1px solid var(--principal, #611232);
-    padding: 8px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    min-height: 48px;
-    min-width: 140px;
-    line-height: normal;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
-}
-
-.page-transparencia .tx-consulta-card__btn .snd__icono {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-    line-height: 1;
-}
-
-.page-transparencia .tx-consulta-card:hover .tx-consulta-card__btn {
-    background-color: var(--gama600, #781838);
-    border-color: var(--gama600, #781838);
-    transform: translateY(-2px);
+.page-transparencia .tx-consulta-card:hover .boton__primario {
+    background-color: var(--gama600);
+    border-color: var(--gama600);
+    color: var(--neutro100);
 }
 
 /* Banda de contacto */
 .page-transparencia .tx-contacto {
-    background: #f7f3f5;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--neutro200);
+    border-top: 1px solid var(--neutro400);
 }
 
 .page-transparencia .tx-contacto__icon-wrap {
@@ -3480,30 +3420,26 @@ nav.navbar .container {
     height: 48px;
     min-width: 48px;
     border-radius: 50%;
-    background: var(--pguinda900, #611232);
+    background-color: var(--principal);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-blanco);
-    font-size: 20px;
+    color: var(--neutro100);
 }
 
-.page-transparencia .tx-contacto__label {
-    font-size: 13px;
-    line-height: 1.2;
-    margin-bottom: 2px;
+.page-transparencia .tx-contacto__icon-wrap .snd__icono {
+    width: 24px;
+    height: 24px;
 }
 
 .page-transparencia .tx-contacto__link {
-    font-size: 16px;
     text-decoration: none;
-    line-height: 1.4;
     transition: color 0.2s ease;
 }
 
 .page-transparencia .tx-contacto__link:hover,
 .page-transparencia .tx-contacto__link:focus-visible {
-    color: var(--pguinda950, #4a0c26);
+    color: var(--gama950);
     text-decoration: underline;
 }
 
@@ -5606,14 +5542,72 @@ body:has(.page-directorio) main.page {
 /* ============================================================
    Comité de Transparencia
    ============================================================ */
-.page-transparencia-comite {
+.page-transparencia-comite,
+.page-transparencia-datos,
+.page-transparencia-normatividad,
+.page-transparencia-unidad {
     /* Fondo heredado de .front-page-bg */
     min-height: 75vh;
 }
 
-.page-transparencia-comite .sesna-page-hero {
+.page-transparencia-comite .sesna-page-hero,
+.page-transparencia-datos .sesna-page-hero,
+.page-transparencia-normatividad .sesna-page-hero,
+.page-transparencia-unidad .sesna-page-hero {
     padding-bottom: 20px;
     margin-bottom: 0;
+}
+
+/* Cards de Normativa (template-transparencia-normatividad.php) — SND UI Kit */
+.tx-normativa-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 24px 16px;
+}
+
+.tx-normativa-card__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.tx-normativa-card__icon {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--pguinda600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tx-normativa-card--cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .tx-normativa-card {
+        padding: 32px;
+    }
+    .tx-normativa-card__header {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    .tx-normativa-card--cta {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .tx-comite-subtitle {
@@ -5724,9 +5718,7 @@ body:has(.page-directorio) main.page {
     outline: none !important;
 }
 .tx-sesion-pdf-link:focus,
-.tx-sesion-chevron-link:focus,
-a[data-modal-target="#pdfViewerModal"]:focus,
-button[data-modal-target="#pdfViewerModal"]:focus {
+.tx-sesion-chevron-link:focus {
     outline: none !important;
 }
 
@@ -6104,15 +6096,117 @@ select.tx-comite-filter-control:disabled {
 }
 
 /* ------------------------------------------------------------
-   Unidad de Transparencia
+   Unidad de Transparencia — SND v1.1.0 (Cards *: 12022:57247 / 37597:51336)
    ------------------------------------------------------------ */
 .tx-unidad-card {
-    background-color: #ffffff;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    overflow: hidden;
+}
+
+.tx-unidad-card__body {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tx-unidad-divider {
+    border: 0;
+    border-top: 1px solid var(--neutro400);
+    margin: 0 0 24px 0;
+}
+
+.tx-unidad-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tx-unidad-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tx-unidad-info-item--top {
+    align-items: flex-start;
 }
 
 .tx-unidad-icon-circle {
-    background-color: #fcf4f5;
-    color: var(--color-burgundi);
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--pguinda600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tx-unidad-icon-circle--white {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+}
+
+.tx-unidad-link {
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+
+.tx-unidad-link:hover,
+.tx-unidad-link:focus-visible {
+    color: var(--pguinda600);
+    text-decoration: underline;
+}
+
+.tx-unidad-card__map-col {
+    padding: 0 16px 24px 16px;
+    display: flex;
+    align-items: stretch;
+}
+
+.tx-unidad-map-container {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 12px;
+    border: 1px solid var(--neutro400);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--neutro200);
+}
+
+.tx-unidad-map-iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tx-unidad-card__footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 24px 16px;
+    background-color: var(--pguinda100);
+    border-top: 1px solid var(--neutro400);
+    overflow: hidden;
+}
+
+.tx-unidad-card__footer-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 
 .tx-unidad-footer-bg {
@@ -6121,7 +6215,7 @@ select.tx-comite-filter-control:disabled {
     top: 0;
     height: 100%;
     width: 40%;
-    background-color: var(--color-guinda);
+    background-color: var(--principal);
     transform: skewX(-45deg);
     z-index: 0;
 }
@@ -6132,7 +6226,7 @@ select.tx-comite-filter-control:disabled {
     top: 0;
     height: 100%;
     width: 40%;
-    background-color: var(--color-burgundi);
+    background-color: var(--pguinda600);
     transform: skewX(-45deg);
     z-index: 0;
 }
@@ -6143,24 +6237,46 @@ select.tx-comite-filter-control:disabled {
     top: 0;
     height: 100%;
     width: 40%;
-    background-color: #d1a8b3;
+    background-color: var(--pguinda300);
     transform: skewX(-45deg);
     z-index: 0;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 640px) {
+    .tx-unidad-card__body {
+        padding: 32px;
+    }
+    .tx-unidad-card__map-col {
+        padding: 0 32px 32px 32px;
+    }
+    .tx-unidad-card__footer {
+        padding: 24px 32px;
+    }
+}
+
+@media (max-width: 1023.98px) {
     .tx-unidad-footer-bg, 
     .tx-unidad-footer-bg-light, 
     .tx-unidad-footer-bg-lighter {
         display: none;
     }
 }
-.tx-unidad-map-container {
-    min-height: 300px;
-}
-@media (min-width: 992px) {
+
+@media (min-width: 1024px) {
+    .tx-unidad-card__body {
+        padding: 40px;
+    }
+    .tx-unidad-card__map-col {
+        padding: 40px 40px 40px 0;
+    }
     .tx-unidad-map-container {
         min-height: 450px;
+    }
+    .tx-unidad-card__footer {
+        padding: 24px 40px;
+    }
+    .tx-unidad-card__footer-content {
+        padding-right: 25%;
     }
 }
 

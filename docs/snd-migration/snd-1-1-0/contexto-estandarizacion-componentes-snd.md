@@ -119,6 +119,57 @@ Toda página interna intervenida **debe homologar su título principal H1 y la s
    - En CSS se estandariza con `.sesna-page-hero`: `padding-top: 40px` (desktop) / `28px` (móvil), `padding-bottom: 20px` y `margin-bottom: 0`.
    - Esto fija un **espaciado vertical exacto y limpio de 20px** entre la base del título y el borde superior del siguiente componente (Tabs, tarjetas o filtros).
 
+### 🧭 Regla Obligatoria de Migas de Pan / Breadcrumb (SND v1.1.0)
+Toda página interna que incluya ruta de navegación (`Breadcrumb`) debe usar **exclusivamente** las clases nativas del SND v1.1.0 definidas en [`docs/snd-guinda.css`](../../snd-guinda.css#L4781-L4841) (`.ruta__cont`, `.ruta__lista`, `.ruta__li`, `.ruta__a`), tomando como referencia canónica [`template-transparencia-comite.php`](../../../sesna-v2/template-transparencia-comite.php#L48-L62):
+```html
+<!-- Breadcrumb -->
+<nav class="ruta__cont" aria-label="Ruta de navegación">
+    <div class="contenedor">
+        <ul class="ruta__lista">
+            <li class="ruta__li">
+                <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+            </li>
+            <li class="ruta__li">
+                <a href="<?= esc_url( home_url('/seccion-padre/') ) ?>" class="ruta__a">Sección Padre</a>
+            </li>
+            <li class="ruta__li">
+                <span class="ruta__a" aria-current="page">Página Actual</span>
+            </li>
+        </ul>
+    </div>
+</nav>
+```
+- **Reglas clave:**
+  - Prohibido usar `.cp-breadcrumb`, `.breadcrumb`, `.breadcrumb-item` o separadores manuales (`/` o `>`). El pseudo-elemento `.ruta__li:after` de `snd-guinda.css` inyecta automáticamente el separador oficial `chevron--right.svg` (`24×24px`, `opacity: 0.55`, `margin: 0 8px 0 16px`) y lo omite en `:last-of-type`.
+  - El primer enlace ("Inicio") lleva `<i class="snd__icono snd-home icono--20" aria-hidden="true"></i>` (con `margin-right: 6px` complementado en `main.css` L2042–2045).
+  - El último nivel (página actual) usa `<span class="ruta__a" aria-current="page">` (no un enlace `<a>`).
+
+### 🃏 Regla Obligatoria de Superficie Base para Todas las Cards (SND v1.1.0)
+Toda tarjeta (`Card`) en cualquier página del sitio debe homologar obligatoriamente sus 4 propiedades base de superficie con las cards de la página principal (`Home`: `.sna-integrantes-card`, `.sna-noticias-card`) y las especificaciones extraídas de Figma (`Cards *`: `12022:57247` / `37597:51336`):
+```css
+background-color: var(--neutro100);
+border: 1px solid var(--neutro400);
+border-radius: 16px;
+box-shadow: var(--dropLV1);
+```
+- Cuando la tarjeta sea interactiva o clicable, su estado `:hover` debe elevar la sombra a `box-shadow: var(--dropLV2);`.
+- Nunca omitir `border: 1px solid var(--neutro400);`, ya que garantiza el contraste y delimitación visual sobre cualquier fondo institucional.
+
+### 🔽 Regla Obligatoria de Botones "Ver más" / Carga Progresiva (SND v1.1.0)
+Todo botón de carga progresiva ("Ver más sesiones", "Ver más resoluciones", "Ver más documentos") debe homologarse con el componente **`4.2 Botones` (`.boton__fantasma`)** dentro de la retícula SND:
+```html
+<div class="reticulaGrid__12">
+    <div class="columna__12">
+        <div class="texto--centro mt--32" id="sesiones-load-more-container">
+            <button type="button" id="sesiones-btn-more" class="boton__fantasma">
+                Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+```
+- Usar siempre `<button type="button" class="boton__fantasma">` (nunca `<a href="javascript:void(0)">`) e ícono `<i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>` sin clases de margen de Bootstrap (`ms-2`, `text-center`, `mt-5`).
+
 ### Dinámica de trabajo con el usuario (Paso a Paso)
 1. **Instrucción por componente:** El usuario indica qué plantilla y qué componente específico dentro del `body` desea ajustar (ej. *Tabs*, *Dropdown/Select*, *Barra de búsqueda*, *Cards*, *Breadcrumbs*, etc.).
 2. **Verificación obligatoria en fuentes locales (sin inventar clases):**
@@ -156,41 +207,78 @@ Si al completar el **Paso 2** (verificación en fuentes locales) el componente o
 
 ---
 
-## 3. Estado Actual de la Página en Trabajo: `template-transparencia-comite.php`
+## 3. Estado de Páginas ya Estandarizadas (100% Completadas)
 
+### A. `template-transparencia-comite.php` (100% Completada)
 **Archivo:** [`sesna-v2/template-transparencia-comite.php`](../../../sesna-v2/template-transparencia-comite.php)  
 **Hoja de estilos del tema:** [`sesna-v2/assets/css/main.css`](../../../sesna-v2/assets/css/main.css)
 
-### ✅ Componentes del `body` ya estandarizados al SND v1.1.0
-1. **Título Principal de la Página:**
-   - `<h1 class="h1b patria tx-section-title mb-2 tx-comite-title">Comité de Transparencia</h1>`.
-2. **Pestañas / Tabs (`#comiteTabs` y `#comiteTabsContent`):**
-   - Estandarizadas con el componente **`Tabs 2`** de Figma (`1562:4021` / `16460:3792`).
-   - HTML limpio con `.ul--limpio`, `.tx-comite-tabs`, botones `.tx-comite-tab` (`role="tab"`, `aria-selected="true|false"`), paneles `.tx-comite-tab-pane` (`role="tabpanel"`, ocultación con `.muestra--ninguno`) y soporte de teclado (`ArrowLeft` / `ArrowRight`).
-3. **Filtros Desplegables `<select>` (`#filter-anio`, `#filter-tipo`, `#filter-anio-res`):**
-   - Estandarizados con la anatomía **`Select / Dropatom`** del SND.
-   - Etiquetas `<label class="b1sb dblock color--neutro800 mb--8">`.
-   - Envolvente `.tx-select-wrap` con `<select class="tx-comite-select tx-comite-filter-control">` e ícono `<i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>`.
-4. **Barra de Búsqueda Interna `#search-res` (en `#resoluciones-pane`):**
-   - Estandarizada conforme a **`4.1 Barra de búsqueda` (variante sección interna sin botón)** cumpliendo las 3 pestañas (`Descripción`, `Diseño` Desktop/Móvil y `Desarrollo`).
-   - Envolvente `<form class="search-container" role="search" id="form-search-res">` + `<div class="form__inset general-search tx-comite-search-box">`, ícono `<i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>` e `<input type="search" id="search-res" class="sh0r js-input tx-comite-search-input tx-comite-filter-control">`.
-   - Soporta estados `Default` (fondo `--neutro200`, borde interno `1px --neutro400`, radio `100px`), `Focus` (`2px` interno `--principal`), `Active` (`2px` interno `--principal`) y `Filled` (`1px` interno `--principal` con clase `.is-filled`), además de breakpoints `@media (min-width: 640px)` y `@media (min-width: 1024px)`.
-5. **Botones de Paginación Progresiva ("Ver más sesiones" / "Ver más resoluciones"):**
-   - Usan `.boton__fantasma` con `<i class="snd__icono snd-chevron--down icono--16">`.
-6. **Tarjetas de Sesiones y Resoluciones (`.tx-sesion-card` / `.tx-resolucion-card`) + Botón Fantasma ("Acta" / "Resolución"):**
-   - Estandarizadas conforme al componente **Card** de Figma (`37597:51336`) y **Botón Fantasma Horizontal** (`4.2 Botones`).
-   - Superficie con fondo `var(--neutro100)`, borde `1px solid var(--neutro400)`, radio `16px` y sombra `.sombraLV1`. Layout responsivo en flexbox con divisor vertical para el año en escritorio y divisor inferior en móvil.
-   - Tipografía estandarizada: año en `.sh0b`, títulos en `.sh1b` y subtítulos en `.b1r` + `.b1sb`.
-   - Botón fantasma `.boton__fantasma` con `<i class="snd__icono snd-document--pdf icono--24"></i>`, texto e `<i class="snd__icono snd-chevron--right icono--20"></i>`.
-7. **Modal Visor de PDF (`template-parts/visor-pdf.php`):**
-   - Estandarizado al 100% bajo el SND v1.1.0 (Organismo Figma `Modales *`, nodo `1749:13690`).
-   - Cero clases residuales de Bootstrap: estructura BEM (`.tx-pdf-modal__dialog`, `.tx-pdf-modal__content`, `.tx-pdf-modal__header`, `.tx-pdf-modal__body`, `.tx-pdf-modal__footer`).
-   - Backdrop institucional `rgba(22, 26, 29, 0.56)` (`neutro-800` al 56%), superficie con radio `16px`, borde `1px solid var(--neutro400)` y sombra Drop LV 3 (`0 6px 12px rgba(0,0,0,0.20)`).
-   - Título `.sh1b.patria.color--principal`, botón de cierre circular `.boton__fantasma.tx-pdf-modal__close-btn` (`44x44px`) con `snd-close icono--24`.
-   - Cuerpo de alto contraste con `var(--neutro800)`, loader accesible con `snd-snd-loading2` y footer con `.boton__secundario.boton--redondeado` ("Copiar enlace" con feedback `.is-copied`) y `.boton__primario.boton--redondeado` ("Descargar PDF").
+1. **Migas de pan / Breadcrumb (líneas 48–62):**
+   - Estandarizadas al 100% con `<nav class="ruta__cont" aria-label="Ruta de navegación">`, `<div class="contenedor">`, `<ul class="ruta__lista">`, `<li class="ruta__li">`, `<a class="ruta__a">` (`<i class="snd__icono snd-home icono--20">`) y `<span class="ruta__a" aria-current="page">`.
+2. **Título Principal H1 y Hero (`.sesna-page-hero`, líneas 65–73):**
+   - `<section class="sesna-page-hero"><div class="contenedor"><div class="reticulaGrid__12 align-items-center"><div class="columna__12 posicion--relativa z--1"><h1 class="h1b patria color--pguinda600">Comité de Transparencia</h1>...`.
+3. **Pestañas / Tabs (`#comiteTabs` y `#comiteTabsContent`, líneas 79–96):**
+   - Estandarizadas con **`Tabs 2`** de Figma (`1562:4021` / `16460:3792`), encapsuladas en `.reticulaGrid__12.mb--32 > .columna__12`.
+4. **Filtros Desplegables `<select>` (`#filter-anio`, `#filter-tipo`, `#filter-anio-res`):**
+   - Estandarizados con **`Select / Dropatom`** (`height: 48px`, `border-radius: 8px`, `1px solid var(--neutro400)`), etiquetas `.b1sb.dblock.color--neutro800.mb--8` y chevron `snd-chevron--down icono--20`.
+5. **Barra de Búsqueda Interna `#search-res` (en `#resoluciones-pane`):**
+   - Estandarizada conforme a **`4.1 Barra de búsqueda` (variante sección interna sin botón)** con `<form class="search-container" role="search" id="form-search-res">` + `<div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">`.
+6. **Tarjetas de Sesiones y Resoluciones (`.tx-comite-card`) + Botón Fantasma ("Acta" / "Resolución"):**
+   - Superficie base `var(--neutro100)`, `1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)` (`:hover` `var(--dropLV2)`).
+   - Botón `.boton__fantasma` horizontal con `:focus-visible` oficial (`2px solid var(--principal)`).
+7. **Botones de Carga Progresiva ("Ver más sesiones" / "Ver más resoluciones", líneas 166–175 y 244–253):**
+   - `<button type="button" id="sesiones-btn-more" class="boton__fantasma">Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i></button>` dentro de `.reticulaGrid__12 > .columna__12 > .texto--centro.mt--32`.
+8. **Modal Visor de PDF (`template-parts/visor-pdf.php`):**
+   - Estandarizado bajo el Organismo Figma `Modales *` (`1749:13690`), con botones `.boton__secundario` y `.boton__primario` de radio `8px`.
 
-### ⏳ Pendiente por Hacer en `template-transparencia-comite.php`
+---
 
-#### 1. Migas de pan / Breadcrumb (líneas 48–62)
-- Actualmente usa `<nav class="cp-breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">`. En `snd-guinda.css` (líneas 4781–4841) existen las clases nativas `.ruta__cont`, `.ruta__lista`, `.ruta__li`, `.ruta__a`, `.ruta__home`.
+### B. `page-transparencia.php` (100% Completada)
+**Archivo:** [`sesna-v2/page-transparencia.php`](../../../sesna-v2/page-transparencia.php)
+
+1. **Hero Banner (`.tx-banner`):** Botón CTA homologado a `<a class="boton__primario">` con `<i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>` en línea.
+2. **Tarjetas de Secciones de Transparencia (`.tx-card`):** Superficie base homologada (`background-color: var(--neutro100)`, `border: 1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)` y `var(--dropLV2)` en `:hover`).
+3. **Sección "Consulta información pública" (`.tx-consulta-card`):** Superficie base de card homologada (`var(--neutro100)`, `1px solid var(--neutro400)`, `border-radius: 16px`, `var(--dropLV1)`) y botones homologados a `.boton__primario` con `snd-launch icono--16`.
+4. **Banda de Contacto (`.tx-contacto`):** Homologada con `.reticulaFlex.align-items-center.justify-content-flex-start.justify-content-center--md.gap--16`, etiquetas `.sdr.dblock.color--neutro600.mb--4`, enlaces `.b1b.color--pguinda600.mb--0`, íconos `24×24px` (`snd-email`, `snd-phone`, `snd-location`) y fondo `var(--neutro200)` con borde superior `1px solid var(--neutro400)`.
+
+---
+
+### C. `template-transparencia-datospersonales.php` (100% Completada)
+**Archivo:** [`sesna-v2/template-transparencia-datospersonales.php`](../../../sesna-v2/template-transparencia-datospersonales.php)
+
+1. **Migas de pan / Breadcrumb (líneas 15–29):** Homologadas a `<nav class="ruta__cont"> > .contenedor > .ruta__lista > .ruta__li > .ruta__a` con `snd-home icono--20`.
+2. **Hero / Título Principal H1 y Descripción (`.sesna-page-hero`, líneas 32–44):** Homologados con `<h1 class="h1b patria color--pguinda600">Datos Personales</h1>` y `<p class="sh1r color--neutro600 mb--0">` con espaciado inferior de `20px` (`.page-transparencia-datos .sesna-page-hero` en `main.css` L5552–5556).
+3. **Filtros Desplegables (`#filter-anio` y `#filter-tipo`, líneas 50–81):** Homologados con **`Select / Dropatom`** (`.tx-select-wrap`, `.tx-comite-select.tx-comite-filter-control`, `snd-chevron--down icono--20 tx-select-chevron`) dentro de `.reticulaGrid__12.mb--32.align-items-end` (`columna__12 columna__6--md columna__3--lg` / `columna__4--lg`).
+4. **Tarjetas de Documentos (`.tx-comite-card`, líneas 84–116):** Homologadas al 100% con `template-transparencia-comite.php` (superficie base `var(--neutro100)`, `1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)` / `var(--dropLV2)` en `:hover`, tipografía `.sh0b`, `.sh1b`, `.b1r` + `.b1sb` y botón `.boton__fantasma` horizontal con `snd-document--pdf icono--24`, "Consultar" y `snd-chevron--right icono--20`). Se corrigió también en JS `card.style.display = ''` para preservar `display: flex`.
+5. **Botón de Carga Progresiva ("Ver más documentos", líneas 119–127):** Homologado a `<button type="button" id="documentos-btn-more" class="boton__fantasma">` con `snd-chevron--down icono--20` dentro de `.reticulaGrid__12 > .columna__12 > .texto--centro.mt--32`.
+
+---
+
+### D. `template-transparencia-normatividad.php` (100% Completada)
+**Archivo:** [`sesna-v2/template-transparencia-normatividad.php`](../../../sesna-v2/template-transparencia-normatividad.php)
+
+1. **Migas de pan / Breadcrumb (líneas 32–46):** Homologadas a `<nav class="ruta__cont"> > .contenedor > .ruta__lista > .ruta__li > .ruta__a` con `snd-home icono--20`.
+2. **Hero / Título Principal H1 y Descripción (`.sesna-page-hero`, líneas 49–60):** Homologados con `<h1 class="h1b patria color--pguinda600">Normativa</h1>` y `<p class="sh1r color--neutro600 mb--0">` con espaciado inferior de `20px` (`.page-transparencia-normatividad .sesna-page-hero` en `main.css` L5553–5557).
+3. **Card Principal y Tabla de Normativa (`4.11 Tabla` Figma `12022:54768` / `9083:41328`, líneas 66–113):**
+   - Contenedor `.tx-normativa-card` con las 4 propiedades base obligatorias (`background-color: var(--neutro100)`, `border: 1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)`), sin líneas decorativas inline ni clases de Bootstrap.
+   - Tabla `.tx-table-normatividad` dentro de `.tx-table-responsive` (`border: 1px solid var(--neutro400)`, `border-radius: 8px`, `overflow-x: auto`), con cabecera `<thead> th` en `background-color: var(--principal)` (`#611232`) y texto `var(--neutro100)` (`#FFFFFF`), `padding: 12px 16px`, filas `<tbody> tr` con `border-bottom: 1px solid var(--neutro300)` y `:hover` `var(--neutro200)`, y acción con `.boton__fantasma` (`Consultar` + `snd-launch icono--20`).
+4. **Card de Redirección "¿Deseas consultar más normativa?" (`.tx-normativa-card--cta`, líneas 116–133):**
+   - Homologada con las 4 propiedades base de Card (`var(--neutro100)`, `1px solid var(--neutro400)`, `border-radius: 16px`, `var(--dropLV1)`), ícono `.tx-normativa-card__icon` (`snd-building icono--32 color--pguinda600`), tipografía `.sh1b` + `.b1r` y botón `.boton__secundario` con `snd-arrow--right icono--20`.
+
+---
+
+### E. `template-transparencia-unidad.php` (100% Completada)
+**Archivo:** [`sesna-v2/template-transparencia-unidad.php`](../../../sesna-v2/template-transparencia-unidad.php)
+
+1. **Migas de pan / Breadcrumb (líneas 13–27):** Homologadas a `<nav class="ruta__cont"> > .contenedor > .ruta__lista > .ruta__li > .ruta__a` con `snd-home icono--20`.
+2. **Hero / Título Principal H1 (`.sesna-page-hero`, líneas 30–38):** Homologado con `<h1 class="h1b patria color--pguinda600">Unidad de Transparencia</h1>` con espaciado inferior de `20px` (`.page-transparencia-unidad .sesna-page-hero` en `main.css` L5553–5558).
+3. **Card Principal de Unidad de Transparencia (`.tx-unidad-card`, líneas 41–143 y `main.css` L6098–6278):**
+   - Encapsulada en `.reticulaGrid__12 > .columna__12` con las 4 propiedades base obligatorias (`background-color: var(--neutro100)`, `border: 1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)`, `overflow: hidden`), eliminando todas las clases y estilos inline legacy de Bootstrap.
+   - **Columna Izquierda (`columna__12 columna__6--lg tx-unidad-card__body`):** Párrafo `.b1r.color--neutro700.mb--24`, divisor `.tx-unidad-divider.mb--24` (`1px solid var(--neutro400)`), lista de datos `.tx-unidad-info-list` con círculos de ícono `.tx-unidad-icon-circle` (`48×48px`, `background-color: var(--pguinda100)`, `color: var(--pguinda600)` e íconos `snd-location`, `snd-phone`, `snd-timer`, `snd-email` con `icono--24 color--pguinda600`), subtítulos `.b1sb.color--pguinda600.mb--4` y valores `.b1r.color--neutro700` / enlaces `.tx-unidad-link`.
+   - **Columna Derecha — Mapa (`columna__12 columna__6--lg tx-unidad-card__map-col`):** Contenedor `.tx-unidad-map-container` con `border: 1px solid var(--neutro400)`, `border-radius: 12px` y `title` accesible en el `<iframe>`.
+   - **Pie de Card (`.tx-unidad-card__footer`):** Fondo `var(--pguinda100)`, borde superior `1px solid var(--neutro400)`, ícono `.tx-unidad-icon-circle--white` con `snd-security icono--24 color--pguinda600`, texto `.b1sb.color--neutro800.mb--0` y franjas decorativas con tokens oficiales (`var(--principal)`, `var(--pguinda600)`, `var(--pguinda300)`).
+
+
+
+
 
