@@ -98,28 +98,28 @@ get_header();
                     <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-disenamos.svg" alt="Diseñamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Diseñamos</h3>
-                        <p class="b1r color--neutro600 mb--0 texto--justify">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
+                        <p class="b1r mb--0 texto--justify">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
                     <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-desarrollamos.svg" alt="Desarrollamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Desarrollamos</h3>
-                        <p class="b1r color--neutro600 mb--0 texto--justify">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
+                        <p class="b1r mb--0 texto--justify">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
                     <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-analizamos.svg" alt="Analizamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Analizamos</h3>
-                        <p class="b1r color--neutro600 mb--0 texto--justify">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
+                        <p class="b1r mb--0 texto--justify">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
                     <div class="qh-labor-card">
                         <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-impulsamos.svg" alt="Impulsamos" class="sna-integrantes-icon-circle mb--24">
                         <h3 class="sh1b">Impulsamos</h3>
-                        <p class="b1r color--neutro600 mb--0 texto--justify">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
+                        <p class="b1r mb--0 texto--justify">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
                     </div>
                 </div>
             </div>

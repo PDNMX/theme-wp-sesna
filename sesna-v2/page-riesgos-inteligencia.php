@@ -63,7 +63,7 @@ get_header(); ?>
                         <i class="snd__icono snd-portfolio icono--24" aria-hidden="true"></i>
                     </div>
                     <h3 class="sh1b mb--16">Contrataciones<br>públicas</h3>
-                    <p class="b1r mb--24">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
+                    <p class="b1r texto--justify">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -74,7 +74,7 @@ get_header(); ?>
                         <i class="snd__icono snd-group icono--24" aria-hidden="true"></i>
                     </div>
                     <h3 class="sh1b mb--16">Conflicto<br>de interés</h3>
-                    <p class="b1r mb--24">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
+                    <p class="b1r texto--justify">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -85,7 +85,7 @@ get_header(); ?>
                         <i class="snd__icono snd-security icono--24" aria-hidden="true"></i>
                     </div>
                     <h3 class="sh1b mb--16">Verificación<br>patrimonial</h3>
-                    <p class="b1r mb--24">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
+                    <p class="b1r texto--justify">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>

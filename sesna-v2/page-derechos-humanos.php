@@ -296,7 +296,7 @@ get_header();
                     <div class="columna__12 columna__8--md">
                         <div class="dh-acciones-card__body">
                             <h3 class="sh1b mb--16">Acciones X la Integridad</h3>
-                            <p class="b1r color--neutro600 mb--16 texto--justify">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
+                            <p class="b1r mb--16 texto--justify">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <div class="texto--derecha--md">
                                 <?php if (!empty($dh_catalogo_paginas)) : ?>
                                     <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Leer más</span>

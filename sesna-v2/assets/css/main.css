@@ -4843,73 +4843,6 @@ body:has(.page-directorio) main.page {
     font-size: 20px;
 }
 
-.page-pna .pna-hero__badge-title {
-    font-weight: 700;
-    color: var(--color-guinda);
-    margin-bottom: 2px;
-    font-size: 17px;
-}
-
-.page-pna .pna-hero__badge-desc {
-    color: var(--color-gris);
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-.page-pna .pna-doc-desc {
-    color: rgba(22, 26, 29, 0.85);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.page-pna .pna-doc-note {
-    color: var(--color-gris);
-    font-size: 14px;
-    margin-top: 1.25rem;
-    margin-bottom: 0;
-}
-
-/* Dropdown Anexos */
-.page-pna .pna-anexos-dropdown .dropdown-toggle::after {
-    display: inline-block !important;
-    margin-left: 0.5em;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-}
-
-.page-pna .pna-anexos-dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    min-width: 260px;
-    margin-top: 4px;
-    list-style: none;
-    background-color: var(--neutro100);
-    border: 1px solid var(--neutro400);
-    border-radius: 16px;
-    box-shadow: var(--dropLV1);
-    padding: 8px;
-}
-
-.page-pna .pna-anexos-dropdown .dropdown-item {
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.page-pna .pna-anexos-dropdown .dropdown-item:hover {
-    background-color: var(--gama100);
-    color: var(--gama600);
-}
-
 /* Estructura de la Política: stat tiles */
 .page-pna .pna-stats-card {
     background-color: var(--neutro100);
@@ -4934,9 +4867,14 @@ body:has(.page-directorio) main.page {
     padding: 12px 24px;
 }
 
+.page-pna .pna-stat-tile > div {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
 .page-pna .pna-stat-sep {
     width: 1px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--neutro400);
     align-self: stretch;
     margin: 4px 0;
 }
@@ -4946,16 +4884,12 @@ body:has(.page-directorio) main.page {
     height: 64px;
     min-width: 64px;
     border-radius: 50%;
-    background-color: var(--color-blanco);
+    background-color: var(--neutro100);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
 }
-
-.page-pna .pna-stat-tile__icon--verde { color: #3f8f3f; }
-.page-pna .pna-stat-tile__icon--morado { color: #6b4fa0; }
-.page-pna .pna-stat-tile__icon--verde-oscuro { color: var(--color-teal); }
 
 .page-pna .pna-stat-tile__icon--img {
     overflow: hidden;
@@ -4967,21 +4901,6 @@ body:has(.page-directorio) main.page {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-}
-
-.page-pna .pna-stat-tile__number {
-    font-family: var(--font-patria);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-negro);
-    margin-bottom: 2px;
-}
-
-.page-pna .pna-stat-tile__label {
-    color: var(--color-gris);
-    font-size: 15px;
-    margin-bottom: 0;
 }
 
 /* Ciclo de la Política Pública */
@@ -5264,17 +5183,11 @@ body:has(.page-directorio) main.page {
 }
 
 .page-pna .pna-ciclo-step__title {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.25;
     margin-bottom: 0;
     color: var(--step-color);
 }
 
 .page-pna .pna-ciclo-step__desc {
-    color: rgba(22, 26, 29, 0.75);
-    font-size: 13.5px;
-    line-height: 1.55;
     margin-bottom: 0;
 }
 
