@@ -1897,22 +1897,24 @@ nav.navbar .container {
    ------------------------------------------------------------ */
 .sesna-page-hero {
     padding-top: 40px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
     .sesna-page-hero {
         padding-top: 28px;
         padding-bottom: 20px;
-        margin-bottom: 24px;
+        margin-bottom: 0;
     }
 }
 
 .sesna-hero__img {
-    max-height: 280px;
+    max-height: 220px;
     max-width: 100%;
     width: auto;
+    margin-top: -24px;
+    margin-bottom: -24px;
     object-fit: contain;
     display: block;
 }
@@ -5397,6 +5399,12 @@ body:has(.page-directorio) main.page {
     margin-bottom: 0;
 }
 
+.page-marco-normativo .sesna-hero__img {
+    max-height: 220px;
+    margin-top: -24px;
+    margin-bottom: -24px;
+}
+
 /* Cards de Normativa (template-transparencia-normatividad.php) — SND UI Kit */
 .tx-normativa-card {
     background-color: var(--neutro100);
@@ -5897,7 +5905,12 @@ select.tx-comite-filter-control:disabled {
 #form-search-sesion.search-container,
 #form-search-res.search-container,
 #form-search-dp.search-container,
-#form-search-doc.search-container {
+#form-search-doc.search-container,
+#form-search-ext.search-container,
+#form-search-int.search-container,
+#form-search-comite.search-container,
+#form-search-comision.search-container,
+#form-search-organo.search-container {
     margin: 0;
     padding: 0;
     width: 100%;

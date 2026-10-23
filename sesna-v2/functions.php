@@ -2374,8 +2374,9 @@ function sesna_render_oc_sesion_card($sesion) {
     $slots = sesna_oc_map_slots_fijos($sesion);
     $anexos_panel_id = 'oc-anexos-panel-' . md5($sesion['titulo'] . $sesion['fecha'] . count($slots['anexos']['documentos']));
     $tiene_anexos_panel = count($slots['anexos']['documentos']) > 1;
+    $busqueda_sesion = trim($sesion['titulo'] . ' ' . $sesion['tipo_sesion'] . ' ' . $dia . ' ' . $mes . ' ' . $anio);
     ?>
-    <div class="tx-oc-card tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>">
+    <div class="tx-oc-card tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_sesion, 'UTF-8') : strtolower($busqueda_sesion) ) ?>">
         <div class="tx-oc-card__main">
             <div class="tx-oc-card__date">
                 <span class="h3b color--neutro800 tx-oc-card__day"><?= esc_html($dia) ?></span>
@@ -2432,9 +2433,9 @@ function sesna_render_oc_lista_directa_item($item) {
         </div>
         <div class="tx-comite-card-action">
             <?php foreach ($item['documentos'] as $doc) : ?>
-            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" aria-label="Descargar <?= esc_attr($item['titulo']) ?>">
-                <i class="snd__icono <?= esc_attr(sesna_oc_doc_icon($doc['nombre'])) ?> icono--24" aria-hidden="true"></i>
-                Descargar
+            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" aria-label="Consultar <?= esc_attr($item['titulo']) ?>">
+                <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                Consultar
                 <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
             </button>
             <?php endforeach; ?>
