@@ -204,7 +204,7 @@ get_header();
             </div><!-- /.pna-ciclo-diagram -->
 
             <div class="cp-nota__inner fondo--azul100 mt-4">
-                <i class="snd__icono snd-screen icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                <i class="snd__icono snd-select--window icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
                 <p class="cp-nota__texto b1r color--azul500 mb--0"><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
             </div><!-- /.pna-ciclo-section -->

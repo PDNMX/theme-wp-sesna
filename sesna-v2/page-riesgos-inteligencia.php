@@ -96,7 +96,7 @@ get_header(); ?>
                         <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
                     </div>
                     <h3 class="sh1b mb--16">Deporte</h3>
-                    <p class="b1r mb--24">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
+                    <p class="b1r texto--justify">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
