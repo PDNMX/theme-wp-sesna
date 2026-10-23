@@ -250,10 +250,12 @@
         }
     });
 
-    // Abrir modal de catálogo con controlador nativo
-    document.addEventListener('click', function (e) {
+    // Accesibilidad por teclado (Enter / Space) para tarjetas con data-modal-target="#modal-catalogo"
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
         var catTrigger = e.target.closest('[data-modal-target="#modal-catalogo"]');
         if (catTrigger && window.sndModal) {
+            e.preventDefault();
             window.sndModal.show(document.getElementById('modal-catalogo'), catTrigger);
         }
     });

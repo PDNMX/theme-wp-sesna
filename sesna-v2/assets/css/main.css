@@ -15,6 +15,16 @@
     font-family: 'Patria', serif !important;
 }
 
+/* Gap de snd-guinda.css: los tamaños de .h1b.patria/.h2b.patria/.h3b.patria...
+   (3.25rem–3.5rem) no traen reducción para Móvil (pestaña DISEÑO incompleta
+   en el CDN). Un título de una sola palabra larga sin espacios para partir
+   (ej. "Pronunciamientos") fuerza un ancho mínimo mayor al viewport y rompe
+   el layout completo en móvil. Se permite partir la palabra como último
+   recurso — no cambia tamaño, peso ni color tipográfico oficial. */
+.patria {
+    overflow-wrap: anywhere;
+}
+
 /* ============================================================
    SESNA v2 — Hoja de estilos principal
    Basada 100% en el Sistema Nacional de Diseño (SND) v1.1.0
@@ -3993,6 +4003,17 @@ nav.navbar .container {
    Página: Derechos Humanos y Perspectiva de Género
    ============================================================ */
 
+/* ── Breadcrumb ───
+   El último nivel ("Derechos Humanos y Perspectiva de Género") es más
+   largo que en otras plantillas; .ruta__lista es flex nowrap por defecto
+   en snd-guinda.css y en viewports angostos (< 640px) ese último <li>
+   se desborda fuera del viewport. Se permite el salto de línea solo
+   en esta página, sin tocar la clase oficial .ruta__lista en el resto
+   del sitio. */
+.page-derechos-humanos .ruta__lista {
+    flex-wrap: wrap;
+}
+
 /* ── Hero ─── */
 .page-derechos-humanos .sesna-page-hero {
     padding-bottom: 20px;
@@ -4113,6 +4134,12 @@ nav.navbar .container {
     padding: 32px 36px;
 }
 
+@media (max-width: 767.98px) {
+    .page-derechos-humanos .dh-acciones-card__body {
+        padding: 20px 24px;
+    }
+}
+
 .page-derechos-humanos .dh-link-burgundi {
     color: var(--color-burgundi);
     font-weight: 700;
@@ -4131,6 +4158,20 @@ nav.navbar .container {
     border-radius: 16px;
     padding: 30px 32px;
     box-shadow: var(--dropLV1);
+}
+
+/* ── Pronunciamientos (tarjeta .sna-noticias-card + .cp-doc-thumb) ─── */
+.page-derechos-humanos .dh-pronunciamientos .sna-noticias-card h3 {
+    min-width: 0;
+}
+
+@media (max-width: 639px) {
+    .page-derechos-humanos .dh-pronunciamientos .cp-doc-thumb {
+        width: 72px;
+        min-width: 72px;
+        height: 96px;
+        padding: 8px;
+    }
 }
 
 /* ── Responsive ─── */

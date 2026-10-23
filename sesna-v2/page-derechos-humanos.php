@@ -251,7 +251,7 @@ get_header();
 
                 if (!empty($dh_catalogo_paginas_ids)) {
                     foreach (array_filter(explode(',', $dh_catalogo_paginas_ids)) as $dh_cat_img_id) {
-                        $dh_cat_img_url = wp_get_attachment_image_url(intval($dh_cat_img_id), 'large');
+                        $dh_cat_img_url = wp_get_attachment_image_url(intval($dh_cat_img_id), 'full') ?: wp_get_attachment_image_url(intval($dh_cat_img_id), 'large');
                         if ($dh_cat_img_url) {
                             $dh_catalogo_paginas[] = $dh_cat_img_url;
                         }
@@ -264,7 +264,7 @@ get_header();
                 // páginas reales del catálogo.
                 if (!empty($dh_catalogo_paginas)) {
                     $dh_catalogo_portada_id  = get_post_meta(get_the_ID(), '_dh_cat_portada_id', true) ?: '';
-                    $dh_catalogo_portada_url = $dh_catalogo_portada_id ? wp_get_attachment_image_url(intval($dh_catalogo_portada_id), 'large') : '';
+                    $dh_catalogo_portada_url = $dh_catalogo_portada_id ? (wp_get_attachment_image_url(intval($dh_catalogo_portada_id), 'full') ?: wp_get_attachment_image_url(intval($dh_catalogo_portada_id), 'large')) : '';
                     if ($dh_catalogo_portada_url) {
                         array_unshift($dh_catalogo_paginas, $dh_catalogo_portada_url);
                     }
@@ -295,13 +295,13 @@ get_header();
                     </div>
                     <div class="columna__12 columna__8--md">
                         <div class="dh-acciones-card__body">
-                            <h3 class="sh1b mb--16">Acciones X la Integridad</h3>
-                            <p class="b1r mb--16 texto--justify">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
+                            <h3 class="sh1b color--neutro800 mb--8">Acciones X la Integridad</h3>
+                            <p class="b1r color--neutro700 mb--16 texto--justify">Infografía, datos relevantes y efemérides para fortalecer nuestra cultura de integridad, igualdad y derechos humanos.</p>
                             <div class="texto--derecha--md">
                                 <?php if (!empty($dh_catalogo_paginas)) : ?>
-                                    <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Leer más</span>
+                                    <span class="sh1b muestra--flex-linea align-items-center color--pguinda600 mb--0">Leer más</span>
                                 <?php else : ?>
-                                    <span class="sh1b muestra--flex-linea align-items-center color--neutro500" aria-disabled="true">Leer más</span>
+                                    <span class="sh1b muestra--flex-linea align-items-center color--neutro500 mb--0" aria-disabled="true">Leer más</span>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -440,16 +440,44 @@ get_header();
 </div>
 
 <!-- ── Modal: Catálogo Digital (flipbook) (SND v1.1.0) ────────────────── -->
-<div class="modal tx-pdf-modal snd-modal" id="modal-catalogo" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen-lg-down cd-flipbook-dialog">
-        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden cd-flipbook-content">
-            <button type="button" class="boton__fantasma position-absolute top-0 end-0 m-3 z-3 p-2 rounded-circle cd-flipbook-close" data-modal-dismiss aria-label="Cerrar modal">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
-            </button>
+<div class="modal tx-pdf-modal snd-modal" id="modal-catalogo" tabindex="-1" role="dialog" aria-labelledby="cd-flipbook-title" aria-hidden="true">
+    <div class="tx-pdf-modal__dialog cd-flipbook-dialog">
+        <div class="tx-pdf-modal__content cd-flipbook-content">
+            <!-- Header SND -->
+            <div class="tx-pdf-modal__header cd-flipbook-header">
+                <h2 class="sh1b patria color--principal tx-pdf-modal__title" id="cd-flipbook-title">Acciones x la integridad</h2>
+                <button type="button" class="boton__fantasma tx-pdf-modal__close-btn" data-modal-dismiss aria-label="Cerrar modal">
+                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                </button>
+            </div>
 
-            <div class="modal-body p-0" id="cd-flipbook-container">
-                <div class="d-flex justify-content-center align-items-center" style="min-height:300px;">
-                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" aria-hidden="true"></i>
+            <!-- Body / Escenario del Flipbook -->
+            <div class="cd-flipbook-body" id="cd-flipbook-container">
+                <div class="cd-flipbook-loader" id="cd-flipbook-loader">
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--principal mb--8" aria-hidden="true"></i>
+                    <p class="b2r color--neutro700 mb--0">Cargando publicación...</p>
+                </div>
+                <div class="cd-flipbook-stage" id="cd-flipbook-stage">
+                    <div id="cd-flipbook-book" class="cd-flipbook-book"></div>
+                </div>
+            </div>
+
+            <!-- Footer con controles de navegación SND -->
+            <div class="tx-pdf-modal__footer cd-flipbook-footer">
+                <div class="cd-flipbook-controls" id="cd-flipbook-controls">
+                    <button type="button" class="boton__fantasma cd-flipbook-btn cd-flipbook-btn--home" id="cd-btn-home" aria-label="Volver a la portada" title="Volver a la portada">
+                        <i class="snd__icono snd-renew icono--20" aria-hidden="true"></i>
+                        <span class="cd-flipbook-btn__label">Portada</span>
+                    </button>
+                    <button type="button" class="boton__secundario cd-flipbook-btn cd-flipbook-btn--prev" id="cd-btn-prev" aria-label="Página anterior">
+                        <i class="snd__icono snd-chevron--left icono--20" aria-hidden="true"></i>
+                        <span class="cd-flipbook-btn__label">Anterior</span>
+                    </button>
+                    <span class="b1sb color--neutro800 mb--0 cd-flipbook-counter" id="cd-flipbook-counter">1 / 1</span>
+                    <button type="button" class="boton__secundario cd-flipbook-btn cd-flipbook-btn--next" id="cd-btn-next" aria-label="Página siguiente">
+                        <span class="cd-flipbook-btn__label">Siguiente</span>
+                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </div>

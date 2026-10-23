@@ -170,6 +170,33 @@ Todo botón de carga progresiva ("Ver más sesiones", "Ver más resoluciones", "
 ```
 - Usar siempre `<button type="button" class="boton__fantasma">` (nunca `<a href="javascript:void(0)">`) e ícono `<i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>` sin clases de margen de Bootstrap (`ms-2`, `text-center`, `mt-5`).
 
+### 📱 Regla Obligatoria de Validación Real de Viewport Móvil (Hallazgo `page-derechos-humanos.php`, 2026-10-23)
+**Síntoma:** una página se ve "corrida"/recortada horizontalmente en móvil (breadcrumb, H1, texto, todo desplazado hacia la derecha), pero al inspeccionar el *box model* de `<main>`/`.contenedor` en DevTools el ancho es correcto (ej. `412px`, igual al viewport configurado) y no aparece ningún elemento con `rect.right > viewport` al medir con un viewport de escritorio redimensionado. **Esto es engañoso**: el bug no vive en la retícula ni en el box model final, vive en el cálculo inicial del *viewport* del navegador móvil, que ocurre ANTES de que `overflow-x: hidden` recorte nada.
+
+**Causa raíz real encontrada:** un título usando una clase tipográfica `.h1b.patria` / `.h2b.patria` / `.h3b.patria` (3.25rem–3.5rem en `snd-guinda.css`, **sin reducción para Móvil** — hueco real de la pestaña `DISEÑO` del CDN) que es **una sola palabra sin espacios para partir** (ej. *"Pronunciamientos"*) y, a ese tamaño, no cabe en el ancho de columna disponible. Al no poder envolver, el contenido mínimo intrínseco de esa palabra fuerza al navegador móvil a recalcular el **viewport de layout completo** de la página (ej. de 412px a 495px) en vez de solo esa columna — desplazando visualmente TODA la página, incluidos componentes que en sí mismos están bien construidos.
+
+**Fix ya aplicado globalmente** en [`main.css`](../../../sesna-v2/assets/css/main.css#L10-L23): la clase `.patria` ahora incluye `overflow-wrap: anywhere;` (no cambia tamaño/peso/color tipográfico oficial, solo permite partir la palabra como último recurso). **No es necesario repetir este fix por página** — ya cubre cualquier título largo de una sola palabra en cualquier plantilla.
+
+**Método de diagnóstico correcto para futuras páginas** (si vuelve a aparecer un síntoma similar — página desplazada en móvil pero el box model se ve "correcto"):
+1. **No confiar en DevTools con el panel de Inspector ocupando mucho espacio** — puede desajustar el lienzo emulado del dispositivo (den sus números raros tipo `innerWidth` distinto al tamaño configurado). Verificar siempre con esta consulta en la Consola del navegador:
+   ```js
+   console.log({
+     scrollLeft: document.scrollingElement.scrollLeft,
+     vvOffsetLeft: window.visualViewport?.offsetLeft,
+     vvWidth: window.visualViewport?.width,
+     innerWidth: window.innerWidth
+   });
+   ```
+   Si `innerWidth` ≠ al ancho de dispositivo configurado, o `vvOffsetLeft` ≠ `0`, el viewport real se está ensanchando por contenido — no es un artefacto de DevTools.
+2. **Reproducir con emulación móvil real** (no solo redimensionar la ventana): usar Puppeteer/Chromium con `isMobile: true, hasTouch: true` (redimensionar sin `isMobile:true` NO reproduce este bug, da falsos negativos).
+3. **Ubicar el elemento con `scrollWidth` > ancho del viewport** (no `getBoundingClientRect` después de clipping, que ya viene recortado):
+   ```js
+   document.querySelectorAll('.page-XXX *').forEach(el => {
+     if (el.scrollWidth > window.innerWidth) console.log(el.tagName, el.className, el.scrollWidth);
+   });
+   ```
+4. Sospechar primero de **títulos `.patria` de una sola palabra larga** (ya parcheado) y, en segundo lugar, de elementos con `width`/`min-width` fijos en `px` dentro de filas flex sin `min-width: 0` en el hermano que debe encogerse (patrón ya corregido también en `.dh-pronunciamientos .sna-noticias-card h3` y `.cp-doc-thumb`, ver sección `F`/`G` de este documento).
+
 ### Dinámica de trabajo con el usuario (Paso a Paso)
 1. **Instrucción por componente:** El usuario indica qué plantilla y qué componente específico dentro del `body` desea ajustar (ej. *Tabs*, *Dropdown/Select*, *Barra de búsqueda*, *Cards*, *Breadcrumbs*, etc.).
 2. **Verificación obligatoria en fuentes locales (sin inventar clases):**
