@@ -2,7 +2,7 @@
   var data = window.directorioData;
   if (!data || !data.length) return;
 
-  var items = document.querySelectorAll('.dir-org__item');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.dir-org__item'));
 
   // Desktop elements
   var ficha = document.getElementById('dir-ficha');
@@ -23,6 +23,7 @@
   var modalClose = document.getElementById('dir-modal-close');
   var modalFoto = document.getElementById('dir-modal-foto');
   var modalPlaceholder = document.getElementById('dir-modal-placeholder');
+  var modalAreaBadge = document.getElementById('dir-modal-area-badge');
   var modalNombre = document.getElementById('dir-modal-nombre');
   var modalEncargadoRow = document.getElementById('dir-modal-encargado-row');
   var modalEncargadoSep = document.getElementById('dir-modal-encargado-sep');
@@ -31,7 +32,7 @@
   var modalEmail = document.getElementById('dir-modal-email');
 
   function isMobile() {
-    return window.innerWidth <= 767;
+    return window.innerWidth <= 1023;
   }
 
   function fillFicha(d) {
@@ -68,6 +69,7 @@
   }
 
   function openModal(d) {
+    if (modalAreaBadge) modalAreaBadge.textContent = d.estructura || '';
     modalNombre.textContent = d.nombre_titular || '—';
 
     if (d.encargado) {
@@ -96,6 +98,7 @@
     modal.classList.add('dir-modal--open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    if (modalClose) modalClose.focus();
   }
 
   function closeModal() {
@@ -104,18 +107,23 @@
     document.body.style.overflow = '';
   }
 
-  function update(index) {
+  function update(index, shouldFocus) {
     var d = data[index];
     if (!d) return;
 
-    items.forEach(function (el) {
-      el.classList.remove('dir-org__item--active');
-      el.setAttribute('aria-selected', 'false');
+    items.forEach(function (el, idx) {
+      var active = idx === index;
+      el.classList.toggle('dir-org__item--active', active);
+      el.setAttribute('aria-selected', active ? 'true' : 'false');
+      el.setAttribute('tabindex', active ? '0' : '-1');
     });
-    items[index].classList.add('dir-org__item--active');
-    items[index].setAttribute('aria-selected', 'true');
+
+    if (shouldFocus && items[index]) {
+      items[index].focus();
+    }
 
     if (isMobile()) {
+      fillFicha(d);
       openModal(d);
     } else {
       ficha.style.opacity = '0';
@@ -127,10 +135,10 @@
   }
 
   // Modal close events
-  modalClose.addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', closeModal);
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('dir-modal--open')) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('dir-modal--open')) {
       closeModal();
     }
   });
@@ -146,13 +154,27 @@
     });
   });
 
-  // Item click/keyboard events
+  // Item click and WAI-ARIA listbox keyboard events (Enter, Space, ArrowDown, ArrowUp, Home, End)
   items.forEach(function (item, i) {
-    item.addEventListener('click', function () { update(i); });
+    item.addEventListener('click', function () { update(i, false); });
     item.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        update(i);
+        update(i, false);
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        var next = (i + 1) % items.length;
+        update(next, true);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        var prev = (i - 1 + items.length) % items.length;
+        update(prev, true);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        update(0, true);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        update(items.length - 1, true);
       }
     });
   });
