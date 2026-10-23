@@ -2147,36 +2147,41 @@ nav.navbar .container {
     padding: 24px;
     text-align: left;
     box-shadow: var(--dropLV1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.sna-noticias-card:hover,
-.sna-noticias-card:focus {
-    transform: translateY(-5px);
+.sna-noticias-card:hover {
+    transform: translateY(-3px);
     box-shadow: var(--dropLV2);
-    outline: none;
+    text-decoration: none;
+}
+
+.sna-noticias-card:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+    box-shadow: var(--dropLV2);
     text-decoration: none;
 }
 
 .sna-noticias-img-wrapper {
     height: 200px;
     width: 100%;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
 }
 
 .sna-noticias-img {
     object-fit: cover;
 }
 
-/* Date Badge — tab lateral izquierdo */
+/* Date Badge — tab lateral izquierdo (SND Guinda) */
 .sna-noticias-date-badge {
     position: absolute;
     left: -4px;
-    top: calc(1.25rem + 200px - 20px);
-    background-color: var(--color-burgundi);
-    color: #fff;
+    top: calc(24px + 200px - 24px);
+    background-color: var(--principal);
+    color: var(--neutro100);
     width: 58px;
     padding: 10px 0;
     display: flex;
@@ -2185,24 +2190,24 @@ nav.navbar .container {
     line-height: 1.2;
     z-index: 2;
     border-radius: 0 8px 8px 0;
-    border-left: 4px solid var(--color-dorado);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.22);
+    border-left: 4px solid var(--pguinda400);
+    box-shadow: var(--dropLV2);
 }
 
 .sna-noticias-date-day {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 1.375rem;
+    font-weight: 700;
 }
 
 .sna-noticias-date-month {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.05em;
 }
 
 .sna-noticias-title {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.4;
 }
 
@@ -2213,158 +2218,87 @@ nav.navbar .container {
     overflow: hidden;
     text-overflow: ellipsis;
     min-height: 4.5em;
-    /* Garantiza el espacio de 3 líneas uniformemente */
 }
 
 .sna-noticias-link {
-    color: var(--color-negro);
+    color: var(--neutro800);
     letter-spacing: 0.5px;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .sna-noticias-link:hover {
-    color: var(--color-guinda);
+    color: var(--principal);
 }
 
 /* ------------------------------------------------------------
-   Sección Entradas por Familia Temática (home)
+   Sección Entradas por Familia Temática (Prensa / Noticias y Actividades)
+   Estándar SND v1.1.0 — Panel de filtros + ChipAccion (1833:559) + Badges (1749:14986)
    ------------------------------------------------------------ */
-.sna-entradas-archive-link {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 12px;
-    padding: 8px 18px;
-    border: 1px solid var(--color-burgundi);
-    border-radius: 20px;
-    color: var(--color-burgundi);
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.sna-entradas-panel-divider {
+    border: 0;
+    border-top: 1px solid var(--neutro400);
+    margin: 24px 0;
 }
 
-.sna-entradas-archive-link:hover,
-.sna-entradas-archive-link:focus {
-    background: var(--color-burgundi);
-    color: #fff;
-    text-decoration: none;
-    transform: translateY(-2px);
+.sna-entradas-topics-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 36px;
+}
+
+.sna-entradas-filter-clear {
+    min-height: 36px;
+    padding: 4px 12px;
+}
+
+.tx-select-wrap.sna-entradas-topic-select-wrap {
+    display: flex;
+}
+
+.sna-entradas-tabs-desktop {
+    display: none;
 }
 
 .sna-entradas-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    justify-content: center;
-    margin-bottom: 2.5rem;
+    justify-content: flex-start;
 }
 
-/* ── Filtro por año/mes ── */
-.sna-entradas-filters {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 2rem;
-    padding: 20px 24px;
-    background: var(--color-fondo-claro);
-    border-radius: 8px;
+.sna-entradas-tabs.muestra--ninguno {
+    display: none;
 }
 
-.sna-entradas-filter-apply {
+.sna-entradas-toggle-wrap {
+    border-top: 1px solid var(--neutro400);
+    margin-top: 24px;
+    padding-top: 16px;
+}
+
+#sna-entradas-toggle-cats .snd__icono,
+#sna-entradas-toggle-cats-icon {
     display: inline-flex;
-    align-items: center;
-    padding: 9px 22px;
-    border-radius: 4px;
-    border: none;
-    background: var(--color-burgundi);
-    color: #fff;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: transform 0.25s ease-in-out;
 }
 
-.sna-entradas-filter-apply:hover {
-    background: var(--color-guinda);
-    transform: translateY(-2px);
+#sna-entradas-toggle-cats[aria-expanded="true"] .snd__icono,
+#sna-entradas-toggle-cats[aria-expanded="true"] #sna-entradas-toggle-cats-icon,
+#sna-entradas-toggle-cats.is-expanded .snd__icono,
+#sna-entradas-toggle-cats.is-expanded #sna-entradas-toggle-cats-icon {
+    transform: rotate(180deg);
 }
 
-.sna-entradas-filter-field {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.sna-entradas-filter-field label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-negro);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.sna-entradas-filter-field label i {
-    color: var(--color-burgundi);
-}
-
-.sna-entradas-filter-select {
-    min-width: 160px;
-    padding: 8px 14px;
-    border-radius: 4px;
-    border: 1px solid var(--color-gris);
-    background-color: #fff;
-    color: var(--color-negro);
-    font-family: var(--font-noto-sans);
-    font-weight: 500;
-    font-size: 15px;
-    transition: border-color 0.2s ease;
-}
-
-.sna-entradas-filter-select:hover {
-    border-color: var(--color-burgundi);
-}
-
-.sna-entradas-filter-select:focus {
-    outline: none;
-    border-color: var(--color-guinda);
-    box-shadow: 0 0 0 3px rgba(97, 18, 50, 0.15);
-}
-
-.sna-entradas-filter-clear {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: none;
-    background: transparent;
-    color: var(--color-burgundi);
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: underline;
-    transition: color 0.2s ease;
-}
-
-.sna-entradas-filter-clear:hover {
-    color: var(--color-guinda);
-}
-
-@media (max-width: 575px) {
-    .sna-entradas-filters {
-        flex-direction: column;
-        align-items: stretch;
+@media (min-width: 640px) {
+    .tx-select-wrap.sna-entradas-topic-select-wrap {
+        display: none;
     }
 
-    .sna-entradas-filter-select {
-        min-width: 0;
-        width: 100%;
-    }
-
-    .sna-entradas-filter-apply,
-    .sna-entradas-filter-clear {
-        justify-content: center;
-        width: 100%;
+    .sna-entradas-tabs-desktop {
+        display: block;
     }
 }
 
@@ -2372,62 +2306,70 @@ nav.navbar .container {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: 1px solid var(--color-gris);
-    background: #fff;
-    color: var(--color-negro);
-    font-family: var(--font-noto-sans);
+    min-height: 40px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--principal);
+    background-color: var(--neutro100);
+    color: var(--principal);
+    font-family: var(--notoSans), sans-serif;
     font-weight: 600;
-    font-size: 15px;
-    transition: all 0.3s ease;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     cursor: pointer;
 }
 
-.sna-entradas-tab i {
-    color: var(--color-teal);
-    transition: color 0.3s ease;
+.sna-entradas-tab .snd__icono {
+    color: currentColor;
+    flex-shrink: 0;
 }
 
-.sna-entradas-tab.active {
-    background: var(--color-guinda);
-    border-color: var(--color-guinda);
-    color: #fff;
-    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+.sna-entradas-tab:hover:not(.active):not(:disabled) {
+    background-color: var(--pguinda100);
+    border-color: var(--principal);
+    color: var(--principal);
 }
 
-.sna-entradas-tab.active i {
-    color: #fff;
+.sna-entradas-tab:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
 }
 
-.sna-entradas-tab:hover:not(.active) {
-    border-color: var(--color-burgundi);
-    color: var(--color-burgundi);
-    transform: translateY(-2px);
-}
-
-.sna-entradas-tab:hover:not(.active) i {
-    color: var(--color-burgundi);
+.sna-entradas-tab.active,
+.sna-entradas-tab[aria-selected="true"],
+.sna-entradas-tab[aria-pressed="true"] {
+    background-color: var(--principal);
+    border-color: var(--principal);
+    color: var(--neutro100);
+    box-shadow: var(--dropLV1);
 }
 
 .sna-entradas-tab-count {
-    background: var(--color-dorado-claro);
-    color: var(--color-teal-oscuro);
-    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--principal);
+    border-radius: 100px;
     min-width: 24px;
     height: 24px;
-    font-size: 10px;
+    font-size: 0.75rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 6px;
-    transition: transform 0.2s ease;
+    padding: 0 8px;
+    transition: transform 0.2s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-.sna-entradas-tab.active .sna-entradas-tab-count {
-    background: rgba(255, 255, 255, 0.25);
-    color: #fff;
+.sna-entradas-tab:hover:not(.active) .sna-entradas-tab-count {
+    background-color: var(--neutro100);
+    color: var(--principal);
+}
+
+.sna-entradas-tab.active .sna-entradas-tab-count,
+.sna-entradas-tab[aria-selected="true"] .sna-entradas-tab-count,
+.sna-entradas-tab[aria-pressed="true"] .sna-entradas-tab-count {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: var(--neutro100);
 }
 
 .sna-entradas-tab-count--updated {
@@ -2445,41 +2387,39 @@ nav.navbar .container {
 }
 
 .sna-entradas-panel.active {
-    display: flex;
+    display: grid;
+}
+
+.sna-entradas-panel > .loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 32px 0;
 }
 
 .sna-entradas-card-category {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: var(--color-teal);
-    color: #fff;
-    font-size: 10px;
+    top: 32px;
+    right: 32px;
+    background-color: var(--principal);
+    color: var(--neutro100);
+    font-family: var(--notoSans), sans-serif;
+    font-size: 0.75rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 4px 10px;
-    border-radius: 4px;
+    line-height: 1.2;
+    padding: 4px 12px;
+    border-radius: 100px;
     z-index: 2;
+    box-shadow: var(--dropLV1);
 }
 
-.sna-entradas-load-more-btn {
-    border-radius: 4px;
-    padding: 10px 28px;
-    background: var(--color-teal-oscuro);
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    transition: background 0.3s ease;
-}
+@media (max-width: 639.98px) {
+    .sna-entradas-filter-actions [class*="boton__"] {
+        width: 100%;
+        justify-content: center;
+    }
 
-.sna-entradas-load-more-btn:hover {
-    background: var(--color-teal);
-}
-
-@media (max-width: 767px) {
     .sna-entradas-tab {
-        font-size: 14px;
+        font-size: 0.875rem;
         padding: 8px 14px;
     }
 }
@@ -3492,27 +3432,28 @@ nav.navbar .container {
     font-weight: 600;
 }
 
-/* Tarjeta principal del artículo */
+/* Tarjeta principal del artículo — Homologada SND v1.1.0 */
 .sesna-single-card {
-    background-color: var(--color-blanco);
-    border-radius: 8px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
     overflow: hidden;
     text-align: left;
-    box-shadow: 4px 8px 28px rgba(0, 0, 0, 0.09);
-    margin-bottom: 1.75rem;
+    box-shadow: var(--dropLV1);
+    margin-bottom: 2rem;
 }
 
 /* Imagen destacada — visible, contenida en la card */
 .sesna-single-card__img-wrap {
     width: 100%;
-    max-height: 460px;
+    max-height: 480px;
     overflow: hidden;
 }
 
 .sesna-single-card__img {
     width: 100%;
     height: 100%;
-    max-height: 460px;
+    max-height: 480px;
     object-fit: cover;
     object-position: center top;
     display: block;
@@ -3521,7 +3462,7 @@ nav.navbar .container {
 /* Encabezado dentro de la card (categoría + fecha + título) */
 .sesna-single-card__header {
     padding: 2rem 2.5rem 1.5rem;
-    border-bottom: 1px solid #f0e8f0;
+    border-bottom: 1px solid var(--neutro300);
 }
 
 /* Meta: categoría + fecha */
@@ -3535,7 +3476,7 @@ nav.navbar .container {
 
 .sesna-single-date {
     font-size: 16px;
-    color: rgba(22, 26, 29, 0.65);
+    color: var(--neutro600);
     display: flex;
     align-items: center;
 }
@@ -3544,9 +3485,9 @@ nav.navbar .container {
 /* Título — dentro de la card, sobre blanco */
 .sesna-single-title {
     font-family: var(--font-patria);
-    font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem) !important;
     font-weight: 700;
-    color: var(--color-negro);
+    color: var(--pguinda600);
     line-height: 1.28;
     margin-bottom: 0;
 }
@@ -3617,14 +3558,14 @@ nav.navbar .container {
 /* Divisor */
 .sesna-single-divider {
     border: none;
-    border-top: 1px solid #e8e8e8;
-    margin: 2.5rem 0;
+    border-top: 1px solid var(--neutro400);
+    margin: 2rem 0;
 }
 
 /* Archivos adjuntos */
 .sesna-single-files {
-    background-color: #fdf5f7;
-    border-left: 4px solid var(--color-burgundi);
+    background-color: var(--pguinda100);
+    border-left: 4px solid var(--principal);
     border-radius: 0 12px 12px 0;
     padding: 1.5rem 1.75rem;
     margin-top: 2rem;
@@ -5283,7 +5224,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-unidad,
 .page-organos-colegiados,
 .page-marco-normativo,
-.page-contacto {
+.page-contacto,
+.page-prensa {
     /* Fondo heredado de .front-page-bg */
     min-height: 75vh;
 }
@@ -5294,7 +5236,8 @@ body:has(.page-directorio) main.page {
 .page-transparencia-unidad .sesna-page-hero,
 .page-organos-colegiados .sesna-page-hero,
 .page-marco-normativo .sesna-page-hero,
-.page-contacto .sesna-page-hero {
+.page-contacto .sesna-page-hero,
+.page-prensa .sesna-page-hero {
     padding-bottom: 20px;
     margin-bottom: 0;
 }
@@ -5384,13 +5327,15 @@ body:has(.page-directorio) main.page {
     padding-bottom: 16px;
     border-bottom: 1px solid var(--neutro400);
 }
-/* 4.16 Mensajes informativos (Tipo Informativo) en paneles de comité/datos */
-.tx-comite-panel .aviso.aviso--info {
+/* 4.16 Mensajes informativos (Tipo Informativo) en paneles de comité/datos/entradas */
+.tx-comite-panel .aviso.aviso--info,
+.sna-entradas-panel .aviso.aviso--info {
     padding: 12px 16px;
     gap: 12px;
     align-items: center;
 }
-.tx-comite-panel .aviso .aviso__icon {
+.tx-comite-panel .aviso .aviso__icon,
+.sna-entradas-panel .aviso .aviso__icon {
     flex-shrink: 0;
 }
 

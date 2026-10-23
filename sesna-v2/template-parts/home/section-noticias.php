@@ -26,10 +26,18 @@
 
             if ($noticias_query->have_posts()) :
                 while ($noticias_query->have_posts()) : $noticias_query->the_post();
+                    $noticia_cats = get_the_category();
+                    $noticia_cat  = !empty($noticia_cats) ? $noticia_cats[0]->name : '';
                     ?>
                     <div class="columna__12 columna__6--md columna__4--lg">
                         <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
-                            
+
+                            <?php if ($noticia_cat) : ?>
+                                <span class="sna-entradas-card-category" title="<?php echo esc_attr($noticia_cat); ?>">
+                                    <?php echo esc_html($noticia_cat); ?>
+                                </span>
+                            <?php endif; ?>
+
                             <!-- Date Ribbon -->
                             <div class="sna-noticias-date-badge">
                                 <span class="sna-noticias-date-day"><?php echo get_the_date('d'); ?></span>

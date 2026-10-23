@@ -543,6 +543,30 @@ Extraído de la página **`Tabla` (`4083:1840`)** del archivo `SND | UI Kit` (`k
 </div>
 ```
 
+---
 
+## 9. Componente: Chips de Acción y Badges (`Badges / Chips`, Figma `page_id=1749:14986`)
 
+Extraído de la página **`Badges / Chips` (`1749:14986`)** del archivo `SND | UI Kit` (`kW8LFCzYEiBxCgHu6gBD66`), específicamente de los Component Sets **`ChipAccion` (`1833:559` / `36419:5937`)**, **`Badges` (`1790:7755` / `36418:40090`)** y **`Badge núm` (`1945:1830`)**.
+
+### 9A. `ChipAccion` — Chips de Filtro / Categoría (`1833:559`)
+
+#### Anatomía y Medidas Normativas
+- **Alto mínimo (`min-height`):** `40px`
+- **Padding interno:** `8px 16px`
+- **Separación interna (`gap`):** `8px` (entre ícono izquierdo `20×20px`, texto `.b2sb` / `14px–15px` SemiBold y contador opcional `.sna-entradas-tab-count`)
+- **Radio de esquina (`border-radius`):** `100px` (píldora completa)
+
+#### Tabla de Estados y Tokens (`snd-guinda.css`)
+| Estado (Variante Figma) | Fondo (`background-color`) | Borde (`border`) | Texto e Ícono (`color`) | Contador (`.sna-entradas-tab-count`) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Por defecto** (`1833:558`) | `var(--neutro100)` (`#FFFFFF`) | `1px solid var(--principal)` (`#611232`) | `var(--principal)` (`#611232`) | Fondo `var(--pguinda100)` (`#F3E4E9`), texto `var(--principal)` (`#611232`) |
+| **Hover** (`36543:5018`) | `var(--pguinda100)` (`#F3E4E9`) | `1px solid var(--principal)` (`#611232`) | `var(--principal)` (`#611232`) | Fondo `var(--neutro100)` (`#FFFFFF`), texto `var(--principal)` (`#611232`) |
+| **Enfocado (`:focus-visible`)** (`1833:566`) | `var(--neutro100)` (`#FFFFFF`) | `2px solid var(--principal)` (`#611232`) | `var(--principal)` (`#611232`) | Fondo `var(--pguinda100)`, texto `var(--principal)` |
+| **Activo / Seleccionado (`.active` / `[aria-selected="true"]`)** | `var(--principal)` (`#611232`) | `1px solid var(--principal)` (`#611232`) | `var(--neutro100)` (`#FFFFFF`) | Fondo `rgba(255, 255, 255, 0.22)`, texto `var(--neutro100)` (`#FFFFFF`) |
+| **Inhabilitado (`:disabled`)** (`1833:1230`) | `var(--neutro300)` (`#F3F3F3`) | `1px solid var(--neutro600)` (`#767676`) | `var(--neutro600)` (`#767676`) | Fondo `var(--neutro400)`, texto `var(--neutro600)` |
+
+### 9B. `Badges` — Etiquetas de Categoría (`21038:22548` / `21038:12623`) y `Badge núm` (`1945:1830`)
+- **`Badge=Rosa, Tipo=Fill` (`21038:22548`):** Píldora (`border-radius: 100px`), `padding: 4px 12px`, fondo `var(--principal)` (`#611232`) o `var(--pguinda500)` (`#A84565`), texto `var(--neutro100)` (`#FFFFFF`), `font-size: 0.75rem` (`12px`), `font-weight: 700`.
+- **`Badge núm` (`1945:1830`):** Contador circular (`min-width: 24px; height: 24px; border-radius: 100px; padding: 0 6px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;`).
 

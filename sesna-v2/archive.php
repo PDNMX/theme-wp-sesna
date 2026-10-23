@@ -11,26 +11,21 @@
 get_header();
 
 /* ------------------------------------------------------------------
- * Determinar la familia temática activa basada en la categoría actual
+ * Determinar la categoría activa basada en el archivo de categoría actual
  * ------------------------------------------------------------------ */
-$sna_active_familia = '';
+$sna_active_familia = 'todas';
 
 if (is_category()) {
     $sna_current_cat  = get_queried_object();
-    $sna_current_slug = $sna_current_cat ? $sna_current_cat->slug : '';
+    $sna_current_slug = $sna_current_cat && !empty($sna_current_cat->slug) ? $sna_current_cat->slug : '';
 
     if ($sna_current_slug) {
-        foreach (sna_get_familias_tematicas() as $key => $familia) {
-            if (in_array($sna_current_slug, $familia['cats'], true)) {
-                $sna_active_familia = $key;
-                break;
-            }
-        }
+        $sna_active_familia = $sna_current_slug;
     }
 }
 ?>
 
-<div class="informacion-page-bg">
+<div class="page-prensa front-page-bg">
     <?php
     get_template_part(
         'template-parts/home/section-entradas',

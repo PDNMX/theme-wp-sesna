@@ -1,16 +1,14 @@
 <?php
 /**
  * Template part para una card de entrada (sección "Entradas por Familia Temática")
- * Espera (opcional) $args['familia_key'] para mostrar, entre las categorías
- * del post, la que realmente pertenece a la familia activa.
+ * Homologada con las cards del home (template-parts/home/section-noticias.php)
  */
-$sna_entrada_cats   = get_the_category();
-$sna_entrada_cat    = '';
-$sna_familia_key    = isset($args['familia_key']) ? $args['familia_key'] : '';
-$sna_familia_slugs  = $sna_familia_key ? sna_get_familias_tematicas()[$sna_familia_key]['cats'] ?? [] : [];
+$sna_entrada_cats = get_the_category();
+$sna_entrada_cat  = '';
+$sna_familia_key  = isset($args['familia_key']) ? $args['familia_key'] : '';
 
 foreach ($sna_entrada_cats as $sna_cat) {
-	if (empty($sna_familia_slugs) || in_array($sna_cat->slug, $sna_familia_slugs, true)) {
+	if (empty($sna_familia_key) || $sna_familia_key === 'todas' || $sna_cat->slug === $sna_familia_key) {
 		$sna_entrada_cat = $sna_cat->name;
 		break;
 	}
@@ -24,7 +22,9 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
     <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
 
         <?php if ($sna_entrada_cat) : ?>
-            <span class="sna-entradas-card-category"><?php echo esc_html($sna_entrada_cat); ?></span>
+            <span class="sna-entradas-card-category" title="<?php echo esc_attr($sna_entrada_cat); ?>">
+                <?php echo esc_html($sna_entrada_cat); ?>
+            </span>
         <?php endif; ?>
 
         <!-- Date Ribbon -->
@@ -54,7 +54,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
             </p>
             <div class="mt--auto pb--16 texto--derecha--md">
                 <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
-                    Leer más <i class="snd__icono snd snd-arrow--right ml--8" aria-hidden="true"></i>
+                    Leer más
                 </span>
             </div>
         </div>

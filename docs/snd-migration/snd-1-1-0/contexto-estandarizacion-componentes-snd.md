@@ -296,3 +296,24 @@ Si al completar el **Paso 2** (verificación en fuentes locales) el componente o
 8. **Botones de Carga Progresiva ("Ver más sesiones"):** Homologados a `<button type="button" class="boton__fantasma" id="sesiones-vermas-btn-...">Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i></button>` dentro de `.reticulaGrid__12 > .columna__12 > .texto--centro.mt--32`.
 9. **Modal Visor de Video (`#oc-video-modal`, líneas 326–340):** Homologado con la estructura BEM de `template-parts/visor-pdf.php` (`.tx-pdf-modal__dialog`, `.tx-pdf-modal__content`, `.tx-pdf-modal__header`, `.tx-pdf-modal__title`, `.boton__fantasma.tx-pdf-modal__close-btn`, `.tx-pdf-modal__body`, `.tx-pdf-modal__iframe`).
 
+---
+
+### G. `home.php` / `archive.php` — Prensa ("Noticias y Actividades") (100% Completada)
+**Archivos:** [`sesna-v2/home.php`](../../../sesna-v2/home.php), [`sesna-v2/archive.php`](../../../sesna-v2/archive.php), [`sesna-v2/template-parts/home/section-entradas.php`](../../../sesna-v2/template-parts/home/section-entradas.php), [`sesna-v2/template-parts/home/card-entrada.php`](../../../sesna-v2/template-parts/home/card-entrada.php), [`sesna-v2/functions.php`](../../../sesna-v2/functions.php) (L708–714) y [`sesna-v2/assets/css/main.css`](../../../sesna-v2/assets/css/main.css) (L2137–2346, L5164–5186)
+
+1. **Envolvente de Página (`home.php` y `archive.php`):** Homologado a `<div class="page-prensa front-page-bg">` con `min-height: 75vh`.
+2. **Migas de pan / Breadcrumb (`section-entradas.php` L25–39):** Homologadas a `<nav class="ruta__cont"> > .contenedor > .ruta__lista > .ruta__li > .ruta__a` con `snd-home icono--20`.
+3. **Hero / Título Principal H1 y Descripción (`.sesna-page-hero`, `section-entradas.php` L41–51):** Homologados con `<h1 class="h1b patria color--pguinda600">Noticias y Actividades</h1>` y `<p class="sh1r color--neutro600 mb--0">` con espaciado inferior de `20px` (`.page-prensa .sesna-page-hero`).
+4. **Filtros por Fecha (`Año` / `Mes` + botones `Aplicar filtro` y `Quitar filtros`, `section-entradas.php` L57–94):**
+   - Selectores `#sna-entradas-filter-year` y `#sna-entradas-filter-month` homologados con **`Select / Dropatom`** (`.tx-select-wrap`, `.tx-comite-select.tx-comite-filter-control`, `snd-chevron--down icono--20 tx-select-chevron`) dentro de `.reticulaGrid__12.mb--32.align-items-end`.
+   - Botones homologados a **`4.2 Botones`**: `<button type="button" id="sna-entradas-filter-apply" class="boton__primario">` con `snd-filter icono--20` y `<button type="button" id="sna-entradas-filter-clear" class="boton__fantasma">` con `snd-close icono--20`.
+5. **Chips de Familias Temáticas (`ChipAccion` Figma `1833:559` + `Badge núm` `1945:1830`, `section-entradas.php` L96–118 y `main.css` L2250–2319):**
+   - Extraídos de la página `Badges / Chips` (`1749:14986`) del `SND | UI Kit` y documentados en la Sección 9 de [`catalogo-componentes-figma-extraidos.md`](./catalogo-componentes-figma-extraidos.md).
+   - Píldora `border-radius: 100px`, `min-height: 40px`, `padding: 8px 16px`, `gap: 8px`, ícono `icono--20` en `currentColor` (eliminando los colores legacy teal/dorado), estados Default (`var(--neutro100)` / `1px solid var(--principal)` / `var(--principal)`), Hover (`var(--pguinda100)`), Focus (`2px solid var(--principal)`) y Activo (`var(--principal)` / `var(--neutro100)`), con contador circular `.sna-entradas-tab-count`.
+6. **Tarjetas de Entradas (`card-entrada.php` y `main.css` L2143–2232):**
+   - Superficie `.sna-noticias-card` con las 4 propiedades base obligatorias (`background-color: var(--neutro100)`, `border: 1px solid var(--neutro400)`, `border-radius: 16px`, `box-shadow: var(--dropLV1)` y `:hover` `var(--dropLV2)`).
+   - Badge de categoría `.sna-entradas-card-category` homologado a `Badge=Rosa, Tipo=Fill` (`border-radius: 100px`, `background-color: var(--principal)`, `color: var(--neutro100)`), listón de fecha `.sna-noticias-date-badge` en `var(--principal)` con borde `var(--pguinda400)`, placeholder con `snd-image icono--32 color--pguinda600`, título `.sh1b.color--neutro800.mb--12`, extracto `.b1r.color--neutro700.mb--24` y CTA `"Leer más"` con `snd-arrow--right icono--20`.
+7. **Paneles en Retícula y Botón de Carga Progresiva (`section-entradas.php` L120–142):**
+   - Paneles `.reticulaGrid__12.sna-entradas-panel` (`display: grid` al estar `.active`) y botón `<button type="button" id="sna-entradas-load-more" class="boton__fantasma sna-entradas-load-more-btn">` con `snd-chevron--down icono--20` dentro de `.reticulaGrid__12 > .columna__12 > .texto--centro.mt--32`.
+
+

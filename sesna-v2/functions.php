@@ -502,132 +502,169 @@ function get_blog_posts()
 	wp_die();
 }
 
-/* Agrupa las categorías de WordPress en familias.*/
+/**
+ * Normaliza una cadena eliminando tildes/diacríticos para ordenamiento alfabético en español.
+ */
+function sna_normalize_category_sort_name($cadena)
+{
+	$cadena = str_replace(
+		['á', 'é', 'í', 'ó', 'ú', 'ü', 'Á', 'É', 'Í', 'Ó', 'Ú', 'Ü'],
+		['a', 'e', 'i', 'o', 'u', 'u', 'a', 'e', 'i', 'o', 'u', 'u'],
+		(string) $cadena
+	);
+	return function_exists('mb_strtolower') ? mb_strtolower($cadena, 'UTF-8') : strtolower($cadena);
+}
+
+/**
+ * Obtiene dinámicamente todas las categorías de entradas registradas en wp-admin,
+ * ordenadas alfabéticamente. Cualquier categoría nueva creada en WordPress
+ * aparece automáticamente sin modificar código.
+ */
 function sna_get_familias_tematicas()
 {
-	return [
-		'comunicados' => [
-			'label' => 'Comunicados de Prensa',
-			'icon'  => 'snd-volume--up',
-			'cats'  => ['comunicados-de-prensa'],
-		],
-		'comunicacion' => [
-			'label' => 'Comunicación y Difusión',
-			'icon'  => 'snd-video',
-			'cats'  => [
-				'infografia', 'videos', 'relatorias', 'premio',
-				'dia-internacional-vs-la-corrupcion',
-			],
-		],
-		'politica-nacional' => [
-			'label' => 'Política Nacional Anticorrupción',
-			'icon'  => 'snd-security',
-			'cats'  => [
-				'politica-nacional-anticorrupcion', 'programa-de-implementacion-pna',
-				'programa-institucional', 'metodologias', 'reisgos-de-corrupcion',
-				'autodiagnostico-riesgos-corrupcion', 'inteligencia-anticorrupcion',
-				'conflicto-de-interes',
-			],
-		],
-		'gobierno-coordinacion' => [
-			'label' => 'Órganos de Gobierno y Coordinación',
-			'icon'  => 'snd-building',
-			'cats'  => [
-				'comite-coordinador', 'comite_etica-sesna', 'comision-ejecutiva',
-				'organo-de-gobierno', 'ost', 'asamblea-general-sna',
-			],
-		],
-		'vinculacion-sna' => [
-			'label' => 'Vinculación e Implementación SNA',
-			'icon'  => 'snd-collaborate',
-			'cats'  => [
-				'sistemas-locales-anticorrupcion', 'convenios', 'colaboraciones',
-				'politicas-estatales-anticorrupcion', 'conoce-mas-del-sna',
-				'banco-de-buenas-practicas', 'guias', 'estudios', 'taller',
-			],
-		],
-		'datos-transparencia' => [
-			'label' => 'Datos y Plataforma Digital',
-			'icon'  => 'snd-data--base',
-			'cats'  => [
-				'plataforma-digital-nacional', 'datos', 'estandar-de-datos',
-				'catalogo-informacion-corrupcion-mexico', 'ata',
-			],
-		],
-		'rendicion-cuentas' => [
-			'label' => 'Transparencia y Rendición de Cuentas',
-			'icon'  => 'snd-document',
-			'cats'  => [
-				'informes', 'reportes', 'declaracion-patrimonial',
-				'normatividad_int', 'marco-normativo', 'desempeno-institucional-sesna',
-				'semblanzas', 'presupuesto-2021',
-			],
-		],
-		'administracion' => [
-			'label' => 'Administración y Adquisiciones',
-			'icon'  => 'snd-portfolio',
-			'cats'  => [
-				'direccion-general-de-administracion', 'adquisiciones',
-				'licitaciones-de-la-sesna', 'compras-publicas', 'convocatoria',
-				'acciones-y-programas', 'sin-categoria',
-			],
-		],
-		'genero-derechos-humanos' => [
-			'label' => 'Género y Derechos Humanos',
-			'icon'  => 'snd-group',
-			'cats'  => ['genero-y-derechos-humanos'],
-		],
-	];
+	$cats = get_categories([
+		'taxonomy'   => 'category',
+		'orderby'    => 'name',
+		'order'      => 'ASC',
+		'hide_empty' => false,
+		'number'     => 0,
+	]);
+
+	if (!is_array($cats) || empty($cats)) {
+		return [];
+	}
+
+	usort($cats, function ($a, $b) {
+		return strcmp(
+			sna_normalize_category_sort_name($a->name),
+			sna_normalize_category_sort_name($b->name)
+		);
+	});
+
+	$familias = [];
+
+	foreach ($cats as $cat) {
+		$familias[$cat->slug] = [
+			'label'   => $cat->name,
+			'slug'    => $cat->slug,
+			'term_id' => (int) $cat->term_id,
+			'count'   => (int) $cat->count,
+			'cats'    => [$cat->slug],
+		];
+	}
+
+	return $familias;
 }
 
 function sna_get_term_ids_for_familia($familia_key)
 {
-	$familias = sna_get_familias_tematicas();
-
-	if (!isset($familias[$familia_key])) {
+	if (empty($familia_key) || $familia_key === 'todas') {
 		return [];
 	}
 
-	$term_ids = [];
+	$familias = sna_get_familias_tematicas();
 
-	foreach ($familias[$familia_key]['cats'] as $slug) {
-		$term = get_category_by_slug($slug);
+	if (isset($familias[$familia_key]['term_id'])) {
+		return [(int) $familias[$familia_key]['term_id']];
+	}
 
-		if ($term) {
-			$term_ids[] = $term->term_id;
+	$term = get_category_by_slug($familia_key);
+	return $term ? [(int) $term->term_id] : [];
+}
+
+/**
+ * Calcula en lote el número de entradas publicadas (post_type = 'post') por categoría,
+ * aplicando opcionalmente filtros de año, mes y búsqueda por palabra clave.
+ */
+function sna_get_all_categories_post_counts($year = 0, $monthnum = 0, $search = '')
+{
+	global $wpdb;
+
+	$familias = sna_get_familias_tematicas();
+	$counts   = [];
+
+	foreach ($familias as $slug => $info) {
+		$counts[$slug] = 0;
+	}
+
+	if (empty($familias)) {
+		return $counts;
+	}
+
+	$filtered_post_ids = null;
+
+	if ($year || $monthnum || $search !== '') {
+		$q_args = [
+			'post_type'           => 'post',
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => 1,
+			'fields'              => 'ids',
+			'posts_per_page'      => -1,
+		];
+
+		if ($year) {
+			$q_args['year'] = (int) $year;
+		}
+		if ($monthnum) {
+			$q_args['monthnum'] = (int) $monthnum;
+		}
+		if ($search !== '') {
+			$q_args['s'] = $search;
+		}
+
+		$q = new WP_Query($q_args);
+		$filtered_post_ids = !empty($q->posts) ? array_map('intval', $q->posts) : [];
+
+		if (empty($filtered_post_ids)) {
+			return $counts;
 		}
 	}
 
-	return $term_ids;
+	$where_ids = '';
+	if (is_array($filtered_post_ids)) {
+		$ids_sql   = implode(',', $filtered_post_ids);
+		$where_ids = " AND p.ID IN ({$ids_sql}) ";
+	}
+
+	$sql = "
+		SELECT t.slug, COUNT(DISTINCT p.ID) AS total
+		FROM {$wpdb->term_taxonomy} tt
+		INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+		LEFT JOIN {$wpdb->term_relationships} tr ON tr.term_taxonomy_id = tt.term_taxonomy_id
+		LEFT JOIN {$wpdb->posts} p ON p.ID = tr.object_id
+			AND p.post_type = 'post'
+			AND p.post_status = 'publish'
+			{$where_ids}
+		WHERE tt.taxonomy = 'category'
+		GROUP BY t.slug
+	";
+
+	$rows = $wpdb->get_results($sql);
+
+	if (is_array($rows)) {
+		foreach ($rows as $row) {
+			if (isset($counts[$row->slug])) {
+				$counts[$row->slug] = (int) $row->total;
+			}
+		}
+	}
+
+	return $counts;
 }
 
-function sna_get_familia_post_count($familia_key, $year = 0, $monthnum = 0)
+function sna_get_familia_post_count($familia_key, $year = 0, $monthnum = 0, $search = '')
 {
-	$term_ids = sna_get_term_ids_for_familia($familia_key);
+	static $cached_default_counts = null;
 
-	if (empty($term_ids)) {
-		return 0;
+	if (!$year && !$monthnum && $search === '') {
+		if ($cached_default_counts === null) {
+			$cached_default_counts = sna_get_all_categories_post_counts(0, 0, '');
+		}
+		return $cached_default_counts[$familia_key] ?? 0;
 	}
 
-	$args = [
-		'post_type'      => 'post',
-		'post_status'    => 'publish',
-		'category__in'   => $term_ids,
-		'fields'         => 'ids',
-		'posts_per_page' => -1,
-	];
-
-	if ($year) {
-		$args['year'] = (int) $year;
-	}
-
-	if ($monthnum) {
-		$args['monthnum'] = (int) $monthnum;
-	}
-
-	$q = new WP_Query($args);
-
-	return $q->found_posts;
+	$counts = sna_get_all_categories_post_counts($year, $monthnum, $search);
+	return $counts[$familia_key] ?? 0;
 }
 
 add_action('wp_ajax_get_familias_counts', 'sna_get_familias_counts');
@@ -637,12 +674,9 @@ function sna_get_familias_counts()
 {
 	$year     = isset($_POST['year']) ? (int) $_POST['year'] : 0;
 	$monthnum = isset($_POST['monthnum']) ? (int) $_POST['monthnum'] : 0;
+	$search   = isset($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
 
-	$counts = [];
-
-	foreach (sna_get_familias_tematicas() as $key => $familia) {
-		$counts[$key] = sna_get_familia_post_count($key, $year, $monthnum);
-	}
+	$counts = sna_get_all_categories_post_counts($year, $monthnum, $search);
 
 	wp_send_json_success($counts);
 }
@@ -666,28 +700,32 @@ add_action('wp_ajax_nopriv_get_home_entries_by_family', 'sna_get_home_entries_by
 
 function sna_get_home_entries_by_family()
 {
-	$familia_key    = isset($_POST['familia']) ? sanitize_text_field($_POST['familia']) : '';
+	$familia_key    = isset($_POST['familia']) ? sanitize_text_field($_POST['familia']) : 'todas';
 	$page           = isset($_POST['page']) ? max(0, (int) $_POST['page']) : 0;
 	$year           = isset($_POST['year']) ? (int) $_POST['year'] : 0;
 	$monthnum       = isset($_POST['monthnum']) ? (int) $_POST['monthnum'] : 0;
+	$search         = isset($_POST['search']) ? sanitize_text_field(wp_unslash($_POST['search'])) : '';
 	$posts_per_page = 6;
-
-	$term_ids = sna_get_term_ids_for_familia($familia_key);
-
-	if (empty($term_ids)) {
-		wp_die();
-	}
 
 	$args = [
 		'post_type'           => 'post',
 		'post_status'         => 'publish',
 		'ignore_sticky_posts' => 1,
-		'category__in'        => $term_ids,
 		'posts_per_page'      => $posts_per_page,
 		'offset'              => $page * $posts_per_page,
 		'orderby'             => 'date',
 		'order'               => 'DESC',
 	];
+
+	if ($familia_key !== '' && $familia_key !== 'todas') {
+		$term_ids = sna_get_term_ids_for_familia($familia_key);
+		if (empty($term_ids)) {
+			echo '<div class="columna__12"><div class="aviso aviso--info mt--16" role="status" aria-live="polite"><i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i><div class="aviso__cont"><div class="aviso__txt"><p class="b1r color--azul500 mb--0">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</p></div></div></div></div>';
+			echo '<span class="muestra--ninguno" data-has-more="0"></span>';
+			wp_die();
+		}
+		$args['category__in'] = $term_ids;
+	}
 
 	if ($year) {
 		$args['year'] = $year;
@@ -695,6 +733,10 @@ function sna_get_home_entries_by_family()
 
 	if ($monthnum) {
 		$args['monthnum'] = $monthnum;
+	}
+
+	if ($search !== '') {
+		$args['s'] = $search;
 	}
 
 	$query = new WP_Query($args);
@@ -706,11 +748,11 @@ function sna_get_home_entries_by_family()
 		}
 		wp_reset_postdata();
 	} elseif ($page === 0) {
-		echo '<p class="text-muted text-center w-100">No hay contenido disponible con los filtros seleccionados.</p>';
+		echo '<div class="columna__12"><div class="aviso aviso--info mt--16" role="status" aria-live="polite"><i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i><div class="aviso__cont"><div class="aviso__txt"><p class="b1r color--azul500 mb--0">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</p></div></div></div></div>';
 	}
 
 	$has_more = ($query->found_posts > (($page + 1) * $posts_per_page)) ? 1 : 0;
-	echo '<span class="d-none" data-has-more="' . esc_attr($has_more) . '"></span>';
+	echo '<span class="muestra--ninguno" data-has-more="' . esc_attr($has_more) . '"></span>';
 
 	wp_die();
 }

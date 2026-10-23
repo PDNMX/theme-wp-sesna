@@ -9,39 +9,48 @@
     jQuery(function ($) {
         var loading = '<div class="loading"><img src="' + ajax_object.loading_url + '"/></div>';
 
-        /* Familia activa inicial: primero lee el data-attribute que PHP inyecta
-           en el <section>; si no existe, cae en el primer tab marcado como active. */
-        var $section        = $('.sna-entradas-section');
-        var initialFamilia  = $section.data('active-familia') || $('.sna-entradas-tab.active').data('familia');
+        var $section          = $('.sna-entradas-section');
+        var $resultsPanel     = $('#sna-entradas-results');
+        var activeFamilia     = $section.attr('data-active-familia') || 'todas';
+        var searchTimer       = null;
+        var currentEntriesXhr = null;
+        var currentCountsXhr  = null;
 
         function get_filters() {
             return {
                 year:     $('#sna-entradas-filter-year').val()  || '',
-                monthnum: $('#sna-entradas-filter-month').val() || ''
+                monthnum: $('#sna-entradas-filter-month').val() || '',
+                search:   $.trim($('#sna-entradas-search').val() || '')
             };
         }
 
-        function update_load_more($panel) {
-            var hasMore = $panel.find('[data-has-more="1"]').length > 0;
+        function update_load_more() {
+            var hasMore = $resultsPanel.find('[data-has-more="1"]').length > 0;
             $('#sna-entradas-load-more').toggle(hasMore);
         }
 
         function update_clear_button() {
             var f = get_filters();
-            $('#sna-entradas-filter-clear').toggle(!!(f.year || f.monthnum));
+            var hasActiveFilter = !!(f.year || f.monthnum || f.search || (activeFamilia && activeFamilia !== 'todas'));
+            $('#sna-entradas-filter-clear').toggle(hasActiveFilter);
         }
 
-        function reset_panels() {
-            $('.sna-entradas-panel').empty().data('page', 0).data('loaded', 0);
+        function reset_results() {
+            $resultsPanel.empty().data('page', 0).data('loaded', 0);
         }
 
         function update_counts() {
             var filters = get_filters();
 
-            $.post(ajax_object.ajax_url, {
-                action:    'get_familias_counts',
-                year:      filters.year,
-                monthnum:  filters.monthnum
+            if (currentCountsXhr && currentCountsXhr.readyState !== 4) {
+                currentCountsXhr.abort();
+            }
+
+            currentCountsXhr = $.post(ajax_object.ajax_url, {
+                action:   'get_familias_counts',
+                year:     filters.year,
+                monthnum: filters.monthnum,
+                search:   filters.search
             }, function (response) {
                 if (!response || !response.success) {
                     return;
@@ -60,75 +69,131 @@
             });
         }
 
-        function fetch_familia(key) {
-            var $panel  = $('#panel-' + key);
-            var page    = $panel.data('page') || 0;
+        function fetch_entries() {
+            var page    = $resultsPanel.data('page') || 0;
             var filters = get_filters();
 
-            $panel.append(loading);
+            if (currentEntriesXhr && currentEntriesXhr.readyState !== 4) {
+                currentEntriesXhr.abort();
+            }
 
-            $.post(ajax_object.ajax_url, {
-                action:    'get_home_entries_by_family',
-                familia:   key,
-                page:      page,
-                year:      filters.year,
-                monthnum:  filters.monthnum
+            $resultsPanel.find('.loading').remove();
+            $resultsPanel.append(loading);
+
+            currentEntriesXhr = $.post(ajax_object.ajax_url, {
+                action:   'get_home_entries_by_family',
+                familia:  activeFamilia || 'todas',
+                page:     page,
+                year:     filters.year,
+                monthnum: filters.monthnum,
+                search:   filters.search
             }, function (response) {
-                $panel.find('.loading').remove();
-                $panel.find('[data-has-more]').remove();
-                $panel.append(response);
-                $panel.data('loaded', 1).data('page', page + 1);
-                update_load_more($panel);
+                $resultsPanel.find('.loading').remove();
+                $resultsPanel.find('[data-has-more]').remove();
+                $resultsPanel.append(response);
+                $resultsPanel.data('loaded', 1).data('page', page + 1);
+                update_load_more();
             });
         }
 
-        /* Clic en tab — e.preventDefault() evita cualquier navegación accidental */
+        function apply_filters_now() {
+            update_clear_button();
+            update_counts();
+            reset_results();
+            fetch_entries();
+        }
+
+        function activate_familia(key) {
+            activeFamilia = key || 'todas';
+            $section.attr('data-active-familia', activeFamilia);
+            $resultsPanel.attr('data-familia', activeFamilia);
+
+            $('.sna-entradas-tab').removeClass('active').attr('aria-pressed', 'false');
+            if (activeFamilia !== 'todas') {
+                var $activeTab = $('#tab-' + activeFamilia);
+                $activeTab.addClass('active').attr('aria-pressed', 'true');
+                if ($activeTab.hasClass('sna-entradas-tab--extra') && $activeTab.hasClass('muestra--ninguno')) {
+                    $('.sna-entradas-tab--extra').removeClass('muestra--ninguno');
+                    $('#sna-entradas-toggle-cats').attr('aria-expanded', 'true').addClass('is-expanded');
+                    $('#sna-entradas-toggle-cats-text').text('Ver menos categorías');
+                    $('#sna-entradas-toggle-cats-icon').removeClass('snd-chevron--down').addClass('snd-chevron--up');
+                }
+            }
+            $('#sna-entradas-filter-topic').val(activeFamilia);
+
+            update_clear_button();
+            reset_results();
+            fetch_entries();
+        }
+
+        /* Clic en chip de categoría (Desktop/Tablet): si ya está activo, deselecciona y vuelve a 'todas' */
         $('.sna-entradas-tab').on('click', function (e) {
             e.preventDefault();
+            var clickedKey = $(this).attr('data-familia');
+            var nextKey    = (activeFamilia === clickedKey) ? 'todas' : clickedKey;
+            activate_familia(nextKey);
+        });
 
-            var key = $(this).data('familia');
+        /* Cambio en Select de Categoría (Móvil) */
+        $('#sna-entradas-filter-topic').on('change', function () {
+            activate_familia($(this).val() || 'todas');
+        });
 
-            $('.sna-entradas-tab').removeClass('active').attr('aria-selected', 'false');
-            $(this).addClass('active').attr('aria-selected', 'true');
+        /* Toggle "Ver todas las categorías" / "Ver menos categorías" (Desktop/Tablet) */
+        $('#sna-entradas-toggle-cats').on('click', function (e) {
+            e.preventDefault();
+            var $extraTabs = $('.sna-entradas-tab--extra');
+            var $text      = $('#sna-entradas-toggle-cats-text');
+            var $icon      = $('#sna-entradas-toggle-cats-icon');
+            if (!$extraTabs.length) return;
 
-            $('.sna-entradas-panel').removeClass('active');
-            var $panel = $('#panel-' + key).addClass('active');
+            var isHidden = $extraTabs.first().hasClass('muestra--ninguno');
+            $extraTabs.toggleClass('muestra--ninguno', !isHidden);
+            $(this).attr('aria-expanded', isHidden ? 'true' : 'false').toggleClass('is-expanded', isHidden);
 
-            if ($panel.data('loaded') != 1) {
-                fetch_familia(key);
-            } else {
-                update_load_more($panel);
+            if ($text.length) {
+                $text.text(isHidden ? 'Ver menos categorías' : 'Ver todas las categorías');
+            }
+            if ($icon.length) {
+                $icon.toggleClass('snd-chevron--down', !isHidden).toggleClass('snd-chevron--up', isHidden);
             }
         });
 
         $('#sna-entradas-load-more').on('click', function () {
-            var key = $('.sna-entradas-panel.active').data('familia');
-            fetch_familia(key);
+            fetch_entries();
         });
 
-        $('#sna-entradas-filter-apply').on('click', function () {
-            update_clear_button();
-            update_counts();
-            reset_panels();
-            var key = $('.sna-entradas-tab.active').data('familia');
-            $('#panel-' + key).addClass('active');
-            fetch_familia(key);
+        /* Filtrado automático al cambiar Año o Mes */
+        $('#sna-entradas-filter-year, #sna-entradas-filter-month').on('change', function () {
+            apply_filters_now();
+        });
+
+        /* Búsqueda en tiempo real con debounce (350ms) + estado .is-filled SND */
+        $('#sna-entradas-search').on('input search', function () {
+            var val = $.trim($(this).val() || '');
+            $('#sna-entradas-search-box').toggleClass('is-filled', val.length > 0);
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+                apply_filters_now();
+            }, 350);
+        });
+
+        $('#form-sna-entradas-search').on('submit', function (e) {
+            e.preventDefault();
+            clearTimeout(searchTimer);
+            apply_filters_now();
         });
 
         $('#sna-entradas-filter-clear').on('click', function () {
             $('#sna-entradas-filter-year').val('');
             $('#sna-entradas-filter-month').val('');
-            $(this).hide();
+            $('#sna-entradas-search').val('');
+            $('#sna-entradas-search-box').removeClass('is-filled');
+            activate_familia('todas');
             update_counts();
-            reset_panels();
-            var key = $('.sna-entradas-tab.active').data('familia');
-            $('#panel-' + key).addClass('active');
-            fetch_familia(key);
         });
 
-        /* Carga inicial: usa la familia determinada por PHP (tab activo al renderizar) */
-        if (initialFamilia) {
-            fetch_familia(initialFamilia);
-        }
+        /* Carga inicial */
+        fetch_entries();
     });
 })();
