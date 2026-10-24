@@ -195,6 +195,13 @@ img {
 .gap-3 { gap: 1rem !important; }
 .gap-4 { gap: 1.5rem !important; }
 .gap-5 { gap: 3rem !important; }
+.gap--4 { gap: 4px !important; }
+.gap--8 { gap: 8px !important; }
+.gap--12 { gap: 12px !important; }
+.gap--16 { gap: 16px !important; }
+.gap--20 { gap: 20px !important; }
+.gap--24 { gap: 24px !important; }
+.gap--32 { gap: 32px !important; }
 
 /* Dimensiones */
 .w-100 { width: 100% !important; }

@@ -6733,11 +6733,11 @@ select.tx-comite-filter-control:disabled {
 
 /* ── page-planeacion-institucional ────────────── */
 .page-pna-planeacion {
-    background-color: #f6eff6;
+    background-color: transparent;
 }
 .page-pna-planeacion .pna-doc-item:hover {
-    background-color: #F9F0F3;
-    color: #611232 !important;
+    background-color: var(--pguinda100);
+    color: var(--principal) !important;
 }
 .page-pna-planeacion .pna-doc-item:focus {
     outline: none;
@@ -6825,16 +6825,16 @@ select.tx-comite-filter-control:disabled {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-color: #F9F0F3;
-    color: #611232;
+    background-color: var(--pguinda100, #F9F0F3);
+    color: var(--principal, #611232);
     font-size: 13px;
     flex-shrink: 0;
     transition: background-color .15s ease, color .15s ease;
 }
 .cf-doc-row:hover .cf-doc-view,
 .fin-doc-row:hover .cf-doc-view {
-    background-color: #611232;
-    color: #fff;
+    background-color: var(--principal, #611232);
+    color: var(--neutro100, #fff);
 }
 .cf-doc-view::before,
 .cf-doc-view::after {
@@ -6900,14 +6900,19 @@ select.tx-comite-filter-control:disabled {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #fff;
-    border: 1px solid #E9ECEF;
-    border-radius: 10px;
-    padding: 10px 16px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 100px;
+    padding: 8px 16px;
     min-width: 260px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.fin-search:focus-within {
+    border-color: var(--principal);
+    box-shadow: 0 0 0 2px var(--pguinda100);
 }
 .fin-search i {
-    color: #9c8a94;
+    color: var(--neutro600);
 }
 .fin-search input {
     border: none;
@@ -6916,6 +6921,7 @@ select.tx-comite-filter-control:disabled {
     font-size: 14px;
     width: 100%;
     background: transparent;
+    color: var(--neutro800);
 }
 
 /* ── page-informacion-financiera ──────────────── */
