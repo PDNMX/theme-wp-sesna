@@ -69,7 +69,7 @@ rsort($oc_anios_organo);
     <div class="contenedor">
 
         <div class="tx-comite-panel">
-            <!-- Tabs — SND UI Kit (Tabs 01 / State: 618:2598 / 1562:3995 / 16460:870) integradas en el panel padre -->
+            <!-- Tabs — SND UI Kit (Tabs 01 / State: 618:2598 / 1562:3995 / 16460:870) integradas en el panel padre (Desktop / Tablet) -->
             <div class="tx-comite-tabs-container tx-comite-tabs-container--underline ocn-tabs-nav mb--24">
                 <ul class="ul--limpio tx-comite-tabs" role="tablist" aria-label="Secciones de órganos colegiados">
                     <li role="presentation">
@@ -100,6 +100,12 @@ rsort($oc_anios_organo);
                 </ul>
             </div>
 
+            <!-- Selector de sección — Móvil (abre Drawer) -->
+            <button type="button" class="boton__secundario ocn-mobile-tab-trigger mb--24" id="ocnOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="ocnDrawer">
+                <span id="ocnActiveTabLabel">Comité Coordinador</span>
+                <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+            </button>
+
             <!-- SECTION: COMITÉ COORDINADOR -->
             <div class="content-section tx-comite-tab-pane" id="sec-comite" role="tabpanel" aria-labelledby="tab-comite">
 
@@ -121,7 +127,7 @@ rsort($oc_anios_organo);
 
                 <!-- FILTROS SND (Select / Dropatom + 4.1 Barra de búsqueda) -->
                 <div class="reticulaGrid__12 mb--32 align-items-end">
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-anio-comite" class="b1sb dblock color--neutro800 mb--8">Año</label>
                         <div class="tx-select-wrap">
                             <select id="filter-anio-comite" class="tx-comite-select tx-comite-filter-control">
@@ -133,7 +139,7 @@ rsort($oc_anios_organo);
                             <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-tipo-comite" class="b1sb dblock color--neutro800 mb--8">Tipo de sesión</label>
                         <div class="tx-select-wrap">
                             <select id="filter-tipo-comite" class="tx-comite-select tx-comite-filter-control">
@@ -199,7 +205,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <div class="reticulaGrid__12 mb--32 align-items-end">
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-anio-comision" class="b1sb dblock color--neutro800 mb--8">Año</label>
                         <div class="tx-select-wrap">
                             <select id="filter-anio-comision" class="tx-comite-select tx-comite-filter-control">
@@ -211,7 +217,7 @@ rsort($oc_anios_organo);
                             <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-tipo-comision" class="b1sb dblock color--neutro800 mb--8">Tipo de sesión</label>
                         <div class="tx-select-wrap">
                             <select id="filter-tipo-comision" class="tx-comite-select tx-comite-filter-control">
@@ -275,7 +281,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <div class="reticulaGrid__12 mb--32 align-items-end">
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-anio-organo" class="b1sb dblock color--neutro800 mb--8">Año</label>
                         <div class="tx-select-wrap">
                             <select id="filter-anio-organo" class="tx-comite-select tx-comite-filter-control">
@@ -287,7 +293,7 @@ rsort($oc_anios_organo);
                             <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div class="columna__12 columna__6--md columna__3--lg">
+                    <div class="columna__6--xs columna__3--lg">
                         <label for="filter-tipo-organo" class="b1sb dblock color--neutro800 mb--8">Tipo de sesión</label>
                         <div class="tx-select-wrap">
                             <select id="filter-tipo-organo" class="tx-comite-select tx-comite-filter-control">
@@ -384,6 +390,144 @@ rsort($oc_anios_organo);
         </div>
     </div>
 </div>
+
+<!-- ── Drawer Móvil (Bottom Sheet): Selección de Sección SND v1.1.0 ────── -->
+<div class="snd-drawer-overlay page-organos-colegiados is-hidden" id="ocnDrawerOverlay" aria-hidden="true">
+    <div class="snd-drawer snd-drawer--bottom" id="ocnDrawer" role="dialog" aria-modal="true" aria-labelledby="ocnDrawerTitle">
+        <!-- Drag Handle -->
+        <div class="snd-drawer__handle-wrap" id="ocnDrawerHandle">
+            <span class="snd-drawer__handle" aria-hidden="true"></span>
+        </div>
+
+        <!-- Header -->
+        <div class="snd-drawer__header">
+            <h2 class="sh0b color--neutro800 mb--0" id="ocnDrawerTitle">Seleccionar sección</h2>
+            <button type="button" class="boton__fantasma snd-drawer__close-btn" id="ocnDrawerCloseBtn" aria-label="Cerrar selección de sección">
+                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Body: ListItems seleccionables con indicador de opción activa -->
+        <div class="snd-drawer__body" id="ocnDrawerBody">
+            <div class="d-flex flex-column gap--8">
+                <button type="button" class="fin-dictamen-item js-tab-link active" data-target="comite" aria-selected="true">
+                    <span>Comité Coordinador</span>
+                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="fin-dictamen-item js-tab-link" data-target="comision" aria-selected="false">
+                    <span>Comisión Ejecutiva</span>
+                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="fin-dictamen-item js-tab-link" data-target="organo" aria-selected="false">
+                    <span>Órgano de Gobierno</span>
+                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="fin-dictamen-item js-tab-link" data-target="recomendaciones" aria-selected="false">
+                    <span>Recomendaciones no vinculantes</span>
+                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="fin-dictamen-item js-tab-link" data-target="exhortos" aria-selected="false">
+                    <span>Exhortos</span>
+                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    function initOcnDrawer() {
+        var drawerOverlay  = document.getElementById('ocnDrawerOverlay');
+        var drawerEl       = document.getElementById('ocnDrawer');
+        var openDrawerBtn  = document.getElementById('ocnOpenDrawerBtn');
+        var closeDrawerBtn = document.getElementById('ocnDrawerCloseBtn');
+
+        function openDrawer() {
+            if (!drawerOverlay || !drawerEl) return;
+            drawerOverlay.classList.remove('is-hidden');
+            drawerOverlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('snd-drawer-open');
+            if (openDrawerBtn) openDrawerBtn.setAttribute('aria-expanded', 'true');
+            void drawerOverlay.offsetWidth;
+            drawerOverlay.classList.add('is-visible');
+            if (closeDrawerBtn) closeDrawerBtn.focus();
+        }
+
+        function closeDrawer() {
+            if (!drawerOverlay || !drawerEl) return;
+            drawerOverlay.classList.remove('is-visible');
+            drawerOverlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('snd-drawer-open');
+            if (openDrawerBtn) openDrawerBtn.setAttribute('aria-expanded', 'false');
+            drawerEl.style.transform = '';
+            setTimeout(function () {
+                if (!drawerOverlay.classList.contains('is-visible')) {
+                    drawerOverlay.classList.add('is-hidden');
+                }
+            }, 280);
+            if (openDrawerBtn) openDrawerBtn.focus();
+        }
+
+        // Expuesto para que organos-colegiados.js cierre el Drawer al seleccionar una sección
+        window.ocnCloseDrawer = closeDrawer;
+
+        if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+
+        if (drawerOverlay) {
+            drawerOverlay.addEventListener('click', function (e) {
+                if (e.target === drawerOverlay) {
+                    closeDrawer();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && drawerOverlay && drawerOverlay.classList.contains('is-visible')) {
+                closeDrawer();
+            }
+        });
+
+        // Gesto Swipe Down en móvil para cerrar el Bottom Sheet
+        var touchStartY = 0;
+        var touchCurrentY = 0;
+        var handle = document.getElementById('ocnDrawerHandle');
+        var drawerHeader = drawerEl ? drawerEl.querySelector('.snd-drawer__header') : null;
+        [handle, drawerHeader].forEach(function (el) {
+            if (!el) return;
+            el.addEventListener('touchstart', function (e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            el.addEventListener('touchmove', function (e) {
+                touchCurrentY = e.touches[0].clientY;
+                var diff = touchCurrentY - touchStartY;
+                if (diff > 0 && drawerEl) {
+                    drawerEl.style.transform = 'translateY(' + diff + 'px)';
+                }
+            }, { passive: true });
+            el.addEventListener('touchend', function () {
+                var diff = touchCurrentY - touchStartY;
+                if (diff > 75) {
+                    closeDrawer();
+                } else if (drawerEl) {
+                    drawerEl.style.transform = '';
+                }
+                touchStartY = 0;
+                touchCurrentY = 0;
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initOcnDrawer);
+    } else {
+        initOcnDrawer();
+    }
+})();
+</script>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 

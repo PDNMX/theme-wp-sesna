@@ -2200,7 +2200,9 @@ function sesna_oc_doc_icon($nombre) {
  * y las de Sesiones/Acuerdos ocupan el ancho completo.
  */
 function sesna_render_oc_stats_cards($stats, $mostrar_recomendaciones_exhortos = true) {
-    $col_class = $mostrar_recomendaciones_exhortos ? 'columna__12 columna__6--md columna__3--lg' : 'columna__12 columna__6--md';
+    // snd-guinda.css resetea TODO [class*="columna__"] a ancho completo bajo 640px
+    // (@media max-width:639.9px) salvo que se use la variante --xs explícita.
+    $col_class = $mostrar_recomendaciones_exhortos ? 'columna__6--xs columna__3--lg' : 'columna__6--xs';
     ?>
     <div class="reticulaGrid__12 mb--32">
         <div class="<?= esc_attr($col_class) ?>">
@@ -2381,16 +2383,9 @@ function sesna_render_oc_anexos_toggle($panel_id, $slot) {
 
 function sesna_render_oc_anexos_panel($panel_id, $slot) {
     $total = count($slot['documentos']);
-    $mostrar_buscador = $total > 8;
     ?>
     <div class="muestra--ninguno tx-oc-anexos-panel" id="<?= esc_attr($panel_id) ?>">
         <div class="tx-oc-anexos-panel__inner">
-            <?php if ($mostrar_buscador) : ?>
-            <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control tx-oc-anexos-search-box mb--16">
-                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
-                <input type="search" class="sh0r js-input tx-comite-search-input tx-oc-anexos-search" placeholder="Buscar documento..." aria-label="Buscar documento en anexos" autocomplete="off">
-            </div>
-            <?php endif; ?>
             <div class="tx-oc-anexos-list">
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
@@ -2402,7 +2397,6 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 </a>
                 <?php endforeach; ?>
             </div>
-            <p class="b1r color--neutro600 texto--centro mt--16 mb--0 muestra--ninguno tx-oc-anexos-empty">No se encontraron documentos con ese nombre.</p>
         </div>
     </div>
     <?php
@@ -2416,7 +2410,9 @@ function sesna_render_oc_sesion_card($sesion) {
     $slots = sesna_oc_map_slots_fijos($sesion);
     $anexos_panel_id = 'oc-anexos-panel-' . md5($sesion['titulo'] . $sesion['fecha'] . count($slots['anexos']['documentos']));
     $tiene_anexos_panel = count($slots['anexos']['documentos']) > 1;
-    $busqueda_sesion = trim($sesion['titulo'] . ' ' . $sesion['tipo_sesion'] . ' ' . $dia . ' ' . $mes . ' ' . $anio);
+    // La búsqueda principal de la página también cubre los nombres de los documentos anexos.
+    $nombres_anexos = implode(' ', array_map(function ($d) { return $d['nombre']; }, $slots['anexos']['documentos']));
+    $busqueda_sesion = trim($sesion['titulo'] . ' ' . $sesion['tipo_sesion'] . ' ' . $dia . ' ' . $mes . ' ' . $anio . ' ' . $nombres_anexos);
     ?>
     <div class="tx-oc-card tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_sesion, 'UTF-8') : strtolower($busqueda_sesion) ) ?>">
         <div class="tx-oc-card__main">

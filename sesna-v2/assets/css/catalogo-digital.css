@@ -115,23 +115,23 @@
     flex-shrink: 0 !important;
 }
 
+/* BarraAcciones (SND Kit UI): alineada a la derecha en desktop, centrada en móvil */
 .cd-flipbook-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 12px;
     width: 100%;
     flex-wrap: wrap;
 }
 
+/* Tamaño, radio y tipografía los define el botón SND (.boton__*); solo se alinea contenido */
 #modal-catalogo .cd-flipbook-btn {
     width: auto !important;
-    min-height: 40px;
-    padding: 8px 16px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
 }
 
 #modal-catalogo .cd-flipbook-btn[disabled] {
@@ -181,13 +181,11 @@
 
     .cd-flipbook-controls {
         gap: 8px;
+        justify-content: center;
     }
 
-    .cd-flipbook-btn__label {
+    /* Solo el botón "Portada" pierde la etiqueta; Anterior/Siguiente la conservan (como Volver/Siguiente en Figma) */
+    .cd-flipbook-btn--home .cd-flipbook-btn__label {
         display: none;
-    }
-
-    #modal-catalogo .cd-flipbook-btn {
-        padding: 8px 12px;
     }
 }

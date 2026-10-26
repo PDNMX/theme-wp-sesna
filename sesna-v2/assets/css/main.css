@@ -25,6 +25,17 @@
     overflow-wrap: anywhere;
 }
 
+/* Gap de snd-guinda.css: .ruta__lista es flex nowrap por defecto. Cualquier
+   breadcrumb con varios niveles o un último nivel largo (ej. plantillas de
+   Administración y Finanzas, con 4 niveles: Inicio > Acciones y Programas >
+   Administración y Finanzas > <subpágina>) puede no caber en una sola línea
+   en viewports angostos (< 640px) y desbordar el viewport completo de la
+   página. Global (no por página): no tiene efecto donde el breadcrumb ya
+   cabe, así que no hace falta repetir el fix por plantilla. */
+.ruta__lista {
+    flex-wrap: wrap;
+}
+
 /* ============================================================
    SESNA v2 — Hoja de estilos principal
    Basada 100% en el Sistema Nacional de Diseño (SND) v1.1.0
@@ -4003,17 +4014,6 @@ nav.navbar .container {
    Página: Derechos Humanos y Perspectiva de Género
    ============================================================ */
 
-/* ── Breadcrumb ───
-   El último nivel ("Derechos Humanos y Perspectiva de Género") es más
-   largo que en otras plantillas; .ruta__lista es flex nowrap por defecto
-   en snd-guinda.css y en viewports angostos (< 640px) ese último <li>
-   se desborda fuera del viewport. Se permite el salto de línea solo
-   en esta página, sin tocar la clase oficial .ruta__lista en el resto
-   del sitio. */
-.page-derechos-humanos .ruta__lista {
-    flex-wrap: wrap;
-}
-
 /* ── Hero ─── */
 .page-derechos-humanos .sesna-page-hero {
     padding-bottom: 20px;
@@ -5535,11 +5535,6 @@ body:has(.page-directorio) main.page {
     font-size: 18px;
 }
 
-.tx-oc-anexos-search:focus {
-    box-shadow: 0 0 0 3px rgba(159, 34, 65, 0.12);
-    border-color: var(--color-burgundi, #9F2241);
-}
-
 .tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-icon,
 .tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-text {
     color: var(--color-burgundi, #9F2241) !important;
@@ -6506,6 +6501,46 @@ select.tx-comite-filter-control:disabled {
     text-align: center;
 }
 
+/* ── Navegación de secciones: Tabs (Desktop/Tablet) vs Drawer (Móvil) ──
+   Mismo breakpoint que el Drawer de Información Financiera (min-width:992px)
+   para mantener un único punto de corte "móvil" en todo el sitio. */
+.ocn-mobile-tab-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .ocn-mobile-tab-trigger {
+        display: none !important;
+    }
+}
+@media (max-width: 991.98px) {
+    .page-organos-colegiados .ocn-tabs-nav {
+        display: none !important;
+    }
+}
+
+/* Indicador de opción activa en los ListItems del Drawer: círculo blanco
+   con la palomita (snd-check, trazo simple) en guinda — visible solo en
+   el ítem seleccionado. No usa snd-checkmark--filled: ese ícono trae el
+   círculo y la palomita en un solo <path> con fill-rule:evenodd, y a
+   16px el recorte queda demasiado sutil para distinguirse. */
+.ocn-drawer-check {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--neutro100);
+    color: var(--principal);
+}
+.fin-dictamen-item.active .ocn-drawer-check {
+    display: inline-flex;
+}
+
 /* Tarjeta de Sesión de Órgano Colegiado — SND UI Kit (Cards *: 12022:57247) */
 .tx-oc-card {
     background-color: var(--neutro100);
@@ -6638,10 +6673,6 @@ select.tx-comite-filter-control:disabled {
     padding: 20px 16px;
 }
 
-.tx-oc-anexos-search-box {
-    max-width: 380px;
-}
-
 .tx-oc-anexos-list {
     display: flex;
     flex-direction: column;
@@ -6735,29 +6766,15 @@ select.tx-comite-filter-control:disabled {
 .page-pna-planeacion {
     background-color: transparent;
 }
-.page-pna-planeacion .pna-doc-item:hover {
-    background-color: var(--pguinda100);
-    color: var(--principal) !important;
-}
-.page-pna-planeacion .pna-doc-item:focus {
-    outline: none;
-}
 
 /* ── page-contrataciones-adquisiciones ────────── */
 .page-pna-contrataciones {
-    background-color: #f6eff6;
-}
-.page-pna-contrataciones .pna-doc-item:hover {
-    background-color: #F9F0F3;
-    color: #611232 !important;
-}
-.page-pna-contrataciones .pna-doc-item:focus {
-    outline: none;
+    background-color: transparent;
 }
 
 /* ── page-archivo-documental ───────────────────── */
 .page-pna-archivo {
-    background-color: #f6eff6;
+    background-color: transparent;
 }
 .page-pna-archivo .pna-doc-item:hover {
     background-color: #F9F0F3;
@@ -6767,46 +6784,156 @@ select.tx-comite-filter-control:disabled {
     outline: none;
 }
 
-/* ── Acordeón por año (Planeación Institucional / Contrataciones) ── */
-.cf-year-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 6px 4px;
-    font-family: var(--font-noto-sans);
-    font-weight: 700;
-    font-size: 13px;
-    color: #611232;
-    border-radius: 6px;
-    transition: background-color .15s;
+/* ── Contenedor Card / Box exterior (SND v1.1.0 — Superficie Base) ── */
+.cf-panel-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 24px;
 }
-.cf-year-toggle:hover {
-    background-color: #F9F0F3;
-}
-.cf-year-chevron {
-    transition: color .15s;
-    color: #9c8a94;
-    font-size: 12px;
-}
-.cf-year-label {
-    padding: 6px 4px;
-    font-family: var(--font-noto-sans);
-    font-weight: 700;
-    font-size: 13px;
-    color: #611232;
-}
-.cf-year-docs {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-left: 2px;
-    margin-bottom: 4px;
+@media (min-width: 768px) {
+    .cf-panel-card {
+        padding: 32px;
+    }
 }
 
-/* Fila de documento en columnas (Planeación / Contrataciones): misma técnica
+/* ── Contrataciones: Vista Desktop (Grid 2x2) vs Vista Móvil (Drawer) ── */
+.cf-desktop-view {
+    display: block;
+}
+.cf-mobile-view {
+    display: none;
+}
+@media (max-width: 991.98px) {
+    .cf-desktop-view {
+        display: none !important;
+    }
+    .cf-mobile-view {
+        display: block !important;
+    }
+}
+@media (min-width: 992px) {
+    .cf-desktop-view {
+        display: block !important;
+    }
+    .cf-mobile-view {
+        display: none !important;
+    }
+}
+
+/* ── Cards internas anidadas (SND v1.1.0 — Superficie Elevada Homologada) ── */
+.cf-inner-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: box-shadow 0.15s ease-in-out;
+    box-sizing: border-box;
+}
+.cf-inner-card:hover {
+    box-shadow: var(--dropLV2);
+}
+.cf-inner-card__footer {
+    border-top: 1px solid var(--neutro300);
+}
+
+/* ── Encabezado homologado de Card: Ícono + Título ── */
+.cf-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.cf-card-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--principal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.cf-card-icon-wrap .snd__icono {
+    color: var(--principal);
+    fill: currentColor;
+}
+.cf-card-title {
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--neutro800);
+    margin-bottom: 0;
+}
+
+/* ── Badge / Chip de estado SND v1.1.0 ("Próximamente") ── */
+.cf-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background-color: var(--neutro200);
+    border: 1px solid var(--neutro400);
+    color: var(--neutro700);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* ── Selector Cards: Estado Activo ──
+   Homologado exactamente a page-riesgos-inteligencia.php (.sna-tab-trigger activa):
+   anillo exterior guinda de 2px (rgba(155, 34, 66, 1)), borde neutro base
+   (1px solid var(--neutro400)), fondo blanco y texto oscuro. */
+.sna-noticias-card.active,
+.sna-noticias-card.active:hover {
+    box-shadow: 0 0 0 2px rgba(155, 34, 66, 1) !important;
+    border: 1px solid var(--neutro400) !important;
+}
+
+/* ── Archivo Documental: Vista móvil vs Desktop ── */
+.ad-mobile-view {
+    display: none;
+}
+.ad-desktop-view {
+    display: block;
+}
+@media (max-width: 991.98px) {
+    .ad-mobile-view {
+        display: block !important;
+    }
+    .ad-desktop-view {
+        display: none !important;
+    }
+    .page-pna-archivo .fin-search,
+    .page-pna-contrataciones .fin-search {
+        width: 100%;
+        min-width: 0;
+    }
+}
+@media (min-width: 992px) {
+    .ad-mobile-view {
+        display: none !important;
+    }
+    .ad-desktop-view {
+        display: block !important;
+    }
+}
+
+
+/* Acordeón de años: reutiliza .fin-acc-* (mismo componente que Información
+   Financiera, ver sección correspondiente más abajo en este archivo) —
+   .cf-year-toggle/.cf-year-docs/.cf-year-label quedaron en desuso. */
+
+/* Fila de documento en columnas (Archivo Documental): misma técnica
    de grid que .pna-doc-row para que el texto largo no se encime con la acción. */
 .cf-doc-row {
     display: grid;
@@ -6835,6 +6962,13 @@ select.tx-comite-filter-control:disabled {
 .fin-doc-row:hover .cf-doc-view {
     background-color: var(--principal, #611232);
     color: var(--neutro100, #fff);
+}
+/* El SVG de .snd__icono no hereda `color` dinámicamente (snd.js lo
+   inyecta con su propio fill) — se fuerza a blanco con filter, mismo
+   truco ya usado en template-parts/visor-pdf.php (#pdfCopyLinkBtn.is-copied). */
+.cf-doc-row:hover .cf-doc-view .snd__icono,
+.fin-doc-row:hover .cf-doc-view .snd__icono {
+    filter: brightness(0) invert(1);
 }
 .cf-doc-view::before,
 .cf-doc-view::after {
@@ -6924,9 +7058,64 @@ select.tx-comite-filter-control:disabled {
     color: var(--neutro800);
 }
 
-/* ── page-informacion-financiera ──────────────── */
+/* ── page-informacion-financiera (SND v1.1.0 — Tema Guinda) ── */
 
-/* Árbol Estados Financieros */
+/* Tarjetas y Contenedores */
+.page-informacion-financiera .fin-panel-card,
+.page-pna-archivo .fin-panel-card {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+}
+
+/* Barra de búsqueda */
+.page-informacion-financiera .fin-search-box {
+    max-width: 380px;
+}
+@media (max-width: 767.98px) {
+    .page-informacion-financiera .fin-search-box {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* ── Barra de herramientas (Buscador + Botón Filtrar en móvil) ─ */
+.fin-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.fin-toolbar .fin-content-search {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.fin-mobile-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+}
+@media (min-width: 992px) {
+    .fin-mobile-filter-btn {
+        display: none !important;
+    }
+}
+
+/* ── Ocultar Árbol Desktop en Móvil ─────────────────────────── */
+.page-informacion-financiera .fin-desktop-tree-col {
+    display: none;
+}
+@media (min-width: 992px) {
+    .page-informacion-financiera .fin-desktop-tree-col {
+        display: block !important;
+    }
+}
+
+/* Árbol Estados Financieros (Desktop) */
 .page-informacion-financiera .fin-tree-node {
     margin-bottom: 2px;
 }
@@ -6938,15 +7127,17 @@ select.tx-comite-filter-control:disabled {
     border: none;
     background: transparent;
     padding: 10px 8px;
-    font-family: var(--font-noto-sans);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-weight: 700;
     font-size: 14px;
-    color: #333;
+    color: var(--neutro800);
     border-radius: 8px;
     transition: background-color .15s;
+    cursor: pointer;
 }
 .page-informacion-financiera .fin-tree-label:hover {
-    background-color: #F9F0F3;
+    background-color: var(--pguinda100);
+    color: var(--principal);
 }
 .page-informacion-financiera .fin-tree-label--sub {
     font-weight: 600;
@@ -6954,7 +7145,7 @@ select.tx-comite-filter-control:disabled {
     padding-left: 16px;
 }
 .page-informacion-financiera .fin-tree-chevron {
-    color: #9c8a94;
+    color: var(--principal);
     transition: transform .2s ease;
     font-size: 13px;
 }
@@ -6963,35 +7154,154 @@ select.tx-comite-filter-control:disabled {
 }
 .page-informacion-financiera .fin-tree-children {
     padding-left: 12px;
-    border-left: 2px solid #f0e3e8;
+    border-left: 2px solid var(--pguinda200);
     margin-left: 18px;
 }
-.page-informacion-financiera .fin-tree-leaf {
+.page-informacion-financiera .fin-tree-leaf,
+.snd-drawer .fin-tree-leaf,
+.fin-tree-leaf {
     display: block;
     width: 100%;
     text-align: left;
     border: none;
     background: transparent;
-    padding: 8px 12px;
-    margin: 1px 0;
-    font-family: var(--font-noto-sans);
-    font-size: 13.5px;
-    color: #555;
+    padding: 10px 14px;
+    margin: 2px 0;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neutro700);
     border-radius: 8px;
-    transition: background-color .15s, color .15s;
+    transition: background-color .15s ease, color .15s ease;
+    cursor: pointer;
+    box-sizing: border-box;
 }
-.page-informacion-financiera .fin-tree-leaf--trim {
+.page-informacion-financiera .fin-tree-leaf--trim,
+.snd-drawer .fin-tree-leaf--trim,
+.fin-tree-leaf--trim {
     font-weight: 600;
     padding-left: 16px;
 }
-.page-informacion-financiera .fin-tree-leaf:hover {
-    background-color: #F9F0F3;
-    color: #611232;
+.page-informacion-financiera .fin-tree-leaf:hover,
+.snd-drawer .fin-tree-leaf:hover,
+.fin-tree-leaf:hover {
+    background-color: var(--pguinda100);
+    color: var(--principal);
 }
-.page-informacion-financiera .fin-tree-leaf.active {
-    background-color: #611232;
-    color: #fff;
+.page-informacion-financiera .fin-tree-leaf.active,
+.snd-drawer .fin-tree-leaf.active,
+.fin-tree-leaf.active {
+    background-color: var(--principal) !important;
+    color: var(--neutro100) !important;
+    font-weight: 700 !important;
+}
+
+.fin-month-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 10px;
+    background-color: var(--neutro100);
+}
+
+/* ── Sidebar: Divider y Dictámenes (ListItems SND) ───────────── */
+.page-informacion-financiera .fin-sidebar-divider,
+.snd-drawer .fin-sidebar-divider,
+.fin-sidebar-divider {
+    border: 0;
+    border-top: 1px solid var(--neutro300);
+    width: 100%;
+}
+
+.page-informacion-financiera .fin-dictamen-item,
+.snd-drawer .fin-dictamen-item,
+.fin-dictamen-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    border: 1px solid var(--neutro400);
+    background: var(--neutro100);
+    padding: 12px 16px;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neutro800);
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+    box-sizing: border-box;
+}
+.fin-dictamen-item .fin-nav-chevron,
+.fin-nav-chevron {
+    color: var(--principal) !important;
+    fill: var(--principal) !important;
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px !important;
+    flex-shrink: 0;
+    transition: color .15s ease, fill .15s ease, transform .15s ease;
+}
+.fin-dictamen-item .fin-nav-chevron svg,
+.fin-dictamen-item .fin-nav-chevron path,
+.fin-nav-chevron svg,
+.fin-nav-chevron path {
+    width: 16px !important;
+    height: 16px !important;
+    fill: currentColor !important;
+}
+.page-informacion-financiera .fin-dictamen-item:hover:not(.active),
+.snd-drawer .fin-dictamen-item:hover:not(.active),
+.fin-dictamen-item:hover:not(.active) {
+    background-color: var(--pguinda100);
+    border-color: var(--pguinda300);
+    color: var(--principal);
+}
+.page-informacion-financiera .fin-dictamen-item:hover:not(.active) .fin-nav-chevron,
+.page-informacion-financiera .fin-dictamen-item:hover:not(.active) .fin-nav-chevron svg,
+.page-informacion-financiera .fin-dictamen-item:hover:not(.active) .fin-nav-chevron path,
+.snd-drawer .fin-dictamen-item:hover:not(.active) .fin-nav-chevron,
+.snd-drawer .fin-dictamen-item:hover:not(.active) .fin-nav-chevron svg,
+.snd-drawer .fin-dictamen-item:hover:not(.active) .fin-nav-chevron path,
+.fin-dictamen-item:hover:not(.active) .fin-nav-chevron,
+.fin-dictamen-item:hover:not(.active) .fin-nav-chevron svg,
+.fin-dictamen-item:hover:not(.active) .fin-nav-chevron path {
+    color: var(--principal) !important;
+    fill: var(--principal) !important;
+}
+.page-informacion-financiera .fin-dictamen-item.active,
+.snd-drawer .fin-dictamen-item.active,
+.fin-dictamen-item.active {
+    background-color: var(--principal) !important;
+    border-color: var(--principal) !important;
+    color: var(--neutro100) !important;
     font-weight: 700;
+}
+.page-informacion-financiera .fin-dictamen-item.active .fin-nav-chevron,
+.page-informacion-financiera .fin-dictamen-item.active .fin-nav-chevron svg,
+.page-informacion-financiera .fin-dictamen-item.active .fin-nav-chevron path,
+.snd-drawer .fin-dictamen-item.active .fin-nav-chevron,
+.snd-drawer .fin-dictamen-item.active .fin-nav-chevron svg,
+.snd-drawer .fin-dictamen-item.active .fin-nav-chevron path,
+.fin-dictamen-item.active .fin-nav-chevron,
+.fin-dictamen-item.active .fin-nav-chevron svg,
+.fin-dictamen-item.active .fin-nav-chevron path {
+    color: var(--neutro100) !important;
+    fill: var(--neutro100) !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+/* ── Área de Contenido Compartida ───────────────────────────── */
+.page-informacion-financiera .fin-content-search {
+    max-width: 100%;
+    width: 100%;
+}
+
+.page-informacion-financiera .fin-context-header {
+    margin-top: 1.5rem;
+    border-bottom: 1px solid var(--neutro300);
 }
 
 /* Ruta / breadcrumb del listado */
@@ -6999,65 +7309,117 @@ select.tx-comite-filter-control:disabled {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
-    font-family: var(--font-noto-sans);
+    gap: 8px;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
 }
 .page-informacion-financiera .fin-trail__item {
     font-size: 14px;
     font-weight: 600;
-    color: #9c8a94;
+    color: var(--neutro600);
 }
 .page-informacion-financiera .fin-trail__item--current {
-    color: #611232;
+    color: var(--principal);
+    font-weight: 700;
 }
 .page-informacion-financiera .fin-trail__sep {
-    font-size: 10px;
-    color: #cbb9c1;
+    color: var(--neutro400);
 }
 .page-informacion-financiera .fin-collapse-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    border: 1px solid #e8d0d8;
-    background-color: #F9F0F3;
-    color: #611232;
-    font-family: var(--font-noto-sans);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-weight: 600;
     font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background-color .15s;
-}
-.page-informacion-financiera .fin-collapse-btn:hover {
-    background-color: #f0e0e6;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
-/* Filas de documentos (toda la fila es el enlace que abre el visor) */
-.page-informacion-financiera .fin-doc-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    column-gap: 14px;
-    padding: 12px 8px;
-    border-bottom: 1px solid #f2f2f2;
-    transition: background-color .15s;
-    text-decoration: none;
-    color: inherit;
-}
-.page-informacion-financiera .fin-doc-row:last-child {
-    border-bottom: none;
-}
-.page-informacion-financiera .fin-doc-row:hover {
-    background-color: #FAFAFA;
-}
-.page-informacion-financiera .fin-doc-label {
-    font-family: var(--font-noto-sans);
-    font-size: 14px;
-    color: #333;
-}
-.page-informacion-financiera .fin-doc-action {
+/* Filas de documentos (SND v1.1.0) */
+.page-informacion-financiera .fin-doc-row,
+.page-pna-planeacion .fin-doc-row,
+.page-pna-contrataciones .fin-doc-row,
+.page-pna-archivo .fin-doc-row,
+.page-pna .fin-doc-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid var(--neutro300);
+    transition: background-color .15s ease-in-out;
+    border-radius: 8px;
+}
+.page-informacion-financiera .fin-doc-row:last-child,
+.page-pna-planeacion .fin-doc-row:last-child,
+.page-pna-contrataciones .fin-doc-row:last-child,
+.page-pna-archivo .fin-doc-row:last-child,
+.page-pna .fin-doc-row:last-child {
+    border-bottom: none;
+}
+.page-informacion-financiera .fin-doc-row:hover,
+.page-pna-planeacion .fin-doc-row:hover,
+.page-pna-contrataciones .fin-doc-row:hover,
+.page-pna-archivo .fin-doc-row:hover,
+.page-pna .fin-doc-row:hover {
+    background-color: var(--pguinda100);
+}
+.page-informacion-financiera .fin-doc-left,
+.page-pna-planeacion .fin-doc-left,
+.page-pna-contrataciones .fin-doc-left,
+.page-pna-archivo .fin-doc-left,
+.page-pna .fin-doc-left {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.page-informacion-financiera .fin-doc-label,
+.page-pna-planeacion .fin-doc-label,
+.page-pna-contrataciones .fin-doc-label,
+.page-pna-archivo .fin-doc-label,
+.page-pna .fin-doc-label {
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+.page-informacion-financiera .fin-doc-action,
+.page-pna-planeacion .fin-doc-action,
+.page-pna-contrataciones .fin-doc-action,
+.page-pna-archivo .fin-doc-action,
+.page-pna .fin-doc-action {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+.page-informacion-financiera .fin-doc-action .boton__fantasma,
+.page-pna-planeacion .fin-doc-action .boton__fantasma,
+.page-pna-contrataciones .fin-doc-action .boton__fantasma,
+.page-pna-archivo .fin-doc-action .boton__fantasma,
+.page-pna .fin-doc-action .boton__fantasma {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+@media (max-width: 639.98px) {
+    .page-informacion-financiera .fin-doc-row,
+    .page-pna-planeacion .fin-doc-row,
+    .page-pna-contrataciones .fin-doc-row,
+    .page-pna-archivo .fin-doc-row,
+    .page-pna .fin-doc-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 12px;
+    }
+    .page-informacion-financiera .fin-doc-action,
+    .page-pna-planeacion .fin-doc-action,
+    .page-pna-contrataciones .fin-doc-action,
+    .page-pna-archivo .fin-doc-action,
+    .page-pna .fin-doc-action {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
 
 /* Panel lateral de Dictámenes */
@@ -7065,12 +7427,12 @@ select.tx-comite-filter-control:disabled {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 10px;
-    border-bottom: 1px solid #f2f2f2;
-    font-family: var(--font-noto-sans);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--neutro300);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-weight: 600;
     font-size: 14px;
-    color: #333;
+    color: var(--neutro800);
     text-decoration: none;
     transition: background-color .15s, color .15s;
     border-radius: 8px;
@@ -7079,65 +7441,270 @@ select.tx-comite-filter-control:disabled {
     border-bottom: none;
 }
 .page-informacion-financiera .fin-side-link i {
-    color: #9c8a94;
-    transition: color .15s;
+    color: var(--neutro600);
+    transition: color .15s, transform .15s;
 }
 .page-informacion-financiera .fin-side-link:hover {
-    background-color: #F9F0F3;
-    color: #611232;
+    background-color: var(--pguinda100);
+    color: var(--principal);
 }
 .page-informacion-financiera .fin-side-link:hover i {
-    color: #611232;
+    color: var(--principal);
+    transform: translateX(2px);
 }
-.page-informacion-financiera .fin-info-box {
+
+/* Mensajes informativos (SND 4.16 Mensajes informativos) */
+.page-informacion-financiera .aviso.aviso--info,
+.page-pna-planeacion .aviso.aviso--info,
+.page-pna .aviso.aviso--info {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    background-color: #F8F9FA;
-    border: 1px solid #e9ecef;
-    border-radius: 12px;
+    gap: 12px;
     padding: 14px 16px;
-    font-family: var(--font-noto-sans);
-    font-size: 13px;
-    color: #6c757d;
-    line-height: 1.5;
+    border-radius: 8px;
+    background-color: var(--azul100);
+    border: 1px solid var(--azul500);
+    color: var(--azul500);
 }
-.page-informacion-financiera .fin-info-box i {
-    color: #9c8a94;
+.page-informacion-financiera .aviso.aviso--info .aviso__icon,
+.page-pna-planeacion .aviso.aviso--info .aviso__icon,
+.page-pna .aviso.aviso--info .aviso__icon {
+    flex-shrink: 0;
     margin-top: 2px;
 }
-
-/* Nota al pie */
-.page-informacion-financiera .fin-footer-note {
-    background-color: #fff;
-    border: 1px solid #E9ECEF;
-    border-radius: 16px;
-    padding: 20px 24px;
+.page-informacion-financiera .aviso.aviso--info .aviso__cont,
+.page-pna-planeacion .aviso.aviso--info .aviso__cont,
+.page-pna .aviso.aviso--info .aviso__cont {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
-@media (max-width: 767.98px) {
-    .page-informacion-financiera .fin-doc-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        column-gap: 10px;
-        row-gap: 8px;
+/* ── Drawer (Bottom Sheet) SND v1.1.0 ───────────────────────── */
+.snd-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20000000;
+    background-color: rgba(22, 26, 29, 0.56);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+}
+.snd-drawer-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+.snd-drawer-overlay.is-hidden {
+    display: none;
+}
+
+.snd-drawer--bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 82vh;
+    background-color: var(--neutro100);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -8px 32px rgba(22, 26, 29, 0.24);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20000005;
+    overflow: hidden;
+}
+.snd-drawer-overlay.is-visible .snd-drawer--bottom {
+    transform: translateY(0);
+}
+
+.snd-drawer__handle-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 4px;
+    cursor: grab;
+    touch-action: none;
+}
+.snd-drawer__handle {
+    width: 44px;
+    height: 5px;
+    border-radius: 100px;
+    background-color: var(--neutro400);
+    display: block;
+}
+
+.snd-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px 14px;
+    border-bottom: 1px solid var(--neutro300);
+    flex-shrink: 0;
+}
+.snd-drawer__close-btn {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--principal) !important;
+}
+
+.snd-drawer__body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 16px 20px 32px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ── Acordeón SND v1.1.0 (Componente Figma: Accordion) ─────── */
+.fin-acc-card {
+    border: 1px solid var(--neutro400);
+    border-radius: 8px;
+    background-color: var(--neutro100);
+    overflow: hidden;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.fin-acc-card:hover {
+    box-shadow: var(--dropLV1);
+}
+.fin-acc-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+.fin-acc-header:hover {
+    background-color: var(--pguinda100);
+}
+.fin-acc-header:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: -2px;
+}
+.fin-acc-chevron {
+    color: var(--principal);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+.fin-acc-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+.fin-acc-collapse:not(.muestra--ninguno) {
+    border-top: 1px solid var(--neutro300);
+}
+
+.fin-acc-subcard {
+    border: 1px solid var(--neutro400);
+    border-radius: 8px;
+    background-color: var(--neutro100);
+    overflow: hidden;
+    transition: background-color 0.15s ease;
+}
+.fin-acc-sub-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 12px 16px;
+    background-color: var(--neutro200);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+.fin-acc-sub-header:hover {
+    background-color: var(--pguinda100);
+}
+.fin-acc-sub-header:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: -2px;
+}
+
+.fin-acc-sub-collapse:not(.muestra--ninguno) {
+    border-top: 1px solid var(--neutro300);
+}
+
+.fin-month-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 8px;
+    padding: 10px 12px;
+}
+.fin-month-btn {
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--neutro400);
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+}
+.fin-month-btn:hover:not(.active) {
+    border-color: var(--principal);
+    background-color: var(--pguinda100);
+    color: var(--principal);
+}
+.fin-month-btn.active {
+    background-color: var(--principal) !important;
+    color: var(--neutro100) !important;
+    border-color: var(--principal) !important;
+    font-weight: 700 !important;
+}
+.fin-month-check {
+    color: var(--neutro100);
+    flex-shrink: 0;
+    margin-left: 6px;
+}
+
+body.snd-drawer-open {
+    overflow: hidden !important;
+}
+
+/* ── Planeación Institucional — Selector Móvil y Drawer (SND v1.1.0) ── */
+.pna-tabs-desktop {
+    display: none;
+}
+.pna-mobile-selector {
+    display: block;
+}
+@media (min-width: 992px) {
+    .pna-tabs-desktop {
+        display: block !important;
     }
-    .page-informacion-financiera .fin-doc-label {
-        order: 0;
-        flex: 1 1 auto;
-        min-width: 0;
-    }
-    .page-informacion-financiera .fin-doc-action {
-        order: 1;
-        flex-shrink: 0;
-        margin-left: auto;
-    }
-    .fin-search {
-        min-width: 0;
-        width: 100%;
+    .pna-mobile-selector {
+        display: none !important;
     }
 }
+
+/* Botón disparador móvil: .boton__secundario + .ocn-mobile-tab-trigger
+   (reutilizado tal cual de page-organos-colegiados.php). Los ListItems
+   del Drawer reutilizan .fin-dictamen-item + .ocn-drawer-check — ver
+   reglas correspondientes más arriba en este archivo. */
 
 /* ── Panorama charts — animación de entrada ───── */
 .pna-chart-card {

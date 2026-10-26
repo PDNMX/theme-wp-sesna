@@ -1,6 +1,13 @@
 // Lógica de Tabs horizontales SND — Órganos Colegiados
 document.addEventListener('DOMContentLoaded', function() {
+    // Todos los disparadores de sección: tabs del tablist (Desktop/Tablet)
+    // + ListItems del Drawer (Móvil). Ambos comparten .js-tab-link para que
+    // el estado "activo" quede sincronizado entre los dos sin duplicar lógica.
     const tabLinks = Array.from(document.querySelectorAll('.js-tab-link'));
+    // Solo los botones del tablist horizontal usan roving tabindex
+    // (navegación con flechas); los ListItems del Drawer deben permanecer
+    // siempre alcanzables por teclado mientras el Drawer está abierto.
+    const rovingTabLinks = Array.from(document.querySelectorAll('[role="tab"].js-tab-link'));
     const sections = {
         'comite': document.getElementById('sec-comite'),
         'comision': document.getElementById('sec-comision'),
@@ -8,16 +15,20 @@ document.addEventListener('DOMContentLoaded', function() {
         'recomendaciones': document.getElementById('sec-recomendaciones'),
         'exhortos': document.getElementById('sec-exhortos')
     };
+    const activeLabelEl = document.getElementById('ocnActiveTabLabel');
 
     function activateTab(tab) {
         tabLinks.forEach(l => {
             l.classList.remove('active');
             l.setAttribute('aria-selected', 'false');
-            l.setAttribute('tabindex', '-1');
         });
+        rovingTabLinks.forEach(l => l.setAttribute('tabindex', '-1'));
+
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
-        tab.setAttribute('tabindex', '0');
+        if (tab.getAttribute('role') === 'tab') {
+            tab.setAttribute('tabindex', '0');
+        }
 
         Object.values(sections).forEach(sec => {
             if (sec) sec.classList.add('muestra--ninguno');
@@ -26,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const target = tab.getAttribute('data-target');
         if (sections[target]) {
             sections[target].classList.remove('muestra--ninguno');
+        }
+
+        if (activeLabelEl) {
+            activeLabelEl.textContent = (tab.querySelector('span') || tab).textContent.trim();
         }
 
         var tabsNav = document.querySelector('.tx-comite-tabs-container, .ocn-tabs-nav');
@@ -39,31 +54,38 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             activateTab(this);
             this.focus();
-        });
 
-        // Keyboard: ArrowLeft/ArrowRight navigate tabs (WCAG 2.1.1)
-        link.addEventListener('keydown', function(e) {
-            const idx = tabLinks.indexOf(this);
-            if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                const next = tabLinks[(idx + 1) % tabLinks.length];
-                activateTab(next);
-                next.focus();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                const prev = tabLinks[(idx - 1 + tabLinks.length) % tabLinks.length];
-                activateTab(prev);
-                prev.focus();
-            } else if (e.key === 'Home') {
-                e.preventDefault();
-                activateTab(tabLinks[0]);
-                tabLinks[0].focus();
-            } else if (e.key === 'End') {
-                e.preventDefault();
-                activateTab(tabLinks[tabLinks.length - 1]);
-                tabLinks[tabLinks.length - 1].focus();
+            // Si el disparador vive dentro del Drawer móvil, cerrarlo tras seleccionar
+            if (this.closest('#ocnDrawer') && typeof window.ocnCloseDrawer === 'function') {
+                window.ocnCloseDrawer();
             }
         });
+
+        // Keyboard: ArrowLeft/ArrowRight navigate tabs (WCAG 2.1.1) — solo aplica al tablist
+        if (link.getAttribute('role') === 'tab') {
+            link.addEventListener('keydown', function(e) {
+                const idx = rovingTabLinks.indexOf(this);
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const next = rovingTabLinks[(idx + 1) % rovingTabLinks.length];
+                    activateTab(next);
+                    next.focus();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prev = rovingTabLinks[(idx - 1 + rovingTabLinks.length) % rovingTabLinks.length];
+                    activateTab(prev);
+                    prev.focus();
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    activateTab(rovingTabLinks[0]);
+                    rovingTabLinks[0].focus();
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    activateTab(rovingTabLinks[rovingTabLinks.length - 1]);
+                    rovingTabLinks[rovingTabLinks.length - 1].focus();
+                }
+            });
+        }
     });
 });
 
@@ -192,31 +214,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     ['comite', 'comision', 'organo'].forEach(initSesionSeccion);
-});
-
-// Panel de Anexos (expandido dentro de la propia tarjeta de sesión):
-// buscador interno que filtra las filas de documentos por nombre.
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.tx-oc-anexos-panel').forEach(function (panel) {
-        var searchInput = panel.querySelector('.tx-oc-anexos-search');
-        if (!searchInput) return;
-
-        var searchBox = searchInput.closest('.tx-comite-search-box');
-        var rows = Array.prototype.slice.call(panel.querySelectorAll('.tx-oc-anexo-row'));
-        var emptyMsg = panel.querySelector('.tx-oc-anexos-empty');
-
-        searchInput.addEventListener('input', function () {
-            var termino = searchInput.value.toLowerCase().trim();
-            if (searchBox) {
-                searchBox.classList.toggle('is-filled', termino.length > 0);
-            }
-            var visibles = 0;
-            rows.forEach(function (row) {
-                var coincide = !termino || row.getAttribute('data-anexo-nombre').indexOf(termino) !== -1;
-                row.classList.toggle('muestra--ninguno', !coincide);
-                if (coincide) visibles++;
-            });
-            if (emptyMsg) emptyMsg.classList.toggle('muestra--ninguno', visibles !== 0);
-        });
-    });
 });

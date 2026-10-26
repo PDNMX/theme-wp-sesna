@@ -117,7 +117,11 @@ get_header();
                     while ($dh_campanias_query->have_posts()) : $dh_campanias_query->the_post();
                         $dh_c_id          = get_the_ID();
                         $dh_c_titulo      = get_the_title();
-                        $dh_c_icono       = get_post_meta($dh_c_id, '_dh_icono',        true) ?: 'snd-star';
+                        $dh_c_icono_raw   = get_post_meta($dh_c_id, '_dh_icono',        true);
+                        // Campañas antiguas guardan iconos de Bootstrap Icons (ej. "bi-star"),
+                        // retirados junto con Bootstrap; no existen en snd-guinda.css y el ícono
+                        // se renderiza roto ("?"). Se normaliza al equivalente SND.
+                        $dh_c_icono       = ( $dh_c_icono_raw && 0 === strpos( $dh_c_icono_raw, 'snd-' ) ) ? $dh_c_icono_raw : 'snd-star';
                         $dh_c_icono_img_raw = get_post_meta($dh_c_id, '_dh_icono_img', true);
                         $dh_c_icono_img   = $dh_c_icono_img_raw ? sesna_resolve_archivo_url($dh_c_icono_img_raw) : '';
                         $dh_c_infografia_ids = get_post_meta($dh_c_id, '_dh_infografia_ids', true) ?: '';
@@ -425,7 +429,7 @@ get_header();
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
             <!-- Botón de Cerrar -->
-            <button type="button" class="boton__fantasma position-absolute top-0 end-0 m-3 z-3 p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
+            <button type="button" class="boton__fantasma tx-pdf-modal__close-btn position-absolute top-0 end-0 m-3 z--3" data-modal-dismiss aria-label="Cerrar modal">
                 <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
             </button>
 
@@ -474,7 +478,7 @@ get_header();
                         <span class="cd-flipbook-btn__label">Anterior</span>
                     </button>
                     <span class="b1sb color--neutro800 mb--0 cd-flipbook-counter" id="cd-flipbook-counter">1 / 1</span>
-                    <button type="button" class="boton__secundario cd-flipbook-btn cd-flipbook-btn--next" id="cd-btn-next" aria-label="Página siguiente">
+                    <button type="button" class="boton__primario cd-flipbook-btn cd-flipbook-btn--next" id="cd-btn-next" aria-label="Página siguiente">
                         <span class="cd-flipbook-btn__label">Siguiente</span>
                         <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
                     </button>
@@ -485,7 +489,7 @@ get_header();
 </div>
 
 <!-- ── Lightbox: Visor de imágenes de galería ────────────── -->
-<div id="dh-lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen" style="display:none; position:fixed; inset:0; z-index:9999;">
+<div id="dh-lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen" style="display:none; position:fixed; inset:0; z-index:20000010;">
     <div id="dh-lightbox__overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.88); cursor:zoom-out;"></div>
     <div id="dh-lightbox__box" style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:20px;">
         <!-- Cerrar -->

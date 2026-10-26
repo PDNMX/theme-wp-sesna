@@ -365,36 +365,13 @@
     margin-bottom: 20px;
 }
 
-/* Card Active State */
-.sna-noticias-card.active {
-    background-color: var(--principal) !important;
-    color: #ffffff !important;
-    position: relative;
-    border: none !important;
-}
-
-.sna-noticias-card.active .tx-card__title,
-.sna-noticias-card.active .tx-card__desc,
-.sna-noticias-card.active .tx-card__icon,
-.sna-noticias-card.active .boton__fantasma {
-    color: #ffffff !important;
-}
-
-.sna-noticias-card.active .icon-bg-circle {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* Triángulo que conecta la tarjeta activa con el contenido desplegado debajo */
-.sna-noticias-card.active::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -8px;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: var(--principal);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+/* Card Active State — homologado exactamente a page-riesgos-inteligencia.php
+   (.sna-tab-trigger activa): anillo exterior guinda de 2px (rgba(155, 34, 66, 1)),
+   borde neutro base (1px solid var(--neutro400)), fondo blanco y texto oscuro. */
+.sna-noticias-card.active,
+.sna-noticias-card.active:hover {
+    box-shadow: 0 0 0 2px rgba(155, 34, 66, 1) !important;
+    border: 1px solid var(--neutro400) !important;
 }
 
 

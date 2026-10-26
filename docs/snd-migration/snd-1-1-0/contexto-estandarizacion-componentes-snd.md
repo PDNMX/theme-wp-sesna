@@ -197,6 +197,54 @@ Todo botón de carga progresiva ("Ver más sesiones", "Ver más resoluciones", "
    ```
 4. Sospechar primero de **títulos `.patria` de una sola palabra larga** (ya parcheado) y, en segundo lugar, de elementos con `width`/`min-width` fijos en `px` dentro de filas flex sin `min-width: 0` en el hermano que debe encogerse (patrón ya corregido también en `.dh-pronunciamientos .sna-noticias-card h3` y `.cp-doc-thumb`, ver sección `F`/`G` de este documento).
 
+### 📑 Regla Obligatoria de Variante de Tabs — Única en Todo el Sitio
+El `catalogo-componentes-figma-extraidos.md` documenta DOS variantes extraídas: **`Tabs 2`** (tipo ficha, `1562:4021`, clase base `.tx-comite-tab` sin modificador) y **`Tabs 01`** (línea inferior, `618:2598`, clase `.tx-comite-tabs-container--underline`). **La variante realmente en uso en todo el sitio es `Tabs 01` (línea inferior)** — así se ve en `template-transparencia-comite.php` y `page-organos-colegiados.php` (pestaña activa con `border-bottom: 3px solid var(--principal)`, fondo blanco siempre, sin "ficha" elevada). Al implementar Tabs en una página nueva, usar siempre:
+```html
+<div class="tx-comite-tabs-container tx-comite-tabs-container--underline mb--24">
+    <ul class="ul--limpio tx-comite-tabs" role="tablist">...</ul>
+</div>
+```
+Y envolver Tabs + contenido en `.tx-comite-panel` (la caja blanca con borde/sombra) — igual que `template-transparencia-comite.php`. Omitir el modificador `--underline` o la caja `.tx-comite-panel` produce una segunda apariencia visual distinta a la ya establecida (detectado y corregido en `planeacion-institucional-contenido.php`).
+
+### 🗂️ Regla Obligatoria de Drawer Móvil (Bottom Sheet) + Navegación por Secciones (Hallazgo `Administración y Finanzas` / `Órganos Colegiados`, 2026-10-25)
+
+**Patrón canónico único — no crear una segunda versión:** cuando una plantilla tiene navegación por Tabs (SND `Tabs 01`, línea inferior) y en móvil esa navegación deja de caber o no es usable (lista vertical larga, árbol de 3 niveles, etc.), el patrón oficial del proyecto es:
+- **Desktop/Tablet (`≥ 992px`):** Tabs normales.
+- **Móvil (`< 992px`):** un botón/chip que muestra la sección activa + ícono `snd-chevron--down`, que al pulsarse abre un **Drawer (bottom sheet)** ya construido y reutilizable — **no inventar un Drawer nuevo por página**.
+
+**Sistema ya implementado y listo para reutilizar** (`sesna-v2/assets/css/main.css`, clases `.snd-drawer*`):
+- `.snd-drawer-overlay` (backdrop `rgba(22,26,29,.56)`, `z-index:20000000`) → `.snd-drawer.snd-drawer--bottom` (superficie `var(--neutro100)`, radio `24px 24px 0 0`, `box-shadow: 0 -8px 32px rgba(22,26,29,.24)`, `z-index:20000005`, `max-height:82vh`, animación `transform: translateY(100%)` → `translateY(0)`).
+- `.snd-drawer__handle-wrap > .snd-drawer__handle` (drag handle, `44×5px`, `var(--neutro400)`, `border-radius:100px`).
+- `.snd-drawer__header` (título `.sh0b` + `.boton__fantasma.snd-drawer__close-btn` circular `40×40px`).
+- `.snd-drawer__body` (scroll interno, `-webkit-overflow-scrolling:touch`).
+- Controlador JS: `openDrawer()`/`closeDrawer()` + cierre con click en overlay, tecla `Escape` y **gesto swipe-down** (`touchstart/touchmove/touchend` en el handle y el header, cierra si `diff > 75px`). Copiar tal cual desde `template-parts/administracion-finanzas/informacion-financiera-contenido.php` (primera implementación) o `page-organos-colegiados.php` (segunda, lista plana).
+- **Punto de corte fijo: `min-width: 992px`** para alternar Tabs↔Drawer (no el breakpoint móvil de `3.5 Retícula` de `640px`) — así queda un único criterio en todo el sitio para "cuándo mostrar el Drawer".
+
+**ListItem seleccionable dentro del Drawer:** reutilizar `.fin-dictamen-item` (borde `var(--neutro400)`, radio `8px`, fondo `var(--neutro100)`, hover `var(--pguinda100)`, activo `var(--principal)` + texto blanco) — ya funciona fuera de la página de Información Financiera (selector `.snd-drawer .fin-dictamen-item` es genérico). Para el indicador de "opción activa", **no usar `snd-checkmark--filled`** (su path combina círculo+palomita en un solo `<path>` pensado para `fill-rule:evenodd`; a 16px el recorte es ilegible). Patrón correcto: un círculo por CSS (`width/height:20px; border-radius:50%; background:var(--neutro100);`) + ícono `snd-checkmark` (trazo simple, sin círculo, confirmado válido) en `color:var(--principal)`, mostrado solo cuando el ítem tiene `.active`.
+
+**Para sincronizar Tabs de escritorio y Drawer sin duplicar lógica:** dar la MISMA clase (`.js-tab-link` u homóloga) a los botones del tablist Y a los ListItems del Drawer, y usar una única función `activateTab()` que ambos disparan. Cuidado: si esa función aplica *roving tabindex* (`tabindex="-1"` a los inactivos) para la navegación con flechas del tablist, **no aplicarlo a los ítems del Drawer** (los dejaría inalcanzables por teclado) — filtrar por `role="tab"` antes de tocar `tabindex`.
+
+**Hallazgo sobre Figma:** la página "Drawer (menú desplegable)" del `SND | UI Kit` (`page_id=28172:9828`) **no es un componente genérico reutilizable** — es un ejemplo de producto específico ("Correspondencia", servicio de envíos), no aporta anatomía de bottom-sheet aprovechable. No volver a gastar cuota de API en extraerla. En cambio, **"Accordeon" (`page_id=37547:28374`, `ComponentSet 11458:47355`) sí es un componente genérico real** (estados `Open`/`+Scroll`/`Close`/`Hover`; superficie `var(--neutro100)`, borde `var(--neutro400)`, radio `8px`, padding `16px 24px`, sombra `var(--dropLV1)`) — usar esa referencia si una futura página necesita un árbol colapsable de verdad (como el de años/trimestres/meses de Información Financiera, clases `.fin-acc-*`).
+
+### 📐 Regla Obligatoria de Retícula en Móvil Real (`< 640px`) — Gotcha de `snd-guinda.css`
+`snd-guinda.css` trae esta regla (línea ~2906): `@media (max-width: 639.9px) { [class*="columna__"] { grid-column: 1/-1; flex: 0 0 100%; } }` — **resetea a ancho completo CUALQUIER clase que contenga `columna__`**, incluida la base sin sufijo (`columna__6`), salvo que se use explícitamente la variante **`--xs`** (`columna__6--xs`, `columna__4--xs`, etc.), que sí restaura el span a ese ancho. Por tanto:
+- `columna__6` **sola NO da 2 columnas en móvil real** (<640px) — solo funciona de `640px` en adelante (quedó "libre" del reset, no por tener valor propio ahí).
+- Para una cuadrícula de 2 o más columnas visible desde móvil, usar **`columna__N--xs`** explícitamente (ej. `columna__6--xs columna__3--lg` para un grid de métricas 2×2 en móvil → 4 en escritorio).
+- Verificar SIEMPRE con Puppeteer `isMobile:true` + `getComputedStyle(el).gridColumn` cuando una cuadrícula "debería" verse en varias columnas y no se ve — es la causa más probable.
+
+### 🔍 Método de Diagnóstico de Íconos Rotos (`icono-noEncontrado`)
+Cuando un ícono `.snd__icono` se renderiza como un signo de interrogación parpadeante, `snd.js` ya lo marca explícitamente: añade la clase `icono-noEncontrado` y el atributo `aria-label="icono snd-XXX no encontrado"` al SVG inyectado. Para verificar un nombre de ícono ANTES de usarlo (en vez de adivinar), cargar una página mínima contra el CDN real:
+```js
+// Puppeteer: probar candidatos sin tocar el proyecto
+await page.setContent('<i class="snd__icono NOMBRE icono--16" id="t"></i><script src="https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd.js"></script>');
+// esperar ~1.5s a que snd.js procese, luego:
+document.getElementById('t').classList.contains('icono-noEncontrado') // true = no existe
+```
+Íconos encontrados rotos y su reemplazo verificado durante esta ronda de homologación: `bi-star` (Bootstrap Icons legacy, guardado en BD) → `snd-star`; `snd-volume--up` → `snd-notification`; `snd-data--table` → `snd-list`; `snd-archive` → `snd-folder`; `snd-check` → `snd-checkmark` (el plano, sin círculo — no confundir con `snd-checkmark--filled`, que sí existe pero es ilegible a 16px). También: la clase de posicionamiento `z-3` (Bootstrap) **no existe** en el proyecto — el equivalente real es `z--3` (doble guion, `utilidades-tema.css`).
+
+### 🪟 Regla de Apilamiento (`z-index`) entre Modales y Lightbox
+El sistema de modales (`template-parts/visor-pdf.php`, `window.sndModal`) usa `z-index: 20000005` (`.modal.snd-modal.is-open`) sobre un backdrop en `20000000`. Cualquier overlay adicional que deba mostrarse **por encima de un modal ya abierto** (ej. un lightbox de galería abierto desde dentro de un modal) debe usar un `z-index` mayor a `20000005` (se usó `20000010`) — de lo contrario queda visualmente detrás del modal y, como consecuencia, también **inaccesible al clic** (el modal superior intercepta los eventos de puntero aunque el lightbox se vea "detrás").
+
 ### Dinámica de trabajo con el usuario (Paso a Paso)
 1. **Instrucción por componente:** El usuario indica qué plantilla y qué componente específico dentro del `body` desea ajustar (ej. *Tabs*, *Dropdown/Select*, *Barra de búsqueda*, *Cards*, *Breadcrumbs*, etc.).
 2. **Verificación obligatoria en fuentes locales (sin inventar clases):**
