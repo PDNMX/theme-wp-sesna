@@ -21,18 +21,30 @@ if ( $slider_query->have_posts() ) :
                 <?php 
                 $slide_index = 0;
                 while ( $slider_query->have_posts() ) : $slider_query->the_post(); 
-                    $is_first = ( $slide_index === 0 );
-                    $image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-                    $show_text = get_post_meta( get_the_ID(), '_show_text_slider', true );
+                    $is_first    = ( $slide_index === 0 );
+                    $image_url   = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+                    $show_text   = get_post_meta( get_the_ID(), '_show_text_slider', true );
                     if ( $show_text === '' ) $show_text = '1';
+                    $slider_url  = get_post_meta( get_the_ID(), '_slider_url', true );
+                    $has_url     = ! empty( $slider_url );
+                    $is_external = $has_url && ( preg_match( '#^https?://#i', $slider_url ) && strpos( $slider_url, home_url() ) !== 0 );
                 ?>
-                    <div class="sesna-carousel-slide flex-shrink-0 w-100 position-relative<?php if ( $is_first ) echo ' is-active'; ?>"
+                    <div class="sesna-carousel-slide flex-shrink-0 w-100 position-relative<?php if ( $is_first ) echo ' is-active'; ?><?php if ( $has_url ) echo ' has-link'; ?>"
                          role="group"
                          aria-roledescription="slide"
                          aria-label="<?php echo esc_attr( sprintf( 'Diapositiva %d de %d: %s', $slide_index + 1, $total_slides, get_the_title() ) ); ?>"
                          data-index="<?php echo $slide_index; ?>"
                          <?php if ( ! $is_first ) echo 'aria-hidden="true"'; ?>>
                         
+                        <?php if ( $has_url ) : ?>
+                            <a href="<?php echo esc_url( $slider_url ); ?>"
+                               class="sesna-carousel-slide-link d-block w-100 h-100 text-decoration-none"
+                               <?php if ( $is_external ) echo 'target="_blank" rel="noopener noreferrer"'; ?>
+                               title="<?php echo esc_attr( get_the_title() ? get_the_title() . ' - Abrir enlace' : 'Abrir enlace' ); ?>"
+                               aria-label="<?php echo esc_attr( sprintf( 'Ir a %s', get_the_title() ?: $slider_url ) ); ?>"
+                               tabindex="<?php echo $is_first ? '0' : '-1'; ?>">
+                        <?php endif; ?>
+
                         <?php if ( $image_url ) : ?>
                             <img src="<?php echo esc_url( $image_url ); ?>"
                                  class="sesna-carousel-img w-100 d-block"
@@ -54,6 +66,10 @@ if ( $slider_query->have_posts() ) :
                                     <?php endif; ?>
                                 </div>
                             </div>
+                        <?php endif; ?>
+
+                        <?php if ( $has_url ) : ?>
+                            </a>
                         <?php endif; ?>
 
                     </div>
@@ -90,6 +106,16 @@ if ( $slider_query->have_posts() ) :
             <i class="snd__icono snd-chevron--right icono--24 color--blanco" aria-hidden="true"></i>
         </button>
         <?php endif; ?>
+
+        <!-- Tooltip flotante para slides con URL -->
+        <div id="sesnaCarouselTooltip" class="sesna-carousel-floating-tooltip" aria-hidden="true">
+            <svg class="sesna-carousel-tooltip-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span class="sesna-carousel-tooltip-text">Abrir enlace</span>
+        </div>
 
     </div>
 </section>
@@ -208,6 +234,76 @@ if ( $slider_query->have_posts() ) :
         transition: none !important;
     }
 }
+
+/* ── Comportamiento de Enlace y Tooltip en Slides ─────────────────────── */
+.sesna-carousel-slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    cursor: default;
+    pointer-events: none;
+}
+.sesna-carousel-slide.is-active .sesna-carousel-slide-link {
+    cursor: pointer;
+    pointer-events: auto;
+}
+/* Estricto: SIN EFECTOS VISUALES DE HOVER en el slide ni en las imágenes */
+.sesna-carousel-slide-link:hover,
+.sesna-carousel-slide-link:focus,
+.sesna-carousel-slide-link:active {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    opacity: 1;
+    filter: none;
+}
+.sesna-carousel-slide-link:hover .sesna-carousel-img,
+.sesna-carousel-slide-link:focus .sesna-carousel-img {
+    transform: none;
+    filter: none;
+}
+
+/* Tooltip Flotante Elegante */
+.sesna-carousel-floating-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(33, 37, 41, 0.92);
+    color: #ffffff;
+    font-family: var(--font-noto-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-50%, -135%, 0);
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    white-space: nowrap;
+}
+.sesna-carousel-floating-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+.sesna-carousel-tooltip-icon {
+    flex-shrink: 0;
+}
+@media (hover: none) or (pointer: coarse) {
+    .sesna-carousel-floating-tooltip {
+        display: none !important;
+    }
+}
 </style>
 
 <script>
@@ -242,6 +338,10 @@ document.addEventListener("DOMContentLoaded", function() {
         slides.forEach(function(slide, idx) {
             var isActive = (idx === index);
             slide.classList.toggle('is-active', isActive);
+            var link = slide.querySelector('.sesna-carousel-slide-link');
+            if (link) {
+                link.setAttribute('tabindex', isActive ? '0' : '-1');
+            }
             if (isActive) {
                 slide.removeAttribute('aria-hidden');
             } else {
@@ -298,12 +398,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var touchStartX = 0;
     var touchCurrentX = 0;
     var isSwiping = false;
+    var hasSwiped = false;
 
     wrapper.addEventListener('touchstart', function(e) {
         if (e.touches.length === 1) {
             touchStartX = e.touches[0].clientX;
             touchCurrentX = touchStartX;
             isSwiping = true;
+            hasSwiped = false;
             stopAutoPlay();
         }
     }, { passive: true });
@@ -311,6 +413,9 @@ document.addEventListener("DOMContentLoaded", function() {
     wrapper.addEventListener('touchmove', function(e) {
         if (!isSwiping || e.touches.length !== 1) return;
         touchCurrentX = e.touches[0].clientX;
+        if (Math.abs(touchStartX - touchCurrentX) > 10) {
+            hasSwiped = true;
+        }
     }, { passive: true });
 
     wrapper.addEventListener('touchend', function() {
@@ -327,6 +432,17 @@ document.addEventListener("DOMContentLoaded", function() {
         startAutoPlay();
     });
 
+    // Cancelar apertura accidental de enlaces si el gesto fue un swipe
+    wrapper.querySelectorAll('.sesna-carousel-slide-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (hasSwiped) {
+                e.preventDefault();
+                e.stopPropagation();
+                hasSwiped = false;
+            }
+        });
+    });
+
     // Teclado
     wrapper.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowLeft') {
@@ -340,9 +456,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Accesibilidad: pausar al enfocar o pasar el ratón (WCAG 2.2.2)
     wrapper.addEventListener('mouseenter', stopAutoPlay);
-    wrapper.addEventListener('mouseleave', startAutoPlay);
+    wrapper.addEventListener('mouseleave', function() {
+        startAutoPlay();
+        if (tooltip) tooltip.classList.remove('is-visible');
+    });
     wrapper.addEventListener('focusin', stopAutoPlay);
     wrapper.addEventListener('focusout', startAutoPlay);
+
+    // Tooltip flotante interactivo para slides con URL
+    var tooltip = wrapper.querySelector('#sesnaCarouselTooltip');
+    var isPointerFine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (tooltip && isPointerFine) {
+        wrapper.addEventListener('mousemove', function(e) {
+            var activeSlide = slides[currentIndex];
+            var link = activeSlide ? activeSlide.querySelector('.sesna-carousel-slide-link') : null;
+            var onControls = e.target.closest('.sesna-carousel-btn, .sesna-carousel-indicators');
+
+            if (link && !onControls) {
+                var rect = wrapper.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+
+                // Evitar que el tooltip se salga de los límites laterales o superiores
+                var clampedX = Math.max(50, Math.min(x, rect.width - 50));
+                var clampedY = Math.max(30, y);
+
+                tooltip.style.left = clampedX + 'px';
+                tooltip.style.top = clampedY + 'px';
+                tooltip.classList.add('is-visible');
+            } else {
+                tooltip.classList.remove('is-visible');
+            }
+        });
+
+        wrapper.addEventListener('mouseleave', function() {
+            tooltip.classList.remove('is-visible');
+        });
+    }
 
     // Pausar si la pestaña no está visible
     document.addEventListener('visibilitychange', function() {
