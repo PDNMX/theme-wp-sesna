@@ -6253,11 +6253,9 @@ select.tx-comite-filter-control:disabled {
 }
 .page-pna-diseno .pna-foro-card:hover {
     box-shadow: var(--dropLV2);
-    border-color: rgba(217, 119, 6, 0.3);
 }
 .page-pna-diseno .pna-foro-card.pna-foro-item--active {
-    border-color: #D97706;
-    box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
+    box-shadow: var(--dropLV2);
 }
 .page-pna-diseno .pna-foro-card__row {
     display: flex;
@@ -6282,12 +6280,12 @@ select.tx-comite-filter-control:disabled {
 .page-pna-diseno .pna-foro-card__daymonth {
     font-weight: 700;
     font-size: 14px;
-    color: #D97706;
+    color: var(--neutro800);
     line-height: 1.3;
 }
 .page-pna-diseno .pna-foro-card__year {
     font-size: 13px;
-    color: #D97706;
+    color: var(--neutro600);
     text-align: center;
     line-height: 1.3;
 }
