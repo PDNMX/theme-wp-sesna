@@ -3,30 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // -------------------------------------------------------------
     // 1. Selector de Ejes (Rueda Donut & Pestañas de Objetivos)
     // -------------------------------------------------------------
-    const ejeButtons = document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice, .pna-page-indicator');
+    const ejeButtons = document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice');
     const ejeContents = document.querySelectorAll('.pna-eje-content');
+    let activeEjeId = null;
+
+    function deselectEje() {
+        activeEjeId = null;
+        document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice').forEach(el => {
+            el.classList.remove('active', 'opacity-100', 'pna-eje-inactive');
+        });
+        ejeContents.forEach(content => content.classList.add('muestra--ninguno'));
+    }
 
     function selectEje(ejeId) {
-        // Desactivar todos
-        document.querySelectorAll('.pna-eje-btn').forEach(btn => btn.classList.remove('active', 'border-dark', 'shadow-sm'));
-        document.querySelectorAll('.pna-wheel-slice').forEach(slice => slice.classList.remove('active', 'opacity-100'));
-        document.querySelectorAll('.pna-page-indicator').forEach(ind => {
-            ind.classList.remove('active');
-            ind.style.background = '#e9edf2';
-            ind.style.color = '#54565a';
+        if(activeEjeId === ejeId) {
+            deselectEje();
+            return;
+        }
+        activeEjeId = ejeId;
+
+        // Desactivar todos y marcar como "en gris" lo no seleccionado
+        document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice').forEach(el => {
+            const isActive = el.getAttribute('data-eje') === ejeId;
+            el.classList.remove('active', 'border-dark', 'shadow-sm', 'opacity-100');
+            el.classList.toggle('pna-eje-inactive', !isActive);
         });
         ejeContents.forEach(content => content.classList.add('muestra--ninguno'));
 
         // Activar seleccionados
         document.querySelectorAll(`[data-eje="${ejeId}"]`).forEach(el => {
             el.classList.add('active');
+            el.classList.remove('pna-eje-inactive');
             if(el.classList.contains('pna-eje-btn')) {
                 el.classList.add('border-dark', 'shadow-sm');
-            }
-            if(el.classList.contains('pna-page-indicator')) {
-                let colors = { '1': '#6AC72C', '2': '#1D70B8', '3': '#74598F', '4': '#E04F67' };
-                el.style.background = colors[ejeId] || '#6AC72C';
-                el.style.color = '#fff';
             }
         });
 
@@ -35,8 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
             targetContent.classList.remove('muestra--ninguno');
             targetContent.classList.add('active');
         }
-        const objPanel = document.getElementById('objectivesPanel');
-        // El borde sólido fue removido para homologación institucional con las demás cards.
     }
 
     ejeButtons.forEach(btn => {
@@ -53,56 +60,78 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Estado inicial: Eje 1 activo por defecto, el resto atenuado
+    const initialActive = document.querySelector('.pna-eje-btn.active, .pna-wheel-slice.active');
+    if(initialActive) selectEje(initialActive.getAttribute('data-eje'));
+
     // -------------------------------------------------------------
     // 1.5 Selector de Etapas del Bloque 3 (Interacción 1 sola etapa a la vez)
     // -------------------------------------------------------------
     const stageBtns = document.querySelectorAll('.pna-stage-btn');
-    const stageCards = document.querySelectorAll('.pna-stage-card');
+    const stageCards = document.querySelectorAll('[data-stage-card]');
+    const stageBg = {
+        '1': 'linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%)',
+        '2': 'linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%)',
+        '3': 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)'
+    };
+    let activeStageId = null;
+
+    function deselectStage() {
+        activeStageId = null;
+        stageBtns.forEach(b => {
+            b.classList.remove('active', 'shadow-sm');
+            b.style.background = '#f8f9fa';
+            b.style.borderColor = '#E9ECEF';
+        });
+        stageCards.forEach(card => card.classList.add('muestra--ninguno'));
+    }
+
+    function selectStage(stageId) {
+        if(activeStageId === stageId) {
+            deselectStage();
+            return;
+        }
+        activeStageId = stageId;
+
+        // Desactivar todos los botones de etapa
+        stageBtns.forEach(b => {
+            b.classList.remove('active', 'shadow-sm');
+            b.style.background = '#f8f9fa';
+            b.style.borderColor = '#E9ECEF';
+        });
+
+        // Activar botón seleccionado
+        const target = document.querySelector(`.pna-stage-btn[data-stage="${stageId}"]`);
+        if(target) {
+            target.classList.add('active', 'shadow-sm');
+            target.style.background = stageBg[stageId] || '#f8f9fa';
+            target.style.borderColor = '#E9ECEF';
+        }
+
+        // Ocultar todas las tarjetas y mostrar la seleccionada
+        stageCards.forEach(card => {
+            card.classList.toggle('muestra--ninguno', card.getAttribute('data-stage-card') !== stageId);
+        });
+    }
 
     stageBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const stageId = this.getAttribute('data-stage');
-            if(!stageId) return;
-
-            // Desactivar todos los botones de etapa
-            stageBtns.forEach(b => {
-                b.classList.remove('active', 'shadow-sm');
-                const bStage = b.getAttribute('data-stage');
-                if(bStage === '1') b.style.background = '#f8f9fa';
-                if(bStage === '2') b.style.background = '#f8f9fa';
-                if(bStage === '3') b.style.background = '#f8f9fa';
-                b.style.borderColor = '#E9ECEF';
-            });
-
-            // Activar botón seleccionado
-            this.classList.add('active', 'shadow-sm');
-            if(stageId === '1') {
-                this.style.background = 'linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%)';
-                this.style.borderColor = '#E9ECEF';
-            } else if(stageId === '2') {
-                this.style.background = 'linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%)';
-                this.style.borderColor = '#E9ECEF';
-            } else if(stageId === '3') {
-                this.style.background = 'linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%)';
-                this.style.borderColor = '#E9ECEF';
-            }
-
-            // Ocultar todas las tarjetas y mostrar la seleccionada
-            stageCards.forEach(card => {
-                card.classList.add('muestra--ninguno');
-                if(card.getAttribute('data-stage-card') === stageId) {
-                    card.classList.remove('muestra--ninguno');
-                }
-            });
+            if(stageId) selectStage(stageId);
         });
-        
+
         btn.addEventListener('keydown', function(e) {
             if(e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                this.click();
+                const stageId = this.getAttribute('data-stage');
+                if(stageId) selectStage(stageId);
             }
         });
     });
+
+    // Estado inicial: Etapa 1 activa por defecto (coincide con el marcado HTML)
+    const initialStage = document.querySelector('.pna-stage-btn.active');
+    if(initialStage) activeStageId = initialStage.getAttribute('data-stage');
 
     // -------------------------------------------------------------
     // 2. Mapa Interactivo de México (Hover/Clic & Sincronización)

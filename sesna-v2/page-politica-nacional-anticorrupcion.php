@@ -143,7 +143,7 @@ get_header();
                         <span class="pna-ciclo-step__number">1</span>
                         <p class="pna-ciclo-step__title sh1b">Diseño</p>
                     </div>
-                    <p class="b1r texto--justify">Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.</p>
+                    <p class="b1r color--neutro600 texto--justify">Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.</p>
                 </a>
 
                 <div class="pna-ciclo-step pna-ciclo-step--4">
@@ -152,7 +152,7 @@ get_header();
                         <span class="pna-ciclo-step__number">4</span>
                         <p class="pna-ciclo-step__title sh1b">Seguimiento y evaluación</p>
                     </div>
-                    <p class="b1r texto--justify">Da seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos.</p>
+                    <p class="b1r color--neutro600 texto--justify">Da seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos.</p>
                 </div>
 
                 <!-- Centro: SVG de flechas + iconos superpuestos en cada esquina + logo -->
@@ -189,7 +189,7 @@ get_header();
                         <span class="pna-ciclo-step__number">2</span>
                         <p class="pna-ciclo-step__title sh1b">Presupuestación</p>
                     </div>
-                    <p class="b1r texto--justify">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
+                    <p class="b1r color--neutro600 texto--justify">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
                 </a>
 
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 decoracion--ninguna">
@@ -198,7 +198,7 @@ get_header();
                         <span class="pna-ciclo-step__number">3</span>
                         <p class="pna-ciclo-step__title sh1b">Implementación</p>
                     </div>
-                    <p class="b1r texto--justify">Instrumenta las prioridades de la PNA a través del Programa de Implementación con estrategias, líneas de acción e indicadores de desempeño.</p>
+                    <p class="b1r color--neutro600 texto--justify">Instrumenta las prioridades de la PNA a través del Programa de Implementación con estrategias, líneas de acción e indicadores de desempeño.</p>
                 </a>
 
             </div><!-- /.pna-ciclo-diagram -->
