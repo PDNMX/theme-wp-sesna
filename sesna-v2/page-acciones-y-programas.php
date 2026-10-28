@@ -86,18 +86,24 @@ $acciones_programas = [
         </div>
     </nav>
 
-    <!-- ── Encabezado Principal ───────────────────────────────────── -->
-    <section class="pb--48 pt--24 sna-programas-section" aria-labelledby="acciones-programas-titulo">
-        <div class="contenedor mb--48">
-            <div class="fila justify-content-center mb--40">
-                <div class="columna__12 columna__8--md texto--centro">
-                    <h1 id="acciones-programas-titulo" class="h1b patria color--pguinda600 mb--8">Acciones y programas</h1>
-                    <p class="sh1r color--neutro600 mb--0">Conoce y accede a nuestros micrositios</p>
+    <!-- ── Hero Banner (SND v1.1.0) ────────────────────────────── -->
+    <section class="sesna-page-hero" aria-label="Encabezado de Acciones y Programas">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 columna__8--md columna__7--lg posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda600">Acciones y programas</h1>
+                    <p class="sh1r color--neutro600 mb--0">
+                        Conoce y accede a nuestros micrositios.
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- ── Grid de Cards (2 filas × 4 columnas en Desktop) ─────── -->
-            <div class="reticulaGrid__12 pt--16">
+    <!-- ── Grid de Cards (2 filas × 4 columnas en Desktop) ─────── -->
+    <section class="pb--48 pt--24 sna-programas-section" aria-label="Listado de acciones y programas">
+        <div class="contenedor mb--48">
+            <div class="reticulaGrid__12">
                 <?php foreach ( $acciones_programas as $prog ) : ?>
                     <div class="columna__12 columna__6--md columna__3--lg mb--32">
                         <div class="alto--100 borde--ninguno fondo--ninguno sna-programas-wrapper">
@@ -137,8 +143,8 @@ $acciones_programas = [
                                         <?php echo esc_html( $prog['desc'] ); ?>
                                     </p>
 
-                                    <div class="mt--auto texto--centro">
-                                        <span class="sh1b muestra--flex-linea align-items-center justify-content-center color--pguinda600">
+                                    <div class="mt--auto texto--derecha ancho--100 d-flex justify-content-end">
+                                        <span class="sh1b color--pguinda600">
                                             Conoce más
                                         </span>
                                     </div>
