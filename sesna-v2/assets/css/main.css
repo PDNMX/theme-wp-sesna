@@ -6215,6 +6215,15 @@ select.tx-comite-filter-control:disabled {
     padding-left: 16px;
 }
 
+.page-pna-diseno .pna-consulta-doc-link {
+    transition: background-color 0.15s ease, padding-left 0.15s ease;
+}
+
+.page-pna-diseno .pna-consulta-doc-link:hover {
+    background-color: rgba(0, 136, 122, 0.08);
+    padding-left: 16px;
+}
+
 .page-pna-diseno .pna-diseno-ecosystem {
     min-height: 380px;
     background: radial-gradient(circle, rgba(106,199,44,0.05) 0%, rgba(255,255,255,0) 70%);
