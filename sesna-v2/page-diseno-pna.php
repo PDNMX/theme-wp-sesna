@@ -35,14 +35,24 @@ get_header();
          ============================================================ -->
     <section class="pt-4 pb-5">
         <div class="contenedor">
-            <div class="reticulaGrid__12 align-items-start justify-content-between">
-
-                <!-- Columna Izquierda: Descripción y Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
+            <!-- Fila 1: Título/descripción (izquierda) e ícono (derecha) -->
+            <div class="reticulaGrid__12 align-items-center mb--24">
                 <div class="columna__12 columna__7--lg">
                     <h1 class="h1b patria color--pguinda600 mb--24">Diseño PNA</h1>
-                    <p class="sh1r color--neutro600 mb--24 texto--justify">
+                    <p class="sh1r mb--0 texto--justify">
                         Define el rumbo estratégico de la política a partir de prioridades, objetivos  y participación de diversos actores.
                     </p>
+                </div>
+                <div class="columna__12 columna__5--lg muestra--ninguno muestra--flex--lg align-items-center justify-content-end">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="" class="sesna-hero__img" loading="eager">
+                </div>
+            </div>
+
+            <!-- Fila 2: Tarjetas compactas (izquierda) y portada (derecha, mismo alto que las tarjetas) -->
+            <div class="reticulaGrid__12 align-items-start justify-content-between">
+
+                <!-- Columna Izquierda: Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
+                <div class="columna__12 columna__7--lg">
 
                     <!-- Tarjetas de documentos -->
                     <div class="muestra--flex flex-direction-column gap--16">
@@ -112,8 +122,8 @@ get_header();
                 </div>
 
                 <!-- Columna Derecha: Portada del Documento (Alineada al extremo derecho para aprovechar el ancho del template) -->
-                <div class="columna__12 columna__5--lg d-flex justify-content-lg-end justify-content-center align-items-start mt-5 mt-lg-0">
-                    <div class="pna-doc-cover position-relative" style="max-width: 440px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
+                <div class="columna__12 columna__5--lg d-flex align-items-start pna-cover-col">
+                    <div class="pna-doc-cover position-relative" style="max-width: 265px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
                     </div>
                 </div>

@@ -4697,6 +4697,17 @@ body:has(.page-directorio) main.page {
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+.page-pna-diseno .pna-cover-col {
+    margin-top: 48px;
+    justify-content: center;
+}
+@media (min-width: 1024px) {
+    .page-pna-diseno .pna-cover-col {
+        margin-top: 0;
+        justify-content: flex-end;
+    }
+}
+
 .page-pna .pna-doc-cover img {
     width: 100%;
     height: auto;
