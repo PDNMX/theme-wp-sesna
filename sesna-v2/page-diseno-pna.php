@@ -244,8 +244,8 @@ get_header();
                                 <!-- Centro del Problema (Destacado y centrado al 100%) -->
                                 <div class="pna-wheel-center position-absolute bg-white rounded-circle d-flex flex-column align-items-center justify-content-center text-center p-3 shadow" style="width: 182px; height: 182px; z-index: 10;">
                                     <span class="mb-1"><img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/problema.svg' ); ?>" width="38" height="38" alt="" style="display: block;"></span>
-                                    <strong class="d-block mb-1" style="font-size: 13px; line-height: 1.1; color: var(--color-burgundi, #9D2449);">Problema:</strong>
-                                    <span class="text-muted font-montserrat" style="font-size: 11px; line-height: 1.25; color: var(--color-negro, #54565a);">Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente.</span>
+                                    <strong class="d-block mb-1 color--pguinda600" style="font-size: 13px; line-height: 1.1;">Problema:</strong>
+                                    <span class="color--neutro800 font-montserrat" style="font-size: 11px;  line-height: 1.25;">Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente.</span>
                                 </div>
                             </div>
 
@@ -325,7 +325,7 @@ get_header();
                                     Eje 1
                                 </div>
                                 <h3 class="sh0b mb--16" style="color: #6AC72C;">Combatir la corrupción y la impunidad</h3>
-                                <p class="b1r color--neutro600 mb--0 texto--justify">
+                                <p class="b1r mb--0 texto--justify">
                                     Busca combatir la corrupción e impunidad mediante la generación, adecuación y fortalecimiento de los procesos de denuncia, detección, investigación, substanciación y sanción; promoviendo mecanismos de coordinación y transparencia proactiva.
                                 </p>
                             </div>
@@ -339,12 +339,12 @@ get_header();
                                     <!-- Objetivo 1 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">1</span>
-                                        <span class="b1r color--neutro800 texto--justify">Promover los mecanismos de coordinación de las autoridades competentes para la mejora de los procesos de prevención, denuncia, detección investigación, substanciación y sanción de faltas administrativa y hechos de corrupción.</span>
+                                        <span class="b1r texto--justify">Promover los mecanismos de coordinación de las autoridades competentes para la mejora de los procesos de prevención, denuncia, detección investigación, substanciación y sanción de faltas administrativa y hechos de corrupción.</span>
                                     </div>
                                     <!-- Objetivo 2 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #6AC72C; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">2</span>
-                                        <span class="b1r color--neutro800 texto--justify">Fortalecer las capacidades institucionales para el desahogo de carpetas de investigación y causas penales en materia de delitos por hechos de corrupción.</span>
+                                        <span class="b1r texto--justify">Fortalecer las capacidades institucionales para el desahogo de carpetas de investigación y causas penales en materia de delitos por hechos de corrupción.</span>
                                     </div>
                                 </div>
                             </div>
@@ -362,7 +362,7 @@ get_header();
                                     Eje 2
                                 </div>
                                 <h3 class="sh0b mb--16" style="color: #74598F;">Combatir la arbitrariedad y abuso de poder</h3>
-                                <p class="b1r color--neutro600 mb--0 texto--justify">
+                                <p class="b1r mb--0 texto--justify">
                                     Busca disminuir los márgenes de arbitrariedad en el servicio público mediante mecanismos de profesionalización, integridad, control interno, auditoría, fiscalización, rendición de cuentas en el uso de recursos públicos y en la operación de procesos institucionales clave al interior de las administraciones públicas.
                                 </p>
                             </div>
@@ -376,17 +376,17 @@ get_header();
                                     <!-- Objetivo 3 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">3</span>
-                                        <span class="b1r color--neutro800 texto--justify">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
+                                        <span class="b1r texto--justify">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
                                     </div>
                                     <!-- Objetivo 4 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">4</span>
-                                        <span class="b1r color--neutro800 texto--justify">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
+                                        <span class="b1r texto--justify">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
                                     </div>
                                     <!-- Objetivo 5 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">5</span>
-                                        <span class="b1r color--neutro800 texto--justify">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
+                                        <span class="b1r texto--justify">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
                                     </div>
                                 </div>
                             </div>
@@ -404,7 +404,7 @@ get_header();
                                     Eje 3
                                 </div>
                                 <h3 class="sh0b mb--16" style="color: #1D70B8;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</h3>
-                                <p class="b1r color--neutro600 mb--0 texto--justify">
+                                <p class="b1r mb--0 texto--justify">
                                     Busca fortalecer los puntos de contacto, espacios de interacción y esquemas de relación entre los entes públicos y distintos sectores de la sociedad, a fin de contener sus riesgos de corrupción.
                                 </p>
                             </div>
@@ -418,12 +418,12 @@ get_header();
                                     <!-- Objetivo 6 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">6</span>
-                                        <span class="b1r color--neutro800 texto--justify">Promover la implementación de esquemas que erradiquen áreas de riesgo que propician la corrupción en las interacciones que establecen ciudadanos y empresas con el gobierno al realizar trámites, y acceder a programas y servicios públicos.</span>
+                                        <span class="b1r texto--justify">Promover la implementación de esquemas que erradiquen áreas de riesgo que propician la corrupción en las interacciones que establecen ciudadanos y empresas con el gobierno al realizar trámites, y acceder a programas y servicios públicos.</span>
                                     </div>
                                     <!-- Objetivo 7 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">7</span>
-                                        <span class="b1r color--neutro800 texto--justify">Impulsar la adopción y homologación de reglas en materia de contrataciones públicas, asociaciones público-privadas y cabildeo, que garanticen interacciones íntegras e imparciales entre gobierno y sector privado.</span>
+                                        <span class="b1r texto--justify">Impulsar la adopción y homologación de reglas en materia de contrataciones públicas, asociaciones público-privadas y cabildeo, que garanticen interacciones íntegras e imparciales entre gobierno y sector privado.</span>
                                     </div>
                                 </div>
                             </div>
@@ -441,7 +441,7 @@ get_header();
                                     Eje 4
                                 </div>
                                 <h3 class="sh0b mb--16" style="color: #E14586;">Involucrar a la sociedad y el sector privado</h3>
-                                <p class="b1r color--neutro600 mb--0 texto--justify">
+                                <p class="b1r mb--0 texto--justify">
                                     Busca incentivar el involucramiento de diversos sectores de la sociedad en el control de la corrupción mediante el fortalecimiento e institucionalización de mecanismos de participación, vigilancia y autorregulación social, bajo un enfoque incluyente y con perspectiva de género.
                                 </p>
                             </div>
@@ -455,17 +455,17 @@ get_header();
                                     <!-- Objetivo 8 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E14586; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">8</span>
-                                        <span class="b1r color--neutro800 texto--justify">Impulsar el desarrollo de mecanismos efectivos de participación que favorezcan el involucramiento social en el control de la corrupción, así como en la vigilancia y rendición de cuentas de las decisiones de gobierno.</span>
+                                        <span class="b1r texto--justify">Impulsar el desarrollo de mecanismos efectivos de participación que favorezcan el involucramiento social en el control de la corrupción, así como en la vigilancia y rendición de cuentas de las decisiones de gobierno.</span>
                                     </div>
                                     <!-- Objetivo 9 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E14586; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">9</span>
-                                        <span class="b1r color--neutro800 texto--justify">Promover la adopción y aplicación de principios, políticas y programas de integridad y anticorrupción en el sector privado.</span>
+                                        <span class="b1r texto--justify">Promover la adopción y aplicación de principios, políticas y programas de integridad y anticorrupción en el sector privado.</span>
                                     </div>
                                     <!-- Objetivo 10 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
                                         <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #E14586; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">10</span>
-                                        <span class="b1r color--neutro800 texto--justify">Fomentar la socialización y adopción de valores prácticos relevantes en la sociedad para el control de la corrupción.</span>
+                                        <span class="b1r texto--justify">Fomentar la socialización y adopción de valores prácticos relevantes en la sociedad para el control de la corrupción.</span>
                                     </div>
                                 </div>
                             </div>
@@ -509,7 +509,7 @@ get_header();
 
                     <!-- Operador + -->
                     <div class="columna__auto muestra--ninguno muestra--flex--sm columna__1--lg align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
+                        <span class="fw-bold color--neutro600" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
@@ -525,7 +525,7 @@ get_header();
 
                     <!-- Operador + -->
                     <div class="columna__auto muestra--ninguno muestra--flex--sm columna__1--lg align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">+</span>
+                        <span class="fw-bold color--neutro600" style="font-size: 22px; line-height: 1;">+</span>
                     </div>
 
                     <!-- Etapa 3: Foros de Consulta Regional -->
@@ -541,7 +541,7 @@ get_header();
 
                     <!-- Operador = -->
                     <div class="columna__auto muestra--ninguno muestra--flex--lg columna__1--lg align-items-center justify-content-center">
-                        <span class="fw-bold text-muted" style="font-size: 22px; line-height: 1;">=</span>
+                        <span class="fw-bold color--neutro600" style="font-size: 22px; line-height: 1;">=</span>
                     </div>
 
                     <!-- Resultado: Logo PNA -->
@@ -571,7 +571,7 @@ get_header();
                         <h3 class="sh0b mb--0" style="color: #74598F;">Consejo consultivo y análisis técnico</h3>
                     </div>
                     
-                    <p class="b1r color--neutro600 mb--24 texto--justify">
+                    <p class="b1r mb--24 texto--justify">
                         Participaron especialistas y representantes de la academia, sociedad civil organizada, sector empresarial, instituciones gubernamentales y organismos internacionales. Se recabaron insumos técnicos, recomendaciones y evidencia que permitió complementar la percepción de la población con respecto a la corrupción. Se sistematizó la información y se construyó una base de datos.
                     </p>
 
@@ -584,7 +584,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción</span>
                                 </div>
                             </a>
                         </div>
@@ -596,7 +596,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Compromisos Internacionales</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Compromisos Internacionales</span>
                                 </div>
                             </a>
                         </div>
@@ -608,7 +608,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Numeralia de los costos de la corrupción</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Numeralia de los costos de la corrupción</span>
                                 </div>
                             </a>
                         </div>
@@ -620,7 +620,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Acciones para combatir la Corrupción propuestas</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Acciones para combatir la Corrupción propuestas</span>
                                 </div>
                             </a>
                         </div>
@@ -632,7 +632,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Recomendaciones de Organizaciones de la Sociedad Civil</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Recomendaciones de Organizaciones de la Sociedad Civil</span>
                                 </div>
                             </a>
                         </div>
@@ -644,7 +644,7 @@ get_header();
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
                                 <div class="w-100 text-center my-auto">
-                                    <span class="b1sb color--neutro800 texto--justify">Reporte del taller de inteligencia colectiva</span>
+                                    <span class="sh1b color--neutro800 texto--justify">Reporte del taller de inteligencia colectiva</span>
                                 </div>
                             </a>
                         </div>
@@ -658,7 +658,7 @@ get_header();
                         <h3 class="sh0b mb--0" style="color: #00887A;">Consulta Ciudadana en línea</h3>
                     </div>
                     
-                    <p class="b1r color--neutro600 mb--24 texto--justify">
+                    <p class="b1r mb--24 texto--justify">
                         Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
                     </p>
 
@@ -679,19 +679,19 @@ get_header();
                                 <div class="d-flex flex-column flex-grow-1 justify-content-between">
                                     <a href="#" class="d-flex align-items-center gap-3 py-3 px-2 border-bottom decoracion--ninguna transition-all pna-doc-item pna-consulta-doc-link" data-modal-target="#pdfViewerModal" data-pdf-title="Preguntas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PREGUNTAS_CONSULTA_PNA.pdf', '2020/03/PREGUNTAS_CONSULTA_PNA.pdf' ) ); ?>">
                                         <i class="snd__icono snd-document icono--24 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
-                                        <div class="b1r color--neutro800">Preguntas de la Consulta Ciudadana en línea</div>
+                                        <div class="sh1b color--neutro800">Preguntas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center gap-3 py-3 px-2 border-bottom decoracion--ninguna transition-all pna-doc-item pna-consulta-doc-link" data-modal-target="#pdfViewerModal" data-pdf-title="Respuestas de la Consulta Ciudadana en línea" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Consulta-Linea.xlsx', '2021/06/Base-Consulta-Linea.xlsx' ) ); ?>">
                                         <i class="snd__icono snd-document icono--24 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
-                                        <div class="b1r color--neutro800">Respuestas de la Consulta Ciudadana en línea</div>
+                                        <div class="sh1b color--neutro800">Respuestas de la Consulta Ciudadana en línea</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center gap-3 py-3 px-2 border-bottom decoracion--ninguna transition-all pna-doc-item pna-consulta-doc-link" data-modal-target="#pdfViewerModal" data-pdf-title="Reporte de evidencias cualitativas sobre corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte-cualitativo-IIJ.pdf', '2020/03/Reporte-cualitativo-IIJ.pdf' ) ); ?>">
                                         <i class="snd__icono snd-document icono--24 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
-                                        <div class="b1r color--neutro800">Reporte de evidencias cualitativas sobre corrupción</div>
+                                        <div class="sh1b color--neutro800">Reporte de evidencias cualitativas sobre corrupción</div>
                                     </a>
                                     <a href="#" class="d-flex align-items-center gap-3 py-3 px-2 decoracion--ninguna transition-all pna-doc-item pna-consulta-doc-link" data-modal-target="#pdfViewerModal" data-pdf-title="Anexo de análisis estadístico de subjetividades" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Anexo-Analisis-MQ-IIJ.xlsx', '2021/06/Anexo-Analisis-MQ-IIJ.xlsx' ) ); ?>">
                                         <i class="snd__icono snd-document icono--24 flex-shrink-0" aria-hidden="true" style="color: #00887A;"></i>
-                                        <div class="b1r color--neutro800">Anexo de análisis estadístico de subjetividades</div>
+                                        <div class="sh1b color--neutro800">Anexo de análisis estadístico de subjetividades</div>
                                     </a>
                                 </div>
                             </div>
@@ -701,29 +701,6 @@ get_header();
 
                 <!-- TARJETA ETAPA 3: Foros de Consulta Regional (Oculta inicialmente) -->
                 <div class="transition-all pt--24 muestra--ninguno" data-stage-card="3">
-                    <style>
-                        .pna-stat-card {
-                            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-                        }
-                        .pna-stat-card:hover {
-                            transform: translateY(-5px);
-                            box-shadow: 0 12px 24px rgba(217, 119, 6, 0.15) !important;
-                            border-color: #D97706 !important;
-                        }
-                        .pna-foro-item {
-                            transition: all 0.25s ease;
-                            border: none !important;
-                            border-bottom: 1px solid rgba(0,0,0,0.06) !important;
-                        }
-                        .pna-foro-item:last-child {
-                            border-bottom: none !important;
-                        }
-                        .pna-foro-item:hover {
-                            background-color: #FFF7ED !important;
-                            border-color: rgba(217, 119, 6, 0.3) !important;
-                            transform: translateX(4px);
-                        }
-                    </style>
 
                     <!-- 1. Encabezado -->
                     <div class="mb-5">
@@ -731,7 +708,7 @@ get_header();
                             <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-5 shadow-sm flex-shrink-0" style="background-color: #D97706; width: 44px; height: 44px;">3</span>
                             <h3 class="sh0b mb--0" style="color: #D97706;">Foros de Consulta Regional</h3>
                         </div>
-                        <p class="b1r color--neutro600 mb--24 texto--justify" style="max-width: 900px;">
+                        <p class="b1r mb--24 texto--justify" style="max-width: 900px;">
                             Participaron integrantes de los Comités de Participación Ciudadana, instituciones públicas, organizaciones de la sociedad civil, academia y sector privado para la construcción de propuestas de política pública.
                         </p>
                     </div>
@@ -740,42 +717,42 @@ get_header();
                     <div class="reticulaGrid__12 mb-5">
                         <!-- Tarjeta 1 -->
                         <div class="columna__12 columna__6--md columna__3--lg">
-                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: var(--neutro100); border-color: var(--neutro400) !important; box-shadow: var(--dropLV1);">
+                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('foros regionales.svg') ); ?>" alt="" width="68" height="68">
                                 </div>
                                 <div class="sh0b color--neutro800 mb--2">8</div>
-                                <div class="sdr color--neutro600">Foros Regionales</div>
+                                <div class="b1r">Foros Regionales</div>
                             </div>
                         </div>
                         <!-- Tarjeta 2 -->
                         <div class="columna__12 columna__6--md columna__3--lg">
-                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: var(--neutro100); border-color: var(--neutro400) !important; box-shadow: var(--dropLV1);">
+                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/' . rawurlencode('8 entidades federativas.svg') ); ?>" alt="" width="68" height="68">
                                 </div>
                                 <div class="sh0b color--neutro800 mb--2">8</div>
-                                <div class="sdr color--neutro600">Entidades Federativas</div>
+                                <div class="b1r">Entidades Federativas</div>
                             </div>
                         </div>
                         <!-- Tarjeta 3 -->
                         <div class="columna__12 columna__6--md columna__3--lg">
-                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: var(--neutro100); border-color: var(--neutro400) !important; box-shadow: var(--dropLV1);">
+                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/Periodo.svg' ); ?>" alt="" width="68" height="68">
                                 </div>
                                 <div class="sh0b color--neutro800 mb--2">Octubre - Noviembre 2018</div>
-                                <div class="sdr color--neutro600 mt--4">Periodo</div>
+                                <div class="b1r mt--4">Periodo</div>
                             </div>
                         </div>
                         <!-- Tarjeta 4 -->
                         <div class="columna__12 columna__6--md columna__3--lg">
-                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all" style="background-color: var(--neutro100); border-color: var(--neutro400) !important; box-shadow: var(--dropLV1);">
+                            <div class="card border rounded-4 p-4 h-100 text-center d-flex flex-column align-items-center justify-content-center pna-stat-card transition-all">
                                 <div class="rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto flex-shrink-0" style="width: 72px; height: 72px; background-color: #FFF7ED;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/consulta_regional/asistentes.svg' ); ?>" alt="" width="68" height="68">
                                 </div>
                                 <div class="sh0b color--neutro800 mb--2">+600</div>
-                                <div class="sdr color--neutro600">Participantes</div>
+                                <div class="b1r">Participantes</div>
                             </div>
                         </div>
                     </div>
@@ -927,149 +904,157 @@ get_header();
                                 <div class="border-bottom pb-3 mb-3 text-center flex-shrink-0">
                                     <h4 class="sh1b mb--0" style="color: #D97706;">Foros realizados</h4>
                                 </div>
-                                <div class="d-flex flex-column justify-content-around flex-grow-1 gap-2">
+                                <div class="d-flex flex-column gap-3">
                                     <!-- Foro 1 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="1" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">23 Oct 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Guadalajara, Jalisco</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="1">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">23 Oct</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Guadalajara, Jalisco</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 2 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="2" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">25 Oct 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Zacatecas, Zacatecas</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="2">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">25 Oct</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Zacatecas, Zacatecas</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 3 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="3" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">30 Oct 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Saltillo, Coahuila</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="3">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">30 Oct</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Saltillo, Coahuila</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 4 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="4" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">8 Nov 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Oaxaca, Oaxaca</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="4">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">8 Nov</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Oaxaca, Oaxaca</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 5 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="5" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">12 Nov 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Querétaro, Querétaro</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="5">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">12 Nov</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Querétaro, Querétaro</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 6 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="6" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">20 Nov 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Hermosillo, Sonora</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="6">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">20 Nov</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Hermosillo, Sonora</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 7 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="7" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">22 Nov 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Cancún, Quintana Roo</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="7">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">22 Nov</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Cancún, Quintana Roo</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
 
                                     <!-- Foro 8 -->
-                                    <div class="pna-foro-item p-2 p-sm-3 d-flex align-items-center justify-content-between gap-2 rounded-3 transition-all" data-sede="8" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>" style="cursor: pointer;">
-                                        <div class="d-flex align-items-center gap-2 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                            <span class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px; background-color: #FFF7ED; color: #D97706; font-size: 12px;">●</span>
-                                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-1 gap-sm-3 flex-grow-1 overflow-hidden" style="min-width: 0;">
-                                                <span class="sdsb color--neutro800 flex-shrink-0">29 Nov 2018</span>
-                                                <div class="d-flex align-items-center gap-1 text-truncate" style="min-width: 0;">
-                                                    <i class="snd__icono snd-location--filled icono--16 text-muted flex-shrink-0" aria-hidden="true"></i>
-                                                    <span class="sdr color--neutro600 text-truncate" style="display: block; min-width: 0;">Ciudad de México, CDMX</span>
+                                    <div class="tx-oc-card pna-foro-card pna-foro-item" data-sede="8">
+                                        <div class="pna-foro-card__row">
+                                            <div class="pna-foro-card__meta">
+                                                <div class="pna-foro-card__datestack">
+                                                    <span class="pna-foro-card__daymonth">29 Nov</span>
+                                                    <span class="pna-foro-card__year">2018</span>
                                                 </div>
+                                                <span class="pna-foro-card__sep"></span>
+                                                <span class="pna-foro-card__city">Ciudad de México, CDMX</span>
                                             </div>
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>">
+                                                <i class="snd__icono snd-document--pdf icono--16" aria-hidden="true"></i>
+                                                Relatoría
+                                                <i class="snd__icono snd-chevron--right icono--16" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                        <span class="d-inline-flex align-items-center gap-2 decoracion--ninguna flex-shrink-0 ms-2" style="white-space: nowrap;">
-                                            <span class="b1sb color--pguinda600 d-none d-sm-inline-flex">Relatoría</span>
-                                            <i class="snd__icono snd-document--pdf icono--24 tx-sesion-pdf-icon" aria-hidden="true" style="color: var(--color-burgundi) !important;"></i>
-                                        </span>
                                     </div>
                             </div>
                         </div>

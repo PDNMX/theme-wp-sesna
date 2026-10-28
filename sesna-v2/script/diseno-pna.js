@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset estilos
         document.querySelectorAll('.sede-pin circle:nth-child(2)').forEach(c => { c.setAttribute('fill', '#D97706'); c.setAttribute('r', '9'); });
         document.querySelectorAll('.estado-mapa').forEach(e => e.setAttribute('fill', '#E5E7EB'));
-        foroItems.forEach(item => { item.classList.remove('bg-warning', 'bg-opacity-25', 'border-warning', 'shadow-sm'); });
+        foroItems.forEach(item => { item.classList.remove('pna-foro-item--active'); });
 
         // Resaltar mapa
         const targetPin = document.querySelector(`.sede-pin[data-sede="${sedeId}"] circle:nth-child(2)`);
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Resaltar lista lateral
         const targetItem = document.querySelector(`.pna-foro-item[data-sede="${sedeId}"]`);
         if(targetItem) {
-            targetItem.classList.add('bg-warning', 'bg-opacity-25', 'border-warning', 'shadow-sm');
+            targetItem.classList.add('pna-foro-item--active');
             if(showTip) {
                 targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(tooltip) tooltip.classList.add('muestra--ninguno');
         document.querySelectorAll('.sede-pin circle:nth-child(2)').forEach(c => { c.setAttribute('fill', '#D97706'); c.setAttribute('r', '9'); });
         document.querySelectorAll('.estado-mapa').forEach(e => e.setAttribute('fill', '#E5E7EB'));
-        foroItems.forEach(item => { item.classList.remove('bg-warning', 'bg-opacity-25', 'border-warning', 'shadow-sm'); });
+        foroItems.forEach(item => { item.classList.remove('pna-foro-item--active'); });
     }
 
     mapPins.forEach(pin => {
