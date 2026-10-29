@@ -6136,19 +6136,19 @@ select.tx-comite-filter-control:disabled {
    ========================================================================== */
 /* Homologa las sombras de todas las cards de la página al token oficial
    SND (var(--dropLV1)), en vez del shadow-sm de Bootstrap (rgba a mano). */
-.page-pna-diseno .shadow-sm {
+.page-pna .shadow-sm {
     box-shadow: var(--dropLV1) !important;
 }
 
 /* .bg-white no está definida en ningún lado del tema (dependía de Bootstrap,
    ya retirado) — las cards que la usan quedaban transparentes sobre el fondo
    rosa de la página. Se homologa al token de superficie oficial. */
-.page-pna-diseno .bg-white {
+.page-pna .bg-white {
     background-color: var(--neutro100) !important;
 }
 
-/* Contenedor de ícono guinda en tarjetas de diseño PNA */
-.page-pna-diseno .pna-guinda-icon-box {
+/* Contenedor de ícono guinda en tarjetas PNA (reutilizable en todas las sub-páginas) */
+.page-pna .pna-guinda-icon-box {
     width: 52px;
     height: 52px;
     min-width: 52px;
@@ -6211,17 +6211,17 @@ select.tx-comite-filter-control:disabled {
     padding-top: 8px;
 }
 
-.page-pna-diseno .pna-anexo-link {
+.page-pna .pna-anexo-link {
     padding: 12px 8px;
     border-bottom: 1px solid var(--neutro400);
     transition: background-color 0.15s ease, padding-left 0.15s ease;
 }
 
-.page-pna-diseno .pna-anexo-link:last-child {
+.page-pna .pna-anexo-link:last-child {
     border-bottom: none;
 }
 
-.page-pna-diseno .pna-anexo-link:hover {
+.page-pna .pna-anexo-link:hover {
     background-color: var(--gama100);
     padding-left: 16px;
 }

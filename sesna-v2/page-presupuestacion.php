@@ -8,45 +8,47 @@
 get_header();
 ?>
 
-<div class="page-pna page-pna-presupuestacion">
+<div class="page-pna page-pna-presupuestacion front-page-bg">
 
-    <!-- Breadcrumb -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
+    <!-- ── Breadcrumb ─────────────────────────────────────────── -->
+    <nav class="ruta__cont" aria-label="Ruta de navegación">
         <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><i class="snd__icono snd-home icono--16" aria-hidden="true"></i> Inicio</a>
+            <ul class="ruta__lista">
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
                 </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>">Política Nacional Anticorrupción</a>
+                <li class="ruta__li">
+                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>" class="ruta__a">Política Nacional Anticorrupción</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Presupuestación</li>
-            </ol>
+                <li class="ruta__li">
+                    <span class="ruta__a" aria-current="page">Presupuestación</span>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <!-- BLOQUE 1: Hero -->
     <section class="pt-4 pb-5">
         <div class="contenedor">
-            <div class="reticulaGrid__12 align-items-start justify-content-between">
+            <div class="reticulaGrid__12 align-items-center">
 
                 <!-- Columna Izquierda -->
-                <div class="columna__12 columna__7--lg pna-reveal" style="--delay:0s">
-                    <h1 class="h1b patria text-burgundi mb-3">Presupuestación</h1>
-                    <p class="text-muted mb-4">
+                <div class="columna__12 columna__7--lg">
+                    <h1 class="h1b patria color--pguinda600 mb--24">Presupuestación</h1>
+                    <p class="sh1r mb--16 texto--justify">
                         Conoce más sobre el Anexo Transversal 30 del Presupuesto de Egresos de la Federación, el cual agrupa los recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.
                     </p>
-                    <p class="text-muted mb-0">
+                    <p class="sh1r mb--0 texto--justify">
                         Este Anexo Transversal identifica a los responsables y los montos de recursos públicos ejecutados a dichas tareas, permitiendo dar seguimiento al gasto anticorrupción a nivel federal.
                     </p>
                 </div>
 
                 <!-- Columna Derecha: Ícono representativo -->
-                <div class="columna__12 columna__5--lg d-flex justify-content-lg-end justify-content-center align-items-center mt-5 mt-lg-0 pna-reveal" style="--delay:.25s">
-                    <i class="snd__icono snd-chart--bar" aria-hidden="true" style="font-size: 220px; color: #72588F; opacity: 0.15;"></i>
+                <div class="columna__12 columna__5--lg muestra--ninguno muestra--flex--lg align-items-center justify-content-end">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/presupuestacion.svg' ); ?>" alt="" class="sesna-hero__img" loading="eager">
                 </div>
 
             </div>
@@ -77,7 +79,7 @@ get_header();
             ),
         ),
         array(
-            'icono'  => 'snd-data--base',
+            'icono'  => 'snd-catalog',
             'titulo' => 'Base de datos',
             'docs'   => array(
                 array( 'label' => '2025', 'file' => 'ATA-2025-PEF.zip',                          'path' => '2025/03/ATA-2025-PEF.zip' ),
@@ -101,31 +103,22 @@ get_header();
     ?>
     <section class="pb-5">
         <div class="contenedor">
-            <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
+            <h2 class="h2b patria color--pguinda600 mb--16">1. Documentos del Anexo Transversal Anticorrupción</h2>
+            <p class="sh1r color--neutro600 mb--24">Consulta y descarga los documentos metodológicos, informes y bases de datos disponibles.</p>
 
-                <!-- Encabezado -->
-                <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="icon-bg-circle flex-shrink-0" style="background-color: #F9F0F3;">
-                        <i class="snd__icono snd-document icono--24" aria-hidden="true" style="color: #611232;"></i>
-                    </div>
-                    <div>
-                        <h2 class="h2b patria mb-0" style="color: #611232;">1. Documentos del Anexo Transversal Anticorrupción</h2>
-                    </div>
-                </div>
-                <p class="text-muted mb-4 ms-1" style="font-size: 15px;">Consulta y descarga los documentos metodológicos, informes y bases de datos disponibles.</p>
-                <div class="cp-recursos__linea mb-4"></div>
+            <div class="card border rounded-4 p-4 p-md-5 shadow-sm bg-white" style="border-color: var(--neutro400) !important;">
 
                 <!-- 4 columnas de documentos -->
                 <div class="reticulaGrid__12">
                     <?php foreach ( $ata_columnas as $i => $col ) : ?>
-                    <div class="columna__12 columna__6--md columna__3--lg pna-chart-card" style="--delay:<?php echo ($i * .1); ?>s">
-                        <div class="card border rounded-4 h-100 d-flex flex-column p-3" style="border-color: #e8d0d8 !important;">
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <div class="card border rounded-4 h-100 d-flex flex-column p-4 bg-white" style="border-color: var(--neutro400) !important;">
                             <!-- Encabezado de columna -->
-                            <div class="d-flex align-items-center gap-2 mb-4">
-                                <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: #F9F0F3;">
-                                    <i class="snd__icono <?php echo esc_attr( $col['icono'] ); ?> icono--20" aria-hidden="true" style="color: #611232;"></i>
+                            <div class="d-flex align-items-center gap--8 mb--16">
+                                <div class="pna-guinda-icon-box flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                    <i class="snd__icono <?php echo esc_attr( $col['icono'] ); ?> icono--20 color--neutro100" aria-hidden="true"></i>
                                 </div>
-                                <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232;"><?php echo esc_html( $col['titulo'] ); ?></h3>
+                                <h3 class="b1sb mb--0"><?php echo esc_html( $col['titulo'] ); ?></h3>
                             </div>
                             <!-- Lista de documentos -->
                             <div class="d-flex flex-column flex-grow-1">
@@ -133,15 +126,14 @@ get_header();
                                     <?php if ( ! empty( $doc['file'] ) ) : ?>
                                     <a href="<?php echo esc_url( sesna_get_media_attachment_url( $doc['file'], $doc['path'] ) ); ?>"
                                        target="_blank" rel="noopener"
-                                       class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-decoration-none pna-doc-item"
-                                       style="transition: background-color .15s; color: #333;">
-                                        <i class="snd__icono snd-download icono--16 flex-shrink-0" aria-hidden="true" style="color: #611232;"></i>
-                                        <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?></span>
+                                       class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3 decoracion--ninguna pna-doc-item pna-anexo-link">
+                                        <span class="b1r color--neutro800"><?php echo esc_html( $doc['label'] ); ?></span>
+                                        <i class="snd__icono snd-download icono--16 flex-shrink-0 color--pguinda600" aria-hidden="true"></i>
                                     </a>
                                     <?php else : ?>
-                                    <span class="d-flex align-items-center gap-2 px-2 py-2 rounded-3 text-muted">
-                                        <i class="snd__icono snd-download icono--16 flex-shrink-0" aria-hidden="true" style="color: #ccc;"></i>
-                                        <span class="font-noto-sans" style="font-size: 14px;"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
+                                    <span class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3">
+                                        <span class="b1r color--neutro500"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
+                                        <i class="snd__icono snd-download icono--16 flex-shrink-0 color--neutro500" aria-hidden="true"></i>
                                     </span>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
@@ -156,11 +148,11 @@ get_header();
                                 }
                             }
                             ?>
-                            <div class="mt-3 pt-3" style="border-top: 1px solid #e8d0d8;">
+                            <div class="mt--16 pt--16 w-100 d-flex justify-content-end" style="border-top: 1px solid var(--neutro400);">
                                 <button type="button"
-                                        class="btn-descargar-todo d-flex align-items-center gap-2 text-decoration-none font-noto-sans fw-semibold border-0 bg-transparent p-0"
+                                        class="btn-descargar-todo boton__fantasma d-flex align-items-center gap-2"
                                         data-files="<?php echo esc_attr( json_encode( $urls ) ); ?>"
-                                        style="font-size: 13px; color: #611232; cursor: pointer;">
+                                        style="padding: 6px 12px; min-height: auto; font-size: 13px;">
                                     <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar todo
                                 </button>
                             </div>
@@ -175,51 +167,43 @@ get_header();
     <!-- BLOQUE 3: Panorama nacional del Anexo Transversal -->
     <section class="pb-5">
         <div class="contenedor">
-            <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
-
-            <!-- Encabezado de sección -->
-            <div class="d-flex align-items-center gap-3 mb-2">
-                <div class="icon-bg-circle flex-shrink-0" style="background-color: #EEE8F5;">
-                    <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true" style="color: #72588F;"></i>
-                </div>
-                <h2 class="h4 fw-bold font-patria mb-0" style="color: #611232;">2. Panorama del Anexo Transversal 30</h2>
-            </div>
-            <div class="reticulaGrid__12 align-items-center mb-4 ms-1 me-0">
+            <h2 class="h2b patria color--pguinda600 mb--16">2. Panorama del Anexo Transversal 30</h2>
+            <div class="reticulaGrid__12 align-items-center mb--24">
                 <div class="columna__12 columna__8--md">
-                    <p class="text-muted mb-0" style="font-size: 15px;">Consulta indicadores sobre la evolución y distribución de los recursos identificados en el Anexo Transversal 30 del Presupuesto de Egresos de la Federación.</p>
+                    <p class="sh1r color--neutro600 mb--0">Consulta indicadores sobre la evolución y distribución de los recursos identificados en el Anexo Transversal 30 del Presupuesto de Egresos de la Federación.</p>
                 </div>
-                <div class="columna__12 columna__4--md text-md-end">
+                <div class="columna__12 columna__4--md texto--derecha--md">
                     <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Datos-procesados-Anexo-Transversal-2021-2026_rev.xlsx', '' ) ); ?>"
-                       class="boton__secundario boton--redondeado font-noto-sans"
-                       style="font-size: 13px; text-decoration: none;" download>
+                       class="boton__primario d-flex align-items-center gap-2" style="display: inline-flex;" download>
                         <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar base de datos
                     </a>
                 </div>
             </div>
-            <div class="cp-recursos__linea mb-5"></div>
+
+            <div class="card border rounded-4 p-4 p-md-5 shadow-sm bg-white" style="border-color: var(--neutro400) !important;">
 
             <!-- Fila 1: Evolución presupuestal + Instituciones -->
-            <div class="reticulaGrid__12 mb-4">
+            <div class="reticulaGrid__12 mb--24">
 
                 <!-- Gráfica 1: Evolución presupuestal -->
-                <div class="columna__6 pna-chart-card" style="--delay:.0s">
-                    <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #611232 !important;">
-                        <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Evolución presupuestal del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
-                        <p class="text-muted mb-3" style="font-size: 12px;">(millones de pesos)</p>
+                <div class="columna__12 columna__6--lg">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
+                        <h3 class="sh1b color--neutro800 mb--4">Evolución presupuestal del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
+                        <p class="b1r mb--16">(millones de pesos)</p>
                         <canvas id="chartMontos" height="220"></canvas>
-                        <p class="text-muted mt-2" style="font-size: 11px;">Fuente: Anexo Transversal en materia anticorrupción.</p>
-                        <div class="d-flex align-items-center gap-2 mt-1 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="snd__icono snd-information icono--20 text-muted flex-shrink-0" aria-hidden="true"></i>
-                            <span class="text-muted font-noto-sans">Pasa el cursor sobre cada barra para ver el monto exacto.</span>
+                        <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
+                        <div class="d-flex align-items-center gap-2 mt--4 p-2 rounded-3 fondo--azul100">
+                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <span class="sdr color--azul500">Pasa el cursor sobre cada barra para ver el monto exacto.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Gráfica 2: Instituciones participantes -->
-                <div class="columna__6 pna-chart-card" style="--delay:.15s">
-                    <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #72588F !important;">
-                        <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Instituciones participantes del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
-                        <p class="text-muted mb-3" style="font-size: 12px;">(número de instituciones)</p>
+                <div class="columna__12 columna__6--lg">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid #72588F !important;">
+                        <h3 class="sh1b color--neutro800 mb--4">Instituciones participantes del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
+                        <p class="b1r mb--16">(número de instituciones)</p>
                         <canvas id="chartInstituciones" height="160"></canvas>
 
                         <!-- Toggle de instituciones por año -->
@@ -236,20 +220,20 @@ get_header();
                         $anios_inst = array_keys($ata_instituciones_por_anio);
                         $primer_anio = $anios_inst[0];
                         ?>
-                        <div class="mt-3">
-                            <button class="btn btn-sm d-flex align-items-center gap-2 font-noto-sans fw-semibold w-100 justify-content-between px-3 py-2"
+                        <div class="mt--16">
+                            <button class="boton__secundario d-flex align-items-center gap-2 w-100 justify-content-between"
                                     id="btnVerInstituciones"
-                                    style="background-color: #F9F0F3; color: #611232; border: 1px solid #e8d0d8; border-radius: 8px; font-size: 13px;">
-                                <span><i class="snd__icono snd-building icono--16 me-1" aria-hidden="true"></i> Ver instituciones participantes por año</span>
+                                    style="font-size: 13px; padding: 8px 16px; min-height: auto;">
+                                <span><i class="snd__icono snd-building icono--16" aria-hidden="true"></i> Ver instituciones participantes por año</span>
                                 <i class="snd__icono snd-chevron--down icono--16" aria-hidden="true" id="iconVerInstituciones"></i>
                             </button>
-                            <div id="listaInstituciones" class="muestra--ninguno mt-2 p-3 rounded-3" style="background-color: #fafafa; border: 1px solid #e8d0d8;">
+                            <div id="listaInstituciones" class="muestra--ninguno mt--8 p-3 rounded-3" style="background-color: var(--neutro200); border: 1px solid var(--neutro400);">
                                 <!-- Selector de año -->
-                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                <div class="d-flex flex-wrap gap-2 mb--16">
                                     <?php foreach ( $anios_inst as $anio ) : ?>
-                                    <button class="btn btn-sm font-noto-sans fw-semibold inst-anio-btn <?php echo $anio === $primer_anio ? 'active' : ''; ?>"
+                                    <button class="inst-anio-btn b1sb <?php echo $anio === $primer_anio ? 'active' : ''; ?>"
                                             data-anio="<?php echo esc_attr($anio); ?>"
-                                            style="font-size: 13px; border-radius: 6px; min-width: 64px; padding: 5px 12px; <?php echo $anio === $primer_anio ? 'background-color:#611232;color:#fff;border-color:#611232;' : 'background-color:#F9F0F3;color:#611232;border:1px solid #e8d0d8;'; ?>">
+                                            style="font-size: 13px; border-radius: 6px; min-width: 64px; padding: 5px 12px; <?php echo $anio === $primer_anio ? 'background-color:var(--pguinda600);color:#fff;border:1px solid var(--pguinda600);' : 'background-color:var(--neutro100);color:var(--pguinda600);border:1px solid var(--neutro400);'; ?>">
                                         <?php echo esc_html($anio); ?>
                                     </button>
                                     <?php endforeach; ?>
@@ -257,14 +241,14 @@ get_header();
                                 <!-- Lista del año seleccionado -->
                                 <?php foreach ( $ata_instituciones_por_anio as $anio => $lista ) : ?>
                                 <div class="inst-panel <?php echo $anio === $primer_anio ? '' : 'muestra--ninguno'; ?>" data-anio="<?php echo esc_attr($anio); ?>">
-                                    <p class="font-noto-sans mb-2" style="font-size: 12px; color: #611232;">
+                                    <p class="sdr color--pguinda600 mb--8">
                                         <strong><?php echo intval($ata_totales[$anio]); ?> instituciones participantes</strong>
                                     </p>
-                                    <div class="reticulaGrid__12 gap--4 ps-2">
+                                    <div class="reticulaGrid__12 gap--4">
                                         <?php foreach ( $lista as $inst ) : ?>
                                         <div class="columna__6">
-                                            <span class="d-flex align-items-center gap-1 font-noto-sans" style="font-size: 12px; color: #444;">
-                                                <i class="snd__icono snd-dot-mark icono--16 flex-shrink-0" aria-hidden="true" style="color: #611232;"></i><?php echo esc_html( $inst ); ?>
+                                            <span class="d-flex align-items-center gap-1 sdr color--neutro700">
+                                                <i class="snd__icono snd-dot-mark icono--16 color--pguinda600 flex-shrink-0" aria-hidden="true"></i><?php echo esc_html( $inst ); ?>
                                             </span>
                                         </div>
                                         <?php endforeach; ?>
@@ -282,34 +266,34 @@ get_header();
             <div class="reticulaGrid__12">
 
                 <!-- Gráfica 3: Alineación por Capítulo -->
-                <div class="columna__6 pna-chart-card" style="--delay:.05s">
-                    <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #72588F !important;">
-                        <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Alineación porcentual por Capítulo de Clasificación del Gasto (2021–2026)</h3>
-                        <p class="text-muted mb-3" style="font-size: 12px;">(%)</p>
+                <div class="columna__12 columna__6--lg">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid #72588F !important;">
+                        <h3 class="sh1b color--neutro800 mb--4">Alineación porcentual por Capítulo de Clasificación del Gasto (2021–2026)</h3>
+                        <p class="b1r mb--16">(%)</p>
                         <canvas id="chartCapitulos" height="220"></canvas>
-                        <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="snd__icono snd-information icono--20 text-muted flex-shrink-0" aria-hidden="true"></i>
-                            <span class="text-muted font-noto-sans">Pasa el cursor sobre cada segmento para ver la descripción.</span>
+                        <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
+                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <span class="sdr color--azul500">Pasa el cursor sobre cada segmento para ver la descripción.</span>
                         </div>
                         <!-- Tooltip de descripción -->
-                        <div id="capTooltip" class="mt-2 p-3 rounded-3 muestra--ninguno" style="background-color: #F9F0F3; border: 1px solid #e8d0d8; font-size: 13px;">
-                            <strong id="capTooltipTitulo" class="d-block mb-1 font-noto-sans" style="color: #611232;"></strong>
-                            <span id="capTooltipDesc" class="text-muted font-noto-sans"></span>
+                        <div id="capTooltip" class="mt--8 p-3 rounded-3 muestra--ninguno" style="background-color: var(--gama100); border: 1px solid var(--neutro400);">
+                            <strong id="capTooltipTitulo" class="d-block mb--4 b1sb color--pguinda600"></strong>
+                            <span id="capTooltipDesc" class="b1r "></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Gráfica 4: Monto por Eje-Objetivo -->
-                <div class="columna__6 pna-chart-card" style="--delay:.2s">
-                    <div class="card border rounded-4 shadow-sm p-4 h-100" style="border-color: #E9ECEF !important; border-top: 3px solid #611232 !important;">
-                        <h3 class="fw-bold font-noto-sans mb-1" style="font-size: 15px; color: #222;">Monto de presupuesto asignado por Eje–Objetivo (2021–2025)</h3>
-                        <p class="text-muted mb-3" style="font-size: 12px;">(millones de pesos)</p>
+                <div class="columna__12 columna__6--lg">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
+                        <h3 class="sh1b color--neutro800 mb--4">Monto de presupuesto asignado por Eje–Objetivo (2021–2025)</h3>
+                        <p class="b1r mb--16">(millones de pesos)</p>
                         <canvas id="chartEjes" height="220"></canvas>
-                        <div class="d-flex align-items-center gap-2 mt-2 p-2 rounded-3" style="background-color: #F8F9FA; font-size: 12px;">
-                            <i class="snd__icono snd-information icono--20 text-muted flex-shrink-0" aria-hidden="true"></i>
-                            <span class="text-muted font-noto-sans">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del Eje–Objetivo.</span>
+                        <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
+                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <span class="sdr color--azul500">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del Eje–Objetivo.</span>
                         </div>
-                        <p class="text-muted mt-2" style="font-size: 11px; font-style: italic;">
+                        <p class="b1r mt--8" style="font-style: italic;">
                             La información correspondiente al ejercicio 2026 no se incluye en esta visualización debido a un cambio en la metodología de alineación presupuestaria.
                         </p>
                     </div>
@@ -597,45 +581,45 @@ get_header();
     <!-- BLOQUE 4: Consulta por entidad federativa -->
     <section class="pb-5">
         <div class="contenedor">
-            <div class="card border rounded-4 shadow-sm p-4 p-md-5 pna-reveal" style="border-color: #E9ECEF !important; --delay:0s">
+            <h2 class="h2b patria color--pguinda600 mb--16">3. Consulta por entidad federativa</h2>
+
+            <div class="card border rounded-4 p-4 p-md-5 shadow-sm bg-white" style="border-color: var(--neutro400) !important;">
 
                 <div class="reticulaGrid__12 align-items-center">
-                    <!-- Col 1: Ícono / imagen placeholder -->
-                    <div class="columna__2 d-flex justify-content-center">
-                        <div class="d-flex align-items-center justify-content-center rounded-circle"
-                             style="width: 110px; height: 110px; background-color: #F9F0F3;">
-                            <i class="snd__icono snd-map icono--32" aria-hidden="true" style="color: #611232;"></i>
+                    <!-- Col 1: Ícono representativo -->
+                    <div class="columna__12 columna__2--md d-flex justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 96px; height: 96px; background-color: var(--gama100);">
+                            <i class="snd__icono snd-map icono--32 color--pguinda600" aria-hidden="true"></i>
                         </div>
                     </div>
 
-                    <!-- Col 2: Título + descripción -->
-                    <div class="columna__7">
-                        <h2 class="h4 fw-bold font-patria mb-2" style="color: #611232;">3. Consulta por entidad federativa</h2>
-                        <p class="font-noto-sans mb-2" style="font-size: 15px; color: #333; text-align: justify;">
+                    <!-- Col 2: Descripción -->
+                    <div class="columna__12 columna__7--md">
+                        <p class="b1r color--neutro700 mb--8 texto--justify">
                             La información del Anexo Transversal 30 en materia anticorrupción por entidad federativa puede consultarse en la <strong>Dimensión de Presupuesto del Sistema de Seguimiento de la Política Nacional Anticorrupción.</strong>
                         </p>
-                        <p class="font-noto-sans mb-0 text-muted" style="font-size: 14px; text-align: justify;">
+                        <p class="b1r color--neutro600 mb--0 texto--justify">
                             Selecciona la entidad de tu interés para conocer la información disponible.
                         </p>
                     </div>
 
                     <!-- Col 3: Botón -->
-                    <div class="columna__3 d-flex justify-content-center justify-content-lg-end">
-                        <a href="#" target="_blank" title="El enlace abre en ventana nueva" rel="noopener"
-                           class="d-flex align-items-center justify-content-center gap-3 text-decoration-none px-4 py-4 rounded-3"
-                           style="background-color: #611232; color: #fff; max-width: 260px; width: 100%;">
-                            <i class="snd__icono snd-launch icono--24 flex-shrink-0" aria-hidden="true" style="opacity: 0.85;"></i>
-                            <span class="font-noto-sans fw-semibold lh-sm" style="font-size: 15px;">
-                                Consultar información<br>por entidad federativa
-                            </span>
+                    <div class="columna__12 columna__3--md d-flex justify-content-center justify-content-md-end">
+                        <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener"
+                           class="boton__primario d-flex align-items-center justify-content-center gap-3"
+                           style="max-width: 280px; width: 100%; min-height: 72px; text-align: center;">
+                            <i class="snd__icono snd-launch icono--24 flex-shrink-0" aria-hidden="true"></i>
+                            <span class="b1sb">Consultar información por entidad federativa</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Nota al pie -->
-                <div class="d-flex align-items-center gap-2 mt-4 pt-3 px-3 py-2 rounded-3" style="background-color: #F8F9FA; font-size: 13px; border-top: 1px solid #e9ecef;">
-                    <i class="snd__icono snd-information icono--20 text-muted flex-shrink-0" aria-hidden="true"></i>
-                    <span class="text-muted font-noto-sans">Los montos se presentan en millones de pesos corrientes.</span>
+                <div class="mt--24 pt--16 texto--centro" style="border-top: 1px solid var(--neutro400);">
+                    <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
+                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                        <span class="cp-nota__texto b1r color--azul500">Los montos se presentan en millones de pesos corrientes.</span>
+                    </div>
                 </div>
 
             </div>
