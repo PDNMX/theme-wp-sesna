@@ -6161,7 +6161,7 @@ select.tx-comite-filter-control:disabled {
 }
 
 /* Tarjetas compactas horizontales (Componente SND "Card": neutro100/neutro400/16px/dropLV1) */
-.page-pna-diseno .pna-doc-card-compact,
+.page-pna .pna-doc-card-compact,
 .page-pna-diseno .pna-accordion-card {
     background-color: var(--neutro100);
     border: 1px solid var(--neutro400);
@@ -6172,25 +6172,25 @@ select.tx-comite-filter-control:disabled {
 }
 
 @media (min-width: 640px) {
-    .page-pna-diseno .pna-doc-card-compact,
+    .page-pna .pna-doc-card-compact,
     .page-pna-diseno .pna-accordion-card {
         padding: 24px;
     }
 }
 
-.page-pna-diseno .pna-doc-card-compact:focus-visible,
+.page-pna .pna-doc-card-compact:focus-visible,
 .page-pna-diseno .pna-accordion-card summary:focus-visible,
-.page-pna-diseno .pna-doc-item:focus-visible {
+.page-pna .pna-doc-item:focus-visible {
     outline: 2px solid var(--pguinda600);
     outline-offset: 2px;
 }
 
-.page-pna-diseno .pna-doc-card-compact:hover {
+.page-pna .pna-doc-card-compact:hover {
     box-shadow: var(--dropLV2);
     transform: translateY(-2px);
 }
 
-.page-pna-diseno .pna-doc-card-compact:hover .pna-guinda-icon-box {
+.page-pna .pna-doc-card-compact:hover .pna-guinda-icon-box {
     transform: scale(1.05);
 }
 
@@ -6397,73 +6397,73 @@ select.tx-comite-filter-control:disabled {
 }
 
 /* --- BLOQUE 2: Rueda y Objetivos --- */
-.page-pna-diseno .pna-wheel {
+.page-pna .pna-wheel {
     width: 380px;
     height: 380px;
     max-width: 100%;
 }
-.page-pna-diseno .pna-wheel-slice {
+.page-pna .pna-wheel-slice {
     cursor: pointer;
     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
     opacity: 0.85;
     outline: none !important;
 }
-.page-pna-diseno .pna-wheel-slice:hover,
-.page-pna-diseno .pna-wheel-slice:focus,
-.page-pna-diseno .pna-wheel-slice.active {
+.page-pna .pna-wheel-slice:hover,
+.page-pna .pna-wheel-slice:focus,
+.page-pna .pna-wheel-slice.active {
     opacity: 1;
     transform: scale(1.03);
     transform-origin: center center;
     outline: none !important;
 }
-.page-pna-diseno .pna-wheel-slice.pna-eje-inactive {
+.page-pna .pna-wheel-slice.pna-eje-inactive {
     opacity: 0.4;
 }
-.page-pna-diseno .pna-wheel-slice.pna-eje-inactive:hover {
+.page-pna .pna-wheel-slice.pna-eje-inactive:hover {
     opacity: 0.7;
 }
-.page-pna-diseno .pna-wheel-center {
+.page-pna .pna-wheel-center {
     width: 182px;
     height: 182px;
     z-index: 5;
     border: 3px solid var(--color-fondo-claro);
 }
-.page-pna-diseno .pna-wheel-center__icon {
+.page-pna .pna-wheel-center__icon {
     font-size: 18px;
     line-height: 1;
 }
-.page-pna-diseno .pna-wheel-center__title {
+.page-pna .pna-wheel-center__title {
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-.page-pna-diseno .pna-wheel-center__desc {
+.page-pna .pna-wheel-center__desc {
     font-size: 8px;
     line-height: 1.2;
 }
-.page-pna-diseno .pna-eje-btn {
+.page-pna .pna-eje-btn {
     border-radius: 8px !important;
     box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12) !important;
     padding: 24px !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     height: 100%;
 }
-.page-pna-diseno .pna-eje-btn:hover,
-.page-pna-diseno .pna-eje-btn.active {
+.page-pna .pna-eje-btn:hover,
+.page-pna .pna-eje-btn.active {
     box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.15) !important;
     transform: translateY(-5px);
 }
-.page-pna-diseno .pna-eje-btn.pna-eje-inactive {
+.page-pna .pna-eje-btn.pna-eje-inactive {
     opacity: 0.45;
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
-.page-pna-diseno .pna-eje-btn.pna-eje-inactive:hover {
+.page-pna .pna-eje-btn.pna-eje-inactive:hover {
     opacity: 0.75;
     transform: translateY(-2px);
 }
 /* Conectores horizontales hacia el gráfico circular (Alta fidelidad Maqueta 1) */
 @media (min-width: 992px) {
-    .page-pna-diseno .pna-connector--right {
+    .page-pna .pna-connector--right {
         position: absolute;
         top: 50%;
         right: -42px;
@@ -6471,7 +6471,7 @@ select.tx-comite-filter-control:disabled {
         width: 42px;
         z-index: 5;
     }
-    .page-pna-diseno .pna-connector--left {
+    .page-pna .pna-connector--left {
         position: absolute;
         top: 50%;
         left: -42px;
@@ -6480,12 +6480,12 @@ select.tx-comite-filter-control:disabled {
         z-index: 5;
         flex-direction: row-reverse;
     }
-    .page-pna-diseno .pna-connector__line {
+    .page-pna .pna-connector__line {
         flex-grow: 1;
         height: 3px;
         opacity: 0.85;
     }
-    .page-pna-diseno .pna-connector__dot {
+    .page-pna .pna-connector__dot {
         width: 10px;
         height: 10px;
         border-radius: 50%;
@@ -6493,16 +6493,16 @@ select.tx-comite-filter-control:disabled {
     }
 }
 @media (min-width: 1200px) {
-    .page-pna-diseno .pna-connector--right {
+    .page-pna .pna-connector--right {
         right: -62px;
         width: 62px;
     }
-    .page-pna-diseno .pna-connector--left {
+    .page-pna .pna-connector--left {
         left: -62px;
         width: 62px;
     }
 }
-.page-pna-diseno .pna-eje-badge {
+.page-pna .pna-eje-badge {
     color: #ffffff;
     font-weight: 700;
     font-size: 10px;
@@ -6511,10 +6511,10 @@ select.tx-comite-filter-control:disabled {
     text-transform: uppercase;
     white-space: nowrap;
 }
-.page-pna-diseno .pna-obj-item {
+.page-pna .pna-obj-item {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.page-pna-diseno .pna-obj-item:hover {
+.page-pna .pna-obj-item:hover {
     transform: translateX(4px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     background-color: #ffffff !important;
@@ -7587,6 +7587,15 @@ select.tx-comite-filter-control:disabled {
     color: #611232 !important;
 }
 .page-pna-archivo .pna-doc-item:focus {
+    outline: none;
+}
+
+/* ── page-programa-implemetancion-pna ──────────── */
+.page-pna-implementacion .pna-doc-item:hover {
+    background-color: #F9F0F3;
+    color: #611232 !important;
+}
+.page-pna-implementacion .pna-doc-item:focus {
     outline: none;
 }
 
