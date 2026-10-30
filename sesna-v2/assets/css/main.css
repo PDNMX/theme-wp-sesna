@@ -6886,6 +6886,407 @@ select.tx-comite-filter-control:disabled {
     }
 }
 
+/* ── TEORÍA DE CAMBIO (Landing Seguimiento y Evaluación) ── */
+.page-pna-seguimiento .teoria-panel-card {
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+}
+@media (min-width: 768px) {
+    .page-pna-seguimiento .teoria-panel-card {
+        padding: 36px 32px;
+    }
+}
+
+/* Banner Superior Transversal (Instrumentos de inteligencia aprovechados) */
+.teoria-transversal-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+.teoria-transversal-pill {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: #FDF1F4;
+    border: 1.5px solid #F5C6D2;
+    border-radius: 50px;
+    padding: 8px 24px;
+    box-shadow: 0 4px 12px rgba(105, 28, 50, 0.05);
+}
+.teoria-transversal-icon {
+    width: 38px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.teoria-transversal-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.teoria-transversal-content {
+    text-align: left;
+}
+.teoria-transversal-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--principal, #611232);
+    margin: 0 0 2px 0;
+    line-height: 1.2;
+}
+.teoria-transversal-desc {
+    font-size: 13px;
+    color: var(--neutro700, #4b4b4b);
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Grilla de Flujo: 4 Niveles y Conectores Homologados */
+.teoria-flow-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    position: relative;
+    align-items: stretch;
+}
+@media (min-width: 601px) and (max-width: 1199px) {
+    .teoria-flow-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+@media (min-width: 1200px) {
+    .teoria-flow-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 12px;
+        align-items: stretch;
+    }
+}
+
+/* Tarjeta individual de Nivel */
+.teoria-card-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.teoria-card {
+    background: #FFFFFF;
+    border: 1.5px solid #EFE0E4;
+    border-radius: 16px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    outline: none !important;
+}
+.teoria-card:hover {
+    border-color: #9E2349;
+    box-shadow: 0 8px 20px rgba(158, 35, 73, 0.12);
+    transform: translateY(-3px);
+}
+.teoria-card:focus-visible {
+    outline: 2px solid #9E2349 !important;
+    outline-offset: 2px !important;
+}
+.teoria-card.is-active {
+    border-color: #9E2349;
+    border-width: 2px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(158, 35, 73, 0.16);
+    transform: translateY(-2px);
+}
+
+/* Cabecera de la tarjeta: Badge 01-04 */
+.teoria-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+}
+.teoria-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #9E2349;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(158, 35, 73, 0.25);
+}
+
+/* Ícono Central */
+.teoria-icon-container {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 12px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.teoria-icon-circle {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #FCF6F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
+}
+.teoria-card:hover .teoria-icon-circle {
+    transform: scale(1.05);
+}
+.teoria-icon-circle--enfoque {
+    border: 2px dashed #E598AF;
+    background: #FFFFFF;
+    padding: 6px;
+}
+.teoria-icon-img {
+    max-width: 52px;
+    max-height: 52px;
+    object-fit: contain;
+}
+
+/* Título del Nivel */
+.teoria-card-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--neutro800, #161A1D);
+    text-align: center;
+    margin: 0 0 16px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.25;
+}
+
+/* Pills inferiores del Nivel */
+.teoria-card-pills {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.teoria-pill {
+    background: #F8EFF2;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: var(--neutro800, #2b2b2b);
+    text-align: center;
+    border: 1px solid rgba(220, 88, 133, 0.12);
+}
+.teoria-ejes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+.teoria-eje-tag {
+    display: inline-block;
+    padding: 6px 2px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 1.1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.teoria-eje-tag--1 { background-color: #6AC72C; }
+.teoria-eje-tag--2 { background-color: #1D70B8; }
+.teoria-eje-tag--3 { background-color: #74598F; }
+.teoria-eje-tag--4 { background-color: #E14586; }
+
+/* Conectores Homologados entre tarjetas (Desktop ≥ 1200px) */
+.teoria-flow-connector {
+    display: none;
+}
+@media (min-width: 1200px) {
+    .teoria-flow-connector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        width: 36px;
+        flex-shrink: 0;
+        user-select: none;
+        margin: 0 4px;
+    }
+    .teoria-flow-connector--pdn {
+        width: 68px;
+        gap: 6px;
+        margin: 0 6px;
+    }
+}
+
+.teoria-connector-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+}
+.teoria-connector-arrow img {
+    width: 28px;
+    height: auto;
+    display: block;
+}
+
+/* Círculo Oficial PDN (sesna-v2/img/pna/pdn-logo.svg) */
+.teoria-pdn-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #FDF1F4;
+    border: 1.5px solid #F5C6D2;
+    box-shadow: 0 4px 12px rgba(105, 28, 50, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+}
+.teoria-pdn-circle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(105, 28, 50, 0.14);
+}
+.teoria-pdn-img {
+    width: 44px;
+    max-width: 44px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(55%) saturate(2768%) hue-rotate(320deg) brightness(88%) contrast(97%);
+}
+
+/* Panel de Detalle Interactivo */
+.teoria-detail-container {
+    background: #FDF7F8;
+    border: 1.5px solid #F3DBE2;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 36px;
+    box-shadow: 0 6px 20px rgba(105, 28, 50, 0.04);
+}
+@media (min-width: 768px) {
+    .teoria-detail-container {
+        padding: 32px;
+    }
+}
+
+.teoria-detail-pane {
+    display: none;
+    animation: teoriaFadeIn 0.3s ease;
+}
+.teoria-detail-pane.is-active {
+    display: block;
+}
+@keyframes teoriaFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.teoria-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ECD2D8;
+    padding-bottom: 14px;
+}
+.teoria-detail-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--principal, #611232);
+    margin: 0;
+}
+
+.teoria-detail-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--neutro800, #2b2b2b);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.teoria-item-card {
+    background: #FFFFFF;
+    border: 1px solid #ECD2D8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.teoria-item-card:hover {
+    box-shadow: 0 4px 12px rgba(158, 35, 73, 0.08);
+}
+.teoria-item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #9E2349;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.teoria-item-text {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--neutro700, #434343);
+    margin: 0;
+    text-align: justify;
+}
+
+/* Tarjeta de Principio Transversal Destacado */
+.teoria-transversal-card {
+    background: linear-gradient(135deg, #FFF9FA 0%, #FDF0F3 100%);
+    border: 1.5px solid #EAA8B8;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 16px;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(158, 35, 73, 0.06);
+}
+.teoria-transversal-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #9E2349;
+    color: #FFFFFF;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+
+
+
 /* ============================================================
    ÓRGANOS COLEGIADOS Y NORMATIVIDAD (page-organos-colegiados.php)
    Scope: .page-organos-colegiados — SND UI Kit v1.1.0 (Tema Guinda)

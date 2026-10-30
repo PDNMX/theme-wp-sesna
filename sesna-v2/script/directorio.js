@@ -15,7 +15,6 @@
   var encargado = document.getElementById('dir-encargado');
   var cargo = document.getElementById('dir-cargo');
   var email = document.getElementById('dir-email');
-  var emailBtn = document.getElementById('dir-email-btn');
 
   // Modal elements
   var modal = document.getElementById('dir-modal');
@@ -52,10 +51,6 @@
     cargo.textContent = d.cargo_titular || '—';
     email.textContent = d.email_titular || '—';
     email.href = d.email_titular ? 'mailto:' + d.email_titular : '#';
-
-    if (emailBtn) {
-      emailBtn.href = d.email_titular ? 'mailto:' + d.email_titular : '#';
-    }
 
     if (d.foto_titular) {
       foto.src = d.foto_titular;
@@ -144,7 +139,7 @@
   });
 
   // Mailto open in new window
-  [email, emailBtn, modalEmail].forEach(function (el) {
+  [email, modalEmail].forEach(function (el) {
     if (!el) return;
     el.addEventListener('click', function (e) {
       if (this.href && this.href.indexOf('mailto:') === 0) {

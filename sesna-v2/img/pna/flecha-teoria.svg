@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" width="48" height="32" fill="none">
+  <defs>
+    <linearGradient id="flechaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F2CAD5"/>
+      <stop offset="60%" stop-color="#DC5885"/>
+      <stop offset="100%" stop-color="#C03667"/>
+    </linearGradient>
+  </defs>
+  <!-- Flecha curvada/dinámica apuntando a la derecha -->
+  <path d="M4 16h32m0 0l-10-8m10 8l-10 8" stroke="url(#flechaGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

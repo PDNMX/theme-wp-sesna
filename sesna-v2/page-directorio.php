@@ -209,13 +209,6 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                     <?php echo $first ? esc_html($first['email_titular']) : '—'; ?>
                                 </a>
                             </div>
-                            <div class="mt--20">
-                                <a class="boton__primario" id="dir-email-btn"
-                                   href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
-                                    <i class="snd__icono snd-email icono--20" aria-hidden="true"></i>
-                                    Enviar correo
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

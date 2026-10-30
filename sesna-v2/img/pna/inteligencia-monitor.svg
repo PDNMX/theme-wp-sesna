@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 46" width="56" height="46" fill="none">
+  <!-- Monitor border -->
+  <rect x="2" y="2" width="52" height="34" rx="4" fill="#FFFFFF" stroke="#C03667" stroke-width="2.5"/>
+  <!-- Base / Stand -->
+  <path d="M22 36v5M34 36v5M16 43h24" stroke="#C03667" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Network / Intelligence Graph inside screen -->
+  <circle cx="16" cy="14" r="3.5" fill="#C03667"/>
+  <circle cx="28" cy="24" r="3.5" fill="#C03667"/>
+  <circle cx="40" cy="14" r="3.5" fill="#C03667"/>
+  <circle cx="38" cy="28" r="2.5" fill="#C03667"/>
+  <circle cx="18" cy="28" r="2.5" fill="#C03667"/>
+  <line x1="16" y1="14" x2="28" y2="24" stroke="#C03667" stroke-width="1.8"/>
+  <line x1="40" y1="14" x2="28" y2="24" stroke="#C03667" stroke-width="1.8"/>
+  <line x1="28" y1="24" x2="38" y2="28" stroke="#C03667" stroke-width="1.8"/>
+  <line x1="16" y1="14" x2="18" y2="28" stroke="#C03667" stroke-width="1.8"/>
+</svg>
