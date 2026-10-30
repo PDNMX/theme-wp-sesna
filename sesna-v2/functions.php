@@ -3969,6 +3969,7 @@ add_filter('body_class', function($classes) {
         'page-diseno-pna.php'                        => array('page-pna-diseno'),
         'page-presupuestacion.php'                   => array('page-pna-presupuestacion'),
         'page-programa-implemetancion-pna.php'       => array('page-pna', 'page-pna-implementacion'),
+        'page-seguimiento-evaluacion.php'            => array('page-pna', 'page-pna-seguimiento'),
     );
     if (isset($map[$template])) {
         $classes = array_merge($classes, $map[$template]);

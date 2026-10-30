@@ -146,14 +146,14 @@ get_header();
                     <p class="b1r color--neutro600 texto--justify">Define el rumbo estratégico de la política a partir de prioridades, objetivos y participación de diversos actores.</p>
                 </a>
 
-                <div class="pna-ciclo-step pna-ciclo-step--4">
+                <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--4 decoracion--ninguna">
                     <img class="pna-ciclo-step__watermark" aria-hidden="true" src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('seguimiento y evaluacion.svg') ); ?>" alt="">
                     <div class="pna-ciclo-step__header">
                         <span class="pna-ciclo-step__number">4</span>
                         <p class="pna-ciclo-step__title sh1b">Seguimiento y evaluación</p>
                     </div>
                     <p class="b1r color--neutro600 texto--justify">Da seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos.</p>
-                </div>
+                </a>
 
                 <!-- Centro: SVG de flechas + iconos superpuestos en cada esquina + logo -->
                 <div class="pna-ciclo-center">
@@ -172,9 +172,9 @@ get_header();
                         <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--3" aria-label="Ir a Implementación de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/ciclo_pna/implementacion.svg" alt="">
                         </a>
-                        <div class="pna-ciclo-overlay pna-ciclo-overlay--4" aria-hidden="true">
+                        <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion/') ); ?>" class="pna-ciclo-overlay pna-ciclo-overlay--4" aria-label="Ir a Seguimiento y evaluación de la Política Nacional Anticorrupción">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('seguimiento y evaluacion.svg') ); ?>" alt="">
-                        </div>
+                        </a>
 
                         <!-- Logo central -->
                         <div class="pna-ciclo-center__logo" aria-hidden="true">

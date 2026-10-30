@@ -39,7 +39,7 @@ get_header();
             <div class="reticulaGrid__12 align-items-center mb--24">
                 <div class="columna__12 columna__7--lg">
                     <h1 class="h1b patria color--pguinda600 mb--24">Diseño PNA</h1>
-                    <p class="sh1r mb--0 texto--justify">
+                    <p class="sh1r color--neutro600 mb--0 texto--justify">
                         Define el rumbo estratégico de la política a partir de prioridades, objetivos  y participación de diversos actores.
                     </p>
                 </div>
