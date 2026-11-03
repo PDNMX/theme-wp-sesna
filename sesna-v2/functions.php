@@ -3976,3 +3976,66 @@ add_filter('body_class', function($classes) {
     }
     return $classes;
 });
+
+// =========================================================================
+// DESCARGA MASIVA EN ZIP (botón "Descargar todo" — columnas de documentos)
+// =========================================================================
+function sesna_descargar_zip_documentos() {
+    $urls     = isset($_POST['files']) ? (array) wp_unslash($_POST['files']) : array();
+    $zip_name = isset($_POST['zip_name']) ? sanitize_file_name(wp_unslash($_POST['zip_name'])) : 'documentos';
+
+    if (empty($urls) || ! class_exists('ZipArchive')) {
+        wp_die('No se pudo generar el archivo ZIP.', '', array('response' => 400));
+    }
+
+    $upload_dir = wp_upload_dir();
+    $base_url   = $upload_dir['baseurl'];
+    $base_path  = $upload_dir['basedir'];
+
+    $tmp_zip = tempnam(sys_get_temp_dir(), 'sesna_zip_');
+    $zip = new ZipArchive();
+    if ($zip->open($tmp_zip, ZipArchive::OVERWRITE) !== true) {
+        wp_die('No se pudo generar el archivo ZIP.', '', array('response' => 500));
+    }
+
+    $added = 0;
+    $usados = array();
+    foreach ($urls as $url) {
+        $url = esc_url_raw($url);
+        if (strpos($url, $base_url) !== 0) {
+            continue; // solo archivos dentro de wp-content/uploads de este sitio
+        }
+        $relative = rawurldecode(ltrim(substr($url, strlen($base_url)), '/'));
+        $relative = str_replace('..', '', $relative); // evita path traversal
+        $file_path = $base_path . '/' . $relative;
+        if (is_file($file_path)) {
+            $nombre = basename($file_path);
+            // Evita colisiones de nombre dentro del ZIP
+            if (isset($usados[$nombre])) {
+                $usados[$nombre]++;
+                $info = pathinfo($nombre);
+                $nombre = $info['filename'] . '-' . $usados[$nombre] . '.' . $info['extension'];
+            } else {
+                $usados[$nombre] = 0;
+            }
+            $zip->addFile($file_path, $nombre);
+            $added++;
+        }
+    }
+    $zip->close();
+
+    if ($added === 0) {
+        @unlink($tmp_zip);
+        wp_die('No se encontraron archivos válidos para descargar.', '', array('response' => 404));
+    }
+
+    nocache_headers();
+    header('Content-Type: application/zip');
+    header('Content-Disposition: attachment; filename="' . $zip_name . '.zip"');
+    header('Content-Length: ' . filesize($tmp_zip));
+    readfile($tmp_zip);
+    @unlink($tmp_zip);
+    exit;
+}
+add_action('wp_ajax_sesna_descargar_zip', 'sesna_descargar_zip_documentos');
+add_action('wp_ajax_nopriv_sesna_descargar_zip', 'sesna_descargar_zip_documentos');

@@ -123,9 +123,11 @@ get_header();
                             <!-- Lista de documentos -->
                             <div class="d-flex flex-column flex-grow-1">
                                 <?php foreach ( $col['docs'] as $doc ) : ?>
-                                    <?php if ( ! empty( $doc['file'] ) ) : ?>
-                                    <a href="<?php echo esc_url( sesna_get_media_attachment_url( $doc['file'], $doc['path'] ) ); ?>"
-                                       target="_blank" rel="noopener"
+                                    <?php if ( ! empty( $doc['file'] ) ) : $doc_url = sesna_get_media_attachment_url( $doc['file'], $doc['path'] ); ?>
+                                    <a href="#"
+                                       data-modal-target="#pdfViewerModal"
+                                       data-pdf-url="<?php echo esc_url( $doc_url ); ?>"
+                                       data-pdf-title="<?php echo esc_attr( $col['titulo'] . ' — ' . $doc['label'] ); ?>"
                                        class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3 decoracion--ninguna pna-doc-item pna-anexo-link">
                                         <span class="b1r color--neutro800"><?php echo esc_html( $doc['label'] ); ?></span>
                                         <i class="snd__icono snd-download icono--16 flex-shrink-0 color--pguinda600" aria-hidden="true"></i>
@@ -152,6 +154,7 @@ get_header();
                                 <button type="button"
                                         class="btn-descargar-todo boton__fantasma d-flex align-items-center gap-2"
                                         data-files="<?php echo esc_attr( json_encode( $urls ) ); ?>"
+                                        data-zip-name="<?php echo esc_attr( sanitize_title( $col['titulo'] ) ); ?>"
                                         style="padding: 6px 12px; min-height: auto; font-size: 13px;">
                                     <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar todo
                                 </button>
@@ -409,20 +412,46 @@ get_header();
             });
         });
 
-        // Descargar todo por columna
+        // Descargar todo por columna — un único archivo .zip generado en el servidor
         document.querySelectorAll('.btn-descargar-todo').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 var files = JSON.parse(this.dataset.files || '[]');
-                files.forEach(function(url, i) {
-                    setTimeout(function() {
-                        var a = document.createElement('a');
-                        a.href = url;
-                        a.download = '';
-                        a.target = '_blank';
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
-                    }, i * 600);
+                if (!files.length) return;
+
+                var zipName = this.dataset.zipName || 'documentos';
+                var originalHtml = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="snd__icono snd-recently-viewed icono--16" aria-hidden="true"></i> Generando ZIP…';
+
+                var formData = new FormData();
+                formData.append('action', 'sesna_descargar_zip');
+                formData.append('zip_name', zipName);
+                files.forEach(function(url) { formData.append('files[]', url); });
+
+                fetch('<?php echo esc_url( admin_url('admin-ajax.php') ); ?>', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(function(res) {
+                    if (!res.ok) throw new Error('No se pudo generar el ZIP');
+                    return res.blob();
+                })
+                .then(function(blob) {
+                    var link = document.createElement('a');
+                    var blobUrl = URL.createObjectURL(blob);
+                    link.href = blobUrl;
+                    link.download = zipName + '.zip';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(blobUrl);
+                })
+                .catch(function() {
+                    alert('No se pudo generar el archivo ZIP. Intenta de nuevo.');
+                })
+                .finally(function() {
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
                 });
             });
         });
@@ -627,5 +656,7 @@ get_header();
     </section>
 
 </div>
+
+<?php get_template_part('template-parts/visor-pdf'); ?>
 
 <?php get_footer(); ?>
