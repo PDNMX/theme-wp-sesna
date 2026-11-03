@@ -2225,27 +2225,27 @@ function sesna_render_oc_stats_cards($stats, $mostrar_recomendaciones_exhortos =
     <div class="reticulaGrid__12 mb--32">
         <div class="<?= esc_attr($col_class) ?>">
             <div class="ocn-stat-card">
-                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['sesiones'] ?></span>
-                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Sesiones</span>
+                <div class="sh0b color--neutro800 mb--2"><?= (int) $stats['sesiones'] ?></div>
+                <div class="b1r">Sesiones</div>
             </div>
         </div>
         <div class="<?= esc_attr($col_class) ?>">
             <div class="ocn-stat-card">
-                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['acuerdos'] ?></span>
-                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Acuerdos</span>
+                <div class="sh0b color--neutro800 mb--2"><?= (int) $stats['acuerdos'] ?></div>
+                <div class="b1r">Acuerdos</div>
             </div>
         </div>
         <?php if ($mostrar_recomendaciones_exhortos) : ?>
         <div class="<?= esc_attr($col_class) ?>">
             <div class="ocn-stat-card">
-                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['recomendaciones'] ?></span>
-                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Recomendaciones</span>
+                <div class="sh0b color--neutro800 mb--2"><?= (int) $stats['recomendaciones'] ?></div>
+                <div class="b1r">Recomendaciones</div>
             </div>
         </div>
         <div class="<?= esc_attr($col_class) ?>">
             <div class="ocn-stat-card">
-                <span class="h2b patria color--neutro800 mb--4"><?= (int) $stats['exhortos'] ?></span>
-                <span class="sdr peso--negrita texto--mayusculas color--pguinda600 texto--centro">Exhortos</span>
+                <div class="sh0b color--neutro800 mb--2"><?= (int) $stats['exhortos'] ?></div>
+                <div class="b1r">Exhortos</div>
             </div>
         </div>
         <?php endif; ?>

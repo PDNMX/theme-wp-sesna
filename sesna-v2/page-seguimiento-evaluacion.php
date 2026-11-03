@@ -39,7 +39,7 @@ get_header();
             <div class="reticulaGrid__12 align-items-center mb--24">
                 <div class="columna__12 columna__7--lg">
                     <h1 class="h1b patria color--pguinda600 mb--24">Seguimiento y evaluación</h1>
-                    <p class="sh1r color--neutro600 mb--0 texto--justify">
+                    <p class="sh1r mb--0 texto--justify">
                         El seguimiento y evaluación de la política anticorrupción es el proceso sistemático mediante el cual se monitorea y analiza la implementación de las acciones, estrategias y objetivos establecidos para prevenir, detectar y sancionar actos de corrupción. Su propósito es medir resultados, identificar avances, áreas de oportunidad y efectos de las intervenciones, generando información útil para la toma de decisiones y la mejora continua de la política pública.
                     </p>
                 </div>

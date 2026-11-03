@@ -75,7 +75,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Directorio</h1>
-                    <p class="sh1r color--neutro600 mb--0">
+                    <p class="sh1r mb--0">
                         Conoce a las personas titulares de las áreas que integran la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>
                 </div>

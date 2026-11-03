@@ -51,7 +51,7 @@ rsort($oc_anios_organo);
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Órganos Colegiados</h1>
-                    <p class="sh1r color--neutro600 mb--0">
+                    <p class="sh1r mb--0 texto--justify">
                         Información de los diversos órganos colegiados en los que participa la SESNA: Comité Coordinador, Órgano de Gobierno y Comisión Ejecutiva.
                     </p>
                 </div>

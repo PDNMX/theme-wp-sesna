@@ -50,7 +50,7 @@ $normatividad_externa = [
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Normativa</h1>
-                    <p class="sh1r color--neutro600 mb--0">
+                    <p class="sh1r mb--0">
                         Consulta la información en materia de transparencia: leyes, lineamientos y demás disposiciones que rigen el acceso a la información pública.
                     </p>
                 </div>
@@ -94,7 +94,8 @@ $normatividad_externa = [
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener" title="El enlace abre en ventana nueva" class="boton__fantasma" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                    Consultar <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    Consultar
                                 </a>
                             </div>
 

@@ -55,7 +55,7 @@ $sna_meses = [
         <div class="reticulaGrid__12 align-items-center">
             <div class="columna__12 posicion--relativa z--1">
                 <h1 class="h1b patria color--pguinda600">Noticias y Actividades</h1>
-                <p class="sh1r color--neutro600 mb--0">Visualiza las notas más recientes o selecciona la categoría de tu preferencia.</p>
+                <p class="sh1r mb--0">Visualiza las notas más recientes o selecciona la categoría de tu preferencia.</p>
             </div>
         </div>
     </div>

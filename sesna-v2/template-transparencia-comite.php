@@ -90,7 +90,7 @@ wp_reset_postdata();
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Comité de Transparencia</h1>
-                    <p class="sh1r color--neutro600 mb--0">Consulta las actas de sesión y resoluciones emitidas por el Comité de Transparencia de la SESNA.</p>
+                    <p class="sh1r mb--0">Consulta las actas de sesión y resoluciones emitidas por el Comité de Transparencia de la SESNA.</p>
                 </div>
             </div>
         </div>

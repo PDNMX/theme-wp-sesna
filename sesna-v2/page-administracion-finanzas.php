@@ -70,7 +70,7 @@ $af_cards = array(
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__7--lg posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Administración y<br>Finanzas</h1>
-                    <p class="sh1r color--neutro600">
+                    <p class="sh1r texto--justify">
                         Consulta información institucional relacionada con la planeación, estados financieros, adquisiciones, contrataciones y gestión documental de la SESNA.
                     </p>
                 </div>

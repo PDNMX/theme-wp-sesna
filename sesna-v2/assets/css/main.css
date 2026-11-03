@@ -7305,6 +7305,11 @@ select.tx-comite-filter-control:disabled {
     align-items: center;
     justify-content: center;
     text-align: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ocn-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--dropLV2);
 }
 
 /* ── Navegación de secciones: Tabs (Desktop/Tablet) vs Drawer (Móvil) ──

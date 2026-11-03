@@ -355,7 +355,7 @@ $normatividad_interna = [
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Marco Normativo</h1>
-                    <p class="sh1r color--neutro600 mb--0">
+                    <p class="sh1r mb--0 texto--justify">
                         Sustenta y regula las atribuciones, funciones y actividades de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como las disposiciones jurídicas que orientan su actuación y participación en el cumplimiento de los objetivos del Sistema Nacional Anticorrupción.
                     </p>
                 </div>
@@ -454,7 +454,8 @@ $normatividad_interna = [
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <a rel="noopener" href="<?= esc_attr($doc['url']) ?>" target="_blank" title="El enlace abre en ventana nueva" class="boton__fantasma">
-                                    Consultar <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    Consultar
                                 </a>
                             </div>
 

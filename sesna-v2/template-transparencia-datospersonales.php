@@ -34,7 +34,7 @@ $documentos = sesna_get_datos_personales_docs();
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Datos Personales</h1>
-                    <p class="sh1r color--neutro600 mb--0">
+                    <p class="sh1r mb--0">
                         Consulta los avisos de privacidad y otros documentos importantes respecto al tratamiento de los datos personales en posesión de la SESNA.
                     </p>
                 </div>
