@@ -482,128 +482,131 @@ get_header();
         </div>
     </section>
 
-<!--     <div class="contenedor">
-        <div class="reticulaGrid__12">
-
-            <div class="columna__12">
-                <h2 class="h2b patria text-center my-4">Indicadores Nacionales</h2>
-
-                <p>Una de las herramientas fundamentales del SiSE serán los 10 Indicadores Nacionales, que se asociaron a cada
-                    uno de los Objetivos Específicos de la PNA. Además de constituirse como aliados para el seguimiento, éstos
-                    ofrecerán elementos de cara a las posteriores evaluaciones que se habrán de llevar a cabo.</p>
-
-                <p>La construcción de estos indicadores fue resultado de un amplio consenso y diálogo técnico tanto con
-                    instituciones públicas integrantes e involucradas en el SNA, como con instituciones académicas. Esta
-                    dinámica permitió fortalecer técnicamente las métricas, al mismo tiempo que se aseguró la construcción de
-                    indicadores integrales a partir de la inclusión de diversos de enfoques.</p>
-
-                <p>Los Indicadores Nacionales se aprobaron en la Primera Sesión Extraordinaria 2024 del CC-SNA, celebrada el 12
-                    de enero.</p>
-
-                <div class="text-center my-3">
-                    <a rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf"
-                        class="boton__secundario mt-auto" target="_blank" title="El enlace abre en ventana nueva" role="button">Consulta el documento aprobado
-                        <i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-                <p>Los Indicadores Nacionales se insertan en la consolidación del Sistema de Seguimiento y Evaluación. Con su
-                    aprobación se instruye a la SESNA la elaboración y presentación de un informe anual que reporte el avance de
-                    estas mediciones.</p>
-
-                <p>El Primer Informe de Avances de los Indicadores Nacionales da cuenta de los resultados del Sistema Nacional
-                    Anticorrupción con desagregación federal, estatal y municipal. Los grandes resultados del Informe se
-                    concentran en un Decálogo que, a través del análisis y disponibilidad de la información, se identifican
-                    Retos y Acciones sugeridas que los entes públicos pueden implementar en el corto plazo para lograr valor
-                    público.</p>
-
-                <div class="text-center my-3">
-                    <a rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2023/10/INFORME-DE-AVANCES-DE-LOS-INDICADORES-NACIONALES-2024_septiembre-1.pdf"
-                        class="boton__secundario mt-auto" target="_blank" title="El enlace abre en ventana nueva" role="button">Descargar informe
-                        <i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-                <div class="my-4">
-                    <p><b style="font-size:25px; color:Tomato">CONOCE MÁS SOBRE LOS 10 INDICADORES NACIONALES</b></p>
-                    <p><b style="font-size:20px; color:Tomato">Haz clic en cada uno para descargar el documento completo:</b></p>
-
-                    <div class="fila justify-content-center text-center my-4" style="gap:1.5rem;">
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE1-Coordinacion-SNA.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-1-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 1">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE2-Justicia-Anticorrupcion.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-2-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 2">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE3-Profesionalizacion-1.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-3-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 3">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE4-Estandarizacion-Presupuestaria-1.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-4-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 4">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE5-Homologacion-SNF.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-5-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 5">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE6-Contencion-Riesgos.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-6-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 6">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE7-Contrataciones.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-7-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 7">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE8-Participacion-Ciudadana.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-8-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 8">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE9-Mecanismos-Integridad.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-9-1.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 9">
-                            </a>
-                        </div>
-                        <div class="columna__auto text-center">
-                            <a href="https://www.sesna.gob.mx/wp-content/uploads/2024/05/OE10-Normalizacion.pdf" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                                <img src="https://www.sesna.gob.mx/wp-content/uploads/2024/05/Indicador-10-2.svg" style="width:175px;height:175px;max-width:100%;height:auto;" alt="Indicador 10">
-                            </a>
-                        </div>
+    <!-- ============================================================
+         BLOQUE 4: Indicadores asociados al SiSE (SND v1.1.0)
+         ============================================================ -->
+    <section class="pb-5" id="indicadores-sise">
+        <div class="contenedor">
+            <div class="cf-panel-card sise-panel-card indicadores-panel-card">
+                
+                <!-- Título y Texto Introductorio de Indicadores -->
+                <div class="reticulaGrid__12 mb--24">
+                    <div class="columna__12">
+                        <h2 class="h1b patria color--pguinda600 mb--16">Indicadores asociados al SiSE</h2>
+                        <p class="sise-definicion color--neutro700 texto--justify mb--32">
+                            Los indicadores asociados al SiSE permiten dar seguimiento a los avances en los objetivos estratégicos y las acciones implementadas en el marco del Sistema Nacional Anticorrupción.
+                        </p>
                     </div>
                 </div>
 
-                <p>Para consultar las fichas de cálculo de los Indicadores Nacionales, a nivel variable y componente, para
-                    todas las desagregaciones de orden de gobierno, <a href="https://sesnamx.sharepoint.com/:x:/s/DocumentosPublicos/EU8LQUYrMPpLqj3qwR-2_I8BDOD_avLyHUqCMoXjsEYtbg?e=h86z6a" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
-                    <b style="color:Tomato">ingresa aquí.</b> </a>
-                </p>
+                <!-- Grilla de las 4 Tarjetas de Indicadores (Retícula Oficial de 12 Columnas) -->
+                <div class="reticulaGrid__12">
 
-                <h2 class="h2b patria text-center my-4">Métrica Transversal</h2>
+                    <!-- ── Tarjeta 01: Indicadores Nacionales ── -->
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <div class="sise-indicador-card">
+                            <span class="teoria-badge" aria-label="Nivel 01">01</span>
+                            <div class="sise-indicador-icon-wrap">
+                                <div class="sise-indicador-icon-circle">
+                                    <i class="snd__icono snd-chart--bar icono--40 color--pguinda600" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <h3 class="b1sb patria color--pguinda600 sise-indicador-title">
+                                Indicadores Nacionales
+                            </h3>
+                            <div class="sise-indicador-accent" aria-hidden="true"></div>
+                            <div class="sise-indicador-statbox">
+                                <span class="sh0b color--neutro800 sise-statbox-num mb--0">10</span>
+                                <span class="b1r color--neutro800 mb--0">Objetivos Específicos de la PNA</span>
+                            </div>
+                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf" data-pdf-title="Indicadores Nacionales - CC-SNA">
+                                <i class="snd__icono snd-document icono--16" aria-hidden="true"></i>
+                                Consultar indicadores
+                            </a>
+                        </div>
+                    </div>
 
-                <p>
-                    En el marco del SiSE y de los Indicadores Nacionales vinculados a los Objetivos Específicos de la PNA se desarrolló la Métrica transversal que estima el impacto diferenciado de la corrupción en México.
-                </p>
+                    <!-- ── Tarjeta 02: Indicadores de Estrategia ── -->
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <div class="sise-indicador-card">
+                            <span class="teoria-badge" aria-label="Nivel 02">02</span>
+                            <div class="sise-indicador-icon-wrap">
+                                <div class="sise-indicador-icon-circle">
+                                    <i class="snd__icono snd-catalog icono--40 color--pguinda600" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <h3 class="b1sb patria color--pguinda600 sise-indicador-title">
+                                Indicadores de Estrategia
+                            </h3>
+                            <div class="sise-indicador-accent" aria-hidden="true"></div>
+                            <div class="sise-indicador-statbox">
+                                <span class="sh0b color--neutro800 sise-statbox-num mb--0">64</span>
+                                <span class="b1r color--neutro800 mb--0">Estrategias de PI-PNA</span>
+                            </div>
+                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2024/01/8-Indicadores-Nacionales-asociados-a-los-Objetivos-Especificos.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2024/01/8-Indicadores-Nacionales-asociados-a-los-Objetivos-Especificos.pdf" data-pdf-title="Indicadores de Estrategia - PI-PNA">
+                                <i class="snd__icono snd-document icono--16" aria-hidden="true"></i>
+                                Consultar indicadores
+                            </a>
+                        </div>
+                    </div>
 
-                <div class="text-center my-4">
-                    <img src="https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-de-genero-Color.svg"
-                        style="width:250px;height:250px;max-width:100%;" class="d-block mx-auto mb-3" alt="Métrica Transversal">
-                    <a rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-transversal-impacto-diferencia-de-la-corrupcion-en-Mexico-2025_Nota-metodologica.pdf"
-                        class="boton__secundario" target="_blank" title="El enlace abre en ventana nueva" role="button">¡Conócela aquí!
-                        <i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
-                    </a>
+                    <!-- ── Tarjeta 03: Métrica de Género ── -->
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <div class="sise-indicador-card">
+                            <span class="teoria-badge" aria-label="Nivel 03">03</span>
+                            <div class="sise-indicador-icon-wrap">
+                                <div class="sise-indicador-icon-circle">
+                                    <i class="snd__icono snd-group icono--40 color--pguinda600" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <h3 class="b1sb patria color--pguinda600 sise-indicador-title">
+                                Métrica de Género
+                            </h3>
+                            <div class="sise-indicador-accent" aria-hidden="true"></div>
+                            <div class="sise-indicador-statbox">
+                                <div class="flex-shrink-0 muestra--flex align-items-center">
+                                    <i class="snd__icono snd-user icono--24 color--neutro800" aria-hidden="true"></i>
+                                </div>
+                                <span class="b1r color--neutro800 mb--0">Estima el impacto diferenciado de la corrupción</span>
+                            </div>
+                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-transversal-impacto-diferencia-de-la-corrupcion-en-Mexico-2025_Nota-metodologica.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-transversal-impacto-diferencia-de-la-corrupcion-en-Mexico-2025_Nota-metodologica.pdf" data-pdf-title="Métrica Transversal de Género - Nota metodológica">
+                                <i class="snd__icono snd-document icono--16" aria-hidden="true"></i>
+                                Consultar metodología
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ── Tarjeta 04: Indicadores Estatales ── -->
+                    <div class="columna__12 columna__6--md columna__3--lg">
+                        <div class="sise-indicador-card">
+                            <span class="teoria-badge" aria-label="Nivel 04">04</span>
+                            <div class="sise-indicador-icon-wrap">
+                                <div class="sise-indicador-icon-circle">
+                                    <i class="snd__icono snd-map icono--40 color--pguinda600" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <h3 class="b1sb patria color--pguinda600 sise-indicador-title">
+                                Indicadores Estatales
+                            </h3>
+                            <div class="sise-indicador-accent" aria-hidden="true"></div>
+                            <div class="sise-indicador-statbox">
+                                <div class="flex-shrink-0 muestra--flex align-items-center">
+                                    <i class="snd__icono snd-document icono--24 color--neutro800" aria-hidden="true"></i>
+                                </div>
+                                <span class="b1r color--neutro800 mb--0">PEAs y/o PI-PEAs</span>
+                            </div>
+                            <a href="<?php echo esc_url( 'https://sesnamx.sharepoint.com/:x:/s/DocumentosPublicos/EU8LQUYrMPpLqj3qwR-2_I8BDOD_avLyHUqCMoXjsEYtbg?e=h86z6a' ); ?>" class="boton__primario" target="_blank" rel="noopener" title="Consultar indicadores estatales (Abre en ventana nueva)">
+                                <i class="snd__icono snd-document icono--16" aria-hidden="true"></i>
+                                Consultar indicadores
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </div>
-    </div> -->
+    </section>
 </div>
 
 <script>
@@ -677,6 +680,61 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // ── Homologación de altura absoluta de las cards, títulos, statboxes y botones ──
+    function equalizeSiseElements() {
+        const statboxes = document.querySelectorAll('.sise-indicador-statbox');
+        if (statboxes.length > 0) {
+            statboxes.forEach(el => el.style.minHeight = '');
+            let maxH = 0;
+            statboxes.forEach(el => {
+                const h = el.offsetHeight;
+                if (h > maxH) maxH = h;
+            });
+            if (maxH > 0) {
+                statboxes.forEach(el => {
+                    el.style.minHeight = maxH + 'px';
+                });
+            }
+        }
+
+        const titles = document.querySelectorAll('.sise-indicador-title');
+        if (titles.length > 0) {
+            titles.forEach(el => el.style.minHeight = '');
+            let maxT = 0;
+            titles.forEach(el => {
+                const h = el.offsetHeight;
+                if (h > maxT) maxT = h;
+            });
+            if (maxT > 0) {
+                titles.forEach(el => {
+                    el.style.minHeight = maxT + 'px';
+                });
+            }
+        }
+
+        const btns = document.querySelectorAll('.sise-indicador-card .boton__primario');
+        if (btns.length > 0) {
+            btns.forEach(el => el.style.minHeight = '');
+            let maxB = 0;
+            btns.forEach(el => {
+                const h = el.offsetHeight;
+                if (h > maxB) maxB = h;
+            });
+            if (maxB > 0) {
+                btns.forEach(el => {
+                    el.style.minHeight = maxB + 'px';
+                });
+            }
+        }
+    }
+
+    equalizeSiseElements();
+    window.addEventListener('load', equalizeSiseElements);
+    window.addEventListener('resize', equalizeSiseElements);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(equalizeSiseElements);
+    }
 });
 </script>
 
