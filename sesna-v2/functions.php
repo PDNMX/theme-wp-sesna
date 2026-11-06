@@ -3044,7 +3044,7 @@ function sesna_dh_comite_acta_meta_box_html($post) {
         </select>
     </div>
     <div class="dh-cg-row">
-        <label for="dh_cg_url">URL del Acta (PDF)</label>
+        <label for="dh_cg_url">URL del Acta </label>
         <div style="display:flex; gap:10px; max-width: 600px;">
             <input type="text" id="dh_cg_url" name="_dh_cg_url" value="<?php echo esc_attr($url); ?>" style="flex-grow:1;">
             <button type="button" class="button dh-cg-media-btn">Seleccionar Archivo</button>
@@ -3869,7 +3869,7 @@ function sesna_pna_fichero_meta_box_html($post) {
     </div>
 
     <div class="pf-mb-row">
-        <label for="pf_archivo_url">Archivo (PDF)</label>
+        <label for="pf_archivo_url">Archivo </label>
         <div style="display:flex; gap:10px; max-width:600px;">
             <input type="text" id="pf_archivo_url" name="_pna_fichero_archivo_url" value="<?php echo esc_attr($archivo_url); ?>" style="flex-grow:1;">
             <button type="button" class="button" id="pf_upload_btn">Seleccionar archivo</button>

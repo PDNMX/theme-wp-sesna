@@ -123,7 +123,7 @@ El framework define dos familias tipográficas base, con `letter-spacing: 0%` en
 
 El SND utiliza un sistema de **12 columnas** con breakpoints responsivos basados en Grid y Flexbox.
 
-> **Nota de Trazabilidad (Discrepancia Oficial):** El framework SND presenta una inconsistencia nativa en la especificación de los anchos máximos. Para el layout general, define el `.contenedor` con un límite de `1416px`. Sin embargo, para el componente Header, documenta específicamente un `--MaxWidth: 1440px`. Ambas medidas provienen directamente de la fuente oficial (PDF) y no constituyen un error de documentación, sino una discrepancia del diseño original que debe respetarse según el contexto.
+> **Nota de Trazabilidad (Discrepancia Oficial):** El framework SND presenta una inconsistencia nativa en la especificación de los anchos máximos. Para el layout general, define el `.contenedor` con un límite de `1416px`. Sin embargo, para el componente Header, documenta específicamente un `--MaxWidth: 1440px`. Ambas medidas provienen directamente de la fuente oficial  y no constituyen un error de documentación, sino una discrepancia del diseño original que debe respetarse según el contexto.
 
 ### 5.1 Breakpoints Estructurales
 

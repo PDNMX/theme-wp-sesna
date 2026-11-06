@@ -71,7 +71,7 @@ get_header();
                             </div>
                             <div class="flex-grow-1">
                                 <p class="sh1b color--pguinda600 mb--0">Política Nacional Anticorrupción</p>
-                                <p class="b1r color--neutro600 mb--0">Documento completo (PDF)</p>
+                                <p class="b1r color--neutro600 mb--0">Documento completo </p>
                             </div>
                             <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
                                 <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
@@ -85,7 +85,7 @@ get_header();
                             </div>
                             <div class="flex-grow-1">
                                 <p class="sh1b color--pguinda600 mb--0">Guía para el Diseño de PEA</p>
-                                <p class="b1r color--neutro600 mb--0">Documento (PDF)</p>
+                                <p class="b1r color--neutro600 mb--0">Documento </p>
                             </div>
                             <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
                                 <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
@@ -589,76 +589,100 @@ get_header();
                         Participaron especialistas y representantes de la academia, sociedad civil organizada, sector empresarial, instituciones gubernamentales y organismos internacionales. Se recabaron insumos técnicos, recomendaciones y evidencia que permitió complementar la percepción de la población con respecto a la corrupción. Se sistematizó la información y se construyó una base de datos.
                     </p>
 
-                    <div class="reticulaGrid__12 pt-2">
+                    <div class="reticulaGrid__12 pt-2" style="row-gap: 16px;">
                         <!-- Doc 1 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Proceso_de_consulta_PNA.pdf', '2020/03/Proceso_de_consulta_PNA.pdf' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Proceso de Consulta.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Proceso de consulta, integración y presentación de la Política Nacional Anticorrupción</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document--pdf icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">PDF</span>
                                 </div>
                             </a>
                         </div>
                         <!-- Doc 2 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Compromisos-Internacionales.xlsx', '2021/06/Base-Compromisos-Internacionales.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Compromisos Internacionales" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Compromisos-Internacionales.xlsx', '2021/06/Base-Compromisos-Internacionales.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('compromisos internacionales.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Compromisos Internacionales</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Compromisos Internacionales</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">XLSX</span>
                                 </div>
                             </a>
                         </div>
                         <!-- Doc 3 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Datos-IIJ.xlsx', '2021/06/Base-Datos-IIJ.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Numeralia de los costos de la corrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Datos-IIJ.xlsx', '2021/06/Base-Datos-IIJ.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('numeralia de los costos.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Numeralia de los costos de la corrupción</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Numeralia de los costos de la corrupción</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">XLSX</span>
                                 </div>
                             </a>
                         </div>
                         <!-- Doc 4 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Propuestas-RRC_SFP.xlsx', '2021/06/Base-Propuestas-RRC_SFP.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Acciones para combatir la Corrupción propuestas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Propuestas-RRC_SFP.xlsx', '2021/06/Base-Propuestas-RRC_SFP.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('acciones para combatir la corrupcion.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Acciones para combatir la Corrupción propuestas</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Acciones para combatir la Corrupción propuestas</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">XLSX</span>
                                 </div>
                             </a>
                         </div>
                         <!-- Doc 5 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Recomendaciones-OSC.xlsx', '2021/06/Base-Recomendaciones-OSC.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Recomendaciones de Organizaciones de la Sociedad Civil" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Base-Recomendaciones-OSC.xlsx', '2021/06/Base-Recomendaciones-OSC.xlsx' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('recomendaciones de la sociedad civil.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Recomendaciones de Organizaciones de la Sociedad Civil</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Recomendaciones de Organizaciones de la Sociedad Civil</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">XLSX</span>
                                 </div>
                             </a>
                         </div>
                         <!-- Doc 6 -->
-                        <div class="columna__6 columna__2--md d-flex">
-                            <a href="#" class="decoracion--ninguna d-flex flex-column align-items-center p-3 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte_Inteligencia__LNPPcide.pdf', '2020/03/Reporte_Inteligencia__LNPPcide.pdf' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 190px;">
+                        <div class="columna__6 columna__4--md d-flex">
+                            <a href="#" class="decoracion--ninguna position-relative d-flex flex-column align-items-center p-4 rounded-4 hover-shadow transition-all w-100 h-100 border bg-white shadow-sm tx-sesion-pdf-link pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Reporte del taller de inteligencia colectiva" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Reporte_Inteligencia__LNPPcide.pdf', '2020/03/Reporte_Inteligencia__LNPPcide.pdf' ) ); ?>" style="border-color: var(--neutro400) !important; min-height: 220px;">
                                 <div class="d-flex align-items-center justify-content-center mb-3 flex-shrink-0 transition-all" style="width: 56px; height: 56px;">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('reporte del taller de inteligencia.svg') ); ?>" alt="" width="56" height="56">
                                 </div>
                                 <div class="mx-auto mb-3 rounded-pill flex-shrink-0" style="width: 28px; height: 2px; background-color: var(--color-burgundi);"></div>
-                                <div class="w-100 text-center my-auto">
-                                    <span class="sh1b color--neutro800 texto--justify">Reporte del taller de inteligencia colectiva</span>
+                                <div class="w-100 text-center">
+                                    <span class="sh1b color--neutro800 texto--centro">Reporte del taller de inteligencia colectiva</span>
+                                </div>
+                                <div class="mt--auto pt--12 ancho--100 d-flex justify-content-end align-items-center gap--8">
+                                    <i class="snd__icono snd-document--pdf icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <span class="sh1b color--pguinda600 mb--0">PDF</span>
                                 </div>
                             </a>
                         </div>
