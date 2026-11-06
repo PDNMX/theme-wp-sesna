@@ -4773,15 +4773,15 @@ body:has(.page-directorio) main.page {
 }
 
 .page-pna .pna-stat-tile__icon {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
+    width: 88px;
+    height: 88px;
+    min-width: 88px;
     border-radius: 50%;
     background-color: var(--neutro100);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 30px;
 }
 
 .page-pna .pna-stat-tile__icon--img {

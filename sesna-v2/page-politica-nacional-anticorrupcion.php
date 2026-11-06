@@ -45,8 +45,8 @@ get_header();
                 <div class="reticulaGrid__12 align-items-stretch">
 
                     <!-- Portada -->
-                    <div class="columna__12 columna__4--lg">
-                        <div class="pna-doc-cover">
+                    <div class="columna__12 columna__4--lg muestra--flex align-items-center justify-content-center">
+                        <div class="pna-doc-cover mx-auto" style="max-width: 260px;">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción">
                         </div>
                     </div>
@@ -72,7 +72,7 @@ get_header();
                             corrupción, así como la fiscalización y el control de recursos públicos.
                         </p>
 
-                        <div class="muestra--flex flex-wrap-wrap gap--16 justify-content-flex-end--md">
+                        <div class="muestra--flex flex-wrap-wrap gap--16 justify-content-center">
                             <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="boton__primario" target="_blank" rel="noopener">
                                 <i class="snd__icono snd-document icono--16" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
@@ -99,8 +99,8 @@ get_header();
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/Ejes_estrategicos.jpg' ); ?>" alt="">
                         </span>
                         <div>
-                            <p class="sh1b color--neutro800 mb--2">4</p>
-                            <p class="b1r color--neutro600 mb--0">Ejes estratégicos</p>
+                            <p class="h1b mb--2" style="color:#72588F;">4</p>
+                            <p class="b1r mb--0">Ejes estratégicos</p>
                         </div>
                     </div>
                     <div class="pna-stat-sep"></div>
@@ -109,8 +109,8 @@ get_header();
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/Objetivos_especificos.jpg' ); ?>" alt="">
                         </span>
                         <div>
-                            <p class="sh1b color--neutro800 mb--2">10</p>
-                            <p class="b1r color--neutro600 mb--0">Objetivos específicos</p>
+                            <p class="h1b mb--2" style="color:#72588F;">10</p>
+                            <p class="b1r mb--0">Objetivos específicos</p>
                         </div>
                     </div>
                     <div class="pna-stat-sep"></div>
@@ -119,8 +119,8 @@ get_header();
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/estructura_politica/40_prioridades.jpg' ); ?>" alt="">
                         </span>
                         <div>
-                            <p class="sh1b color--neutro800 mb--2">40</p>
-                            <p class="b1r color--neutro600 mb--0">Prioridades de política pública</p>
+                            <p class="h1b mb--2" style="color:#72588F;">40</p>
+                            <p class="b1r mb--0">Prioridades de política pública</p>
                         </div>
                     </div>
                 </div>
