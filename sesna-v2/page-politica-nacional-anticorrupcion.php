@@ -152,7 +152,7 @@ get_header();
                         <span class="pna-ciclo-step__number">4</span>
                         <p class="pna-ciclo-step__title sh1b">Seguimiento y evaluación</p>
                     </div>
-                    <p class="b1r color--neutro600">Da seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos.</p>
+                    <p class="b1r color--neutro600">El sistema de seguimiento y evaluación tiene como objetivo dar seguimiento a los avances y retos en el combate a la corrupción a nivel de impacto, resultados y procesos, derivados de la implementación de políticas.</p>
                 </a>
 
                 <!-- Centro: SVG de flechas + iconos superpuestos en cada esquina + logo -->
@@ -189,7 +189,7 @@ get_header();
                         <span class="pna-ciclo-step__number">2</span>
                         <p class="pna-ciclo-step__title sh1b">Presupuestación</p>
                     </div>
-                    <p class="b1r color--neutro600">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención y sanción de hechos de corrupción.</p>
+                    <p class="b1r color--neutro600">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.</p>
                 </a>
 
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 decoracion--ninguna">
