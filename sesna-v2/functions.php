@@ -3755,13 +3755,14 @@ function sesna_render_recurso_card($post) {
         <!-- Acciones -->
         <div class="cp-doc-acciones">
             <?php if ($tipo !== 'herramienta') : ?>
-            <a href="<?php echo esc_url($archivo); ?>" class="boton__secundario" target="_blank" rel="noopener">
+            <a href="#" class="boton__secundario" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($archivo); ?>" data-pdf-title="<?php echo esc_attr($titulo); ?>">
                 <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
             </a>
-            <?php endif; ?>
+            <?php else : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
-                <i class="snd snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar<?php echo $tipo !== 'herramienta' ? ' ' . esc_html($formato) : ''; ?>
+                <i class="snd snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar <?php echo esc_html($formato); ?>
             </a>
+            <?php endif; ?>
         </div>
 
     </div>

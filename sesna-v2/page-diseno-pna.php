@@ -48,31 +48,38 @@ get_header();
                 </div>
             </div>
 
-            <!-- Fila 2: Tarjetas compactas (izquierda) y portada (derecha, mismo alto que las tarjetas) -->
+            <!-- Fila 2: Portada (izquierda) y Tarjetas compactas (derecha, ocupan más espacio) -->
             <div class="reticulaGrid__12 align-items-start justify-content-between">
 
-                <!-- Columna Izquierda: Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
-                <div class="columna__12 columna__7--lg">
+                <!-- Columna Izquierda: Portada del Documento -->
+                <div class="columna__12 columna__4--lg order-2 order-lg-1 d-flex align-items-start pna-cover-col">
+                    <div class="pna-doc-cover position-relative" style="max-width: 265px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjetas Compactas (ancho ampliado para evitar saltos de línea) -->
+                <div class="columna__12 columna__8--lg order-1 order-lg-2">
 
                     <!-- Tarjetas de documentos -->
                     <div class="muestra--flex flex-direction-column gap--16">
 
                         <!-- Tarjeta 1: Consultar documento completo -->
-                        <a href="#" class="pna-doc-card-compact pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
+                        <div class="pna-doc-card-compact muestra--flex align-items-center justify-content-between">
                             <div class="pna-guinda-icon-box mr--16 flex-shrink-0 muestra--flex align-items-center justify-content-center">
                                 <i class="snd__icono snd-document icono--24 color--neutro100" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1">
-                                <p class="sh1b color--pguinda600 mb--0">Consultar documento completo</p>
-                                <p class="b1r color--neutro600 mb--0">Política Nacional Anticorrupción (PDF)</p>
+                                <p class="sh1b color--pguinda600 mb--0">Política Nacional Anticorrupción</p>
+                                <p class="b1r color--neutro600 mb--0">Documento completo (PDF)</p>
                             </div>
-                            <div class="ml--16 flex-shrink-0">
-                                <i class="snd__icono snd-download icono--20 color--pguinda600" aria-hidden="true"></i>
-                            </div>
-                        </a>
+                            <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
+                                <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                            </a>
+                        </div>
 
                         <!-- Tarjeta 2: Guía para el Diseño de PEA -->
-                        <a href="#" class="pna-doc-card-compact pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
+                        <div class="pna-doc-card-compact muestra--flex align-items-center justify-content-between">
                             <div class="pna-guinda-icon-box mr--16 flex-shrink-0 muestra--flex align-items-center justify-content-center">
                                 <i class="snd__icono snd-education icono--24 color--neutro100" aria-hidden="true"></i>
                             </div>
@@ -80,10 +87,10 @@ get_header();
                                 <p class="sh1b color--pguinda600 mb--0">Guía para el Diseño de PEA</p>
                                 <p class="b1r color--neutro600 mb--0">Documento (PDF)</p>
                             </div>
-                            <div class="ml--16 flex-shrink-0">
-                                <i class="snd__icono snd-download icono--20 color--pguinda600" aria-hidden="true"></i>
-                            </div>
-                        </a>
+                            <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Guía para el Diseño de PEA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Guía-diseño-PEA.pdf', '2020/02/Guía-diseño-PEA.pdf' ) ); ?>">
+                                <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                            </a>
+                        </div>
 
                         <!-- Tarjeta 3: Anexos (Desplegable nativo accesible SND v1.1.0) -->
                         <details class="pna-accordion-card desborde--oculto">
@@ -100,32 +107,25 @@ get_header();
                             <div class="pna-accordion-card__body">
                                 <a href="#" class="pna-anexo-link pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Estadísticos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '2-Anexo-1-Estadísticos-23012020.pdf', '2020/01/2-Anexo-1-Estadísticos-23012020.pdf' ) ); ?>">
                                     <span class="b1sb color--pguinda600">Anexos-Estadísticos</span>
-                                    <i class="snd__icono snd-download icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-screen icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
                                 </a>
                                 <a href="#" class="pna-anexo-link pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Proceso de consulta, integración y presentación de la PNA" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf', '2020/01/3-Anexo-2-Proceso-de-integración-de-la-PNA-23012020.pdf' ) ); ?>">
                                     <span class="b1sb color--pguinda600">Anexos-Proceso de consulta, integración y presentación de la PNA</span>
-                                    <i class="snd__icono snd-download icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-screen icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
                                 </a>
                                 <a href="#" class="pna-anexo-link pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones sugeridas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf', '2020/01/4-Anexo-3-Acciones-sugeridas-vf-29012020.pdf' ) ); ?>">
                                     <span class="b1sb color--pguinda600">Anexos-Acciones sugeridas</span>
-                                    <i class="snd__icono snd-download icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-screen icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
                                 </a>
                                 <a href="#" class="pna-anexo-link pna-doc-item decoracion--ninguna muestra--flex align-items-center justify-content-between" data-modal-target="#pdfViewerModal" data-pdf-title="Anexos-Acciones de poderes ejecutivos" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf', '2020/01/5-Anexo-4-Acciones-ejecutivos-vf-29012020.pdf' ) ); ?>">
                                     <span class="b1sb color--pguinda600">Anexos-Acciones de poderes ejecutivos</span>
-                                    <i class="snd__icono snd-download icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
+                                    <i class="snd__icono snd-screen icono--16 color--pguinda600 ml--8" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </details>
 
                     </div>
 
-                </div>
-
-                <!-- Columna Derecha: Portada del Documento (Alineada al extremo derecho para aprovechar el ancho del template) -->
-                <div class="columna__12 columna__5--lg d-flex align-items-start pna-cover-col">
-                    <div class="pna-doc-cover position-relative" style="max-width: 265px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
-                    </div>
                 </div>
 
             </div>
@@ -173,22 +173,22 @@ get_header();
 
                         <!-- Tarjeta Eje 3 -->
                         <div class="position-relative w-100">
-                            <div class="card rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="0" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="3" role="button" tabindex="0" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
-                                    <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #1D70B8;">
+                                    <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #74598F;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
                                         <span class="fw-bold" style="font-size: 22px; line-height: 1.1;">3</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="fw-bold mb-2 lh-sm" style="font-size: 15px; color: #0C365C;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</p>
-                                        <div style="width: 38px; height: 3px; background-color: #1D70B8; border-radius: 2px;"></div>
+                                        <p class="fw-bold mb-2 lh-sm" style="font-size: 15px; color: #3A2649;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</p>
+                                        <div style="width: 38px; height: 3px; background-color: #74598F; border-radius: 2px;"></div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
                             <div class="pna-connector pna-connector--right muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
-                                <span class="pna-connector__line" style="background-color: #1D70B8;"></span>
-                                <span class="pna-connector__dot" style="background-color: #1D70B8;"></span>
+                                <span class="pna-connector__line" style="background-color: #74598F;"></span>
+                                <span class="pna-connector__dot" style="background-color: #74598F;"></span>
                             </div>
                         </div>
 
@@ -212,7 +212,7 @@ get_header();
                                     </g>
                                     <!-- EJE 2: Azul (Superior Derecho) -> Auditoría, control interno y profesionalización -->
                                     <g class="pna-wheel-slice" data-eje="2" role="button" tabindex="0" aria-label="Eje 2: Combatir la arbitrariedad y el abuso de poder" style="cursor: pointer; transition: transform 0.25s ease;">
-                                        <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
+                                        <path d="M 160 160 L 160 20 A 140 140 0 0 1 300 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="208" y="56" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
                                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Arbitrariedad.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
@@ -230,7 +230,7 @@ get_header();
                                     </g>
                                     <!-- EJE 3: Morado (Inferior Izquierdo) -> Interconexión, gestión y puntos de contacto -->
                                     <g class="pna-wheel-slice" data-eje="3" role="button" tabindex="0" aria-label="Eje 3: Promover la mejora de la gestión pública" style="cursor: pointer; transition: transform 0.25s ease;">
-                                        <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#1D70B8" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
+                                        <path d="M 160 160 L 160 300 A 140 140 0 0 1 20 160 Z" fill="#74598F" stroke="#ffffff" stroke-width="6" stroke-linejoin="round" />
                                         <foreignObject x="56" y="208" width="58" height="58" style="pointer-events: none;">
                                             <div xmlns="http://www.w3.org/1999/xhtml" class="d-flex align-items-center justify-content-center w-100 h-100">
                                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/Promover.svg' ); ?>" width="50" height="50" alt="" style="filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
@@ -257,22 +257,22 @@ get_header();
                         
                         <!-- Tarjeta Eje 2 -->
                         <div class="position-relative w-100">
-                            <div class="card rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="0" style="background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); min-height: 128px; cursor: pointer;">
+                            <div class="card rounded-4 p-4 shadow-sm sna-integrantes-card pna-eje-btn d-flex flex-column justify-content-center" data-eje="2" role="button" tabindex="0" style="background: linear-gradient(135deg, #F0F6FC 0%, #E1EFFC 100%); min-height: 128px; cursor: pointer;">
                                 <div class="d-flex align-items-center gap-3">
-                                    <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #74598F;">
+                                    <div class="sna-integrantes-icon-circle rounded-circle d-flex flex-column align-items-center justify-content-center text-white flex-shrink-0 shadow-sm" style="background-color: #1D70B8;">
                                         <span class="font-montserrat fw-normal" style="font-size: 11px; line-height: 1; opacity: 0.95;">Eje</span>
                                         <span class="fw-bold" style="font-size: 22px; line-height: 1.1;">2</span>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <p class="fw-bold mb-2 lh-sm" style="font-size: 15px; color: #3A2649;">Combatir la arbitrariedad y el abuso de poder</p>
-                                        <div style="width: 38px; height: 3px; background-color: #74598F; border-radius: 2px;"></div>
+                                        <p class="fw-bold mb-2 lh-sm" style="font-size: 15px; color: #0C365C;">Combatir la arbitrariedad y el abuso de poder</p>
+                                        <div style="width: 38px; height: 3px; background-color: #1D70B8; border-radius: 2px;"></div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Conector hacia la rueda (Sólo escritorio) -->
                             <div class="pna-connector pna-connector--left muestra--ninguno muestra--flex--lg align-items-center" aria-hidden="true">
-                                <span class="pna-connector__line" style="background-color: #74598F;"></span>
-                                <span class="pna-connector__dot" style="background-color: #74598F;"></span>
+                                <span class="pna-connector__line" style="background-color: #1D70B8;"></span>
+                                <span class="pna-connector__dot" style="background-color: #1D70B8;"></span>
                             </div>
                         </div>
 
@@ -353,59 +353,17 @@ get_header();
                     </div>
 
                     <!-- Panel Eje 2 -->
-                    <div class="pna-eje-content muestra--ninguno p-4 p-md-5 rounded-4" id="content-eje-2" style="background-color: #74598F10; border: 1px solid #74598F50; box-shadow: var(--dropLV1);">
+                    <div class="pna-eje-content muestra--ninguno p-4 p-md-5 rounded-4" id="content-eje-2" style="background-color: #1D70B810; border: 1px solid #1D70B850; box-shadow: var(--dropLV1);">
                         <div class="reticulaGrid__12 align-items-start">
-                            
-                            <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
-                                    Eje 2
-                                </div>
-                                <h3 class="sh0b mb--16" style="color: #74598F;">Combatir la arbitrariedad y abuso de poder</h3>
-                                <p class="b1r mb--0 texto--justify">
-                                    Busca disminuir los márgenes de arbitrariedad en el servicio público mediante mecanismos de profesionalización, integridad, control interno, auditoría, fiscalización, rendición de cuentas en el uso de recursos públicos y en la operación de procesos institucionales clave al interior de las administraciones públicas.
-                                </p>
-                            </div>
 
-                            <!-- Columna Derecha: Objetivos específicos asociados -->
-                            <div class="columna__12 columna__7--lg ps-lg-4">
-                                <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: #74598F;">Objetivos específicos asociados</h4>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <!-- Objetivo 3 -->
-                                    <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">3</span>
-                                        <span class="b1r texto--justify">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
-                                    </div>
-                                    <!-- Objetivo 4 -->
-                                    <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">4</span>
-                                        <span class="b1r texto--justify">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
-                                    </div>
-                                    <!-- Objetivo 5 -->
-                                    <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">5</span>
-                                        <span class="b1r texto--justify">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Panel Eje 3 -->
-                    <div class="pna-eje-content muestra--ninguno p-4 p-md-5 rounded-4" id="content-eje-3" style="background-color: #1D70B810; border: 1px solid #1D70B850; box-shadow: var(--dropLV1);">
-                        <div class="reticulaGrid__12 align-items-start">
-                            
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 13px;">
-                                    Eje 3
+                                    Eje 2
                                 </div>
-                                <h3 class="sh0b mb--16" style="color: #1D70B8;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</h3>
+                                <h3 class="sh0b mb--16" style="color: #1D70B8;">Combatir la arbitrariedad y abuso de poder</h3>
                                 <p class="b1r mb--0 texto--justify">
-                                    Busca fortalecer los puntos de contacto, espacios de interacción y esquemas de relación entre los entes públicos y distintos sectores de la sociedad, a fin de contener sus riesgos de corrupción.
+                                    Busca disminuir los márgenes de arbitrariedad en el servicio público mediante mecanismos de profesionalización, integridad, control interno, auditoría, fiscalización, rendición de cuentas en el uso de recursos públicos y en la operación de procesos institucionales clave al interior de las administraciones públicas.
                                 </p>
                             </div>
 
@@ -415,14 +373,56 @@ get_header();
                                     <h4 class="b1b mb--0" style="color: #1D70B8;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
+                                    <!-- Objetivo 3 -->
+                                    <div class="d-flex align-items-start gap-3 py-2 border-bottom">
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">3</span>
+                                        <span class="b1r texto--justify">Fortalecer el servicio público mediante servicios profesionales de carrera y mecanismos de integridad a escala nacional, bajo principios de mérito, eficiencia, consistencia estructural, capacidad funcional, ética e integridad.</span>
+                                    </div>
+                                    <!-- Objetivo 4 -->
+                                    <div class="d-flex align-items-start gap-3 py-2 border-bottom">
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">4</span>
+                                        <span class="b1r texto--justify">Fomentar el desarrollo y aplicación de procesos estandarizados de planeación presupuestación y ejercicio el gasto con un enfoque de máxima publicidad y participación de la sociedad en la gestión de riesgos y el fomento de la integridad empresarial.</span>
+                                    </div>
+                                    <!-- Objetivo 5 -->
+                                    <div class="d-flex align-items-start gap-3 py-2">
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">5</span>
+                                        <span class="b1r texto--justify">Fortalecer los mecanismos de homologación de sistemas, principios, prácticas y capacidades de auditoría, fiscalización, control interno y rendición de cuentas a escala nacional.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Panel Eje 3 -->
+                    <div class="pna-eje-content muestra--ninguno p-4 p-md-5 rounded-4" id="content-eje-3" style="background-color: #74598F10; border: 1px solid #74598F50; box-shadow: var(--dropLV1);">
+                        <div class="reticulaGrid__12 align-items-start">
+
+                            <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
+                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
+                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
+                                    Eje 3
+                                </div>
+                                <h3 class="sh0b mb--16" style="color: #74598F;">Promover la mejora de la gestión pública y de los puntos de contacto gobierno-sociedad</h3>
+                                <p class="b1r mb--0 texto--justify">
+                                    Busca fortalecer los puntos de contacto, espacios de interacción y esquemas de relación entre los entes públicos y distintos sectores de la sociedad, a fin de contener sus riesgos de corrupción.
+                                </p>
+                            </div>
+
+                            <!-- Columna Derecha: Objetivos específicos asociados -->
+                            <div class="columna__12 columna__7--lg ps-lg-4">
+                                <div class="pb-2 mb-3 border-bottom">
+                                    <h4 class="b1b mb--0" style="color: #74598F;">Objetivos específicos asociados</h4>
+                                </div>
+                                <div class="d-flex flex-column">
                                     <!-- Objetivo 6 -->
                                     <div class="d-flex align-items-start gap-3 py-2 border-bottom">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">6</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">6</span>
                                         <span class="b1r texto--justify">Promover la implementación de esquemas que erradiquen áreas de riesgo que propician la corrupción en las interacciones que establecen ciudadanos y empresas con el gobierno al realizar trámites, y acceder a programas y servicios públicos.</span>
                                     </div>
                                     <!-- Objetivo 7 -->
                                     <div class="d-flex align-items-start gap-3 py-2">
-                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #1D70B8; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">7</span>
+                                        <span class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0" style="background-color: #74598F; width: 32px; height: 32px; min-width: 32px; font-size: 13px;">7</span>
                                         <span class="b1r texto--justify">Impulsar la adopción y homologación de reglas en materia de contrataciones públicas, asociaciones público-privadas y cabildeo, que garanticen interacciones íntegras e imparciales entre gobierno y sector privado.</span>
                                     </div>
                                 </div>

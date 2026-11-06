@@ -374,4 +374,6 @@ get_header(); ?>
 
 </div>
 
+<?php get_template_part('template-parts/visor-pdf'); ?>
+
 <?php get_footer(); ?>
