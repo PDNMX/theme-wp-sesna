@@ -16,6 +16,7 @@ $af_cards = array(
         'hash'   => 'planeacion',
         'title'  => 'Planeación<br>Institucional',
         'icon'   => 'snd-checkmark--filled',
+        'img'    => 'planeacion_institucional.png',
         'desc'   => 'Documentos que orientan y dan seguimiento al cumplimiento de los objetivos y metas institucionales.',
     ),
     'info-financiera' => array(
@@ -24,6 +25,7 @@ $af_cards = array(
         'hash'   => 'info-financiera',
         'title'  => 'Información<br>Financiera',
         'icon'   => 'snd-chart--bar',
+        'img'    => 'informacion_financiera.png',
         'desc'   => 'Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.',
     ),
     'contrataciones' => array(
@@ -32,6 +34,7 @@ $af_cards = array(
         'hash'   => 'contrataciones',
         'title'  => 'Contrataciones<br>y Adquisiciones',
         'icon'   => 'snd-portfolio',
+        'img'    => 'contrataciones_adquisiciones.png',
         'desc'   => 'Información relacionada con los procedimientos de contratación y adquisición de bienes y servicios.',
     ),
     'gestion-documental' => array(
@@ -40,6 +43,7 @@ $af_cards = array(
         'hash'   => 'gestion-documental',
         'title'  => 'Gestión<br>Documental',
         'icon'   => 'snd-document',
+        'img'    => 'gestion_documental.png',
         'desc'   => 'Instrumentos para la organización, conservación y administración de los archivos institucionales.',
     ),
 );
@@ -106,9 +110,7 @@ $af_cards = array(
                        role="tab"
                        aria-controls="<?php echo esc_attr( ltrim( $card['target'], '#' ) ); ?>"
                        aria-selected="<?php echo $is_default ? 'true' : 'false'; ?>">
-                        <div class="icon-bg-circle mb--24">
-                            <i class="snd__icono <?php echo esc_attr( $card['icon'] ); ?> icono--24" aria-hidden="true"></i>
-                        </div>
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/administracion_finanzas/' . rawurlencode( $card['img'] ) ); ?>" alt="" width="80" height="80" class="mb--24">
                         <h3 class="sh1b mb--16">
                             <?php echo $card['title']; ?>
                         </h3>

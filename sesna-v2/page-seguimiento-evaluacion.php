@@ -55,20 +55,20 @@ get_header();
          ============================================================ -->
     <section class="pb-5" id="seguimiento">
         <div class="contenedor">
-            <div class="cf-panel-card sise-panel-card">
-                
-                <!-- Fila 1: Definición de SiSE a todo el ancho de la página -->
-                <div class="reticulaGrid__12 mb--24">
-                    <div class="columna__12">
-                        <h2 class="h1b patria color--pguinda600 mb--16">¿Qué es el SiSE?</h2>
-                        <p class="sise-definicion color--neutro700 texto--justify mb--0">
-                            El Sistema de Seguimiento y Evaluación (SiSE) es el conjunto de elementos metodológicos de medición y análisis que permiten realizar una valoración objetiva, sistemática y periódica de la acción del Estado mexicano para combatir y controlar la corrupción, con base en una serie de procesos y procedimientos homologados del Sistema Nacional Anticorrupción (SNA).
-                        </p>
-                        <hr class="sise-divider">
-                    </div>
+            
+            <!-- Encabezado de Sección: Título y Definición fuera de la Card -->
+            <div class="reticulaGrid__12 mb--24">
+                <div class="columna__12">
+                    <h2 class="h1b patria color--pguinda600 mb--16">¿Qué es el SiSE?</h2>
+                    <p class="sise-definicion color--neutro700 texto--justify mb--0">
+                        El Sistema de Seguimiento y Evaluación (SiSE) es el conjunto de elementos metodológicos de medición y análisis que permiten realizar una valoración objetiva, sistemática y periódica de la acción del Estado mexicano para combatir y controlar la corrupción, con base en una serie de procesos y procedimientos homologados del Sistema Nacional Anticorrupción (SNA).
+                    </p>
                 </div>
+            </div>
 
-                <!-- Fila 2: Criterios a la izquierda y Portada + Botón a la derecha -->
+            <!-- Card con el contenido de la sección -->
+            <div class="cf-panel-card sise-panel-card">
+                <!-- Criterios a la izquierda y Portada + Botón a la derecha -->
                 <div class="reticulaGrid__12 align-items-start">
                     
                     <!-- Columna Izquierda: Introducción y Acordeones de Criterios -->
@@ -84,7 +84,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="true" aria-controls="criterio-content-1" id="criterio-btn-1">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-map icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/nacional.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Nacional</span>
                                     </div>
@@ -102,7 +102,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="false" aria-controls="criterio-content-2" id="criterio-btn-2">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-security icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/independiente.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Independiente</span>
                                     </div>
@@ -120,7 +120,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="false" aria-controls="criterio-content-3" id="criterio-btn-3">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-chart--bar icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/escalable.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Escalable</span>
                                     </div>
@@ -138,7 +138,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="false" aria-controls="criterio-content-4" id="criterio-btn-4">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-collaborate icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/transversal.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Transversal</span>
                                     </div>
@@ -156,7 +156,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="false" aria-controls="criterio-content-5" id="criterio-btn-5">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-group icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/inclusivo.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Inclusivo</span>
                                     </div>
@@ -174,7 +174,7 @@ get_header();
                                 <button type="button" class="fin-acc-header sise-accordion-header" aria-expanded="false" aria-controls="criterio-content-6" id="criterio-btn-6">
                                     <div class="d-flex align-items-center gap--12">
                                         <span class="sise-accordion-badge">
-                                            <i class="snd__icono snd-renew icono--20 color--pguinda600" aria-hidden="true"></i>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/teoria_cambio.png' ); ?>" alt="" aria-hidden="true">
                                         </span>
                                         <span class="b1sb color--neutro800 mb--0 sise-accordion-title">Alineado con la teoría del cambio</span>
                                     </div>
@@ -222,18 +222,19 @@ get_header();
          ============================================================ -->
     <section class="pb-5" id="teoria-cambio">
         <div class="contenedor">
-            <div class="cf-panel-card sise-panel-card teoria-panel-card">
-                
-                <!-- Título y Texto Introductorio de la Teoría de Cambio -->
-                <div class="reticulaGrid__12 mb--24">
-                    <div class="columna__12">
-                        <h2 class="h1b patria color--pguinda600 mb--16">Teoría de cambio</h2>
-                        <p class="sise-definicion color--neutro700 texto--justify mb--32">
-                            La teoría de cambio define los objetivos a alcanzar para ejercer la acción pública con integridad y apego a la legalidad, por lo que el cumplimiento de determinado objetivo brindará las condiciones necesarias para poder alcanzar los objetivos del nivel inmediato superior. La teoría de cambio del SiSE cuenta con cuatro niveles de objetivos enmarcado en ámbitos de competencia distintos.
-                        </p>
-                    </div>
+            
+            <!-- Encabezado de Sección: Título y Texto Introductorio fuera de la Card -->
+            <div class="reticulaGrid__12 mb--24">
+                <div class="columna__12">
+                    <h2 class="h1b patria color--pguinda600 mb--16">Teoría de cambio</h2>
+                    <p class="sise-definicion color--neutro700 texto--justify mb--0">
+                        La teoría de cambio define los objetivos a alcanzar para ejercer la acción pública con integridad y apego a la legalidad, por lo que el cumplimiento de determinado objetivo brindará las condiciones necesarias para poder alcanzar los objetivos del nivel inmediato superior. La teoría de cambio del SiSE cuenta con cuatro niveles de objetivos enmarcado en ámbitos de competencia distintos.
+                    </p>
                 </div>
+            </div>
 
+            <!-- Card con el contenido de la sección -->
+            <div class="cf-panel-card sise-panel-card teoria-panel-card">
                 <!-- Banner Transversal: Instrumentos de Inteligencia Aprovechados -->
                 <div class="teoria-transversal-container">
                     <div class="teoria-transversal-pill">
@@ -487,18 +488,19 @@ get_header();
          ============================================================ -->
     <section class="pb-5" id="indicadores-sise">
         <div class="contenedor">
-            <div class="cf-panel-card sise-panel-card indicadores-panel-card">
-                
-                <!-- Título y Texto Introductorio de Indicadores -->
-                <div class="reticulaGrid__12 mb--24">
-                    <div class="columna__12">
-                        <h2 class="h1b patria color--pguinda600 mb--16">Indicadores asociados al SiSE</h2>
-                        <p class="sise-definicion color--neutro700 texto--justify mb--32">
-                            Los indicadores asociados al SiSE permiten dar seguimiento a los avances en los objetivos estratégicos y las acciones implementadas en el marco del Sistema Nacional Anticorrupción.
-                        </p>
-                    </div>
+            
+            <!-- Encabezado de Sección: Título y Texto Introductorio fuera de la Card -->
+            <div class="reticulaGrid__12 mb--24">
+                <div class="columna__12">
+                    <h2 class="h1b patria color--pguinda600 mb--16">Indicadores asociados al SiSE</h2>
+                    <p class="sise-definicion color--neutro700 texto--justify mb--0">
+                        Los indicadores asociados al SiSE permiten dar seguimiento a los avances en los objetivos estratégicos y las acciones implementadas en el marco del Sistema Nacional Anticorrupción.
+                    </p>
                 </div>
+            </div>
 
+            <!-- Card con el contenido de la sección -->
+            <div class="cf-panel-card sise-panel-card indicadores-panel-card">
                 <!-- Grilla de las 4 Tarjetas de Indicadores (Retícula Oficial de 12 Columnas) -->
                 <div class="reticulaGrid__12">
 

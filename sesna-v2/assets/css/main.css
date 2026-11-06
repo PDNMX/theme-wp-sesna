@@ -6706,22 +6706,15 @@ select.tx-comite-filter-control:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FFFFFF;
-    border: 1px solid var(--pguinda200, #E1BDC9);
     flex-shrink: 0;
     transition: all 0.2s ease;
 }
 
-.page-pna-seguimiento .sise-accordion-badge .snd__icono,
-.page-pna-seguimiento .sise-accordion-badge svg {
-    width: 20px;
-    height: 20px;
-    color: var(--principal, #611232) !important;
-    fill: var(--principal, #611232) !important;
-}
-
-.page-pna-seguimiento .sise-accordion-badge svg path {
-    fill: var(--principal, #611232) !important;
+.page-pna-seguimiento .sise-accordion-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .page-pna-seguimiento .sise-accordion-title {
