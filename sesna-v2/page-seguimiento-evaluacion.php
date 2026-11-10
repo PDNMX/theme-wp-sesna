@@ -68,15 +68,17 @@ get_header();
 
             <!-- Card con el contenido de la sección -->
             <div class="cf-panel-card sise-panel-card">
-                <!-- Criterios a la izquierda y Portada + Botón a la derecha -->
-                <div class="reticulaGrid__12 align-items-start">
-                    
-                    <!-- Columna Izquierda: Introducción y Acordeones de Criterios -->
-                    <div class="columna__12 columna__7--lg sise-criterios-col">
-                        <p class="sise-lead-intro b1sb">
-                            Para su concepción, se establecieron los siguientes criterios fundamentales:
-                        </p>
+                
+                <!-- Texto introductorio a lo ancho del panel -->
+                <p class="sise-lead-intro b1sb mb--20">
+                    Para su concepción, se establecieron los siguientes criterios fundamentales:
+                </p>
 
+                <!-- Criterios a la izquierda y Portada + Botón a la derecha (Alineados al inicio del primer acordeón) -->
+                <div class="reticulaGrid__12 align-items-stretch">
+                    
+                    <!-- Columna Izquierda: Acordeones de Criterios -->
+                    <div class="columna__12 columna__7--lg sise-criterios-col">
                         <div class="sise-accordion-list" id="siseCriteriaAccordion" role="region" aria-label="Criterios fundamentales del SiSE">
                             
                             <!-- Criterio 1: Nacional (Abierto por defecto) -->
@@ -264,8 +266,8 @@ get_header();
                             </div>
                             <h3 class="teoria-card-title b1sb">Instituciones</h3>
                             <div class="teoria-card-pills">
-                                <div class="teoria-pill">Recursos y capacidades institucionales fortalecidas</div>
-                                <div class="teoria-pill">Programas institucionales bien definidos e implementados</div>
+                                <div class="teoria-pill">Recursos y capacidades institucionales</div>
+                                <div class="teoria-pill">Programas y acciones institucionales</div>
                             </div>
                         </div>
                     </div>
@@ -290,8 +292,8 @@ get_header();
                             </div>
                             <h3 class="teoria-card-title b1sb">Enfoque sistémico</h3>
                             <div class="teoria-card-pills">
-                                <div class="teoria-pill">Vinculación de funciones orientadas a cumplir los procesos establecidos en la LGSNA mejorada</div>
-                                <div class="teoria-pill">Innovación tecnológica robustecida, a través del mejoramiento en la gestión de la información institucional</div>
+                                <div class="teoria-pill">Vinculación interinstitucional</div>
+                                <div class="teoria-pill">Innovación tecnológica</div>
                             </div>
                         </div>
                     </div>
@@ -349,7 +351,7 @@ get_header();
                             </div>
                             <h3 class="teoria-card-title b1sb">Valor público</h3>
                             <div class="teoria-card-pills">
-                                <div class="teoria-pill">Acción gubernamental ejercida con integridad</div>
+                                <div class="teoria-pill">Principio transversal de perspectiva de género</div>
                             </div>
                         </div>
                     </div>
@@ -521,7 +523,7 @@ get_header();
                                 <span class="sh0b sise-statbox-num mb--0">10</span>
                                 <span class="b1r mb--0">Objetivos Específicos de la PNA</span>
                             </div>
-                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2024/07/Indicadores-Nacionales_CC-SNA_enero2024.pdf" data-pdf-title="Indicadores Nacionales - CC-SNA">
+                            <a href="#" class="boton__primario" role="button" aria-label="Consultar Indicadores Nacionales">
                                 Consultar indicadores
                             </a>
                         </div>
@@ -544,7 +546,7 @@ get_header();
                                 <span class="sh0b sise-statbox-num mb--0">64</span>
                                 <span class="b1r mb--0">Estrategias de PI-PNA</span>
                             </div>
-                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2024/01/8-Indicadores-Nacionales-asociados-a-los-Objetivos-Especificos.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2024/01/8-Indicadores-Nacionales-asociados-a-los-Objetivos-Especificos.pdf" data-pdf-title="Indicadores de Estrategia - PI-PNA">
+                            <a href="#" class="boton__primario" role="button" aria-label="Consultar Indicadores de Estrategia">
                                 Consultar indicadores
                             </a>
                         </div>
@@ -569,7 +571,7 @@ get_header();
                                 </div>
                                 <span class="b1r mb--0">Estima el impacto diferenciado de la corrupción</span>
                             </div>
-                            <a href="<?php echo esc_url( 'https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-transversal-impacto-diferencia-de-la-corrupcion-en-Mexico-2025_Nota-metodologica.pdf' ); ?>" class="boton__primario" target="_blank" rel="noopener" data-modal-target="#pdfViewerModal" data-pdf-url="https://www.sesna.gob.mx/wp-content/uploads/2025/07/Metrica-transversal-impacto-diferencia-de-la-corrupcion-en-Mexico-2025_Nota-metodologica.pdf" data-pdf-title="Métrica Transversal de Género - Nota metodológica">
+                            <a href="#" class="boton__primario" role="button" aria-label="Consultar Métrica de Género">
                                 Consultar metodología
                             </a>
                         </div>
@@ -594,7 +596,7 @@ get_header();
                                 </div>
                                 <span class="b1r mb--0">PEAs y/o PI-PEAs</span>
                             </div>
-                            <a href="<?php echo esc_url( 'https://sesnamx.sharepoint.com/:x:/s/DocumentosPublicos/EU8LQUYrMPpLqj3qwR-2_I8BDOD_avLyHUqCMoXjsEYtbg?e=h86z6a' ); ?>" class="boton__primario" target="_blank" rel="noopener" title="Consultar indicadores estatales (Abre en ventana nueva)">
+                            <a href="#" class="boton__primario" role="button" aria-label="Consultar Indicadores Estatales">
                                 Consultar indicadores
                             </a>
                         </div>
@@ -758,48 +760,58 @@ get_header();
 
                 <!-- ── Tarjeta 01: Catálogo de Información (CICM) ── -->
                 <div class="columna__12 columna__6--md mb--24 mb--0--md">
-                    <div class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                    <a href="<?php echo esc_url( 'https://cicm.sesna.gob.mx/' ); ?>" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="Catálogo de Información sobre la Corrupción en México (El enlace abre en ventana nueva)" 
+                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
                                 <i class="snd__icono snd-catalog icono--32 color--pguinda600" aria-hidden="true"></i>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Catálogo de Información sobre la Corrupción en México</h3>
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Catálogo de Información (CICM)</h3>
                                 <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
                                     Integra información estadística, geográfica y documental sobre la corrupción en México, con el objetivo de facilitar su consulta y análisis.
                                 </p>
                                 <div class="mt--auto">
-                                    <a href="#" class="boton__primario" role="button" aria-label="Ir al portal del Catálogo de Información sobre la Corrupción en México">
+                                    <span class="boton__primario"
+                                          aria-label="Ir al portal del Catálogo de Información sobre la Corrupción en México (abre en nueva ventana)">
                                         <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
                                         Ir al portal
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- ── Tarjeta 02: Sistemas Estatales (SEA) ── -->
                 <div class="columna__12 columna__6--md">
-                    <div class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                    <a href="<?php echo esc_url( 'https://www.sna.org.mx/sistemas-estatales-anticorrupcion/' ); ?>" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       title="Sistemas Estatales Anticorrupción (El enlace abre en ventana nueva)" 
+                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
                                 <i class="snd__icono snd-map icono--32 color--pguinda600" aria-hidden="true"></i>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Sistemas Estatales Anticorrupción</h3>
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Sistemas Estatales (SEA)</h3>
                                 <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
                                     Consulta información sobre los Sistemas Estatales Anticorrupción, su integración, marco normativo y avances en la implementación de sus políticas estatales.
                                 </p>
                                 <div class="mt--auto">
-                                    <a href="#" class="boton__primario" role="button" aria-label="Ir al portal de Sistemas Estatales Anticorrupción">
+                                    <span class="boton__primario"
+                                          aria-label="Ir al portal de Sistemas Estatales Anticorrupción (abre en nueva ventana)">
                                         <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
                                         Ir al portal
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
             </div>

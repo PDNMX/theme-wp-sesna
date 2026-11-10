@@ -66,10 +66,7 @@ get_header();
                         <hr class="mt--16 mb--16">
 
                         <p class="b1r texto--justify flex-grow-1">
-                            Documento estratégico de largo aliento que plasma la agenda del Estado mexicano en la materia.
-                            Contiene el diagnóstico y las prioridades mínimas que orientan la actuación del SNA en materia
-                            de prevención, detección, investigación y sanción de faltas administrativas y hechos de
-                            corrupción, así como la fiscalización y el control de recursos públicos.
+                            Documento estratégico de largo plazo que establece la agenda del Estado mexicano en la materia. Contiene el diagnóstico y las prioridades mínimas que orientan la actuación del SNA en materia de prevención, detección, investigación y sanción de faltas administrativas y hechos de corrupción, así como la fiscalización y el control de recursos públicos.
                         </p>
 
                         <div class="muestra--flex flex-wrap-wrap gap--16 justify-content-center">
