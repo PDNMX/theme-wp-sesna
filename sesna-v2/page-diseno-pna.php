@@ -73,7 +73,7 @@ get_header();
                                 <p class="sh1b color--pguinda600 mb--0">Política Nacional Anticorrupción</p>
                                 <p class="b1r color--neutro600 mb--0">Documento completo </p>
                             </div>
-                            <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>">
+                            <a href="#" class="boton__secundario ml--16 flex-shrink-0 pna-doc-item" data-modal-target="#pdfViewerModal" data-pdf-title="Política Nacional Anticorrupción" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'Política-Nacional-Anticorrupción.pdf', '/2020/02/Política-Nacional-Anticorrupción.pdf' ) ); ?>">
                                 <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
                             </a>
                         </div>

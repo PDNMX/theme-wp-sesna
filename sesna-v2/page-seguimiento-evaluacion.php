@@ -736,6 +736,76 @@ get_header();
 
         </div>
     </section>
+
+    <!-- ============================================================
+         BLOQUE 6: Otras herramientas de consulta (SND v1.1.0)
+         ============================================================ -->
+    <section class="pb-5" id="otras-herramientas">
+        <div class="contenedor">
+
+            <!-- Encabezado de Sección: Título y Descripción fuera de la Card -->
+            <div class="reticulaGrid__12 mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--16">Otras herramientas de consulta</h2>
+                    <p class="sh1r sise-definicion color--neutro600 texto--justify mb--0">
+                        El SNA cuenta con herramientas complementarias que generan información para el seguimiento, evaluación y fortalecimiento de la Política Nacional Anticorrupción.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Grilla de las 2 Tarjetas de Herramientas (Homologadas a tx-consulta-card del SND) -->
+            <div class="reticulaGrid__12">
+
+                <!-- ── Tarjeta 01: Catálogo de Información (CICM) ── -->
+                <div class="columna__12 columna__6--md mb--24 mb--0--md">
+                    <div class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                        <div class="muestra--flex align-items-start gap--16 alto--100">
+                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
+                                <i class="snd__icono snd-catalog icono--32 color--pguinda600" aria-hidden="true"></i>
+                            </div>
+                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Catálogo de Información sobre la Corrupción en México</h3>
+                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
+                                    Integra información estadística, geográfica y documental sobre la corrupción en México, con el objetivo de facilitar su consulta y análisis.
+                                </p>
+                                <div class="mt--auto">
+                                    <a href="#" class="boton__primario" role="button" aria-label="Ir al portal del Catálogo de Información sobre la Corrupción en México">
+                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        Ir al portal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Tarjeta 02: Sistemas Estatales (SEA) ── -->
+                <div class="columna__12 columna__6--md">
+                    <div class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
+                        <div class="muestra--flex align-items-start gap--16 alto--100">
+                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
+                                <i class="snd__icono snd-map icono--32 color--pguinda600" aria-hidden="true"></i>
+                            </div>
+                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
+                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Sistemas Estatales Anticorrupción</h3>
+                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
+                                    Consulta información sobre los Sistemas Estatales Anticorrupción, su integración, marco normativo y avances en la implementación de sus políticas estatales.
+                                </p>
+                                <div class="mt--auto">
+                                    <a href="#" class="boton__primario" role="button" aria-label="Ir al portal de Sistemas Estatales Anticorrupción">
+                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        Ir al portal
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 </div>
 
 <script>
@@ -853,6 +923,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (maxB > 0) {
                 btns.forEach(el => {
                     el.style.minHeight = maxB + 'px';
+                });
+            }
+        }
+
+        const hTitles = document.querySelectorAll('#otras-herramientas .tx-consulta-card__title');
+        if (hTitles.length > 0) {
+            hTitles.forEach(el => el.style.minHeight = '');
+            let maxHT = 0;
+            hTitles.forEach(el => {
+                const h = el.offsetHeight;
+                if (h > maxHT) maxHT = h;
+            });
+            if (maxHT > 0) {
+                hTitles.forEach(el => {
+                    el.style.minHeight = maxHT + 'px';
                 });
             }
         }
