@@ -57,8 +57,8 @@ get_header();
                 <!-- Misión -->
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card">
-                        <div class="qh-mv-icon">
-                            <i class="snd__icono snd-chart--bar icono--24" aria-hidden="true"></i>
+                        <div class="qh-mv-icon" aria-hidden="true">
+                            <i class="snd__icono snd-chart--bar icono--32 color--pguinda600" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b">MISIÓN</h3>
@@ -69,8 +69,8 @@ get_header();
                 <!-- Visión -->
                 <div class="columna__12 columna__6--md mb--24">
                     <div class="qh-mv-card">
-                        <div class="qh-mv-icon">
-                            <i class="snd__icono snd-screen icono--24" aria-hidden="true"></i>
+                        <div class="qh-mv-icon" aria-hidden="true">
+                            <i class="snd__icono snd-screen icono--32 color--pguinda600" aria-hidden="true"></i>
                         </div>
                         <div class="qh-mv-content">
                             <h3 class="sh1b">VISIÓN</h3>

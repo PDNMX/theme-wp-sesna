@@ -523,7 +523,7 @@ get_header();
                                 <span class="sh0b sise-statbox-num mb--0">10</span>
                                 <span class="b1r mb--0">Objetivos Específicos de la PNA</span>
                             </div>
-                            <a href="#" class="boton__primario" role="button" aria-label="Consultar Indicadores Nacionales">
+                            <a href="<?php echo esc_url( home_url('/seguimiento-evaluacion/indicadores-nacionales/') ); ?>" class="boton__primario" aria-label="Consultar Indicadores Nacionales">
                                 Consultar indicadores
                             </a>
                         </div>

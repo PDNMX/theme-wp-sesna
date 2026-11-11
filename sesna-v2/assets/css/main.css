@@ -3385,6 +3385,19 @@ nav.navbar .container {
     color: var(--neutro100);
 }
 
+@media (max-width: 639.98px) {
+    .page-transparencia .tx-consulta-card,
+    .page-pna-seguimiento .tx-consulta-card {
+        padding: 20px;
+    }
+    .page-transparencia .tx-consulta-card > .muestra--flex,
+    .page-pna-seguimiento .tx-consulta-card > .muestra--flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
 /* Banda de contacto */
 .page-transparencia .tx-contacto {
     background-color: var(--neutro200);
@@ -3869,15 +3882,35 @@ nav.navbar .container {
 }
 
 .qh-mv-icon {
-    font-size: 32px;
-    color: var(--color-burgundi);
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background: #f7eef2;
+    color: var(--pguinda600, #9B2247);
     flex-shrink: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.qh-mv-card:hover .qh-mv-icon {
+    background: #eedbe3;
+    transform: scale(1.05);
 }
 
 .qh-mv-content h3,
 .qh-mv-card h3 {
     margin-bottom: 14px;
+}
+
+@media (max-width: 639.98px) {
+    .qh-mv-card {
+        flex-direction: column;
+        padding: 24px;
+        gap: 12px;
+    }
 }
 
 /* Labor */
@@ -7570,6 +7603,344 @@ select.tx-comite-filter-control:disabled {
         min-width: 96px;
         height: 136px;
         padding: 10px 8px;
+    }
+}
+
+/* ============================================================
+   SUBPÁGINA: INDICADORES NACIONALES (page-indicadores-nacionales.php)
+   Scope: .page-indicadores-nacionales — SND UI Kit v1.1.0 (Tema Guinda)
+   ============================================================ */
+
+/* Ilustración Hero derecha */
+.page-indicadores-nacionales .in-hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page-indicadores-nacionales .in-hero-visual__ring {
+    width: 196px;
+    height: 196px;
+    border-radius: 50%;
+    border: 1.5px dashed var(--pguinda300, #CE92A6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.page-indicadores-nacionales .in-hero-visual__circle {
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    background-color: var(--pguinda100, #F3E4E9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--dropLV1);
+}
+.page-indicadores-nacionales .in-hero-visual__svg {
+    width: 96px;
+    height: 96px;
+    display: block;
+}
+
+/* Bloque Intro ("¿Qué son los Indicadores Nacionales?" y "Consulta y descarga") */
+.page-indicadores-nacionales .in-intro-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.page-indicadores-nacionales .in-section-icon-circle {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background-color: var(--pguinda100, #F3E4E9);
+    border: 1px solid var(--pguinda200, #E1BDC9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.page-indicadores-nacionales .in-intro-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Caja de 2 Métricas (10 Indicadores Nacionales | 10 Objetivos Específicos de la PNA) */
+.page-indicadores-nacionales .in-stats-box {
+    background-color: var(--neutro200, #F9F9F9);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.page-indicadores-nacionales .in-stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-width: 0;
+}
+.page-indicadores-nacionales .in-stat-item__icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 50%;
+    background-color: #f7eef2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.page-indicadores-nacionales .in-target-svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+.page-indicadores-nacionales .in-stat-item__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    min-width: 0;
+    align-self: stretch;
+}
+.page-indicadores-nacionales .in-stat-item__num {
+    line-height: 1.15;
+    width: 100%;
+    text-align: center;
+}
+.page-indicadores-nacionales .in-stat-item__label {
+    line-height: 1.3;
+    margin-bottom: 0;
+    text-align: center;
+    min-height: 2.6em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+.page-indicadores-nacionales .in-stat-divider {
+    width: 1px;
+    align-self: stretch;
+    min-height: 56px;
+    background-color: var(--neutro400, #DDDDDD);
+    flex-shrink: 0;
+}
+
+/* Grilla de los 10 Indicadores Nacionales (OE 1 a OE 10 — Retícula SND v1.1.0) */
+.page-indicadores-nacionales .in-oe-grid {
+    width: 100%;
+}
+
+/* Card individual de Indicador Nacional (Superficie base SND v1.1.0 + Paleta OE) */
+.page-indicadores-nacionales .in-oe-card {
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 224px;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+@media (min-width: 1536px) {
+    .page-indicadores-nacionales .in-oe-card {
+        padding: 20px;
+    }
+}
+.page-indicadores-nacionales .in-oe-card:hover,
+.page-indicadores-nacionales .in-oe-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--dropLV2);
+    border-color: var(--oe-color, var(--pguinda600));
+    text-decoration: none;
+}
+.page-indicadores-nacionales .in-oe-card:focus-visible {
+    outline: 2px solid var(--oe-color, var(--principal));
+    outline-offset: 2px;
+}
+
+.page-indicadores-nacionales .in-oe-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 4px;
+}
+.page-indicadores-nacionales .in-oe-card__num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background-color: var(--oe-color, var(--pguinda600));
+    color: var(--neutro100, #FFFFFF);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.page-indicadores-nacionales .in-oe-card__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0 16px 0;
+}
+.page-indicadores-nacionales .in-oe-card__icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: var(--oe-bg, var(--pguinda100));
+    color: var(--oe-color, var(--pguinda600));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+.page-indicadores-nacionales .in-oe-card:hover .in-oe-card__icon-circle {
+    transform: scale(1.06);
+}
+.page-indicadores-nacionales .in-oe-card__icon-circle .snd__icono,
+.page-indicadores-nacionales .in-oe-card__icon-circle .snd__icono path {
+    color: var(--oe-color, var(--pguinda600)) !important;
+    fill: currentColor !important;
+}
+
+.page-indicadores-nacionales .in-oe-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+    min-height: 44px;
+}
+.page-indicadores-nacionales .in-oe-card__title {
+    width: 100%;
+    text-align: center;
+    line-height: 1.3;
+    overflow-wrap: normal;
+    word-break: normal;
+    transition: color 0.2s ease;
+}
+.page-indicadores-nacionales .in-oe-card:hover .in-oe-card__title {
+    color: var(--oe-color, var(--principal));
+}
+
+/* Tarjetas de Consulta y Descarga (Sección inferior) */
+.page-indicadores-nacionales .in-download-card {
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
+    box-shadow: var(--dropLV1);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    height: 100%;
+    min-height: 92px;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.page-indicadores-nacionales .in-download-card:hover,
+.page-indicadores-nacionales .in-download-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--dropLV2);
+    border-color: var(--pguinda600, #9B2247);
+    background-color: var(--neutro100, #FFFFFF);
+    text-decoration: none;
+}
+.page-indicadores-nacionales .in-download-card:focus-visible {
+    outline: 2px solid var(--principal, #611232);
+    outline-offset: 2px;
+}
+.page-indicadores-nacionales .in-download-card__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #f7eef2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.page-indicadores-nacionales .in-download-card:hover .in-download-card__icon {
+    background-color: #eedbe3;
+    transform: scale(1.05);
+}
+.page-indicadores-nacionales .in-download-card__body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.page-indicadores-nacionales .in-download-card__title {
+    display: block;
+    line-height: 1.35;
+    margin-bottom: 0;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+.page-indicadores-nacionales .in-download-card__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@media (max-width: 639.98px) {
+    .page-indicadores-nacionales .in-card-intro-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .page-indicadores-nacionales .in-stats-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+    .page-indicadores-nacionales .in-stat-item {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .page-indicadores-nacionales .in-stat-item__body {
+        flex: 1 1 0%;
+        align-items: center;
+    }
+    .page-indicadores-nacionales .in-stat-item__label {
+        min-height: 0;
+    }
+    .page-indicadores-nacionales .in-stat-divider {
+        width: 100%;
+        height: 1px;
+        min-height: 1px;
+    }
+    .page-indicadores-nacionales .in-oe-card {
+        min-height: 196px;
+        padding: 16px;
+    }
+    .page-indicadores-nacionales .in-download-card {
+        padding: 16px;
+        gap: 12px;
     }
 }
 

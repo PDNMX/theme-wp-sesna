@@ -3971,11 +3971,42 @@ add_filter('body_class', function($classes) {
         'page-presupuestacion.php'                   => array('page-pna-presupuestacion'),
         'page-programa-implemetancion-pna.php'       => array('page-pna', 'page-pna-implementacion'),
         'page-seguimiento-evaluacion.php'            => array('page-pna', 'page-pna-seguimiento'),
+        'page-indicadores-nacionales.php'            => array('page-pna', 'page-pna-seguimiento', 'page-indicadores-nacionales'),
     );
     if (isset($map[$template])) {
         $classes = array_merge($classes, $map[$template]);
     }
     return $classes;
+});
+
+// Asegura que exista la subpágina "Indicadores Nacionales" bajo "Seguimiento y evaluación"
+add_action('init', function() {
+    if (get_option('sesna_indicadores_nacionales_page_ready') === '1') {
+        return;
+    }
+    $existing = get_page_by_path('acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion/indicadores-nacionales');
+    if ($existing && $existing->post_status === 'publish') {
+        update_post_meta($existing->ID, '_wp_page_template', 'page-indicadores-nacionales.php');
+        update_option('sesna_indicadores_nacionales_page_ready', '1');
+        return;
+    }
+    $parent = get_page_by_path('acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion');
+    if (!$parent) {
+        $parent = get_page_by_path('seguimiento-evaluacion');
+    }
+    $parent_id = $parent ? (int) $parent->ID : 0;
+    $page_id = wp_insert_post(array(
+        'post_title'   => 'Indicadores Nacionales',
+        'post_name'    => 'indicadores-nacionales',
+        'post_status'  => 'publish',
+        'post_type'    => 'page',
+        'post_parent'  => $parent_id,
+        'post_content' => '',
+    ));
+    if ($page_id && !is_wp_error($page_id)) {
+        update_post_meta($page_id, '_wp_page_template', 'page-indicadores-nacionales.php');
+        update_option('sesna_indicadores_nacionales_page_ready', '1');
+    }
 });
 
 // =========================================================================
