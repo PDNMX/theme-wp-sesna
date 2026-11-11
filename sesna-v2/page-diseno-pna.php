@@ -354,22 +354,7 @@ get_header();
 
                     <!-- Panel Eje 2 -->
                     <div class="pna-eje-content muestra--ninguno p-4 p-md-5 rounded-4" id="content-eje-2" style="background-color: #1D70B810; border: 1px solid #1D70B850; box-shadow: var(--dropLV1);">
-                        <div class="reticulaGrid__12 align-items-start">
-<<<<<<< Updated upstream
-=======
-                            
-                            <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
-                            <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
-                                <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #74598F; font-size: 13px;">
-                                    Eje 2
-                                </div>
-                                <h3 class="sh0b mb--16" style="color: #74598F;">Combatir la arbitrariedad y el abuso de poder</h3>
-                                <p class="b1r mb--0 texto--justify">
-                                    Busca disminuir los márgenes de arbitrariedad en el servicio público mediante mecanismos de profesionalización, integridad, control interno, auditoría, fiscalización, rendición de cuentas en el uso de recursos públicos y en la operación de procesos institucionales clave al interior de las administraciones públicas.
-                                </p>
-                            </div>
->>>>>>> Stashed changes
-
+                        <div class="reticulaGrid__12 align-items-start">         
                             <!-- Columna Izquierda: Viñeta, Título y Descripción del Eje -->
                             <div class="columna__12 columna__5--lg border-end-lg pe-lg-4">
                                 <div class="d-inline-block px-3 py-1 text-white fw-bold mb-3 rounded-end shadow-sm" style="background-color: #1D70B8; font-size: 13px;">
@@ -747,7 +732,7 @@ get_header();
                             <h3 class="sh0b mb--0" style="color: #D97706;">Foros de Consulta Regional</h3>
                         </div>
                         <p class="b1r mb--24 texto--justify" style="max-width: 900px;">
-                            Participaron integrantes de los Comités de Participación Ciudadana, instituciones públicas, organizaciones de la sociedad civil, academia y sector privado para la construcción de propuestas de política pública.
+                            Participaron integrantes de los Comités de Participación Ciudadana, instituciones públicas y organizaciones de la sociedad civil de todas las entidades federativas. Se recabaron insumos y propuestas que brindaron elementos en la definición de las prioridades de política pública. Asistieron alrededor de 950 personas, y se recibió la participación de poco más de 600 en las mesas de trabajo temáticas.
                         </p>
                     </div>
 

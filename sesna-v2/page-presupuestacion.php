@@ -42,7 +42,7 @@ get_header();
                         Conoce más sobre el Anexo Transversal 30 del Presupuesto de Egresos de la Federación, el cual agrupa los recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.
                     </p>
                     <p class="sh1r mb--0 texto--justify">
-                        Este Anexo Transversal identifica a los responsables y los montos de recursos públicos ejecutados a dichas tareas, permitiendo dar seguimiento al gasto anticorrupción a nivel federal.
+                        Este Anexo Transversal identifica a los responsables y los montos de recursos públicos destinados a dichas tareas, permitiendo dar seguimiento al gasto anticorrupción a nivel federal.
                     </p>
                 </div>
 
@@ -103,7 +103,7 @@ get_header();
     ?>
     <section class="pb-5">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--16">1. Documentos del Anexo Transversal Anticorrupción</h2>
+            <h2 class="h2b patria color--pguinda600 mb--16">Documentos del Anexo Transversal Anticorrupción</h2>
             <p class="sh1r color--neutro600 mb--24">Consulta y descarga los documentos metodológicos, informes y bases de datos disponibles.</p>
 
             <div class="card border rounded-4 p-4 p-md-5 shadow-sm bg-white" style="border-color: var(--neutro400) !important;">
@@ -170,7 +170,7 @@ get_header();
     <!-- BLOQUE 3: Panorama nacional del Anexo Transversal -->
     <section class="pb-5">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--16">2. Panorama del Anexo Transversal 30</h2>
+            <h2 class="h2b patria color--pguinda600 mb--16">Panorama del Anexo Transversal 30</h2>
             <div class="reticulaGrid__12 align-items-center mb--24">
                 <div class="columna__12 columna__8--md">
                     <p class="sh1r color--neutro600 mb--0">Consulta indicadores sobre la evolución y distribución de los recursos identificados en el Anexo Transversal 30 del Presupuesto de Egresos de la Federación.</p>
@@ -211,15 +211,9 @@ get_header();
 
                         <!-- Toggle de instituciones por año -->
                         <?php
-                        $ata_instituciones_por_anio = array(
-                            '2026' => array('SFP','FEMCC','SESNA','TFJA','ASF','SHCP-CNBV','SHCP-SAT','SHCP','INMUJERES','SE','TDJ','SECIHTI','Cultura','Defensa Nacional','SEDATU','FGR','SEGOB','SCT','ISSSTE','IMSS','INPI','Marina','Medio Ambiente','Órgano de Administración Judicial','Salud','IMSS Bienestar','STPS','Tribunales Agrarios','SECTUR'),
-                            '2025' => array('CJF','SFP','FEMCC','SESNA','TFJA','ASF','SHCP-CNBV','SHCP-SAT','SHCP','SEP','Bienestar','SRE','INMUJERES','AGN','SE','COFECE'),
-                            '2024' => array('CJF','SFP','FEMCC','SESNA','TFJA','ASF','SHCP-CNBV','SHCP-SAT','SHCP','SEP','Bienestar','SRE','INMUJERES','AGN','SE','COFECE'),
-                            '2023' => array('CJF','SFP','FEMCC','SESNA','TFJA','INAI','ASF','SHCP-CNBV','SHCP-SAT','SHCP','SEP','Bienestar','CONAMER','CONACYT','SRE','INMUJERES','AGN'),
-                            '2022' => array('CJF','SFP','FEMCC','SESNA','TFJA','INAI','SHCP-CNBV','SHCP-SAT','SHCP'),
-                            '2021' => array('CJF','SFP','FEMCC','SESNA','TFJA','INAI','SHCP-CNBV','SHCP-SAT','SHCP'),
-                        );
-                        $ata_totales = array('2021'=>9,'2022'=>9,'2023'=>17,'2024'=>17,'2025'=>17,'2026'=>29);
+                        $ata_instituciones    = sesna_obtener_datos_instituciones_ata();
+                        $ata_instituciones_por_anio = $ata_instituciones['por_anio'];
+                        $ata_totales          = $ata_instituciones['totales'];
                         $anios_inst = array_keys($ata_instituciones_por_anio);
                         $primer_anio = $anios_inst[0];
                         ?>
@@ -289,12 +283,12 @@ get_header();
                 <!-- Gráfica 4: Monto por Eje-Objetivo -->
                 <div class="columna__12 columna__6--lg">
                     <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
-                        <h3 class="sh1b color--neutro800 mb--4">Monto de presupuesto asignado por Eje–Objetivo (2021–2025)</h3>
+                        <h3 class="sh1b color--neutro800 mb--4">Monto de presupuesto asignado por Eje (2021–2025)</h3>
                         <p class="b1r mb--16">(millones de pesos)</p>
                         <canvas id="chartEjes" height="220"></canvas>
                         <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
                             <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
-                            <span class="sdr color--azul500">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del Eje–Objetivo.</span>
+                            <span class="sdr color--azul500">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del eje.</span>
                         </div>
                         <p class="b1r mt--8" style="font-style: italic;">
                             La información correspondiente al ejercicio 2026 no se incluye en esta visualización debido a un cambio en la metodología de alineación presupuestaria.
@@ -310,20 +304,28 @@ get_header();
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script>
     (function() {
 
+        Chart.register(ChartDataLabels);
+        Chart.defaults.set('plugins.datalabels', { display: false });
+
         var anios = ['2021','2022','2023','2024','2025','2026'];
         var burgundi = '#611232';
+
+        <?php $ata_presupuesto = sesna_obtener_datos_presupuesto_ata(); ?>
+        var aniosPresupuesto  = <?php echo wp_json_encode( $ata_presupuesto['anios'] ); ?>;
+        var montosPresupuesto = <?php echo wp_json_encode( $ata_presupuesto['montos'] ); ?>;
 
         // ── Gráfica 1: Evolución presupuestal ──
         new Chart(document.getElementById('chartMontos'), {
             type: 'bar',
             data: {
-                labels: anios,
+                labels: aniosPresupuesto,
                 datasets: [{
                     label: 'Millones de pesos',
-                    data: [3315.74, 3532.04, 6711.38, 9109.09, 7939.30, 9599.12],
+                    data: montosPresupuesto,
                     backgroundColor: burgundi,
                     borderRadius: 6,
                     borderSkipped: false,
@@ -340,7 +342,17 @@ get_header();
                             }
                         }
                     },
-                    datalabels: { display: false }
+                    datalabels: {
+                        display: true,
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 4,
+                        color: '#611232',
+                        font: { size: 11, weight: 'bold' },
+                        formatter: function(v) {
+                            return '$' + v.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
+                        }
+                    }
                 },
                 scales: {
                     y: {
@@ -349,18 +361,31 @@ get_header();
                             callback: function(v) { return '$' + v.toLocaleString('es-MX'); }
                         }
                     }
+                },
+                layout: {
+                    padding: { top: 24 }
                 }
             }
         });
 
         // ── Gráfica 2: Instituciones ──
+        <?php
+        $inst_totales_anios = array_keys($ata_totales);
+        $inst_totales_vals  = array();
+        foreach ( $inst_totales_anios as $anio_total ) {
+            $inst_totales_vals[] = intval( $ata_totales[ $anio_total ] );
+        }
+        ?>
+        var aniosInstituciones   = <?php echo wp_json_encode( $inst_totales_anios ); ?>;
+        var totalesInstituciones = <?php echo wp_json_encode( $inst_totales_vals ); ?>;
+
         new Chart(document.getElementById('chartInstituciones'), {
             type: 'bar',
             data: {
-                labels: anios,
+                labels: aniosInstituciones,
                 datasets: [{
                     label: 'Instituciones',
-                    data: [9, 9, 17, 17, 17, 29],
+                    data: totalesInstituciones,
                     backgroundColor: burgundi,
                     borderRadius: 6,
                     borderSkipped: false,
@@ -489,15 +514,19 @@ get_header();
             'Cap. 6000': 'Inversión Pública. Recursos destinados a obra pública y proyectos productivos.',
         };
         var capColores = ['#611232','#9B2D50','#C4536E','#D4859A','#E8B4BF','#F5D9DE'];
-        var capLabels  = ['Cap. 1000','Cap. 2000','Cap. 3000','Cap. 4000','Cap. 5000','Cap. 6000'];
-        var capDatos   = [
-            [82.76, 85.14, 85.15, 87.74, 89.29, 89.14],
-            [ 0.72,  0.50,  0.56,  0.52,  0.65,  0.88],
-            [16.30, 14.15, 13.55, 11.42,  9.79,  9.68],
-            [ 0.18,  0.18,  0.67,  0.27,  0.21,  0.28],
-            [ 0.04,  0.03,  0.03,  0.02,  0.03,  0.02],
-            [ 0.00,  0.00,  0.04,  0.03,  0.04,  0.00],
-        ];
+        <?php
+        $ata_capitulos    = sesna_obtener_datos_capitulos_ata();
+        $cap_label_map    = array( '1000' => 'Cap. 1000', '2000' => 'Cap. 2000', '3000' => 'Cap. 3000', '4000' => 'Cap. 4000', '5000' => 'Cap. 5000', '6000' => 'Cap. 6000' );
+        $cap_labels       = array();
+        $cap_datos        = array();
+        foreach ( $ata_capitulos['datos'] as $cap_key => $cap_vals ) {
+            $cap_labels[] = isset( $cap_label_map[ $cap_key ] ) ? $cap_label_map[ $cap_key ] : $cap_key;
+            $cap_datos[]  = $cap_vals;
+        }
+        ?>
+        var aniosCapitulos = <?php echo wp_json_encode( $ata_capitulos['anios'] ); ?>;
+        var capLabels  = <?php echo wp_json_encode( $cap_labels ); ?>;
+        var capDatos   = <?php echo wp_json_encode( $cap_datos ); ?>;
 
         var capDatasets = capLabels.map(function(label, i) {
             return {
@@ -510,7 +539,7 @@ get_header();
 
         new Chart(document.getElementById('chartCapitulos'), {
             type: 'bar',
-            data: { labels: anios, datasets: capDatasets },
+            data: { labels: aniosCapitulos, datasets: capDatasets },
             options: {
                 indexAxis: 'y',
                 responsive: true,
@@ -552,15 +581,11 @@ get_header();
             }
         });
 
-        // ── Gráfica 4: Monto por Eje-Objetivo (líneas, 2021-2025) ──
-        var aniosEje = ['2021','2022','2023','2024','2025'];
+        // ── Gráfica 4: Monto por Eje-Objetivo (líneas) ──
+        <?php $ata_ejes = sesna_obtener_datos_ejes_ata(); ?>
+        var aniosEje = <?php echo wp_json_encode( $ata_ejes['anios'] ); ?>;
         var ejeColores = { 'Eje 1': '#6AC72C', 'Eje 2': '#3A90C5', 'Eje 3': '#72588F', 'Eje 4': '#E14586' };
-        var ejeDatos   = {
-            'Eje 1': [2483.70, 2659.53, 1939.50, 2276.25, 1918.83],
-            'Eje 2': [ 693.49,  737.84, 4498.88, 5015.50, 4410.60],
-            'Eje 3': [  56.67,   47.57,  185.29,  684.09,  476.32],
-            'Eje 4': [  81.88,   87.10,   87.70, 1133.25, 1133.54],
-        };
+        var ejeDatos   = <?php echo wp_json_encode( $ata_ejes['datos'] ); ?>;
 
         var ejeDatasets = Object.keys(ejeDatos).map(function(eje) {
             return {
@@ -568,7 +593,7 @@ get_header();
                 data: ejeDatos[eje],
                 borderColor: ejeColores[eje],
                 backgroundColor: ejeColores[eje],
-                tension: 0.3,
+                tension: 0,
                 pointRadius: 5,
                 pointHoverRadius: 7,
                 fill: false,
@@ -583,7 +608,19 @@ get_header();
                 plugins: {
                     legend: {
                         position: 'bottom',
-                        labels: { font: { size: 11 }, boxWidth: 14, padding: 8 }
+                        labels: { font: { size: 11 }, boxWidth: 14, padding: 8 },
+                        onClick: function(e, legendItem, legend) {
+                            var chart = legend.chart;
+                            var index = legendItem.datasetIndex;
+                            var yaAislado = chart.data.datasets.every(function(ds, i) {
+                                return i === index || chart.getDatasetMeta(i).hidden;
+                            });
+
+                            chart.data.datasets.forEach(function(ds, i) {
+                                chart.getDatasetMeta(i).hidden = yaAislado ? false : (i !== index);
+                            });
+                            chart.update();
+                        }
                     },
                     tooltip: {
                         callbacks: {
@@ -610,7 +647,7 @@ get_header();
     <!-- BLOQUE 4: Consulta por entidad federativa -->
     <section class="pb-5">
         <div class="contenedor">
-            <h2 class="h2b patria color--pguinda600 mb--16">3. Consulta por entidad federativa</h2>
+            <h2 class="h2b patria color--pguinda600 mb--16">Consulta por entidad federativa</h2>
 
             <div class="card border rounded-4 p-4 p-md-5 shadow-sm bg-white" style="border-color: var(--neutro400) !important;">
 
