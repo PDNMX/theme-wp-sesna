@@ -176,8 +176,8 @@ get_header();
                     <p class="sh1r color--neutro600 mb--0">Consulta indicadores sobre la evolución y distribución de los recursos identificados en el Anexo Transversal 30 del Presupuesto de Egresos de la Federación.</p>
                 </div>
                 <div class="columna__12 columna__4--md texto--derecha--md">
-                    <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'Datos-procesados-Anexo-Transversal-2021-2026_rev.xlsx', '' ) ); ?>"
-                       class="boton__primario d-flex align-items-center gap-2" style="display: inline-flex;" download>
+                    <a href="<?php echo esc_url( sprintf( 'https://docs.google.com/spreadsheets/d/%s/export?format=xlsx', SESNA_ATA_SHEET_ID ) ); ?>"
+                       class="boton__primario d-flex align-items-center gap-2" style="display: inline-flex;" download="Datos-procesados-Anexo-Transversal-2021-2026.xlsx">
                         <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar base de datos
                     </a>
                 </div>
@@ -208,6 +208,7 @@ get_header();
                         <h3 class="sh1b color--neutro800 mb--4">Instituciones participantes del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
                         <p class="b1r mb--16">(número de instituciones)</p>
                         <canvas id="chartInstituciones" height="160"></canvas>
+                        <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
 
                         <!-- Toggle de instituciones por año -->
                         <?php
@@ -268,6 +269,7 @@ get_header();
                         <h3 class="sh1b color--neutro800 mb--4">Alineación porcentual por Capítulo de Clasificación del Gasto (2021–2026)</h3>
                         <p class="b1r mb--16">(%)</p>
                         <canvas id="chartCapitulos" height="220"></canvas>
+                        <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
                             <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
                             <span class="sdr color--azul500">Pasa el cursor sobre cada segmento para ver la descripción.</span>
@@ -285,10 +287,12 @@ get_header();
                     <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
                         <h3 class="sh1b color--neutro800 mb--4">Monto de presupuesto asignado por Eje (2021–2025)</h3>
                         <p class="b1r mb--16">(millones de pesos)</p>
+                        <div id="ejesToggles" class="d-flex flex-wrap justify-content-center gap-2 mb--16"></div>
                         <canvas id="chartEjes" height="220"></canvas>
+                        <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
                             <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
-                            <span class="sdr color--azul500">Pasa el cursor sobre cada línea o punto para ver el monto y el detalle del eje.</span>
+                            <span class="sdr color--azul500">Pasa el cursor para ver el detalle. Activa o desactiva cada eje para comparar sus tendencias.</span>
                         </div>
                         <p class="b1r mt--8" style="font-style: italic;">
                             La información correspondiente al ejercicio 2026 no se incluye en esta visualización debido a un cambio en la metodología de alineación presupuestaria.
@@ -600,28 +604,13 @@ get_header();
             };
         });
 
-        new Chart(document.getElementById('chartEjes'), {
+        var chartEjesInstance = new Chart(document.getElementById('chartEjes'), {
             type: 'line',
             data: { labels: aniosEje, datasets: ejeDatasets },
             options: {
                 responsive: true,
                 plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { font: { size: 11 }, boxWidth: 14, padding: 8 },
-                        onClick: function(e, legendItem, legend) {
-                            var chart = legend.chart;
-                            var index = legendItem.datasetIndex;
-                            var yaAislado = chart.data.datasets.every(function(ds, i) {
-                                return i === index || chart.getDatasetMeta(i).hidden;
-                            });
-
-                            chart.data.datasets.forEach(function(ds, i) {
-                                chart.getDatasetMeta(i).hidden = yaAislado ? false : (i !== index);
-                            });
-                            chart.update();
-                        }
-                    },
+                    legend: { display: false },
                     tooltip: {
                         callbacks: {
                             label: function(ctx) {
@@ -639,6 +628,34 @@ get_header();
                     }
                 }
             }
+        });
+
+        // Chips de activar/desactivar por eje (reemplaza la leyenda del canvas,
+        // poco descubrible como elemento clickeable).
+        var ejesToggles = document.getElementById('ejesToggles');
+        Object.keys(ejeDatos).forEach(function(eje, i) {
+            var color = ejeColores[eje];
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'eje-toggle-btn b1sb active';
+            btn.setAttribute('aria-pressed', 'true');
+            btn.dataset.ejeIndex = i;
+            btn.style.cssText = 'display:inline-flex;align-items:center;gap:6px;font-size:13px;border-radius:20px;padding:6px 14px;border:1.5px solid ' + color + ';background-color:' + color + ';color:#fff;cursor:pointer;transition:background-color .15s ease,color .15s ease;';
+            btn.innerHTML = '<span style="width:10px;height:10px;border-radius:50%;background:currentColor;display:inline-block;"></span>' + eje;
+
+            btn.addEventListener('click', function() {
+                var meta = chartEjesInstance.getDatasetMeta(i);
+                meta.hidden = !meta.hidden;
+                chartEjesInstance.update();
+
+                var visible = !meta.hidden;
+                btn.classList.toggle('active', visible);
+                btn.setAttribute('aria-pressed', visible ? 'true' : 'false');
+                btn.style.backgroundColor = visible ? color : '#fff';
+                btn.style.color = visible ? '#fff' : color;
+            });
+
+            ejesToggles.appendChild(btn);
         });
 
     })();
@@ -679,15 +696,6 @@ get_header();
                         </a>
                     </div>
                 </div>
-
-                <!-- Nota al pie -->
-                <div class="mt--24 pt--16 texto--centro" style="border-top: 1px solid var(--neutro400);">
-                    <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
-                        <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
-                        <span class="cp-nota__texto b1r color--azul500">Los montos se presentan en millones de pesos corrientes.</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
