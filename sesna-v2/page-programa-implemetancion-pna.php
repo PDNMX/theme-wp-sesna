@@ -13,7 +13,7 @@ $ejes_data = [
         'gradiente'   => 'linear-gradient(135deg, #F3FAF0 0%, #E8F5E3 100%)',
         'acento'      => '#225C0E',
         'titulo'      => 'Combatir la corrupción y la impunidad',
-        'desc'        => 'Busca fortalecer las capacidades del Estado para prevenir, detectar, investigar y sancionar los actos de corrupción, así como combatir la impunidad que lo permite y perpetúa.',
+        'desc'        => 'Busca combatir la corrupción e impunidad mediante la generación, adecuación y fortalecimiento de los procesos de denuncia, detección, investigación, substanciación y sanción; promoviendo mecanismos de coordinación y transparencia proactiva.',
         'estrategias' => 15,
         'lineas'      => 35,
         'objetivos'   => [
@@ -55,6 +55,7 @@ $ejes_data = [
         'icono'       => 'Involucrar.svg',
         'gradiente'   => 'linear-gradient(135deg, #FCF0F4 0%, #F9DEE7 100%)',
         'acento'      => '#701D2D',
+        'acento_lineas' => '#C13670',
         'titulo'      => 'Involucrar a la sociedad y el sector privado',
         'desc'        => 'Busca incentivar el involucramiento de diversos sectores de la sociedad en el control de la corrupción mediante el fortalecimiento e institucionalización de mecanismos de participación, vigilancia y autorregulación social, bajo un enfoque incluyente y con perspectiva de género.',
         'estrategias' => 13,
@@ -126,10 +127,12 @@ if (empty($fichero_anios)) {
                     <div class="columna__6 d-flex flex-column justify-content-between" style="flex:1 1 50%; min-width:280px; border-right:2px solid var(--neutro400); padding-right:2rem;">
                         <div>
                             <p class="b1r mb--16 texto--justify">
-                                El Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA) es el instrumento técnico mediante el cual se operacionalizan las prioridades establecidas en la PNA a través de estrategias, líneas de acción e indicadores de desempeño, articulando la participación de las instituciones responsables y permitiendo el seguimiento a los avances en el cumplimiento de los objetivos.
+                                El Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA) es el instrumento técnico mediante el cual se operacionalizan las prioridades establecidas en la PNA, a través de estrategias líneas de acción.
                             </p>
+                            <p class="b1r mb--16 texto--justify">
+                                A través de estos elementos y de indicadores asociados a las estrategias, el PI-PNA articula la participación de las instituciones responsables de su implementación y permite dar seguimiento a los avances en el cumplimiento de los objetivos de la PNA.
                             <p class="b1r mb--0 texto--justify">
-                                Su ejecución se concibe como un proceso coordinado, flexible y sujeto a mejora continua, en que la información generada permite identificar avances y áreas de oportunidad para realizar, con base en evidencia, los ajustes necesarios.
+                                Su ejecución se concibe como un proceso coordinado, flexible y sujeto a mejora continua, en el que la información generada permite identificar avances y áreas de oportunidad para realizar, con base en evidencia, los ajustes necesarios a lo largo del proceso.
                             </p>
                         </div>
 
@@ -178,7 +181,7 @@ if (empty($fichero_anios)) {
 
                 <!-- 5 Fases – Chevron + portada -->
                 <p class="b1sb mb--12">
-                    Proceso de integración del proyecto de <strong>Programa de Implementación</strong>
+                    Proceso de integración del <strong>Programa de Implementación</strong>
                 </p>
                 <?php
                 $fases = [
@@ -311,7 +314,7 @@ if (empty($fichero_anios)) {
                                 <!-- Centro: Objetivo de la PNA -->
                                 <div class="pna-wheel-center position-absolute bg-white rounded-circle d-flex flex-column align-items-center justify-content-center text-center p-3 shadow" style="width: 182px; height: 182px; z-index: 10;">
                                     <span class="mb-1"><img src="<?php echo esc_url( get_template_directory_uri() . '/img/ejes_objetivos/problema.svg' ); ?>" width="38" height="38" alt="" style="display: block;"></span>
-                                    <strong class="d-block mb-1 color--pguinda600" style="font-size: 13px; line-height: 1.1;">Objetivo de la PNA:</strong>
+                                    <strong class="d-block mb-1 color--pguinda600" style="font-size: 13px; line-height: 1.1;">Problema:</strong>
                                     <span class="color--neutro800" style="font-size: 11px; line-height: 1.25;">"Incapacidad para controlar la corrupción, esto es, prevenirla, detectarla y sancionarla eficazmente".</span>
                                 </div>
                             </div>
@@ -377,7 +380,7 @@ if (empty($fichero_anios)) {
                                         <div class="fw-bold" style="font-size:22px;"><?php echo $e['estrategias']; ?></div>
                                         <div class="sdr mb--0" style="font-size:11px;color:#fff;">Estrategias</div>
                                     </div>
-                                    <div class="text-center px-4 py-2 rounded-3" style="background-color:#611232;color:#fff;">
+                                    <div class="text-center px-4 py-2 rounded-3" style="background-color:<?php echo isset($e['acento_lineas']) ? $e['acento_lineas'] : $e['acento']; ?>;color:#fff;">
                                         <div class="fw-bold" style="font-size:22px;"><?php echo $e['lineas']; ?></div>
                                         <div class="sdr mb--0" style="font-size:11px;color:#fff;">Líneas de<br>Acción</div>
                                     </div>
