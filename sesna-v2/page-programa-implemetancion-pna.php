@@ -124,7 +124,7 @@ if (empty($fichero_anios)) {
                 <div class="fila align-items-stretch" style="display:flex; flex-wrap:wrap; gap:1.5rem;">
 
                     <!-- Izquierda: texto + botón -->
-                    <div class="columna__6 d-flex flex-column justify-content-between" style="flex:1 1 50%; min-width:280px; border-right:2px solid var(--neutro400); padding-right:2rem;">
+                    <div class="columna__6 d-flex flex-column justify-content-between" style="flex:1 1 42%; min-width:280px; border-right:2px solid var(--neutro400); padding-right:2rem;">
                         <div>
                             <p class="b1r mb--16 texto--justify">
                                 El Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA) es el instrumento técnico mediante el cual se operacionalizan las prioridades establecidas en la PNA, a través de estrategias líneas de acción.
@@ -145,14 +145,14 @@ if (empty($fichero_anios)) {
                     </div>
 
                     <!-- Derecha: fecha + portada (ocupa todo el alto) -->
-                    <div class="columna__6 d-flex flex-column" style="flex:0 0 45%; min-width:240px; padding-left:2rem;">
+                    <div class="columna__6 d-flex flex-column" style="flex:0 0 55%; min-width:260px; padding-left:1.5rem;">
                         <div class="pna-hero__badge mb--16">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
                                 <i class="snd__icono snd-calendar icono--20" aria-hidden="true"></i>
                             </span>
                             <div>
                                 <p class="sh1b color--neutro800 mb--0">Aprobado el 27 de enero de 2022</p>
-                                <p class="b1r color--neutro600 texto--justify mb--0">por el Comité Coordinador del Sistema Nacional Anticorrupción.</p>
+                                <p class="b1r color--neutro600 mb--0">por el Comité Coordinador del Sistema Nacional Anticorrupción.</p>
                             </div>
                         </div>
                         <a href="#" class="pna-doc-cover text-decoration-none d-flex mx-auto"

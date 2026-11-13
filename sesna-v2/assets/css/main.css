@@ -5222,10 +5222,10 @@ body:has(.page-directorio) main.page {
 }
 
 /* Posiciones ajustadas manualmente por el usuario sobre el render final */
-.page-pna .pna-ciclo-overlay--1 { top: 35%; left: 19%; }  /* Diseño          — teal   */
-.page-pna .pna-ciclo-overlay--2 { top: 35%; left: 80%; }  /* Presupuestación — morado */
-.page-pna .pna-ciclo-overlay--3 { top: 78%; left: 74%; }  /* Implementación  — azul   */
-.page-pna .pna-ciclo-overlay--4 { top: 76%; left: 26%; }  /* Seguimiento     — rosa   */
+.page-pna .pna-ciclo-overlay--1 { top: 25%; left: 20%; }  /* Diseño          — teal   */
+.page-pna .pna-ciclo-overlay--2 { top: 25%; left: 80%; }  /* Presupuestación — morado */
+.page-pna .pna-ciclo-overlay--3 { top: 75%; left: 80%; }  /* Implementación  — azul   */
+.page-pna .pna-ciclo-overlay--4 { top: 75%; left: 20%; }  /* Seguimiento     — rosa   */
 
 /* Animación de entrada al hacer scroll (activada por JS, respeta reduced-motion) */
 @keyframes pnaCicloFadeUp {
