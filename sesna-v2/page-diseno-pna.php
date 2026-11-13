@@ -54,7 +54,7 @@ get_header();
                 <!-- Columna Izquierda: Portada del Documento -->
                 <div class="columna__12 columna__4--lg order-2 order-lg-1 d-flex align-items-start pna-cover-col">
                     <div class="pna-doc-cover position-relative" style="max-width: 265px; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.18); border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); background: #fff;">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1.09); transform-origin: center center;">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/portada_pi_png.png' ); ?>" alt="Portada Política Nacional Anticorrupción" class="w-100 h-auto d-block" style="transform: scale(1); transform-origin: center center;">
                     </div>
                 </div>
 
