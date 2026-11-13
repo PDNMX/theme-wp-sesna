@@ -154,7 +154,7 @@ get_header();
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="b1r mb--24">Noticias, comunicados y actualizaciones institucionales.</p>
                             <div class="mt--auto texto--derecha--md">
-                                <a rel="noopener" href="https://x.com/SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido">Visitar</a>
+                                <a rel="noopener" href="https://x.com/SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido decoracion--ninguna">Visitar</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@ get_header();
                             <div class="qh-social-handle">@SESNAOficial</div>
                             <p class="b1r mb--24">Videos, transmisiones y contenido audiovisual.</p>
                             <div class="mt--auto texto--derecha--md">
-                                <a rel="noopener" href="https://www.youtube.com/@SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido">Visitar</a>
+                                <a rel="noopener" href="https://www.youtube.com/@SESNAOficial" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido decoracion--ninguna">Visitar</a>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@ get_header();
                             <div class="qh-social-handle">@sesnaoficial</div>
                             <p class="b1r mb--24">Actividades, campañas y contenido visual.</p>
                             <div class="mt--auto texto--derecha--md">
-                                <a rel="noopener" href="https://www.instagram.com/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido">Visitar</a>
+                                <a rel="noopener" href="https://www.instagram.com/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido decoracion--ninguna">Visitar</a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +218,7 @@ get_header();
                             <div class="qh-social-handle qh-social-handle--sm">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</div>
                             <p class="b1r mb--24">Información institucional y profesional.</p>
                             <div class="mt--auto texto--derecha--md">
-                                <a rel="noopener" href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido">Visitar</a>
+                                <a rel="noopener" href="https://www.linkedin.com/company/sesnaoficial/" target="_blank" title="El enlace abre en ventana nueva" class="sh1b muestra--flex-linea align-items-center color--pguinda600 enlace--expandido decoracion--ninguna">Visitar</a>
                             </div>
                         </div>
                     </div>
