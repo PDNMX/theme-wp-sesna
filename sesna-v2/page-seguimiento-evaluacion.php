@@ -512,7 +512,7 @@ get_header();
                             <span class="teoria-badge" aria-label="Nivel 01">01</span>
                             <div class="sise-indicador-icon-wrap">
                                 <div class="sise-indicador-icon-circle">
-                                    <i class="snd__icono snd-chart--bar icono--40 color--pguinda600" aria-hidden="true"></i>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/indicadores_nacionales.png' ); ?>" alt="" aria-hidden="true" class="sise-indicador-icon-img">
                                 </div>
                             </div>
                             <div class="sise-indicador-accent" aria-hidden="true"></div>
@@ -535,7 +535,7 @@ get_header();
                             <span class="teoria-badge" aria-label="Nivel 02">02</span>
                             <div class="sise-indicador-icon-wrap">
                                 <div class="sise-indicador-icon-circle">
-                                    <i class="snd__icono snd-catalog icono--40 color--pguinda600" aria-hidden="true"></i>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/indicadores_de_estrategia.png' ); ?>" alt="" aria-hidden="true" class="sise-indicador-icon-img">
                                 </div>
                             </div>
                             <div class="sise-indicador-accent" aria-hidden="true"></div>
@@ -558,7 +558,7 @@ get_header();
                             <span class="teoria-badge" aria-label="Nivel 03">03</span>
                             <div class="sise-indicador-icon-wrap">
                                 <div class="sise-indicador-icon-circle">
-                                    <i class="snd__icono snd-group icono--40 color--pguinda600" aria-hidden="true"></i>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/metrica_de_genero.png' ); ?>" alt="" aria-hidden="true" class="sise-indicador-icon-img">
                                 </div>
                             </div>
                             <div class="sise-indicador-accent" aria-hidden="true"></div>
@@ -583,7 +583,7 @@ get_header();
                             <span class="teoria-badge" aria-label="Nivel 04">04</span>
                             <div class="sise-indicador-icon-wrap">
                                 <div class="sise-indicador-icon-circle">
-                                    <i class="snd__icono snd-map icono--40 color--pguinda600" aria-hidden="true"></i>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/seguimiento_evaluacion_pna/indicadores_estatales.png' ); ?>" alt="" aria-hidden="true" class="sise-indicador-icon-img">
                                 </div>
                             </div>
                             <div class="sise-indicador-accent" aria-hidden="true"></div>

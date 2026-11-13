@@ -7388,13 +7388,21 @@ select.tx-comite-filter-control:disabled {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: var(--pguinda100);
-    border: 1px solid var(--pguinda200);
+    background-color: transparent;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     transition: transform 0.25s ease;
+}
+.sise-indicador-icon-img {
+    width: 100px;
+    height: 100px;
+    max-width: none;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
 }
 .sise-indicador-card:hover .sise-indicador-icon-circle {
     transform: scale(1.05);
