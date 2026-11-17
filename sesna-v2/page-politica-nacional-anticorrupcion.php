@@ -70,7 +70,10 @@ get_header();
                         </p>
 
                         <div class="muestra--flex flex-wrap-wrap gap--16 justify-content-center">
-                            <a href="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>" class="boton__primario" target="_blank" rel="noopener">
+                            <a href="#" class="boton__primario"
+                               data-modal-target="#pdfViewerModal"
+                               data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>"
+                               data-pdf-title="Resumen Ejecutivo — Política Nacional Anticorrupción">
                                 <i class="snd__icono snd-document icono--16" aria-hidden="true"></i> Resumen Ejecutivo
                             </a>
                         </div>
@@ -228,5 +231,7 @@ get_header();
     </script>
 
 </div>
+
+<?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <?php get_footer(); ?>
