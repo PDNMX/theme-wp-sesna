@@ -1644,7 +1644,7 @@ nav.navbar .container {
    Fondo general de la Front Page
    ------------------------------------------------------------ */
 .front-page-bg {
-    background-color: var(--color-fondo-claro);
+    background-color: var(--neutro200);
     min-height: 100%;
 }
 
