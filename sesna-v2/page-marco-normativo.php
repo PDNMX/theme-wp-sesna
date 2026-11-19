@@ -149,7 +149,7 @@ $normatividad_externa = [
         'titulo' => 'Acuerdo por el que se modifica el artículo Segundo Transitorio del Acuerdo por el que el Comité Coordinador del Sistema Nacional Anticorrupción emite el formato de declaraciones: de situación patrimonial y de intereses; y expide las normas e instructivo para su llenado y presentación.',
         'tipo'   => 'Acuerdos',
         'etiqueta' => 'Acuerdo',
-        'url'    => 'https://www.seseabc.gob.mx/doctos/dof_23092019_formatos_SP.pdf',
+        'url'    => 'https://www.gob.mx/cms/uploads/attachment/file/455434/Acuerdo_por_el_que_se_modifica_el_art_culo_Segundo_Transitorio_del_Acuerdo_por_el_que_el_Comit_....pdf',
     ],
     [
         'titulo' => 'Acuerdo por el que el Comité Coordinador del Sistema Nacional Anticorrupción emite el formato de declaraciones: de situación patrimonial y de intereses; y expide las normas e instructivo para su llenado y presentación.',
@@ -281,13 +281,13 @@ $normatividad_interna = [
         'url'    => '/wp-content/uploads/2021/07/44.-LINEAMIENTOS....pdf',
     ],
     [
-        'titulo' => 'Lineamientos relativos al control y registro de asistencia de las personas servidoras públicas adscritas a la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.',
+        'titulo' => 'Acuerdo mediante el cual se emiten los lineamientos relativos al control y registro de asistencia de las personas servidoras públicas adscritas a la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.',
         'tipo'   => 'Lineamientos',
         'etiqueta' => 'Lineamientos',
         'url'    => '/wp-content/uploads/2026/08/lineamientos_asistencia_DRHyO.pdf',
     ],
     [
-        'titulo' => 'Políticas, Bases y Lineamientos en Materia de Adquisiciones, Arrendamientos y Servicios de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción',
+        'titulo' => 'Políticas, Bases y Lineamientos en Materia de Adquisiciones, Arrendamientos de Bienes Muebles y Contratación de Servicios de Cualquier Naturaleza',
         'tipo'   => 'Políticas',
         'etiqueta' => 'Política',
         'url'    => '/wp-content/uploads/2021/02/9.-POLITICAS....pdf',
@@ -311,7 +311,7 @@ $normatividad_interna = [
         'url'    => '/wp-content/uploads/2026/01/379.-MANUAL.pdf',
     ],
     [
-        'titulo' => 'Programa Institucional 2025-2030 de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.',
+        'titulo' => 'Programa Institucional de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción 2025-2030.',
         'tipo'   => 'Programas, Planes y Guías',
         'etiqueta' => 'Programa',
         'url'    => '/wp-content/uploads/2025/10/371-PROGRAMA.pdf',
@@ -323,9 +323,9 @@ $normatividad_interna = [
         'url'    => '/wp-content/uploads/2022/05/Guia-Basica-Eventos-Accesibles-12May2022.pdf',
     ],
     [
-        'titulo' => 'Plan Anual de Desarrollo Archivístico (PADA) 2026.',
+        'titulo' => 'Programa Anual de Desarrollo Archivístico (PADA) 2026.',
         'tipo'   => 'Programas, Planes y Guías',
-        'etiqueta' => 'Plan',
+        'etiqueta' => 'Programa',
         'url'    => '/wp-content/uploads/2026/08/PADA_2026.pdf',
     ],
 ];

@@ -74,7 +74,7 @@ if ( file_exists( $fin_json_path ) ) {
                     if ( empty( $doc['url'] ) ) {
                         continue;
                     }
-                    $doc['url'] = sna_rewrite_sesna_domain_in_content( $doc['url'] );
+                    $doc['url'] = sna_resolve_upload_url( $doc['url'] );
                     $n1         = $doc['contenidoN1'];
                     $mes        = null;
                     $trimestre  = null;
@@ -112,7 +112,7 @@ if ( file_exists( $fin_json_path ) ) {
                 foreach ( $seccion['subsecciones'] as $sub ) {
                     foreach ( $sub['documentos'] as $doc ) {
                         if ( ! empty( $doc['url'] ) ) {
-                            $doc['url'] = sna_rewrite_sesna_domain_in_content( $doc['url'] );
+                            $doc['url'] = sna_resolve_upload_url( $doc['url'] );
                             $fin_dictamenes[ $sub['subseccion'] ] = $doc;
                             break;
                         }

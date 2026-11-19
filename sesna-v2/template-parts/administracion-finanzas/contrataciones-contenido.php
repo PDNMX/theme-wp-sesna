@@ -59,7 +59,7 @@ if ( file_exists( $cf_json_path ) ) {
                         $anio = strval( $doc['anio'] );
                         $cf_columnas['comite']['anios'][ $anio ][] = array(
                             'label'      => mb_convert_case( $doc['contenidoN1'], MB_CASE_TITLE, 'UTF-8' ),
-                            'url'        => sna_rewrite_sesna_domain_in_content( $doc['url'] ),
+                            'url'        => sna_resolve_upload_url( $doc['url'] ),
                             'disponible' => true,
                         );
                     }
@@ -72,7 +72,7 @@ if ( file_exists( $cf_json_path ) ) {
                     foreach ( $sub['documentos'] as $doc ) {
                         $url         = isset( $doc['url'] ) ? trim( $doc['url'] ) : '';
                         $es_url_real = ( 0 === strpos( $url, 'http' ) || 0 === strpos( $url, '/' ) );
-                        $url_final   = $es_url_real ? sna_rewrite_sesna_domain_in_content( $url ) : '';
+                        $url_final   = $es_url_real ? sna_resolve_upload_url( $url ) : '';
                         $anio        = ! empty( $doc['anio'] ) ? strval( $doc['anio'] ) : 'Sin fecha';
                         $texto       = $doc['contenidoN1'];
 

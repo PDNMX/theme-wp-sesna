@@ -79,7 +79,7 @@ $pi_grupos = array(
                 <div class="fin-doc-list">
                     <?php foreach ( $grupo['docs'] as $doc ) :
                         $search_attr = esc_attr( mb_strtolower( $doc['label'], 'UTF-8' ) );
-                        $doc_url     = function_exists( 'sna_rewrite_sesna_domain_in_content' ) ? sna_rewrite_sesna_domain_in_content( $doc['url'] ) : $doc['url'];
+                        $doc_url     = function_exists( 'sna_resolve_upload_url' ) ? sna_resolve_upload_url( $doc['url'] ) : $doc['url'];
                         ?>
                         <div class="fin-doc-row pna-doc-row" data-cf-search="<?php echo $search_attr; ?>">
                             <div class="fin-doc-left">

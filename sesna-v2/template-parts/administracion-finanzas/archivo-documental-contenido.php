@@ -54,7 +54,7 @@ if ( file_exists( $ad_json_path ) ) {
                     if ( ! $nota && ! empty( $doc['descripcion'] ) ) {
                         $nota = $doc['descripcion'];
                     }
-                    $url_final = function_exists( 'sna_rewrite_sesna_domain_in_content' ) ? sna_rewrite_sesna_domain_in_content( $doc['url'] ) : $doc['url'];
+                    $url_final = function_exists( 'sna_resolve_upload_url' ) ? sna_resolve_upload_url( $doc['url'] ) : $doc['url'];
                     $docs[]    = array(
                         'label'  => $doc['contenidoN1'],
                         'url'    => $url_final,
