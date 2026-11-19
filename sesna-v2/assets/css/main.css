@@ -2920,7 +2920,7 @@ nav.navbar .container {
    ============================================================ */
 
 .page-transparencia {
-    background-color: var(--color-fondo-claro);
+    /* Fondo heredado de .front-page-bg */
 }
 
 /* --- Banner Hero Transparencia ----------------------------- */
@@ -2965,7 +2965,7 @@ nav.navbar .container {
     .page-transparencia .tx-banner__action {
         position: static;
         padding: 16px 16px 24px;
-        background-color: var(--color-fondo-claro, #f8f9fa);
+        background-color: var(--neutro200);
     }
 }
 
@@ -4245,12 +4245,8 @@ nav.navbar .container {
    ============================================================ */
 
 .page-directorio {
-    background-color: var(--color-fondo-claro);
+    /* Fondo heredado de .front-page-bg */
     min-height: 75vh;
-}
-
-body:has(.page-directorio) main.page {
-    background-color: var(--color-fondo-claro);
 }
 
 .page-directorio .sesna-page-hero {
