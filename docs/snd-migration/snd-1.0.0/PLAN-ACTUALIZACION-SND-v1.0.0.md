@@ -348,7 +348,52 @@ Estos archivos **permanecen íntegros en el repositorio** dentro de `docs/snd-mi
 
 ---
 
-## 6. Checklist de Ejecución Paso a Paso
+## 6. Etapa 3: Refactorización Arquitectónica, Optimización y Escalabilidad
+
+Una vez completadas y validadas las Etapas 1 y 2 del SND `v1.0.0`, esta Etapa 3 aborda la deuda técnica estructural del tema `sesna-v2` para maximizar su rendimiento, mantenibilidad y escalabilidad sin alterar la funcionalidad ni el diseño visual:
+
+### 6.1 Etapa 3.1 — Modularización de `sesna-v2/functions.php` (~4,346 líneas → arquitectura `inc/`)
+- **Diagnóstico:** [sesna-v2/functions.php](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/functions.php) concentra en un solo archivo la configuración del tema, encolado de assets, Custom Post Types (CPTs), decenas de metaboxes del panel de administración (`add_meta_box` y `save_post`), endpoints AJAX y helpers de plantillas. WordPress parsea y carga en memoria todo el código de administración incluso en las visitas públicas del front-end.
+- **Acción:** Convertir `functions.php` en un orquestador ligero (~100 líneas) que delegue mediante `require_once` hacia módulos especializados en `sesna-v2/inc/`, cargando los metaboxes exclusivamente cuando `is_admin()` sea `true`:
+  - `inc/setup.php` — Soporte del tema (`after_setup_theme`), menús, widgets y walkers.
+  - `inc/enqueue.php` — Registro y encolado de hojas de estilo y scripts (`sesna_theme_scripts`).
+  - `inc/post-types.php` — Registro de Custom Post Types y taxonomías.
+  - `inc/ajax-handlers.php` — Endpoints `wp_ajax_` y `wp_ajax_nopriv_`.
+  - `inc/template-helpers.php` — Funciones auxiliares reutilizables de renderizado.
+  - `inc/admin/` (cargado solo dentro de `if ( is_admin() )`):
+    - `inc/admin/metaboxes-home.php`
+    - `inc/admin/metaboxes-transparencia.php`
+    - `inc/admin/metaboxes-finanzas.php`
+    - `inc/admin/metaboxes-paginas.php`
+
+### 6.2 Etapa 3.2 — Segmentación de `sesna-v2/assets/css/main.css` (~10,450 líneas) y reducción de `!important`
+- **Diagnóstico:** [sesna-v2/assets/css/main.css](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/assets/css/main.css) se descarga completo en todas las vistas aunque el visitante solo consulte una página, y acumula reglas con `!important` heredadas de la transición entre Bootstrap v3 y SND.
+- **Acción:**
+  1. Mantener en `assets/css/main.css` únicamente el layout global, variables `:root`, subheader institucional, componentes transversales y accesibilidad.
+  2. Extraer los bloques exclusivos por página a hojas modulares bajo `assets/css/pages/` (por ejemplo: `home.css`, `indicadores-nacionales.css`, `administracion-finanzas.css`, `directorio.css`, `pna.css`) y encolarlas condicionalmente en `inc/enqueue.php` según `is_front_page()` o `is_page_template()`.
+  3. Adoptar capas de cascada CSS (`@layer`) o selectores de alcance limpio para eliminar progresivamente el uso de `!important`.
+
+### 6.3 Etapa 3.3 — Separación de Datos, Vista y JavaScript inline en plantillas grandes
+- **Diagnóstico:** Plantillas como [sesna-v2/header.php](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/header.php), [sesna-v2/page-indicadores-nacionales.php](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/page-indicadores-nacionales.php), [sesna-v2/page-diseno-pna.php](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/page-diseno-pna.php) y [sesna-v2/page-riesgos-inteligencia.php](file:///home/alopez_legion/proyectos/theme-sesna/sesna-v2/page-riesgos-inteligencia.php) combinan catálogos extensos de datos en arreglos PHP, marcado HTML/SVG y bloques `<script>` inline de hasta 200 líneas.
+- **Acción:**
+  1. Extraer los bloques `<script>` inline de las plantillas PHP a archivos `.js` externos en `assets/js/` con `defer` (mejorando el cacheo del navegador y permitiendo políticas Content Security Policy sin `unsafe-inline`), inyectando datos dinámicos vía `wp_localize_script()` o atributos `data-*`.
+  2. Extraer los arreglos estáticos de datos extensos (como definiciones de indicadores o catálogos) a `inc/data/`.
+  3. Unificar las carpetas duplicadas de recursos (`sesna-v2/script/` → `sesna-v2/assets/js/` y `sesna-v2/img/` → `sesna-v2/assets/img/`).
+
+### 6.4 Etapa 3.4 — Componentes UI parciales reutilizables (DRY con `get_template_part`)
+- **Diagnóstico:** Múltiples plantillas (`page-contrataciones-publicas.php`, `page-verificacion-patrimonial.php`, `page-riesgos-inteligencia.php`, módulos de `template-parts/administracion-finanzas/`) duplican el marcado HTML de tarjetas de documentos, avisos informativos y barras de búsqueda/filtrado.
+- **Acción:** Crear parciales parametrizados en `sesna-v2/template-parts/ui/` (usando el tercer parámetro `$args` de `get_template_part()`):
+  - `template-parts/ui/mensaje-informativo.php`
+  - `template-parts/ui/card-documento.php`
+  - `template-parts/ui/barra-busqueda.php`
+
+### 6.5 Etapa 3.5 — Optimización de consultas `WP_Query`
+- **Diagnóstico:** Consultas `WP_Query` secundarias que renderizan listados fijos sin paginación ejecutan por defecto `SQL_CALC_FOUND_ROWS` y precargan cachés de términos o metadatos aun cuando no se utilizan.
+- **Acción:** Auditar todas las instancias de `new WP_Query(...)` en el tema y agregar `'no_found_rows' => true` en consultas sin paginación, así como `'update_post_term_cache' => false` o `'update_post_meta_cache' => false` cuando corresponda.
+
+---
+
+## 7. Checklist de Ejecución Paso a Paso
 
 Para continuar la implementación en cualquier máquina o sesión de IA, sigue este checklist en orden:
 
@@ -366,3 +411,9 @@ Para continuar la implementación en cualquier máquina o sesión de IA, sigue e
   - [ ] 2.3 Migrar los 13 `<hr>` personalizados a `<hr class="divisor">` en los 9 archivos listados en la sección 3.3.
   - [ ] 2.4 Migrar los badges de estatus/categoría a `.insignia-borde` / `.insignia-solido` en los archivos listados en la sección 3.4.
   - [ ] 2.5 Migrar los chips de filtrado de `page-riesgos-inteligencia.php` y `section-entradas.php` a `.pildora__grupo` / `.pildora` según la sección 3.5.
+- [ ] **Etapa 3: Refactorización Arquitectónica, Optimización y Escalabilidad**
+  - [ ] 3.1 Modularizar `sesna-v2/functions.php` en `sesna-v2/inc/` y aislar la carga de `inc/admin/*` bajo `is_admin()` (sección 6.1).
+  - [ ] 3.2 Segmentar `sesna-v2/assets/css/main.css` en estilos base y hojas por página (`assets/css/pages/*`) encoladas condicionalmente (sección 6.2).
+  - [ ] 3.3 Extraer los `<script>` inline de plantillas PHP a archivos `.js` externos con `defer`, mover catálogos estáticos a `inc/data/` y unificar carpetas `script/` → `assets/js/` (sección 6.3).
+  - [ ] 3.4 Extraer componentes UI repetidos a parciales parametrizados en `sesna-v2/template-parts/ui/` (sección 6.4).
+  - [ ] 3.5 Optimizar consultas `WP_Query` secundarias con `'no_found_rows' => true` y banderas de caché (sección 6.5).
