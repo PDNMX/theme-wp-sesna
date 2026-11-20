@@ -23,10 +23,11 @@
 
 ## 2. Mapa completo de archivos extraídos (31 páginas del sitio)
 
-### Guías generales (3)
-1. **Inicio (`/`):** Incluido en este índice ([README.md](./README.md)).
-2. **Migración (`/migracion`):** [snd-migracion.md](./snd-migracion.md) — *Migrar desde la Gráfica Base*
-3. **Comenzar (`/comenzar`):** [snd-comenzar.md](./snd-comenzar.md) — *Comenzar a desarrollar (Cargador `carga.js`, Plantilla base, Variantes de pie de página y Registro de versiones)*
+### Guías generales y Plan de Proyecto (4)
+1. **Plan y Análisis Cruzado para SESNA:** [PLAN-ACTUALIZACION-SND-v1.0.0.md](./PLAN-ACTUALIZACION-SND-v1.0.0.md) — *Guía maestra para desarrolladores y agentes de IA con el análisis cruzado, inventario de archivos/líneas a modificar, componentes en reserva y checklist de implementación.*
+2. **Inicio (`/`):** Incluido en este índice ([README.md](./README.md)).
+3. **Migración (`/migracion`):** [snd-migracion.md](./snd-migracion.md) — *Migrar desde la Gráfica Base*
+4. **Comenzar (`/comenzar`):** [snd-comenzar.md](./snd-comenzar.md) — *Comenzar a desarrollar (Cargador `carga.js`, Plantilla base, Variantes de pie de página y Registro de versiones)*
 
 ### Estilos (5)
 Cada archivo incluye el contenido íntegro de las 3 pestañas (**Descripción**, **Diseño** y **Desarrollo**):
