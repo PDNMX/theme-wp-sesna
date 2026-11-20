@@ -64,60 +64,6 @@ svg.snd:not(.mexico__img):not(.footer__escudo) {
 }
 
 /* ------------------------------------------------------------
-   Escudos institucionales Gobierno de México (Header y Footer SND)
-   Conforme a SND v1.1.0 Secciones 4.6 y 4.7
-   ------------------------------------------------------------ */
-.mexico__escudo {
-    display: flex;
-    align-items: center;
-}
-.mexico__aescudo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-}
-.mexico__img,
-svg.mexico__img,
-i.mexico__img {
-    height: 48px !important;
-    width: auto !important;
-    max-width: 160px !important;
-    min-width: 120px !important;
-    display: inline-block !important;
-    object-fit: contain;
-}
-
-.footer__mexico {
-    display: flex;
-    align-items: flex-start;
-}
-.footer__escudo,
-svg.footer__escudo,
-i.footer__escudo {
-    width: 206px !important;
-    height: auto !important;
-    max-height: 80px !important;
-    display: block !important;
-    object-fit: contain;
-}
-
-@media (max-width: 767.98px) {
-    .mexico__img,
-    svg.mexico__img,
-    i.mexico__img {
-        height: 35px !important;
-        max-width: 110px !important;
-        min-width: 90px !important;
-    }
-    .footer__escudo,
-    svg.footer__escudo,
-    i.footer__escudo {
-        width: 130px !important;
-        max-height: 55px !important;
-    }
-}
-
-/* ------------------------------------------------------------
    Accesibilidad — parches sobre el widget CDN de GOB.mx
    ------------------------------------------------------------ */
 
@@ -577,13 +523,9 @@ h3 {
          Margen lateral Mobile (< 640px): 16px
    ------------------------------------------------------------ */
 :root {
-    --mexico-h: 80px;
+    /* <snd-header> oficial v1.0.0 tiene 58px de alto en todas las resoluciones */
+    --mexico-h: 58px;
     --sesna-subheader-h: 52px;
-}
-@media (max-width: 699.98px) {
-    :root {
-        --mexico-h: 56px;
-    }
 }
 
 main,
@@ -593,7 +535,9 @@ main.page,
     min-height: auto !important;
     width: 100% !important;
     flex: 1 0 auto !important;
-    padding-top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
+    /* <snd-header> (:host { display: block; height: 58px }) ya reserva sus 58px en el flujo del body;
+       por ello #mainContent solo compensa la altura del subheader institucional fijo (--sesna-subheader-h). */
+    padding-top: var(--sesna-subheader-h) !important;
     display: flex !important;
     flex-direction: column !important;
 }
@@ -640,137 +584,14 @@ body.admin-bar {
 }
 
 /* ============================================================
-   HEADER INSTITUCIONAL SND v1.1.0 (Sección 4.7)
-   Estructura: header.header > .irContent + section.mexico > .mexico__contenedor
+   HEADER INSTITUCIONAL SND v1.0.0 (Web Component <snd-header>)
+   El componente oficial encapsula su estructura (.header > .mexico)
+   en Shadow DOM con :host { display: block; height: 58px }.
    ============================================================ */
-header.header {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: var(--mexico-h) !important;
-    z-index: 1000000 !important;
-    background-color: var(--principal, #611232) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.mexico {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: var(--mexico-h) !important;
-    z-index: 1000000 !important;
-    background-color: var(--principal, #611232) !important;
-    display: flex !important;
-    align-items: center !important;
-    box-sizing: border-box !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* Retícula del contenedor del header: 1440px máximo, padding responsivo */
-.mexico__contenedor {
-    width: 100% !important;
-    max-width: 1440px !important;
-    height: 100% !important;
-    margin-inline: auto !important;
-    padding-inline: 56px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-}
-
-@media (max-width: 1023.98px) {
-    .mexico__contenedor {
-        padding-inline: 24px !important;
-    }
-}
-
-@media (max-width: 698.98px) {
-    .mexico__contenedor {
-        padding-inline: 16px !important;
-    }
-}
-
-.mexico__escudo {
-    flex: 0 0 auto !important;
-    display: flex !important;
-    align-items: center !important;
-    text-align: left !important;
-}
-
-.mexico__aescudo {
-    display: inline-flex !important;
-    align-items: center !important;
-    text-decoration: none !important;
-}
-
-.mexico__img,
-svg.mexico__img,
-i.mexico__img {
-    height: 48px !important;
-    width: auto !important;
-    display: block !important;
-}
-
-@media (max-width: 699.98px) {
-    .mexico__img,
-    svg.mexico__img,
-    i.mexico__img {
-        height: 36px !important;
-    }
-}
-
-.mexico__menu {
-    flex: 0 0 auto !important;
-    display: flex !important;
-    align-items: center !important;
-}
-
-.mexico .mexico__details {
-    display: flex !important;
-    align-items: center !important;
-}
-
-/* Trámites y Gobierno — Sin caja ni fondo residual, enlaces tipo Ghost limpios */
-.mexico .mexico__detailsCont {
-    display: flex !important;
-    align-items: center !important;
-    column-gap: 24px !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0 !important;
-}
-
-@media (min-width: 768px) {
-    .mexico .mexico__detailsCont {
-        position: static !important;
-        width: auto !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-    }
-}
-
-.mexico__a,
-.mexico__a:focus,
-a.mexico__a:visited {
-    color: #ffffff !important;
-    font-family: var(--font-noto-sans) !important;
-    font-size: 15px !important;
-    text-decoration: none !important;
-    padding: 6px 12px !important;
-    transition: opacity 0.2s ease !important;
-}
-
-.mexico__a:hover {
-    color: #ffffff !important;
-    text-decoration: underline !important;
-    opacity: 0.85 !important;
+snd-header {
+    position: relative;
+    z-index: 1000000;
+    flex-shrink: 0;
 }
 
 /* ============================================================
@@ -10608,90 +10429,15 @@ body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
 }
 
 /* ============================================================
-   Footer SND v1.1.0 Oficial
+   Footer SND v1.0.0 Oficial (Web Component <snd-footer>)
+   El componente oficial encapsula su estructura y estilos en Shadow DOM.
    ============================================================ */
-
-/* Asegurar que el footer SND empuje al fondo y se posicione siempre al final */
-footer.footer,
-footer.footer.sesna-footer {
-    width: 100% !important;
-    margin-top: auto !important;
-    flex-shrink: 0 !important;
-    position: relative !important;
-    z-index: 10 !important;
-    clear: both !important;
-}
-
-/* Retícula del contenedor del footer: base 1440px máximo centrado, padding acorde a SND v1.1.0 */
-.footer__contenedor {
-    width: 100% !important;
-    max-width: 1440px !important;
-    margin-inline: auto !important;
-    box-sizing: border-box !important;
-    padding: 32px 56px !important;
-}
-
-@media (max-width: 1023.98px) {
-    .footer__contenedor {
-        padding: 32px 24px !important;
-    }
-}
-
-@media (max-width: 698.98px) {
-    .footer__contenedor {
-        padding: 24px 16px !important;
-    }
-}
-
-/* Flujo vertical de títulos y contenido en los details del footer (¿Qué es gob.mx? y Enlaces) */
-.footer .mexico__details {
-    display: block !important;
-}
-
-.footer .mexico__details > summary {
-    display: block !important;
-}
-
-/* Todos los links del footer SND deben ser blancos — la regla global a:not(.btn)
-   del BLOQUE de tipografía los pinta de verde (#004D40) sin este override. */
-.sesna-footer a,
-.sesna-footer .footer__enlacesLink,
-.sesna-footer .footer__denuncia a,
-.sesna-footer .footer__summary,
-.sesna-footer .mexico__detailsp a {
-    color: var(--neutro100, #ffffff) !important;
-    text-decoration: none;
-}
-
-.sesna-footer .footer__enlacesLink:hover,
-.sesna-footer .footer__denuncia a:hover,
-.sesna-footer .mexico__detailsp a:hover {
-    text-decoration: underline;
-    opacity: 0.85;
-}
-
-/* Los iconos de redes sociales del footer: tamaño SND (24px) y color blanco oficial */
-.footer__redes__ul img,
-.footer__redes__ul svg,
-.footer__redes__ul .snd__icono,
-.footer__redes__ul i {
-    width: 24px !important;
-    height: 24px !important;
-    color: var(--neutro100, #ffffff) !important;
-    fill: currentColor !important;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    display: inline-block;
-}
-
-/* La imagen de la flor y logotipo 079 — SND v1.1.0 */
-.footer__079img,
-svg.footer__079img,
-i.footer__079img {
-    width: 32px !important;
-    height: 32px !important;
-    color: var(--neutro100, #ffffff) !important;
-    fill: currentColor !important;
-    filter: brightness(0) invert(1);
-    display: inline-block;
+snd-footer {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    clear: both;
 }

@@ -14,7 +14,7 @@
        externo para existir, así que lo sincronizamos nosotros mismos de
        forma síncrona e inmediata en vez de esperar a snd-js.js. */
     function sincronizarDetailsAbiertos() {
-        document.querySelectorAll('details.mexico__details').forEach(function(d) {
+        document.querySelectorAll('.sesna-subheader details.mexico__details').forEach(function(d) {
             if (window.innerWidth < 768) {
                 d.removeAttribute('open');
             } else {

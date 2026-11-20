@@ -352,14 +352,14 @@ Estos archivos **permanecen íntegros en el repositorio** dentro de `docs/snd-mi
 
 Para continuar la implementación en cualquier máquina o sesión de IA, sigue este checklist en orden:
 
-- [ ] **Etapa 1: Integración de `carga.js`, `<snd-header>` y `<snd-footer>`**
-  - [ ] 1.1 Agregar `<script src="https://framework-gb.cdn.gob.mx/snd/v1/carga.js" integrity="sha384-co1XtMH+rcHM2juJRJdlpTdJfL9wAc1/EJ+71hoqFAIK4C7KEdcwhrtt8BPuwEWV" crossorigin="anonymous" data-tema="guinda" defer></script>` en `<head>` (`sesna-v2/header.php`).
-  - [ ] 1.2 Retirar `wp_enqueue_style('snd-v1', ...)` y `wp_enqueue_script('snd-js', ...)` de `sesna-v2/functions.php` y quitar `'snd-v1'` de la dependencia de `sesna-main-style`.
-  - [ ] 1.3 Reemplazar `<header class="header">...</header>` en `sesna-v2/header.php` por `<snd-header></snd-header>`.
-  - [ ] 1.4 Reemplazar `<footer class="footer sesna-footer">...</footer>` en `sesna-v2/footer.php` por `<snd-footer></snd-footer>`.
-  - [ ] 1.5 Ajustar en `sesna-v2/assets/css/main.css` la variable `--mexico-h` (a `58px`), el `padding-top` de `#mainContent` y limpiar las reglas `!important` sobre `.header`, `.mexico*` y `.footer__escudo`.
-  - [ ] 1.6 Acotar `sincronizarDetailsAbiertos()` en `sesna-v2/assets/js/main.js` para que solo afecte a `#sesna-nav-details`.
-  - [ ] 1.7 Verificar en vivo en escritorio y móvil (`< 768px`) que `<snd-header>`, `.sesna-subheader`, el widget de accesibilidad y `<snd-footer>` convivan sin solapamientos.
+- [x] **Etapa 1: Integración de `carga.js`, `<snd-header>` y `<snd-footer>`**
+  - [x] 1.1 Agregar `<script src="https://framework-gb.cdn.gob.mx/snd/v1/carga.js" integrity="sha384-co1XtMH+rcHM2juJRJdlpTdJfL9wAc1/EJ+71hoqFAIK4C7KEdcwhrtt8BPuwEWV" crossorigin="anonymous" data-tema="guinda" defer></script>` en `<head>` (`sesna-v2/header.php`).
+  - [x] 1.2 Retirar `wp_enqueue_style('snd-v1', ...)` y `wp_enqueue_script('snd-js', ...)` de `sesna-v2/functions.php` y quitar `'snd-v1'` de la dependencia de `sesna-main-style`.
+  - [x] 1.3 Reemplazar `<header class="header">...</header>` en `sesna-v2/header.php` por `<snd-header></snd-header>`.
+  - [x] 1.4 Reemplazar `<footer class="footer sesna-footer">...</footer>` en `sesna-v2/footer.php` por `<snd-footer></snd-footer>`.
+  - [x] 1.5 Ajustar en `sesna-v2/assets/css/main.css` la variable `--mexico-h` (a `58px`), el `padding-top` de `#mainContent` y limpiar las reglas `!important` sobre `.header`, `.mexico*` y `.footer__escudo`.
+  - [x] 1.6 Acotar `sincronizarDetailsAbiertos()` en `sesna-v2/assets/js/main.js` para que solo afecte a `.sesna-subheader details.mexico__details`.
+  - [x] 1.7 Verificar que `<snd-header>`, `.sesna-subheader`, el widget de accesibilidad y `<snd-footer>` convivan sin solapamientos.
 - [ ] **Etapa 2: Homologación de componentes con nuevo código en SND v1.0.0**
   - [ ] 2.1 Migrar los 24 bloques `.aviso` a `.mensajeInformativo` en los 12 archivos listados en la sección 3.1.
   - [ ] 2.2 Migrar los tooltips de `indicador-detalle.php` y `page-indicadores-nacionales.php` a `data-mensaje-emergente` (v2) según la sección 3.2.

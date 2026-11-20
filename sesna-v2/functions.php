@@ -57,26 +57,20 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
 
 
 /* ============================================================
-   Enqueue scripts y estilos — SND v1 (migración desde Gráfica Base v3)
-   Estrategia progresiva:
-     1. v3 CSS se mantiene como base Bootstrap (grid, modales, carousel)
-     2. SND v1 CSS carga después — sus tokens/componentes toman prioridad
-     3. v3 JS se mantiene para Bootstrap JS (modales, dropdown, carousel)
-     4. SND v1 JS se agrega para IBM Carbon Icons
+   Enqueue scripts y estilos — SND v1.0.0
+   Nota: El cargador oficial carga.js (en header.php) inyecta con
+   prepend() la hoja snd-guinda.css y carga snd.js, snd-header.js y
+   snd-footer.js automáticamente con verificación SRI.
    ============================================================ */
 function sesna_theme_scripts()
 {
-	// SND v1.1.0 — Sistema Nacional de Diseño Oficial (Gobierno de México)
-	wp_enqueue_style('snd-v1', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd-guinda.css', array(), null);
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
-	// Hoja principal del tema — carga al último, después de SND
-	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array('snd-v1'), filemtime( get_template_directory() . '/assets/css/main.css' ));
+	// Hoja principal del tema — carga después de snd-guinda.css (inyectada al inicio de <head> por carga.js)
+	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ));
 	// Utilidades propias del tema — al final de la cascada para ganar a los componentes de main.css
 	wp_enqueue_style('sesna-utilidades', get_template_directory_uri() . '/assets/css/utilidades-tema.css', array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/utilidades-tema.css' ));
 
-	// SND v1.1.0 JS — procesa i.snd__icono / i.snd__pictograma (IBM Carbon Design System icons)
-	wp_enqueue_script('snd-js', 'https://framework-gb.cdn.gob.mx/snd/v1.1.0/snd.js', array(), null, true);
 	// Barra de accesibilidad GOB.mx — CDN oficial (requiere jQuery global $)
 	wp_enqueue_script('gobmx-accesibilidad-js', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/js/gobmx-accesibilidad.min.js', array('jquery'), null, true);
 	wp_add_inline_script('jquery-core', 'window.$ = window.$ || window.jQuery;', 'after');

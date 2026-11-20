@@ -7,6 +7,11 @@
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
   <?php wp_head(); ?>
+  <script src="https://framework-gb.cdn.gob.mx/snd/v1/carga.js"
+    integrity="sha384-co1XtMH+rcHM2juJRJdlpTdJfL9wAc1/EJ+71hoqFAIK4C7KEdcwhrtt8BPuwEWV"
+    crossorigin="anonymous"
+    data-tema="guinda"
+    defer></script>
   <script>window.$ = window.$ || window.jQuery;</script>
 </head>
 
@@ -17,33 +22,8 @@
     <div class="sesna-spinner"></div>
   </div>
 
-  <!--
-    Header institucional SND v1.1.0 — Estructura oficial del Sistema Nacional de Diseño
-    Conforme a la Sección 4.7 del SND: .header > .irContent + .mexico > .mexico__contenedor
-  -->
-  <header class="header">
-    <!-- Skip link — SND: clase irContent, apunta a #mainContent (WCAG 2.4.1) -->
-    <a href="#mainContent" class="irContent">Ir al contenido principal</a>
-
-    <section class="mexico">
-      <div class="mexico__contenedor">
-        <div class="mexico__escudo">
-          <a href="https://www.gob.mx/" class="mexico__aescudo" aria-label="Ir a la página de inicio del Gobierno de México">
-            <i class="snd__icono snd-gobierno-mexico mexico__img color--origen" aria-hidden="true"></i>
-          </a>
-        </div>
-        <div class="mexico__menu">
-          <details class="mexico__details" open>
-            <summary class="mexico__summary"><span class="mexico__span">Menú</span></summary>
-            <div class="mexico__detailsCont">
-              <a href="https://www.gob.mx/tramites" class="mexico__a">Trámites</a>
-              <a href="https://www.gob.mx/gobierno" class="mexico__a">Gobierno</a>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-  </header>
+  <!-- Header institucional SND v1.0.0 (Web Component oficial) -->
+  <snd-header></snd-header>
 
   <!--
     Barra institucional SESNA — SND v1
