@@ -405,12 +405,12 @@ Para continuar la implementación en cualquier máquina o sesión de IA, sigue e
   - [x] 1.5 Ajustar en `sesna-v2/assets/css/main.css` la variable `--mexico-h` (a `58px`), el `padding-top` de `#mainContent` y limpiar las reglas `!important` sobre `.header`, `.mexico*` y `.footer__escudo`.
   - [x] 1.6 Acotar `sincronizarDetailsAbiertos()` en `sesna-v2/assets/js/main.js` para que solo afecte a `.sesna-subheader details.mexico__details`.
   - [x] 1.7 Verificar que `<snd-header>`, `.sesna-subheader`, el widget de accesibilidad y `<snd-footer>` convivan sin solapamientos.
-- [ ] **Etapa 2: Homologación de componentes con nuevo código en SND v1.0.0**
-  - [ ] 2.1 Migrar los 24 bloques `.aviso` a `.mensajeInformativo` en los 12 archivos listados en la sección 3.1.
-  - [ ] 2.2 Migrar los tooltips de `indicador-detalle.php` y `page-indicadores-nacionales.php` a `data-mensaje-emergente` (v2) según la sección 3.2.
-  - [ ] 2.3 Migrar los 13 `<hr>` personalizados a `<hr class="divisor">` en los 9 archivos listados en la sección 3.3.
-  - [ ] 2.4 Migrar los badges de estatus/categoría a `.insignia-borde` / `.insignia-solido` en los archivos listados en la sección 3.4.
-  - [ ] 2.5 Migrar los chips de filtrado de `page-riesgos-inteligencia.php` y `section-entradas.php` a `.pildora__grupo` / `.pildora` según la sección 3.5.
+- [x] **Etapa 2: Homologación de componentes con nuevo código en SND v1.0.0**
+  - [x] 2.1 Migrar los 24 bloques `.aviso` a `.mensajeInformativo` en los 12 archivos listados en la sección 3.1.
+  - [x] 2.2 Migrar los tooltips de `indicador-detalle.php` y `page-indicadores-nacionales.php` a `data-mensaje-emergente` (v2) según la sección 3.2.
+  - [x] 2.3 Migrar los 13 `<hr>` personalizados a `<hr class="divisor">` en los 9 archivos listados en la sección 3.3.
+  - [x] 2.4 Migrar los badges de estatus/categoría a `.insignia-borde` / `.insignia-solido` en los archivos listados en la sección 3.4.
+  - [x] 2.5 Migrar los chips de filtrado de `page-riesgos-inteligencia.php` y `section-entradas.php` a `.pildora__grupo` / `.pildora` según la sección 3.5.
 - [ ] **Etapa 3: Refactorización Arquitectónica, Optimización y Escalabilidad**
   - [ ] 3.1 Modularizar `sesna-v2/functions.php` en `sesna-v2/inc/` y aislar la carga de `inc/admin/*` bajo `is_admin()` (sección 6.1).
   - [ ] 3.2 Segmentar `sesna-v2/assets/css/main.css` en estilos base y hojas por página (`assets/css/pages/*`) encoladas condicionalmente (sección 6.2).

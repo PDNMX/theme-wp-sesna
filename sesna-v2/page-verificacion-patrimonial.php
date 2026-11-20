@@ -182,7 +182,7 @@ get_header();
                         </div>
                     </div>
                     <div class="cp-doc-info">
-                        <span class="cp-doc-badge"><?php echo esc_html($doc['badge']); ?></span>
+                        <span class="insignia-borde insignia-guinda mb--4"><?php echo esc_html($doc['badge']); ?></span>
                         <h3 class="cp-doc-titulo"><?php echo esc_html($doc['titulo']); ?></h3>
                         <p class="cp-doc-desc"><?php echo esc_html($doc['descripcion']); ?></p>
                         <div class="cp-doc-meta">

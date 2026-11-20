@@ -186,7 +186,7 @@ $cf_keys = array_keys( $cf_columnas );
                                                             <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
                                                         </button>
                                                     <?php else : ?>
-                                                        <span class="cf-status-badge">Próximamente</span>
+                                                        <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
@@ -198,13 +198,8 @@ $cf_keys = array_keys( $cf_columnas );
                         </div>
 
                         <!-- Nota informativa al pie de cada Card -->
-                        <div class="aviso aviso--info mt--auto mt--16" role="region" aria-label="Información">
-                            <i class="snd__icono snd-information aviso__icon icono--20 color--azul500" aria-hidden="true"></i>
-                            <div class="aviso__cont">
-                                <div class="aviso__txt">
-                                    <p class="b1r color--azul500 mb--0"><?php echo esc_html( $col['nota'] ); ?></p>
-                                </div>
-                            </div>
+                        <div id="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--auto mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>">
+                            <?php echo esc_html( $col['nota'] ); ?>
                         </div>
 
                     </div>
@@ -258,7 +253,7 @@ $cf_keys = array_keys( $cf_columnas );
                                                     <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
                                                 </button>
                                             <?php else : ?>
-                                                <span class="cf-status-badge">Próximamente</span>
+                                                <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -268,13 +263,8 @@ $cf_keys = array_keys( $cf_columnas );
                     </div>
                     <?php endforeach; ?>
 
-                    <div class="aviso aviso--info mt--20" role="region" aria-label="Información">
-                        <i class="snd__icono snd-information aviso__icon icono--20 color--azul500" aria-hidden="true"></i>
-                        <div class="aviso__cont">
-                            <div class="aviso__txt">
-                                <p class="b1r color--azul500 mb--0"><?php echo esc_html( $col['nota'] ); ?></p>
-                            </div>
-                        </div>
+                    <div id="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>">
+                        <?php echo esc_html( $col['nota'] ); ?>
                     </div>
 
                 </div>
@@ -284,14 +274,9 @@ $cf_keys = array_keys( $cf_columnas );
 
     </div>
 
-    <!-- Nota al pie — 4.16 Mensajes informativos (Informativo) -->
-    <div class="aviso aviso--info mt--32" role="note">
-        <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-        <div class="aviso__cont">
-            <div class="aviso__txt">
-                <p class="b1r color--azul500 mb--0">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
-            </div>
-        </div>
+    <!-- Nota al pie — Mensajes informativos SND v1.0.0 (Informativo) -->
+    <div id="cf-footer-nota-msg" class="mensajeInformativo mensajeInformativo--informativo mt--32" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-footer-nota-msg">
+        La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.
     </div>
 
 </div>

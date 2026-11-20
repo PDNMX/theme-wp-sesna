@@ -81,7 +81,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                     </div>
                     <div class="muestra--flex flex-direction-column flex-grow">
                         <div class="mb--8">
-                            <span class="in-detalle-badge sdsb">Indicador <?php echo esc_html( $n ); ?></span>
+                            <span class="insignia-solido insignia-guinda in-detalle-badge">Indicador <?php echo esc_html( $n ); ?></span>
                         </div>
                         <h3 class="sh0b mb--8" style="color: var(--oe-color, <?php echo esc_attr( $ind['color'] ); ?>);">¿Qué mide?</h3>
                         <p class="b1r tx-consulta-card__desc texto--justify mb--0"><?php echo esc_html( $ind['que_mide'] ); ?></p>
@@ -118,15 +118,14 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                                     <div class="in-res-card__metric">
                                         <div class="in-res-card__label-row">
                                             <span class="b1r color--neutro800"><?php echo esc_html( $kpi['label'] ); ?></span>
-                                            <div class="tooltip in-kpi__tooltip">
-                                                <button type="button" class="tooltip__boton in-kpi__info-btn" aria-label="Definición de <?php echo esc_attr( $kpi['label'] ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $pid . '-tt-' . $key ); ?>" aria-describedby="<?php echo esc_attr( $pid . '-tt-desc-' . $key ); ?>" data-tooltip-trigger>
-                                                    <i class="snd__icono snd-information icono--16" aria-hidden="true"></i>
-                                                </button>
-                                                <div id="<?php echo esc_attr( $pid . '-tt-' . $key ); ?>" class="tooltip__burbuja tooltip__burbuja--abajo-izquierda tooltip__burbuja--mediano" role="tooltip" aria-hidden="true">
-                                                    <?php echo esc_html( $ind['resultados'][ $key ]['desc'] ); ?>
-                                                </div>
-                                                <span id="<?php echo esc_attr( $pid . '-tt-desc-' . $key ); ?>" class="accesibilidadLector"><?php echo esc_html( $ind['resultados'][ $key ]['desc'] ); ?></span>
-                                            </div>
+                                            <button type="button"
+                                                    class="mensajeEmergente__boton in-kpi__info-btn"
+                                                    aria-label="Definición de <?php echo esc_attr( $kpi['label'] ); ?>"
+                                                    data-mensaje-emergente="<?php echo esc_attr( $ind['resultados'][ $key ]['desc'] ); ?>"
+                                                    data-mensaje-emergente-posicion="abajo-izquierda"
+                                                    data-mensaje-emergente-ancho="mediano">
+                                                <i class="snd__icono snd-information icono--16" aria-hidden="true"></i>
+                                            </button>
                                         </div>
                                         <div class="sh0b color--pguinda600 mb--0 in-res-card__num"><?php echo esc_html( $ind['resultados'][ $key ]['valor'] ); ?>%</div>
                                     </div>

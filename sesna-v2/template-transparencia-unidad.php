@@ -52,7 +52,7 @@ get_header();
                                 La Unidad de Transparencia es el área responsable de garantizar el derecho de acceso a la información pública y la protección de datos personales en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                             </p>
 
-                            <hr class="tx-unidad-divider mb--24">
+                            <hr class="divisor tx-unidad-divider mb--24" />
 
                             <!-- Lista de Datos -->
                             <div class="tx-unidad-info-list">

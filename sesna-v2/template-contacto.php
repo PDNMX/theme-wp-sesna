@@ -49,7 +49,7 @@ get_header();
                                 Conoce los medios oficiales de contacto de la Secretaría Ejecutiva del Sistema Nacional Anticorrupción, así como la ubicación de sus oficinas y los horarios de atención para asuntos relacionados con el ejercicio de sus atribuciones.
                             </p>
 
-                            <hr class="tx-unidad-divider mb--24">
+                            <hr class="divisor tx-unidad-divider mb--24" />
 
                             <!-- Lista de Datos -->
                             <div class="tx-unidad-info-list">

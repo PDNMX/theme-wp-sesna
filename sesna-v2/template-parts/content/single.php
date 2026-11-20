@@ -69,7 +69,7 @@ $prensa_title  = $posts_page_id ? get_the_title($posts_page_id) : 'Noticias y ac
                         </div>
                     <?php endif; ?>
 
-                    <hr class="sesna-single-divider my--32">
+                    <hr class="divisor sesna-single-divider my--32" />
 
                     <!-- Compartir -->
                     <div class="sesna-single-share">

@@ -119,6 +119,12 @@
                     $('#sna-entradas-toggle-cats-icon').removeClass('snd-chevron--down').addClass('snd-chevron--up');
                 }
             }
+            /* Sincronizar aria-pressed después del listener delegado de snd.js sobre .pildora[aria-pressed] */
+            setTimeout(function () {
+                $('.sna-entradas-tab').each(function () {
+                    $(this).attr('aria-pressed', $(this).hasClass('active') ? 'true' : 'false');
+                });
+            }, 0);
             $('#sna-entradas-filter-topic').val(activeFamilia);
 
             update_clear_button();

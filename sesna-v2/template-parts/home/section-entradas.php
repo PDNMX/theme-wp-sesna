@@ -107,8 +107,8 @@ $sna_meses = [
                 </div>
             </div>
 
-            <!-- Divisor horizontal -->
-            <hr class="sna-entradas-panel-divider" />
+            <!-- Divisor horizontal SND v1.0.0 -->
+            <hr class="divisor sna-entradas-panel-divider my--20" />
 
             <!-- Fila 2: Categorías dinámicas de WordPress — Select / Dropatom en Móvil (< 640px) y ChipAccion en Tablet/Desktop (>= 640px) -->
             <div class="sna-entradas-topics-header mb--12">
@@ -131,9 +131,9 @@ $sna_meses = [
                 <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
             </div>
 
-            <!-- Chips de Categorías en Tablet/Desktop (>= 640px) -->
+            <!-- Píldoras de Categorías en Tablet/Desktop (>= 640px) — SND v1.0.0 -->
             <div class="sna-entradas-tabs-desktop muestra--ninguno muestra--bloque--md" role="region" aria-label="Categorías de entradas">
-                <div class="sna-entradas-tabs" id="sna-entradas-tabs">
+                <div class="pildora__grupo sna-entradas-tabs" id="sna-entradas-tabs" role="group" aria-label="Filtrar por categoría">
                     <?php
                     $idx = 0;
                     foreach ($sna_familias as $key => $familia) :
@@ -144,7 +144,7 @@ $sna_meses = [
                         $extra_cls = $is_extra ? ' sna-entradas-tab--extra' . ($sna_extra_expanded ? '' : ' muestra--ninguno') : '';
                     ?>
                         <button type="button"
-                                class="sna-entradas-tab<?php echo $is_active ? ' active' : ''; ?><?php echo $extra_cls; ?>"
+                                class="pildora sna-entradas-tab<?php echo $is_active ? ' active' : ''; ?><?php echo $extra_cls; ?>"
                                 id="tab-<?php echo esc_attr($key); ?>"
                                 aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
                                 data-familia="<?php echo esc_attr($key); ?>">

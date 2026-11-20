@@ -187,23 +187,15 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                 </div>
 
                                 <?php if ( ! empty( $grupo['nota'] ) ) : ?>
-                                <div class="aviso aviso--info mt--20" role="region" aria-label="Información">
-                                    <i class="snd__icono snd-information aviso__icon icono--20 color--azul500" aria-hidden="true"></i>
-                                    <div class="aviso__cont">
-                                        <div class="aviso__txt">
-                                            <p class="b1r color--azul500 mb--0"><?php echo esc_html( $grupo['nota'] ); ?></p>
-                                        </div>
-                                    </div>
+                                <div id="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>">
+                                    <?php echo esc_html( $grupo['nota'] ); ?>
                                 </div>
                                 <?php endif; ?>
 
-                                <!-- Estado vacío de búsqueda SND 4.16 -->
-                                <div class="aviso aviso--info mt--16 muestra--ninguno ad-doc-empty" role="status" aria-live="polite">
-                                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                                    <div class="aviso__cont">
-                                        <div class="aviso__txt">
-                                            <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con la búsqueda.</p>
-                                        </div>
+                                <!-- Estado vacío de búsqueda — Mensajes informativos SND v1.0.0 -->
+                                <div role="status">
+                                    <div id="ad-empty-msg-<?php echo esc_attr( $p_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno ad-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-empty-msg-<?php echo esc_attr( $p_i ); ?>">
+                                        No se encontraron documentos que coincidan con la búsqueda.
                                     </div>
                                 </div>
 

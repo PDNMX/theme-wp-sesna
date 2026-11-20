@@ -135,13 +135,10 @@ $documentos = sesna_get_datos_personales_docs();
                 <?php endforeach; ?>
             </div>
 
-            <!-- Estado vacío Documentos — 4.16 Mensajes informativos (Informativo) -->
-            <div class="aviso aviso--info mt--16 muestra--ninguno" id="documentos-empty-state" role="status" aria-live="polite">
-                <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                <div class="aviso__cont">
-                    <div class="aviso__txt">
-                        <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con los filtros seleccionados.</p>
-                    </div>
+            <!-- Estado vacío Documentos — Mensajes informativos SND v1.0.0 (Informativo) -->
+            <div role="status">
+                <div id="documentos-empty-state" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="documentos-empty-state">
+                    No se encontraron documentos que coincidan con los filtros seleccionados.
                 </div>
             </div>
 

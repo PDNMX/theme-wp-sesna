@@ -221,7 +221,7 @@ if ( empty( $fin_default_context ) ) {
                 </div>
 
                 <!-- Divider SND entre secciones -->
-                <hr class="fin-sidebar-divider my--20">
+                <hr class="divisor fin-sidebar-divider my--20" />
 
                 <!-- Sección B: Dictámenes de Estados Financieros y Presupuestarios (ListItems) -->
                 <div class="fin-sidebar-section">
@@ -304,13 +304,10 @@ if ( empty( $fin_default_context ) ) {
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
-                                        <!-- Estado vacío SND 4.16 Mensajes informativos (Informativo) -->
-                                        <div class="aviso aviso--info mt--16 muestra--ninguno fin-doc-empty" role="status" aria-live="polite">
-                                            <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                                            <div class="aviso__cont">
-                                                <div class="aviso__txt">
-                                                    <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con la búsqueda.</p>
-                                                </div>
+                                        <!-- Estado vacío — Mensajes informativos SND v1.0.0 (Informativo) -->
+                                        <div role="status">
+                                            <div id="fin-empty-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno fin-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-empty-<?php echo esc_attr( $key ); ?>">
+                                                No se encontraron documentos que coincidan con la búsqueda.
                                             </div>
                                         </div>
                                     </div>
@@ -344,22 +341,14 @@ if ( empty( $fin_default_context ) ) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- Mensaje informativo SND (4.16 Mensajes informativos — Informativo) -->
-                            <div class="aviso aviso--info mt--16" role="status">
-                                <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                                <div class="aviso__cont">
-                                    <div class="aviso__txt">
-                                        <p class="b2r color--azul500 mb--0">Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.</p>
-                                    </div>
-                                </div>
+                            <!-- Mensaje informativo SND v1.0.0 (Informativo) -->
+                            <div id="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>">
+                                Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.
                             </div>
                             <!-- Estado vacío de búsqueda -->
-                            <div class="aviso aviso--info mt--16 muestra--ninguno fin-doc-empty" role="status" aria-live="polite">
-                                <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                                <div class="aviso__cont">
-                                    <div class="aviso__txt">
-                                        <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con la búsqueda.</p>
-                                    </div>
+                            <div role="status">
+                                <div id="fin-empty-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno fin-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-empty-<?php echo esc_attr( $key ); ?>">
+                                    No se encontraron documentos que coincidan con la búsqueda.
                                 </div>
                             </div>
                         </div>
@@ -371,14 +360,9 @@ if ( empty( $fin_default_context ) ) {
 
     </div>
 
-    <!-- ── Nota informativa al pie SND (4.16 Mensajes informativos — Informativo) ── -->
-    <div class="aviso aviso--info mt--32" role="note">
-        <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-        <div class="aviso__cont">
-            <div class="aviso__txt">
-                <p class="b1r color--azul500 mb--0">La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.</p>
-            </div>
-        </div>
+    <!-- ── Nota informativa al pie SND v1.0.0 (Informativo) ── -->
+    <div id="fin-footer-nota-msg" class="mensajeInformativo mensajeInformativo--informativo mt--32" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-footer-nota-msg">
+        La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.
     </div>
 
     <!-- ── Drawer Móvil (Bottom Sheet): Selección de Período SND v1.1.0 ────── -->
@@ -453,7 +437,7 @@ if ( empty( $fin_default_context ) ) {
                 </div>
 
                 <!-- Divider en Drawer -->
-                <hr class="fin-sidebar-divider my--16">
+                <hr class="divisor fin-sidebar-divider my--16" />
 
                 <!-- Sección B en Drawer: Dictámenes -->
                 <div>

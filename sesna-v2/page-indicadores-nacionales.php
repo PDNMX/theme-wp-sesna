@@ -689,45 +689,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    document.addEventListener('click', function(e) {
-        var trigger = e.target.closest('[data-tooltip-trigger], .tooltip__boton, .in-kpi__info-btn');
-        if (trigger) {
-            e.preventDefault();
-            e.stopPropagation();
-            var parentTooltip = trigger.closest('.tooltip');
-            if (!parentTooltip) return;
-            var isOpen = parentTooltip.classList.contains('tooltip--mostrar') || parentTooltip.classList.contains('is-active');
-            document.querySelectorAll('.tooltip--mostrar, .tooltip.is-active').forEach(function(tt) {
-                tt.classList.remove('tooltip--mostrar', 'is-active');
-                var b = tt.querySelector('[data-tooltip-trigger], .tooltip__boton');
-                if (b) b.setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-                parentTooltip.classList.add('tooltip--mostrar', 'is-active');
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-            return;
-        }
-
-        if (!e.target.closest('.tooltip')) {
-            document.querySelectorAll('.tooltip--mostrar, .tooltip.is-active').forEach(function(tt) {
-                tt.classList.remove('tooltip--mostrar', 'is-active');
-                var b = tt.querySelector('[data-tooltip-trigger], .tooltip__boton');
-                if (b) b.setAttribute('aria-expanded', 'false');
-            });
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.tooltip--mostrar, .tooltip.is-active').forEach(function(tt) {
-                tt.classList.remove('tooltip--mostrar', 'is-active');
-                var b = tt.querySelector('[data-tooltip-trigger], .tooltip__boton');
-                if (b) b.setAttribute('aria-expanded', 'false');
-            });
-        }
-    });
-
     window.addEventListener('scroll', updateFloatingBtn, { passive: true });
     window.addEventListener('resize', updateFloatingBtn, { passive: true });
     updateFloatingBtn();

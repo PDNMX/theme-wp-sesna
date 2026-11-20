@@ -235,7 +235,7 @@ if (empty($fichero_anios)) {
 
                 </div>
 
-                <hr class="my-4" style="border-color:#f0e8ec;">
+                <hr class="divisor my--24" />
 
                 <!-- Donut 4 ejes (mismo diseño que Diseño PNA: pna-wheel) -->
                 <div class="reticulaGrid__12 align-items-center justify-content-center my-4 position-relative">
@@ -569,13 +569,10 @@ if (empty($fichero_anios)) {
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Estado vacío -->
-                <div class="aviso aviso--info mt--16<?php echo empty($fichero_list) ? '' : ' muestra--ninguno'; ?>" id="fichero-empty-state" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron fichas que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="fichero-empty-state" class="mensajeInformativo mensajeInformativo--informativo mt--16<?php echo empty($fichero_list) ? '' : ' muestra--ninguno'; ?>" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fichero-empty-state">
+                        No se encontraron fichas que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 

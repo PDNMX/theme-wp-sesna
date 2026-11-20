@@ -166,13 +166,10 @@ rsort($oc_anios_organo);
                     <?php foreach ($oc_sesiones_comite as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
                 </div>
 
-                <!-- Estado vacío Comité — 4.16 Mensajes informativos (Informativo) -->
-                <div class="aviso aviso--info mt--16 <?= empty($oc_sesiones_comite) ? '' : 'muestra--ninguno' ?>" id="sesiones-empty-comite" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron sesiones que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío Comité — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="sesiones-empty-comite" class="mensajeInformativo mensajeInformativo--informativo mt--16 <?= empty($oc_sesiones_comite) ? '' : 'muestra--ninguno' ?>" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sesiones-empty-comite">
+                        No se encontraron sesiones que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 
@@ -243,13 +240,10 @@ rsort($oc_anios_organo);
                     <?php foreach ($oc_sesiones_comision as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
                 </div>
 
-                <!-- Estado vacío Comisión — 4.16 Mensajes informativos (Informativo) -->
-                <div class="aviso aviso--info mt--16 <?= empty($oc_sesiones_comision) ? '' : 'muestra--ninguno' ?>" id="sesiones-empty-comision" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron sesiones que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío Comisión — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="sesiones-empty-comision" class="mensajeInformativo mensajeInformativo--informativo mt--16 <?= empty($oc_sesiones_comision) ? '' : 'muestra--ninguno' ?>" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sesiones-empty-comision">
+                        No se encontraron sesiones que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 
@@ -319,13 +313,10 @@ rsort($oc_anios_organo);
                     <?php foreach ($oc_sesiones_organo as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
                 </div>
 
-                <!-- Estado vacío Órgano — 4.16 Mensajes informativos (Informativo) -->
-                <div class="aviso aviso--info mt--16 <?= empty($oc_sesiones_organo) ? '' : 'muestra--ninguno' ?>" id="sesiones-empty-organo" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron sesiones que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío Órgano — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="sesiones-empty-organo" class="mensajeInformativo mensajeInformativo--informativo mt--16 <?= empty($oc_sesiones_organo) ? '' : 'muestra--ninguno' ?>" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sesiones-empty-organo">
+                        No se encontraron sesiones que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 
@@ -350,13 +341,8 @@ rsort($oc_anios_organo);
                 <div class="tx-comite-card-list">
                     <?php foreach ($oc_recomendaciones as $item) : sesna_render_oc_lista_directa_item($item); endforeach; ?>
                     <?php if (empty($oc_recomendaciones)) : ?>
-                        <div class="aviso aviso--info mt--16" role="status" aria-live="polite">
-                            <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                            <div class="aviso__cont">
-                                <div class="aviso__txt">
-                                    <p class="b1r color--azul500 mb--0">Aún no hay recomendaciones registradas.</p>
-                                </div>
-                            </div>
+                        <div id="recomendaciones-empty-msg" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="recomendaciones-empty-msg">
+                            Aún no hay recomendaciones registradas.
                         </div>
                     <?php endif; ?>
                 </div>
@@ -375,13 +361,8 @@ rsort($oc_anios_organo);
                 <div class="tx-comite-card-list">
                     <?php foreach ($oc_exhortos as $item) : sesna_render_oc_lista_directa_item($item); endforeach; ?>
                     <?php if (empty($oc_exhortos)) : ?>
-                        <div class="aviso aviso--info mt--16" role="status" aria-live="polite">
-                            <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                            <div class="aviso__cont">
-                                <div class="aviso__txt">
-                                    <p class="b1r color--azul500 mb--0">Aún no hay exhortos registrados.</p>
-                                </div>
-                            </div>
+                        <div id="exhortos-empty-msg" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="exhortos-empty-msg">
+                            Aún no hay exhortos registrados.
                         </div>
                     <?php endif; ?>
                 </div>

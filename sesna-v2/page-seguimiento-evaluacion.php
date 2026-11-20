@@ -471,14 +471,9 @@ get_header();
 
                 </div>
 
-                <!-- Indicador de Interacción al Pie (SND 4.16 Mensajes informativos) -->
-                <div class="aviso aviso--info mt--24" role="note">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">Da clic en cada nivel para obtener más información.</p>
-                        </div>
-                    </div>
+                <!-- Indicador de Interacción al Pie (Mensajes informativos SND v1.0.0) -->
+                <div id="sise-niveles-msg" class="mensajeInformativo mensajeInformativo--informativo mt--24" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sise-niveles-msg">
+                    Da clic en cada nivel para obtener más información.
                 </div>
 
             </div>

@@ -714,7 +714,7 @@ function sna_get_home_entries_by_family()
 	if ($familia_key !== '' && $familia_key !== 'todas') {
 		$term_ids = sna_get_term_ids_for_familia($familia_key);
 		if (empty($term_ids)) {
-			echo '<div class="columna__12"><div class="aviso aviso--info mt--16" role="status" aria-live="polite"><i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i><div class="aviso__cont"><div class="aviso__txt"><p class="b1r color--azul500 mb--0">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</p></div></div></div></div>';
+			echo '<div class="columna__12" role="status"><div id="sna-entradas-empty-msg" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sna-entradas-empty-msg">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</div></div>';
 			echo '<span class="muestra--ninguno" data-has-more="0"></span>';
 			wp_die();
 		}
@@ -742,7 +742,7 @@ function sna_get_home_entries_by_family()
 		}
 		wp_reset_postdata();
 	} elseif ($page === 0) {
-		echo '<div class="columna__12"><div class="aviso aviso--info mt--16" role="status" aria-live="polite"><i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i><div class="aviso__cont"><div class="aviso__txt"><p class="b1r color--azul500 mb--0">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</p></div></div></div></div>';
+		echo '<div class="columna__12" role="status"><div id="sna-entradas-empty-msg" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sna-entradas-empty-msg">No se encontraron notas o actividades que coincidan con los filtros seleccionados.</div></div>';
 	}
 
 	$has_more = ($query->found_posts > (($page + 1) * $posts_per_page)) ? 1 : 0;
@@ -3732,7 +3732,7 @@ function sesna_render_recurso_card($post) {
 
         <!-- Info del documento -->
         <div class="cp-doc-info">
-            <span class="cp-doc-badge b1r color--pguinda600"><?php echo esc_html($badge); ?></span>
+            <span class="insignia-borde insignia-guinda mb--4"><?php echo esc_html($badge); ?></span>
             <h3 class="cp-doc-titulo sh1b"><?php echo esc_html($titulo); ?></h3>
             <p class="cp-doc-desc b1r"><?php echo esc_html($descripcion); ?></p>
             <div class="cp-doc-meta b1r">

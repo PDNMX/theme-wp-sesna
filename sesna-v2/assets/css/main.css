@@ -5244,18 +5244,6 @@ nav.navbar .container {
     padding-bottom: 16px;
     border-bottom: 1px solid var(--neutro400);
 }
-/* 4.16 Mensajes informativos (Tipo Informativo) en paneles de comité/datos/entradas */
-.tx-comite-panel .aviso.aviso--info,
-.sna-entradas-panel .aviso.aviso--info {
-    padding: 12px 16px;
-    gap: 12px;
-    align-items: center;
-}
-.tx-comite-panel .aviso .aviso__icon,
-.sna-entradas-panel .aviso .aviso__icon {
-    flex-shrink: 0;
-}
-
 /* Tarjeta de Sesión/Resolución — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
 .tx-comite-card {
     display: flex;
@@ -7833,13 +7821,8 @@ select.tx-comite-filter-control:disabled {
 }
 
 .page-indicador-detalle .in-detalle-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 12px;
-    border-radius: 999px;
     background-color: var(--oe-color, #9B2247);
     color: #ffffff;
-    letter-spacing: 0.02em;
 }
 
 .page-indicador-detalle .in-detalle-hero-standalone {
@@ -8207,18 +8190,8 @@ select.tx-comite-filter-control:disabled {
     margin-bottom: 4px !important;
 }
 
-.page-indicadores-nacionales .in-kpi__tooltip,
-.page-indicador-detalle .in-kpi__tooltip {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    flex-shrink: 0 !important;
-    line-height: 1 !important;
-}
-
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton,
+.page-indicadores-nacionales .mensajeEmergente__boton.in-kpi__info-btn,
+.page-indicador-detalle .mensajeEmergente__boton.in-kpi__info-btn,
 .page-indicadores-nacionales .in-kpi__info-btn,
 .page-indicador-detalle .in-kpi__info-btn {
     margin: 0 !important;
@@ -8241,29 +8214,25 @@ select.tx-comite-filter-control:disabled {
     transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease !important;
 }
 
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton:hover,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton:hover,
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton:focus-visible,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton:focus-visible,
-.page-indicadores-nacionales .in-kpi__tooltip.tooltip--mostrar .tooltip__boton,
-.page-indicador-detalle .in-kpi__tooltip.tooltip--mostrar .tooltip__boton,
-.page-indicadores-nacionales .in-kpi__tooltip.is-active .tooltip__boton,
-.page-indicador-detalle .in-kpi__tooltip.is-active .tooltip__boton,
-.page-indicadores-nacionales .in-kpi__tooltip .in-kpi__info-btn[aria-expanded="true"],
-.page-indicador-detalle .in-kpi__tooltip .in-kpi__info-btn[aria-expanded="true"] {
+.page-indicadores-nacionales .in-kpi__info-btn:hover,
+.page-indicador-detalle .in-kpi__info-btn:hover,
+.page-indicadores-nacionales .in-kpi__info-btn:focus-visible,
+.page-indicador-detalle .in-kpi__info-btn:focus-visible,
+.page-indicadores-nacionales .in-kpi__info-btn[aria-expanded="true"],
+.page-indicador-detalle .in-kpi__info-btn[aria-expanded="true"] {
     border-color: var(--principal, #611232) !important;
     color: var(--principal, #611232) !important;
     background-color: var(--pguinda100, #F3E4E9) !important;
     outline: none !important;
 }
 
-/* Forzar tamaño y visibilidad del ícono i / svg dentro del botón del tooltip */
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton i,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton i,
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton svg,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton svg,
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton .snd__icono,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton .snd__icono {
+/* Forzar tamaño y visibilidad del ícono i / svg dentro del botón del mensaje emergente */
+.page-indicadores-nacionales .in-kpi__info-btn i,
+.page-indicador-detalle .in-kpi__info-btn i,
+.page-indicadores-nacionales .in-kpi__info-btn svg,
+.page-indicador-detalle .in-kpi__info-btn svg,
+.page-indicadores-nacionales .in-kpi__info-btn .snd__icono,
+.page-indicador-detalle .in-kpi__info-btn .snd__icono {
     width: 14px !important;
     height: 14px !important;
     min-width: 14px !important;
@@ -8275,87 +8244,6 @@ select.tx-comite-filter-control:disabled {
     fill: currentColor !important;
     color: inherit !important;
     pointer-events: none !important;
-}
-
-/* Respaldo visual si el font/icono no carga o antes del reemplazo svg */
-.page-indicadores-nacionales .in-kpi__tooltip .tooltip__boton i.snd-information:empty::before,
-.page-indicador-detalle .in-kpi__tooltip .tooltip__boton i.snd-information:empty::before {
-    content: "i";
-    font-family: serif;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1;
-    display: block;
-    color: currentColor;
-}
-
-.page-indicadores-nacionales .tooltip__burbuja,
-.page-indicador-detalle .tooltip__burbuja {
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    box-sizing: border-box;
-    background-color: #ffffff !important;
-    color: var(--neutro800, #161A1D) !important;
-    border: 1px solid var(--neutro400, #CCCCCC) !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16) !important;
-    border-radius: 8px !important;
-    padding: 10px 14px !important;
-    font-family: "Noto Sans", sans-serif !important;
-    font-size: 0.8125rem !important;
-    line-height: 1.45 !important;
-    font-weight: 400 !important;
-    z-index: 99999 !important;
-    width: 260px !important;
-    max-width: calc(100vw - 32px) !important;
-    white-space: normal !important;
-    text-align: left !important;
-    pointer-events: none;
-    transition: opacity 0.2s ease, visibility 0.2s ease !important;
-}
-
-.page-indicadores-nacionales .tooltip:hover .tooltip__burbuja,
-.page-indicador-detalle .tooltip:hover .tooltip__burbuja,
-.page-indicadores-nacionales .tooltip:focus-within .tooltip__burbuja,
-.page-indicador-detalle .tooltip:focus-within .tooltip__burbuja,
-.page-indicadores-nacionales .tooltip.tooltip--mostrar .tooltip__burbuja,
-.page-indicador-detalle .tooltip.tooltip--mostrar .tooltip__burbuja,
-.page-indicadores-nacionales .tooltip.is-active .tooltip__burbuja,
-.page-indicador-detalle .tooltip.is-active .tooltip__burbuja {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
-
-.page-indicadores-nacionales .tooltip__burbuja--abajo-izquierda,
-.page-indicador-detalle .tooltip__burbuja--abajo-izquierda {
-    top: calc(100% + 8px) !important;
-    right: 0 !important;
-    left: auto !important;
-    bottom: auto !important;
-}
-
-.page-indicadores-nacionales .tooltip__burbuja--abajo-izquierda::before,
-.page-indicador-detalle .tooltip__burbuja--abajo-izquierda::before {
-    content: "" !important;
-    position: absolute !important;
-    bottom: 100% !important;
-    right: 6px !important;
-    border: 6px solid transparent !important;
-    border-bottom-color: var(--neutro400, #CCCCCC) !important;
-}
-
-.page-indicadores-nacionales .tooltip__burbuja--abajo-izquierda::after,
-.page-indicador-detalle .tooltip__burbuja--abajo-izquierda::after {
-    content: "" !important;
-    position: absolute !important;
-    bottom: 100% !important;
-    right: 6px !important;
-    border: 6px solid transparent !important;
-    border-bottom-color: #ffffff !important;
-    margin-bottom: -1px !important;
 }
 
 /* Pestañas Detalle / Ranking — Homologadas a Tabs 01 (Línea inferior) */
@@ -9078,11 +8966,6 @@ select.tx-comite-filter-control:disabled {
         width: 100%;
         justify-content: center;
     }
-
-    .page-indicadores-nacionales .tooltip__burbuja,
-    .page-indicador-detalle .tooltip__burbuja {
-        max-width: 240px !important;
-    }
 }
 
 @media (max-width: 639.98px) {
@@ -9507,22 +9390,6 @@ select.tx-comite-filter-control:disabled {
     line-height: 1.35;
     color: var(--neutro800);
     margin-bottom: 0;
-}
-
-/* ── Badge / Chip de estado SND v1.1.0 ("Próximamente") ── */
-.cf-status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    border-radius: 100px;
-    background-color: var(--neutro200);
-    border: 1px solid var(--neutro400);
-    color: var(--neutro700);
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.2;
-    white-space: nowrap;
 }
 
 /* ── Selector Cards: Estado Activo ──
@@ -10087,32 +9954,6 @@ select.tx-comite-filter-control:disabled {
 .page-informacion-financiera .fin-side-link:hover i {
     color: var(--principal);
     transform: translateX(2px);
-}
-
-/* Mensajes informativos (SND 4.16 Mensajes informativos) */
-.page-informacion-financiera .aviso.aviso--info,
-.page-pna-planeacion .aviso.aviso--info,
-.page-pna .aviso.aviso--info {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 8px;
-    background-color: var(--azul100);
-    border: 1px solid var(--azul500);
-    color: var(--azul500);
-}
-.page-informacion-financiera .aviso.aviso--info .aviso__icon,
-.page-pna-planeacion .aviso.aviso--info .aviso__icon,
-.page-pna .aviso.aviso--info .aviso__icon {
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-.page-informacion-financiera .aviso.aviso--info .aviso__cont,
-.page-pna-planeacion .aviso.aviso--info .aviso__cont,
-.page-pna .aviso.aviso--info .aviso__cont {
-    flex: 1 1 auto;
-    min-width: 0;
 }
 
 /* ── Drawer (Bottom Sheet) SND v1.1.0 ───────────────────────── */

@@ -203,13 +203,10 @@ wp_reset_postdata();
                         <?php endforeach; ?>
                     </div>
 
-                    <!-- Estado vacío Sesiones — 4.16 Mensajes informativos (Informativo) -->
-                    <div class="aviso aviso--info mt--16 muestra--ninguno" id="sesiones-empty-state" role="status" aria-live="polite">
-                        <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                        <div class="aviso__cont">
-                            <div class="aviso__txt">
-                                <p class="b1r color--azul500 mb--0">No se encontraron actas que coincidan con los filtros seleccionados.</p>
-                            </div>
+                    <!-- Estado vacío Sesiones — Mensajes informativos SND v1.0.0 (Informativo) -->
+                    <div role="status">
+                        <div id="sesiones-empty-state" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="sesiones-empty-state">
+                            No se encontraron actas que coincidan con los filtros seleccionados.
                         </div>
                     </div>
 
@@ -321,13 +318,10 @@ wp_reset_postdata();
                         <?php endforeach; ?>
                     </div>
 
-                    <!-- Estado vacío Resoluciones — 4.16 Mensajes informativos (Informativo) -->
-                    <div class="aviso aviso--info mt--16 muestra--ninguno" id="resoluciones-empty-state" role="status" aria-live="polite">
-                        <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                        <div class="aviso__cont">
-                            <div class="aviso__txt">
-                                <p class="b1r color--azul500 mb--0">No se encontraron resoluciones que coincidan con los filtros seleccionados.</p>
-                            </div>
+                    <!-- Estado vacío Resoluciones — Mensajes informativos SND v1.0.0 (Informativo) -->
+                    <div role="status">
+                        <div id="resoluciones-empty-state" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="resoluciones-empty-state">
+                            No se encontraron resoluciones que coincidan con los filtros seleccionados.
                         </div>
                     </div>
 

@@ -205,11 +205,11 @@ get_header(); ?>
                 }
                 ?>
 
-                <!-- Filtro por subsección -->
+                <!-- Filtro por subsección (Píldoras SND v1.0.0) -->
                 <?php if ( ! empty( $subsecciones_verificacion ) ) : ?>
-                <div class="cp-subsec-filtros" id="vp-metodologicos-filtros">
+                <div class="pildora__grupo cp-subsec-filtros" id="vp-metodologicos-filtros" role="group" aria-label="Filtrar por subsección">
                     <?php foreach ( $subsecciones_verificacion as $indice => $nombre_subseccion ) : ?>
-                    <button type="button" class="cp-subsec-chip boton--redondeado <?php echo $indice === 0 ? 'boton__primario is-active' : 'boton__secundario'; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
+                    <button type="button" class="pildora cp-subsec-chip<?php echo $indice === 0 ? ' is-active' : ''; ?>" aria-pressed="<?php echo $indice === 0 ? 'true' : 'false'; ?>" data-filter="<?php echo esc_attr( $nombre_subseccion ); ?>"><?php echo esc_html( $nombre_subseccion ); ?></button>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
@@ -222,7 +222,7 @@ get_header(); ?>
                             <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
                         </div>
                         <div class="cp-subsec-enlace__texto">
-                            <span class="cp-subsec-enlace__badge xsdsb color--pguinda600">Enlace externo</span>
+                            <span class="insignia-borde insignia-guinda mb--4">Enlace externo</span>
                             <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                         </div>
                         <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
@@ -347,16 +347,23 @@ get_header(); ?>
                 chip.addEventListener('click', function() {
                     const yaActivo = this.classList.contains('is-active');
                     chips.forEach(c => {
-                        c.classList.remove('is-active', 'boton__primario');
-                        c.classList.add('boton__secundario');
+                        c.classList.remove('is-active');
+                        c.setAttribute('aria-pressed', 'false');
                     });
 
-                    // Clic sobre el chip ya activo = quitar filtro (mostrar todos)
+                    // Clic sobre la píldora ya activa = quitar filtro (mostrar todos)
                     const filtro = yaActivo ? '' : this.getAttribute('data-filter');
                     if (!yaActivo) {
-                        this.classList.add('is-active', 'boton__primario');
-                        this.classList.remove('boton__secundario');
+                        this.classList.add('is-active');
+                        this.setAttribute('aria-pressed', 'true');
                     }
+
+                    // Sincronizar aria-pressed después del listener delegado de snd.js en document
+                    setTimeout(() => {
+                        chips.forEach(c => {
+                            c.setAttribute('aria-pressed', c.classList.contains('is-active') ? 'true' : 'false');
+                        });
+                    }, 0);
 
                     aplicarFiltro(filtro);
                 });

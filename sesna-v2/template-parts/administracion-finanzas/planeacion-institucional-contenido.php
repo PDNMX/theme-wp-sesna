@@ -96,20 +96,15 @@ $pi_grupos = array(
                                         <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
                                     </button>
                                 <?php else : ?>
-                                    <span class="xsdr color--neutro600 radio--pildora fondo--neutro200 px--8 py--4 borde mb--0">Próximamente</span>
+                                    <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
                                 <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
 
-                <div class="aviso aviso--info mt--20" role="region" aria-label="Información">
-                    <i class="snd__icono snd-information aviso__icon icono--20 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0"><?php echo esc_html( $grupo['nota'] ); ?></p>
-                        </div>
-                    </div>
+                <div id="pi-nota-msg-<?php echo esc_attr( $i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="pi-nota-msg-<?php echo esc_attr( $i ); ?>">
+                    <?php echo esc_html( $grupo['nota'] ); ?>
                 </div>
 
             </div>

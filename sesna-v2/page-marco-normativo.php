@@ -463,13 +463,10 @@ $normatividad_interna = [
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Estado vacío Externa — 4.16 Mensajes informativos (Informativo) -->
-                <div class="aviso aviso--info mt--16 muestra--ninguno" id="normatividad-externa-empty" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío Externa — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="normatividad-externa-empty" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="normatividad-externa-empty">
+                        No se encontraron documentos que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 
@@ -557,13 +554,10 @@ $normatividad_interna = [
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Estado vacío Interna — 4.16 Mensajes informativos (Informativo) -->
-                <div class="aviso aviso--info mt--16 muestra--ninguno" id="normatividad-interna-empty" role="status" aria-live="polite">
-                    <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                    <div class="aviso__cont">
-                        <div class="aviso__txt">
-                            <p class="b1r color--azul500 mb--0">No se encontraron documentos que coincidan con los filtros seleccionados.</p>
-                        </div>
+                <!-- Estado vacío Interna — Mensajes informativos SND v1.0.0 (Informativo) -->
+                <div role="status">
+                    <div id="normatividad-interna-empty" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="normatividad-interna-empty">
+                        No se encontraron documentos que coincidan con los filtros seleccionados.
                     </div>
                 </div>
 

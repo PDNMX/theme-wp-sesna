@@ -115,13 +115,8 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                 </div>
                             <?php endforeach; ?>
                         <?php else : ?>
-                            <div class="aviso aviso--info" role="status" aria-live="polite">
-                                <i class="snd__icono snd-information aviso__icon icono--24 color--azul500" aria-hidden="true"></i>
-                                <div class="aviso__cont">
-                                    <div class="aviso__txt">
-                                        <p class="b1r color--azul500 mb--0">No hay áreas configuradas en el directorio.</p>
-                                    </div>
-                                </div>
+                            <div id="directorio-empty-msg" class="mensajeInformativo mensajeInformativo--informativo" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="directorio-empty-msg">
+                                No hay áreas configuradas en el directorio.
                             </div>
                         <?php endif; ?>
                         </div>
@@ -190,7 +185,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                     <?php echo ($first && $first['encargado']) ? esc_html($first['encargado']) : ''; ?>
                                 </span>
                             </div>
-                            <hr class="dir-ficha__separator <?php echo ($first && $first['encargado']) ? '' : 'muestra--ninguno'; ?>" id="dir-encargado-sep">
+                            <hr class="divisor dir-ficha__separator <?php echo ($first && $first['encargado']) ? '' : 'muestra--ninguno'; ?>" id="dir-encargado-sep">
                             <div class="dir-ficha__cargo-row">
                                 <span class="dir-ficha__icon-circle" aria-hidden="true">
                                     <i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i>
@@ -199,7 +194,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                     <?php echo $first ? esc_html($first['cargo_titular']) : '—'; ?>
                                 </span>
                             </div>
-                            <hr class="dir-ficha__separator">
+                            <hr class="divisor dir-ficha__separator">
                             <div class="dir-ficha__cargo-row">
                                 <span class="dir-ficha__icon-circle" aria-hidden="true">
                                     <i class="snd__icono snd-email icono--20 color--pguinda600" aria-hidden="true"></i>
@@ -252,12 +247,12 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                     <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i></span>
                     <span class="dir-modal__cargo b1sb color--neutro800 mb--0" id="dir-modal-encargado"></span>
                 </div>
-                <hr class="dir-ficha__separator muestra--ninguno" id="dir-modal-encargado-sep">
+                <hr class="divisor dir-ficha__separator muestra--ninguno" id="dir-modal-encargado-sep">
                 <div class="dir-modal__cargo-row">
                     <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i></span>
                     <span class="dir-modal__cargo b1sb color--neutro800 mb--0" id="dir-modal-cargo"></span>
                 </div>
-                <hr class="dir-ficha__separator">
+                <hr class="divisor dir-ficha__separator">
                 <div class="dir-modal__cargo-row">
                     <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-email icono--20 color--pguinda600" aria-hidden="true"></i></span>
                     <a class="dir-ficha__email b1r color--neutro700 mb--0" id="dir-modal-email" href="#"></a>
