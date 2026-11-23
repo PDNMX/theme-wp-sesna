@@ -131,12 +131,6 @@ get_header(); ?>
             flex: 1;
             min-width: 200px;
         }
-        .cp-subsec-enlace__badge {
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-            margin-bottom: 4px;
-        }
         .cp-subsec-enlace__titulo {
             margin: 0;
         }

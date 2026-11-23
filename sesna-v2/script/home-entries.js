@@ -7,7 +7,7 @@
     }
 
     jQuery(function ($) {
-        var loading = '<div class="loading"><img src="' + ajax_object.loading_url + '"/></div>';
+        var loading = '<div class="columna__12"><div class="loading sesna-inline-loader" role="status" aria-live="polite"><div class="spin sesna-snd-spin sesna-snd-spin--md">Cargando...</div></div></div>';
 
         var $section          = $('.sna-entradas-section');
         var $resultsPanel     = $('#sna-entradas-results');

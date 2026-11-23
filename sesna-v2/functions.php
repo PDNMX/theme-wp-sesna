@@ -58,15 +58,16 @@ add_action('widgets_init', 'twentynineteen_widgets_init');
 
 /* ============================================================
    Enqueue scripts y estilos — SND v1.0.0
-   Nota: El cargador oficial carga.js (en header.php) inyecta con
-   prepend() la hoja snd-guinda.css y carga snd.js, snd-header.js y
-   snd-footer.js automáticamente con verificación SRI.
+   Nota: header.php incluye la etiqueta oficial <link rel="stylesheet"
+   integrity="sha384-..." crossorigin="anonymous"
+   href="https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css"> y
+   carga.js al inicio de <head>, garantizando cero FOUC y caché con SRI.
    ============================================================ */
 function sesna_theme_scripts()
 {
 	// Barra de accesibilidad GOB.mx — CDN oficial
 	wp_enqueue_style('gobmx-accesibilidad', 'https://framework-gb.cdn.gob.mx/gm/accesibilidad/css/gobmx-accesibilidad.min.css', array(), null);
-	// Hoja principal del tema — carga después de snd-guinda.css (inyectada al inicio de <head> por carga.js)
+	// Hoja principal del tema — carga después de snd-guinda.css (declarada en header.php)
 	wp_enqueue_style('sesna-main-style', get_template_directory_uri() . '/assets/css/main.css', array(), filemtime( get_template_directory() . '/assets/css/main.css' ));
 	// Utilidades propias del tema — al final de la cascada para ganar a los componentes de main.css
 	wp_enqueue_style('sesna-utilidades', get_template_directory_uri() . '/assets/css/utilidades-tema.css', array('sesna-main-style'), filemtime( get_template_directory() . '/assets/css/utilidades-tema.css' ));
@@ -1157,8 +1158,9 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
                         in_array( 'current-menu-ancestor', $item->classes );
         $is_external  = $this->is_external( $item );
         $current_attr = $is_active ? ' aria-current="page"' : '';
-        $ext_icon     = $is_external ? ' <i class="snd__icono snd-launch" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;margin-left:4px;"></i>' : '';
+        $ext_icon     = $is_external ? ' <svg class="snd__icono snd-launch" data-snd-procesado="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="13" height="13" fill="currentColor" aria-hidden="true" style="font-size:0.85em;vertical-align:middle;margin-left:4px;"><path d="M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z"/><path d="M20 2 20 4 26.586 4 18 12.586 19.414 14 28 5.414 28 12 30 12 30 2 20 2z"/></svg>' : '';
         $ext_attr     = $is_external ? ' target="_blank" rel="noopener noreferrer"' : '';
+        $chevron_svg  = '<svg class="snd__icono snd-chevron--down navHeader__chevron" data-snd-procesado="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M16 22 6 12 7.4 10.6 16 19.2 24.6 10.6 26 12z"/></svg>';
 
         if ( $depth === 0 ) {
             $output .= '<li class="navHeader__li' . ( $is_active ? ' navHeader__li--active' : '' ) . '">';
@@ -1168,7 +1170,7 @@ class Sesna_Bootstrap_Nav_Walker extends Walker_Nav_Menu {
                 $output .= '<details class="navHeader__details detailsClickOut">';
                 $output .= '<summary class="navHeader__a navHeader__a--toggle"' . $current_attr . '>'
                     . esc_html( $item->title )
-                    . '<i class="snd__icono snd-chevron--down navHeader__chevron" aria-hidden="true"></i>'
+                    . $chevron_svg
                     . '</summary>';
                 // end_lvl closes </ul></details>
             } else {
@@ -2053,76 +2055,76 @@ function sesna_strip_domain_from_url($valor) {
 }
 
 /**
- * Cuenta sesiones + suma de acuerdos de un órgano, y el total de
- * documentos sueltos de recomendaciones/exhortos (siempre global,
- * no depende del órgano recibido). Sin caché: el volumen de datos
- * es pequeño y así las cards reflejan cambios de wp-admin al instante.
+ * Renderiza directamente en PHP el <svg class="snd__icono ..."> oficial del SND v1.0.0
+ * para íconos repetitivos en listados masivos (como las cientos de tarjetas de Órganos
+ * Colegiados). Al emitir <svg data-snd-procesado="true"> en lugar de <i class="snd__icono">,
+ * el bucle secuencial de snd.js no se bloquea procesando ni haciendo getComputedStyle/reflows
+ * sobre más de 1,000 nodos <i> al cargar la página, y los botones fantasma ("Ver más sesiones",
+ * "Consultar") aparecen renderizados desde el primer milisegundo.
  */
-function sesna_get_oc_stats($organo) {
-    $sesiones_query = new WP_Query(array(
-        'post_type'      => 'oc_sesion',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'fields'         => 'ids',
-        'meta_query'     => array(
-            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
-            array('key' => '_oc_modo', 'value' => 'sesion', 'compare' => '='),
-        ),
-    ));
-    $sesiones_ids = $sesiones_query->posts;
-    $total_sesiones = count($sesiones_ids);
-
-    $total_acuerdos = 0;
-    foreach ($sesiones_ids as $id) {
-        $total_acuerdos += (int) get_post_meta($id, '_oc_acuerdos', true);
-    }
-
-    return array(
-        'sesiones'        => $total_sesiones,
-        'acuerdos'        => $total_acuerdos,
-        'recomendaciones' => sesna_count_oc_lista_directa('recomendaciones'),
-        'exhortos'        => sesna_count_oc_lista_directa('exhortos'),
+function sesna_render_snd_svg_icon($icon_name, $extra_classes = '') {
+    static $paths = array(
+        'snd-document--requirements' => '<polygon points="28.5899 20.59 22 27.1798 19.41 24.5898 18 26 22 30 30 22 28.5899 20.59"/><rect x="10" y="20" width="6" height="2"/><rect x="10" y="16" width="8" height="2"/><path d="m8,4h8v6c0,1.1001.8999,2,2,2h6v6h2v-8c0-.2998-.1001-.5-.3-.7002l-7-7c-.2-.1997-.3999-.2998-.7-.2998h-10c-1.1001,0-2,.8999-2,2v24c0,1.1001.8999,2,2,2h7v-2h-7V4Zm10,.3999l5.6001,5.6001h-5.6001v-5.6001Z"/>',
+        'snd-document'               => '<path d="M25.7,9.3l-7-7C18.5,2.1,18.3,2,18,2H8C6.9,2,6,2.9,6,4v24c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V10C26,9.7,25.9,9.5,25.7,9.3z M18,4.4l5.6,5.6H18V4.4z M24,28H8V4h8v6c0,1.1,0.9,2,2,2h6V28z"/><path d="M10 22H22V24H10z"/><path d="M10 16H22V18H10z"/>',
+        'snd-list'                   => '<path d="M10 6H28V8H10z"/><path d="M10 24H28V26H10z"/><path d="M10 15H28V17H10z"/><path d="M4 15H6V17H4z"/><path d="M4 6H6V8H4z"/><path d="M4 24H6V26H4z"/>',
+        'snd-folder'                 => '<path d="M11.17,6l3.42,3.41.58.59H28V26H4V6h7.17m0-2H4A2,2,0,0,0,2,6V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V10a2,2,0,0,0-2-2H16L12.59,4.59A2,2,0,0,0,11.17,4Z"/>',
+        'snd-play--outline'          => '<path d="M11,23a1,1,0,0,1-1-1V10a1,1,0,0,1,1.4473-.8945l12,6a1,1,0,0,1,0,1.789l-12,6A1.001,1.001,0,0,1,11,23Zm1-11.3821v8.7642L20.7642,16Z"/><path d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"/>',
+        'snd-document--pdf'          => '<path d="M30 18 30 16 24 16 24 26 26 26 26 22 29 22 29 20 26 20 26 18 30 18z"/><path d="M19,26H15V16h4a3.0033,3.0033,0,0,1,3,3v4A3.0033,3.0033,0,0,1,19,26Zm-2-2h2a1.0011,1.0011,0,0,0,1-1V19a1.0011,1.0011,0,0,0-1-1H17Z"/><path d="M11,16H6V26H8V23h3a2.0027,2.0027,0,0,0,2-2V18A2.0023,2.0023,0,0,0,11,16ZM8,21V18h3l.001,3Z"/><path d="M22,14V10a.9092.9092,0,0,0-.3-.7l-7-7A.9087.9087,0,0,0,14,2H4A2.0059,2.0059,0,0,0,2,4V28a2,2,0,0,0,2,2H20V28H4V4h8v6a2.0059,2.0059,0,0,0,2,2h6v2Zm-8-4V4.4L19.6,10Z"/>',
+        'snd-chevron--right'         => '<path d="M22 16 12 26 10.6 24.6 19.2 16 10.6 7.4 12 6z"/>',
+        'snd-chevron--down'          => '<path d="M16 22 6 12 7.4 10.6 16 19.2 24.6 10.6 26 12z"/>',
+        'snd-close'                  => '<path d="M17.4141 16 24 9.4141 22.5859 8 16 14.5859 9.4143 8 8 9.4141 14.5859 16 8 22.5859 9.4143 24 16 17.4141 22.5859 24 24 22.5859 17.4141 16z"/>',
+        'snd-search'                 => '<path d="M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z"/>',
+        'snd-checkmark'              => '<path d="M13 24 4 15 5.414 13.586 13 21.171 26.586 7.586 28 9 13 24z"/>',
+        'snd-home'                   => '<path d="M16.6123,2.2138a1.01,1.01,0,0,0-1.2427,0L1,13.4194l1.2427,1.5717L4,13.6209V26a2.0041,2.0041,0,0,0,2,2H26a2.0037,2.0037,0,0,0,2-2V13.63L29.7573,15,31,13.4282ZM18,26H14V18h4Zm2,0V18a2.0023,2.0023,0,0,0-2-2H14a2.002,2.002,0,0,0-2,2v8H6V12.0615l10-7.79,10,7.8005V26Z"/>',
     );
-}
 
-function sesna_count_oc_lista_directa($organo) {
-    $query = new WP_Query(array(
-        'post_type'      => 'oc_sesion',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'fields'         => 'ids',
-        'meta_query'     => array(
-            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
-        ),
-    ));
-    return count($query->posts);
+    $classes = trim('snd__icono ' . $icon_name . ' ' . $extra_classes);
+    if (isset($paths[$icon_name])) {
+        return '<svg class="' . esc_attr($classes) . '" data-snd-procesado="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">' . $paths[$icon_name] . '</svg>';
+    }
+    return '<i class="' . esc_attr($classes) . '" aria-hidden="true"></i>';
 }
 
 /**
- * Devuelve las sesiones (o documentos sueltos) de un órgano, con sus
- * documentos ya decodificados y las URLs resueltas al dominio actual
- * del sitio (nunca un dominio congelado en base de datos).
+ * Carga y agrupa en una sola pasada de base de datos todas las entradas y
+ * estadísticas de Órganos Colegiados (evita ejecutar 9 WP_Query separadas).
  */
-function sesna_get_oc_entries($organo) {
-    // No se usa 'meta_key' => '_oc_fecha' + orderby=meta_value aquí porque eso
-    // excluiría (JOIN interno) los posts en modo lista_directa, que nunca
-    // guardan _oc_fecha. Se ordena por fecha después, en PHP.
+function sesna_get_all_oc_data() {
+    static $cache = null;
+    if ($cache !== null) {
+        return $cache;
+    }
+
     $query = new WP_Query(array(
-        'post_type'      => 'oc_sesion',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-        'meta_query'     => array(
-            array('key' => '_oc_organo', 'value' => $organo, 'compare' => '='),
-        ),
+        'post_type'              => 'oc_sesion',
+        'posts_per_page'         => -1,
+        'post_status'            => 'publish',
+        'orderby'                => 'date',
+        'order'                  => 'DESC',
+        'no_found_rows'          => true,
+        'update_post_term_cache' => false,
     ));
 
-    $entries = array();
+    $by_organo = array(
+        'comite'          => array(),
+        'comision'        => array(),
+        'organo_gobierno' => array(),
+        'recomendaciones' => array(),
+        'exhortos'        => array(),
+    );
+    $stats = array(
+        'comite'          => array('sesiones' => 0, 'acuerdos' => 0),
+        'comision'        => array('sesiones' => 0, 'acuerdos' => 0),
+        'organo_gobierno' => array('sesiones' => 0, 'acuerdos' => 0),
+    );
+
     if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $id = get_the_ID();
+        foreach ($query->posts as $post) {
+            $id = $post->ID;
+            $organo = get_post_meta($id, '_oc_organo', true);
+            if (!isset($by_organo[$organo])) {
+                continue;
+            }
 
             $documentos_json = get_post_meta($id, '_oc_documentos', true) ?: '[]';
             $documentos = json_decode($documentos_json, true);
@@ -2145,6 +2147,8 @@ function sesna_get_oc_entries($organo) {
             unset($doc);
 
             $fecha = get_post_meta($id, '_oc_fecha', true);
+            $modo  = get_post_meta($id, '_oc_modo', true) ?: 'sesion';
+            $acuerdos = (int) get_post_meta($id, '_oc_acuerdos', true);
 
             $video_url_raw = get_post_meta($id, '_oc_video_url', true);
             $video_url = '';
@@ -2154,33 +2158,77 @@ function sesna_get_oc_entries($organo) {
                     : $video_url_raw;
             }
 
-            $entries[] = array(
-                'id'          => $id,
-                'organo'      => $organo,
-                'titulo'      => get_the_title(),
-                'modo'        => get_post_meta($id, '_oc_modo', true) ?: 'sesion',
-                'fecha'       => $fecha,
-                'anio'        => $fecha ? substr($fecha, 0, 4) : '',
-                'tipo_sesion' => get_post_meta($id, '_oc_tipo_sesion', true) ?: '',
-                'acuerdos'    => (int) get_post_meta($id, '_oc_acuerdos', true),
-                'documentos'  => $documentos,
-                'anexos_extra'=> $anexos_db,
-                'video_url'   => $video_url,
+            $by_organo[$organo][] = array(
+                'id'           => $id,
+                'organo'       => $organo,
+                'titulo'       => get_the_title($post),
+                'modo'         => $modo,
+                'fecha'        => $fecha,
+                'anio'         => $fecha ? substr($fecha, 0, 4) : '',
+                'tipo_sesion'  => get_post_meta($id, '_oc_tipo_sesion', true) ?: '',
+                'acuerdos'     => $acuerdos,
+                'documentos'   => $documentos,
+                'anexos_extra' => $anexos_db,
+                'video_url'    => $video_url,
             );
+
+            if (isset($stats[$organo]) && $modo === 'sesion') {
+                $stats[$organo]['sesiones']++;
+                $stats[$organo]['acuerdos'] += $acuerdos;
+            }
         }
-        wp_reset_postdata();
     }
 
-    // Las entradas con fecha (modo sesion) van primero, más recientes arriba;
-    // las lista_directa (sin fecha) conservan el orden de publicación de la query.
-    usort($entries, function ($a, $b) {
+    $sort_fn = function ($a, $b) {
         if ($a['fecha'] && $b['fecha']) {
             return strcmp($b['fecha'], $a['fecha']);
         }
         return $a['fecha'] ? -1 : ($b['fecha'] ? 1 : 0);
-    });
+    };
 
-    return $entries;
+    foreach ($by_organo as $org => &$list) {
+        usort($list, $sort_fn);
+    }
+    unset($list);
+
+    $total_rec = count($by_organo['recomendaciones']);
+    $total_exh = count($by_organo['exhortos']);
+    foreach ($stats as $org => &$st) {
+        $st['recomendaciones'] = $total_rec;
+        $st['exhortos']        = $total_exh;
+    }
+    unset($st);
+
+    $cache = array(
+        'entries' => $by_organo,
+        'stats'   => $stats,
+    );
+    return $cache;
+}
+
+function sesna_get_oc_stats($organo) {
+    $data = sesna_get_all_oc_data();
+    return $data['stats'][$organo] ?? array(
+        'sesiones'        => 0,
+        'acuerdos'        => 0,
+        'recomendaciones' => count($data['entries']['recomendaciones'] ?? array()),
+        'exhortos'        => count($data['entries']['exhortos'] ?? array()),
+    );
+}
+
+function sesna_count_oc_lista_directa($organo) {
+    $data = sesna_get_all_oc_data();
+    return count($data['entries'][$organo] ?? array());
+}
+
+/**
+ * Devuelve las sesiones (o documentos sueltos) de un órgano, con sus
+ * documentos ya decodificados y las URLs resueltas al dominio actual
+ * del sitio (nunca un dominio congelado en base de datos).
+ */
+function sesna_get_oc_entries($organo) {
+    $data = sesna_get_all_oc_data();
+    return $data['entries'][$organo] ?? array();
 }
 
 /**
@@ -2387,7 +2435,7 @@ function sesna_render_oc_anexos_toggle($panel_id, $slot) {
     $total = count($slot['documentos']);
     ?>
     <a href="#<?= esc_attr($panel_id) ?>" role="button" aria-expanded="false" aria-controls="<?= esc_attr($panel_id) ?>" onclick="var p=document.getElementById('<?= esc_attr($panel_id) ?>'); if(p){ p.classList.toggle('muestra--ninguno'); this.setAttribute('aria-expanded', !p.classList.contains('muestra--ninguno')); } return false;" class="tx-oc-slot-btn tx-oc-anexos-toggle">
-        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--24 tx-oc-slot-icon" aria-hidden="true"></i>
+        <?= sesna_render_snd_svg_icon($slot['icon'], 'icono--24 tx-oc-slot-icon') ?>
         <span class="tx-oc-slot-label"><?= esc_html($slot['label']) ?> (<?= $total ?>)</span>
     </a>
     <?php
@@ -2402,10 +2450,10 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
                 <?php foreach ($slot['documentos'] as $doc) : ?>
                 <a href="<?= esc_url($doc['enlace']) ?>" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['nombre']) ?>" class="tx-oc-anexo-row" data-anexo-nombre="<?= esc_attr(strtolower($doc['nombre'])) ?>">
                     <div class="tx-oc-anexo-row__info">
-                        <i class="snd__icono snd-document icono--20 color--pguinda600" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--20 color--pguinda600') ?>
                         <span class="b1r color--neutro800 tx-oc-anexo-nombre"><?= esc_html($doc['nombre']) ?></span>
                     </div>
-                    <i class="snd__icono snd-document--pdf icono--24 color--pguinda600 tx-oc-anexo-row__pdf" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24 color--pguinda600 tx-oc-anexo-row__pdf') ?>
                 </a>
                 <?php endforeach; ?>
             </div>
@@ -2414,7 +2462,7 @@ function sesna_render_oc_anexos_panel($panel_id, $slot) {
     <?php
 }
 
-function sesna_render_oc_sesion_card($sesion) {
+function sesna_render_oc_sesion_card($sesion, $index = 0) {
     $fecha_obj = !empty($sesion['fecha']) ? DateTime::createFromFormat('Y-m-d', $sesion['fecha']) : null;
     $dia  = $fecha_obj ? $fecha_obj->format('d') : '--';
     $mes  = $fecha_obj ? sesna_oc_mes_abrev((int) $fecha_obj->format('n')) : '---';
@@ -2425,8 +2473,9 @@ function sesna_render_oc_sesion_card($sesion) {
     // La búsqueda principal de la página también cubre los nombres de los documentos anexos.
     $nombres_anexos = implode(' ', array_map(function ($d) { return $d['nombre']; }, $slots['anexos']['documentos']));
     $busqueda_sesion = trim($sesion['titulo'] . ' ' . $sesion['tipo_sesion'] . ' ' . $dia . ' ' . $mes . ' ' . $anio . ' ' . $nombres_anexos);
+    $hidden_initial = ($index >= 5) ? ' style="display:none;"' : '';
     ?>
-    <div class="tx-oc-card tx-sesion-card" data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_sesion, 'UTF-8') : strtolower($busqueda_sesion) ) ?>">
+    <div class="tx-oc-card tx-sesion-card"<?= $hidden_initial ?> data-anio="<?= esc_attr($anio) ?>" data-tipo="<?= esc_attr($sesion['tipo_sesion']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_sesion, 'UTF-8') : strtolower($busqueda_sesion) ) ?>">
         <div class="tx-oc-card__main">
             <div class="tx-oc-card__date">
                 <span class="h3b color--neutro800 tx-oc-card__day"><?= esc_html($dia) ?></span>
@@ -2463,7 +2512,7 @@ function sesna_render_oc_sesion_card($sesion) {
                     <a rel="noopener" href="<?= $href ?>"
                        <?php if ($disabled): ?>aria-disabled="true" tabindex="-1"<?php elseif ($es_ver_sesion && $youtube_id !== ''): ?>data-modal-target="#oc-video-modal" data-video-id="<?= esc_attr($youtube_id) ?>" data-video-title="<?= esc_attr($sesion['titulo']) ?>"<?php elseif ($es_ver_sesion): ?>target="_blank"<?php else: ?>data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($slot['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo'] . ' — ' . $slot['label']) ?>"<?php endif; ?>
                        class="<?= esc_attr($link_class) ?>">
-                        <i class="snd__icono <?= esc_attr($slot['icon']) ?> icono--24 tx-oc-slot-icon" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon($slot['icon'], 'icono--24 tx-oc-slot-icon') ?>
                         <span class="tx-oc-slot-label"><?= esc_html($slot['label']) ?></span>
                     </a>
                     <?php endforeach; ?>
@@ -2484,9 +2533,9 @@ function sesna_render_oc_lista_directa_item($item) {
         <div class="tx-comite-card-action">
             <?php foreach ($item['documentos'] as $doc) : ?>
             <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($item['titulo']) ?>" aria-label="Consultar <?= esc_attr($item['titulo']) ?>">
-                <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                 Consultar
-                <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
             </button>
             <?php endforeach; ?>
         </div>

@@ -163,7 +163,7 @@ rsort($oc_anios_organo);
 
                 <!-- SESSIONS LIST -->
                 <div class="tx-comite-card-list tx-sesion-list" id="sesiones-list-comite">
-                    <?php foreach ($oc_sesiones_comite as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                    <?php foreach ($oc_sesiones_comite as $idx => $sesion) : sesna_render_oc_sesion_card($sesion, $idx); endforeach; ?>
                 </div>
 
                 <!-- Estado vacío Comité — Mensajes informativos SND v1.0.0 (Informativo) -->
@@ -174,9 +174,9 @@ rsort($oc_anios_organo);
                 </div>
 
                 <!-- VER MÁS BTN -->
-                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-comite">
+                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-comite"<?= count($oc_sesiones_comite) <= 5 ? ' style="display:none;"' : '' ?>>
                     <button type="button" class="boton__fantasma" id="sesiones-vermas-btn-comite">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más sesiones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
 
@@ -237,7 +237,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <div class="tx-comite-card-list tx-sesion-list" id="sesiones-list-comision">
-                    <?php foreach ($oc_sesiones_comision as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                    <?php foreach ($oc_sesiones_comision as $idx => $sesion) : sesna_render_oc_sesion_card($sesion, $idx); endforeach; ?>
                 </div>
 
                 <!-- Estado vacío Comisión — Mensajes informativos SND v1.0.0 (Informativo) -->
@@ -247,9 +247,9 @@ rsort($oc_anios_organo);
                     </div>
                 </div>
 
-                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-comision">
+                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-comision"<?= count($oc_sesiones_comision) <= 5 ? ' style="display:none;"' : '' ?>>
                     <button type="button" class="boton__fantasma" id="sesiones-vermas-btn-comision">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más sesiones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
 
@@ -310,7 +310,7 @@ rsort($oc_anios_organo);
                 </div>
 
                 <div class="tx-comite-card-list tx-sesion-list" id="sesiones-list-organo">
-                    <?php foreach ($oc_sesiones_organo as $sesion) : sesna_render_oc_sesion_card($sesion); endforeach; ?>
+                    <?php foreach ($oc_sesiones_organo as $idx => $sesion) : sesna_render_oc_sesion_card($sesion, $idx); endforeach; ?>
                 </div>
 
                 <!-- Estado vacío Órgano — Mensajes informativos SND v1.0.0 (Informativo) -->
@@ -320,9 +320,9 @@ rsort($oc_anios_organo);
                     </div>
                 </div>
 
-                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-organo">
+                <div class="texto--centro mt--32" id="sesiones-vermas-wrap-organo"<?= count($oc_sesiones_organo) <= 5 ? ' style="display:none;"' : '' ?>>
                     <button type="button" class="boton__fantasma" id="sesiones-vermas-btn-organo">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más sesiones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
 

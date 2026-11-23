@@ -50,6 +50,7 @@ body {
     height: auto !important;
     min-height: 100vh !important;
     text-align: left;
+    background-color: var(--neutro200, #F9F9F9);
 }
 
 /* ------------------------------------------------------------
@@ -453,6 +454,7 @@ a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):no
 body {
     font-family: var(--font-noto-sans);
     color: var(--text-color-main);
+    background-color: var(--neutro200, #F9F9F9);
     font-size: 18px;
     /* Tamaño estandarizado */
     line-height: 1.428;
@@ -535,6 +537,7 @@ main.page,
     min-height: auto !important;
     width: 100% !important;
     flex: 1 0 auto !important;
+    background-color: var(--neutro200, #F9F9F9);
     /* <snd-header> (:host { display: block; height: 58px }) ya reserva sus 58px en el flujo del body;
        por ello #mainContent solo compensa la altura del subheader institucional fijo (--sesna-subheader-h). */
     padding-top: var(--sesna-subheader-h) !important;
@@ -587,8 +590,16 @@ body.admin-bar {
    HEADER INSTITUCIONAL SND v1.0.0 (Web Component <snd-header>)
    El componente oficial encapsula su estructura (.header > .mexico)
    en Shadow DOM con :host { display: block; height: 58px }.
+   Reservamos explícitamente display:block, height:58px y fondo guinda
+   desde el primer paint para evitar CLS ("brinco" de 58px en Chrome,
+   Edge y Firefox) mientras carga.js descarga snd-header.js.
    ============================================================ */
 snd-header {
+    display: block;
+    width: 100%;
+    height: var(--mexico-h, 58px);
+    min-height: var(--mexico-h, 58px);
+    background-color: var(--pguinda900, #611232);
     position: relative;
     z-index: 1000000;
     flex-shrink: 0;
@@ -708,13 +719,31 @@ snd-header {
     display: none !important;
 }
 
-/* Chevron indicador de submenú */
+/* Chevron indicador de submenú — reservamos 12x12px desde antes de que snd.js
+   inyecte el <svg> para evitar cualquier desplazamiento horizontal de los ítems
+   del navbar al cargar la página */
 .navHeader__chevron {
     margin-left: 6px !important;
-    font-size: 0.8em !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
+    font-size: 12px !important;
     display: inline-flex !important;
     align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
     transition: transform 0.2s ease !important;
+}
+.sesna-subheader .navHeader__a i.snd-launch {
+    width: 13px !important;
+    height: 13px !important;
+    min-width: 13px !important;
+    min-height: 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
 }
 .sesna-subheader .navHeader__details[open] > summary .navHeader__chevron,
 .sesna-subheader .navHeader__details:hover > summary .navHeader__chevron {
@@ -1266,29 +1295,6 @@ snd-header {
     color: var(--pverde600, #004D40);
 }
 
-/* Sección de recursos estándar con línea guinda */
-.sesna-section-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.sesna-section-header__titulo {
-    font-family: var(--font-patria);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-guinda);
-    margin: 0 0 6px 0;
-}
-
-.sesna-section-header__linea {
-    width: 48px;
-    height: 3px;
-    background: var(--color-guinda);
-    border-radius: 2px;
-}
-
 /* ============================================================
    BLOQUE 7 — Tipografía SND v1
    Escalas de tipo basadas en las clases .h0b/.h1b/.h2b/.sh0b del SND.
@@ -1494,96 +1500,6 @@ nav.navbar .container {
 }
 
 /* ------------------------------------------------------------
-   Hero — Banner institucional (legacy, se reemplaza por .sesna-banner)
-   ------------------------------------------------------------ */
-.sesna-hero {
-    min-height: 480px;
-    background-color: var(--color-teal-oscuro);
-    background-size: cover;
-    background-position: center;
-    padding: 80px 0;
-}
-
-/* Animación de texto deslizante vertical */
-.sesna-hero__slide {
-    font-weight: 700;
-    color: var(--color-dorado-claro);
-    overflow: hidden;
-    height: 1.4em;
-}
-
-.sesna-hero__slide span {
-    display: block;
-    animation: sesnaSlide 8s infinite;
-}
-
-.sesna-hero__slide span:nth-child(2) {
-    animation-delay: 2s;
-}
-
-.sesna-hero__slide span:nth-child(3) {
-    animation-delay: 4s;
-}
-
-.sesna-hero__slide span:nth-child(4) {
-    animation-delay: 6s;
-}
-
-@keyframes sesnaSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-
-    8% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    25% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    33% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-}
-
-/* ------------------------------------------------------------
-   Tarjetas de blog con imagen de fondo
-   ------------------------------------------------------------ */
-.sesna-card-featured {
-    height: 280px;
-}
-
-.sesna-card-featured--sm {
-    height: 200px;
-}
-
-.sesna-card-featured__img {
-    height: 100%;
-    object-fit: cover;
-}
-
-.sesna-card-featured__overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 55%);
-}
-
-/* ------------------------------------------------------------
-   Sección SESNA INFORMA
-   ------------------------------------------------------------ */
-.sesna-informa {
-    border-left: 4px solid var(--color-dorado);
-}
-
-/* ------------------------------------------------------------
    Carrusel de la página de inicio (Bootstrap 5)
    ------------------------------------------------------------ */
 .sesna-carousel-section {
@@ -1609,7 +1525,7 @@ nav.navbar .container {
 
 .sesna-carousel .carousel-item .fallback-img {
     height: 500px;
-    background-color: #f8f9fa;
+    background-color: var(--neutro200, #F9F9F9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1664,54 +1580,6 @@ nav.navbar .container {
 
 .sna-integrantes-title {
     font-size: 20px;
-}
-
-/* ------------------------------------------------------------
-   Sección SNA (About)
-   ------------------------------------------------------------ */
-.sna-about-section {
-}
-
-.sna-about-btn {
-    letter-spacing: 0.5px;
-    background-color: var(--color-guinda) !important;
-    border-color: var(--color-guinda) !important;
-    border-radius: 4px;
-}
-
-.sna-about-btn:hover {
-    background-color: var(--color-burgundi) !important;
-    border-color: var(--color-burgundi) !important;
-}
-
-.sna-about-btn-icon-circle {
-    width: 24px;
-    height: 24px;
-}
-
-.sna-about-btn-icon {
-    font-size: 14px;
-}
-
-/* ------------------------------------------------------------
-   Títulos de sección con línea decorativa dorada
-   ------------------------------------------------------------ */
-.sesna-section-heading {
-    position: relative;
-    display: block;
-    padding-bottom: 14px;
-}
-
-.sesna-section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 56px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-dorado), var(--color-dorado-claro));
-    border-radius: 2px;
 }
 
 /* ============================================================
@@ -1886,7 +1754,7 @@ nav.navbar .container {
 .breadcrumb-item.active,
 .cp-breadcrumb .current,
 .sesna-breadcrumb .current {
-    color: var(--neutro900, #161A1D) !important;
+    color: var(--neutro800, #161A1D) !important;
     font-weight: 600 !important;
     font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
 }
@@ -2154,7 +2022,7 @@ nav.navbar .container {
     border: 1px solid var(--principal);
     background-color: var(--neutro100);
     color: var(--principal);
-    font-family: var(--notoSans), sans-serif;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-weight: 600;
     font-size: 0.9375rem;
     line-height: 1.375rem;
@@ -2244,7 +2112,7 @@ nav.navbar .container {
     right: 32px;
     background-color: var(--principal);
     color: var(--neutro100);
-    font-family: var(--notoSans), sans-serif;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-size: 0.75rem;
     font-weight: 700;
     line-height: 1.2;
@@ -2660,11 +2528,6 @@ nav.navbar .container {
     min-width: 0;
 }
 
-.cp-doc-badge {
-    display: block;
-    margin-bottom: 4px;
-}
-
 .cp-doc-titulo {
     margin-bottom: 10px;
 }
@@ -2900,246 +2763,6 @@ nav.navbar .container {
 }
 
 
-/* Página — Comité de Transparencia */
-.page-transparencia-comite .tx-modal__eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--color-gris);
-    font-weight: 600;
-}
-
-.page-transparencia-comite .tx-meta-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 12px;
-    border-radius: 20px;
-    background: var(--color-blanco);
-    border: 1px solid rgba(22, 26, 29, 0.08);
-    color: var(--color-negro);
-}
-
-.page-transparencia-comite .tx-meta-chip__dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-burgundi);
-    flex-shrink: 0;
-}
-
-.page-transparencia-comite .tx-modal__group {
-    margin-top: 22px;
-}
-
-.page-transparencia-comite .tx-modal__group-title {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-guinda);
-    margin: 0 0 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(22, 26, 29, 0.08);
-}
-
-.page-transparencia-comite .tx-modal__group-count {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-blanco);
-    background: var(--color-burgundi);
-    border-radius: 20px;
-    padding: 2px 9px;
-    font-variant-numeric: tabular-nums;
-}
-
-.page-transparencia-comite .tx-doc-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.page-transparencia-comite .tx-doc-row {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 4px;
-    background: transparent;
-    border: 1px solid transparent;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-}
-
-.page-transparencia-comite .tx-doc-row:hover,
-.page-transparencia-comite .tx-doc-row.active {
-    background: var(--color-fondo-claro);
-    border-color: rgba(22, 26, 29, 0.08);
-    transform: translateX(2px);
-}
-
-.page-transparencia-comite .tx-doc-row:focus-visible {
-    outline: 2px solid var(--color-burgundi);
-    outline-offset: 1px;
-}
-
-.page-transparencia-comite .tx-doc-row__icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 4px;
-    background: rgba(30, 91, 79, 0.1);
-    color: var(--color-teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    flex-shrink: 0;
-}
-
-.page-transparencia-comite .tx-doc-row__name {
-    flex: 1;
-    min-width: 0;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--color-negro);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.page-transparencia-comite .tx-doc-row__hint {
-    font-size: 12px;
-    color: var(--color-gris);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
-}
-
-.page-transparencia-comite .tx-doc-row:hover .tx-doc-row__hint,
-.page-transparencia-comite .tx-doc-row.active .tx-doc-row__hint {
-    color: var(--color-burgundi);
-}
-
-.page-transparencia-comite .tx-viewer__actions a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-burgundi);
-    transition: color 0.2s ease;
-}
-
-.page-transparencia-comite .tx-viewer__actions a:hover {
-    color: var(--color-guinda);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .page-transparencia-comite .tx-doc-row,
-    .page-transparencia-comite .tx-viewer__actions a {
-        transition: none;
-    }
-}
-
-/* Buscador */
-.page-transparencia .tx-search {
-    background-color: transparent;
-}
-
-.page-transparencia .tx-search__box {
-    background-color: var(--color-blanco);
-    border-radius: 8px;
-    padding: 2rem 2.5rem;
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.page-transparencia .tx-search__circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--color-burgundi);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-blanco);
-    font-size: 32px;
-    flex-shrink: 0;
-}
-
-.page-transparencia .tx-search__label {
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 12px;
-    color: var(--color-negro);
-}
-
-.page-transparencia .tx-search__form {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--color-blanco);
-}
-
-.page-transparencia .tx-search__input {
-    flex: 1;
-    border: none;
-    padding: 10px 16px;
-    font-size: 16px;
-    font-family: var(--font-noto-sans);
-    color: var(--color-negro);
-    outline: none;
-    min-width: 0;
-}
-
-.page-transparencia .tx-search__input::placeholder {
-    color: var(--color-gris);
-}
-
-.page-transparencia .tx-search__btn {
-    background: var(--color-burgundi);
-    color: var(--color-blanco);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: var(--font-noto-sans);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-}
-
-.page-transparencia .tx-search__btn:hover {
-    background: var(--color-guinda);
-}
-
-@media (max-width: 575px) {
-    .page-transparencia .tx-search__circle {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-    }
-    .page-transparencia .tx-search__form {
-        flex-direction: column;
-    }
-    .page-transparencia .tx-search__btn {
-        justify-content: center;
-        padding: 10px;
-    }
-}
-
 /* Consulta información pública — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
 .page-transparencia .tx-consulta-card,
 .page-pna-seguimiento .tx-consulta-card {
@@ -3256,45 +2879,6 @@ nav.navbar .container {
 /* ============================================================
    SINGLE POST — Entrada de noticias / blog
    ============================================================ */
-
-/* Fondo homologado con el home (var(--color-fondo-claro)) */
-.sesna-single-wrapper {
-    background-color: var(--color-fondo-claro);
-    min-height: 100vh;
-}
-
-.sesna-single-container {
-    padding-top: 2.5rem;
-    padding-bottom: 4.5rem;
-}
-
-/* Breadcrumb — sobre fondo var(--color-fondo-claro), texto oscuro */
-.sesna-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 15px;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-    color: var(--neutro800, #33383C);
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.sesna-breadcrumb a {
-    color: var(--pguinda600, #9B2247);
-    text-decoration: none;
-    transition: color 0.15s ease, text-decoration 0.15s ease;
-}
-
-.sesna-breadcrumb a:hover {
-    color: var(--pguinda900, #4A0C26);
-    text-decoration: underline;
-}
-
-.sesna-breadcrumb .current {
-    color: var(--neutro900, #161A1D);
-    font-weight: 600;
-}
 
 /* Tarjeta principal del artículo — Homologada SND v1.1.0 */
 .sesna-single-card {
@@ -3531,20 +3115,29 @@ nav.navbar .container {
    ------------------------------------------------------------ */
 
 /* ============================================================
-   Loader de carga inicial de página
+   Indicador de carga inicial de página — Estándar SND v1.0.0 (.spin)
+   Especificación oficial (componentes/indicador-carga.md y snd-guinda.css):
+     - Símbolo de 12 puntos con opacidades escalonadas (5% a 100%)
+     - Color del símbolo: presidencia guinda - 900 (#611232)
+     - Tamaño LG (escritorio): 88×88px | Tamaño MD (móvil): 48×48px
+     - Layout vertical, gap: 24px, padding: 24px, texto "Cargando..." en neutro-800
+   Nota de arquitectura: top: calc(var(--mexico-h, 58px) + var(--sesna-subheader-h, 52px))
+   y z-index: 99999 mantienen estáticos y visibles el header (<snd-header>) y la barra
+   de navegación (.sesna-subheader) al navegar entre páginas (igual que en snd-dev),
+   cubriendo únicamente el área de contenido principal (<main>).
    ============================================================ */
 .sesna-loader {
     position: fixed;
-    top: 0;
+    top: calc(var(--mexico-h, 58px) + var(--sesna-subheader-h, 52px));
     left: 0;
     width: 100vw;
-    height: 100vh;
-    background-color: var(--color-blanco);
+    height: calc(100vh - var(--mexico-h, 58px) - var(--sesna-subheader-h, 52px));
+    background-color: var(--neutro200, #F9F9F9);
     z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    transition: opacity 0.35s ease-out, visibility 0.35s ease-out;
 }
 
 .sesna-loader.loader-hidden {
@@ -3553,18 +3146,107 @@ nav.navbar .container {
     pointer-events: none;
 }
 
-.sesna-spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid var(--color-burgundi);
-    border-top: 5px solid transparent;
-    border-radius: 50%;
-    animation: sesna-spin 1s linear infinite;
+.sesna-loader .spin.sesna-snd-spin {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--neutro800, #161A1D);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    white-space: nowrap;
 }
 
-@keyframes sesna-spin {
+.sesna-loader .spin.sesna-snd-spin::before {
+    content: "";
+    display: block;
+    width: 88px;
+    height: 88px;
+    background-color: var(--pguinda900, #611232);
+    -webkit-mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    animation: sesna-snd-spin 1.5s infinite linear;
+}
+
+.sesna-loader .spin.sesna-snd-spin::after {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .sesna-loader .spin.sesna-snd-spin {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .sesna-loader .spin.sesna-snd-spin::before {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sesna-loader .spin.sesna-snd-spin::before {
+        animation: none;
+    }
+}
+
+@keyframes sesna-snd-spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Indicador de carga en sección (Loading MD: 48×48px) para paneles AJAX */
+.sesna-inline-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 32px 0;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--neutro800, #161A1D);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-color: var(--pguinda900, #611232);
+    -webkit-mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    animation: sesna-snd-spin 1.5s infinite linear;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md::after {
+    display: none;
 }
 
 /* ============================================================
@@ -3889,29 +3571,6 @@ nav.navbar .container {
     margin-bottom: 0;
 }
 
-.page-derechos-humanos .dh-hero__title {
-    font-size: clamp(3rem, 5vw, 4rem);
-    color: var(--color-negro);
-    line-height: 1.15;
-}
-
-.page-derechos-humanos .dh-hero__desc {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.page-derechos-humanos .dh-hero__ilustracion {
-    max-width: 200px;
-    margin: 0 auto;
-}
-
-.page-derechos-humanos .dh-hero__svg {
-    width: 100%;
-    height: auto;
-}
-
-/* ── Pronunciamientos ─── */
-
 /* ── Campañas ─── */
 .page-derechos-humanos .dh-campania-card {
     background: var(--neutro100);
@@ -4189,8 +3848,8 @@ nav.navbar .container {
 }
 
 .page-directorio .dir-org__item--active .dir-org__dot {
-    background-color: var(--secundario);
-    border-color: var(--secundario);
+    background-color: var(--pguinda600, #9B2247);
+    border-color: var(--pguinda600, #9B2247);
 }
 
 .page-directorio .dir-org__item-icon {
@@ -4350,52 +4009,6 @@ nav.navbar .container {
     line-height: 1.3;
 }
 
-/* ── CTA de contacto ── */
-.page-directorio .dir-contact-cta__card {
-    background: linear-gradient(135deg, var(--pguinda600) 0%, var(--principal) 100%);
-    border-radius: 16px;
-    box-shadow: var(--dropLV1);
-    padding: 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.page-directorio .dir-contact-cta__icon {
-    width: 56px;
-    height: 56px;
-    min-width: 56px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.16);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--neutro100);
-    flex-shrink: 0;
-}
-
-.page-directorio .dir-contact-cta__body {
-    flex: 1;
-    min-width: 0;
-}
-
-.page-directorio .dir-contact-cta__text {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.page-directorio .dir-contact-cta__card .boton__secundario {
-    flex-shrink: 0;
-    background-color: var(--neutro100);
-    border-color: var(--neutro100);
-    color: var(--principal);
-}
-
-.page-directorio .dir-contact-cta__card .boton__secundario:hover {
-    background-color: var(--pguinda100);
-    border-color: var(--pguinda100);
-    color: var(--principal);
-}
-
 /* ── Modal móvil (SND v1.1.0) ── */
 .dir-modal {
     display: none;
@@ -4427,7 +4040,7 @@ nav.navbar .container {
     background-color: var(--neutro100);
     border-radius: 16px 16px 0 0;
     border-top: 1px solid var(--neutro400);
-    box-shadow: var(--dropLV3);
+    box-shadow: var(--dropLV2);
     width: 100%;
     max-width: 540px;
     max-height: 85vh;
@@ -4518,17 +4131,6 @@ nav.navbar .container {
 @media (max-width: 639.98px) {
     .page-directorio .dir-card {
         padding: 20px 16px;
-    }
-
-    .page-directorio .dir-contact-cta__card {
-        flex-direction: column;
-        text-align: center;
-        padding: 24px 20px;
-        gap: 16px;
-    }
-
-    .page-directorio .dir-contact-cta__card .boton__secundario {
-        width: 100%;
     }
 }
 
@@ -4663,10 +4265,11 @@ nav.navbar .container {
 
 /* Ciclo de la Política Pública */
 .page-pna .pna-ciclo-card {
-    background-color: var(--color-blanco);
-    border-radius: 8px;
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
     padding: 28px 24px;
-    box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--dropLV1);
     height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -4674,7 +4277,7 @@ nav.navbar .container {
 
 .page-pna .pna-ciclo-card:hover {
     transform: translateY(-4px);
-    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.16);
+    box-shadow: var(--dropLV2);
 }
 
 .page-pna .pna-ciclo-card__top {
@@ -4757,10 +4360,11 @@ nav.navbar .container {
 
 /* ── Ciclo PNA — diagrama circular ─────────────────────────── */
 .page-pna .pna-ciclo-section {
-    background: linear-gradient(180deg, #f7f3f8 0%, #ffffff 65%);
-    border-radius: 24px;
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
     padding: 40px 32px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--dropLV1);
 }
 
 .page-pna .pna-ciclo-diagram {
@@ -4785,11 +4389,12 @@ nav.navbar .container {
     --step-shadow: rgba(0, 0, 0, 0.12);
     position: relative;
     overflow: hidden;
-    background-color: var(--color-blanco);
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
     border-radius: 14px;
     border-top: 3px solid var(--step-color);
     padding: 18px 18px;
-    box-shadow: 0 6px 20px var(--step-shadow);
+    box-shadow: var(--dropLV1);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     display: block;
     color: inherit;
@@ -5371,11 +4976,11 @@ nav.navbar .container {
 }
 
 .tx-oc-anexos-panel {
-    background-color: #f7f7f9;
+    background-color: var(--neutro200, #F9F9F9);
 }
 
 .tx-oc-anexo-row {
-    background-color: #ffffff;
+    background-color: var(--neutro100, #FFFFFF);
     transition: background-color 0.15s ease;
     padding-right: 0.75rem !important;
     cursor: pointer;
@@ -6404,7 +6009,7 @@ select.tx-comite-filter-control:disabled {
 
 /* Mapa Interactivo SVG */
 .page-pna-diseno .pna-map-container {
-    background-color: #F8F9FA;
+    background-color: var(--neutro200, #F9F9F9);
     border-radius: 12px;
 }
 .page-pna-diseno .pna-mexico-map {
@@ -6849,8 +6454,8 @@ select.tx-comite-filter-control:disabled {
     flex-direction: column;
 }
 .teoria-card {
-    background: #FFFFFF;
-    border: 1.5px solid #EFE0E4;
+    background: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
     border-radius: 16px;
     padding: 18px 16px;
     display: flex;
@@ -6859,23 +6464,23 @@ select.tx-comite-filter-control:disabled {
     cursor: pointer;
     position: relative;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--dropLV1);
     outline: none !important;
 }
 .teoria-card:hover {
-    border-color: #9E2349;
-    box-shadow: 0 8px 20px rgba(158, 35, 73, 0.12);
+    border-color: var(--pguinda600, #9B2247);
+    box-shadow: var(--dropLV2);
     transform: translateY(-3px);
 }
 .teoria-card:focus-visible {
-    outline: 2px solid #9E2349 !important;
+    outline: 2px solid var(--pguinda600, #9B2247) !important;
     outline-offset: 2px !important;
 }
 .teoria-card.is-active {
-    border-color: #9E2349;
+    border-color: var(--pguinda600, #9B2247);
     border-width: 2px;
-    background: #FFFFFF;
-    box-shadow: 0 8px 24px rgba(158, 35, 73, 0.16);
+    background: var(--neutro100, #FFFFFF);
+    box-shadow: var(--dropLV2);
     transform: translateY(-2px);
 }
 
@@ -7049,12 +6654,12 @@ select.tx-comite-filter-control:disabled {
 
 /* Panel de Detalle Interactivo */
 .teoria-detail-container {
-    background: #FDF7F8;
-    border: 1.5px solid #F3DBE2;
+    background: var(--neutro200, #F9F9F9);
+    border: 1px solid var(--neutro400, #DDDDDD);
     border-radius: 16px;
     padding: 24px;
     margin-top: 36px;
-    box-shadow: 0 6px 20px rgba(105, 28, 50, 0.04);
+    box-shadow: var(--dropLV1);
 }
 @media (min-width: 768px) {
     .teoria-detail-container {
@@ -7079,7 +6684,7 @@ select.tx-comite-filter-control:disabled {
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ECD2D8;
+    border-bottom: 1px solid var(--neutro400, #DDDDDD);
     padding-bottom: 14px;
 }
 .teoria-detail-title {
@@ -7096,16 +6701,16 @@ select.tx-comite-filter-control:disabled {
 }
 
 .teoria-item-card {
-    background: #FFFFFF;
-    border: 1px solid #ECD2D8;
+    background: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    box-shadow: var(--dropLV1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .teoria-item-card:hover {
-    box-shadow: 0 4px 12px rgba(158, 35, 73, 0.08);
+    box-shadow: var(--dropLV2);
 }
 .teoria-item-title {
     font-size: 15px;
@@ -7314,12 +6919,6 @@ select.tx-comite-filter-control:disabled {
 .cp-subsec-enlace__texto {
     flex: 1;
     min-width: 200px;
-}
-.cp-subsec-enlace__badge {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    margin-bottom: 4px;
 }
 .cp-subsec-enlace__titulo {
     margin: 0;
@@ -9150,7 +8749,7 @@ select.tx-comite-filter-control:disabled {
 }
 
 .tx-oc-slot-label {
-    font-family: var(--notoSans), sans-serif;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.3;
@@ -9618,48 +9217,6 @@ select.tx-comite-filter-control:disabled {
     }
 }
 
-/* Árbol Estados Financieros (Desktop) */
-.page-informacion-financiera .fin-tree-node {
-    margin-bottom: 2px;
-}
-.page-informacion-financiera .fin-tree-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border: none;
-    background: transparent;
-    padding: 10px 8px;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--neutro800);
-    border-radius: 8px;
-    transition: background-color .15s;
-    cursor: pointer;
-}
-.page-informacion-financiera .fin-tree-label:hover {
-    background-color: var(--pguinda100);
-    color: var(--principal);
-}
-.page-informacion-financiera .fin-tree-label--sub {
-    font-weight: 600;
-    font-size: 13.5px;
-    padding-left: 16px;
-}
-.page-informacion-financiera .fin-tree-chevron {
-    color: var(--principal);
-    transition: transform .2s ease;
-    font-size: 13px;
-}
-.page-informacion-financiera .fin-tree-chevron.is-open {
-    transform: rotate(180deg);
-}
-.page-informacion-financiera .fin-tree-children {
-    padding-left: 12px;
-    border-left: 2px solid var(--pguinda200);
-    margin-left: 18px;
-}
 .page-informacion-financiera .fin-tree-leaf,
 .snd-drawer .fin-tree-leaf,
 .fin-tree-leaf {
@@ -9805,37 +9362,6 @@ select.tx-comite-filter-control:disabled {
 .page-informacion-financiera .fin-context-header {
     margin-top: 1.5rem;
     border-bottom: 1px solid var(--neutro300);
-}
-
-/* Ruta / breadcrumb del listado */
-.page-informacion-financiera .fin-trail {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-}
-.page-informacion-financiera .fin-trail__item {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--neutro600);
-}
-.page-informacion-financiera .fin-trail__item--current {
-    color: var(--principal);
-    font-weight: 700;
-}
-.page-informacion-financiera .fin-trail__sep {
-    color: var(--neutro400);
-}
-.page-informacion-financiera .fin-collapse-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-    font-weight: 600;
-    font-size: 13px;
-    padding: 6px 12px;
-    cursor: pointer;
 }
 
 /* Filas de documentos (SND v1.1.0) */
@@ -10118,46 +9644,6 @@ select.tx-comite-filter-control:disabled {
     border-top: 1px solid var(--neutro300);
 }
 
-.fin-month-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 8px;
-    padding: 10px 12px;
-}
-.fin-month-btn {
-    min-height: 40px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid var(--neutro400);
-    background-color: var(--neutro100);
-    color: var(--neutro800);
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    text-align: left;
-}
-.fin-month-btn:hover:not(.active) {
-    border-color: var(--principal);
-    background-color: var(--pguinda100);
-    color: var(--principal);
-}
-.fin-month-btn.active {
-    background-color: var(--principal) !important;
-    color: var(--neutro100) !important;
-    border-color: var(--principal) !important;
-    font-weight: 700 !important;
-}
-.fin-month-check {
-    color: var(--neutro100);
-    flex-shrink: 0;
-    margin-left: 6px;
-}
-
 body.snd-drawer-open {
     overflow: hidden !important;
 }
@@ -10206,24 +9692,6 @@ body.snd-drawer-open {
     opacity: 1;
     transform: translateY(0);
 }
-
-/* ── Fondo homologado páginas PNA ─────────────── */
-body.page-politica-nacional-anticorrupcion,
-body.page-pna-diseno,
-body.page-pna-presupuestacion,
-body.page-pna-implementacion {
-    background-color: #f6eff6;
-}
-
-body.page-politica-nacional-anticorrupcion .card {
-    background-color: #ffffff;
-}
-
-body.page-politica-nacional-anticorrupcion .pna-stats-card,
-body.page-politica-nacional-anticorrupcion .pna-ciclo-section {
-    background: #ffffff;
-}
-
 
 /* ══════════════════════════════════════════════════════
    BLOQUE 12 — Accesibilidad SND

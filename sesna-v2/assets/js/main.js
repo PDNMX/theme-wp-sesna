@@ -26,20 +26,20 @@
     document.addEventListener('DOMContentLoaded', sincronizarDetailsAbiertos);
     window.addEventListener('resize', sincronizarDetailsAbiertos);
 
-    /* El header/subheader ya son markup estático de header.php (position:fixed
-       vía CSS, --bodyTop oficial de snd-guinda.css) — no hay nada async que
-       esperar para mostrar la página. Se oculta el loader apenas el DOM está listo. */
+    /* El header (<snd-header>, 58px) y el subheader (.sesna-subheader, 52px)
+       permanecen visibles y estáticos en la parte superior (z-index: 1000000 y
+       999999, por encima del z-index: 99999 del loader). Ocultamos el loader
+       apenas el DOM está listo (igual que en snd-dev). */
     function ocultarLoader() {
         var loader = document.getElementById('sesna-page-loader');
         if (loader && !loader.classList.contains('loader-hidden')) {
             loader.classList.add('loader-hidden');
             setTimeout(function() {
                 loader.style.display = 'none';
-            }, 600);
+            }, 400);
         }
     }
     document.addEventListener('DOMContentLoaded', ocultarLoader);
-    /* Red de seguridad por si algo bloquea DOMContentLoaded (fuentes, CSS lento) */
     window.addEventListener('load', ocultarLoader);
 
     /* Seguridad: el widget de accesibilidad (gobmx-accesibilidad-js) y el
@@ -59,10 +59,20 @@
     document.addEventListener('DOMContentLoaded', function() { reforzarNoopener(); });
     window.addEventListener('load', function() { reforzarNoopener(); });
     (function observarInyeccionGobmx() {
-        var mo = new MutationObserver(function() { reforzarNoopener(); });
+        var mo = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+                m.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) {
+                        if (node.tagName === 'A' && node.getAttribute('target') === '_blank') {
+                            reforzarNoopener(node.parentElement || document);
+                        } else if (node.querySelectorAll) {
+                            reforzarNoopener(node);
+                        }
+                    }
+                });
+            });
+        });
         mo.observe(document.body, { childList: true, subtree: true });
-        /* Se detiene tras 10s — el header/footer de gobmx.js ya está inyectado a esas alturas
-           y no tiene sentido seguir observando el DOM completo indefinidamente. */
         setTimeout(function() { mo.disconnect(); }, 10000);
     })();
 

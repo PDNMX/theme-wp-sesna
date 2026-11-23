@@ -6,20 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/img/favicon.png">
-  <?php wp_head(); ?>
+  <link rel="stylesheet"
+    href="https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css"
+    integrity="sha384-lclXWxqKGfepuIErZdVgKAK2bM7o+tsHGhYfA4QtCRkL768x5Ffo1u7rP01oCUfd"
+    crossorigin="anonymous">
   <script src="https://framework-gb.cdn.gob.mx/snd/v1/carga.js"
     integrity="sha384-co1XtMH+rcHM2juJRJdlpTdJfL9wAc1/EJ+71hoqFAIK4C7KEdcwhrtt8BPuwEWV"
     crossorigin="anonymous"
     data-tema="guinda"
     defer></script>
+  <?php wp_head(); ?>
   <script>window.$ = window.$ || window.jQuery;</script>
 </head>
 
 <body <?php body_class(); ?>>
 
-  <!-- Loader / Transición Inicial -->
-  <div id="sesna-page-loader" class="sesna-loader">
-    <div class="sesna-spinner"></div>
+  <!-- Indicador de carga (loader) oficial SND v1.0.0 -->
+  <div id="sesna-page-loader" class="sesna-loader" role="status" aria-live="polite" aria-label="Cargando">
+    <div class="spin sesna-snd-spin">Cargando...</div>
   </div>
 
   <!-- Header institucional SND v1.0.0 (Web Component oficial) -->
