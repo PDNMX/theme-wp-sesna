@@ -17,6 +17,11 @@
 > 2. **Antes de modificar o crear cualquier componente UI en `sesna-v2/`**, lee siempre el archivo `.md` correspondiente dentro de `docs/snd-migration/snd-1.0.0/componentes/` o `docs/snd-migration/snd-1.0.0/estilos/` para usar las clases, atributos ARIA y estructura HTML exactos del estándar oficial.
 > 3. **Naturaleza del proyecto:** `sesna-v2` es el tema WordPress del portal institucional público de la **Secretaría Ejecutiva del Sistema Nacional Anticorrupción (SESNA)**. Es un sitio informativo, documental y de transparencia ciudadana (no una ventanilla transaccional con inicio de sesión).
 > 4. **Regla de commits en Git:** Los commits en esta rama deben registrarse exclusivamente con el autor configurado en Git local del propietario del repositorio, sin agregar firmas `Co-authored-by` ni menciones a asistentes de IA.
+>
+> 5. **Clases del SND:** usa siempre las clases oficiales del SND v1.0.0 (`.boton__*`, `.sh1b`, `.b1r`, `.h2b`, `.mensajeInformativo`, `.insignia-*`, `.pildora`, `.divisor`, `.columna__*`, `.reticulaGrid__12`, utilidades `mb--`/`p--`/`muestra--`…). Verifica que existan en `https://framework-gb.cdn.gob.mx/snd/v1/snd-guinda.css` antes de inventar una. **No redefinas ni sobrescribas clases del SND**; si falta algo, crea una clase propia con prefijo `sesna-` o ajusta con variables CSS.
+> 6. **Estilos y scripts:** no agregues `!important` nuevos, estilos en línea (`style="…"`), `<script>` inline ni utilidades de Bootstrap (`rounded-4`, `p-4`, `shadow-sm`…).
+> 7. **Intocables:** los `<svg data-snd-procesado="true">` (`sesna_render_snd_svg_icon()`), las imágenes de `/img`, y todo `href`, `data-pdf-url`, `data-modal-target` y ruta de PDF/XLSX/DOCX.
+> 8. **Orden de lectura sugerido:** esta sección 0 → sección 6 (cómo está construido el tema y cómo trabajar) → sección 7 (qué sigue) → y solo entonces `componentes/` y `estilos/`.
 
 ---
 
@@ -391,6 +396,33 @@ Una vez completadas y validadas las Etapas 1 y 2 del SND `v1.0.0`, esta Etapa 3 
 - **Diagnóstico:** Consultas `WP_Query` secundarias que renderizan listados fijos sin paginación ejecutan por defecto `SQL_CALC_FOUND_ROWS` y precargan cachés de términos o metadatos aun cuando no se utilizan.
 - **Acción:** Auditar todas las instancias de `new WP_Query(...)` en el tema y agregar `'no_found_rows' => true` en consultas sin paginación, así como `'update_post_term_cache' => false` o `'update_post_meta_cache' => false` cuando corresponda.
 
+### 6.6 Estado final de la Etapa 3 — Arquitectura vigente del tema
+
+> Los diagnósticos de 6.1–6.5 se conservan como histórico. Esto es lo que existe hoy.
+
+- **`sesna-v2/functions.php`** solo orquesta (`require_once` de `inc/`). El orden de carga conserva el orden de registro de hooks; no lo reordenes. Módulos: `setup`, `enqueue`, `nav-walker`, `helpers-media`/`helpers-acf`/`helpers-template`, `blog-familias`, `cpt-*`, `bootstrap-pages`, `ajax-handlers`, `data-ata-sheets`; datos estáticos en `inc/data/`.
+- **CSS** (se encola en `inc/enqueue.php`, versión por `filemtime()`), en este orden de cascada: `layout.css` (base, header, navegación) → `components-snd.css` → `card.css` → `pages/<página>.css` → `utilidades-tema.css`. Las hojas de `pages/` cargan solo en su plantilla, según `sesna_template_styles_map()`; una hoja nueva se registra ahí.
+- **JS:** scripts de página en `sesna-v2/script/*.js`, con `defer`, registrados en `sesna_template_scripts_map()`. Datos dinámicos por `wp_localize_script()`, no interpolados en el JS.
+- **Parciales reutilizables** en `sesna-v2/template-parts/ui/`: `card.php`, `breadcrumb.php`, `mobile-drawer.php`. Úsalos en vez de duplicar marcado.
+- **Menú principal:** `details/summary` con hover. En tableta (768–1023 px) la barra no debe usar `overflow` distinto de `visible` (recorta el submenú).
+
+### 6.7 Componente Card (`sesna-v2/assets/css/card.css`)
+
+El SND v1.0.0 no define una card; esta hoja es la única fuente de verdad (referencia: Figma "Cards").
+- **Variables** `--sesna-card-*` en `:root`: fondo, borde, radio, sombra, padding, elevación y sombra de hover, separaciones, tamaño y color del ícono, color y alineación del texto, color de la acción.
+- **Estructura:** `.sesna-card` › `.sesna-card__header` (`__icon` + `__title`) › `__text` › `__action`. La acción va siempre abajo a la derecha. Sin atributo `title` (sin tooltips) y sin subrayado.
+- **Ajustes:** por página o por card, redefiniendo las mismas variables en su CSS (p. ej. `.page-transparencia .sesna-card { --sesna-card-icon-size: 48px; }`). No copies `border-radius`/`box-shadow` en otras hojas.
+- **Responsivo:** la card usa `container-type: inline-size`; con poco ancho el ícono pasa arriba del título y el texto se alinea a la izquierda.
+- **Pendiente de homologar:** cards selectoras (círculo centrado + número), de documento y de noticias.
+
+### 6.8 Cómo trabajar y verificar
+
+- Cambios pequeños, por familia de componente. Antes de crear CSS, busca si ya existe una variable o componente.
+- `php -l` en cada PHP tocado. PHP corre en el contenedor `theme-wp-sesna-wordpress-1` (sitio en `http://localhost:8080`); no está instalado en el host.
+- Revisa la página en escritorio y móvil (320–1440 px): sin errores de consola, sin desbordes horizontales y sin cambios en enlaces ni documentos.
+- **No uses `docker compose run wpcli`**: recrea el contenedor de base de datos.
+- **Trabajo compartido en `snd-dev`:** haz `git pull --rebase origin snd-dev` antes de empezar y antes de cada push; commits pequeños y frecuentes; avisa al otro colaborador cuando vayas a tocar un archivo compartido (`card.css`, `layout.css`, `inc/enqueue.php`). Nunca fuerces el push (`--force`).
+
 ---
 
 ## 7. Checklist de Ejecución Paso a Paso
@@ -417,3 +449,8 @@ Para continuar la implementación en cualquier máquina o sesión de IA, sigue e
   - [x] 3.3 Se extrajeron los `<script>` inline a `sesna-v2/script/` (encolados con `defer` en `inc/enqueue.php`) y los catálogos de Marco Normativo a `sesna-v2/inc/data/marco-normativo.php`.
   - [x] 3.4 Parciales `template-parts/ui/breadcrumb.php` y `template-parts/ui/mobile-drawer.php` (24 migas de pan y 5 drawers móviles).
   - [x] 3.5 Consultas `WP_Query`/`get_posts` auditadas: `no_found_rows` y `update_post_term_cache => false` donde no hay paginación SQL ni taxonomías.
+- [ ] **Etapa 4: Capa de componentes compartidos (pendiente)**
+  - [ ] 4.1 Mover `card.css` a `assets/css/components/` y homologar las cards selectoras (círculo centrado + número) y de documento.
+  - [ ] 4.2 Componentes `documento`, `panel`/acordeón, `filtros` y `tabla` con variables, como `card.css`.
+  - [ ] 4.3 Reducir `assets/css/pages/` a lo estrictamente de página (maquetación, hero, espaciados).
+  - [ ] 4.4 Eliminar `!important` por familia a medida que se migra.

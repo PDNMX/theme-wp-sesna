@@ -24,6 +24,8 @@
 ## 2. Mapa completo de archivos extraídos (31 páginas del sitio)
 
 ### Guías generales y Plan de Proyecto (4)
+> **Si eres una IA o un desarrollador nuevo, empieza por la sección 0 del plan** (reglas de oro y orden de lectura).
+
 1. **Plan y Análisis Cruzado para SESNA:** [PLAN-ACTUALIZACION-SND-v1.0.0.md](./PLAN-ACTUALIZACION-SND-v1.0.0.md) — *Guía maestra para desarrolladores y agentes de IA con el análisis cruzado, inventario de archivos/líneas a modificar, componentes en reserva y checklist de implementación.*
 2. **Inicio (`/`):** Incluido en este índice ([README.md](./README.md)).
 3. **Migración (`/migracion`):** [snd-migracion.md](./snd-migracion.md) — *Migrar desde la Gráfica Base*
