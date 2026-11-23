@@ -18,7 +18,7 @@ get_header();
 				</p>
 				<div class="text-center my-3">
 					<a rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2024/01/Sistema-de-Seguimiento-y-Evaluacion-SiSE-SNA_CC-SNA.pdf" class="boton__secundario mt-auto" target="_blank" title="El enlace abre en ventana nueva" role="button">Descargar
-						<i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
+						<?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?>
 					</a>
 				</div>
 			</div>
@@ -109,7 +109,7 @@ get_header();
 				</p>
 				<div class="text-center my-3">
 					<a rel="noopener" href="https://www.sesna.gob.mx/wp-content/uploads/2024/08/Informe-de-avances-de-los-Indicadores-Nacionales_2024.pdf" class="boton__secundario mt-auto" target="_blank" title="El enlace abre en ventana nueva" role="button">Descargar informe
-						<i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
+						<?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?>
 					</a>
 				</div>
 

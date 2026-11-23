@@ -14,7 +14,7 @@ get_header();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <span class="ruta__a" aria-current="page">Contacto</span>
@@ -57,7 +57,7 @@ get_header();
                                 <!-- Dirección -->
                                 <div class="tx-unidad-info-item tx-unidad-info-item--top">
                                     <div class="tx-unidad-icon-circle" aria-hidden="true">
-                                        <i class="snd__icono snd-location icono--24 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-location', 'icono--24 color--pguinda600') ?>
                                     </div>
                                     <div>
                                         <h2 class="b1sb color--pguinda600 mb--4">Dirección:</h2>
@@ -72,7 +72,7 @@ get_header();
                                 <!-- Teléfono -->
                                 <div class="tx-unidad-info-item">
                                     <div class="tx-unidad-icon-circle" aria-hidden="true">
-                                        <i class="snd__icono snd-phone icono--24 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-phone', 'icono--24 color--pguinda600') ?>
                                     </div>
                                     <div>
                                         <h2 class="b1sb color--pguinda600 mb--4">Teléfono:</h2>
@@ -83,7 +83,7 @@ get_header();
                                 <!-- Horarios -->
                                 <div class="tx-unidad-info-item tx-unidad-info-item--top">
                                     <div class="tx-unidad-icon-circle" aria-hidden="true">
-                                        <i class="snd__icono snd-timer icono--24 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-timer', 'icono--24 color--pguinda600') ?>
                                     </div>
                                     <div>
                                         <h2 class="b1sb color--pguinda600 mb--4">Horarios:</h2>
@@ -109,7 +109,7 @@ get_header();
                     <div class="tx-unidad-card__footer">
                         <div class="tx-unidad-card__footer-content">
                             <div class="tx-unidad-icon-circle tx-unidad-icon-circle--white" aria-hidden="true">
-                                <i class="snd__icono snd-security icono--24 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-security', 'icono--24 color--pguinda600') ?>
                             </div>
                             <p class="b1sb color--neutro800 mb--0">
                                 Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="muestra--ninguno muestra--bloque--md">y la participación ciudadana.

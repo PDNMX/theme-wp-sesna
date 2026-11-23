@@ -83,7 +83,7 @@ if (empty($fichero_anios)) {
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -140,7 +140,7 @@ if (empty($fichero_anios)) {
                            data-modal-target="#pdfViewerModal"
                            data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
                            data-pdf-title="PI-PNA – Actualización 2024">
-                            <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Consultar PI-PNA (Actualización 2024)
+                            <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Consultar PI-PNA (Actualización 2024)
                         </a>
                     </div>
 
@@ -148,7 +148,7 @@ if (empty($fichero_anios)) {
                     <div class="columna__6 d-flex flex-column" style="flex:0 0 55%; min-width:260px; padding-left:1.5rem;">
                         <div class="pna-hero__badge mb--16">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd__icono snd-calendar icono--20" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-calendar', 'icono--20') ?>
                             </span>
                             <div>
                                 <p class="sh1b color--neutro800 mb--0">Aprobado el 27 de enero de 2022</p>
@@ -352,7 +352,7 @@ if (empty($fichero_anios)) {
                 <!-- Pie de sección: Texto oficial con icono institucional -->
                 <div class="muestra--flex justify-content-center mt--4 mb--24">
                     <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
-                        <i class="snd__icono snd-select--window icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-select--window', 'icono--20 cp-nota__icono color--azul500') ?>
                         <p class="cp-nota__texto b1r color--azul500 mb--0">Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.</p>
                     </div>
                 </div>
@@ -437,7 +437,7 @@ if (empty($fichero_anios)) {
                         <!-- Header -->
                         <div class="d-flex align-items-center gap--12 mb--16">
                             <div class="pna-guinda-icon-box flex-shrink-0 d-flex align-items-center justify-content-center">
-                                <i class="snd__icono <?php echo esc_attr( $col['icono'] ); ?> icono--20 color--neutro100" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon($col['icono'], 'icono--20 color--neutro100') ?>
                             </div>
                             <h3 class="sh1b mb--0"><?php echo esc_html($col['titulo']); ?></h3>
                         </div>
@@ -456,7 +456,7 @@ if (empty($fichero_anios)) {
                                         <span class="b1r color--neutro800 d-block mb--4"><?php echo esc_html($doc['label']); ?></span>
                                         <span class="sdr color--neutro600 mb--0"><?php echo esc_html($doc['nota']); ?></span>
                                     </span>
-                                    <i class="snd__icono snd-screen icono--16 flex-shrink-0 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16 flex-shrink-0 color--pguinda600') ?>
                                 </a>
                                 <?php else : ?>
                                 <span class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3">
@@ -464,7 +464,7 @@ if (empty($fichero_anios)) {
                                         <span class="b1r color--neutro500 d-block mb--4"><?php echo esc_html($doc['label']); ?></span>
                                         <span class="sdr color--neutro500 mb--0"><?php echo esc_html($doc['nota']); ?></span>
                                     </span>
-                                    <i class="snd__icono snd-screen icono--16 flex-shrink-0 color--neutro500" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16 flex-shrink-0 color--neutro500') ?>
                                 </span>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -514,7 +514,7 @@ if (empty($fichero_anios)) {
                         </p>
                     </div>
                     <button type="button" id="fichero-btn-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -530,7 +530,7 @@ if (empty($fichero_anios)) {
                                 <option value="<?php echo esc_attr($anio); ?>"><?php echo esc_html($anio); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__6--md columna__3--lg">
@@ -542,7 +542,7 @@ if (empty($fichero_anios)) {
                                 <option value="<?php echo $en; ?>">Eje <?php echo $en; ?>: <?php echo esc_html($ejes_data[$en]['titulo']); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                 </div>
@@ -560,9 +560,9 @@ if (empty($fichero_anios)) {
                         </div>
                         <div class="tx-comite-card-action">
                             <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($f['url']); ?>" data-pdf-title="<?php echo esc_attr($f['titulo'] . ' (' . $f['anio'] . ')'); ?>">
-                                <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                 Ficha
-                                <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                             </button>
                         </div>
                     </div>

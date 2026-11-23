@@ -39,7 +39,7 @@ get_header();
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-logo--x', 'icono--16') ?>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="http://twitter.com/<?php the_field('twitter', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('twitter', get_field('titular')->ID ) ?></a>
@@ -49,7 +49,7 @@ get_header();
             <?php if( !empty( get_field('correo', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                  <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
+                  <?= sesna_render_snd_svg_icon('snd-email', 'icono--16') ?>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="mailto:<?php the_field('correo', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('correo', get_field('titular')->ID ) ?></a>
@@ -169,7 +169,7 @@ get_header();
             <?php if( !empty( get_field('twitter', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-logo--x', 'icono--16') ?>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="http://twitter.com/<?php the_field('twitter', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('twitter', get_field('titular')->ID ) ?></a>
@@ -179,7 +179,7 @@ get_header();
             <?php if( !empty( get_field('correo', get_field('titular')->ID ) ) ): ?>
               <div class="d-flex">
                 <div class="p-2">
-                  <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
+                  <?= sesna_render_snd_svg_icon('snd-email', 'icono--16') ?>
                 </div>
                 <div class="p-2">
                   <a rel="noopener" href="mailto:<?php the_field('correo', get_field('titular')->ID ) ?>" target="_blank"><?php the_field('correo', get_field('titular')->ID ) ?></a>
@@ -348,7 +348,7 @@ get_header();
                         <?php if( !empty( get_field('twitter', get_sub_field('funcionario')->ID ) ) ): ?>
                         <div class="d-flex">
                           <div class="p-2 grayLink">
-                            <i class="snd__icono snd-logo--x icono--16" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-logo--x', 'icono--16') ?>
                           </div>
                           <div class="p-2 grayLink">
                             <a rel="noopener" href="http//twiiter.com/<?php the_field('twitter', get_sub_field('funcionario')->ID ) ?>" target="_blank"><?php the_field('twitter', get_sub_field('funcionario')->ID ) ?></a>
@@ -359,7 +359,7 @@ get_header();
                         <?php if( !empty( get_field('correo', get_sub_field('funcionario')->ID ) ) ): ?>
                         <div class="d-flex">
                           <div class="p-2 grayLink">
-                            <i class="snd__icono snd-email icono--16" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-email', 'icono--16') ?>
                           </div>
                           <div class="p-2 grayLink">
                             <a rel="noopener" href="mailto:<?php the_field('correo', get_sub_field('funcionario')->ID ) ?>" target="_blank"><?php the_field('correo', get_sub_field('funcionario')->ID ) ?></a>
@@ -370,7 +370,7 @@ get_header();
                         <?php if( !empty( get_field('declaracion', get_sub_field('funcionario')->ID )  ) ): ?>
                           <div class="d-flex">
                             <div class="p-2 redLink">
-                              <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                              <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                             </div>
 
                             

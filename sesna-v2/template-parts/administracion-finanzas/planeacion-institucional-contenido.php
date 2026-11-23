@@ -54,7 +54,7 @@ $pi_grupos = array(
         <div class="pna-mobile-selector mb--20">
             <button type="button" class="boton__secundario ocn-mobile-tab-trigger" id="pnaOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="pnaDrawer">
                 <span id="pnaActiveSectionLabel"><?php echo esc_html( $pi_grupos[0]['titulo'] ); ?></span>
-                <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
             </button>
         </div>
 
@@ -91,9 +91,9 @@ $pi_grupos = array(
                                             data-modal-target="#pdfViewerModal"
                                             data-pdf-url="<?php echo esc_url( $doc_url ); ?>"
                                             data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                        <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                         Consultar
-                                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                     </button>
                                 <?php else : ?>
                                     <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
@@ -127,7 +127,7 @@ $pi_grupos = array(
         <div class="snd-drawer__header">
             <h2 class="sh0b color--neutro800 mb--0" id="pnaDrawerTitle">Seleccionar sección</h2>
             <button type="button" class="boton__fantasma snd-drawer__close-btn" id="pnaDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
         </div>
 
@@ -145,7 +145,7 @@ $pi_grupos = array(
                             data-tab-target="#pna-pane-<?php echo esc_attr( $i ); ?>"
                             data-section-title="<?php echo esc_attr( $grupo['titulo'] ); ?>">
                         <span><?php echo esc_html( $grupo['titulo'] ); ?></span>
-                        <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                     </button>
                 <?php endforeach; ?>
             </div>

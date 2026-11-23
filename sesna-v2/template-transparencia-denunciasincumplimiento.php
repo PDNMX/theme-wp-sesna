@@ -21,7 +21,7 @@ get_header();
             <div class="fila justify-content-center align-items-center">
                 <div class="columna__auto text-center">
                     <a href="https://www.sesna.gob.mx/wp-content/uploads/2021/10/Denuncias-Incumplimiento-Obligaciones-Transparencia.xlsx" class="boton__secundario boton--grande">
-                        Descargar PDF <i class="snd__icono snd-download icono--24 ms-2" aria-hidden="true"></i>
+                        Descargar PDF <?= sesna_render_snd_svg_icon('snd-download', 'icono--24 ms-2') ?>
                     </a>
                 </div>
             </div>

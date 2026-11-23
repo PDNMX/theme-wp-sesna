@@ -39,7 +39,7 @@ $sna_meses = [
         <ul class="ruta__lista">
             <li class="ruta__li">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                    <i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio
+                    <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
                 </a>
             </li>
             <li class="ruta__li">
@@ -74,7 +74,7 @@ $sna_meses = [
                     <label for="sna-entradas-search" class="b1sb dblock color--neutro800 mb--8">Buscar noticia o actividad</label>
                     <form class="search-container" role="search" id="form-sna-entradas-search" action="javascript:void(0);">
                         <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control" id="sna-entradas-search-box">
-                            <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                             <input type="search" id="sna-entradas-search" name="s" placeholder="Buscar por palabra clave..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                         </div>
                     </form>
@@ -89,7 +89,7 @@ $sna_meses = [
                                 <option value="<?php echo esc_attr($year); ?>"><?php echo esc_html($year); ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ $sna_meses = [
                                 <option value="<?php echo esc_attr($num); ?>"><?php echo esc_html($nombre); ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ $sna_meses = [
             <div class="sna-entradas-topics-header mb--12">
                 <label for="sna-entradas-filter-topic" class="b1sb color--neutro800 mb--0">Categorías</label>
                 <button type="button" id="sna-entradas-filter-clear" class="boton__fantasma sna-entradas-filter-clear" style="<?php echo $sna_active_familia !== 'todas' ? '' : 'display:none;'; ?>">
-                    Limpiar filtros <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                    Limpiar filtros <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                 </button>
             </div>
 
@@ -128,7 +128,7 @@ $sna_meses = [
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
             </div>
 
             <!-- Píldoras de Categorías en Tablet/Desktop (>= 640px) — SND v1.0.0 -->
@@ -158,11 +158,11 @@ $sna_meses = [
                     <div class="texto--centro sna-entradas-toggle-wrap">
                         <button type="button"
                                 id="sna-entradas-toggle-cats"
-                                class="boton__fantasma"
+                                class="boton__fantasma<?php echo $sna_extra_expanded ? ' is-expanded' : ''; ?>"
                                 aria-expanded="<?php echo $sna_extra_expanded ? 'true' : 'false'; ?>"
                                 aria-controls="sna-entradas-tabs">
                             <span id="sna-entradas-toggle-cats-text"><?php echo $sna_extra_expanded ? 'Ver menos categorías' : 'Ver todas las categorías'; ?></span>
-                            <i class="snd__icono <?php echo $sna_extra_expanded ? 'snd-chevron--up' : 'snd-chevron--down'; ?> icono--20" id="sna-entradas-toggle-cats-icon" aria-hidden="true"></i>
+                            <span id="sna-entradas-toggle-cats-icon" class="d-inline-flex align-items-center"><?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 fin-acc-chevron' . ($sna_extra_expanded ? ' is-open' : '')) ?></span>
                         </button>
                     </div>
                 <?php endif; ?>
@@ -185,7 +185,7 @@ $sna_meses = [
             <div class="columna__12">
                 <div class="texto--centro mt--32">
                     <button type="button" id="sna-entradas-load-more" class="boton__fantasma sna-entradas-load-more-btn" style="display:none;">
-                        Ver más noticias <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más noticias <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
             </div>

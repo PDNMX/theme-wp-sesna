@@ -72,7 +72,7 @@ wp_reset_postdata();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
@@ -129,7 +129,7 @@ wp_reset_postdata();
                             </p>
                         </div>
                         <button type="button" id="sesiones-btn-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                            <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                             Limpiar filtros
                         </button>
                     </div>
@@ -148,7 +148,7 @@ wp_reset_postdata();
                                         <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                             </div>
                         </div>
                         <div class="columna__12 columna__6--md columna__3--lg">
@@ -159,14 +159,14 @@ wp_reset_postdata();
                                     <option value="Ordinaria">Ordinaria</option>
                                     <option value="Extraordinaria">Extraordinaria</option>
                                 </select>
-                                <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                             </div>
                         </div>
                         <div class="columna__12 columna__12--md columna__6--lg">
                             <label for="search-sesion" class="b1sb dblock color--neutro800 mb--8">Buscar acta</label>
                             <form class="search-container" role="search" id="form-search-sesion" action="javascript:void(0);">
                                 <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                    <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                     <input type="search" id="search-sesion" name="q" placeholder="Buscar por nombre o número de sesión..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                                 </div>
                             </form>
@@ -175,9 +175,9 @@ wp_reset_postdata();
 
                     <!-- Lista de Sesiones -->
                     <div class="tx-comite-card-list" id="sesiones-list-container">
-                        <?php foreach ($sesiones as $sesion): ?>
+                        <?php foreach ($sesiones as $s_idx => $sesion): ?>
                         <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
-                        <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($sesion['anio']) ?>" data-tipo="<?= esc_attr($sesion['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($sesion['titulo'], 'UTF-8') : strtolower($sesion['titulo']) ) ?>">
+                        <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($sesion['anio']) ?>" data-tipo="<?= esc_attr($sesion['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($sesion['titulo'], 'UTF-8') : strtolower($sesion['titulo']) ) ?>"<?= $s_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                             <!-- Date Column -->
                             <div class="tx-comite-card-date">
@@ -193,9 +193,9 @@ wp_reset_postdata();
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($sesion['enlace']) ?>" data-pdf-title="<?= esc_attr($sesion['titulo']) ?>">
-                                    <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                     Acta
-                                    <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                 </button>
                             </div>
 
@@ -213,7 +213,7 @@ wp_reset_postdata();
                     <!-- Ver más Sesiones -->
                     <div class="texto--centro mt--32" id="sesiones-load-more-container">
                         <button type="button" id="sesiones-btn-more" class="boton__fantasma">
-                            Ver más sesiones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                            Ver más sesiones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                         </button>
                     </div>
 
@@ -231,7 +231,7 @@ wp_reset_postdata();
                             </p>
                         </div>
                         <button type="button" id="resoluciones-btn-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                            <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                             Limpiar filtros
                         </button>
                     </div>
@@ -250,7 +250,7 @@ wp_reset_postdata();
                                         <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                             </div>
                         </div>
                         <div class="columna__12 columna__6--md columna__3--lg">
@@ -261,14 +261,14 @@ wp_reset_postdata();
                                     <option value="Ordinaria">Ordinaria</option>
                                     <option value="Extraordinaria">Extraordinaria</option>
                                 </select>
-                                <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                             </div>
                         </div>
                         <div class="columna__12 columna__12--md columna__6--lg">
                             <label for="search-res" class="b1sb dblock color--neutro800 mb--8">Número o clave de resolución</label>
                             <form class="search-container" role="search" id="form-search-res" action="javascript:void(0);">
                                 <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                    <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                     <input type="search" id="search-res" name="q" placeholder="Buscar resolución..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                                 </div>
                             </form>
@@ -277,7 +277,7 @@ wp_reset_postdata();
 
                     <!-- Lista de Resoluciones -->
                     <div class="tx-comite-card-list" id="resoluciones-list-container">
-                        <?php foreach ($resoluciones as $res):
+                        <?php foreach ($resoluciones as $r_idx => $res):
                             $busqueda_res = trim($res['titulo'] . ' ' . $res['numero'] . ' ' . $res['folio']);
                             $meta_parts = [];
                             if (!empty($res['tipo'])) {
@@ -290,7 +290,7 @@ wp_reset_postdata();
                             }
                         ?>
                         <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
-                        <div class="tx-comite-card tx-resolucion-card" data-anio="<?= esc_attr($res['anio']) ?>" data-tipo="<?= esc_attr($res['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_res, 'UTF-8') : strtolower($busqueda_res) ) ?>">
+                        <div class="tx-comite-card tx-resolucion-card" data-anio="<?= esc_attr($res['anio']) ?>" data-tipo="<?= esc_attr($res['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_res, 'UTF-8') : strtolower($busqueda_res) ) ?>"<?= $r_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                             <!-- Date Column -->
                             <div class="tx-comite-card-date">
@@ -308,9 +308,9 @@ wp_reset_postdata();
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($res['enlace']) ?>" data-pdf-title="<?= esc_attr($res['titulo']) ?>">
-                                    <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                     Resolución
-                                    <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                 </button>
                             </div>
 
@@ -328,7 +328,7 @@ wp_reset_postdata();
                     <!-- Ver más Resoluciones -->
                     <div class="texto--centro mt--32" id="resoluciones-load-more-container">
                         <button type="button" id="resoluciones-btn-more" class="boton__fantasma">
-                            Ver más resoluciones <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                            Ver más resoluciones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                         </button>
                     </div>
 

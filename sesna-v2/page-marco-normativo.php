@@ -339,7 +339,7 @@ $normatividad_interna = [
             <ul class="ruta__lista">
                 <li class="ruta__li">
                     <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a">
-                        <i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio
+                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
                     </a>
                 </li>
                 <li class="ruta__li">
@@ -401,7 +401,7 @@ $normatividad_interna = [
                         </p>
                     </div>
                     <button type="button" id="normatividad-externa-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -419,14 +419,14 @@ $normatividad_interna = [
                                     <option value="<?= esc_attr($te) ?>"><?= esc_html($te) ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__6--md columna__8--lg">
                         <label for="search-doc-ext" class="b1sb dblock color--neutro800 mb--8">Buscar documento</label>
                         <form class="search-container" role="search" id="form-search-ext" action="javascript:void(0);">
                             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                 <input type="search" id="search-doc-ext" name="q" placeholder="Nombre, palabra clave, tipo de documento..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                             </div>
                         </form>
@@ -435,10 +435,10 @@ $normatividad_interna = [
 
                 <!-- Lista de Tarjetas Normatividad Externa -->
                 <div class="tx-comite-card-list" id="normatividad-externa-body">
-                    <?php foreach ($normatividad_externa as $doc) :
+                    <?php foreach ($normatividad_externa as $ext_idx => $doc) :
                         $busqueda_ext = trim($doc['titulo'] . ' ' . $doc['tipo'] . ' ' . $doc['etiqueta']);
                     ?>
-                        <div class="tx-comite-card tx-norm-ext-card" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-doc-search="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_ext, 'UTF-8') : strtolower($busqueda_ext) ) ?>">
+                        <div class="tx-comite-card tx-norm-ext-card" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-doc-search="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_ext, 'UTF-8') : strtolower($busqueda_ext) ) ?>"<?= $ext_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                             <!-- Type Column -->
                             <div class="tx-comite-card-date">
@@ -454,7 +454,7 @@ $normatividad_interna = [
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <a rel="noopener" href="<?= esc_attr($doc['url']) ?>" target="_blank" title="El enlace abre en ventana nueva" class="boton__fantasma">
-                                    <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                     Consultar
                                 </a>
                             </div>
@@ -473,7 +473,7 @@ $normatividad_interna = [
                 <!-- VER MÁS BTN (EXTERNA) -->
                 <div class="texto--centro mt--32" id="normatividad-externa-vermas-wrap">
                     <button type="button" class="boton__fantasma" id="normatividad-externa-vermas-btn">
-                        Ver más documentos <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más documentos <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
 
@@ -491,7 +491,7 @@ $normatividad_interna = [
                         </p>
                     </div>
                     <button type="button" id="normatividad-interna-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -509,14 +509,14 @@ $normatividad_interna = [
                                     <option value="<?= esc_attr($ti) ?>"><?= esc_html($ti) ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__6--md columna__8--lg">
                         <label for="search-doc-int" class="b1sb dblock color--neutro800 mb--8">Buscar documento</label>
                         <form class="search-container" role="search" id="form-search-int" action="javascript:void(0);">
                             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                 <input type="search" id="search-doc-int" name="q" placeholder="Nombre, palabra clave, tipo de documento..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                             </div>
                         </form>
@@ -525,10 +525,10 @@ $normatividad_interna = [
 
                 <!-- Lista de Tarjetas Normatividad Interna -->
                 <div class="tx-comite-card-list" id="normatividad-interna-body">
-                    <?php foreach ($normatividad_interna as $doc) :
+                    <?php foreach ($normatividad_interna as $int_idx => $doc) :
                         $busqueda_int = trim($doc['titulo'] . ' ' . $doc['tipo'] . ' ' . $doc['etiqueta']);
                     ?>
-                        <div class="tx-comite-card tx-norm-int-card" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-doc-search="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_int, 'UTF-8') : strtolower($busqueda_int) ) ?>">
+                        <div class="tx-comite-card tx-norm-int-card" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-doc-search="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_int, 'UTF-8') : strtolower($busqueda_int) ) ?>"<?= $int_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                             <!-- Type Column -->
                             <div class="tx-comite-card-date">
@@ -544,9 +544,9 @@ $normatividad_interna = [
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['url']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>">
-                                    <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                     Consultar
-                                    <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                 </button>
                             </div>
 
@@ -564,7 +564,7 @@ $normatividad_interna = [
                 <!-- VER MÁS BTN (INTERNA) -->
                 <div class="texto--centro mt--32" id="normatividad-interna-vermas-wrap">
                     <button type="button" class="boton__fantasma" id="normatividad-interna-vermas-btn">
-                        Ver más documentos <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                        Ver más documentos <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                     </button>
                 </div>
 

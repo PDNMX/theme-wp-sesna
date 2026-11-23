@@ -80,7 +80,7 @@ $tx_cards = [
                    title="El enlace abre en ventana nueva" 
                    class="boton__primario" 
                    aria-label="Solicitar información (abre la Plataforma Nacional de Transparencia en nueva ventana)">
-                    <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                     Solicitar información
                 </a>
             </div>
@@ -101,7 +101,7 @@ $tx_cards = [
                     <div class="columna__12 columna__6--sm columna__6--md columna__3--lg mb--24">
                         <div class="tx-card radio--4 posicion--relativa desborde--oculto alto--100 muestra--flex flex-direction-column">
                             <div class="tx-card__icon mb--16" aria-hidden="true">
-                                <i class="snd__icono <?= esc_attr( $card['icon'] ); ?> icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon($card['icon'], 'icono--32 color--pguinda600') ?>
                             </div>
                             <h3 class="sh1b tx-card__title mb--8">
                                 <a href="<?= esc_url( $card['url'] ); ?>"
@@ -114,7 +114,7 @@ $tx_cards = [
                                 <?= esc_html( $card['desc'] ); ?>
                             </p>
                             <div class="mt--auto pt--16 muestra--flex align-items-center justify-content-flex-end">
-                                <i class="snd__icono snd-chevron--right icono--20 tx-card__arrow" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20 tx-card__arrow') ?>
                             </div>
 
                             <?php if ( !empty($card['manual']) ): ?>
@@ -123,7 +123,7 @@ $tx_cards = [
                                    rel="noopener noreferrer"
                                    title="Consultar manual de acceso en formato PDF (abre en ventana nueva)"
                                    class="tx-card-manual-overlay z--2 decoracion--ninguna">
-                                    <i class="snd__icono snd-document--pdf icono--20 pe--8" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20 pe--8') ?>
                                     <span>Consultar manual</span>
                                 </a>
                             <?php endif; ?>
@@ -154,7 +154,7 @@ $tx_cards = [
                        class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono snd-group icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-group', 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
                                 <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Transparencia para el Pueblo</h3>
@@ -164,7 +164,7 @@ $tx_cards = [
                                 <div class="mt--auto">
                                     <span class="boton__primario"
                                           aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
-                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                                         Ir al portal
                                     </span>
                                 </div>
@@ -182,7 +182,7 @@ $tx_cards = [
                        class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono snd-search icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
                                 <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Plataforma Nacional de Transparencia</h3>
@@ -192,7 +192,7 @@ $tx_cards = [
                                 <div class="mt--auto">
                                     <span class="boton__primario"
                                           aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
-                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                                         Acceder
                                     </span>
                                 </div>
@@ -213,7 +213,7 @@ $tx_cards = [
                 <div class="columna__12 columna__6--md">
                     <div class="reticulaFlex align-items-center justify-content-flex-start justify-content-center--md gap--16">
                         <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
-                            <i class="snd__icono snd-email icono--24 color--blanco" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-email', 'icono--24 color--blanco') ?>
                         </div>
                         <div>
                             <span class="sdr dblock color--neutro600 mb--4">Correo electrónico:</span>
@@ -227,7 +227,7 @@ $tx_cards = [
                 <div class="columna__12 columna__6--md">
                     <div class="reticulaFlex align-items-center justify-content-flex-start justify-content-center--md gap--16">
                         <div class="tx-contacto__icon-wrap flex-none" aria-hidden="true">
-                            <i class="snd__icono snd-phone icono--24 color--blanco" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-phone', 'icono--24 color--blanco') ?>
                         </div>
                         <div>
                             <span class="sdr dblock color--neutro600 mb--4">Teléfono y extensión:</span>

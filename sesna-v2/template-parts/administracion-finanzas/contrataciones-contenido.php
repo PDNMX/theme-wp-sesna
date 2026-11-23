@@ -132,7 +132,7 @@ $cf_keys = array_keys( $cf_columnas );
         <!-- Buscador — 4.1 Barra de búsqueda -->
         <form class="search-container mb--24" role="search" action="javascript:void(0);">
             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                 <input type="search" id="cfSearchInput" class="cf-search-input sh0r js-input tx-comite-search-input" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
             </div>
         </form>
@@ -147,7 +147,7 @@ $cf_keys = array_keys( $cf_columnas );
                         <!-- Encabezado homologado de la Card: Ícono + Título de Sección -->
                         <div class="cf-card-header d-flex align-items-center gap--12 mb--16">
                             <div class="cf-card-icon-wrap flex-shrink-0">
-                                <i class="snd__icono <?php echo esc_attr( $col['icono'] ); ?> icono--20" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon($col['icono'], 'icono--20') ?>
                             </div>
                             <h2 class="sh1b color--neutro800 mb--0 cf-card-title"><?php echo esc_html( $col['titulo'] ); ?></h2>
                         </div>
@@ -164,7 +164,7 @@ $cf_keys = array_keys( $cf_columnas );
                             <div class="fin-acc-card mb--8">
                                 <button type="button" class="fin-acc-header" data-cf-toggle="<?php echo esc_attr( $group_id ); ?>" aria-expanded="<?php echo $abierto ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $group_id ); ?>">
                                     <span class="b1sb color--neutro800 mb--0"><?php echo esc_html( $anio ); ?></span>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron <?php echo $abierto ? 'is-open' : ''; ?>" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron' . ($abierto ? ' is-open' : '')) ?>
                                 </button>
                                 <div class="fin-acc-collapse <?php echo $abierto ? '' : 'muestra--ninguno'; ?>" id="<?php echo esc_attr( $group_id ); ?>">
                                     <div class="fin-doc-list p--8">
@@ -181,9 +181,9 @@ $cf_keys = array_keys( $cf_columnas );
                                                                 data-modal-target="#pdfViewerModal"
                                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                                 data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                            <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                                             Consultar
-                                                            <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                         </button>
                                                     <?php else : ?>
                                                         <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
@@ -213,7 +213,7 @@ $cf_keys = array_keys( $cf_columnas );
             <div class="pna-mobile-selector mb--20">
                 <button type="button" class="boton__secundario ocn-mobile-tab-trigger" id="cfOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="cfDrawer">
                     <span id="cfActiveSectionLabel"><?php echo esc_html( $cf_columnas[ $cf_keys[0] ]['titulo'] ); ?></span>
-                    <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                 </button>
             </div>
 
@@ -231,7 +231,7 @@ $cf_keys = array_keys( $cf_columnas );
                     <div class="fin-acc-card mb--8">
                         <button type="button" class="fin-acc-header" data-cf-toggle="<?php echo esc_attr( $group_id ); ?>" aria-expanded="<?php echo $abierto ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $group_id ); ?>">
                             <span class="b1sb color--neutro800 mb--0"><?php echo esc_html( $anio ); ?></span>
-                            <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron <?php echo $abierto ? 'is-open' : ''; ?>" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron' . ($abierto ? ' is-open' : '')) ?>
                         </button>
                         <div class="fin-acc-collapse <?php echo $abierto ? '' : 'muestra--ninguno'; ?>" id="<?php echo esc_attr( $group_id ); ?>">
                             <div class="fin-doc-list p--8">
@@ -248,9 +248,9 @@ $cf_keys = array_keys( $cf_columnas );
                                                         data-modal-target="#pdfViewerModal"
                                                         data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                         data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                    <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                                     Consultar
-                                                    <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                 </button>
                                             <?php else : ?>
                                                 <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
@@ -291,7 +291,7 @@ $cf_keys = array_keys( $cf_columnas );
         <div class="snd-drawer__header">
             <h2 class="sh0b color--neutro800 mb--0" id="cfDrawerTitle">Seleccionar sección</h2>
             <button type="button" class="boton__fantasma snd-drawer__close-btn" id="cfDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
         </div>
 
@@ -308,7 +308,7 @@ $cf_keys = array_keys( $cf_columnas );
                             data-tab-target="#cf-pane-<?php echo esc_attr( $col_key ); ?>"
                             data-section-title="<?php echo esc_attr( $col['titulo'] ); ?>">
                         <span><?php echo esc_html( $col['titulo'] ); ?></span>
-                        <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                     </button>
                 <?php endforeach; ?>
             </div>

@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -73,7 +73,7 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de No Discriminación</p>
                         </div>
                         <h3 class="sh1b mb--0 flex-grow-1 texto--justify">Pronunciamiento de No Discriminación</h3>
-                        <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'color--neutro600 flex-shrink-0 icono--16') ?>
                     </a>
                 </div>
                 <div class="columna__12 columna__6--md">
@@ -89,7 +89,7 @@ get_header();
                             <p class="cp-doc-thumb__nombre">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</p>
                         </div>
                         <h3 class="sh1b mb--0 flex-grow-1 texto--justify">Pronunciamiento de Cero Tolerancia al Acoso y Hostigamiento Sexual</h3>
-                        <i class="snd__icono snd-chevron--right color--neutro600 flex-shrink-0 icono--16" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'color--neutro600 flex-shrink-0 icono--16') ?>
                     </a>
                 </div>
             </div>
@@ -206,7 +206,7 @@ get_header();
                         <div class="dh-campania-card__img"
                              style="background-color: <?php echo esc_attr($dh_c_color); ?>18; <?php if ($dh_c_icono_img): ?>background-image: url('<?php echo esc_url($dh_c_icono_img); ?>');<?php endif; ?>">
                             <?php if (!$dh_c_icono_img): ?>
-                                <i class="snd__icono snd icono--32 <?php echo esc_attr($dh_c_icono); ?>" aria-hidden="true" style="color: <?php echo esc_attr($dh_c_color); ?>;"></i>
+                                <?= sesna_render_snd_svg_icon($dh_c_icono, 'icono--32', 'color: ' . $dh_c_color . ';') ?>
                             <?php endif; ?>
                         </div>
                         <h3 class="dh-campania-card__title sh1b"><?php echo esc_html($dh_c_titulo); ?></h3>
@@ -366,7 +366,7 @@ get_header();
                                 <option value="<?php echo esc_attr($a); ?>"><?php echo esc_html($a); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__6--sm columna__4--md">
@@ -377,14 +377,14 @@ get_header();
                                 <option value="Ordinaria">Ordinaria</option>
                                 <option value="Extraordinaria">Extraordinaria</option>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                 </div>
                 <div class="tx-comite-card-list" id="sesiones-list-container">
-                    <?php foreach ( $sesiones as $sesion ) : ?>
+                    <?php foreach ( $sesiones as $dh_idx => $sesion ) : ?>
                     <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
-                    <div class="tx-comite-card tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>">
+                    <div class="tx-comite-card tx-sesion-card" data-anio="<?php echo esc_attr($sesion['anio']); ?>" data-tipo="<?php echo esc_attr($sesion['tipo']); ?>"<?= $dh_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                         <!-- Date Column -->
                         <div class="tx-comite-card-date">
@@ -400,9 +400,9 @@ get_header();
                         <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                         <div class="tx-comite-card-action">
                             <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($sesion['url']); ?>" data-pdf-title="<?php echo esc_attr($sesion['titulo']); ?>">
-                                <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                 Acta
-                                <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                             </button>
                         </div>
 
@@ -414,7 +414,7 @@ get_header();
                 <?php if (count($sesiones) > 5) : ?>
                 <div class="text-center mt-5" id="sesiones-load-more-container">
                     <a href="javascript:void(0)" id="sesiones-btn-more" class="boton__fantasma">
-                        Ver más sesiones <i class="snd__icono snd-chevron--down icono--16" aria-hidden="true"></i>
+                        Ver más sesiones <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16') ?>
                     </a>
                 </div>
                 <?php endif; ?>
@@ -430,13 +430,13 @@ get_header();
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
             <!-- Botón de Cerrar -->
             <button type="button" class="boton__fantasma tx-pdf-modal__close-btn position-absolute top-0 end-0 m-3 z--3" data-modal-dismiss aria-label="Cerrar modal">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
 
             <div class="modal-body p-4 p-md-5 position-relative" id="dh-modal-body">
                 <!-- Contenido inyectado dinámicamente por derechos-humanos.js -->
                 <div class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
-                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" aria-hidden="true"></i>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--neutro600" data-snd-procesado="true" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -451,14 +451,14 @@ get_header();
             <div class="tx-pdf-modal__header cd-flipbook-header">
                 <h2 class="sh1b patria color--principal tx-pdf-modal__title" id="cd-flipbook-title">Acciones x la integridad</h2>
                 <button type="button" class="boton__fantasma tx-pdf-modal__close-btn" data-modal-dismiss aria-label="Cerrar modal">
-                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                 </button>
             </div>
 
             <!-- Body / Escenario del Flipbook -->
             <div class="cd-flipbook-body" id="cd-flipbook-container">
                 <div class="cd-flipbook-loader" id="cd-flipbook-loader">
-                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--principal mb--8" aria-hidden="true"></i>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--principal mb--8" data-snd-procesado="true" aria-hidden="true"></i>
                     <p class="b2r color--neutro700 mb--0">Cargando publicación...</p>
                 </div>
                 <div class="cd-flipbook-stage" id="cd-flipbook-stage">
@@ -470,17 +470,17 @@ get_header();
             <div class="tx-pdf-modal__footer cd-flipbook-footer">
                 <div class="cd-flipbook-controls" id="cd-flipbook-controls">
                     <button type="button" class="boton__fantasma cd-flipbook-btn cd-flipbook-btn--home" id="cd-btn-home" aria-label="Volver a la portada" title="Volver a la portada">
-                        <i class="snd__icono snd-renew icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-renew', 'icono--20') ?>
                         <span class="cd-flipbook-btn__label">Portada</span>
                     </button>
                     <button type="button" class="boton__secundario cd-flipbook-btn cd-flipbook-btn--prev" id="cd-btn-prev" aria-label="Página anterior">
-                        <i class="snd__icono snd-chevron--left icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--left', 'icono--20') ?>
                         <span class="cd-flipbook-btn__label">Anterior</span>
                     </button>
                     <span class="b1sb color--neutro800 mb--0 cd-flipbook-counter" id="cd-flipbook-counter">1 / 1</span>
                     <button type="button" class="boton__primario cd-flipbook-btn cd-flipbook-btn--next" id="cd-btn-next" aria-label="Página siguiente">
                         <span class="cd-flipbook-btn__label">Siguiente</span>
-                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                     </button>
                 </div>
             </div>

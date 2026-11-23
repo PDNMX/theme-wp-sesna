@@ -116,7 +116,7 @@
                     $('.sna-entradas-tab--extra').removeClass('muestra--ninguno');
                     $('#sna-entradas-toggle-cats').attr('aria-expanded', 'true').addClass('is-expanded');
                     $('#sna-entradas-toggle-cats-text').text('Ver menos categorías');
-                    $('#sna-entradas-toggle-cats-icon').removeClass('snd-chevron--down').addClass('snd-chevron--up');
+                    $('#sna-entradas-toggle-cats-icon .fin-acc-chevron').addClass('is-open');
                 }
             }
             /* Sincronizar aria-pressed después del listener delegado de snd.js sobre .pildora[aria-pressed] */
@@ -161,7 +161,7 @@
                 $text.text(isHidden ? 'Ver menos categorías' : 'Ver todas las categorías');
             }
             if ($icon.length) {
-                $icon.toggleClass('snd-chevron--down', !isHidden).toggleClass('snd-chevron--up', isHidden);
+                $icon.find('.fin-acc-chevron').toggleClass('is-open', isHidden);
             }
         });
 

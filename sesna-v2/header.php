@@ -63,7 +63,7 @@
 
       <!-- Botón de accesibilidad oficial SND v1.1.0 (Sección 4.4, líneas 610 y 633-636) -->
       <button type="button" class="boton__limpio btn-accesibilidad" id="sesna-btn-accesibilidad" aria-label="Opciones de accesibilidad" title="Opciones de accesibilidad">
-        <i class="snd__icono snd-accessibility--alt icono--32 icono--circuloRojo" aria-hidden="true">
+        <i class="snd__icono snd-accessibility--alt icono--32 icono--circuloRojo" data-snd-procesado="true" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="icono--32" width="32" height="32" aria-hidden="true" fill="currentColor">
             <path d="M23 14 23 12 9 12 9 14 14 14 14 16.734 10.132 23.504 11.868 24.496 15.58 18 16.42 18 20.132 24.496 21.868 23.504 18 16.734 18 14 23 14z"/>
             <circle cx="16" cy="9" r="2"/>

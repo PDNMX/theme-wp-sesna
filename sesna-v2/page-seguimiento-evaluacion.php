@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -90,7 +90,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Nacional</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron is-open" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron is-open') ?>
                                 </button>
                                 <div id="criterio-content-1" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-1">
                                     <p class="b1r sise-accordion-text">
@@ -108,7 +108,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Independiente</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron') ?>
                                 </button>
                                 <div id="criterio-content-2" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-2">
                                     <p class="b1r sise-accordion-text">
@@ -126,7 +126,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Escalable</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron') ?>
                                 </button>
                                 <div id="criterio-content-3" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-3">
                                     <p class="b1r sise-accordion-text">
@@ -144,7 +144,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Transversal</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron') ?>
                                 </button>
                                 <div id="criterio-content-4" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-4">
                                     <p class="b1r sise-accordion-text">
@@ -162,7 +162,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Inclusivo</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron') ?>
                                 </button>
                                 <div id="criterio-content-5" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-5">
                                     <p class="b1r sise-accordion-text">
@@ -180,7 +180,7 @@ get_header();
                                         </span>
                                         <span class="b1sb mb--0 sise-accordion-title">Alineado con la teoría del cambio</span>
                                     </div>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron sise-accordion-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron sise-accordion-chevron') ?>
                                 </button>
                                 <div id="criterio-content-6" class="fin-acc-collapse sise-accordion-body" role="region" aria-labelledby="criterio-btn-6">
                                     <p class="b1r sise-accordion-text">
@@ -209,7 +209,7 @@ get_header();
                                data-pdf-title="Sistema de Seguimiento y Evaluación (SiSE)" 
                                data-pdf-url="<?php echo esc_url( home_url( '/wp-content/uploads/2024/01/Sistema-de-Seguimiento-y-Evaluacion-SiSE-SNA_CC-SNA.pdf' ) ); ?>"
                                title="Ver documento (Abre visor)">
-                                <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                                <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Ver documento
                             </a>
                         </div>
                     </div>
@@ -370,7 +370,7 @@ get_header();
                         
                         <div class="teoria-item-card">
                             <h4 class="teoria-item-title b1sb">
-                                <i class="snd__icono snd-checkmark--outline icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-checkmark--outline', 'icono--16') ?>
                                 Recursos y capacidades institucionales
                             </h4>
                             <p class="teoria-item-text b1r">
@@ -380,7 +380,7 @@ get_header();
 
                         <div class="teoria-item-card mb--0">
                             <h4 class="teoria-item-title b1sb">
-                                <i class="snd__icono snd-checkmark--outline icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-checkmark--outline', 'icono--16') ?>
                                 Programas y acciones institucionales
                             </h4>
                             <p class="teoria-item-text b1r">
@@ -398,7 +398,7 @@ get_header();
 
                         <div class="teoria-item-card">
                             <h4 class="teoria-item-title b1sb">
-                                <i class="snd__icono snd-collaborate icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-collaborate', 'icono--16') ?>
                                 Vinculación interinstitucional
                             </h4>
                             <p class="teoria-item-text b1r">
@@ -408,7 +408,7 @@ get_header();
 
                         <div class="teoria-item-card mb--0">
                             <h4 class="teoria-item-title b1sb">
-                                <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?>
                                 Innovación tecnológica
                             </h4>
                             <p class="teoria-item-text b1r">
@@ -431,7 +431,7 @@ get_header();
                         <!-- Principio Transversal de Inteligencia -->
                         <div class="teoria-transversal-card">
                             <span class="teoria-transversal-tag">
-                                <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-renew', 'icono--16') ?>
                                 Principio Transversal
                             </span>
                             <h4 class="teoria-item-title b1sb">
@@ -457,7 +457,7 @@ get_header();
                         <!-- Principio Transversal de Perspectiva de Género -->
                         <div class="teoria-transversal-card">
                             <span class="teoria-transversal-tag">
-                                <i class="snd__icono snd-user icono--16" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-user', 'icono--16') ?>
                                 Principio Transversal
                             </span>
                             <h4 class="teoria-item-title b1sb">
@@ -562,7 +562,7 @@ get_header();
                             </h3>
                             <div class="sise-indicador-statbox">
                                 <div class="flex-shrink-0 muestra--flex align-items-center">
-                                    <i class="snd__icono snd-user icono--24 color--neutro800" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--24 color--neutro800') ?>
                                 </div>
                                 <span class="b1r mb--0">Estima el impacto diferenciado de la corrupción</span>
                             </div>
@@ -587,7 +587,7 @@ get_header();
                             </h3>
                             <div class="sise-indicador-statbox">
                                 <div class="flex-shrink-0 muestra--flex align-items-center">
-                                    <i class="snd__icono snd-document icono--24 color--neutro800" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document', 'icono--24 color--neutro800') ?>
                                 </div>
                                 <span class="b1r mb--0">PEAs y/o PI-PEAs</span>
                             </div>
@@ -618,7 +618,7 @@ get_header();
                     </p>
                     <div class="cp-subsec-enlace">
                         <div class="cp-subsec-enlace__icono">
-                            <i class="snd__icono snd-calendar icono--24 color--neutro100" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-calendar', 'icono--24 color--neutro100') ?>
                         </div>
                         <div class="cp-subsec-enlace__texto">
                             <p class="cp-subsec-enlace__titulo b1sb mb--0">
@@ -647,7 +647,7 @@ get_header();
                 <!-- Cabecera de Documentos de consulta -->
                 <div class="sise-eval-docs-header mb--24">
                     <div class="sise-eval-docs-header__icon">
-                        <i class="snd__icono snd-document icono--32 color--pguinda600" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
                     </div>
                     <div class="sise-eval-docs-header__text">
                         <h3 class="sh1b mb--4">Documentos de consulta</h3>
@@ -675,7 +675,7 @@ get_header();
                                    data-pdf-title="Informe de la Evaluación de la PNA"
                                    data-pdf-url="#"
                                    title="Ver documento (Abre visor)">
-                                    <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Ver documento
                                 </a>
                             </div>
                         </div>
@@ -698,7 +698,7 @@ get_header();
                                    data-pdf-title="Evaluación de la PNA — Resumen Ejecutivo"
                                    data-pdf-url="#"
                                    title="Ver documento (Abre visor)">
-                                    <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Ver documento
                                 </a>
                             </div>
                         </div>
@@ -721,7 +721,7 @@ get_header();
                                    data-pdf-title="Evaluación de la PNA — Presentación de resultados"
                                    data-pdf-url="#"
                                    title="Ver documento (Abre visor)">
-                                    <i class="snd snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Ver documento
                                 </a>
                             </div>
                         </div>
@@ -762,7 +762,7 @@ get_header();
                        class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono snd-catalog icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-catalog', 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
                                 <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Catálogo de Información (CICM)</h3>
@@ -772,7 +772,7 @@ get_header();
                                 <div class="mt--auto">
                                     <span class="boton__primario"
                                           aria-label="Ir al portal del Catálogo de Información sobre la Corrupción en México (abre en nueva ventana)">
-                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                                         Ir al portal
                                     </span>
                                 </div>
@@ -790,7 +790,7 @@ get_header();
                        class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
                         <div class="muestra--flex align-items-start gap--16 alto--100">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono snd-map icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-map', 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="muestra--flex flex-direction-column alto--100 flex-grow">
                                 <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Sistemas Estatales (SEA)</h3>
@@ -800,7 +800,7 @@ get_header();
                                 <div class="mt--auto">
                                     <span class="boton__primario"
                                           aria-label="Ir al portal de Sistemas Estatales Anticorrupción (abre en nueva ventana)">
-                                        <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                                         Ir al portal
                                     </span>
                                 </div>

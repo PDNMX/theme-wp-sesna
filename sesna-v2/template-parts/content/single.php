@@ -29,12 +29,12 @@ $prensa_title  = $posts_page_id ? get_the_title($posts_page_id) : 'Noticias y ac
                         <?php if ( $categories ) : $cat = $categories[0]; ?>
                             <a href="<?= esc_url( get_category_link( $cat->term_id ) ) ?>"
                                class="boton__primario boton--redondeado">
-                                <i class="snd__icono snd-tag icono--16 mr--4" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-tag', 'icono--16 mr--4') ?>
                                 <?= esc_html( $cat->name ) ?>
                             </a>
                         <?php endif; ?>
                         <span class="sesna-single-date color--neutro600 b1r">
-                            <i class="snd__icono snd-calendar icono--16 mr--4" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-calendar', 'icono--16 mr--4') ?>
                             <?php echo get_the_date( 'd / m / Y' ); ?>
                         </span>
                     </div>
@@ -52,7 +52,7 @@ $prensa_title  = $posts_page_id ? get_the_title($posts_page_id) : 'Noticias y ac
                     <?php if ( function_exists( 'have_rows' ) && have_rows( 'files' ) ) : ?>
                         <div class="sesna-single-files">
                             <h3 class="sesna-single-files__title sh1b patria color--pguinda600 mb--12">
-                                <i class="snd__icono snd-document--import icono--20 mr--8" aria-hidden="true"></i>Documentos adjuntos
+                                <?= sesna_render_snd_svg_icon('snd-document--import', 'icono--20 mr--8') ?>Documentos adjuntos
                             </h3>
                             <ul class="sesna-single-files__list list-unstyled mb--0">
                                 <?php while ( have_rows( 'files' ) ) : the_row(); ?>
@@ -60,7 +60,7 @@ $prensa_title  = $posts_page_id ? get_the_title($posts_page_id) : 'Noticias y ac
                                         <a href="<?php the_sub_field( 'file' ); ?>"
                                            target="_blank" rel="noopener noreferrer"
                                            class="sesna-single-files__link b1r">
-                                            <i class="snd__icono snd-document icono--16 mr--8" aria-hidden="true"></i>
+                                            <?= sesna_render_snd_svg_icon('snd-document', 'icono--16 mr--8') ?>
                                             <?php the_sub_field( 'nombre' ); ?>
                                         </a>
                                     </li>
@@ -113,7 +113,7 @@ $prensa_title  = $posts_page_id ? get_the_title($posts_page_id) : 'Noticias y ac
             <nav class="sesna-single-nav mt--24" aria-label="Navegación de artículos">
                 <a href="<?= esc_url( $prensa_url ) ?>"
                    class="boton__fantasma">
-                    <i class="snd__icono snd-arrow--left icono--20 mr--8" aria-hidden="true"></i>Volver a <?php echo esc_html( $prensa_title ); ?>
+                    <?= sesna_render_snd_svg_icon('snd-arrow--left', 'icono--20 mr--8') ?>Volver a <?php echo esc_html( $prensa_title ); ?>
                 </a>
             </nav>
 

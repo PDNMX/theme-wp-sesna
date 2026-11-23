@@ -77,7 +77,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
             <div class="cf-panel-card sise-panel-card in-que-mide-card mb--24">
                 <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
                     <div class="tx-consulta-card__icon-wrap in-que-mide-card__icon-wrap flex-none" aria-hidden="true">
-                        <i class="snd__icono <?php echo esc_attr( $ind['icono'] ); ?> icono--32" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon($ind['icono'], 'icono--32') ?>
                     </div>
                     <div class="muestra--flex flex-direction-column flex-grow">
                         <div class="mb--8">
@@ -102,7 +102,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                             <select id="<?php echo esc_attr( $pid ); ?>-anio" class="tx-comite-select tx-comite-filter-control in-comite-select--anio" aria-label="Seleccionar año de consulta">
                                 <option value="<?php echo esc_attr( $ind['anio'] ); ?>" selected><?php echo esc_html( $ind['anio'] ); ?></option>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 color--neutro800 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 color--neutro800 tx-select-chevron') ?>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                             <div class="in-kpi">
                                 <div class="in-kpi__top">
                                     <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                        <i class="snd__icono <?php echo esc_attr( $kpi['icono'] ); ?> icono--32 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon($kpi['icono'], 'icono--32 color--pguinda600') ?>
                                     </div>
                                     <div class="in-res-card__metric">
                                         <div class="in-res-card__label-row">
@@ -124,7 +124,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                                                     data-mensaje-emergente="<?php echo esc_attr( $ind['resultados'][ $key ]['desc'] ); ?>"
                                                     data-mensaje-emergente-posicion="abajo-izquierda"
                                                     data-mensaje-emergente-ancho="mediano">
-                                                <i class="snd__icono snd-information icono--16" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-information', 'icono--16') ?>
                                             </button>
                                         </div>
                                         <div class="sh0b color--pguinda600 mb--0 in-res-card__num"><?php echo esc_html( $ind['resultados'][ $key ]['valor'] ); ?>%</div>
@@ -166,7 +166,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                              aria-controls="<?php echo esc_attr( $pid . '-pane-' . $var['num'] ); ?>"
                              data-var-target="#<?php echo esc_attr( $pid . '-pane-' . $var['num'] ); ?>">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono <?php echo esc_attr( $var['icono'] ); ?> icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon($var['icono'], 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="in-formula-card__body">
                                 <span class="b1sb color--neutro800 in-formula-card__title"><?php echo esc_html( $var['titulo_corto'] ); ?></span>
@@ -194,7 +194,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                          <?php echo $active ? '' : 'hidden'; ?>>
                         <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
                             <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <i class="snd__icono <?php echo esc_attr( $var['icono'] ); ?> icono--32 color--pguinda600" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon($var['icono'], 'icono--32 color--pguinda600') ?>
                             </div>
                             <div class="muestra--flex flex-direction-column flex-grow">
                                 <h4 class="sh1b tx-consulta-card__title color--neutro800 mb--8"><?php echo esc_html( $var['titulo_largo'] ); ?></h4>
@@ -264,7 +264,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                                                     <option value="<?php echo esc_attr( $slug ); ?>" <?php selected( $slug, $default ); ?>><?php echo esc_html( $nombre ); ?></option>
                                                 <?php endforeach; ?>
                                             </select>
-                                            <i class="snd__icono snd-chevron--down icono--20 color--neutro800 tx-select-chevron" aria-hidden="true"></i>
+                                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 color--neutro800 tx-select-chevron') ?>
                                         </div>
                                     </div>
 
@@ -329,7 +329,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                         <div class="in-doc-download-card">
                             <div class="in-doc-download-card__head">
                                 <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                    <i class="snd__icono snd-document icono--32 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
                                 </div>
                                 <div class="in-doc-download-card__text flex-grow">
                                     <h4 class="sh1b color--neutro800 mb--4">Nota técnica</h4>
@@ -346,7 +346,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                                    data-pdf-url="<?php echo esc_url( $ind['documentos']['pdf_url'] ); ?>"
                                    title="Ver documento (Abre visor)"
                                    aria-label="Ver documento Nota técnica (Abre visor)">
-                                    <i class="snd__icono snd-screen icono--16" aria-hidden="true"></i> Ver documento
+                                    <?= sesna_render_snd_svg_icon('snd-screen', 'icono--16') ?> Ver documento
                                 </a>
                             </div>
                         </div>
@@ -356,7 +356,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                         <div class="in-doc-download-card">
                             <div class="in-doc-download-card__head">
                                 <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                    <i class="snd__icono snd-calculator icono--32 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-calculator', 'icono--32 color--pguinda600') ?>
                                 </div>
                                 <div class="in-doc-download-card__text flex-grow">
                                     <h4 class="sh1b color--neutro800 mb--4">Ficha de cálculo</h4>
@@ -368,7 +368,7 @@ $primary_val = isset( $ind['resultados']['nacional']['valor'] ) ? $ind['resultad
                                    class="boton__primario" 
                                    aria-label="Descargar base de datos (<?php echo esc_attr( $ind['documentos']['excel_peso'] ); ?>)"
                                    download>
-                                    <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar base de datos
+                                    <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?> Descargar base de datos
                                 </a>
                             </div>
                         </div>

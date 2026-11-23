@@ -19,7 +19,7 @@ $ad_columnas = array(
     'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-chart--bar', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
     'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-collaborate', 'bg' => '#F9F0F3', 'color' => '#611232' ),
     'Guía de Archivo Documental' => array( 'icono' => 'snd-education', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Inventario general por Expediente' => array( 'icono' => 'snd-archive', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Inventario general por Expediente' => array( 'icono' => 'snd-folder--details', 'bg' => '#F9F0F3', 'color' => '#611232' ),
 );
 
 $ad_short_names = array(
@@ -112,7 +112,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                         id="ad-tab-<?php echo esc_attr( $s_i ); ?>"
                                         data-ad-panel="<?php echo esc_attr( $s_i ); ?>">
                                     <span><?php echo esc_html( $display_title ); ?></span>
-                                    <i class="snd__icono snd-chevron--right icono--16 fin-nav-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16 fin-nav-chevron') ?>
                                 </button>
                             <?php $s_i++; endforeach; ?>
                         </div>
@@ -127,7 +127,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                     <!-- Barra de búsqueda superior — SND 4.1 homologado con la sección -->
                     <div class="search-container mb--20" role="search">
                         <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control w-100">
-                            <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                             <input type="search" id="adSearchInputDesktop" class="cf-search-input sh0r js-input tx-comite-search-input" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
                         </div>
                     </div>
@@ -149,7 +149,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                 <!-- Encabezado de la sección activa (ícono + nombre) -->
                                 <div class="d-flex align-items-center gap--12 pb--16 mb--20 border-bottom">
                                     <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                                        <i class="snd__icono <?php echo esc_attr( $meta['icono'] ); ?> icono--20" aria-hidden="true" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
+                                        <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
                                     </div>
                                     <h2 class="sh0b color--pguinda600 mb--0" style="line-height: 1.3;"><?php echo esc_html( $display_title ); ?></h2>
                                 </div>
@@ -169,16 +169,16 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                                             data-modal-target="#pdfViewerModal"
                                                             data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                             data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                        <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                                        <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                                         Consultar
-                                                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                     </button>
                                                 <?php else : ?>
                                                     <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener"
                                                        class="boton__fantasma fin-doc-btn text-decoration-none">
-                                                        <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                                         Abrir enlace
-                                                        <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                     </a>
                                                 <?php endif; ?>
                                             </div>
@@ -215,7 +215,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
             <!-- Buscador móvil -->
             <form class="search-container mb--20" role="search" action="javascript:void(0);">
                 <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                    <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                     <input type="search" id="adSearchInputMobile" class="cf-search-input sh0r js-input tx-comite-search-input" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
                 </div>
             </form>
@@ -224,7 +224,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
             <div class="pna-mobile-selector mb--20">
                 <button type="button" class="boton__secundario ocn-mobile-tab-trigger" id="adOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="adDrawer">
                     <span id="adActiveSectionLabel"><?php echo esc_html( $first_short ); ?></span>
-                    <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                 </button>
             </div>
 
@@ -238,7 +238,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                     <div class="cf-inner-card d-flex flex-column p-3">
                         <div class="d-flex align-items-center gap-2 mb-3">
                             <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                                <i class="snd__icono <?php echo esc_attr( $meta['icono'] ); ?> icono--20" aria-hidden="true" style="color: <?php echo esc_attr( $meta['color'] ); ?>;"></i>
+                                <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
                             </div>
                             <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232; line-height: 1.3;"><?php echo esc_html( $grupo['titulo'] ); ?></h3>
                         </div>
@@ -255,7 +255,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                data-cf-search="<?php echo $search_attr; ?>"
                                style="color: #333;">
                                 <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><i class="snd__icono snd-document icono--16" aria-hidden="true"></i></span>
+                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-document', 'icono--16') ?></span>
                                 <span class="visually-hidden">Ver documento</span>
                             </a>
                             <?php else : ?>
@@ -264,7 +264,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                data-cf-search="<?php echo $search_attr; ?>"
                                style="color: #333;">
                                 <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                                <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><i class="snd__icono snd-launch icono--16" aria-hidden="true"></i></span>
+                                <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?></span>
                                 <span class="visually-hidden">Abrir enlace</span>
                             </a>
                             <?php endif; ?>
@@ -273,7 +273,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
 
                         <?php if ( ! empty( $grupo['nota'] ) ) : ?>
                         <div class="mt-3 pt-3 d-flex align-items-start gap-2 cf-inner-card__footer">
-                            <i class="snd__icono snd-information text-muted flex-shrink-0 icono--16" aria-hidden="true" style="margin-top: 2px;"></i>
+                            <?= sesna_render_snd_svg_icon('snd-information', 'text-muted flex-shrink-0 icono--16', 'margin-top: 2px;') ?>
                             <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $grupo['nota'] ); ?></span>
                         </div>
                         <?php endif; ?>
@@ -298,7 +298,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
         <div class="snd-drawer__header">
             <h2 class="sh0b color--neutro800 mb--0" id="adDrawerTitle">Seleccionar sección</h2>
             <button type="button" class="boton__fantasma snd-drawer__close-btn" id="adDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
         </div>
 
@@ -318,7 +318,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                             data-short-name="<?php echo esc_attr( $short_name ); ?>"
                             data-section-title="<?php echo esc_attr( $display_title ); ?>">
                         <span><?php echo esc_html( $display_title ); ?></span>
-                        <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                     </button>
                 <?php $d_i++; endforeach; ?>
             </div>

@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -55,7 +55,7 @@ get_header();
                     <div class="columna__12 columna__8--lg muestra--flex flex-direction-column alto--100">
                         <div class="pna-hero__badge">
                             <span class="pna-hero__badge-icon" aria-hidden="true">
-                                <i class="snd__icono snd-calendar icono--20" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-calendar', 'icono--20') ?>
                             </span>
                             <div>
                                 <p class="sh1b color--neutro800 mb--0">Aprobada el 29 de enero de 2020</p>
@@ -74,7 +74,7 @@ get_header();
                                data-modal-target="#pdfViewerModal"
                                data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( 'PNA-resumen-ejecutivo.pdf', '2020/01/PNA-resumen-ejecutivo.pdf' ) ); ?>"
                                data-pdf-title="Resumen Ejecutivo — Política Nacional Anticorrupción">
-                                <i class="snd__icono snd-document icono--16" aria-hidden="true"></i> Resumen Ejecutivo
+                                <?= sesna_render_snd_svg_icon('snd-document', 'icono--16') ?> Resumen Ejecutivo
                             </a>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ get_header();
             </div><!-- /.pna-ciclo-diagram -->
 
             <div class="cp-nota__inner fondo--azul100 mt-4">
-                <i class="snd__icono snd-select--window icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-select--window', 'icono--20 cp-nota__icono color--azul500') ?>
                 <p class="cp-nota__texto b1r color--azul500 mb--0"><strong>Haz clic</strong> en cada etapa para conocer más información, instrumentos y resultados de la Política Nacional Anticorrupción.</p>
             </div>
             </div><!-- /.pna-ciclo-section -->

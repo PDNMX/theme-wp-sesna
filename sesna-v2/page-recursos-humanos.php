@@ -71,7 +71,7 @@ function print_document($year, $title, $date, $url)
                 <?php echo $download_attrs; ?>
                 target="_blank">
                 <?php echo $button_text; ?>
-                <i class="snd__icono <?php echo $is_download ? 'snd-download' : 'snd-launch'; ?> icono--16 ms-2" aria-hidden="true"></i>
+                <?php echo sesna_render_snd_svg_icon($is_download ? 'snd-download' : 'snd-launch', 'icono--16 ms-2'); ?>
             </a>
         </div>
     </div>
@@ -92,7 +92,7 @@ function print_nav_tab($id, $icon, $text, $isActive = false)
             aria-selected="<?php echo $isActive ? 'true' : 'false'; ?>"
             style="display: flex; align-items: center; justify-content: center; font-size: 0.85rem; height: 60px; padding: 5px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
             <?php if ($icon): ?>
-                <i class="snd__icono <?php echo $icon; ?> icono--16 me-2" aria-hidden="true"></i>
+                <?php echo sesna_render_snd_svg_icon($icon, 'icono--16 me-2'); ?>
             <?php endif; ?>
             <span><?php echo $text; ?></span>
         </a>

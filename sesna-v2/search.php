@@ -29,7 +29,7 @@ get_header();
             <div class="reticulaGrid__12" >
                 <div class="columna__12 loadMore" id="btn_load_more">
                   
-                    <p>Cargar notas anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
+                    <p>Cargar notas anteriores <?= sesna_render_snd_svg_icon('snd-renew', 'icono--16') ?></p>
                 </div>
             </div>
 

@@ -50,7 +50,7 @@
                                     <?php the_post_thumbnail('medium_large', ['class' => 'ancho--100 alto--100 sna-noticias-img']); ?>
                                 <?php else : ?>
                                     <div class="ancho--100 alto--100 fondo--neutro200 muestra--flex align-items-center justify-content-center color--neutro600 sd sna-noticias-img">
-                                        <i class="snd__icono snd snd-image tamano--1" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-image', 'icono--32') ?>
                                     </div>
                                 <?php endif; ?>
                             </div>

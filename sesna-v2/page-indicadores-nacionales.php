@@ -30,7 +30,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -96,7 +96,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                             <div class="columna__12 columna__7--xl">
                                 <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
                                     <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                        <i class="snd__icono snd-document icono--32 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
                                     </div>
                                     <div class="muestra--flex flex-direction-column flex-grow">
                                         <h2 class="sh1b tx-consulta-card__title color--neutro800 mb--8">¿Qué son los Indicadores Nacionales?</h2>
@@ -114,7 +114,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                     <!-- Métrica 1: 10 Indicadores Nacionales -->
                                     <div class="in-stat-item">
                                         <div class="in-stat-item__icon" aria-hidden="true">
-                                            <i class="snd__icono snd-chart--bar icono--24 color--pguinda600"></i>
+                                            <?= sesna_render_snd_svg_icon('snd-chart--bar', 'icono--24 color--pguinda600') ?>
                                         </div>
                                         <div class="in-stat-item__body">
                                             <div class="sh0b color--neutro800 mb--4 in-stat-item__num">10</div>
@@ -204,7 +204,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                 </div>
                                 <div class="in-oe-card__icon-wrap" aria-hidden="true">
                                     <div class="in-oe-card__icon-circle">
-                                        <i class="snd__icono <?php echo esc_attr( $ind['icono'] ); ?> icono--32" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon($ind['icono'], 'icono--32') ?>
                                     </div>
                                 </div>
                                 <div class="in-oe-card__footer">
@@ -255,10 +255,10 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                         <?php endforeach; ?>
                                         <td class="in-comparativa__actions">
                                             <a href="<?php echo esc_url( $ind_t['documentos']['pdf_url'] ); ?>" class="in-comparativa__dl sdsb" aria-label="Descargar Nota técnica del indicador <?php echo esc_attr( $ind_t['num'] ); ?> en PDF">
-                                                <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> PDF
+                                                <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?> PDF
                                             </a>
                                             <a href="<?php echo esc_url( $ind_t['documentos']['excel_url'] ); ?>" class="in-comparativa__dl sdsb" aria-label="Descargar Ficha de cálculo del indicador <?php echo esc_attr( $ind_t['num'] ); ?> en Excel">
-                                                <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Excel
+                                                <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?> Excel
                                             </a>
                                         </td>
                                     </tr>
@@ -287,7 +287,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                             <div class="columna__12 columna__4--xl">
                                 <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
                                     <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                        <i class="snd__icono snd-document icono--32 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
                                     </div>
                                     <div class="muestra--flex flex-direction-column flex-grow">
                                         <h2 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Consulta y descarga</h2>
@@ -308,7 +308,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                            class="in-download-card decoracion--ninguna"
                                            aria-label="Consultar Informe de Avances de los Indicadores Nacionales 2025">
                                             <div class="in-download-card__icon flex-none" aria-hidden="true">
-                                                <i class="snd__icono snd-document--pdf icono--24 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24 color--pguinda600') ?>
                                             </div>
                                             <div class="in-download-card__body">
                                                 <span class="sdr color--neutro600 in-download-card__title">
@@ -316,7 +316,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                                 </span>
                                             </div>
                                             <span class="in-download-card__action" aria-hidden="true">
-                                                <i class="snd__icono snd-arrow--right icono--20 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-arrow--right', 'icono--20 color--pguinda600') ?>
                                             </span>
                                         </a>
                                     </div>
@@ -327,7 +327,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                            class="in-download-card decoracion--ninguna"
                                            aria-label="Descargar Fichas de cálculo de los Indicadores Nacionales 2025">
                                             <div class="in-download-card__icon flex-none" aria-hidden="true">
-                                                <i class="snd__icono snd-calculator icono--24 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-calculator', 'icono--24 color--pguinda600') ?>
                                             </div>
                                             <div class="in-download-card__body">
                                                 <span class="sdr color--neutro600 in-download-card__title">
@@ -335,7 +335,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                                 </span>
                                             </div>
                                             <span class="in-download-card__action" aria-hidden="true">
-                                                <i class="snd__icono snd-download icono--20 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-download', 'icono--20 color--pguinda600') ?>
                                             </span>
                                         </a>
                                     </div>
@@ -346,7 +346,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                            class="in-download-card decoracion--ninguna"
                                            aria-label="Descargar Datos abiertos de los Indicadores Nacionales">
                                             <div class="in-download-card__icon flex-none" aria-hidden="true">
-                                                <i class="snd__icono snd-catalog icono--24 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-catalog', 'icono--24 color--pguinda600') ?>
                                             </div>
                                             <div class="in-download-card__body">
                                                 <span class="b1sb color--neutro800 in-download-card__title">
@@ -354,7 +354,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                                                 </span>
                                             </div>
                                             <span class="in-download-card__action" aria-hidden="true">
-                                                <i class="snd__icono snd-download icono--20 color--pguinda600" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-download', 'icono--20 color--pguinda600') ?>
                                             </span>
                                         </a>
                                     </div>
@@ -387,7 +387,7 @@ foreach ( $sesna_indicadores_detalle as $item ) {
        class="boton__primario in-floating-return-btn js-return-indicadores"
        id="in-floating-return-btn"
        aria-label="Regresar a indicadores">
-        <i class="snd__icono snd-arrow--up icono--20" aria-hidden="true"></i>
+        <?= sesna_render_snd_svg_icon('snd-arrow--up', 'icono--20') ?>
         <span>Regresar a indicadores</span>
     </a>
 

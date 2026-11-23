@@ -176,7 +176,7 @@ if ( empty( $fin_default_context ) ) {
                             <div class="fin-acc-card mb--8">
                                 <button type="button" class="fin-acc-header" data-fin-toggle="<?php echo esc_attr( $anio_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $anio_acc_id ); ?>">
                                     <span class="b1sb color--neutro800 mb--0"><?php echo esc_html( $anio ); ?></span>
-                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                                 </button>
                                 <div class="fin-acc-collapse muestra--ninguno" id="<?php echo esc_attr( $anio_acc_id ); ?>">
                                     <div class="fin-acc-body p--8">
@@ -190,7 +190,7 @@ if ( empty( $fin_default_context ) ) {
                                             <div class="fin-acc-subcard mb--6">
                                                 <button type="button" class="fin-acc-sub-header" data-fin-toggle="<?php echo esc_attr( $trim_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $trim_acc_id ); ?>">
                                                     <span class="b2sb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
-                                                    <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron" aria-hidden="true"></i>
+                                                    <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                                                 </button>
                                                 <div class="fin-acc-sub-collapse muestra--ninguno" id="<?php echo esc_attr( $trim_acc_id ); ?>">
                                                     <div class="fin-month-list pt--4 pb--4">
@@ -236,7 +236,7 @@ if ( empty( $fin_default_context ) ) {
                                     data-fin-panel="<?php echo esc_attr( $key ); ?>"
                                     data-fin-context="<?php echo esc_attr( $context_label ); ?>">
                                 <span><?php echo esc_html( $anio_dict ); ?></span>
-                                <i class="snd__icono snd-chevron--right icono--16 fin-nav-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16 fin-nav-chevron') ?>
                             </button>
                         <?php endforeach; ?>
                     </div>
@@ -252,11 +252,11 @@ if ( empty( $fin_default_context ) ) {
                 <!-- Controles superiores: Buscador + Botón Filtrar (móvil) -->
                 <div class="fin-toolbar d-flex align-items-center gap--12 mb--20">
                     <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control fin-content-search flex-grow-1">
-                        <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                         <input type="search" class="sh0r js-input tx-comite-search-input" id="finSearchInput" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
                     </div>
                     <button type="button" class="boton__secundario fin-mobile-filter-btn" id="finOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="finDrawer">
-                        <i class="snd__icono snd-filter icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-filter', 'icono--20') ?>
                         <span>Filtrar</span>
                     </button>
                 </div>
@@ -296,9 +296,9 @@ if ( empty( $fin_default_context ) ) {
                                                                 data-modal-target="#pdfViewerModal"
                                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                                 data-pdf-title="<?php echo esc_attr( $label ); ?>">
-                                                            <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                                             Consultar
-                                                            <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -334,9 +334,9 @@ if ( empty( $fin_default_context ) ) {
                                                 data-modal-target="#pdfViewerModal"
                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
                                                 data-pdf-title="<?php echo esc_attr( $label ); ?>">
-                                            <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                                             Consultar
-                                            <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                         </button>
                                     </div>
                                 </div>
@@ -377,7 +377,7 @@ if ( empty( $fin_default_context ) ) {
         <div class="snd-drawer__header">
             <h2 class="sh0b color--neutro800 mb--0" id="finDrawerTitle">Seleccionar período</h2>
             <button type="button" class="boton__fantasma snd-drawer__close-btn" id="finDrawerCloseBtn" aria-label="Cerrar selección de período">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
         </div>
 
@@ -393,7 +393,7 @@ if ( empty( $fin_default_context ) ) {
                         <div class="fin-acc-card mb--8">
                             <button type="button" class="fin-acc-header" data-fin-toggle="<?php echo esc_attr( $anio_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $anio_acc_id ); ?>">
                                 <span class="b1sb color--neutro800 mb--0"><?php echo esc_html( $anio ); ?></span>
-                                <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                             </button>
                             <div class="fin-acc-collapse muestra--ninguno" id="<?php echo esc_attr( $anio_acc_id ); ?>">
                                 <div class="fin-acc-body p--8">
@@ -407,7 +407,7 @@ if ( empty( $fin_default_context ) ) {
                                         <div class="fin-acc-subcard mb--6">
                                             <button type="button" class="fin-acc-sub-header" data-fin-toggle="<?php echo esc_attr( $trim_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $trim_acc_id ); ?>">
                                                 <span class="b2sb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
-                                                <i class="snd__icono snd-chevron--down icono--16 fin-acc-chevron" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                                             </button>
                                             <div class="fin-acc-sub-collapse muestra--ninguno" id="<?php echo esc_attr( $trim_acc_id ); ?>">
                                                 <div class="fin-month-list pt--4 pb--4">
@@ -452,7 +452,7 @@ if ( empty( $fin_default_context ) ) {
                                     data-fin-panel="<?php echo esc_attr( $key ); ?>"
                                     data-fin-context="<?php echo esc_attr( $context_label ); ?>">
                                 <span><?php echo esc_html( $anio_dict ); ?></span>
-                                <i class="snd__icono snd-chevron--right icono--16 fin-nav-chevron" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16 fin-nav-chevron') ?>
                             </button>
                         <?php endforeach; ?>
                     </div>

@@ -77,7 +77,7 @@ $acciones_programas = [
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <span class="ruta__a" aria-current="page">Acciones y Programas</span>
@@ -127,7 +127,7 @@ $acciones_programas = [
                                             <div class="ancho--100 alto--100 muestra--flex align-items-center justify-content-center"
                                                  style="background-color: var(--neutro200, #F3F3F3); color: var(--neutro500, #808080);"
                                                  aria-hidden="true">
-                                                <i class="snd__icono snd-image icono--40" aria-hidden="true"></i>
+                                                <?= sesna_render_snd_svg_icon('snd-image', 'icono--40') ?>
                                             </div>
                                         <?php endif; ?>
                                     </div>

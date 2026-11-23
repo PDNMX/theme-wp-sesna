@@ -32,7 +32,7 @@ $normatividad_externa = [
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
@@ -94,7 +94,7 @@ $normatividad_externa = [
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
                                 <a href="<?= esc_url($doc['url']) ?>" target="_blank" rel="noopener" title="El enlace abre en ventana nueva" class="boton__fantasma" aria-label="Consultar <?= esc_attr($doc['titulo']) ?>">
-                                    <i class="snd__icono snd-launch icono--20" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                     Consultar
                                 </a>
                             </div>
@@ -114,7 +114,7 @@ $normatividad_externa = [
                             <p class="b1r color--neutro600 mb--0">Visita la sección de Órganos Colegiados y Normativa de la SESNA.</p>
                         </div>
                         <a href="<?= esc_url( home_url('/marco-normativo/') ) ?>" class="boton__fantasma">
-                            Marco Normativo <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                            Marco Normativo <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                         </a>
                     </div>
                 </div>

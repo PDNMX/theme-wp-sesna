@@ -10,23 +10,23 @@
         <div class="reticulaGrid__12 listaSesion">
             <div class="columna__12 columna__3--lg">
             <p class="roboto"> Convocatoria</p>
-            <a class="boton__secundario <?= get_field( 'convocatoria' )?'':'disabled' ?>" href='<?php the_file('convocatoria') ?>' role="button">Descarga <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></a>
+            <a class="boton__secundario <?= get_field( 'convocatoria' )?'':'disabled' ?>" href='<?php the_file('convocatoria') ?>' role="button">Descarga <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></a>
             </div>
             <div class="columna__12 columna__3--lg">
             <p class="roboto"> Orden del Día</p>
-            <a class="boton__secundario <?= get_field( 'orden_del_dia' )?'':'disabled' ?>" href='<?php the_file('orden_del_dia') ?>' role="button">Descarga <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></a>
+            <a class="boton__secundario <?= get_field( 'orden_del_dia' )?'':'disabled' ?>" href='<?php the_file('orden_del_dia') ?>' role="button">Descarga <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></a>
             </div>
 
             <div class="columna__12 columna__3--lg">
             <p class="roboto"> Acta</p>
-            <a class="boton__secundario <?= get_field( 'acta_firmada' )?'':'disabled' ?>" href='<?php the_file('acta_firmada') ?>' role="button">Descarga <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></a>
+            <a class="boton__secundario <?= get_field( 'acta_firmada' )?'':'disabled' ?>" href='<?php the_file('acta_firmada') ?>' role="button">Descarga <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></a>
             </div>
             <div class="columna__12 columna__3--lg">
             <p class="roboto"> Anexos</p>
             <input type="checkbox" class="panel" id="anexos<?php the_ID(); ?>"/>
             <label for="anexos<?php the_ID(); ?>" class="btn <?= ( have_rows('anexos') )?'':'disabled' ?>"  >
-                <p class="closed">Ver Lista <i class="snd__icono snd-list icono--16" aria-hidden="true"></i></p>
-                <p class="open">Cerrar <i class="snd__icono snd-close icono--16" aria-hidden="true"></i></p>
+                <p class="closed">Ver Lista <?= sesna_render_snd_svg_icon('snd-list', 'icono--16') ?></p>
+                <p class="open">Cerrar <?= sesna_render_snd_svg_icon('snd-close', 'icono--16') ?></p>
             </label>
             </div>
 
@@ -37,11 +37,11 @@
         <div class="reticulaGrid__12 container_acuerdo" id="container_anexos<?php the_ID(); ?>">
             <?php if( have_rows('anexos') ): ?>
                 <?php while ( have_rows('anexos') ) : the_row(); ?>
-                    <div class="columna__12 columna__6--lg"><p> <i class="snd__icono snd-document icono--16" aria-hidden="true"></i> <?php the_sub_field('nombre'); ?></p></div>
-                    <div class="columna__12 columna__3--lg"><a class="boton__secundario" href="<?php the_file('archivo', true); ?>" role="button">Descarga <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></a></div>
+                    <div class="columna__12 columna__6--lg"><p> <?= sesna_render_snd_svg_icon('snd-document', 'icono--16') ?> <?php the_sub_field('nombre'); ?></p></div>
+                    <div class="columna__12 columna__3--lg"><a class="boton__secundario" href="<?php the_file('archivo', true); ?>" role="button">Descarga <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></a></div>
                 <?php endwhile; ?>
 
-                <div class="columna__12"><a class="boton__primario" href="#" role="button">Descarga todos los archivos <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></a></div>
+                <div class="columna__12"><a class="boton__primario" href="#" role="button">Descarga todos los archivos <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></a></div>
             <?php else: ?>
 
             <div class="columna__12">No hay documentos</div>
@@ -55,17 +55,17 @@
         <div class="reticulaGrid__12" id="media_container">
             <div class="columna__12 columna__4--lg">
             <a href="#" class="btn btn-sesion launch-modal <?= (get_field( 'sesion_archivo' )||get_field( 'sesion_youtube' ))?'':'disabled' ?>" data-modal-id="modal-video_<?php the_ID(); ?>">
-                <span class="video-link-text">Archivos Multimedia <i class="snd__icono snd-play icono--16" aria-hidden="true"></i></span>
+                <span class="video-link-text">Archivos Multimedia <?= sesna_render_snd_svg_icon('snd-play', 'icono--16') ?></span>
             </a>
             </div>
             <div class="columna__12 columna__3--lg">
             <a rel="noopener" href="<?php the_field('leer_sesion') ?>" target="_blank" class="btn btn-sesion  <?= (get_field( 'leer_sesion' ))?'':'disabled' ?>" >
-                <span >Versión Estenográfica <i class="snd__icono snd-view icono--16" aria-hidden="true"></i></span>
+                <span >Versión Estenográfica <?= sesna_render_snd_svg_icon('snd-document--view', 'icono--16') ?></span>
             </a>
             </div>
             <div class="columna__12 columna__5--lg">
             <a href="<?php the_file_all(); ?>" class="boton__primario" >
-                <span >Descarga todo el contenido <i class="snd__icono snd-download icono--16" aria-hidden="true"></i></span>
+                <span >Descarga todo el contenido <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?></span>
             </a>
             </div>
 
@@ -79,7 +79,7 @@
                     <div class="modal-header bg-white border-0 py-4 px-4 position-relative d-flex align-items-center justify-content-between">
                         <h5 class="modal-title h5b patria mb-0" id="modal-video-label-<?php the_ID(); ?>" style="color: var(--color-burgundi);">SESIÓN <?php the_field('tipo_sesion') ?> <?php the_field('numero_sesion') ?></h5>
                         <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
-                            <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         </button>
                     </div>
                     <div class="modal-body p-0 bg-dark position-relative" style="height: 65vh; min-height: 400px;">

@@ -13,7 +13,7 @@ $prensa_url    = $posts_page_id ? get_permalink($posts_page_id) : home_url('/pre
             <ul class="ruta__lista">
                 <li class="ruta__li">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                        <i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio
+                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
                     </a>
                 </li>
                 <li class="ruta__li">

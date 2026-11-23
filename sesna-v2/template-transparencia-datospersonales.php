@@ -16,7 +16,7 @@ $documentos = sesna_get_datos_personales_docs();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
@@ -55,7 +55,7 @@ $documentos = sesna_get_datos_personales_docs();
                     </p>
                 </div>
                 <button type="button" id="documentos-btn-reset" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                     Limpiar filtros
                 </button>
             </div>
@@ -74,7 +74,7 @@ $documentos = sesna_get_datos_personales_docs();
                                 <option value="<?= esc_attr($a) ?>"><?= esc_html($a) ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                     </div>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg">
@@ -89,14 +89,14 @@ $documentos = sesna_get_datos_personales_docs();
                                 <option value="<?= esc_attr($t) ?>"><?= esc_html($t) ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                     </div>
                 </div>
                 <div class="columna__12 columna__12--md columna__6--lg">
                     <label for="search-dp" class="b1sb dblock color--neutro800 mb--8">Buscar documento</label>
                     <form class="search-container" role="search" id="form-search-dp" action="javascript:void(0);">
                         <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                            <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                             <input type="search" id="search-dp" name="q" placeholder="Buscar por nombre o categoría de documento..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                         </div>
                     </form>
@@ -105,11 +105,11 @@ $documentos = sesna_get_datos_personales_docs();
 
             <!-- Lista de Documentos -->
             <div class="tx-comite-card-list" id="documentos-list-container">
-                <?php foreach ($documentos as $doc):
+                <?php foreach ($documentos as $dp_idx => $doc):
                     $busqueda_dp = trim($doc['titulo'] . ' ' . $doc['tipo'] . ' ' . $doc['anio']);
                 ?>
                 <!-- Card — SND UI Kit (Cards *: 12022:57247 / 37597:51336) -->
-                <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($doc['anio']) ?>" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_dp, 'UTF-8') : strtolower($busqueda_dp) ) ?>">
+                <div class="tx-comite-card tx-sesion-card" data-anio="<?= esc_attr($doc['anio']) ?>" data-tipo="<?= esc_attr($doc['tipo']) ?>" data-titulo="<?= esc_attr( function_exists('mb_strtolower') ? mb_strtolower($busqueda_dp, 'UTF-8') : strtolower($busqueda_dp) ) ?>"<?= $dp_idx >= 5 ? ' style="display:none;"' : '' ?>>
 
                     <!-- Date Column -->
                     <div class="tx-comite-card-date">
@@ -125,9 +125,9 @@ $documentos = sesna_get_datos_personales_docs();
                     <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                     <div class="tx-comite-card-action">
                         <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['enlace']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>">
-                            <i class="snd__icono snd-document--pdf icono--24" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
                             Consultar
-                            <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                         </button>
                     </div>
 
@@ -145,7 +145,7 @@ $documentos = sesna_get_datos_personales_docs();
             <!-- Ver más Documentos -->
             <div class="texto--centro mt--32" id="documentos-load-more-container">
                 <button type="button" id="documentos-btn-more" class="boton__fantasma">
-                    Ver más documentos <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                    Ver más documentos <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
                 </button>
             </div>
         </div>

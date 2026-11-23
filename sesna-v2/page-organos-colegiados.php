@@ -32,7 +32,7 @@ rsort($oc_anios_organo);
             <ul class="ruta__lista">
                 <li class="ruta__li">
                     <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a">
-                        <i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio
+                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
                     </a>
                 </li>
                 <li class="ruta__li">
@@ -103,7 +103,7 @@ rsort($oc_anios_organo);
             <!-- Selector de sección — Móvil (abre Drawer) -->
             <button type="button" class="boton__secundario ocn-mobile-tab-trigger mb--24" id="ocnOpenDrawerBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="ocnDrawer">
                 <span id="ocnActiveTabLabel">Comité Coordinador</span>
-                <i class="snd__icono snd-chevron--down icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
             </button>
 
             <!-- SECTION: COMITÉ COORDINADOR -->
@@ -120,7 +120,7 @@ rsort($oc_anios_organo);
                         </p>
                     </div>
                     <button type="button" id="sesiones-reset-comite" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -136,7 +136,7 @@ rsort($oc_anios_organo);
                                     <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__6--xs columna__3--lg">
@@ -147,14 +147,14 @@ rsort($oc_anios_organo);
                                 <option value="Ordinaria">Ordinaria</option>
                                 <option value="Extraordinaria">Extraordinaria</option>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__12--md columna__6--lg">
                         <label for="search-sesion-comite" class="b1sb dblock color--neutro800 mb--8">Buscar sesión</label>
                         <form class="search-container" role="search" id="form-search-comite" action="javascript:void(0);">
                             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                 <input type="search" id="search-sesion-comite" name="q" placeholder="Nombre de la sesión, mes o año..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                             </div>
                         </form>
@@ -196,7 +196,7 @@ rsort($oc_anios_organo);
                         </p>
                     </div>
                     <button type="button" id="sesiones-reset-comision" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -211,7 +211,7 @@ rsort($oc_anios_organo);
                                     <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__6--xs columna__3--lg">
@@ -222,14 +222,14 @@ rsort($oc_anios_organo);
                                 <option value="Ordinaria">Ordinaria</option>
                                 <option value="Extraordinaria">Extraordinaria</option>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__12--md columna__6--lg">
                         <label for="search-sesion-comision" class="b1sb dblock color--neutro800 mb--8">Buscar sesión</label>
                         <form class="search-container" role="search" id="form-search-comision" action="javascript:void(0);">
                             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                 <input type="search" id="search-sesion-comision" name="q" placeholder="Nombre de la sesión, mes o año..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                             </div>
                         </form>
@@ -269,7 +269,7 @@ rsort($oc_anios_organo);
                         </p>
                     </div>
                     <button type="button" id="sesiones-reset-organo" class="boton__fantasma tx-comite-reset-btn muestra--ninguno">
-                        <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                        <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                         Limpiar filtros
                     </button>
                 </div>
@@ -284,7 +284,7 @@ rsort($oc_anios_organo);
                                     <option value="<?= esc_attr($anio) ?>"><?= esc_html($anio) ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__6--xs columna__3--lg">
@@ -295,14 +295,14 @@ rsort($oc_anios_organo);
                                 <option value="Ordinaria">Ordinaria</option>
                                 <option value="Extraordinaria">Extraordinaria</option>
                             </select>
-                            <i class="snd__icono snd-chevron--down icono--20 tx-select-chevron" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20 tx-select-chevron') ?>
                         </div>
                     </div>
                     <div class="columna__12 columna__12--md columna__6--lg">
                         <label for="search-sesion-organo" class="b1sb dblock color--neutro800 mb--8">Buscar sesión</label>
                         <form class="search-container" role="search" id="form-search-organo" action="javascript:void(0);">
                             <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
-                                <i class="snd__icono snd-search search-icon icono--24" aria-hidden="true"></i>
+                                <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                                 <input type="search" id="search-sesion-organo" name="q" placeholder="Nombre de la sesión, mes o año..." class="sh0r js-input tx-comite-search-input" autocomplete="off" />
                             </div>
                         </form>
@@ -384,7 +384,7 @@ rsort($oc_anios_organo);
         <div class="snd-drawer__header">
             <h2 class="sh0b color--neutro800 mb--0" id="ocnDrawerTitle">Seleccionar sección</h2>
             <button type="button" class="boton__fantasma snd-drawer__close-btn" id="ocnDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
         </div>
 
@@ -393,23 +393,23 @@ rsort($oc_anios_organo);
             <div class="d-flex flex-column gap--8">
                 <button type="button" class="fin-dictamen-item js-tab-link active" data-target="comite" aria-selected="true">
                     <span>Comité Coordinador</span>
-                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
                 <button type="button" class="fin-dictamen-item js-tab-link" data-target="comision" aria-selected="false">
                     <span>Comisión Ejecutiva</span>
-                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
                 <button type="button" class="fin-dictamen-item js-tab-link" data-target="organo" aria-selected="false">
                     <span>Órgano de Gobierno</span>
-                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
                 <button type="button" class="fin-dictamen-item js-tab-link" data-target="recomendaciones" aria-selected="false">
                     <span>Recomendaciones no vinculantes</span>
-                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
                 <button type="button" class="fin-dictamen-item js-tab-link" data-target="exhortos" aria-selected="false">
                     <span>Exhortos</span>
-                    <i class="snd__icono snd-checkmark icono--16 ocn-drawer-check" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
             </div>
         </div>
@@ -519,7 +519,7 @@ rsort($oc_anios_organo);
             <div class="tx-pdf-modal__header">
                 <h5 class="tx-pdf-modal__title sh1b color--pguinda800" id="oc-video-modal-label">Ver sesión</h5>
                 <button type="button" class="boton__fantasma tx-pdf-modal__close-btn" data-modal-dismiss aria-label="Cerrar modal">
-                    <i class="snd__icono snd-close icono--24" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-close', 'icono--24') ?>
                 </button>
             </div>
             <div class="tx-pdf-modal__body">

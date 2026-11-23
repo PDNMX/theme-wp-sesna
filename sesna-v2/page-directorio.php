@@ -59,7 +59,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
             <ul class="ruta__lista">
                 <li class="ruta__li">
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                        <i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio
+                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
                     </a>
                 </li>
                 <li class="ruta__li">
@@ -109,7 +109,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                      tabindex="<?php echo $i === 0 ? '0' : '-1'; ?>">
                                     <span class="dir-org__dot" aria-hidden="true"></span>
                                     <span class="dir-org__item-icon" aria-hidden="true">
-                                        <i class="snd__icono snd-building icono--20 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-building', 'icono--20 color--pguinda600') ?>
                                     </span>
                                     <span class="dir-org__item-text b1r mb--0"><?php echo esc_html($area['estructura']); ?></span>
                                 </div>
@@ -140,7 +140,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                  tabindex="-1">
                                 <span class="dir-org__dot" aria-hidden="true"></span>
                                 <span class="dir-org__item-icon" aria-hidden="true">
-                                    <i class="snd__icono snd-building icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-building', 'icono--20 color--pguinda600') ?>
                                 </span>
                                 <span class="dir-org__item-text b1r mb--0"><?php echo esc_html($oficina['estructura']); ?></span>
                             </div>
@@ -161,11 +161,11 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                                      src="<?php echo esc_url($first['foto_titular']); ?>"
                                      alt="<?php echo esc_attr($first['nombre_titular']); ?>">
                                 <div class="dir-ficha__foto dir-ficha__foto--placeholder muestra--ninguno" id="dir-foto-placeholder">
-                                    <i class="snd__icono snd-user icono--48" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--48') ?>
                                 </div>
                             <?php else : ?>
                                 <div class="dir-ficha__foto dir-ficha__foto--placeholder" id="dir-foto-placeholder">
-                                    <i class="snd__icono snd-user icono--48" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--48') ?>
                                 </div>
                                 <img class="dir-ficha__foto muestra--ninguno" id="dir-foto" src="" alt="">
                             <?php endif; ?>
@@ -179,7 +179,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                             </h3>
                             <div class="dir-ficha__cargo-row <?php echo ($first && $first['encargado']) ? '' : 'muestra--ninguno'; ?>" id="dir-encargado-row">
                                 <span class="dir-ficha__icon-circle" aria-hidden="true">
-                                    <i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--20 color--pguinda600') ?>
                                 </span>
                                 <span class="dir-ficha__cargo b1sb color--neutro800 mb--0" id="dir-encargado">
                                     <?php echo ($first && $first['encargado']) ? esc_html($first['encargado']) : ''; ?>
@@ -188,7 +188,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                             <hr class="divisor dir-ficha__separator <?php echo ($first && $first['encargado']) ? '' : 'muestra--ninguno'; ?>" id="dir-encargado-sep">
                             <div class="dir-ficha__cargo-row">
                                 <span class="dir-ficha__icon-circle" aria-hidden="true">
-                                    <i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--20 color--pguinda600') ?>
                                 </span>
                                 <span class="dir-ficha__cargo b1sb color--neutro800 mb--0" id="dir-cargo">
                                     <?php echo $first ? esc_html($first['cargo_titular']) : '—'; ?>
@@ -197,7 +197,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                             <hr class="divisor dir-ficha__separator">
                             <div class="dir-ficha__cargo-row">
                                 <span class="dir-ficha__icon-circle" aria-hidden="true">
-                                    <i class="snd__icono snd-email icono--20 color--pguinda600" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon('snd-email', 'icono--20 color--pguinda600') ?>
                                 </span>
                                 <a class="dir-ficha__email b1r color--neutro700 mb--0" id="dir-email"
                                    href="<?php echo $first ? 'mailto:' . esc_attr($first['email_titular']) : '#'; ?>">
@@ -220,7 +220,7 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
                         <p class="b1r color--neutro600 mb--0">Para consultas generales o información adicional sobre la Secretaría Ejecutiva, comunícate con nosotros.</p>
                     </div>
                     <a href="<?php echo esc_url(home_url('/contacto/')); ?>" class="boton__fantasma">
-                        Ir a Contacto <i class="snd__icono snd-chevron--right icono--20" aria-hidden="true"></i>
+                        Ir a Contacto <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                     </a>
                 </div>
             </div>
@@ -232,29 +232,29 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
         <div class="dir-modal__backdrop" id="dir-modal-backdrop"></div>
         <div class="dir-modal__content">
             <button type="button" class="boton__fantasma dir-modal__close" id="dir-modal-close" aria-label="Cerrar ficha">
-                <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
             <div class="dir-modal__foto-wrap">
                 <img class="dir-modal__foto" id="dir-modal-foto" src="" alt="">
                 <div class="dir-modal__foto dir-modal__foto--placeholder muestra--ninguno" id="dir-modal-placeholder">
-                    <i class="snd__icono snd-user icono--48" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-user', 'icono--48') ?>
                 </div>
             </div>
             <div class="dir-modal__info">
                 <div class="dir-ficha__area-badge mb--8" id="dir-modal-area-badge"></div>
                 <h3 class="dir-modal__nombre sh0b patria color--principal mb--16" id="dir-modal-nombre"></h3>
                 <div class="dir-modal__cargo-row muestra--ninguno" id="dir-modal-encargado-row">
-                    <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i></span>
+                    <span class="dir-ficha__icon-circle" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-user', 'icono--20 color--pguinda600') ?></span>
                     <span class="dir-modal__cargo b1sb color--neutro800 mb--0" id="dir-modal-encargado"></span>
                 </div>
                 <hr class="divisor dir-ficha__separator muestra--ninguno" id="dir-modal-encargado-sep">
                 <div class="dir-modal__cargo-row">
-                    <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-user icono--20 color--pguinda600" aria-hidden="true"></i></span>
+                    <span class="dir-ficha__icon-circle" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-user', 'icono--20 color--pguinda600') ?></span>
                     <span class="dir-modal__cargo b1sb color--neutro800 mb--0" id="dir-modal-cargo"></span>
                 </div>
                 <hr class="divisor dir-ficha__separator">
                 <div class="dir-modal__cargo-row">
-                    <span class="dir-ficha__icon-circle" aria-hidden="true"><i class="snd__icono snd-email icono--20 color--pguinda600" aria-hidden="true"></i></span>
+                    <span class="dir-ficha__icon-circle" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-email', 'icono--20 color--pguinda600') ?></span>
                     <a class="dir-ficha__email b1r color--neutro700 mb--0" id="dir-modal-email" href="#"></a>
                 </div>
             </div>

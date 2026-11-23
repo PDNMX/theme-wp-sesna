@@ -568,7 +568,7 @@ body.snd-modal-open {
                         var doc = iframe.contentWindow || iframe.contentDocument;
                         var docEl = doc.document ? doc.document : doc;
                         docEl.open();
-                        docEl.write('<div style="font-family: \'Noto Sans\', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f8f9fa; color: #555; text-align: center; padding: 20px; box-sizing: border-box;"><div style="font-size: 56px; color: #691C32; margin-bottom: 20px;"><i class="snd__icono snd-document--pdf icono--64" style="color:#691C32;"></i></div><h3 style="margin: 0 0 12px 0; color: #222; font-weight: 700; font-size: 22px;">' + (title ? title.textContent : pdfTitle) + '</h3><p style="margin: 0 0 24px 0; font-size: 15px; max-width: 480px; line-height: 1.5;">Este documento estará disponible próximamente para consulta e impresión en formato PDF.</p><div style="padding: 10px 20px; background: #E5B8C0; color: #691C32; border-radius: 50px; font-weight: 600; font-size: 13px;">Archivo en vinculación</div></div>');
+                        docEl.write('<div style="font-family: \'Noto Sans\', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f8f9fa; color: #555; text-align: center; padding: 20px; box-sizing: border-box;"><div style="font-size: 56px; color: #691C32; margin-bottom: 20px;"><?= sesna_render_snd_svg_icon("snd-document--pdf", "icono--64", "color:#691C32;width:64px;height:64px;") ?></div><h3 style="margin: 0 0 12px 0; color: #222; font-weight: 700; font-size: 22px;">' + (title ? title.textContent : pdfTitle) + '</h3><p style="margin: 0 0 24px 0; font-size: 15px; max-width: 480px; line-height: 1.5;">Este documento estará disponible próximamente para consulta e impresión en formato PDF.</p><div style="padding: 10px 20px; background: #E5B8C0; color: #691C32; border-radius: 50px; font-weight: 600; font-size: 13px;">Archivo en vinculación</div></div>');
                         docEl.close();
                         iframe.style.transition = 'opacity 0.4s ease';
                         iframe.style.opacity = '1';
@@ -644,14 +644,14 @@ body.snd-modal-open {
             <div class="tx-pdf-modal__header">
                 <h2 class="sh1b patria color--principal tx-pdf-modal__title" id="pdfViewerModalLabel">Visor de Documento</h2>
                 <button type="button" class="boton__fantasma tx-pdf-modal__close-btn" data-modal-dismiss aria-label="Cerrar modal">
-                    <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
                 </button>
             </div>
             
             <!-- Body con iframe y spinner SND -->
             <div class="tx-pdf-modal__body">
                 <div id="pdfLoader" class="tx-pdf-modal__loader">
-                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--blanco mb--8" aria-hidden="true"></i>
+                    <i class="snd__icono snd-snd-loading2 icono__spin icono--32 color--blanco mb--8" data-snd-procesado="true" aria-hidden="true"></i>
                     <div class="b2r color--blanco">Cargando documento...</div>
                 </div>
                 <iframe id="pdfIframe" src="" class="tx-pdf-modal__iframe" allowfullscreen title="Documento PDF"></iframe>
@@ -660,11 +660,11 @@ body.snd-modal-open {
             <!-- Footer con acciones oficiales SND (Botón con iconos: radio canónico 8px) -->
             <div class="tx-pdf-modal__footer">
                 <button type="button" id="pdfCopyLinkBtn" class="boton__secundario">
-                    <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
                     <span id="pdfCopyLinkBtnText">Copiar enlace</span>
                 </button>
                 <a href="#" id="pdfDownloadBtn" class="boton__primario" download>
-                    <i class="snd__icono snd-download icono--16" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?>
                     Descargar PDF
                 </a>
             </div>

@@ -14,7 +14,7 @@ get_header(); ?>
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -174,7 +174,7 @@ get_header(); ?>
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb--48">
                 <div class="cp-nota__inner fondo--azul100">
-                    <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 cp-nota__icono color--azul500') ?>
                     <p class="cp-nota__texto b1r color--azul500 mb--0">Estos recursos forman parte del trabajo técnico de la SESNA para fortalecer la integridad en los procesos de contratación pública y prevenir riesgos de corrupción.</p>
                 </div>
             </div>
@@ -213,14 +213,14 @@ get_header(); ?>
                     <!-- Enlace externo (no es un documento): herramienta ALEA -->
                     <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
                         <div class="cp-subsec-enlace__icono">
-                            <i class="snd__icono snd-launch icono--24" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-launch', 'icono--24') ?>
                         </div>
                         <div class="cp-subsec-enlace__texto">
                             <span class="insignia-borde insignia-guinda mb--4">Enlace externo</span>
                             <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                         </div>
                         <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
-                            <i class="snd__icono snd-launch icono--16" aria-hidden="true"></i> Visitar sitio
+                            <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?> Visitar sitio
                         </a>
                     </div>
 
@@ -232,7 +232,7 @@ get_header(); ?>
             <!-- ── Nota informativa ──────────────────────────────────── -->
             <div class="cp-nota pb--48">
                 <div class="cp-nota__inner fondo--azul100">
-                    <i class="snd__icono snd-information icono--20 cp-nota__icono color--azul500" aria-hidden="true"></i>
+                    <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 cp-nota__icono color--azul500') ?>
                     <p class="cp-nota__texto b1r color--azul500 mb--0">Esta herramienta y los documentos asociados forman parte del trabajo técnico de la SESNA para fortalecer la integridad en el servicio público y prevenir riesgos de corrupción.</p>
                 </div>
             </div>
@@ -256,7 +256,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="texto--centro py--48">
-                <i class="snd__icono snd-settings icono--48 color--neutro600 mb--24" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-settings', 'icono--48 color--neutro600 mb--24') ?>
                 <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
                 <p class="b1r color--neutro600">Los recursos para Conflicto de interés estarán disponibles próximamente.</p>
             </div>
@@ -281,7 +281,7 @@ get_header(); ?>
             </section>
             <?php else : ?>
             <div class="texto--centro py--48">
-                <i class="snd__icono snd-settings icono--48 color--neutro600 mb--24" aria-hidden="true"></i>
+                <?= sesna_render_snd_svg_icon('snd-settings', 'icono--48 color--neutro600 mb--24') ?>
                 <h3 class="sh0b color--neutro800">Contenido en construcción</h3>
                 <p class="b1r color--neutro600">Los recursos para Deporte estarán disponibles próximamente.</p>
             </div>

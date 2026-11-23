@@ -86,7 +86,7 @@ get_header();
 
         <div class="reticulaGrid__12">
           <div class="columna__12 loadSesiones" id="btn_sesiones_comite">
-          <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
+          <p>Cargar sesiones anteriores <?= sesna_render_snd_svg_icon('snd-renew', 'icono--16') ?></p>
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ get_header();
 
         <div class="reticulaGrid__12">
             <div class="columna__12 loadSesiones" id="btn_sesiones_comision">
-                <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
+                <p>Cargar sesiones anteriores <?= sesna_render_snd_svg_icon('snd-renew', 'icono--16') ?></p>
             </div>
         </div>
     </div>
@@ -237,7 +237,7 @@ get_header();
 
         <div class="reticulaGrid__12">
             <div class="columna__12 loadSesiones" id="btn_sesiones_organo_gobierno">
-                <p>Cargar sesiones anteriores <i class="snd__icono snd-renew icono--16" aria-hidden="true"></i></p>
+                <p>Cargar sesiones anteriores <?= sesna_render_snd_svg_icon('snd-renew', 'icono--16') ?></p>
             </div>
         </div>
     </div>
@@ -249,7 +249,7 @@ get_header();
          <div class="modal-header d-flex align-items-center justify-content-between p-3 border-bottom">
             <h5 id="modalRecomendacionesTitle" style="color: var(--color-guinda, #9d2449); font-weight: 600;" class="modal-title m-0">RECOMENDACIONES</h5>
             <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
-               <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+               <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
          </div>
          <div class="modal-body p-4" style="text-align: left;">
@@ -272,7 +272,7 @@ get_header();
          <div class="modal-header d-flex align-items-center justify-content-between p-3 border-bottom">
             <h5 id="modalExhortosTitle" style="color: var(--color-guinda, #9d2449); font-weight: 600;" class="modal-title m-0">EXHORTOS</h5>
             <button type="button" class="boton__fantasma p-2 rounded-circle" data-modal-dismiss aria-label="Cerrar modal">
-               <i class="snd__icono snd-close icono--20" aria-hidden="true"></i>
+               <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
             </button>
          </div>
          <div class="modal-body p-4" style="text-align: left;">

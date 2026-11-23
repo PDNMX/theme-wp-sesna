@@ -15,7 +15,7 @@ get_header();
         <div class="contenedor">
             <ul class="ruta__lista">
                 <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><i class="snd__icono snd-home icono--20" aria-hidden="true"></i> Inicio</a>
+                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
                 </li>
                 <li class="ruta__li">
                     <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
@@ -116,7 +116,7 @@ get_header();
                             <!-- Encabezado de columna -->
                             <div class="d-flex align-items-center gap--8 mb--16">
                                 <div class="pna-guinda-icon-box flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                                    <i class="snd__icono <?php echo esc_attr( $col['icono'] ); ?> icono--20 color--neutro100" aria-hidden="true"></i>
+                                    <?= sesna_render_snd_svg_icon($col['icono'], 'icono--20 color--neutro100') ?>
                                 </div>
                                 <h3 class="b1sb mb--0"><?php echo esc_html( $col['titulo'] ); ?></h3>
                             </div>
@@ -130,12 +130,12 @@ get_header();
                                        data-pdf-title="<?php echo esc_attr( $col['titulo'] . ' — ' . $doc['label'] ); ?>"
                                        class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3 decoracion--ninguna pna-doc-item pna-anexo-link">
                                         <span class="b1r color--neutro800"><?php echo esc_html( $doc['label'] ); ?></span>
-                                        <i class="snd__icono snd-download icono--16 flex-shrink-0 color--pguinda600" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-download', 'icono--16 flex-shrink-0 color--pguinda600') ?>
                                     </a>
                                     <?php else : ?>
                                     <span class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3">
                                         <span class="b1r color--neutro500"><?php echo esc_html( $doc['label'] ); ?> <small>(próximamente)</small></span>
-                                        <i class="snd__icono snd-download icono--16 flex-shrink-0 color--neutro500" aria-hidden="true"></i>
+                                        <?= sesna_render_snd_svg_icon('snd-download', 'icono--16 flex-shrink-0 color--neutro500') ?>
                                     </span>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
@@ -156,7 +156,7 @@ get_header();
                                         data-files="<?php echo esc_attr( json_encode( $urls ) ); ?>"
                                         data-zip-name="<?php echo esc_attr( sanitize_title( $col['titulo'] ) ); ?>"
                                         style="padding: 6px 12px; min-height: auto; font-size: 13px;">
-                                    <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar todo
+                                    <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?> Descargar todo
                                 </button>
                             </div>
                         </div>
@@ -178,7 +178,7 @@ get_header();
                 <div class="columna__12 columna__4--md texto--derecha--md">
                     <a href="<?php echo esc_url( sprintf( 'https://docs.google.com/spreadsheets/d/%s/export?format=xlsx', SESNA_ATA_SHEET_ID ) ); ?>"
                        class="boton__primario d-flex align-items-center gap-2" style="display: inline-flex;" download="Datos-procesados-Anexo-Transversal-2021-2026.xlsx">
-                        <i class="snd__icono snd-download icono--16" aria-hidden="true"></i> Descargar base de datos
+                        <?= sesna_render_snd_svg_icon('snd-download', 'icono--16') ?> Descargar base de datos
                     </a>
                 </div>
             </div>
@@ -196,7 +196,7 @@ get_header();
                         <canvas id="chartMontos" height="220"></canvas>
                         <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt--4 p-2 rounded-3 fondo--azul100">
-                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 color--azul500 flex-shrink-0') ?>
                             <span class="sdr color--azul500">Pasa el cursor sobre cada barra para ver el monto exacto.</span>
                         </div>
                     </div>
@@ -222,8 +222,8 @@ get_header();
                             <button class="boton__secundario d-flex align-items-center gap-2 w-100 justify-content-between"
                                     id="btnVerInstituciones"
                                     style="font-size: 13px; padding: 8px 16px; min-height: auto;">
-                                <span><i class="snd__icono snd-building icono--16" aria-hidden="true"></i> Ver instituciones participantes por año</span>
-                                <i class="snd__icono snd-chevron--down icono--16" aria-hidden="true" id="iconVerInstituciones"></i>
+                                <span><?= sesna_render_snd_svg_icon('snd-building', 'icono--16') ?> Ver instituciones participantes por año</span>
+                                <span id="iconVerInstituciones" class="d-inline-flex align-items-center"><?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?></span>
                             </button>
                             <div id="listaInstituciones" class="muestra--ninguno mt--8 p-3 rounded-3" style="background-color: var(--neutro200); border: 1px solid var(--neutro400);">
                                 <!-- Selector de año -->
@@ -246,7 +246,7 @@ get_header();
                                         <?php foreach ( $lista as $inst ) : ?>
                                         <div class="columna__6">
                                             <span class="d-flex align-items-center gap-1 sdr color--neutro700">
-                                                <i class="snd__icono snd-dot-mark icono--16 color--pguinda600 flex-shrink-0" aria-hidden="true"></i><?php echo esc_html( $inst ); ?>
+                                                <?= sesna_render_snd_svg_icon('snd-dot-mark', 'icono--16 color--pguinda600 flex-shrink-0') ?><?php echo esc_html( $inst ); ?>
                                             </span>
                                         </div>
                                         <?php endforeach; ?>
@@ -271,7 +271,7 @@ get_header();
                         <canvas id="chartCapitulos" height="220"></canvas>
                         <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
-                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 color--azul500 flex-shrink-0') ?>
                             <span class="sdr color--azul500">Pasa el cursor sobre cada segmento para ver la descripción.</span>
                         </div>
                         <!-- Tooltip de descripción -->
@@ -291,7 +291,7 @@ get_header();
                         <canvas id="chartEjes" height="220"></canvas>
                         <p class="b1r mt--8">Fuente: Anexo Transversal en materia anticorrupción.</p>
                         <div class="d-flex align-items-center gap-2 mt--8 p-2 rounded-3 fondo--azul100">
-                            <i class="snd__icono snd-information icono--20 color--azul500 flex-shrink-0" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 color--azul500 flex-shrink-0') ?>
                             <span class="sdr color--azul500">Pasa el cursor para ver el detalle. Activa o desactiva cada eje para comparar sus tendencias.</span>
                         </div>
                         <p class="b1r mt--8" style="font-style: italic;">
@@ -416,13 +416,14 @@ get_header();
         // Toggle instituciones
         document.getElementById('btnVerInstituciones').addEventListener('click', function() {
             var lista = document.getElementById('listaInstituciones');
-            var icono = document.getElementById('iconVerInstituciones');
+            var iconoWrap = document.getElementById('iconVerInstituciones');
+            var chevron = iconoWrap ? iconoWrap.querySelector('.fin-acc-chevron') : null;
             if (lista.classList.contains('muestra--ninguno')) {
                 lista.classList.remove('muestra--ninguno');
-                icono.classList.replace('snd-chevron--down', 'snd-chevron--up');
+                if (chevron) chevron.classList.add('is-open');
             } else {
                 lista.classList.add('muestra--ninguno');
-                icono.classList.replace('snd-chevron--up', 'snd-chevron--down');
+                if (chevron) chevron.classList.remove('is-open');
             }
         });
 
@@ -450,7 +451,7 @@ get_header();
                 var zipName = this.dataset.zipName || 'documentos';
                 var originalHtml = btn.innerHTML;
                 btn.disabled = true;
-                btn.innerHTML = '<i class="snd__icono snd-recently-viewed icono--16" aria-hidden="true"></i> Generando ZIP…';
+                btn.innerHTML = '<?= sesna_render_snd_svg_icon("snd-recently-viewed", "icono--16") ?> Generando ZIP…';
 
                 var formData = new FormData();
                 formData.append('action', 'sesna_descargar_zip');
@@ -672,7 +673,7 @@ get_header();
                     <!-- Col 1: Ícono representativo -->
                     <div class="columna__12 columna__2--md d-flex justify-content-center">
                         <div class="d-flex align-items-center justify-content-center rounded-circle" style="width: 96px; height: 96px; background-color: var(--gama100);">
-                            <i class="snd__icono snd-map icono--32 color--pguinda600" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-map', 'icono--32 color--pguinda600') ?>
                         </div>
                     </div>
 
@@ -691,7 +692,7 @@ get_header();
                         <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener"
                            class="boton__primario d-flex align-items-center justify-content-center gap-3"
                            style="max-width: 280px; width: 100%; min-height: 72px; text-align: center;">
-                            <i class="snd__icono snd-launch icono--24 flex-shrink-0" aria-hidden="true"></i>
+                            <?= sesna_render_snd_svg_icon('snd-launch', 'icono--24 flex-shrink-0') ?>
                             <span class="b1sb">Consultar información por entidad federativa</span>
                         </a>
                     </div>

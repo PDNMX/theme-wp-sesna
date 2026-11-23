@@ -98,12 +98,12 @@ if ( $slider_query->have_posts() ) :
         <button class="sesna-carousel-btn sesna-carousel-btn--prev position-absolute top-50 start-0 translate-middle-y z-3 ms-2 ms-md-4 d-flex align-items-center justify-content-center"
                 type="button"
                 aria-label="Diapositiva anterior">
-            <i class="snd__icono snd-chevron--left icono--24 color--blanco" aria-hidden="true"></i>
+            <?= sesna_render_snd_svg_icon('snd-chevron--left', 'icono--24 color--blanco') ?>
         </button>
         <button class="sesna-carousel-btn sesna-carousel-btn--next position-absolute top-50 end-0 translate-middle-y z-3 me-2 me-md-4 d-flex align-items-center justify-content-center"
                 type="button"
                 aria-label="Diapositiva siguiente">
-            <i class="snd__icono snd-chevron--right icono--24 color--blanco" aria-hidden="true"></i>
+            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--24 color--blanco') ?>
         </button>
         <?php endif; ?>
 
