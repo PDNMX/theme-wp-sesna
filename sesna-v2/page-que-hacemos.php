@@ -56,27 +56,19 @@ get_header();
             <div class="reticulaGrid__12 justify-content-center">
                 <!-- Misión -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <div class="qh-mv-card">
-                        <div class="qh-mv-icon" aria-hidden="true">
-                            <?= sesna_render_snd_svg_icon('snd-chart--bar', 'icono--32 color--pguinda600') ?>
-                        </div>
-                        <div class="qh-mv-content">
-                            <h3 class="sh1b">MISIÓN</h3>
-                            <p class="b1r mb--0 texto--justify">Fungir como órgano técnico de apoyo del Comité Coordinador del SNA, encargado de producir los insumos y herramientas necesarias para el desempeño de sus atribuciones establecidas en el artículo 113 de la Constitución Política de los Estados Unidos Mexicanos y en la LGSNA.</p>
-                        </div>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title' => 'MISIÓN',
+                        'text'  => 'Fungir como órgano técnico de apoyo del Comité Coordinador del SNA, encargado de producir los insumos y herramientas necesarias para el desempeño de sus atribuciones establecidas en el artículo 113 de la Constitución Política de los Estados Unidos Mexicanos y en la LGSNA.',
+                        'icon'  => 'snd-chart--bar',
+                    ) ); ?>
                 </div>
                 <!-- Visión -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <div class="qh-mv-card">
-                        <div class="qh-mv-icon" aria-hidden="true">
-                            <?= sesna_render_snd_svg_icon('snd-screen', 'icono--32 color--pguinda600') ?>
-                        </div>
-                        <div class="qh-mv-content">
-                            <h3 class="sh1b">VISIÓN</h3>
-                            <p class="b1r mb--0 texto--justify">Ser una institución eficaz y eficiente que contribuye a generar confianza y credibilidad en las instituciones públicas, mediante el uso de tecnologías de la información y el diseño, seguimiento y evaluación de políticas públicas enfocadas a la prevención, detección y sanción de faltas administrativas y hechos de corrupción, así como a la fiscalización y control de recursos públicos en el Marco del SNA.</p>
-                        </div>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title' => 'VISIÓN',
+                        'text'  => 'Ser una institución eficaz y eficiente que contribuye a generar confianza y credibilidad en las instituciones públicas, mediante el uso de tecnologías de la información y el diseño, seguimiento y evaluación de políticas públicas enfocadas a la prevención, detección y sanción de faltas administrativas y hechos de corrupción, así como a la fiscalización y control de recursos públicos en el Marco del SNA.',
+                        'icon'  => 'snd-screen',
+                    ) ); ?>
                 </div>
             </div>
         </div>
@@ -95,32 +87,36 @@ get_header();
             </div>
             <div class="reticulaGrid__12">
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-disenamos.svg" alt="Diseñamos" class="sna-integrantes-icon-circle mb--24">
-                        <h3 class="sh1b">Diseñamos</h3>
-                        <p class="b1r mb--0 texto--justify">Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.</p>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title'    => 'Diseñamos',
+                        'text'     => 'Generamos propuestas de política pública, metodologías e indicadores que contribuyen al fortalecimiento de la prevención, detección y combate a la corrupción.',
+                        'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-disenamos.svg',
+                        'icon_alt' => 'Diseñamos',
+                    ) ); ?>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-desarrollamos.svg" alt="Desarrollamos" class="sna-integrantes-icon-circle mb--24">
-                        <h3 class="sh1b">Desarrollamos</h3>
-                        <p class="b1r mb--0 texto--justify">Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.</p>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title'    => 'Desarrollamos',
+                        'text'     => 'Impulsamos herramientas tecnológicas y soluciones digitales, incluida la Plataforma Digital Nacional, para facilitar el acceso, intercambio y aprovechamiento de información estratégica.',
+                        'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-desarrollamos.svg',
+                        'icon_alt' => 'Desarrollamos',
+                    ) ); ?>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-analizamos.svg" alt="Analizamos" class="sna-integrantes-icon-circle mb--24">
-                        <h3 class="sh1b">Analizamos</h3>
-                        <p class="b1r mb--0 texto--justify">Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.</p>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title'    => 'Analizamos',
+                        'text'     => 'Realizamos estudios, evaluaciones y análisis de datos que permiten identificar riesgos, tendencias y áreas de oportunidad para la toma de decisiones basada en evidencia.',
+                        'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-analizamos.svg',
+                        'icon_alt' => 'Analizamos',
+                    ) ); ?>
                 </div>
                 <div class="columna__12 columna__6--md columna__3--lg mb--24">
-                    <div class="qh-labor-card">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-impulsamos.svg" alt="Impulsamos" class="sna-integrantes-icon-circle mb--24">
-                        <h3 class="sh1b">Impulsamos</h3>
-                        <p class="b1r mb--0 texto--justify">Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.</p>
-                    </div>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'title'    => 'Impulsamos',
+                        'text'     => 'Promovemos la coordinación entre instituciones, la colaboración con diversos actores y el fortalecimiento de una cultura de integridad.',
+                        'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-impulsamos.svg',
+                        'icon_alt' => 'Impulsamos',
+                    ) ); ?>
                 </div>
             </div>
         </div>

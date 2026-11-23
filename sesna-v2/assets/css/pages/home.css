@@ -1,0 +1,72 @@
+/*
+ * Página: home
+ * Página de inicio (front-page.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ------------------------------------------------------------
+   Banner principal — imagen full-width debajo del sub-navbar
+   ------------------------------------------------------------ */
+
+.sesna-banner {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+/* BannerSESNA.jpg: 2880×624px (ratio ~4.6:1) — dimensión GOB.mx v3
+   La imagen se escala al ancho completo manteniendo su proporción nativa.
+   En pantallas muy grandes se limita a la altura del archivo original. */
+
+.sesna-banner__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 624px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ------------------------------------------------------------
+   Carrusel de la página de inicio (Bootstrap 5)
+   ------------------------------------------------------------ */
+
+.sesna-carousel-section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   Sección logo del SNA.
+   ------------------------------------------------------------ */
+
+.sna-logo {
+    max-width: 350px;
+    float: left;
+}
+
+/* ------------------------------------------------------------
+   Sección Integrantes del SNA
+   ------------------------------------------------------------ */
+
+.sna-integrantes-section {
+}
+
+/* ------------------------------------------------------------
+   Sección Noticias y Actividades
+   ------------------------------------------------------------ */
+
+.sna-noticias-section {
+}
+
+/* Tableta (2 columnas): la tercera card queda sola; se centra en lugar de pegarse a la izquierda */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .sna-integrantes-section .reticulaGrid__12 > :last-child:nth-child(odd) {
+        grid-column: 4 / span 6;
+    }
+}

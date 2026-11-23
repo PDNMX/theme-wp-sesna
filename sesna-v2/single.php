@@ -8,23 +8,12 @@ $prensa_url    = $posts_page_id ? get_permalink($posts_page_id) : home_url('/pre
 <div class="page-prensa front-page-bg pb--64">
 
     <!-- Migas de pan (Breadcrumb) — Estándar SND v1.1.0 -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
-                    </a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url($prensa_url); ?>" class="ruta__a">Noticias</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page"><?php echo esc_html(wp_trim_words(get_the_title(), 8, '...')); ?></span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Noticias', 'url' => $prensa_url ),
+            array( 'label' => esc_html(wp_trim_words(get_the_title(), 8, '...')) ),
+        ),
+    ) ); ?>
 
     <div class="contenedor pt--20">
         <?php while ( have_posts() ) : the_post(); ?>

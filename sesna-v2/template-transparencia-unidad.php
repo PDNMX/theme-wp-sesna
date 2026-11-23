@@ -10,21 +10,12 @@ get_header();
 <div class="page-transparencia-unidad front-page-bg pb--40">
 
     <!-- Breadcrumb -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Unidad de Transparencia</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Transparencia', 'url' => home_url('/transparencia/') ),
+            array( 'label' => 'Unidad de Transparencia' ),
+        ),
+    ) ); ?>
 
     <!-- Hero -->
     <section class="sesna-page-hero">

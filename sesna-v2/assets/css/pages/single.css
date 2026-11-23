@@ -1,0 +1,242 @@
+/*
+ * Página: single
+ * Entrada individual de noticias / blog (single.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ============================================================
+   SINGLE POST — Entrada de noticias / blog
+   ============================================================ */
+
+/* Tarjeta principal del artículo — Homologada SND v1.1.0 */
+
+.sesna-single-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: var(--sesna-card-shadow);
+    margin-bottom: 2rem;
+}
+
+/* Imagen destacada — visible, contenida en la card */
+
+.sesna-single-card__img-wrap {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+}
+
+.sesna-single-card__img {
+    width: 100%;
+    height: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* Encabezado dentro de la card (categoría + fecha + título) */
+
+.sesna-single-card__header {
+    padding: 2rem 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--neutro300);
+}
+
+/* Meta: categoría + fecha */
+
+.sesna-single-date-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.sesna-single-date {
+    font-size: 16px;
+    color: var(--neutro600);
+    display: flex;
+    align-items: center;
+}
+
+/* Título — dentro de la card, sobre blanco */
+
+.sesna-single-title {
+    font-family: var(--font-patria);
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem) !important;
+    font-weight: 700;
+    color: var(--pguinda600);
+    line-height: 1.28;
+    margin-bottom: 0;
+}
+
+/* Cuerpo de la card */
+
+.sesna-single-card__body {
+    padding: 2rem 2.5rem 2.5rem;
+}
+
+/* Contenido del artículo */
+
+.sesna-single-content {
+    font-family: var(--font-noto-sans);
+    font-size: 18px;
+    line-height: 1.78;
+    color: var(--color-negro);
+}
+
+.sesna-single-content h2,
+.sesna-single-content h3,
+.sesna-single-content h4 {
+    font-family: var(--font-patria);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: var(--color-negro);
+}
+
+.sesna-single-content h2 { font-size: 22px; }
+
+.sesna-single-content h3 { font-size: 18px; }
+
+.sesna-single-content h4 { font-size: 16px; }
+
+.sesna-single-content p { margin-bottom: 1.3rem; }
+
+.sesna-single-content ul,
+.sesna-single-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.3rem;
+}
+
+.sesna-single-content li { margin-bottom: 0.4rem; }
+
+.sesna-single-content a {
+    color: var(--color-burgundi);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.sesna-single-content a:hover { color: var(--color-guinda); }
+
+.sesna-single-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+.sesna-single-content blockquote {
+    border-left: 4px solid var(--color-burgundi);
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #fdf5f7;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: rgba(22, 26, 29, 0.85);
+}
+
+/* Divisor */
+
+.sesna-single-divider {
+    border: none;
+    border-top: 1px solid var(--neutro400);
+    margin: 2rem 0;
+}
+
+/* Archivos adjuntos */
+
+.sesna-single-files {
+    background-color: var(--pguinda100);
+    border-left: 4px solid var(--principal);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sesna-single-files__title {
+    font-family: var(--font-patria);
+    font-size: 16px;
+    margin-bottom: 14px;
+    color: var(--color-guinda);
+}
+
+.sesna-single-files__item { margin-bottom: 0.5rem; }
+
+.sesna-single-files__link {
+    color: var(--color-burgundi);
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.sesna-single-files__link:hover {
+    color: var(--color-guinda);
+    text-decoration: underline;
+}
+
+/* Compartir */
+
+.sesna-single-share {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.sesna-single-share__label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-right: 0.25rem;
+}
+
+.sesna-single-share__btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blanco);
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sesna-single-share__btn:hover {
+    transform: scale(1.12);
+    opacity: 0.88;
+    color: var(--color-blanco);
+}
+
+.sesna-single-share__btn--fb { background-color: #1877f2; }
+
+.sesna-single-share__btn--tw { background-color: #0f0f0f; }
+
+.sesna-single-share__btn--wa { background-color: #25d366; }
+
+/* Categorías */
+
+.sesna-single-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Volver a noticias — fuera de la card, sobre var(--color-fondo-claro) */
+
+.sesna-single-nav {
+    margin-top: 0;
+}

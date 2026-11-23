@@ -1,0 +1,1221 @@
+/*
+ * Layout global SESNA
+ * Tipografía base, variables, accesibilidad, puente SND, header/subheader institucional y navegación (carga en todas las páginas).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* Tipografía SESNA
+   - Patria: la declara snd-guinda.css v1.1.0 (@font-face → /snd/v1.1.0/fuentes/).
+     No redeclarar aquí: main.css carga después y sustituiría la fuente oficial.
+   - Noto Sans: autohospedada (OFL). Pendiente de revisión: v1.1.0 ya publica
+     la fuente variable (100–900, normal e itálica) en /snd/v1.1.0/fuentes/. */
+
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+
+@font-face { font-family: 'Noto Sans'; src: url('../fonts/NotoSans-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+/* Fix bug CSS oficial SND: el selector real que vincula la tipografía Patria es
+   [class*="__patria"], no la clase .patria documentada en el PDF — por eso .patria
+   sola no pinta la fuente en el CDN oficial. Hallazgo verificado en vivo (rama
+   snd-migracion), portado aquí al reconciliar snd-dev. */
+
+.patria {
+    font-family: 'Patria', serif !important;
+}
+
+/* Gap de snd-guinda.css: los tamaños de .h1b.patria/.h2b.patria/.h3b.patria...
+   (3.25rem–3.5rem) no traen reducción para Móvil (pestaña DISEÑO incompleta
+   en el CDN). Un título de una sola palabra larga sin espacios para partir
+   (ej. "Pronunciamientos") fuerza un ancho mínimo mayor al viewport y rompe
+   el layout completo en móvil. Se permite partir la palabra como último
+   recurso — no cambia tamaño, peso ni color tipográfico oficial. */
+
+.patria {
+    overflow-wrap: anywhere;
+}
+
+/* Gap de snd-guinda.css: .ruta__lista es flex nowrap por defecto. Cualquier
+   breadcrumb con varios niveles o un último nivel largo (ej. plantillas de
+   Administración y Finanzas, con 4 niveles: Inicio > Acciones y Programas >
+   Administración y Finanzas > <subpágina>) puede no caber en una sola línea
+   en viewports angostos (< 640px) y desbordar el viewport completo de la
+   página. Global (no por página): no tiene efecto donde el breadcrumb ya
+   cabe, así que no hace falta repetir el fix por plantilla. */
+
+.ruta__lista {
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   SESNA v2 — Hoja de estilos principal
+   Basada 100% en el Sistema Nacional de Diseño (SND) v1.1.0
+   Header y footer institucionales conformes a la norma oficial.
+   ============================================================ */
+
+html {
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+body {
+    height: auto !important;
+    min-height: 100vh !important;
+    text-align: left;
+    background-color: var(--neutro200, #F9F9F9);
+}
+
+/* ------------------------------------------------------------
+   Fix SND JS: el <svg> generado no tiene width/height explícito.
+   width:1em/height:1em lo escala al font-size del contexto.
+   ------------------------------------------------------------ */
+
+svg.snd:not(.mexico__img):not(.footer__escudo) {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------------------
+   Accesibilidad — parches sobre el widget CDN de GOB.mx
+   ------------------------------------------------------------ */
+
+/* Escala de grises: aplica al renderizado completo de la página */
+
+html.sesna-grayscale {
+    filter: grayscale(100%);
+}
+
+/* Alto contraste: dobla el contraste en toda la página para cumplir WCAG */
+
+html.sesna-high-contrast {
+    filter: contrast(200%);
+}
+
+/* Combinación: si ambos están activos, aplican los dos filtros juntos */
+
+html.sesna-grayscale.sesna-high-contrast {
+    filter: grayscale(100%) contrast(200%);
+}
+
+/* Cursor grande — anillo visual que sigue al mouse.
+   Reemplaza el cursor SVG del CDN (invisible en fondos claros, soporte irregular).
+   El anillo funciona en todos los navegadores y es visible en cualquier fondo. */
+
+#sesna-cursor-ring {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    width: 52px;
+    height: 52px;
+    border: 3px solid var(--color-burgundi, #9d2449);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    left: 0;
+    top: 0;
+}
+
+#sesna-cursor-ring.sesna-cursor-ring--active {
+    opacity: 1;
+}
+
+/* Dislexia — usa open_dyslexic, la fuente oficial del CDN GOB.mx accesibilidad.
+   Se carga automáticamente desde gobmx-accesibilidad.min.css vía @font-face. */
+
+html.sesna-dislexia body,
+html.sesna-dislexia body * {
+    font-family: 'open_dyslexic', sans-serif !important;
+}
+
+/* Excepción dislexia — íconos Font Awesome (FA usa font-family sin !important,
+   nuestro body * con !important lo sobrescribe y rompe los iconos).
+   Especificidad body i.fas (0,1,3) > body * (0,1,2) — gana con !important. */
+
+html.sesna-dislexia body i.fas,
+html.sesna-dislexia body i.far,
+html.sesna-dislexia body i.fab,
+html.sesna-dislexia body i.fal,
+html.sesna-dislexia body i.fad,
+html.sesna-dislexia body i[class*="fa-"],
+html.sesna-dislexia body i.icons {
+    font-family: "Font Awesome 5 Duotone", "Font Awesome 5 Free",
+                 "Font Awesome 5 Brands", sans-serif !important;
+}
+
+/* Espaciado vertical — 3 niveles con !important para superar inline styles del CDN */
+
+html.sesna-spacing-v-1 a, html.sesna-spacing-v-1 p, html.sesna-spacing-v-1 li,
+html.sesna-spacing-v-1 h1, html.sesna-spacing-v-1 h2, html.sesna-spacing-v-1 h3,
+html.sesna-spacing-v-1 h4, html.sesna-spacing-v-1 h5, html.sesna-spacing-v-1 h6,
+html.sesna-spacing-v-1 dd, html.sesna-spacing-v-1 dt, html.sesna-spacing-v-1 figcaption,
+html.sesna-spacing-v-1 blockquote { line-height: 2 !important; }
+
+html.sesna-spacing-v-2 a, html.sesna-spacing-v-2 p, html.sesna-spacing-v-2 li,
+html.sesna-spacing-v-2 h1, html.sesna-spacing-v-2 h2, html.sesna-spacing-v-2 h3,
+html.sesna-spacing-v-2 h4, html.sesna-spacing-v-2 h5, html.sesna-spacing-v-2 h6,
+html.sesna-spacing-v-2 dd, html.sesna-spacing-v-2 dt, html.sesna-spacing-v-2 figcaption,
+html.sesna-spacing-v-2 blockquote { line-height: 2.8 !important; }
+
+html.sesna-spacing-v-3 a, html.sesna-spacing-v-3 p, html.sesna-spacing-v-3 li,
+html.sesna-spacing-v-3 h1, html.sesna-spacing-v-3 h2, html.sesna-spacing-v-3 h3,
+html.sesna-spacing-v-3 h4, html.sesna-spacing-v-3 h5, html.sesna-spacing-v-3 h6,
+html.sesna-spacing-v-3 dd, html.sesna-spacing-v-3 dt, html.sesna-spacing-v-3 figcaption,
+html.sesna-spacing-v-3 blockquote { line-height: 3.5 !important; }
+
+/* Excluye nav / header / widget accesibilidad del espaciado vertical.
+   La regla va después de las de spacing para ganar por orden en cascada
+   (misma especificidad, última posición gana). */
+
+html[class*="sesna-spacing-v"] nav a,
+html[class*="sesna-spacing-v"] nav li,
+html[class*="sesna-spacing-v"] header a,
+html[class*="sesna-spacing-v"] header li,
+html[class*="sesna-spacing-v"] .navbar a,
+html[class*="sesna-spacing-v"] .navbar li,
+html[class*="sesna-spacing-v"] .nav-item,
+html[class*="sesna-spacing-v"] .dropdown-menu a,
+html[class*="sesna-spacing-v"] .dropdown-menu li,
+html[class*="sesna-spacing-v"] #accessibility a,
+html[class*="sesna-spacing-v"] #accessibility li,
+html[class*="sesna-spacing-v"] #accessibility span {
+    line-height: normal !important;
+}
+
+/* Espaciado horizontal — 3 niveles */
+
+html.sesna-spacing-h-1 a, html.sesna-spacing-h-1 p, html.sesna-spacing-h-1 li,
+html.sesna-spacing-h-1 h1, html.sesna-spacing-h-1 h2, html.sesna-spacing-h-1 h3,
+html.sesna-spacing-h-1 h4, html.sesna-spacing-h-1 h5, html.sesna-spacing-h-1 h6,
+html.sesna-spacing-h-1 dd, html.sesna-spacing-h-1 dt, html.sesna-spacing-h-1 figcaption { letter-spacing: 0.05em !important; }
+
+html.sesna-spacing-h-2 a, html.sesna-spacing-h-2 p, html.sesna-spacing-h-2 li,
+html.sesna-spacing-h-2 h1, html.sesna-spacing-h-2 h2, html.sesna-spacing-h-2 h3,
+html.sesna-spacing-h-2 h4, html.sesna-spacing-h-2 h5, html.sesna-spacing-h-2 h6,
+html.sesna-spacing-h-2 dd, html.sesna-spacing-h-2 dt, html.sesna-spacing-h-2 figcaption { letter-spacing: 0.1em !important; }
+
+html.sesna-spacing-h-3 a, html.sesna-spacing-h-3 p, html.sesna-spacing-h-3 li,
+html.sesna-spacing-h-3 h1, html.sesna-spacing-h-3 h2, html.sesna-spacing-h-3 h3,
+html.sesna-spacing-h-3 h4, html.sesna-spacing-h-3 h5, html.sesna-spacing-h-3 h6,
+html.sesna-spacing-h-3 dd, html.sesna-spacing-h-3 dt, html.sesna-spacing-h-3 figcaption { letter-spacing: 0.15em !important; }
+
+/* Excluye nav / header / widget accesibilidad del espaciado horizontal.
+   Misma lógica que la exclusión vertical — posición en cascada gana. */
+
+html[class*="sesna-spacing-h"] nav a,
+html[class*="sesna-spacing-h"] nav li,
+html[class*="sesna-spacing-h"] header a,
+html[class*="sesna-spacing-h"] header li,
+html[class*="sesna-spacing-h"] .navbar a,
+html[class*="sesna-spacing-h"] .navbar li,
+html[class*="sesna-spacing-h"] .nav-item,
+html[class*="sesna-spacing-h"] .dropdown-menu a,
+html[class*="sesna-spacing-h"] .dropdown-menu li,
+html[class*="sesna-spacing-h"] #accessibility a,
+html[class*="sesna-spacing-h"] #accessibility li,
+html[class*="sesna-spacing-h"] #accessibility span {
+    letter-spacing: normal !important;
+}
+
+/* Resaltar enlaces — fix bug CDN (find("href") no hace nada).
+   Marca TODOS los <a> con fondo amarillo y texto oscuro para máxima visibilidad. */
+
+html.sesna-highlight a,
+html.sesna-highlight a:visited {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    text-decoration: underline !important;
+    padding: 0 2px !important;
+    border-radius: 2px !important;
+}
+
+/* Botones del widget de accesibilidad — tamaño y layout mejorado */
+
+#accessibility ul.accesibility {
+    width: 265px !important;
+}
+
+#accessibility ul.accesibility li {
+    min-height: 52px !important;
+    height: auto !important;
+    padding: 6px 0 !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+/* Libera el span del ancho col-md-* del CDN para que no rompa a 2 líneas */
+
+#accessibility ul.accesibility li span {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+}
+
+#accessibility ul.accesibility li i.icons {
+    font-size: 22px !important;
+    min-width: 44px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* Ítems de espaciado: el bloque de niveles ocupa su propia fila */
+
+#accessibility ul.accesibility li.spacing_v,
+#accessibility ul.accesibility li.spacing_h {
+    padding: 10px 0 !important;
+    align-items: flex-start !important;
+}
+
+#accessibility ul.accesibility li.spacing_v .col-md-12,
+#accessibility ul.accesibility li.spacing_h .col-md-12 {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    padding-left: 44px !important;
+    margin-top: 6px !important;
+}
+
+/* Barra de niveles (#progressAccess) */
+
+#accessibility ul.accesibility #progressAccess {
+    display: flex !important;
+    gap: 5px !important;
+    align-items: flex-end !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Puntos / segmentos de nivel */
+
+#accessibility ul.accesibility .stepping {
+    width: 28px !important;
+    border-radius: 3px !important;
+}
+
+#accessibility ul.accesibility .stepping:nth-child(1) { height: 6px !important; }
+
+#accessibility ul.accesibility .stepping:nth-child(2) { height: 10px !important; }
+
+#accessibility ul.accesibility .stepping:nth-child(3) { height: 14px !important; }
+
+/* ------------------------------------------------------------
+   BOTÓN Y PANEL DE ACCESIBILIDAD — SND v1.1.0 (Sección 4.4, línea 610)
+   Norma: Círculo 32×32px, fondo #CD353C, radio de borde 200 (circular).
+   Aspect-ratio 1:1, icono snd-accessibility--alt oficial.
+   ------------------------------------------------------------ */
+
+#sesna-btn-accesibilidad {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    z-index: 100 !important;
+    box-sizing: border-box !important;
+    transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+#sesna-btn-accesibilidad:hover,
+#sesna-btn-accesibilidad:focus {
+    transform: scale(1.08) !important;
+    outline: none !important;
+}
+
+#sesna-btn-accesibilidad .icono--circuloRojo {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background-color: #CD353C !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+    padding: 0 !important;
+}
+
+#sesna-btn-accesibilidad svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Ocultar el botón antiguo redundante inyectado por el CDN */
+
+nav.menu-container a.menu-btn {
+    display: none !important;
+}
+
+/* Panel flotante de accesibilidad (.menu-slide) posicionado limpiamente */
+
+#accessibility {
+    max-width: none !important;
+    background: transparent !important;
+    border: none !important;
+    z-index: 10000000 !important;
+}
+
+.menu-container {
+    position: static !important;
+    z-index: 10000000 !important;
+}
+
+#accessibility .menu-slide,
+.menu-container .menu-slide {
+    position: fixed !important;
+    top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
+    right: -320px !important;
+    left: auto !important;
+    width: 280px !important;
+    height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h))) !important;
+    background-color: #ffffff !important;
+    box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.25) !important;
+    z-index: 10000000 !important;
+    overflow-y: auto !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    transition: right 0.25s ease, opacity 0.2s ease, visibility 0.25s !important;
+    -webkit-transition: right 0.25s ease, opacity 0.2s ease, visibility 0.25s !important;
+}
+
+/* Al abrir por interacción con el botón oficial o foco */
+
+#accessibility.is-open .menu-slide,
+#accessibility .menu-slide.is-open,
+.menu-container:hover .menu-slide,
+.menu-container:focus-within .menu-slide {
+    right: 0 !important;
+    left: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+}
+
+/* ============================================================
+   SND v1 — BRIDGE DE COMPATIBILIDAD
+   Mapea variables SESNA a tokens SND para que el CSS existente
+   use automáticamente la paleta oficial del Sistema Nacional de Diseño.
+   Los tokens --p* son definidos por snd-guinda.css; nosotros solo
+   redirigimos nuestras vars locales hacia ellos.
+   ============================================================ */
+
+:root {
+    /* Colores — mapeados a tokens SND v1 */
+    --color-guinda:          var(--pguinda900, #611232);   /* = --principal */
+    --color-burgundi:        var(--pguinda600, #9B2247);
+    --color-teal-oscuro:     var(--pverde900, #002F2A);
+    --color-teal:            var(--pverde500, #335955);
+    --color-dorado:          var(--dorado600, #a57f2c);
+    --color-dorado-claro:    var(--dorado300, #DDC9A3);
+    --color-bronce:          var(--dorado500, #BC955C);
+    --color-negro:           var(--neutro800, #161A1D);
+    --color-gris:            var(--neutro500, #AAAAAA);
+    --color-blanco:          var(--neutro100, #FFFFFF);
+
+    /* Fondos neutros */
+    --color-fondo-claro:     var(--pguinda100, #F3E4E9);
+    --color-burgundi-tenue:  rgba(155, 34, 71, 0.07);
+
+    /* Sub-navbar — pguinda950 del SND */
+    --color-subnav:          var(--pguinda950, #4A0C26);
+
+    /* Tipografía — solo Noto Sans y Patria (SND v1 permitidas).
+       Ambas ya vienen con @font-face desde snd-guinda.css (CDN) — no requieren import propio. */
+    --font-patria:    'Patria', serif;
+    --font-noto-sans: 'Noto Sans', sans-serif;
+    /* Montserrat y GMX: nombres legacy de v3, mapeados a las fuentes SND permitidas */
+    --font-montserrat: var(--font-noto-sans);
+    --font-gmx:        var(--font-patria);
+
+    /* Color de texto */
+    --text-color-main: var(--neutro800, #161A1D);
+
+    /* Espaciado */
+    --buffer: 64px;
+
+    /* Configuración de componentes */
+    --sesna-banner-max-height: auto;
+}
+
+/* ------------------------------------------------------------
+   SND v1 — Estilos globales obligatorios
+   ------------------------------------------------------------ */
+
+/* Links: color institucional SND — "Enlace de texto" (3.4 Tipografía): color--principal
+   .sesna-card y .sesna-card__title a excluidos: el enlace del título de las cards toma su color de card.css.
+   .ruta__a excluida: el breadcrumb oficial (.ruta__a en snd-guinda.css) ya define su
+   propio color (neutro800) y no debe pintarse como enlace genérico. */
+
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):not(.ruta__a):not(.sesna-card):not(.sesna-card__title a) {
+    color: var(--principal);
+    text-decoration: none;
+}
+
+a:not([class*="btn"]):not([class*="boton"]):not(.nav-link):not(.navbar-brand):not(.dropdown-item):not(.mexico__a):not(.ruta__a):not(.sesna-card):not(.sesna-card__title a):hover {
+    color: var(--gama500);
+    text-decoration: underline;
+}
+
+/* Tipografía body — Noto Sans es la fuente base SND (declaración detallada más abajo) */
+
+/* ------------------------------------------------------------
+   Anula el margin-top: 70px que gobmx.js inyecta como inline style en body.
+   author !important gana sobre inline style en la cascada CSS.
+   ------------------------------------------------------------ */
+
+body {
+    font-family: var(--font-noto-sans);
+    color: var(--text-color-main);
+    background-color: var(--neutro200, #F9F9F9);
+    font-size: 18px;
+    /* Tamaño estandarizado */
+    line-height: 1.428;
+    margin-top: 0 !important;
+    overflow-x: hidden;
+    /* Tarea 12: Sticky Footer Flexbox setup */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Tamaño mínimo permitido por accesibilidad */
+
+small,
+.small {
+    font-size: 16px !important;
+}
+
+/* Encabezados principales Web
+   h2 y h3 se quitaron de este grupo: el SND solo aplica Patria vía
+   [class*="__patria"]/.patria (opt-in explícito), no por defecto en cada
+   encabezado. h1 se queda porque el único <h1> real de cada página ya
+   necesita Patria casi siempre (title del hero) — se revisa cuando toque
+   auditar encabezados fuera del home. */
+
+h1,
+.font-patria {
+    font-family: var(--font-patria);
+    color: var(--text-color-main);
+}
+
+h2,
+h3 {
+    color: var(--text-color-main);
+}
+
+/* SND Fase 4 — Módulo 4: page-como-vamos.php tenía 3 <h1> "¿Cómo vamos?" repetidos
+   más 9 <h1> de números de tarjeta, todos sin tamaño propio (heredaban el default
+   de <h1> del navegador, 30.72px/700). Al bajar su nivel semántico (h1→h2/h3) para
+   dejar un solo <h1> real por página, fijamos aquí el tamaño por CLASE —no por
+   etiqueta— para que el cambio de jerarquía no altere el estilo visual. */
+
+.title-vamos,
+.pricing-card-title {
+    font-size: 1.92rem;
+    font-weight: 700;
+}
+
+/* Documentación Oficial / Textos corridos oficiales */
+
+.font-montserrat {
+    font-family: var(--font-montserrat);
+}
+
+/* Firmas y Títulos oficiales (Estrictamente prohibido en cuerpo) */
+
+.font-gmx {
+    font-family: var(--font-gmx);
+}
+
+/* ------------------------------------------------------------
+   HEADER Y NAVBAR INSTITUCIONAL — SND v1.1.0 (Sección 4.7 y Sección 4.4)
+   Dimensiones y alturas oficiales del Sistema Nacional de Diseño:
+     - Header institucional (.header / .mexico):
+         Desktop (≥ 700px): alto 80px, fondo presidencia guinda-950 (#4A0C26)
+         Mobile (< 699px): alto 56px
+     - Barra institucional SESNA (.subheader / .sesna-subheader):
+         Alto oficial: 52px (min-height: 52px)
+     - Retícula institucional base: 1440px centrado
+         Margen lateral Desktop (≥ 1024px): 56px
+         Margen lateral Tablet (< 1024px): 24px
+         Margen lateral Mobile (< 640px): 16px
+   ------------------------------------------------------------ */
+
+:root {
+    /* <snd-header> oficial v1.0.0 tiene 58px de alto en todas las resoluciones */
+    --mexico-h: 58px;
+    --sesna-subheader-h: 52px;
+}
+
+main,
+main.page,
+#mainContent {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    flex: 1 0 auto !important;
+    background-color: var(--neutro200, #F9F9F9);
+    /* <snd-header> (:host { display: block; height: 58px }) ya reserva sus 58px en el flujo del body;
+       por ello #mainContent solo compensa la altura del subheader institucional fijo (--sesna-subheader-h). */
+    padding-top: var(--sesna-subheader-h) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* El fondo de página debe estirarse para llenar <main> cuando el contenido
+   es más corto que el viewport (patrón "sticky footer"); min-height:100%
+   no resuelve de forma confiable contra un alto proveniente de flexbox,
+   por eso main también se vuelve flex y .front-page-bg crece con flex:1. */
+
+.front-page-bg {
+    flex: 1 0 auto;
+}
+
+html:root,
+html[lang],
+html:has(body.admin-bar),
+html,
+html body,
+body.admin-bar {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+#wpadminbar {
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* ------------------------------------------------------------
+   Utilidades de espaciado (GOB.mx v3)
+   ------------------------------------------------------------ */
+
+.top-buffer {
+    margin-top: var(--buffer);
+}
+
+.bottom-buffer {
+    margin-bottom: var(--buffer);
+}
+
+.vertical-buffer {
+    margin-top: var(--buffer);
+    margin-bottom: var(--buffer);
+}
+
+/* ============================================================
+   HEADER INSTITUCIONAL SND v1.0.0 (Web Component <snd-header>)
+   El componente oficial encapsula su estructura (.header > .mexico)
+   en Shadow DOM con :host { display: block; height: 58px }.
+   Reservamos explícitamente display:block, height:58px y fondo guinda
+   desde el primer paint para evitar CLS ("brinco" de 58px en Chrome,
+   Edge y Firefox) mientras carga.js descarga snd-header.js.
+   ============================================================ */
+
+snd-header {
+    display: block;
+    width: 100%;
+    height: var(--mexico-h, 58px);
+    min-height: var(--mexico-h, 58px);
+    background-color: var(--pguinda900, #611232);
+    position: relative;
+    z-index: 1000000;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   NAVBAR / SUBHEADER INSTITUCIONAL SND v1.1.0 (Sección 4.4)
+   Estructura: section.subheader > .subheader__contenedor
+   Fondo oficial del estándar: presidencia guinda-950 (--gama950, #4A0C26)
+   Sombra oficial: 0 4px 4px rgba(0, 0, 0, 0.25)
+   ============================================================ */
+
+.sesna-subheader .mexico__summary {
+    background-image: url('../../img/icons-base/header-menu.svg') !important;
+    filter: brightness(0) invert(1);
+}
+
+.subheader,
+.sesna-subheader {
+    position: fixed !important;
+    top: var(--mexico-h) !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: var(--sesna-subheader-h) !important;
+    min-height: var(--sesna-subheader-h) !important;
+    z-index: 999999 !important;
+    background-color: var(--gama950, #4A0C26) !important;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Retícula del subheader: 1440px máximo, padding responsivo */
+
+.subheader__contenedor,
+.sesna-subheader__inner {
+    width: 100% !important;
+    max-width: 1440px !important;
+    height: 100% !important;
+    margin-inline: auto !important;
+    padding-inline: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 32px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 20px !important;
+    }
+}
+
+@media (max-width: 767.9px) {
+    .subheader__contenedor,
+    .sesna-subheader__inner {
+        padding-inline: 16px !important;
+    }
+}
+
+/* details móvil / contenedor del menú */
+
+.sesna-subheader .mexico__details {
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.sesna-nav {
+    overflow: visible !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+@media (min-width: 768px) {
+    .sesna-subheader #sesna-nav-details,
+    .sesna-subheader #sesna-nav-details:not([open]),
+    .sesna-subheader .mexico__details {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        height: 100% !important;
+        align-items: center !important;
+        margin-right: auto !important;
+    }
+
+    .sesna-subheader #sesna-nav-details > nav.sesna-nav,
+    .sesna-subheader #sesna-nav-details:not([open]) > nav.sesna-nav,
+    .sesna-subheader .mexico__details > nav.navHeader {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        height: 100% !important;
+        align-items: center !important;
+        margin-left: 0 !important;
+    }
+
+    .sesna-subheader .navHeader__ul.mexico__detailsCont {
+        display: flex !important;
+    }
+
+    .sesna-subheader summary.mexico__summary {
+        display: none !important;
+    }
+}
+
+/* ---- Navegación Institucional SESNA (SND v1.1.0) ---- */
+
+/* Quitar marker nativo del <summary> */
+
+.sesna-subheader summary {
+    list-style: none !important;
+}
+
+.sesna-subheader summary::-webkit-details-marker {
+    display: none !important;
+}
+
+/* Chevron indicador de submenú — reservamos 12x12px desde antes de que snd.js
+   inyecte el <svg> para evitar cualquier desplazamiento horizontal de los ítems
+   del navbar al cargar la página */
+
+.navHeader__chevron {
+    margin-left: 6px !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
+    font-size: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease !important;
+}
+
+.sesna-subheader .navHeader__a i.snd-launch {
+    width: 13px !important;
+    height: 13px !important;
+    min-width: 13px !important;
+    min-height: 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.sesna-subheader .navHeader__details[open] > summary .navHeader__chevron,
+.sesna-subheader .navHeader__details:hover > summary .navHeader__chevron {
+    transform: rotate(180deg) !important;
+}
+
+/* ============================================================
+   ESCRITORIO (>= 768px): Barra institucional y Submenú desplegable
+   Construcción de UI: Enlaces a la izquierda, Accesibilidad a la derecha
+   ============================================================ */
+
+@media (min-width: 768px) {
+    /* Lista de navegación principal de primer nivel */
+
+    .sesna-subheader .sesna-nav__list {
+        display: flex !important;
+        background: none !important;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        margin-right: 0 !important;
+        list-style: none !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        flex-shrink: 0 !important;
+        margin-left: 20px !important; /* Espaciado normativo entre navegación y botón de accesibilidad (item spacing: 24 del SND) */
+    }
+
+    /* Ítems de primer nivel */
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li {
+        position: relative !important;
+        width: auto !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details {
+        position: relative !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Enlaces y toggles de primer nivel en escritorio estándar (>= 1280px) */
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+        font-size: 15px !important;
+        font-weight: 400 !important;
+        color: var(--neutro100, #ffffff) !important;
+        text-decoration: none !important;
+        padding: 0 12px !important;
+        height: 52px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        border-bottom: 3px solid transparent !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+        transition: border-color 0.2s ease, color 0.2s ease !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:hover,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:hover {
+        border-bottom-color: var(--pguinda100, #F3E4E9) !important;
+        color: #ffffff !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a[aria-current="page"],
+    .sesna-subheader .sesna-nav__list > .navHeader__li--active > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li--active > details.navHeader__details > summary.navHeader__a {
+        font-weight: 600 !important;
+        color: #ffffff !important;
+        border-bottom-color: var(--neutro100, #ffffff) !important;
+    }
+
+    /* Submenú desplegable oficial SND v1.1.0 */
+
+    .sesna-subheader .navHeader__submenu {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        min-width: 290px !important;
+        width: max-content !important;
+        max-width: 380px !important;
+        height: auto !important;
+        background: var(--gama950, #4A0C26) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-top: none !important;
+        border-radius: 0 0 8px 8px !important;
+        padding: 6px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        white-space: normal !important;
+        z-index: 1050 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Apertura del submenú en hover, focus-within o [open] */
+
+    .sesna-subheader .navHeader__details:hover > .navHeader__submenu,
+    .sesna-subheader .navHeader__details:focus-within > .navHeader__submenu,
+    .sesna-subheader .navHeader__details[open] > .navHeader__submenu {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Sub-ítem del menú desplegable */
+
+    .sesna-subheader .navHeader__li--sub {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Enlace del sub-ítem del menú desplegable */
+
+    .sesna-subheader .navHeader__a--sub {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 10px 20px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        color: #ffffff !important;
+        font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        line-height: 1.35 !important;
+        text-decoration: none !important;
+        text-align: left !important;
+        white-space: normal !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        transition: background-color 0.15s ease, color 0.15s ease !important;
+    }
+
+    .sesna-subheader .navHeader__li--sub:last-child > .navHeader__a--sub {
+        border-bottom: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub:hover,
+    .sesna-subheader .navHeader__a--sub:focus {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+        outline: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub[aria-current="page"],
+    .sesna-subheader .navHeader__li--subActive > .navHeader__a--sub {
+        color: var(--dorado300, #DBCCAB) !important;
+        font-weight: 700 !important;
+        background-color: rgba(255, 255, 255, 0.04) !important;
+    }
+}
+
+/* ============================================================
+   LAPTOP (1024px a 1279.98px, ej. 1080px): Escalamiento fluido
+   ============================================================ */
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        padding: 0 clamp(5px, 0.6vw, 8px) !important;
+        font-size: clamp(12px, 1.25vw, 13.5px) !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: 14px !important;
+    }
+}
+
+/* ============================================================
+   TABLETA (768px a 1023.98px): Escalamiento compacto
+   ============================================================ */
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    /* overflow visible: con overflow-x:auto el navegador recorta también en vertical
+       y el submenú desplegable (position:absolute) quedaba invisible en tableta. */
+    .sesna-subheader nav.sesna-nav {
+        overflow: visible !important;
+    }
+
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > .navHeader__a:visited,
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary.navHeader__a:visited {
+        /* Fluido: a 768px debe caber todo el menú sin recortar el submenú */
+        padding: 0 clamp(2px, 0.55vw, 5px) !important;
+        font-size: clamp(10px, 1.3vw, 12px) !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: clamp(2px, 1vw, 10px) !important;
+    }
+}
+
+/* 768–899px: se oculta el chevrón del primer nivel para que el menú completo y el botón de accesibilidad quepan sin solaparse */
+@media (min-width: 768px) and (max-width: 899.98px) {
+    .sesna-subheader .sesna-nav__list > .navHeader__li > details.navHeader__details > summary .navHeader__chevron {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   MÓVIL (≤ 767.9px): Menú hamburguesa colapsable y acordeón
+   ============================================================ */
+
+@media (max-width: 767.9px) {
+    /* Menú principal móvil: panel vertical apilado */
+
+    .sesna-subheader .mexico__details:not([open]) .mexico__detailsCont {
+        display: none !important;
+    }
+
+    .sesna-subheader .mexico__details[open] .mexico__detailsCont {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: calc(var(--mexico-h) + var(--sesna-subheader-h)) !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: var(--pguinda950, #4A0C26) !important;
+        text-align: left !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+        z-index: 998 !important;
+        max-height: calc(100vh - (var(--mexico-h) + var(--sesna-subheader-h))) !important;
+        overflow-y: auto !important;
+        padding: 8px 0 24px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    /* Ítems de menú móvil a ancho completo con separador */
+
+    .sesna-subheader .navHeader__li {
+        width: 100% !important;
+        display: block !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .sesna-subheader .navHeader__a,
+    .sesna-subheader .navHeader__a:visited {
+        display: flex !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 14px 20px !important;
+        border-bottom: none !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        color: #ffffff !important;
+        font-size: 15px !important;
+        text-decoration: none !important;
+    }
+
+    .sesna-subheader details.navHeader__details {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .sesna-subheader summary.navHeader__a--toggle {
+        cursor: pointer !important;
+    }
+
+    /* Submenú anidado móvil en acordeón */
+
+    .sesna-subheader .navHeader__submenu {
+        display: none;
+        position: static !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .sesna-subheader details.navHeader__details[open] > .navHeader__submenu {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .sesna-subheader .navHeader__li--sub {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 44px !important;
+        padding: 12px 20px 12px 32px !important; /* Sangría jerárquica de 32px */
+        font-size: 14px !important;
+        line-height: 1.35 !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        box-sizing: border-box !important;
+    }
+
+    .sesna-subheader .navHeader__li--sub:last-child > .navHeader__a--sub {
+        border-bottom: none !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub:hover,
+    .sesna-subheader .navHeader__a--sub:active {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .sesna-subheader .navHeader__a--sub[aria-current="page"],
+    .sesna-subheader .navHeader__li--subActive > .navHeader__a--sub {
+        color: var(--dorado300, #DBCCAB) !important;
+        font-weight: 700 !important;
+    }
+
+    /* Subheader móvil: contenedor en barra horizontal con menú a la izquierda y accesibilidad a la derecha */
+
+    .sesna-subheader .subheader__contenedor,
+    .sesna-subheader .sesna-subheader__inner {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-inline: 16px !important;
+        height: 100% !important;
+    }
+
+    .sesna-subheader #sesna-nav-details {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        height: 100% !important;
+        align-items: center !important;
+    }
+
+    .sesna-subheader summary.mexico__summary {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        cursor: pointer !important;
+    }
+
+    .sesna-subheader #sesna-btn-accesibilidad {
+        margin-left: auto !important;
+        position: relative !important;
+        z-index: 1000 !important;
+    }
+}
+
+/* ------------------------------------------------------------
+   Colores de utilidad
+   ------------------------------------------------------------ */
+
+.bg-guinda {
+    background-color: var(--color-guinda) !important;
+}
+
+.bg-burgundi {
+    background-color: var(--color-burgundi) !important;
+}
+
+.bg-dorado {
+    background-color: var(--color-dorado) !important;
+}
+
+.text-guinda {
+    color: var(--color-guinda) !important;
+}
+
+.text-burgundi {
+    color: var(--color-burgundi) !important;
+}
+
+.text-dorado {
+    color: var(--color-dorado) !important;
+}

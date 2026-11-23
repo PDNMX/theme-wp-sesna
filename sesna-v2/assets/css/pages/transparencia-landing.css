@@ -1,0 +1,153 @@
+/*
+ * Página: transparencia-landing
+ * Transparencia — landing (page-transparencia.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* --- Banner Hero Transparencia ----------------------------- */
+
+.page-transparencia .tx-banner {
+    position: relative;
+    width: 100%;
+    background-color: var(--pguinda900, #611232);
+    overflow: hidden;
+}
+
+.page-transparencia .tx-banner__media {
+    width: 100%;
+    line-height: 0;
+}
+
+.page-transparencia .tx-banner__img {
+    width: 100%;
+    height: auto;
+    min-height: 180px;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.page-transparencia .tx-banner__action {
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+@media (max-width: 767.98px) {
+    .page-transparencia .tx-banner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-transparencia .tx-banner__img {
+        min-height: 120px;
+    }
+
+    .page-transparencia .tx-banner__action {
+        position: static;
+        padding: 16px 16px 24px;
+        background-color: var(--neutro200);
+    }
+}
+
+
+/* Accesos rápidos: cards de 4 columnas → ícono más compacto (tamaño propio de esta página; el diseño vive en card.css) */
+.tx-accesos .sesna-card {
+    --sesna-card-icon-size: 48px;
+    --sesna-card-icon-glyph: 28px;
+    --sesna-card-gap: 12px;
+    --sesna-card-header-gap: 16px;
+    --sesna-card-text-align: left;   /* 4 columnas: el texto justificado deja huecos */
+}
+
+/* Overlay para consultar manual */
+
+.page-transparencia .tx-card-manual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(97, 18, 50, 0.96);
+    color: var(--color-blanco) !important;
+    padding: 14px 16px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.page-transparencia .sesna-card:hover .tx-card-manual-overlay,
+.page-transparencia .sesna-card:focus-within .tx-card-manual-overlay {
+    transform: translateY(0);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.page-transparencia .tx-card-manual-overlay:hover,
+.page-transparencia .tx-card-manual-overlay:focus-visible {
+    background: var(--pguinda950, #4a0c26);
+    color: var(--color-blanco) !important;
+}
+
+@media (max-width: 767.98px) {
+    .page-transparencia .tx-card-manual-overlay {
+        position: relative;
+        transform: none;
+        border-radius: 8px;
+        margin-top: 14px;
+        background: var(--pguinda900, #611232);
+        box-shadow: none;
+    }
+}
+
+/* Banda de contacto */
+
+.page-transparencia .tx-contacto {
+    background-color: var(--neutro200);
+    border-top: 1px solid var(--neutro400);
+}
+
+.page-transparencia .tx-contacto__icon-wrap {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: var(--principal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutro100);
+}
+
+.page-transparencia .tx-contacto__icon-wrap .snd__icono {
+    width: 24px;
+    height: 24px;
+}
+
+.page-transparencia .tx-contacto__link {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.page-transparencia .tx-contacto__link:hover,
+.page-transparencia .tx-contacto__link:focus-visible {
+    color: var(--gama950);
+    text-decoration: underline;
+}
+
+/* El correo largo no debe ensanchar la página en pantallas angostas */
+.page-transparencia .tx-contacto__link {
+    overflow-wrap: anywhere;
+}

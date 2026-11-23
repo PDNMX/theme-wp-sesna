@@ -286,24 +286,12 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
 
 </div>
 
-<!-- ── Drawer Móvil (Bottom Sheet): Selección de Sección SND v1.1.0 ────── -->
-<div class="snd-drawer-overlay page-pna-archivo is-hidden" id="adDrawerOverlay" aria-hidden="true">
-    <div class="snd-drawer snd-drawer--bottom" id="adDrawer" role="dialog" aria-modal="true" aria-labelledby="adDrawerTitle">
-        <!-- Drag handle -->
-        <div class="snd-drawer__handle-wrap" id="adDrawerHandle">
-            <span class="snd-drawer__handle" aria-hidden="true"></span>
-        </div>
-
-        <!-- Header con título "Seleccionar sección" y un IconButton de cierre -->
-        <div class="snd-drawer__header">
-            <h2 class="sh0b color--neutro800 mb--0" id="adDrawerTitle">Seleccionar sección</h2>
-            <button type="button" class="boton__fantasma snd-drawer__close-btn" id="adDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
-            </button>
-        </div>
-
-        <!-- Las cinco secciones como ListItems seleccionables mostrando su nombre completo -->
-        <div class="snd-drawer__body" id="adDrawerBody">
+<?php get_template_part( 'template-parts/ui/mobile-drawer', null, array(
+    'prefix'        => 'ad',
+    'overlay_class' => 'page-pna-archivo',
+    'title'         => 'Seleccionar sección',
+    'close_label'   => 'Cerrar selección de sección',
+    'body'          => function () use ( $ad_grupos, $ad_short_names ) { ?>
             <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Archivo Documental">
                 <?php $d_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
                     $is_active = ( 0 === $d_i );
@@ -322,9 +310,8 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                     </button>
                 <?php $d_i++; endforeach; ?>
             </div>
-        </div>
-    </div>
-</div>
+    <?php },
+) ); ?>
 
 <script>
 (function () {

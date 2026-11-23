@@ -1,0 +1,177 @@
+/*
+ * Página: verificacion-patrimonial
+ * Verificación Patrimonial (page-verificacion-patrimonial.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ============================================================
+   VERIFICACIÓN PATRIMONIAL (page-verificacion-patrimonial.php)
+   Scope: .page-verificacion
+   ============================================================ */
+
+/* ── Hero ── */
+
+.page-verificacion .vp-hero__badge {
+    display: inline-block;
+    font-family: var(--font-patria);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-burgundi);
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.page-verificacion .vp-hero__subtitle {
+    font-family: var(--font-patria);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-burgundi);
+    margin-bottom: 8px;
+}
+
+.page-verificacion .vp-hero__img-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: -40px;
+}
+
+.page-verificacion .vp-hero__img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+    object-position: bottom;
+    display: block;
+    filter: drop-shadow(0 16px 40px rgba(0,0,0,0.18));
+}
+
+/* Placeholder cuando no hay imagen */
+
+.page-verificacion .vp-hero__img-placeholder {
+    min-height: 320px;
+    background: linear-gradient(135deg, var(--color-teal-oscuro) 0%, #1c2b4a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-verificacion .vp-hero__img-placeholder::after {
+    content: 'Imagen de la herramienta';
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+}
+
+/* ── Funcionalidades ── */
+
+.page-verificacion .vp-funcionalidades {
+    background-color: transparent;
+}
+
+.page-verificacion .vp-func-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 28px 36px 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.page-verificacion .vp-func-box__title {
+    font-size: 24px;
+    color: var(--color-burgundi);
+    padding-bottom: 12px;
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.page-verificacion .vp-func-box__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 3px;
+    background-color: var(--color-burgundi);
+    border-radius: 2px;
+}
+
+.page-verificacion .vp-func-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.page-verificacion .vp-func-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+}
+
+.page-verificacion .vp-func-item__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border: 2px solid var(--color-burgundi);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-burgundi);
+    font-size: 22px;
+    background-color: #fff;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.page-verificacion .vp-func-item:hover .vp-func-item__icon {
+    background-color: var(--color-burgundi);
+    color: #fff;
+}
+
+.page-verificacion .vp-func-item__text {
+    flex: 1;
+}
+
+.page-verificacion .vp-func-item__title {
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-burgundi);
+    margin-bottom: 6px;
+}
+
+.page-verificacion .vp-func-item__desc {
+    font-size: 15px;
+    color: rgba(22, 26, 29, 0.8);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.page-verificacion .vp-func-sep {
+    color: var(--color-gris);
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 1;
+    padding: 0 4px;
+    align-self: center;
+}
+
+.cp-doc-thumb__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 7px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 6px;
+}

@@ -11,24 +11,13 @@ get_header();
 <div class="front-page-bg">
 
     <!-- Breadcrumb -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url( '/acciones-y-programas/' ) ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url( '/acciones-y-programas/administracion-y-finanzas/' ) ); ?>" class="ruta__a">Administración y Finanzas</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Archivo Documental</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url( '/acciones-y-programas/' ) ),
+            array( 'label' => 'Administración y Finanzas', 'url' => home_url( '/acciones-y-programas/administracion-y-finanzas/' ) ),
+            array( 'label' => 'Archivo Documental' ),
+        ),
+    ) ); ?>
 
     <div class="contenedor py--48">
         <?php get_template_part( 'template-parts/administracion-finanzas/archivo-documental-contenido' ); ?>

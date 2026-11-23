@@ -1,0 +1,221 @@
+/*
+ * Componente Card SESNA (referencia visual: Figma SND UI Kit — "Cards", Comité Coordinador).
+ *
+ * El SND v1.0.0 no define una clase de card, así que este archivo es la ÚNICA
+ * fuente de verdad: todas las cards con ícono (inicio, transparencia, qué
+ * hacemos, indicadores…) heredan de aquí. Para cambiar el aspecto de todas
+ * basta editar las variables de :root; para ajustar una página o una card
+ * concreta se redefinen las mismas variables en su propio CSS:
+ *
+ *     .page-transparencia .sesna-card { --sesna-card-icon-size: 48px; }
+ *
+ * No se redefine ninguna clase del SND (.boton__*, .sh1b, .b1r…): el marcado
+ * las sigue usando tal cual para tipografía y botones.
+ *
+ * Estructura (template-parts/ui/card.php la genera):
+ *
+ *   .sesna-card                      contenedor (a o div)
+ *     .sesna-card__header            ícono + título (fila)
+ *       .sesna-card__icon            círculo con ícono SVG (o <img>)
+ *       .sesna-card__title           título
+ *     .sesna-card__text              descripción
+ *     .sesna-card__action            acción (siempre a la derecha, abajo)
+ *       .sesna-card__link | .boton__* | .sesna-card__arrow
+ */
+
+:root {
+    /* Superficie */
+    --sesna-card-bg: var(--neutro100);
+    --sesna-card-border: 1px solid var(--neutro400);
+    --sesna-card-radius: 16px;
+    --sesna-card-shadow: var(--dropLV1);
+    --sesna-card-padding: 24px;
+
+    /* Hover / foco */
+    --sesna-card-shadow-hover: var(--dropLV2);
+    --sesna-card-lift: -5px;
+    --sesna-card-focus: var(--pguinda900);
+
+    /* Encabezado: ícono + título */
+    --sesna-card-gap: 16px;                 /* separación ícono ↔ título */
+    --sesna-card-header-gap: 24px;          /* separación encabezado ↔ texto */
+    --sesna-card-icon-size: 75px;           /* diámetro del círculo */
+    --sesna-card-icon-glyph: 40px;          /* tamaño del ícono dentro del círculo */
+    --sesna-card-icon-bg: var(--pguinda600);
+    --sesna-card-icon-color: var(--neutro100);
+
+    /* Texto y acción */
+    --sesna-card-title-color: var(--neutro800);
+    --sesna-card-text-color: var(--neutro800);
+    --sesna-card-text-align: justify;
+    --sesna-card-action-color: var(--pguinda600);
+    --sesna-card-action-gap: 16px;          /* separación texto ↔ acción */
+}
+
+/* Móvil: mismo diseño, proporciones más compactas */
+@media (max-width: 575.98px) {
+    :root {
+        --sesna-card-padding: 20px;
+        --sesna-card-gap: 12px;
+        --sesna-card-header-gap: 16px;
+        --sesna-card-icon-size: 56px;
+        --sesna-card-icon-glyph: 32px;
+    }
+}
+
+/* ── Contenedor ───────────────────────────────────────────── */
+.sesna-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;   /* necesario: con container-type el ancho intrínseco es 0 dentro de contenedores flex */
+    height: 100%;
+    min-width: 0;
+    padding: var(--sesna-card-padding);
+    background: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    color: var(--sesna-card-title-color);
+    text-align: left;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* La card responde a SU propio ancho (no al de la ventana): ver @container abajo */
+    container-type: inline-size;
+    container-name: sesna-card;
+}
+
+.sesna-card:hover,
+.sesna-card:focus-within {
+    transform: translateY(var(--sesna-card-lift));
+    box-shadow: var(--sesna-card-shadow-hover);
+    color: var(--sesna-card-title-color);
+    text-decoration: none;
+}
+
+.sesna-card:focus-visible {
+    outline: 2px solid var(--sesna-card-focus);
+    outline-offset: 2px;
+}
+
+/* Sin elevación al pasar el cursor (cards informativas) */
+.sesna-card--estatica:hover,
+.sesna-card--estatica:focus-within {
+    transform: none;
+    box-shadow: var(--sesna-card-shadow);
+}
+
+/* ── Encabezado ───────────────────────────────────────────── */
+.sesna-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sesna-card-gap);
+    margin-bottom: var(--sesna-card-header-gap);
+}
+
+.sesna-card__icon {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sesna-card-icon-size);
+    height: var(--sesna-card-icon-size);
+    border-radius: 50%;
+    background: var(--sesna-card-icon-bg);
+    color: var(--sesna-card-icon-color);
+}
+
+.sesna-card__icon .snd__icono {
+    width: var(--sesna-card-icon-glyph);
+    height: var(--sesna-card-icon-glyph);
+    font-size: var(--sesna-card-icon-glyph);
+    line-height: 1;
+    color: inherit;
+}
+
+/* Ícono que ya trae su propio círculo (SVG de /img): solo se dimensiona */
+img.sesna-card__icon {
+    background: none;
+    object-fit: contain;
+}
+
+.sesna-card__title {
+    min-width: 0;
+    color: var(--sesna-card-title-color);
+    overflow-wrap: anywhere;   /* una palabra larga nunca desborda la card */
+}
+
+.sesna-card .sesna-card__title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ── Texto ────────────────────────────────────────────────── */
+.sesna-card__text {
+    color: var(--sesna-card-text-color);
+    text-align: var(--sesna-card-text-align);
+}
+
+/* ── Acción (conoce más, ver más, consultar, botón, flecha…) ── */
+.sesna-card__action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: var(--sesna-card-action-gap);
+    color: var(--sesna-card-action-color);
+}
+
+.sesna-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sesna-card-action-color);
+}
+
+.sesna-card__arrow {
+    color: var(--sesna-card-action-color);
+    transition: transform 0.2s ease;
+}
+
+.sesna-card:hover .sesna-card__arrow,
+.sesna-card:focus-within .sesna-card__arrow {
+    transform: translateX(4px);
+}
+
+/* ── Responsivo por contenedor ────────────────────────────────
+   Cuando la card es angosta (grids de 3–4 columnas en tableta/laptop chica)
+   el ícono pasa arriba del título en vez de comprimirlo. Con ancho suficiente
+   (móvil a una columna, escritorio) conserva ícono a la izquierda. */
+@container sesna-card (max-width: 205px) {
+    .sesna-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Cards medianas-angostas (2 columnas en tableta chica): el círculo se limita para dejar espacio al título */
+@container sesna-card (max-width: 270px) {
+    .sesna-card__icon {
+        width: min(var(--sesna-card-icon-size), 56px);
+        height: min(var(--sesna-card-icon-size), 56px);
+    }
+
+    .sesna-card__icon .snd__icono {
+        width: min(var(--sesna-card-icon-glyph), 32px);
+        height: min(var(--sesna-card-icon-glyph), 32px);
+        font-size: min(var(--sesna-card-icon-glyph), 32px);
+    }
+}
+
+/* El texto justificado solo funciona con líneas largas; en cards angostas se alinea a la izquierda */
+@container sesna-card (max-width: 260px) {
+    .sesna-card__text {
+        text-align: left;
+    }
+}

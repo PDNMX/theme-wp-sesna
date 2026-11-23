@@ -99,25 +99,15 @@ $tx_cards = [
             <div class="reticulaGrid__12">
                 <?php foreach ( $tx_cards as $card ): ?>
                     <div class="columna__12 columna__6--sm columna__6--md columna__3--lg mb--24">
-                        <div class="tx-card radio--4 posicion--relativa desborde--oculto alto--100 muestra--flex flex-direction-column">
-                            <div class="tx-card__icon mb--16" aria-hidden="true">
-                                <?= sesna_render_snd_svg_icon($card['icon'], 'icono--32 color--pguinda600') ?>
-                            </div>
-                            <h3 class="sh1b tx-card__title mb--8">
-                                <a href="<?= esc_url( $card['url'] ); ?>"
-                                   <?= !empty($card['target']) ? 'target="' . esc_attr($card['target']) . '" rel="noopener noreferrer" title="El enlace abre en ventana nueva"' : '' ?>
-                                   class="enlace--expandido decoracion--ninguna color--neutro800">
-                                    <?= esc_html( $card['title'] ); ?>
-                                </a>
-                            </h3>
-                            <p class="b1r color--neutro600 tx-card__desc flex-grow mb--0">
-                                <?= esc_html( $card['desc'] ); ?>
-                            </p>
-                            <div class="mt--auto pt--16 muestra--flex align-items-center justify-content-flex-end">
-                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20 tx-card__arrow') ?>
-                            </div>
-
-                            <?php if ( !empty($card['manual']) ): ?>
+                        <?php get_template_part( 'template-parts/ui/card', null, array(
+                            'href'      => $card['url'],
+                            'target'    => !empty($card['target']) ? $card['target'] : '',
+                            'stretched' => true,
+                            'title'     => $card['title'],
+                            'text'      => $card['desc'],
+                            'icon'      => $card['icon'],
+                            'action'    => array( 'type' => 'arrow' ),
+                            'after'     => !empty($card['manual']) ? function () use ( $card ) { ?>
                                 <a href="<?= esc_url( $card['manual'] ); ?>"
                                    target="_blank"
                                    rel="noopener noreferrer"
@@ -126,8 +116,8 @@ $tx_cards = [
                                     <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20 pe--8') ?>
                                     <span>Consultar manual</span>
                                 </a>
-                            <?php endif; ?>
-                        </div>
+                            <?php } : null,
+                        ) ); ?>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -147,58 +137,26 @@ $tx_cards = [
 
                 <!-- Tarjeta 1: Transparencia para el Pueblo -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <a href="<?= esc_url( get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/' ); ?>" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       title="El enlace abre en ventana nueva" 
-                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
-                        <div class="muestra--flex align-items-start gap--16 alto--100">
-                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <?= sesna_render_snd_svg_icon('snd-group', 'icono--32 color--pguinda600') ?>
-                            </div>
-                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Transparencia para el Pueblo</h3>
-                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
-                                    Conoce el nuevo modelo nacional de transparencia y consulta información de interés público.
-                                </p>
-                                <div class="mt--auto">
-                                    <span class="boton__primario"
-                                          aria-label="Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)">
-                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
-                                        Ir al portal
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'href'   => get_option('options_url_transparencia_pueblo') ?: 'https://www.transparencia.gob.mx/',
+                        'target' => '_blank',
+                        'title'  => 'Transparencia para el Pueblo',
+                        'text'   => 'Conoce el nuevo modelo nacional de transparencia y consulta información de interés público.',
+                        'icon'   => 'snd-group',
+                        'action' => array( 'type' => 'button', 'label' => 'Ir al portal', 'icon' => 'snd-launch', 'aria_label' => 'Ir al portal de Transparencia para el Pueblo (abre en nueva ventana)' ),
+                    ) ); ?>
                 </div>
 
                 <!-- Tarjeta 2: Plataforma Nacional de Transparencia -->
                 <div class="columna__12 columna__6--md mb--24">
-                    <a href="https://www.plataformadetransparencia.org.mx/" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       title="El enlace abre en ventana nueva" 
-                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
-                        <div class="muestra--flex align-items-start gap--16 alto--100">
-                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <?= sesna_render_snd_svg_icon('snd-search', 'icono--32 color--pguinda600') ?>
-                            </div>
-                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Plataforma Nacional de Transparencia</h3>
-                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
-                                    Realiza solicitudes de información y consulta obligaciones de transparencia.
-                                </p>
-                                <div class="mt--auto">
-                                    <span class="boton__primario"
-                                          aria-label="Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)">
-                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
-                                        Acceder
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'href'   => 'https://www.plataformadetransparencia.org.mx/',
+                        'target' => '_blank',
+                        'title'  => 'Plataforma Nacional de Transparencia',
+                        'text'   => 'Realiza solicitudes de información y consulta obligaciones de transparencia.',
+                        'icon'   => 'snd-search',
+                        'action' => array( 'type' => 'button', 'label' => 'Acceder', 'icon' => 'snd-launch', 'aria_label' => 'Acceder a la Plataforma Nacional de Transparencia (abre en nueva ventana)' ),
+                    ) ); ?>
                 </div>
 
             </div>

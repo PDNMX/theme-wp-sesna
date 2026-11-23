@@ -11,24 +11,13 @@ get_header();
 <div class="page-pna page-pna-diseno front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>" class="ruta__a">Política Nacional Anticorrupción</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Diseño</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Política Nacional Anticorrupción', 'url' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ),
+            array( 'label' => 'Diseño' ),
+        ),
+    ) ); ?>
 
     <!-- ============================================================
          BLOQUE 1: La Política Nacional Anticorrupción
@@ -1090,7 +1079,6 @@ get_header();
     </section>
 
 <!-- Interactividad de la página (Rueda de Ejes, Mapa Interactivo SVG y Sincronización) -->
-<script src="<?php echo get_template_directory_uri(); ?>/script/diseno-pna.js?ver=<?php echo filemtime( get_template_directory() . '/script/diseno-pna.js' ); ?>"></script>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 

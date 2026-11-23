@@ -27,23 +27,12 @@ rsort($oc_anios_organo);
 <div class="page-organos-colegiados front-page-bg pb--40">
 
     <!-- Migas de pan (Breadcrumb) — Estándar SND v1.1.0 -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a">
-                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
-                    </a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/acciones-y-programas/') ) ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Órganos Colegiados</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Órganos Colegiados' ),
+        ),
+    ) ); ?>
 
     <!-- HERO SECTION -->
     <section class="sesna-page-hero" aria-label="Encabezado de Órganos Colegiados">
@@ -372,24 +361,12 @@ rsort($oc_anios_organo);
     </div>
 </div>
 
-<!-- ── Drawer Móvil (Bottom Sheet): Selección de Sección SND v1.1.0 ────── -->
-<div class="snd-drawer-overlay page-organos-colegiados is-hidden" id="ocnDrawerOverlay" aria-hidden="true">
-    <div class="snd-drawer snd-drawer--bottom" id="ocnDrawer" role="dialog" aria-modal="true" aria-labelledby="ocnDrawerTitle">
-        <!-- Drag Handle -->
-        <div class="snd-drawer__handle-wrap" id="ocnDrawerHandle">
-            <span class="snd-drawer__handle" aria-hidden="true"></span>
-        </div>
-
-        <!-- Header -->
-        <div class="snd-drawer__header">
-            <h2 class="sh0b color--neutro800 mb--0" id="ocnDrawerTitle">Seleccionar sección</h2>
-            <button type="button" class="boton__fantasma snd-drawer__close-btn" id="ocnDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
-            </button>
-        </div>
-
-        <!-- Body: ListItems seleccionables con indicador de opción activa -->
-        <div class="snd-drawer__body" id="ocnDrawerBody">
+<?php get_template_part( 'template-parts/ui/mobile-drawer', null, array(
+    'prefix'        => 'ocn',
+    'overlay_class' => 'page-organos-colegiados',
+    'title'         => 'Seleccionar sección',
+    'close_label'   => 'Cerrar selección de sección',
+    'body'          => function () { ?>
             <div class="d-flex flex-column gap--8">
                 <button type="button" class="fin-dictamen-item js-tab-link active" data-target="comite" aria-selected="true">
                     <span>Comité Coordinador</span>
@@ -412,103 +389,8 @@ rsort($oc_anios_organo);
                     <?= sesna_render_snd_svg_icon('snd-checkmark', 'icono--16 ocn-drawer-check') ?>
                 </button>
             </div>
-        </div>
-    </div>
-</div>
-
-<script>
-(function () {
-    'use strict';
-
-    function initOcnDrawer() {
-        var drawerOverlay  = document.getElementById('ocnDrawerOverlay');
-        var drawerEl       = document.getElementById('ocnDrawer');
-        var openDrawerBtn  = document.getElementById('ocnOpenDrawerBtn');
-        var closeDrawerBtn = document.getElementById('ocnDrawerCloseBtn');
-
-        function openDrawer() {
-            if (!drawerOverlay || !drawerEl) return;
-            drawerOverlay.classList.remove('is-hidden');
-            drawerOverlay.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('snd-drawer-open');
-            if (openDrawerBtn) openDrawerBtn.setAttribute('aria-expanded', 'true');
-            void drawerOverlay.offsetWidth;
-            drawerOverlay.classList.add('is-visible');
-            if (closeDrawerBtn) closeDrawerBtn.focus();
-        }
-
-        function closeDrawer() {
-            if (!drawerOverlay || !drawerEl) return;
-            drawerOverlay.classList.remove('is-visible');
-            drawerOverlay.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('snd-drawer-open');
-            if (openDrawerBtn) openDrawerBtn.setAttribute('aria-expanded', 'false');
-            drawerEl.style.transform = '';
-            setTimeout(function () {
-                if (!drawerOverlay.classList.contains('is-visible')) {
-                    drawerOverlay.classList.add('is-hidden');
-                }
-            }, 280);
-            if (openDrawerBtn) openDrawerBtn.focus();
-        }
-
-        // Expuesto para que organos-colegiados.js cierre el Drawer al seleccionar una sección
-        window.ocnCloseDrawer = closeDrawer;
-
-        if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
-        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-
-        if (drawerOverlay) {
-            drawerOverlay.addEventListener('click', function (e) {
-                if (e.target === drawerOverlay) {
-                    closeDrawer();
-                }
-            });
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && drawerOverlay && drawerOverlay.classList.contains('is-visible')) {
-                closeDrawer();
-            }
-        });
-
-        // Gesto Swipe Down en móvil para cerrar el Bottom Sheet
-        var touchStartY = 0;
-        var touchCurrentY = 0;
-        var handle = document.getElementById('ocnDrawerHandle');
-        var drawerHeader = drawerEl ? drawerEl.querySelector('.snd-drawer__header') : null;
-        [handle, drawerHeader].forEach(function (el) {
-            if (!el) return;
-            el.addEventListener('touchstart', function (e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-            el.addEventListener('touchmove', function (e) {
-                touchCurrentY = e.touches[0].clientY;
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 0 && drawerEl) {
-                    drawerEl.style.transform = 'translateY(' + diff + 'px)';
-                }
-            }, { passive: true });
-            el.addEventListener('touchend', function () {
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 75) {
-                    closeDrawer();
-                } else if (drawerEl) {
-                    drawerEl.style.transform = '';
-                }
-                touchStartY = 0;
-                touchCurrentY = 0;
-            });
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initOcnDrawer);
-    } else {
-        initOcnDrawer();
-    }
-})();
-</script>
+    <?php },
+) ); ?>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
@@ -528,51 +410,5 @@ rsort($oc_anios_organo);
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var videoModalEl = document.getElementById('oc-video-modal');
-    if (!videoModalEl) return;
-    var iframe = document.getElementById('oc-video-iframe');
-    var title = document.getElementById('oc-video-modal-label');
-
-    // Manejar apertura tanto por show.bs.modal como por clic directo
-    document.addEventListener('click', function(e) {
-        var trigger = e.target.closest('[data-video-id]');
-        if (!trigger) return;
-        var targetAttr = trigger.getAttribute('data-modal-target');
-        if (targetAttr && targetAttr !== '#oc-video-modal') return;
-
-        e.preventDefault();
-        var videoId = trigger.getAttribute('data-video-id') || '';
-        var videoTitle = trigger.getAttribute('data-video-title') || 'Ver sesión';
-        if (title) title.textContent = videoTitle;
-        if (iframe && videoId) {
-            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-        }
-        if (window.sndModal) {
-            window.sndModal.show(videoModalEl, trigger);
-        }
-    });
-
-    videoModalEl.addEventListener('show.bs.modal', function (event) {
-        var trigger = event.relatedTarget;
-        if (!trigger) return;
-        var videoId = trigger.getAttribute('data-video-id') || '';
-        var videoTitle = trigger.getAttribute('data-video-title') || 'Ver sesión';
-        if (title) title.textContent = videoTitle;
-        if (iframe && videoId) {
-            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-        }
-    });
-
-    videoModalEl.addEventListener('hidden.bs.modal', function () {
-        if (iframe) iframe.src = '';
-        if (title) title.textContent = 'Ver sesión';
-    });
-});
-</script>
-
-<script src="<?php echo get_template_directory_uri(); ?>/script/organos-colegiados.js?v=2"></script>
 
 <?php get_footer(); ?>

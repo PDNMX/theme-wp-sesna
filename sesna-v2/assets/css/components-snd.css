@@ -1,0 +1,3284 @@
+/*
+ * Componentes SND y utilidades transversales
+ * Botones, cards, tipografía, grid, paginación, tablas, formularios, loader, breadcrumb y estilos compartidos entre varias plantillas (carga en todas las páginas).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ============================================================
+   BLOQUE 5 — Botones SND v1
+   Bridge: clases Bootstrap → estilo SND. Permite migración gradual
+   de .btn.btn-primary → [class*="boton__primario"] sin tocar cada PHP.
+   ============================================================ */
+
+/* Base de los botones Bootstrap (.btn). Los boton__* usan la base oficial del SND. */
+
+.btn {
+    font-family: var(--font-noto-sans);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 1.2;
+}
+
+/* Primario — fondo guinda SND (reemplaza .btn-primary y .btn-burgundi) */
+
+.btn-primary,
+.btn-burgundi,
+.boton__primario {
+    background-color: var(--principal, #611232) !important;
+    border-color: var(--principal, #611232) !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-burgundi:hover,
+.boton__primario:hover {
+    background-color: var(--pguinda800, #781838) !important;
+    border-color: var(--pguinda800, #781838) !important;
+    color: #fff !important;
+}
+
+.btn-primary:active,
+.btn-burgundi:active,
+.boton__primario:active {
+    background-color: var(--pguinda950, #4A0C26) !important;
+    border-color: var(--pguinda950, #4A0C26) !important;
+}
+
+/* Secundario — borde guinda, fondo blanco */
+
+.btn-secondary,
+.btn-outline-primary,
+.boton__secundario {
+    background-color: #fff !important;
+    border-color: var(--principal, #611232) !important;
+    color: var(--principal, #611232) !important;
+}
+
+.btn-secondary:hover,
+.btn-outline-primary:hover,
+.boton__secundario:hover {
+    background-color: var(--pguinda100, #F3E4E9) !important;
+    color: var(--principal, #611232) !important;
+}
+
+/* Fantasma / Ghost — transparente con borde */
+
+.btn-outline-secondary,
+.btn-outline-dark {
+    background-color: transparent !important;
+    border-color: var(--neutro600, #767676) !important;
+    color: var(--neutro800, #161A1D) !important;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-dark:hover {
+    background-color: var(--neutro300, #F3F3F3) !important;
+}
+
+/* Botón outline blanco (sobre fondos oscuros — navbar, hero) */
+
+.sesna-btn-outline {
+    border: 1px solid var(--neutro100, #fff) !important;
+    color: var(--neutro100, #fff) !important;
+    background: transparent !important;
+}
+
+.sesna-btn-outline:hover {
+    background-color: rgba(255,255,255,0.15) !important;
+    color: var(--neutro100, #fff) !important;
+}
+
+/* Modificador vertical oficial SND */
+
+.boton--vertical {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    row-gap: 8px !important;
+    gap: 8px !important;
+}
+
+/* Link-button (sin borde ni fondo) */
+
+.btn-link {
+    background: transparent !important;
+    border-color: transparent !important;
+    color: var(--pverde600, #004D40) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.btn-link:hover {
+    color: var(--pverde700, #004339) !important;
+    text-decoration: underline !important;
+}
+
+/* Tamaños */
+
+.btn-sm { font-size: 14px; padding: 6px 14px; }
+
+.btn-lg { font-size: 18px; padding: 12px 24px; }
+
+/* Disabled */
+
+.btn:disabled,
+[class*="boton__"]:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ============================================================
+   BLOQUE 6 — Sistema de Cards unificado SND v1
+   Estándar de hover, sombra y transición para todas las cards del sitio.
+   Las clases específicas de cada página extienden estas reglas base.
+   ============================================================ */
+
+/* Base card — usada por todos los cards interactivos */
+
+[class*="-card"]:not([class*="card__"]):not([class*="card-"]) {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    will-change: transform;
+}
+
+/* Hover estándar SND: elevación sutil + sombra */
+
+[class*="-card"]:not([class*="card__"]):not([class*="card-"]):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(97, 18, 50, 0.12) !important;
+}
+
+/* Contenedor de documentos descargables */
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--neutro400, #DDDDDD);
+    color: var(--neutro800, #161A1D);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.doc-item:last-child {
+    border-bottom: none;
+}
+
+.doc-item:hover {
+    color: var(--pverde600, #004D40);
+}
+
+/* ============================================================
+   BLOQUE 7 — Tipografía SND v1
+   Escalas de tipo basadas en las clases .h0b/.h1b/.h2b/.sh0b del SND.
+   Mapeos de nuestras clases legacy a las escalas SND.
+   ============================================================ */
+
+/* Escala de encabezados — aligns con SND .h0b/.h1b/.h2b */
+
+h1, .h1, [class*="titulo--xl"] {
+    font-family: var(--font-patria);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--neutro800);
+}
+
+h2, .h2, [class*="titulo--lg"] {
+    font-size: clamp(1.375rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--neutro800);
+}
+
+h3, .h3, [class*="titulo--md"] {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--neutro800);
+}
+
+h4, h5, h6, .h4 {
+    font-family: var(--font-noto-sans);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--neutro800);
+}
+
+/* Texto corrido — SND .b1r */
+
+p, .b1r {
+    font-family: var(--font-noto-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Texto secundario — SND .sd */
+
+.text-muted, .sd, small, .caption {
+    font-size: 0.875rem;
+    color: var(--neutro600, #767676);
+    line-height: 1.5;
+}
+
+/* Títulos de sección guinda — usado en múltiples páginas */
+
+.sesna-titulo-seccion {
+    font-family: var(--font-patria);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-guinda);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Subtítulos */
+
+.sesna-subtitulo {
+    font-family: var(--font-noto-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--neutro700, #434343);
+}
+
+/* Prevención de ALL-CAPS en textos (observación PDF) */
+
+.sesna-titulo-seccion,
+.cp-recursos__titulo,
+.section-title,
+[class*="__titulo"] {
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* ============================================================
+   BLOQUE 11 — Grid/Layout: .container → .contenedor SND
+   Bridge CSS: max-width 1440px + padding responsive SND.
+   No se modifica PHP (113 instancias) — se sobreescribe aquí.
+   ============================================================ */
+
+.container,
+.contenedor {
+    max-width: 1440px !important;
+    padding-left: clamp(1rem, 3.5vw, 3.5rem) !important;
+    padding-right: clamp(1rem, 3.5vw, 3.5rem) !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* nav.navbar .container: regla heredada que ya no aplica a .navbar-fixed-top
+   (oculto por completo, ver bloque de offset arriba) — se conserva solo por si
+   algún .navbar suelto de Bootstrap sigue vivo en alguna página sin migrar. */
+
+nav.navbar .container {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* SND pagination component */
+
+.paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 2rem 0;
+    list-style: none;
+    padding: 0;
+}
+
+.paginacion__item a,
+.paginacion__item span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-family: var(--font-noto-sans);
+    font-size: 0.875rem;
+    color: var(--pverde600, #004D40);
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background 0.15s ease;
+}
+
+.paginacion__item a:hover {
+    background: var(--pguinda100, #F3E4E9);
+    color: var(--pguinda900, #611232);
+}
+
+.paginacion__item--activo a,
+.paginacion__item--activo span {
+    background: var(--pguinda900, #611232);
+    color: #fff;
+    border-color: var(--pguinda900, #611232);
+}
+
+/* SND table wrapper */
+
+.deslizable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+}
+
+.deslizable table {
+    min-width: 600px;
+}
+
+/* SND form inputs */
+
+.form__inset {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form__inset .form-control,
+.form__inset .form-select {
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-noto-sans);
+    font-size: 0.9375rem;
+    transition: border-color 0.15s ease;
+}
+
+.form__inset .form-control:focus,
+.form__inset .form-select:focus {
+    border-color: var(--pverde600, #004D40);
+    box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.2);
+    outline: none;
+}
+
+/* ------------------------------------------------------------
+   Fondo general de la Front Page
+   ------------------------------------------------------------ */
+
+.front-page-bg {
+    background-color: var(--neutro200);
+    min-height: 100%;
+}
+
+/* El contenedor del carrusel (max-width ya está controlado por el .container padre) */
+
+.sesna-carousel {
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+/* Ajuste de las imágenes para mantener la proporción sin deformarse */
+
+.sesna-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.sesna-carousel .carousel-item .fallback-img {
+    height: 500px;
+    background-color: var(--neutro200, #F9F9F9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sna-integrantes-card {
+    background: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    padding: 24px;
+    text-align: left;
+    box-shadow: var(--sesna-card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sna-integrantes-card:hover,
+.sna-integrantes-card:focus {
+    transform: translateY(-5px);
+    box-shadow: var(--sesna-card-shadow-hover);
+    outline: none;
+    text-decoration: none;
+}
+
+.sna-integrantes-icon-circle {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.sna-integrantes-chevron-circle {
+    width: 26px;
+    height: 26px;
+}
+
+.sna-integrantes-chevron-icon {
+    font-size: 16px;
+}
+
+.sna-integrantes-title {
+    font-size: 20px;
+}
+
+/* ============================================================
+   ESCALA TIPOGRÁFICA — SESNA
+   El H1/Body de hero de página interna ya NO usa clases propias
+   (.sesna-hero__title/.sesna-hero__subtitle, removidas): usa las
+   clases literales del SND — h1b patria (+ color--*) y sh1r.
+   Referencia única para lo que sigue siendo custom (no cubierto
+   por el SND). SIEMPRE usar px, nunca rem en componentes visuales.
+
+   H2 Centrado 28px  .sesna-section-title      Patria Bold — burgundi
+   H2 Izquierda 26px .cp-recursos__titulo      Patria Bold — uppercase
+   Títulos de card   .sesna-card__title (SND .sh1b) — ver assets/css/card.css
+   Card desc   15px  .btn-sesna-link, desc      Noto Sans 400
+   Small       14px  .cp-btn-ver, subtítulos    Noto Sans 400
+   Caption     12px  .sna-noticias-date-month   Noto Sans 700
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Hero de Página Interna — componente estándar
+   Reemplaza: .ocn-hero, .vp-hero, .pna-hero, .qh-hero, "py-5 mb-5"
+   Tipografía del H1/subtítulo: clases literales del SND (ver arriba).
+   ------------------------------------------------------------ */
+
+.sesna-page-hero {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .sesna-page-hero {
+        padding-top: 28px;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+}
+
+.sesna-hero__img {
+    max-height: 220px;
+    max-width: 100%;
+    width: auto;
+    margin-top: -24px;
+    margin-bottom: -24px;
+    object-fit: contain;
+    display: block;
+}
+
+/* ------------------------------------------------------------
+   Breadcrumb SESNA — SND v1.1.0 (Variante Guinda)
+   ------------------------------------------------------------ */
+
+.cp-breadcrumb,
+.sesna-breadcrumb {
+    width: 100% !important;
+    background-color: transparent !important;
+    padding-top: 16px !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 0 !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+}
+
+.cp-breadcrumb .breadcrumb,
+.breadcrumb,
+.sesna-breadcrumb {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-left: 0 !important;
+}
+
+.cp-breadcrumb .breadcrumb-item,
+.breadcrumb-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    list-style: none !important;
+    list-style-type: none !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    color: var(--neutro800, #33383C) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.cp-breadcrumb ol,
+.cp-breadcrumb li,
+.cp-breadcrumb .breadcrumb-item::marker,
+.breadcrumb-item::marker,
+.breadcrumb::marker {
+    display: none !important;
+    content: '' !important;
+}
+
+.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before,
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '›' !important;
+    display: inline-block !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    color: var(--neutro500, #7B828A) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    vertical-align: baseline !important;
+    float: none !important;
+}
+
+.cp-breadcrumb > span[aria-hidden="true"],
+.sesna-breadcrumb > span[aria-hidden="true"] {
+    display: inline-block !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    color: var(--neutro500, #7B828A) !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+}
+
+.cp-breadcrumb a,
+.cp-breadcrumb .breadcrumb-item a,
+.breadcrumb-item a,
+.sesna-breadcrumb a {
+    color: var(--pguinda600, #9B2247) !important;
+    text-decoration: none !important;
+    font-weight: 400 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: color 0.15s ease, text-decoration 0.15s ease !important;
+}
+
+.cp-breadcrumb a:hover,
+.cp-breadcrumb .breadcrumb-item a:hover,
+.breadcrumb-item a:hover,
+.sesna-breadcrumb a:hover {
+    color: var(--pguinda900, #4A0C26) !important;
+    text-decoration: underline !important;
+}
+
+/* Ícono de Casa (Home) SND — soporte oficial para <i> y <svg> generado por snd.js con separación de 8px */
+
+.cp-breadcrumb .snd__icono,
+.cp-breadcrumb i.snd__icono,
+.cp-breadcrumb svg.snd__icono,
+.cp-breadcrumb .breadcrumb-item a .snd__icono,
+.cp-breadcrumb .breadcrumb-item a i.snd__icono,
+.cp-breadcrumb .breadcrumb-item a svg.snd__icono,
+.breadcrumb-item a .snd__icono,
+.breadcrumb-item a i.snd__icono,
+.breadcrumb-item a svg.snd__icono,
+.sesna-breadcrumb .snd__icono,
+.sesna-breadcrumb i.snd__icono,
+.sesna-breadcrumb svg.snd__icono {
+    margin-right: 8px !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+    display: inline-block !important;
+    vertical-align: -2px !important;
+    flex-shrink: 0 !important;
+    color: inherit !important;
+    fill: currentColor !important;
+}
+
+.cp-breadcrumb .breadcrumb-item.active,
+.breadcrumb-item.active,
+.cp-breadcrumb .current,
+.sesna-breadcrumb .current {
+    color: var(--neutro800, #161A1D) !important;
+    font-weight: 600 !important;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
+}
+
+/* Breadcrumb oficial SND v1.1.0 (.ruta__*, snd-guinda.css líneas 4781-4841):
+   el CDN no declara separación entre el ícono de Inicio y su texto — se complementa aquí. */
+
+.ruta__a svg,
+.ruta__a i {
+    margin-right: 6px;
+}
+
+.sna-programas-icon-container {
+    width: 90px;
+    height: 90px;
+    bottom: 0;
+    margin-bottom: -20px;
+    background-color: var(--color-guinda) !important;
+    border-radius: 22px !important;
+    z-index: 3;
+}
+
+.sna-programas-link {
+    color: var(--color-negro);
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.sna-programas-link:hover {
+    color: var(--color-guinda);
+}
+
+.sna-noticias-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    padding: 24px;
+    text-align: left;
+    box-shadow: var(--sesna-card-shadow);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.sna-noticias-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sesna-card-shadow-hover);
+    text-decoration: none;
+}
+
+.sna-noticias-card:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+    box-shadow: var(--sesna-card-shadow-hover);
+    text-decoration: none;
+}
+
+.sna-noticias-img-wrapper {
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.sna-noticias-img {
+    object-fit: cover;
+}
+
+/* Date Badge — tab lateral izquierdo (SND Guinda) */
+
+.sna-noticias-date-badge {
+    position: absolute;
+    left: -4px;
+    top: calc(24px + 200px - 24px);
+    background-color: var(--principal);
+    color: var(--neutro100);
+    width: 58px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    z-index: 2;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid var(--pguinda400);
+    box-shadow: var(--dropLV2);
+}
+
+.sna-noticias-date-day {
+    font-size: 1.375rem;
+    font-weight: 700;
+}
+
+.sna-noticias-date-month {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sna-noticias-title {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.sna-noticias-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.5em;
+}
+
+.sna-noticias-link {
+    color: var(--neutro800);
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.sna-noticias-link:hover {
+    color: var(--principal);
+}
+
+/* ------------------------------------------------------------
+   Sección Entradas por Familia Temática (Prensa / Noticias y Actividades)
+   Estándar SND v1.1.0 — Panel de filtros + ChipAccion (1833:559) + Badges (1749:14986)
+   ------------------------------------------------------------ */
+
+.sna-entradas-panel-divider {
+    border: 0;
+    border-top: 1px solid var(--neutro400);
+    margin: 24px 0;
+}
+
+.sna-entradas-topics-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 36px;
+}
+
+.sna-entradas-filter-clear {
+    min-height: 36px;
+    padding: 4px 12px;
+}
+
+.tx-select-wrap.sna-entradas-topic-select-wrap {
+    display: flex;
+}
+
+.sna-entradas-tabs-desktop {
+    display: none;
+}
+
+.sna-entradas-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.sna-entradas-tabs.muestra--ninguno {
+    display: none;
+}
+
+.sna-entradas-toggle-wrap {
+    border-top: 1px solid var(--neutro400);
+    margin-top: 24px;
+    padding-top: 16px;
+}
+
+#sna-entradas-toggle-cats .snd__icono,
+#sna-entradas-toggle-cats-icon {
+    display: inline-flex;
+    transition: transform 0.25s ease-in-out;
+}
+
+#sna-entradas-toggle-cats[aria-expanded="true"] .snd__icono,
+#sna-entradas-toggle-cats[aria-expanded="true"] #sna-entradas-toggle-cats-icon,
+#sna-entradas-toggle-cats.is-expanded .snd__icono,
+#sna-entradas-toggle-cats.is-expanded #sna-entradas-toggle-cats-icon {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 640px) {
+    .tx-select-wrap.sna-entradas-topic-select-wrap {
+        display: none;
+    }
+
+    .sna-entradas-tabs-desktop {
+        display: block;
+    }
+}
+
+.sna-entradas-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--principal);
+    background-color: var(--neutro100);
+    color: var(--principal);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.sna-entradas-tab .snd__icono {
+    color: currentColor;
+    flex-shrink: 0;
+}
+
+.sna-entradas-tab:hover:not(.active):not(:disabled) {
+    background-color: var(--pguinda100);
+    border-color: var(--principal);
+    color: var(--principal);
+}
+
+.sna-entradas-tab:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: 2px;
+}
+
+.sna-entradas-tab.active,
+.sna-entradas-tab[aria-selected="true"],
+.sna-entradas-tab[aria-pressed="true"] {
+    background-color: var(--principal);
+    border-color: var(--principal);
+    color: var(--neutro100);
+    box-shadow: var(--dropLV1);
+}
+
+.sna-entradas-tab-count {
+    background-color: var(--pguinda100);
+    color: var(--principal);
+    border-radius: 100px;
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    transition: transform 0.2s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.sna-entradas-tab:hover:not(.active) .sna-entradas-tab-count {
+    background-color: var(--neutro100);
+    color: var(--principal);
+}
+
+.sna-entradas-tab.active .sna-entradas-tab-count,
+.sna-entradas-tab[aria-selected="true"] .sna-entradas-tab-count,
+.sna-entradas-tab[aria-pressed="true"] .sna-entradas-tab-count {
+    background-color: rgba(255, 255, 255, 0.22);
+    color: var(--neutro100);
+}
+
+.sna-entradas-tab-count--updated {
+    animation: sna-entradas-count-pulse 0.4s ease;
+}
+
+@keyframes sna-entradas-count-pulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+.sna-entradas-panel {
+    display: none;
+}
+
+.sna-entradas-panel.active {
+    display: grid;
+}
+
+.sna-entradas-panel > .loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 32px 0;
+}
+
+.sna-entradas-card-category {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background-color: var(--principal);
+    color: var(--neutro100);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 4px 12px;
+    border-radius: 100px;
+    z-index: 2;
+    box-shadow: var(--dropLV1);
+}
+
+@media (max-width: 639.98px) {
+    .sna-entradas-filter-actions [class*="boton__"] {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .sna-entradas-tab {
+        font-size: 0.875rem;
+        padding: 8px 14px;
+    }
+}
+
+.page-verificacion .vp-hero__title {
+    font-family: var(--font-patria);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-negro);
+    line-height: 1.02;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.page-verificacion .vp-hero__line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-burgundi);
+    border-radius: 2px;
+    margin-bottom: 22px;
+}
+
+.page-verificacion .vp-hero__desc {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* ── CTA button ── */
+
+.page-verificacion .vp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--color-burgundi);
+    color: #fff;
+    padding: 18px 42px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 6px 20px rgba(157, 36, 73, 0.3);
+}
+
+.page-verificacion .vp-cta-btn:hover {
+    background-color: var(--color-guinda);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ── Título de página ── */
+
+.page-contrataciones .cp-page-title {
+    font-family: var(--font-patria);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--color-negro);
+    margin-bottom: 16px;
+}
+
+.page-contrataciones .cp-page-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background-color: var(--color-burgundi);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* Thumbnail */
+
+.cp-doc-thumb {
+    width: 120px;
+    min-width: 120px;
+    height: 160px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.cp-doc-thumb--burgundi { background-color: var(--color-burgundi); }
+
+.cp-doc-thumb--teal     { background-color: var(--color-teal-oscuro); }
+
+.cp-doc-thumb--negro    { background-color: #1c2b4a; }
+
+.cp-doc-thumb__logo {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cp-doc-thumb__nombre {
+    font-size: 8px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+/* ============================================================
+   BOTONES — Sistema SESNA
+   Tres variantes globales + link-arrow. Sin scope por página.
+   ============================================================ */
+
+/* Nota informativa */
+
+.cp-nota__inner {
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.cp-nota__icono {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 767px) {
+    .cp-doc-thumb {
+        width: 100%;
+        height: 100px;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* ============================================================
+   TRANSPARENCIA — Landing (page-transparencia.php)
+   Scope: .page-transparencia — aislado de subtemplates
+   (comite, unidad, solicitudes, etc. no usan .tx-* ni esta clase)
+   ============================================================ */
+
+.page-transparencia {
+    /* Fondo heredado de .front-page-bg */
+}
+
+/* Encabezado de sección */
+
+.page-transparencia .tx-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-negro);
+    padding-left: 13px;
+    border-left: 4px solid var(--pguinda900, #611232);
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* Consulta información pública — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
+
+.sesna-single-nav__back {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-guinda);
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sesna-single-nav__back:hover { color: var(--color-burgundi); }
+
+/* ------------------------------------------------------------
+   Menú desplegable SESNA migrado a estándar SND v1.1.0 (.navHeader__submenu)
+   Ver sección de Navegación Institucional SESNA arriba
+   ------------------------------------------------------------ */
+
+/* ============================================================
+   Indicador de carga inicial de página — Estándar SND v1.0.0 (.spin)
+   Especificación oficial (componentes/indicador-carga.md y snd-guinda.css):
+     - Símbolo de 12 puntos con opacidades escalonadas (5% a 100%)
+     - Color del símbolo: presidencia guinda - 900 (#611232)
+     - Tamaño LG (escritorio): 88×88px | Tamaño MD (móvil): 48×48px
+     - Layout vertical, gap: 24px, padding: 24px, texto "Cargando..." en neutro-800
+   Nota de arquitectura: top: calc(var(--mexico-h, 58px) + var(--sesna-subheader-h, 52px))
+   y z-index: 99999 mantienen estáticos y visibles el header (<snd-header>) y la barra
+   de navegación (.sesna-subheader) al navegar entre páginas (igual que en snd-dev),
+   cubriendo únicamente el área de contenido principal (<main>).
+   ============================================================ */
+
+.sesna-loader {
+    position: fixed;
+    top: calc(var(--mexico-h, 58px) + var(--sesna-subheader-h, 52px));
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--mexico-h, 58px) - var(--sesna-subheader-h, 52px));
+    background-color: var(--neutro200, #F9F9F9);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.35s ease-out, visibility 0.35s ease-out;
+}
+
+.sesna-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sesna-loader .spin.sesna-snd-spin {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--neutro800, #161A1D);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.sesna-loader .spin.sesna-snd-spin::before {
+    content: "";
+    display: block;
+    width: 88px;
+    height: 88px;
+    background-color: var(--pguinda900, #611232);
+    -webkit-mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    animation: sesna-snd-spin 1.5s infinite linear;
+}
+
+.sesna-loader .spin.sesna-snd-spin::after {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .sesna-loader .spin.sesna-snd-spin {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .sesna-loader .spin.sesna-snd-spin::before {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sesna-loader .spin.sesna-snd-spin::before {
+        animation: none;
+    }
+}
+
+@keyframes sesna-snd-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Indicador de carga en sección (Loading MD: 48×48px) para paneles AJAX */
+
+.sesna-inline-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 32px 0;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--neutro800, #161A1D);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-color: var(--pguinda900, #611232);
+    -webkit-mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    mask: url('../../img/icons-base/snd-loading2.svg') center / contain no-repeat;
+    animation: sesna-snd-spin 1.5s infinite linear;
+}
+
+.sesna-inline-loader .spin.sesna-snd-spin--md::after {
+    display: none;
+}
+
+.qh-video-fake-thumbnail {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.qh-video-fake-thumbnail img {
+    max-width: 250px;
+    margin-bottom: 1.5rem;
+}
+
+.qh-video-fake-thumbnail h3 {
+    font-family: var(--font-gmx); /* Excepción: Este sí es un titular interno del video */
+    color: var(--color-burgundi);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.qh-video-fake-controls {
+    background-color: rgba(0,0,0,0.7);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-blanco);
+    font-size: 12px;
+}
+
+.qh-video-progress {
+    flex-grow: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+}
+
+.qh-video-progress-bar {
+    width: 5%;
+    height: 100%;
+    background: #ff0000;
+}
+
+/* ============================================================
+   Página: Riesgos e Inteligencia Anticorrupción
+   ============================================================ */
+
+/* ── Hero ─── */
+
+.page-riesgos-inteligencia .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   Página: Derechos Humanos y Perspectiva de Género
+   ============================================================ */
+
+/* ── Hero ─── */
+
+.page-derechos-humanos .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+.page-derechos-humanos .dh-link-burgundi {
+    color: var(--color-burgundi);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.page-derechos-humanos .dh-link-burgundi:hover {
+    text-decoration: underline;
+}
+
+/* ── Responsive ─── */
+
+@media (max-width: 767px) {
+    .page-derechos-humanos .dh-sesion-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .page-derechos-humanos .dh-sesion-row__actions {
+        flex-wrap: wrap;
+    }
+
+    .page-derechos-humanos .dh-pronunciamiento-card {
+        padding: 16px 18px;
+    }
+}
+
+/* ============================================================
+   DIRECTORIO (page-directorio.php)
+   Scope: .page-directorio — SND UI Kit v1.1.0 (Tema Guinda)
+   ============================================================ */
+
+.page-directorio {
+    /* Fondo heredado de .front-page-bg */
+    min-height: 75vh;
+}
+
+.page-directorio .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   Página: Política Nacional Anticorrupción (.page-pna)
+   ------------------------------------------------------------ */
+
+.page-pna .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+/* Ciclo de la Política Pública */
+
+.page-pna .pna-ciclo-card {
+    background-color: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: var(--dropLV1);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.page-pna .pna-ciclo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--dropLV2);
+}
+
+.page-pna .pna-ciclo-card__top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.page-pna .pna-ciclo-card__number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background-color: var(--color-burgundi);
+    color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.page-pna .pna-ciclo-card__icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    background-color: #f2ecf0;
+    color: var(--color-burgundi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.page-pna .pna-ciclo-card__title {
+    font-weight: 700;
+    color: var(--color-guinda);
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.page-pna .pna-ciclo-card__desc {
+    color: rgba(22, 26, 29, 0.8);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.page-pna .pna-ciclo-hint,
+.page-pna-diseno .pna-ciclo-hint {
+    background-color: var(--color-fondo-claro);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-pna .pna-ciclo-hint__icon,
+.page-pna-diseno .pna-ciclo-hint__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+    color: var(--color-burgundi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.page-pna .pna-ciclo-hint p,
+.page-pna-diseno .pna-ciclo-hint p {
+    margin-bottom: 0;
+    color: var(--color-negro);
+}
+
+.page-pna .pna-ciclo-step__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+}
+
+.page-pna .pna-ciclo-step__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.page-pna .pna-ciclo-step__desc {
+    margin-bottom: 0;
+}
+
+.page-pna .pna-ciclo-overlay:hover,
+.page-pna a.pna-ciclo-overlay:focus-visible {
+    transform: translate(-50%, -50%) scale(1.14);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.26);
+}
+
+/* Solo el ícono de Diseño tiene enlace definido por ahora */
+
+.page-pna a.pna-ciclo-overlay {
+    cursor: pointer;
+}
+
+.page-pna a.pna-ciclo-overlay:focus-visible {
+    outline: 3px solid #6AC72C;
+    outline-offset: 3px;
+}
+
+/* ============================================================
+   Comité de Transparencia
+   ============================================================ */
+
+.page-transparencia-comite,
+.page-transparencia-datos,
+.page-transparencia-normatividad,
+.page-transparencia-unidad,
+.page-organos-colegiados,
+.page-marco-normativo,
+.page-contacto,
+.page-prensa {
+    /* Fondo heredado de .front-page-bg */
+    min-height: 75vh;
+}
+
+.page-transparencia-comite .sesna-page-hero,
+.page-transparencia-datos .sesna-page-hero,
+.page-transparencia-normatividad .sesna-page-hero,
+.page-transparencia-unidad .sesna-page-hero,
+.page-organos-colegiados .sesna-page-hero,
+.page-marco-normativo .sesna-page-hero,
+.page-contacto .sesna-page-hero,
+.page-prensa .sesna-page-hero {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+
+.page-marco-normativo .sesna-hero__img {
+    max-height: 220px;
+    margin-top: -24px;
+    margin-bottom: -24px;
+}
+
+/* Cards de Normativa (template-transparencia-normatividad.php) — SND UI Kit */
+
+.tx-normativa-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    padding: 24px 16px;
+}
+
+.tx-normativa-card__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.tx-normativa-card__icon {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--pguinda600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tx-normativa-card--cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .tx-normativa-card {
+        padding: 32px;
+    }
+
+    .tx-normativa-card__header {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .tx-normativa-card--cta {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.tx-comite-subtitle {
+    font-size: 20px;
+    color: var(--color-guinda);
+}
+
+/* Panel contenedor Comité — Homologado con .dh-comite-panel y 4.11 Panel de filtros SND v1.1.0 */
+
+.tx-comite-panel {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    padding: 24px 16px;
+    box-shadow: var(--sesna-card-shadow);
+}
+
+@media (min-width: 640px) {
+    .tx-comite-panel {
+        padding: 30px 32px;
+    }
+}
+
+.tx-comite-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--neutro400);
+}
+
+/* Tarjeta de Sesión/Resolución — SND UI Kit (Cards *: 12022:57247 / 37597:51336) */
+
+.tx-comite-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.tx-comite-card:hover {
+    box-shadow: var(--sesna-card-shadow-hover);
+}
+
+.tx-comite-card-date {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--neutro400);
+}
+
+.tx-comite-card-year {
+    font-size: 1.5rem;
+    line-height: 33px;
+}
+
+.tx-comite-card-info {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.tx-comite-card-action {
+    display: flex;
+}
+
+.tx-comite-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .tx-comite-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .tx-comite-card-date {
+        flex: 0 0 auto;
+        min-width: 120px;
+        justify-content: center;
+        padding-bottom: 0;
+        padding-right: 24px;
+        border-bottom: 0;
+        border-right: 1px solid var(--neutro400);
+    }
+
+    .tx-comite-card-action {
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tx-comite-card-list {
+        gap: 24px;
+    }
+}
+
+.tx-sesion-date {
+    position: relative;
+    min-width: 110px;
+}
+
+.tx-sesion-date::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background-color: var(--color-burgundi);
+}
+
+.tx-sesion-date-day {
+    font-size: 28px;
+}
+
+.tx-sesion-date-month {
+    font-size: 14px;
+    color: var(--color-gris);
+}
+
+.tx-sesion-date-year,
+.tx-sesion-info-type {
+    font-size: 15px;
+    color: var(--text-color-main);
+}
+
+.tx-sesion-info-title {
+    color: var(--text-color-main);
+}
+
+.tx-sesion-pdf-link,
+.tx-oc-anexos-toggle {
+    color: var(--color-burgundi);
+    outline: none !important;
+}
+
+.tx-sesion-pdf-link:focus,
+.tx-sesion-chevron-link:focus {
+    outline: none !important;
+}
+
+.tx-sesion-pdf-icon {
+    font-size: 24px;
+    line-height: 1;
+    color: #b9151b;
+}
+
+.tx-sesion-pdf-text {
+    font-size: 14px;
+}
+
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled .tx-sesion-pdf-icon,
+.tx-sesion-pdf-link.tx-sesion-pdf-link--disabled .tx-sesion-pdf-text {
+    color: #c0c0c0;
+}
+
+.tx-oc-anexo-row .tx-sesion-pdf-icon {
+    color: #b9151b;
+    font-size: 18px;
+}
+
+.tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-icon,
+.tx-oc-anexos-toggle[aria-expanded="true"] .tx-sesion-pdf-text {
+    color: var(--color-burgundi, #9F2241) !important;
+}
+
+.tx-sesion-chevron-link {
+    color: #6c757d;
+}
+
+.tx-sesion-chevron-icon {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .tx-sesion-date::after {
+        bottom: 15%;
+        top: 15%;
+        right: 0;
+        left: auto;
+        width: 1px;
+        height: auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .tx-sesion-action {
+        position: relative;
+        justify-content: center !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .tx-sesion-chevron-link {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+/* Tabs Comité de Transparencia — SND UI Kit (Tabs 2: 1562:4021 / 16460:3792) */
+
+.tx-comite-tabs-container {
+    border-bottom: 1px solid var(--neutro400);
+}
+
+.tx-comite-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: -1px;
+}
+
+.tx-comite-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    border-top: 1px solid var(--neutro400);
+    border-right: 1px solid var(--neutro400);
+    border-left: 1px solid var(--neutro400);
+    border-bottom: 0;
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.tx-comite-tab:hover:not([aria-selected="true"]):not(:disabled) {
+    background-color: var(--neutro100);
+    color: var(--principal);
+    border-color: var(--principal);
+}
+
+.tx-comite-tab[aria-selected="true"] {
+    background-color: var(--principal);
+    border-color: var(--principal);
+    color: var(--neutro100);
+    font-weight: 600;
+}
+
+.tx-comite-tab:focus-visible {
+    outline: none;
+    background-color: var(--neutro200);
+    color: var(--neutro800);
+    border-top: 2px solid var(--azul500);
+    border-right: 2px solid var(--azul500);
+    border-left: 2px solid var(--azul500);
+}
+
+.tx-comite-tab[aria-selected="true"]:focus-visible {
+    background-color: var(--principal);
+    color: var(--neutro100);
+}
+
+.tx-comite-tab:disabled {
+    background-color: var(--neutro200);
+    color: var(--neutro600);
+    border-color: var(--neutro400);
+    cursor: not-allowed;
+}
+
+.tx-comite-tab-content {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+}
+
+/* Variante Tabs 01 / State (Línea inferior) — SND UI Kit (618:2598 / 1562:3995 / 16460:870) */
+
+.tx-comite-tabs-container--underline {
+    border-bottom: 1px solid var(--neutro400);
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: -1px;
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    height: 40px;
+    padding: 8px 16px;
+    gap: 8px;
+    border-radius: 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--neutro600);
+    background-color: var(--neutro100);
+    color: var(--neutro700);
+    font-family: "Noto Sans", sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.tx-comite-tab .snd__icono,
+.tx-comite-tab svg {
+    color: inherit;
+    fill: currentColor;
+}
+
+.tx-comite-tab .snd__icono path,
+.tx-comite-tab svg path {
+    fill: currentColor;
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab:hover:not([aria-selected="true"]):not(.is-active):not(.active):not(:disabled) {
+    background-color: var(--neutro300);
+    border-bottom: 1px solid var(--neutro600);
+    color: var(--neutro700);
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab[aria-selected="true"],
+.tx-comite-tabs-container--underline .tx-comite-tab.is-active,
+.tx-comite-tabs-container--underline .tx-comite-tab.active {
+    background-color: var(--neutro100);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 3px solid var(--principal);
+    color: var(--principal);
+    font-weight: 600;
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab:focus-visible {
+    outline: 2px solid var(--azul500);
+    outline-offset: -2px;
+    border-radius: 4px 4px 0 0;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab[aria-selected="true"]:focus-visible,
+.tx-comite-tabs-container--underline .tx-comite-tab.is-active:focus-visible,
+.tx-comite-tabs-container--underline .tx-comite-tab.active:focus-visible {
+    background-color: var(--neutro100);
+    border-bottom: 3px solid var(--principal);
+    color: var(--principal);
+}
+
+.tx-comite-tabs-container--underline .tx-comite-tab:disabled {
+    background-color: var(--neutro200);
+    border-bottom: 1px solid var(--neutro600);
+    color: var(--neutro600);
+    cursor: not-allowed;
+}
+
+/* Buscador Resoluciones y Filtros — Select / Dropatom SND v1.1.0 */
+
+.tx-comite-filter-control {
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.tx-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+}
+
+.tx-comite-select,
+select.tx-comite-filter-control {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    box-sizing: border-box;
+    padding: 10px 44px 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--neutro400);
+    background-color: var(--neutro100);
+    color: var(--neutro800);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.tx-comite-select:hover:not(:disabled),
+select.tx-comite-filter-control:hover:not(:disabled) {
+    border-color: var(--neutro600);
+}
+
+.tx-comite-select:focus,
+.tx-comite-select:focus-visible,
+select.tx-comite-filter-control:focus,
+select.tx-comite-filter-control:focus-visible {
+    outline: none;
+    border-color: var(--principal);
+    box-shadow: 0 0 0 1px var(--principal) inset;
+}
+
+.tx-comite-select:disabled,
+select.tx-comite-filter-control:disabled {
+    background-color: var(--neutro200);
+    border-color: var(--neutro400);
+    color: var(--neutro600);
+    cursor: not-allowed;
+}
+
+.tx-select-chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--neutro800);
+    transition: transform 0.2s ease;
+}
+
+.tx-comite-select:focus + .tx-select-chevron {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+/* Componente SND v1.1.0: Barra de búsqueda (4.1 Barra de búsqueda - Variante sección interna)
+ * Implementa las 3 pestañas normativas (Descripción, Diseño Desktop/Móvil, Desarrollo)
+ */
+
+#form-search-sesion.search-container,
+#form-search-res.search-container,
+#form-search-dp.search-container,
+#form-search-doc.search-container,
+#form-search-ext.search-container,
+#form-search-int.search-container,
+#form-search-comite.search-container,
+#form-search-comision.search-container,
+#form-search-organo.search-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.form__inset.general-search.tx-comite-search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    gap: 8px;
+    background-color: var(--neutro200);
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 1px var(--neutro400);
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form__inset.general-search.tx-comite-search-box.is-filled {
+    box-shadow: inset 0 0 0 1px var(--principal);
+}
+
+.form__inset.general-search.tx-comite-search-box:active {
+    box-shadow: inset 0 0 0 2px var(--principal);
+}
+
+.form__inset.general-search.tx-comite-search-box:focus-within {
+    box-shadow: inset 0 0 0 2px var(--principal);
+}
+
+.tx-comite-search-box .search-icon {
+    margin: 0;
+    flex-shrink: 0;
+    color: var(--neutro600);
+    transition: color 0.2s ease;
+}
+
+.tx-comite-search-box:focus-within .search-icon,
+.tx-comite-search-box.is-filled .search-icon {
+    color: var(--principal);
+}
+
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    color: var(--neutro800);
+}
+
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input::placeholder {
+    color: var(--neutro500);
+    opacity: 1;
+}
+
+.tx-comite-search-box .sh0r.js-input.tx-comite-search-input::-webkit-search-cancel-button {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .form__inset.general-search.tx-comite-search-box {
+        padding: 0 20px;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .form__inset.general-search.tx-comite-search-box {
+        padding: 0 24px 0 32px;
+        gap: 10px;
+    }
+
+    .tx-comite-search-box .sh0r.js-input.tx-comite-search-input {
+        font-size: 1rem;
+        line-height: 1.375rem;
+        font-weight: 400;
+    }
+}
+
+/* Botón Personalizado de Descarga */
+
+.tx-pdf-download-btn {
+    border: 1px solid var(--color-burgundi) !important;
+    color: var(--color-burgundi) !important;
+    background-color: transparent !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.tx-pdf-download-btn:hover {
+    background-color: var(--color-burgundi) !important;
+    color: #fff !important;
+}
+
+.tx-pdf-download-btn:focus, .tx-pdf-download-btn:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.tx-pdf-download-btn:focus-visible {
+    outline: 2px solid var(--color-burgundi) !important;
+    outline-offset: 2px !important;
+}
+
+/* Botón Personalizado de Copiar Enlace — paleta Presidencia verde (500 → 900) */
+
+.tx-pdf-copy-btn {
+    border: 1px solid #335955 !important;
+    color: #335955 !important;
+    background-color: transparent !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.tx-pdf-copy-btn:hover {
+    background-color: #002F2A !important;
+    border-color: #002F2A !important;
+    color: #fff !important;
+}
+
+.tx-pdf-copy-btn:focus, .tx-pdf-copy-btn:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.tx-pdf-copy-btn:focus-visible {
+    outline: 2px solid #335955 !important;
+    outline-offset: 2px !important;
+}
+
+.tx-pdf-copy-btn.is-copied {
+    border-color: #002F2A !important;
+    color: #002F2A !important;
+    background-color: rgba(0, 47, 42, 0.08) !important;
+}
+
+/* ==========================================================================
+   Página: Diseño de la Política Nacional Anticorrupción (.page-pna-diseno)
+   ========================================================================== */
+
+/* Homologa las sombras de todas las cards de la página al token oficial
+   SND (var(--dropLV1)), en vez del shadow-sm de Bootstrap (rgba a mano). */
+
+.page-pna .shadow-sm {
+    box-shadow: var(--dropLV1) !important;
+}
+
+/* .bg-white no está definida en ningún lado del tema (dependía de Bootstrap,
+   ya retirado) — las cards que la usan quedaban transparentes sobre el fondo
+   rosa de la página. Se homologa al token de superficie oficial. */
+
+.page-pna .bg-white {
+    background-color: var(--neutro100) !important;
+}
+
+.page-pna .pna-doc-card-compact:focus-visible,
+.page-pna-diseno .pna-accordion-card summary:focus-visible,
+.page-pna .pna-doc-item:focus-visible {
+    outline: 2px solid var(--pguinda600);
+    outline-offset: 2px;
+}
+
+.page-pna .pna-anexo-link:hover {
+    background-color: var(--gama100);
+    padding-left: 16px;
+}
+
+.page-pna-diseno .pna-consulta-doc-link:hover {
+    background-color: rgba(0, 136, 122, 0.08);
+    padding-left: 16px;
+}
+
+@media (max-width: 480px) {
+    .page-pna-diseno .pna-foro-card__yearcity {
+        white-space: normal;
+    }
+}
+
+.page-pna-diseno .pna-diseno-ecosystem {
+    min-height: 380px;
+    background: radial-gradient(circle, rgba(106,199,44,0.05) 0%, rgba(255,255,255,0) 70%);
+}
+
+.page-pna-diseno .pna-eco-center {
+    width: 220px;
+    max-width: 70%;
+    z-index: 2;
+    border-radius: 8px;
+}
+
+.page-pna-diseno .pna-eco-center img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.page-pna-diseno .pna-eco-node {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 3;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-pna-diseno .pna-eco-node:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.page-pna-diseno .pna-eco-node--top-left {
+    top: 15%;
+    left: 10%;
+    color: #6AC72C;
+    border-color: #6AC72C;
+}
+
+.page-pna-diseno .pna-eco-node--top-right {
+    top: 15%;
+    right: 10%;
+    color: #1D70B8;
+    border-color: #1D70B8;
+}
+
+.page-pna-diseno .pna-eco-node--bottom-left {
+    bottom: 15%;
+    left: 10%;
+    color: #74598F;
+    border-color: #74598F;
+}
+
+.page-pna-diseno .pna-eco-node--bottom-right {
+    bottom: 15%;
+    right: 10%;
+    color: #E04F67;
+    border-color: #E04F67;
+}
+
+.page-pna .pna-wheel-center__icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.page-pna .pna-wheel-center__title {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.page-pna .pna-wheel-center__desc {
+    font-size: 8px;
+    line-height: 1.2;
+}
+
+.page-pna .pna-eje-badge {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.page-pna .pna-obj-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-pna .pna-obj-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    background-color: #ffffff !important;
+}
+
+/* --- BLOQUE 3: Timeline, Mapa y Foros --- */
+
+.page-pna-diseno .pna-step-card {
+    transition: all 0.3s ease;
+}
+
+.page-pna-diseno .pna-step-card:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08) !important;
+}
+
+/* Mapa Interactivo SVG */
+
+.page-pna-diseno .pna-map-container {
+    background-color: var(--neutro200, #F9F9F9);
+    border-radius: 12px;
+}
+
+/* ============================================================
+   SEGUIMIENTO Y EVALUACIÓN PNA (page-seguimiento-evaluacion.php)
+   Scope: .page-pna-seguimiento — SND UI Kit v1.1.0 (Tema Guinda)
+   ============================================================ */
+
+/* ── Box blanco exterior (SND v1.1.0 — Superficie Base Homologada con Contrataciones) ── */
+
+.page-pna-seguimiento .sise-panel-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    padding: 24px;
+}
+
+@media (min-width: 768px) {
+    .page-pna-seguimiento .sise-panel-card {
+        padding: 36px 32px;
+    }
+}
+
+.page-pna-seguimiento .sise-divider {
+    border: none;
+    border-top: 1px solid var(--neutro300, #E0E0E0);
+    margin: 24px 0 24px 0;
+}
+
+.page-pna-seguimiento .sise-accordion-item {
+    background: var(--neutro100, #FFFFFF);
+    border: 1px solid var(--neutro400, #DDDDDD);
+    border-radius: 8px;
+    box-shadow: none;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    overflow: hidden;
+}
+
+.page-pna-seguimiento .sise-accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    padding: 12px 20px 12px 14px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    outline: none !important;
+    box-shadow: none !important;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+}
+
+/* ============================================================
+   SECCIÓN: EVALUACIÓN DE LA PNA (page-seguimiento-evaluacion.php)
+   Scope: .page-pna-seguimiento — SND UI Kit v1.1.0 (Tema Guinda)
+   ============================================================ */
+
+/* Recuadro destacado homologado con Riesgos (.cp-subsec-enlace) */
+
+.cp-subsec-enlace {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 20px;
+    padding: 18px 24px;
+    border: 1px solid var(--pguinda600);
+    border-radius: 8px;
+    background: rgba(155, 34, 71, 0.06);
+}
+
+.cp-subsec-enlace__icono {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: var(--pguinda600);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.cp-subsec-enlace__icono .snd__icono,
+.cp-subsec-enlace__icono svg,
+.cp-subsec-enlace__icono img {
+    color: #fff !important;
+    fill: #fff !important;
+    filter: brightness(0) invert(1);
+}
+
+.cp-subsec-enlace__texto {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cp-subsec-enlace__titulo {
+    margin: 0;
+}
+
+@media (max-width: 639px) {
+    .page-pna-seguimiento .cp-subsec-enlace {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+}
+
+/* Bloque Intro ("¿Qué son los Indicadores Nacionales?" y "Consulta y descarga") */
+
+.page-indicadores-nacionales .in-intro-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.page-indicadores-nacionales .in-section-icon-circle {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    background-color: var(--pguinda100, #F3E4E9);
+    border: 1px solid var(--pguinda200, #E1BDC9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.page-indicadores-nacionales .in-intro-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==========================================================================
+   Subpágina Detalle de Indicador Nacional (.page-indicador-detalle)
+   ========================================================================== */
+
+.page-indicador-detalle .in-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: #f7eef2;
+    color: var(--pguinda600, #9B2247);
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.page-indicador-detalle .in-back-link:hover,
+.page-indicador-detalle .in-back-link:focus-visible {
+    background-color: #eedbe3;
+    transform: translateX(-2px);
+    text-decoration: none !important;
+}
+
+/* Hero principal del indicador */
+
+.page-indicador-detalle .in-detalle-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.page-indicador-detalle .in-detalle-hero__meta {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.page-indicador-detalle .in-detalle-downloads {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.page-indicador-detalle .in-no-map-note {
+    border-left: 4px solid var(--oe-color, #9B2247);
+}
+
+.page-indicador-detalle .in-detalle-hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.page-indicador-detalle .in-detalle-hero-titles h1,
+.page-indicador-detalle .in-detalle-hero-titles h2 {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+}
+
+.page-indicador-detalle .in-detalle-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background-color: #f7eef2;
+    color: var(--pguinda600, #9B2247);
+    border: 1px solid #eedbe3;
+}
+
+.page-indicador-detalle .in-detalle-tag--oe {
+    background-color: var(--oe-bg, #f7eef2);
+    color: var(--oe-color, #9B2247);
+    border-color: var(--oe-color, #eedbe3);
+}
+
+.page-indicador-detalle .in-que-mide-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 8px;
+}
+
+/* Círculo grande homologado a la derecha con el color hexadecimal del Objetivo Específico */
+
+.page-indicador-detalle .in-hero-visual--oe .in-hero-visual__ring {
+    border-color: var(--oe-color, #F0512D);
+}
+
+.page-indicador-detalle .in-hero-visual--oe .in-hero-visual__circle {
+    background-color: var(--oe-bg, rgba(240, 81, 45, 0.12));
+}
+
+.page-indicador-detalle .in-hero-visual__icon,
+.page-indicador-detalle .in-hero-visual__icon svg {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--oe-color, #F0512D) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-indicador-detalle .in-hero-visual__icon path {
+    fill: var(--oe-color, #F0512D) !important;
+}
+
+/* Barra de herramientas del indicador (año + descargas) */
+
+.page-indicador-detalle .in-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.page-indicador-detalle .in-toolbar__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.page-indicador-detalle .in-toolbar__btn {
+    white-space: nowrap;
+}
+
+.page-indicadores-nacionales .in-comparativa-card {
+    border-top: 3px solid var(--pguinda600, #9B2247);
+}
+
+/* Bloque 2: Tarjetas de Resultados (Nacional, Federal, Promedio Estatal) */
+
+.page-indicador-detalle .in-res-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid var(--neutro300, #E5E5E5);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.page-indicador-detalle .in-res-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background-color: #ffffff;
+}
+
+.page-indicador-detalle .in-res-card__info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 20px;
+    background-color: #fdf6f8;
+    border-top: 1px solid #eedbe3;
+    flex: 1 1 auto;
+}
+
+.page-indicador-detalle .in-res-card__info-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.page-indicador-detalle .in-res-card__info-body h3,
+.page-indicador-detalle .in-res-card__info-body h4,
+.page-indicador-detalle .in-res-card__info-body p {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* Bloque 5: Documentos del indicador */
+
+.page-indicador-detalle .in-doc-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+}
+
+.page-indicador-detalle .in-doc-card__info {
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.page-indicador-detalle .in-doc-card__divider {
+    width: 1px;
+    align-self: stretch;
+    min-height: 56px;
+    background-color: var(--neutro300, #E0E0E0);
+    flex-shrink: 0;
+}
+
+.page-indicador-detalle .in-doc-card__action {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.page-indicador-detalle .in-doc-card__btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+    .page-indicadores-nacionales .in-doc-card,
+    .page-indicador-detalle .in-doc-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .page-indicadores-nacionales .in-doc-card__divider,
+    .page-indicador-detalle .in-doc-card__divider {
+        width: 100%;
+        height: 1px;
+        min-height: 1px;
+    }
+
+    .page-indicadores-nacionales .in-doc-card__action,
+    .page-indicador-detalle .in-doc-card__action,
+    .page-indicadores-nacionales .in-doc-card__btn,
+    .page-indicador-detalle .in-doc-card__btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── Navegación de secciones: Tabs (Desktop/Tablet) vs Drawer (Móvil) ──
+   Mismo breakpoint que el Drawer de Información Financiera (min-width:992px)
+   para mantener un único punto de corte "móvil" en todo el sitio. */
+
+.ocn-mobile-tab-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .ocn-mobile-tab-trigger {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .page-organos-colegiados .ocn-tabs-nav {
+        display: none !important;
+    }
+}
+
+/* Indicador de opción activa en los ListItems del Drawer: círculo blanco
+   con la palomita (snd-check, trazo simple) en guinda — visible solo en
+   el ítem seleccionado. No usa snd-checkmark--filled: ese ícono trae el
+   círculo y la palomita en un solo <path> con fill-rule:evenodd, y a
+   16px el recorte queda demasiado sutil para distinguirse. */
+
+.ocn-drawer-check {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--neutro100);
+    color: var(--principal);
+}
+
+.fin-dictamen-item.active .ocn-drawer-check {
+    display: inline-flex;
+}
+
+/* Tarjeta de Sesión de Órgano Colegiado — SND UI Kit (Cards *: 12022:57247) */
+
+.tx-oc-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    overflow: hidden;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.tx-oc-card:hover {
+    box-shadow: var(--sesna-card-shadow-hover);
+}
+
+/* ── page-presupuestacion ─────────────────────── */
+
+.page-pna-presupuestacion .pna-doc-item:hover {
+    background-color: #F9F0F3;
+    color: #611232 !important;
+}
+
+.page-pna-presupuestacion .pna-doc-item:focus {
+    outline: none;
+}
+
+/* ── page-planeacion-institucional ────────────── */
+
+.page-pna-planeacion {
+    background-color: transparent;
+}
+
+/* ── page-contrataciones-adquisiciones ────────── */
+
+.page-pna-contrataciones {
+    background-color: transparent;
+}
+
+/* ── page-archivo-documental ───────────────────── */
+
+.page-pna-archivo {
+    background-color: transparent;
+}
+
+.page-pna-archivo .pna-doc-item:hover {
+    background-color: #F9F0F3;
+    color: #611232 !important;
+}
+
+.page-pna-archivo .pna-doc-item:focus {
+    outline: none;
+}
+
+/* ── page-programa-implemetancion-pna ──────────── */
+
+.page-pna-implementacion .pna-doc-item:hover {
+    background-color: #F9F0F3;
+    color: #611232 !important;
+}
+
+.page-pna-implementacion .pna-doc-item:focus {
+    outline: none;
+}
+
+/* ── Contenedor Card / Box exterior (SND v1.1.0 — Superficie Base) ── */
+
+.cf-panel-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    padding: 24px;
+}
+
+@media (min-width: 768px) {
+    .cf-panel-card {
+        padding: 32px;
+    }
+}
+
+/* ── Selector Cards: Estado Activo ──
+   Homologado exactamente a page-riesgos-inteligencia.php (.sna-tab-trigger activa):
+   anillo exterior guinda de 2px (rgba(155, 34, 66, 1)), borde neutro base
+   (1px solid var(--neutro400)), fondo blanco y texto oscuro. */
+
+.sna-noticias-card.active,
+.sna-noticias-card.active:hover {
+    box-shadow: 0 0 0 2px rgba(155, 34, 66, 1) !important;
+    border: 1px solid var(--neutro400) !important;
+}
+
+@media (max-width: 991.98px) {
+    .page-pna-archivo .fin-search,
+    .page-pna-contrataciones .fin-search {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ── Buscador de documentos (compartido: Información Financiera,
+   Planeación Institucional, Contrataciones y Adquisiciones) ──────── */
+
+.fin-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+    border-radius: 100px;
+    padding: 8px 16px;
+    min-width: 260px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.fin-search:focus-within {
+    border-color: var(--principal);
+    box-shadow: 0 0 0 2px var(--pguinda100);
+}
+
+.fin-search i {
+    color: var(--neutro600);
+}
+
+.fin-search input {
+    border: none;
+    outline: none;
+    font-family: var(--font-noto-sans);
+    font-size: 14px;
+    width: 100%;
+    background: transparent;
+    color: var(--neutro800);
+}
+
+/* Barra de búsqueda */
+
+.page-informacion-financiera .fin-search-box {
+    max-width: 380px;
+}
+
+@media (max-width: 767.98px) {
+    .page-informacion-financiera .fin-search-box {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.page-informacion-financiera .fin-tree-leaf--trim,
+.snd-drawer .fin-tree-leaf--trim,
+.fin-tree-leaf--trim {
+    font-weight: 600;
+    padding-left: 16px;
+}
+
+.page-informacion-financiera .fin-dictamen-item,
+.snd-drawer .fin-dictamen-item,
+.fin-dictamen-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    border: 1px solid var(--neutro400);
+    background: var(--neutro100);
+    padding: 12px 16px;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neutro800);
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+    box-sizing: border-box;
+}
+
+.page-informacion-financiera .fin-dictamen-item:hover:not(.active),
+.snd-drawer .fin-dictamen-item:hover:not(.active),
+.fin-dictamen-item:hover:not(.active) {
+    background-color: var(--pguinda100);
+    border-color: var(--pguinda300);
+    color: var(--principal);
+}
+
+.page-informacion-financiera .fin-dictamen-item.active,
+.snd-drawer .fin-dictamen-item.active,
+.fin-dictamen-item.active {
+    background-color: var(--principal) !important;
+    border-color: var(--principal) !important;
+    color: var(--neutro100) !important;
+    font-weight: 700;
+}
+
+/* Panel lateral de Dictámenes */
+
+.page-informacion-financiera .fin-side-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--neutro300);
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--neutro800);
+    text-decoration: none;
+    transition: background-color .15s, color .15s;
+    border-radius: 8px;
+}
+
+.page-informacion-financiera .fin-side-link:last-child {
+    border-bottom: none;
+}
+
+.page-informacion-financiera .fin-side-link i {
+    color: var(--neutro600);
+    transition: color .15s, transform .15s;
+}
+
+.page-informacion-financiera .fin-side-link:hover {
+    background-color: var(--pguinda100);
+    color: var(--principal);
+}
+
+.page-informacion-financiera .fin-side-link:hover i {
+    color: var(--principal);
+    transform: translateX(2px);
+}
+
+/* ── Drawer (Bottom Sheet) SND v1.1.0 ───────────────────────── */
+
+.snd-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20000000;
+    background-color: rgba(22, 26, 29, 0.56);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
+}
+
+.snd-drawer-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.snd-drawer-overlay.is-hidden {
+    display: none;
+}
+
+.snd-drawer--bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 82vh;
+    background-color: var(--neutro100);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-shadow: 0 -8px 32px rgba(22, 26, 29, 0.24);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20000005;
+    overflow: hidden;
+}
+
+.snd-drawer-overlay.is-visible .snd-drawer--bottom {
+    transform: translateY(0);
+}
+
+.snd-drawer__handle-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 4px;
+    cursor: grab;
+    touch-action: none;
+}
+
+.snd-drawer__handle {
+    width: 44px;
+    height: 5px;
+    border-radius: 100px;
+    background-color: var(--neutro400);
+    display: block;
+}
+
+.snd-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px 14px;
+    border-bottom: 1px solid var(--neutro300);
+    flex-shrink: 0;
+}
+
+.snd-drawer__close-btn {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--principal) !important;
+}
+
+.snd-drawer__body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 16px 20px 32px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ── Acordeón SND v1.1.0 (Componente Figma: Accordion) ─────── */
+
+.fin-acc-card {
+    border: 1px solid var(--neutro400);
+    border-radius: 8px;
+    background-color: var(--neutro100);
+    overflow: hidden;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fin-acc-card:hover {
+    box-shadow: var(--dropLV1);
+}
+
+.fin-acc-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    padding: 16px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.fin-acc-header:hover {
+    background-color: var(--pguinda100);
+}
+
+.fin-acc-header:focus-visible {
+    outline: 2px solid var(--principal);
+    outline-offset: -2px;
+}
+
+.fin-acc-chevron {
+    color: var(--principal);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.fin-acc-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+.fin-acc-collapse:not(.muestra--ninguno) {
+    border-top: 1px solid var(--neutro300);
+}
+
+body.snd-drawer-open {
+    overflow: hidden !important;
+}
+
+/* Botón disparador móvil: .boton__secundario + .ocn-mobile-tab-trigger
+   (reutilizado tal cual de page-organos-colegiados.php). Los ListItems
+   del Drawer reutilizan .fin-dictamen-item + .ocn-drawer-check — ver
+   reglas correspondientes más arriba en este archivo. */
+
+/* ── Panorama charts — animación de entrada ───── */
+
+.pna-chart-card {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .55s ease calc(var(--delay, 0s)),
+                transform .55s ease calc(var(--delay, 0s));
+}
+
+.pna-chart-card.pna-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Presupuestación — animación de secciones ─── */
+
+.pna-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease calc(var(--delay, 0s)),
+                transform .6s ease calc(var(--delay, 0s));
+}
+
+.pna-reveal.pna-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════════════════
+   BLOQUE 12 — Accesibilidad SND
+   ══════════════════════════════════════════════════════ */
+
+/* Skip link SND — clase irContent (WCAG 2.4.1)
+   snd-guinda.css provee estilos base; reforzamos posicionamiento */
+
+.irContent {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 99999;
+    background: var(--pguinda900, #611232);
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 4px 4px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: top 0.2s;
+}
+
+.irContent:focus {
+    top: 0;
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+/* Focus visible global (WCAG 2.4.7) */
+
+:focus-visible {
+    outline: 3px solid var(--pguinda600, #9B2247);
+    outline-offset: 2px;
+}
+
+/* Tab keyboard focus */
+
+.ocn-tab:focus-visible {
+    outline: 3px solid var(--pguinda600, #9B2247);
+    outline-offset: -3px;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   Footer SND v1.0.0 Oficial (Web Component <snd-footer>)
+   El componente oficial encapsula su estructura y estilos en Shadow DOM.
+   ============================================================ */
+
+snd-footer {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    clear: both;
+}

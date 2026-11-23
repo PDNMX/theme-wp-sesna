@@ -1,0 +1,114 @@
+/*
+ * Página: riesgos-comun
+ * Riesgos e Inteligencia — estilos compartidos por Riesgos, Contrataciones Públicas y Verificación Patrimonial.
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ── Encabezado Recursos (compartido) ── */
+
+.cp-recursos__icono-box {
+    width: 60px;
+    height: 60px;
+    background-color: #f5f0f2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-burgundi);
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.cp-recursos__titulo {
+    text-transform: none;
+    letter-spacing: normal;
+    margin-bottom: 0;
+}
+
+.cp-recursos__linea {
+    width: 48px;
+    height: 3px;
+    background-color: var(--color-negro);
+    margin-top: 8px;
+    margin-bottom: 0;
+    border-radius: 2px;
+}
+
+/* ── Lista de documentos (compartida) ── */
+
+.cp-docs-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cp-doc-item {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    box-shadow: var(--sesna-card-shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cp-doc-item:hover {
+    box-shadow: var(--sesna-card-shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Info */
+
+.cp-doc-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-doc-titulo {
+    margin-bottom: 10px;
+}
+
+.cp-doc-desc {
+    margin-bottom: 14px;
+}
+
+.cp-doc-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cp-doc-meta__sep { color: var(--color-gris); }
+
+/* Botones */
+
+.cp-doc-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 767px) {
+    .cp-doc-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cp-doc-acciones {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .cp-doc-acciones .boton__primario,
+    .cp-doc-acciones .boton__secundario {
+        flex: 1;
+    }
+}

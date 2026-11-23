@@ -87,24 +87,10 @@
     line-height: 1.2;
 }
 
-.tx-card__title {
-    font-family: var(--font-noto-sans);
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.35;
-}
-
-.tx-card__desc,
 .tx-hero__subtitle {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
-}
-
-.tx-consulta-card__desc {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
 }
 
 .tx-contacto__detail {
@@ -114,8 +100,7 @@
 }
 
 .tx-hero__cta,
-.tx-search__btn,
-.tx-consulta-card__btn {
+.tx-search__btn {
     font-family: var(--font-noto-sans);
     font-size: 16px;
     font-weight: 600;
@@ -123,26 +108,14 @@
 }
 
 .tx-search__label,
-.tx-consulta-card__title,
 .tx-contacto__name {
     font-family: var(--font-noto-sans);
     font-size: 18px;
     font-weight: 600;
 }
 
-.tx-card__icon {
-    width: 32px;
-    height: 32px;
-    font-size: 32px;
-    color: var(--pguinda600, #9B2247);
-    display: block;
-    margin-bottom: 0;
-    line-height: 1;
-}
-
 .tx-hero__cta .snd__icono,
-.tx-search__btn .snd__icono,
-.tx-consulta-card__btn .snd__icono {
+.tx-search__btn .snd__icono {
     width: 16px;
     height: 16px;
     font-size: 16px;
@@ -152,13 +125,6 @@
 }
 
 .tx-search__circle .snd__icono {
-    width: 32px;
-    height: 32px;
-    font-size: 32px;
-    line-height: 1;
-}
-
-.tx-consulta-card__icon-wrap .snd__icono {
     width: 32px;
     height: 32px;
     font-size: 32px;
@@ -309,29 +275,25 @@
    Componentes: Administración y Finanzas
    ------------------------------------------------------------ */
 .pna-group-card {
-    background-color: var(--neutro100);
-    border: 1px solid var(--neutro400);
-    border-radius: 16px;
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
     padding: 24px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--dropLV1);
+    box-shadow: var(--sesna-card-shadow);
     transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .pna-group-card:hover {
-    box-shadow: var(--dropLV2);
+    box-shadow: var(--sesna-card-shadow-hover);
     border-color: var(--pguinda300, #CE92A6);
 }
 
 .cp-admin-card {
     text-align: left;
     align-items: flex-start !important;
-}
-
-.cp-admin-card .tx-card__title {
-    text-align: left;
 }
 
 .cp-admin-date {

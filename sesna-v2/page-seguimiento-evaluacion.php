@@ -11,24 +11,13 @@ get_header();
 <div class="page-pna page-pna-seguimiento front-page-bg">
 
     <!-- ── Breadcrumb (SND v1.1.0) ─────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>" class="ruta__a">Política Nacional Anticorrupción</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Seguimiento y evaluación</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Política Nacional Anticorrupción', 'url' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ),
+            array( 'label' => 'Seguimiento y evaluación' ),
+        ),
+    ) ); ?>
 
     <!-- ============================================================
          BLOQUE 1: Hero
@@ -750,63 +739,31 @@ get_header();
                 </div>
             </div>
 
-            <!-- Grilla de las 2 Tarjetas de Herramientas (Homologadas a tx-consulta-card del SND) -->
+            <!-- Grilla de las 2 Tarjetas de Herramientas (componente .sesna-card, assets/css/card.css) -->
             <div class="reticulaGrid__12">
 
                 <!-- ── Tarjeta 01: Catálogo de Información (CICM) ── -->
                 <div class="columna__12 columna__6--md mb--24 mb--0--md">
-                    <a href="<?php echo esc_url( 'https://cicm.sesna.gob.mx/' ); ?>" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       title="Catálogo de Información sobre la Corrupción en México (El enlace abre en ventana nueva)" 
-                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
-                        <div class="muestra--flex align-items-start gap--16 alto--100">
-                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <?= sesna_render_snd_svg_icon('snd-catalog', 'icono--32 color--pguinda600') ?>
-                            </div>
-                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Catálogo de Información (CICM)</h3>
-                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
-                                    Integra información estadística, geográfica y documental sobre la corrupción en México, con el objetivo de facilitar su consulta y análisis.
-                                </p>
-                                <div class="mt--auto">
-                                    <span class="boton__primario"
-                                          aria-label="Ir al portal del Catálogo de Información sobre la Corrupción en México (abre en nueva ventana)">
-                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
-                                        Ir al portal
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'href'       => 'https://cicm.sesna.gob.mx/',
+                        'target'     => '_blank',
+                        'title'      => 'Catálogo de Información (CICM)',
+                        'text'       => 'Integra información estadística, geográfica y documental sobre la corrupción en México, con el objetivo de facilitar su consulta y análisis.',
+                        'icon'       => 'snd-catalog',
+                        'action'     => array( 'type' => 'button', 'label' => 'Ir al portal', 'icon' => 'snd-launch', 'aria_label' => 'Ir al portal del Catálogo de Información sobre la Corrupción en México (abre en nueva ventana)' ),
+                    ) ); ?>
                 </div>
 
                 <!-- ── Tarjeta 02: Sistemas Estatales (SEA) ── -->
                 <div class="columna__12 columna__6--md">
-                    <a href="<?php echo esc_url( 'https://www.sna.org.mx/sistemas-estatales-anticorrupcion/' ); ?>" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       title="Sistemas Estatales Anticorrupción (El enlace abre en ventana nueva)" 
-                       class="tx-consulta-card radio--4 alto--100 d-block decoracion--ninguna">
-                        <div class="muestra--flex align-items-start gap--16 alto--100">
-                            <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                <?= sesna_render_snd_svg_icon('snd-map', 'icono--32 color--pguinda600') ?>
-                            </div>
-                            <div class="muestra--flex flex-direction-column alto--100 flex-grow">
-                                <h3 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Sistemas Estatales (SEA)</h3>
-                                <p class="b1r color--neutro600 tx-consulta-card__desc flex-grow mb--16">
-                                    Consulta información sobre los Sistemas Estatales Anticorrupción, su integración, marco normativo y avances en la implementación de sus políticas estatales.
-                                </p>
-                                <div class="mt--auto">
-                                    <span class="boton__primario"
-                                          aria-label="Ir al portal de Sistemas Estatales Anticorrupción (abre en nueva ventana)">
-                                        <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?>
-                                        Ir al portal
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'href'       => 'https://www.sna.org.mx/sistemas-estatales-anticorrupcion/',
+                        'target'     => '_blank',
+                        'title'      => 'Sistemas Estatales (SEA)',
+                        'text'       => 'Consulta información sobre los Sistemas Estatales Anticorrupción, su integración, marco normativo y avances en la implementación de sus políticas estatales.',
+                        'icon'       => 'snd-map',
+                        'action'     => array( 'type' => 'button', 'label' => 'Ir al portal', 'icon' => 'snd-launch', 'aria_label' => 'Ir al portal de Sistemas Estatales Anticorrupción (abre en nueva ventana)' ),
+                    ) ); ?>
                 </div>
 
             </div>
@@ -934,7 +891,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        const hTitles = document.querySelectorAll('#otras-herramientas .tx-consulta-card__title');
+        const hTitles = document.querySelectorAll('#otras-herramientas .sesna-card__title');
         if (hTitles.length > 0) {
             hTitles.forEach(el => el.style.minHeight = '');
             let maxHT = 0;

@@ -73,18 +73,11 @@ $acciones_programas = [
 <div class="page-acciones-programas front-page-bg">
 
     <!-- ── Breadcrumb (SND v1.1.0) ───────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Acciones y Programas</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas' ),
+        ),
+    ) ); ?>
 
     <!-- ── Hero Banner (SND v1.1.0) ────────────────────────────── -->
     <section class="sesna-page-hero" aria-label="Encabezado de Acciones y Programas">

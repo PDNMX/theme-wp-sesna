@@ -1,0 +1,62 @@
+/*
+ * Página: home-acciones
+ * Inicio y "Acciones y programas" (tarjetas de programas).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ------------------------------------------------------------
+   Separador de Secciones
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   Sección Acciones y Programas
+   ------------------------------------------------------------ */
+
+.sna-programas-section {
+}
+
+.sna-programas-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sna-programas-wrapper:hover .sna-programas-card,
+.sna-programas-card:focus {
+    transform: translateY(-6px);
+    box-shadow: var(--sesna-card-shadow-hover);
+    outline: none;
+    text-decoration: none;
+}
+
+.sna-programas-wrapper {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.sna-programas-card {
+    background: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    overflow: hidden;
+    padding: 0;
+    margin-top: 0;
+    text-align: left;
+}
+
+.sna-programas-img-outer {
+    position: relative;
+    z-index: 2;
+}
+
+.sna-programas-img-inner {
+    height: 200px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-guinda);
+    background-color: #fff;
+}
+
+.sna-programas-img {
+    object-fit: cover;
+    display: block;
+}

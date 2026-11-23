@@ -7,63 +7,40 @@
         </div>
         <div class="reticulaGrid__12">
 
-            <!-- Card 1 -->
             <div class="columna__12 columna__6--md columna__4--lg">
-                <a href="https://www.sna.org.mx/category/comite-coordinador/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
-                    <div class="muestra--flex align-items-center gap--16 mb--24">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cc-card.svg"
-                            alt="Comité Coordinador" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="sh1b">Comité Coordinador</h3>
-                    </div>
-                    <p class="b1r texto--justify">Instancia encargada de la coordinación y eficacia del Sistema Nacional,
-                        que tiene bajo su encargo el diseño, promoción y evaluación de políticas públicas de combate a
-                        la corrupción</p>
-                    <div class="mt--auto texto--centro texto--derecha--md">
-                        <span
-                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
-                            Conoce más
-                        </span>
-                    </div>
-                </a>
+                <?php get_template_part( 'template-parts/ui/card', null, array(
+                    'href'     => 'https://www.sna.org.mx/category/comite-coordinador/',
+                    'target'   => '_blank',
+                    'title'    => 'Comité Coordinador',
+                    'text'     => 'Instancia encargada de la coordinación y eficacia del Sistema Nacional, que tiene bajo su encargo el diseño, promoción y evaluación de políticas públicas de combate a la corrupción',
+                    'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-cc-card.svg',
+                    'icon_alt' => 'Comité Coordinador',
+                    'action'   => array( 'type' => 'link', 'label' => 'Conoce más' ),
+                ) ); ?>
             </div>
 
-            <!-- Card 2 -->
             <div class="columna__12 columna__6--md columna__4--lg">
-                <a href="https://comiteparticipacion.com.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
-                    <div class="muestra--flex align-items-center gap--16 mb--24">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-cpc-card.svg"
-                            alt="Comité de Participación Ciudadana" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="sh1b">Comité de Participación Ciudadana</h3>
-                    </div>
-                    <p class="b1r texto--justify">Instancia de vinculación con las organizaciones sociales y académicas
-                        relacionadas con materias del SNA que coadyuven en el cumplimiento de los objetivos del Comité
-                        Coordinador.</p>
-                    <div class="mt--auto texto--centro texto--derecha--md">
-                        <span
-                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
-                            Conoce más
-                        </span>
-                    </div>
-                </a>
+                <?php get_template_part( 'template-parts/ui/card', null, array(
+                    'href'     => 'https://comiteparticipacion.com.mx/',
+                    'target'   => '_blank',
+                    'title'    => 'Comité de Participación Ciudadana',
+                    'text'     => 'Instancia de vinculación con las organizaciones sociales y académicas relacionadas con materias del SNA que coadyuven en el cumplimiento de los objetivos del Comité Coordinador.',
+                    'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-cpc-card.svg',
+                    'icon_alt' => 'Comité de Participación Ciudadana',
+                    'action'   => array( 'type' => 'link', 'label' => 'Conoce más' ),
+                ) ); ?>
             </div>
 
-            <!-- Card 3 -->
-            <div class="columna__12 columna__6--md columna__4--lg mx--auto">
-                <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer" class="posicion--relativa ancho-minimo--0 alto--100 p--24 sna-integrantes-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
-                    <div class="muestra--flex align-items-center gap--16 mb--24">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/home_v2/icon-sea-card.svg"
-                            alt="Sistemas Estatales Anticorrupción" class="sna-integrantes-icon-circle flex-none">
-                        <h3 class="sh1b">Sistemas Estatales Anticorrupción</h3>
-                    </div>
-                    <p class="b1r texto--justify">Conoce la integración de cada sistema anticorrupción de las 32 entidades
-                        federativas.</p>
-                    <div class="mt--auto texto--centro texto--derecha--md">
-                        <span
-                            class="sh1b color--pguinda600 muestra--flex-linea align-items-center">
-                            Conoce más
-                        </span>
-                    </div>
-                </a>
+            <div class="columna__12 columna__6--md columna__4--lg">
+                <?php get_template_part( 'template-parts/ui/card', null, array(
+                    'href'     => 'https://www.sna.org.mx/sistemas-estatales-anticorrupcion/',
+                    'target'   => '_blank',
+                    'title'    => 'Sistemas Estatales Anticorrupción',
+                    'text'     => 'Conoce la integración de cada sistema anticorrupción de las 32 entidades federativas.',
+                    'icon_img' => get_template_directory_uri() . '/img/home_v2/icon-sea-card.svg',
+                    'icon_alt' => 'Sistemas Estatales Anticorrupción',
+                    'action'   => array( 'type' => 'link', 'label' => 'Conoce más' ),
+                ) ); ?>
             </div>
 
         </div>

@@ -12,21 +12,12 @@ $documentos = sesna_get_datos_personales_docs();
 
 <div class="page-transparencia-datos front-page-bg pb--40">
     <!-- Breadcrumb -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Datos Personales</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Transparencia', 'url' => home_url('/transparencia/') ),
+            array( 'label' => 'Datos Personales' ),
+        ),
+    ) ); ?>
 
     <!-- Hero -->
     <section class="sesna-page-hero">
@@ -154,110 +145,5 @@ $documentos = sesna_get_datos_personales_docs();
 </div>
 
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Logic for filtering, counter and pagination
-    const filterAnio = document.getElementById('filter-anio');
-    const filterTipo = document.getElementById('filter-tipo');
-    const searchDp = document.getElementById('search-dp');
-    const formSearchDp = document.getElementById('form-search-dp');
-    const searchDpBox = searchDp ? searchDp.closest('.tx-comite-search-box') : null;
-    const cards = Array.from(document.querySelectorAll('.tx-sesion-card'));
-    const countStatus = document.getElementById('documentos-count-status');
-    const emptyState = document.getElementById('documentos-empty-state');
-    const btnReset = document.getElementById('documentos-btn-reset');
-    const btnMore = document.getElementById('documentos-btn-more');
-    const loadMoreContainer = document.getElementById('documentos-load-more-container');
-    let visibleLimit = 5;
-
-    function applyFilters() {
-        const anio = filterAnio ? filterAnio.value : 'Todos';
-        const tipo = filterTipo ? filterTipo.value : 'Todos';
-        const query = searchDp ? searchDp.value.toLowerCase().trim() : '';
-
-        if (searchDpBox) {
-            searchDpBox.classList.toggle('is-filled', query.length > 0);
-        }
-
-        let visibleCount = 0;
-        let totalMatched = 0;
-
-        cards.forEach(card => {
-            const cardAnio = card.getAttribute('data-anio') || '';
-            const cardTipo = card.getAttribute('data-tipo') || '';
-            const cardTitulo = card.getAttribute('data-titulo') || '';
-
-            const matchAnio = anio === 'Todos' || cardAnio === anio;
-            const matchTipo = tipo === 'Todos' || cardTipo === tipo;
-            const matchQuery = query === '' || cardTitulo.includes(query);
-
-            if (matchAnio && matchTipo && matchQuery) {
-                if (totalMatched < visibleLimit) {
-                    card.style.display = '';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-                totalMatched++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        if (countStatus) {
-            countStatus.textContent = totalMatched === 0
-                ? '0 documentos encontrados'
-                : 'Mostrando ' + visibleCount + ' de ' + totalMatched + ' ' + (totalMatched === 1 ? 'documento' : 'documentos');
-        }
-
-        if (emptyState) {
-            emptyState.classList.toggle('muestra--ninguno', totalMatched > 0);
-        }
-
-        if (btnReset) {
-            const hasActiveFilter = anio !== 'Todos' || tipo !== 'Todos' || query !== '';
-            btnReset.classList.toggle('muestra--ninguno', !hasActiveFilter);
-        }
-
-        if (loadMoreContainer) {
-            loadMoreContainer.style.display = totalMatched > visibleLimit ? 'block' : 'none';
-        }
-    }
-
-    if (filterAnio) filterAnio.addEventListener('change', () => { visibleLimit = 5; applyFilters(); });
-    if (filterTipo) filterTipo.addEventListener('change', () => { visibleLimit = 5; applyFilters(); });
-    if (searchDp) {
-        searchDp.addEventListener('input', () => { visibleLimit = 5; applyFilters(); });
-        searchDp.addEventListener('search', () => { visibleLimit = 5; applyFilters(); });
-    }
-    if (formSearchDp) {
-        formSearchDp.addEventListener('submit', (e) => {
-            e.preventDefault();
-            visibleLimit = 5;
-            applyFilters();
-        });
-    }
-    if (btnReset) {
-        btnReset.addEventListener('click', () => {
-            if (filterAnio) filterAnio.value = 'Todos';
-            if (filterTipo) filterTipo.value = 'Todos';
-            if (searchDp) searchDp.value = '';
-            visibleLimit = 5;
-            applyFilters();
-        });
-    }
-    if (btnMore) {
-        btnMore.addEventListener('click', function(e) {
-            e.preventDefault();
-            visibleLimit += 5;
-            applyFilters();
-        });
-    }
-
-    applyFilters();
-});
-</script>
 
 <?php get_footer(); ?>

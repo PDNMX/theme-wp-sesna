@@ -281,21 +281,12 @@ $cf_keys = array_keys( $cf_columnas );
 
 </div>
 
-<!-- ── Drawer Móvil (Bottom Sheet): Selección de Sección SND v1.1.0 ────── -->
-<div class="snd-drawer-overlay page-pna-contrataciones is-hidden" id="cfDrawerOverlay" aria-hidden="true">
-    <div class="snd-drawer snd-drawer--bottom" id="cfDrawer" role="dialog" aria-modal="true" aria-labelledby="cfDrawerTitle">
-        <div class="snd-drawer__handle-wrap" id="cfDrawerHandle">
-            <span class="snd-drawer__handle" aria-hidden="true"></span>
-        </div>
-
-        <div class="snd-drawer__header">
-            <h2 class="sh0b color--neutro800 mb--0" id="cfDrawerTitle">Seleccionar sección</h2>
-            <button type="button" class="boton__fantasma snd-drawer__close-btn" id="cfDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
-            </button>
-        </div>
-
-        <div class="snd-drawer__body" id="cfDrawerBody">
+<?php get_template_part( 'template-parts/ui/mobile-drawer', null, array(
+    'prefix'        => 'cf',
+    'overlay_class' => 'page-pna-contrataciones',
+    'title'         => 'Seleccionar sección',
+    'close_label'   => 'Cerrar selección de sección',
+    'body'          => function () use ( $cf_columnas ) { ?>
             <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Contrataciones y Adquisiciones">
                 <?php foreach ( $cf_columnas as $col_key => $col ) :
                     $is_active = ( 'comite' === $col_key );
@@ -312,9 +303,8 @@ $cf_keys = array_keys( $cf_columnas );
                     </button>
                 <?php endforeach; ?>
             </div>
-        </div>
-    </div>
-</div>
+    <?php },
+) ); ?>
 
 <script>
 (function () {

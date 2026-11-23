@@ -11,21 +11,12 @@ get_header();
 <div class="page-derechos-humanos front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Derechos Humanos y Perspectiva de Género</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Derechos Humanos y Perspectiva de Género' ),
+        ),
+    ) ); ?>
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
     <section class="sesna-page-hero">
@@ -111,6 +102,8 @@ get_header();
                     'meta_key'       => '_dh_orden',
                     'orderby'        => 'meta_value_num',
                     'order'          => 'ASC',
+                    'no_found_rows'  => true,
+                    'update_post_term_cache' => false,
                 ));
 
                 if ($dh_campanias_query->have_posts()) :
@@ -246,6 +239,8 @@ get_header();
                 'posts_per_page' => 1,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
+                'no_found_rows'  => true,
+                'update_post_term_cache' => false,
             ));
 
             if ($dh_catalogo_query->have_posts()) {
@@ -333,7 +328,9 @@ get_header();
                     'post_status'    => 'publish',
                     'meta_key'       => '_dh_cg_anio',
                     'orderby'        => 'meta_value_num',
-                    'order'          => 'DESC'
+                    'order'          => 'DESC',
+                    'no_found_rows'  => true,
+                    'update_post_term_cache' => false,
                 );
                 $actas_query = new WP_Query($args_actas);
                 if ($actas_query->have_posts()) {

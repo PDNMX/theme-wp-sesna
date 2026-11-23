@@ -12,6 +12,8 @@ $dir_args = array(
     'post_status'    => 'publish',
     'orderby'        => 'menu_order',
     'order'          => 'ASC',
+    'no_found_rows'  => true,
+    'update_post_term_cache' => false,
 );
 $dir_query = new WP_Query($dir_args);
 
@@ -54,20 +56,11 @@ $first = !empty($all_areas) ? $all_areas[0] : null;
 <div class="page-directorio front-page-bg pb--40">
 
     <!-- Migas de pan (Breadcrumb) — Estándar SND v1.1.0 -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
-                    </a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Directorio</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Directorio' ),
+        ),
+    ) ); ?>
 
     <!-- Hero -->
     <section class="sesna-page-hero" aria-label="Encabezado de Directorio">

@@ -34,20 +34,11 @@ $sna_meses = [
 ];
 ?>
 <!-- Migas de pan (Breadcrumb) — Estándar SND v1.1.0 -->
-<nav class="ruta__cont" aria-label="Ruta de navegación">
-    <div class="contenedor">
-        <ul class="ruta__lista">
-            <li class="ruta__li">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="ruta__a">
-                    <?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio
-                </a>
-            </li>
-            <li class="ruta__li">
-                <span class="ruta__a" aria-current="page">Noticias y actividades</span>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+    'items' => array(
+        array( 'label' => 'Noticias y actividades' ),
+    ),
+) ); ?>
 
 <!-- HERO SECTION -->
 <section class="sesna-page-hero">

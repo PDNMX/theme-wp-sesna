@@ -11,24 +11,13 @@ get_header();
 <div class="page-pna page-pna-presupuestacion front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>" class="ruta__a">Política Nacional Anticorrupción</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Presupuestación</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Política Nacional Anticorrupción', 'url' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ),
+            array( 'label' => 'Presupuestación' ),
+        ),
+    ) ); ?>
 
     <!-- BLOQUE 1: Hero -->
     <section class="pt-4 pb-5">
@@ -306,361 +295,44 @@ get_header();
         </div>
     </section>
 
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
-    <script>
-    (function() {
+<?php
+/*
+ * Datos dinámicos para script/presupuestacion.js (gráficas Chart.js y descarga ZIP).
+ * El script se registra en inc/enqueue.php; aquí solo se calculan y se le inyectan.
+ */
+$ata_presupuesto = sesna_obtener_datos_presupuesto_ata();
 
-        Chart.register(ChartDataLabels);
-        Chart.defaults.set('plugins.datalabels', { display: false });
+$inst_totales_anios = array_keys( $ata_totales );
+$inst_totales_vals  = array();
+foreach ( $inst_totales_anios as $anio_total ) {
+    $inst_totales_vals[] = intval( $ata_totales[ $anio_total ] );
+}
 
-        var anios = ['2021','2022','2023','2024','2025','2026'];
-        var burgundi = '#611232';
+$ata_capitulos = sesna_obtener_datos_capitulos_ata();
+$cap_label_map = array( '1000' => 'Cap. 1000', '2000' => 'Cap. 2000', '3000' => 'Cap. 3000', '4000' => 'Cap. 4000', '5000' => 'Cap. 5000', '6000' => 'Cap. 6000' );
+$cap_labels    = array();
+$cap_datos     = array();
+foreach ( $ata_capitulos['datos'] as $cap_key => $cap_vals ) {
+    $cap_labels[] = isset( $cap_label_map[ $cap_key ] ) ? $cap_label_map[ $cap_key ] : $cap_key;
+    $cap_datos[]  = $cap_vals;
+}
 
-        <?php $ata_presupuesto = sesna_obtener_datos_presupuesto_ata(); ?>
-        var aniosPresupuesto  = <?php echo wp_json_encode( $ata_presupuesto['anios'] ); ?>;
-        var montosPresupuesto = <?php echo wp_json_encode( $ata_presupuesto['montos'] ); ?>;
+$ata_ejes = sesna_obtener_datos_ejes_ata();
 
-        // ── Gráfica 1: Evolución presupuestal ──
-        new Chart(document.getElementById('chartMontos'), {
-            type: 'bar',
-            data: {
-                labels: aniosPresupuesto,
-                datasets: [{
-                    label: 'Millones de pesos',
-                    data: montosPresupuesto,
-                    backgroundColor: burgundi,
-                    borderRadius: 6,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(ctx) {
-                                return ' $' + ctx.parsed.y.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' M';
-                            }
-                        }
-                    },
-                    datalabels: {
-                        display: true,
-                        anchor: 'end',
-                        align: 'top',
-                        offset: 4,
-                        color: '#611232',
-                        font: { size: 11, weight: 'bold' },
-                        formatter: function(v) {
-                            return '$' + v.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(v) { return '$' + v.toLocaleString('es-MX'); }
-                        }
-                    }
-                },
-                layout: {
-                    padding: { top: 24 }
-                }
-            }
-        });
-
-        // ── Gráfica 2: Instituciones ──
-        <?php
-        $inst_totales_anios = array_keys($ata_totales);
-        $inst_totales_vals  = array();
-        foreach ( $inst_totales_anios as $anio_total ) {
-            $inst_totales_vals[] = intval( $ata_totales[ $anio_total ] );
-        }
-        ?>
-        var aniosInstituciones   = <?php echo wp_json_encode( $inst_totales_anios ); ?>;
-        var totalesInstituciones = <?php echo wp_json_encode( $inst_totales_vals ); ?>;
-
-        new Chart(document.getElementById('chartInstituciones'), {
-            type: 'bar',
-            data: {
-                labels: aniosInstituciones,
-                datasets: [{
-                    label: 'Instituciones',
-                    data: totalesInstituciones,
-                    backgroundColor: burgundi,
-                    borderRadius: 6,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(ctx) {
-                                return ' ' + ctx.parsed.y + ' instituciones';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: { beginAtZero: true, ticks: { stepSize: 5 } }
-                }
-            }
-        });
-
-        // Toggle instituciones
-        document.getElementById('btnVerInstituciones').addEventListener('click', function() {
-            var lista = document.getElementById('listaInstituciones');
-            var iconoWrap = document.getElementById('iconVerInstituciones');
-            var chevron = iconoWrap ? iconoWrap.querySelector('.fin-acc-chevron') : null;
-            if (lista.classList.contains('muestra--ninguno')) {
-                lista.classList.remove('muestra--ninguno');
-                if (chevron) chevron.classList.add('is-open');
-            } else {
-                lista.classList.add('muestra--ninguno');
-                if (chevron) chevron.classList.remove('is-open');
-            }
-        });
-
-        // Animación de entrada — todas las secciones y cards
-        document.addEventListener('DOMContentLoaded', function() {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('pna-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.pna-chart-card, .pna-reveal').forEach(function(el) {
-                observer.observe(el);
-            });
-        });
-
-        // Descargar todo por columna — un único archivo .zip generado en el servidor
-        document.querySelectorAll('.btn-descargar-todo').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var files = JSON.parse(this.dataset.files || '[]');
-                if (!files.length) return;
-
-                var zipName = this.dataset.zipName || 'documentos';
-                var originalHtml = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<?= sesna_render_snd_svg_icon("snd-recently-viewed", "icono--16") ?> Generando ZIP…';
-
-                var formData = new FormData();
-                formData.append('action', 'sesna_descargar_zip');
-                formData.append('zip_name', zipName);
-                files.forEach(function(url) { formData.append('files[]', url); });
-
-                fetch('<?php echo esc_url( admin_url('admin-ajax.php') ); ?>', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function(res) {
-                    if (!res.ok) throw new Error('No se pudo generar el ZIP');
-                    return res.blob();
-                })
-                .then(function(blob) {
-                    var link = document.createElement('a');
-                    var blobUrl = URL.createObjectURL(blob);
-                    link.href = blobUrl;
-                    link.download = zipName + '.zip';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(blobUrl);
-                })
-                .catch(function() {
-                    alert('No se pudo generar el archivo ZIP. Intenta de nuevo.');
-                })
-                .finally(function() {
-                    btn.disabled = false;
-                    btn.innerHTML = originalHtml;
-                });
-            });
-        });
-
-        // Selector de año en instituciones
-        document.querySelectorAll('.inst-anio-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var anio = this.dataset.anio;
-                // Actualizar botones
-                document.querySelectorAll('.inst-anio-btn').forEach(function(b) {
-                    b.classList.remove('active');
-                    b.style.backgroundColor = '#F9F0F3';
-                    b.style.color = '#611232';
-                    b.style.borderColor = '#e8d0d8';
-                });
-                this.classList.add('active');
-                this.style.backgroundColor = '#611232';
-                this.style.color = '#fff';
-                this.style.borderColor = '#611232';
-                // Mostrar panel del año seleccionado
-                document.querySelectorAll('.inst-panel').forEach(function(p) {
-                    p.classList.add('muestra--ninguno');
-                });
-                document.querySelector('.inst-panel[data-anio="' + anio + '"]').classList.remove('muestra--ninguno');
-            });
-        });
-
-        // ── Gráfica 3: Capítulos (barras horizontales apiladas) ──
-        var capDescripciones = {
-            'Cap. 1000': 'Servicios Personales. Comprende las remuneraciones al personal de las dependencias, así como otras prestaciones laborales.',
-            'Cap. 2000': 'Materiales y Suministros. Incluye materiales de administración, alimentos, combustibles y otros insumos necesarios para la operación.',
-            'Cap. 3000': 'Servicios Generales. Comprende servicios básicos, arrendamiento, servicios profesionales, comunicación social y otros servicios contratados.',
-            'Cap. 4000': 'Transferencias, Asignaciones, Subsidios y Otras Ayudas. Recursos transferidos a otras entidades, subsidios y ayudas sociales.',
-            'Cap. 5000': 'Bienes Muebles, Inmuebles e Intangibles. Adquisición de mobiliario, equipo, vehículos y activos intangibles.',
-            'Cap. 6000': 'Inversión Pública. Recursos destinados a obra pública y proyectos productivos.',
-        };
-        var capColores = ['#611232','#9B2D50','#C4536E','#D4859A','#E8B4BF','#F5D9DE'];
-        <?php
-        $ata_capitulos    = sesna_obtener_datos_capitulos_ata();
-        $cap_label_map    = array( '1000' => 'Cap. 1000', '2000' => 'Cap. 2000', '3000' => 'Cap. 3000', '4000' => 'Cap. 4000', '5000' => 'Cap. 5000', '6000' => 'Cap. 6000' );
-        $cap_labels       = array();
-        $cap_datos        = array();
-        foreach ( $ata_capitulos['datos'] as $cap_key => $cap_vals ) {
-            $cap_labels[] = isset( $cap_label_map[ $cap_key ] ) ? $cap_label_map[ $cap_key ] : $cap_key;
-            $cap_datos[]  = $cap_vals;
-        }
-        ?>
-        var aniosCapitulos = <?php echo wp_json_encode( $ata_capitulos['anios'] ); ?>;
-        var capLabels  = <?php echo wp_json_encode( $cap_labels ); ?>;
-        var capDatos   = <?php echo wp_json_encode( $cap_datos ); ?>;
-
-        var capDatasets = capLabels.map(function(label, i) {
-            return {
-                label: label,
-                data: capDatos[i],
-                backgroundColor: capColores[i],
-                borderRadius: 3,
-            };
-        });
-
-        new Chart(document.getElementById('chartCapitulos'), {
-            type: 'bar',
-            data: { labels: aniosCapitulos, datasets: capDatasets },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { font: { size: 11 }, boxWidth: 14, padding: 8 }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(ctx) {
-                                return ' ' + ctx.dataset.label + ': ' + ctx.parsed.x.toFixed(2) + '%';
-                            },
-                            afterBody: function(items) {
-                                var desc = capDescripciones[items[0].dataset.label] || '';
-                                return desc ? ['\n' + desc] : [];
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        stacked: true,
-                        ticks: { callback: function(v) { return v + '%'; } },
-                        max: 100,
-                    },
-                    y: { stacked: true }
-                },
-                onHover: function(evt, elements) {
-                    if (elements.length) {
-                        var label = capLabels[elements[0].datasetIndex];
-                        var desc  = capDescripciones[label] || '';
-                        var box   = document.getElementById('capTooltip');
-                        document.getElementById('capTooltipTitulo').textContent = label;
-                        document.getElementById('capTooltipDesc').textContent   = desc;
-                        box.classList.remove('muestra--ninguno');
-                    }
-                }
-            }
-        });
-
-        // ── Gráfica 4: Monto por Eje-Objetivo (líneas) ──
-        <?php $ata_ejes = sesna_obtener_datos_ejes_ata(); ?>
-        var aniosEje = <?php echo wp_json_encode( $ata_ejes['anios'] ); ?>;
-        var ejeColores = { 'Eje 1': '#6AC72C', 'Eje 2': '#3A90C5', 'Eje 3': '#72588F', 'Eje 4': '#E14586' };
-        var ejeDatos   = <?php echo wp_json_encode( $ata_ejes['datos'] ); ?>;
-
-        var ejeDatasets = Object.keys(ejeDatos).map(function(eje) {
-            return {
-                label: eje,
-                data: ejeDatos[eje],
-                borderColor: ejeColores[eje],
-                backgroundColor: ejeColores[eje],
-                tension: 0,
-                pointRadius: 5,
-                pointHoverRadius: 7,
-                fill: false,
-            };
-        });
-
-        var chartEjesInstance = new Chart(document.getElementById('chartEjes'), {
-            type: 'line',
-            data: { labels: aniosEje, datasets: ejeDatasets },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(ctx) {
-                                return ' ' + ctx.dataset.label + ': $' + ctx.parsed.y.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' M';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(v) { return '$' + v.toLocaleString('es-MX'); }
-                        }
-                    }
-                }
-            }
-        });
-
-        // Chips de activar/desactivar por eje (reemplaza la leyenda del canvas,
-        // poco descubrible como elemento clickeable).
-        var ejesToggles = document.getElementById('ejesToggles');
-        Object.keys(ejeDatos).forEach(function(eje, i) {
-            var color = ejeColores[eje];
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'eje-toggle-btn b1sb active';
-            btn.setAttribute('aria-pressed', 'true');
-            btn.dataset.ejeIndex = i;
-            btn.style.cssText = 'display:inline-flex;align-items:center;gap:6px;font-size:13px;border-radius:20px;padding:6px 14px;border:1.5px solid ' + color + ';background-color:' + color + ';color:#fff;cursor:pointer;transition:background-color .15s ease,color .15s ease;';
-            btn.innerHTML = '<span style="width:10px;height:10px;border-radius:50%;background:currentColor;display:inline-block;"></span>' + eje;
-
-            btn.addEventListener('click', function() {
-                var meta = chartEjesInstance.getDatasetMeta(i);
-                meta.hidden = !meta.hidden;
-                chartEjesInstance.update();
-
-                var visible = !meta.hidden;
-                btn.classList.toggle('active', visible);
-                btn.setAttribute('aria-pressed', visible ? 'true' : 'false');
-                btn.style.backgroundColor = visible ? color : '#fff';
-                btn.style.color = visible ? '#fff' : color;
-            });
-
-            ejesToggles.appendChild(btn);
-        });
-
-    })();
-    </script>
+wp_localize_script( 'sesna-presupuestacion', 'sesnaPresupuestacion', array(
+    'aniosPresupuesto'     => $ata_presupuesto['anios'],
+    'montosPresupuesto'    => $ata_presupuesto['montos'],
+    'aniosInstituciones'   => $inst_totales_anios,
+    'totalesInstituciones' => $inst_totales_vals,
+    'aniosCapitulos'       => $ata_capitulos['anios'],
+    'capLabels'            => $cap_labels,
+    'capDatos'             => $cap_datos,
+    'aniosEje'             => $ata_ejes['anios'],
+    'ejeDatos'             => $ata_ejes['datos'],
+    'ajaxUrl'              => esc_url( admin_url( 'admin-ajax.php' ) ),
+    'iconoZip'             => sesna_render_snd_svg_icon( 'snd-recently-viewed', 'icono--16' ),
+) );
+?>
 
     <!-- BLOQUE 4: Consulta por entidad federativa -->
     <section class="pb-5">

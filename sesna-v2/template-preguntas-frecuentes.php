@@ -42,6 +42,8 @@ get_header();
           $archivos = get_posts([
             'post_type'=>'faqs',
             'posts_per_page' => -1,
+            'no_found_rows' => true,
+            'update_post_term_cache' => false,
           ]);
           ?>
 

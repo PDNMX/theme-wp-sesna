@@ -26,27 +26,14 @@ foreach ( $sesna_indicadores_detalle as $item ) {
 <div class="page-pna page-pna-seguimiento page-indicadores-nacionales front-page-bg">
 
     <!-- ── Breadcrumb (SND v1.1.0) ─────────────────────────────── -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>" class="ruta__a">Acciones y Programas</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ); ?>" class="ruta__a">Política Nacional Anticorrupción</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion/') ); ?>" class="ruta__a">Seguimiento y evaluación</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Indicadores Nacionales</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Política Nacional Anticorrupción', 'url' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/') ),
+            array( 'label' => 'Seguimiento y evaluación', 'url' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/seguimiento-evaluacion/') ),
+            array( 'label' => 'Indicadores Nacionales' ),
+        ),
+    ) ); ?>
 
     <!-- ============================================================
          BLOQUE 1: Hero (SND v1.1.0)
@@ -95,12 +82,12 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                             <!-- Columna Izquierda: Explicación -->
                             <div class="columna__12 columna__7--xl">
                                 <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
-                                    <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
+                                    <div class="sesna-card__icon flex-none" aria-hidden="true">
+                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32') ?>
                                     </div>
                                     <div class="muestra--flex flex-direction-column flex-grow">
-                                        <h2 class="sh1b tx-consulta-card__title color--neutro800 mb--8">¿Qué son los Indicadores Nacionales?</h2>
-                                        <p class="b1r tx-consulta-card__desc texto--justify mb--0">
+                                        <h2 class="sh1b sesna-card__title color--neutro800 mb--8">¿Qué son los Indicadores Nacionales?</h2>
+                                        <p class="b1r sesna-card__text texto--justify mb--0">
                                             Los Indicadores Nacionales permiten medir el avance sistémico en el combate a la corrupción y valorar el grado de consolidación del Sistema Nacional Anticorrupción. Cada indicador se encuentra asociado a uno de los Objetivos Específicos de la PNA.
                                         </p>
                                     </div>
@@ -286,12 +273,12 @@ foreach ( $sesna_indicadores_detalle as $item ) {
                             <!-- Columna Izquierda: Título y descripción -->
                             <div class="columna__12 columna__4--xl">
                                 <div class="muestra--flex align-items-start gap--16 in-card-intro-flex">
-                                    <div class="tx-consulta-card__icon-wrap flex-none" aria-hidden="true">
-                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32 color--pguinda600') ?>
+                                    <div class="sesna-card__icon flex-none" aria-hidden="true">
+                                        <?= sesna_render_snd_svg_icon('snd-document', 'icono--32') ?>
                                     </div>
                                     <div class="muestra--flex flex-direction-column flex-grow">
-                                        <h2 class="sh1b tx-consulta-card__title color--neutro800 mb--8">Consulta y descarga</h2>
-                                        <p class="b1r tx-consulta-card__desc texto--justify mb--0">
+                                        <h2 class="sh1b sesna-card__title color--neutro800 mb--8">Consulta y descarga</h2>
+                                        <p class="b1r sesna-card__text texto--justify mb--0">
                                             Accede al informe de avances, a las fichas de cálculo y a otros documentos relevantes sobre los Indicadores Nacionales.
                                         </p>
                                     </div>

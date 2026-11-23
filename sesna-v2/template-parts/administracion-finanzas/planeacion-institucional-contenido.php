@@ -115,24 +115,12 @@ $pi_grupos = array(
 
 </div>
 
-<!-- ── Drawer Móvil (Bottom Sheet): Selección de Sección SND v1.1.0 ────── -->
-<div class="snd-drawer-overlay page-planeacion-institucional is-hidden" id="pnaDrawerOverlay" aria-hidden="true">
-    <div class="snd-drawer snd-drawer--bottom" id="pnaDrawer" role="dialog" aria-modal="true" aria-labelledby="pnaDrawerTitle">
-        <!-- Drag Handle -->
-        <div class="snd-drawer__handle-wrap" id="pnaDrawerHandle">
-            <span class="snd-drawer__handle" aria-hidden="true"></span>
-        </div>
-
-        <!-- Header con título "Seleccionar sección" y un IconButton de cierre -->
-        <div class="snd-drawer__header">
-            <h2 class="sh0b color--neutro800 mb--0" id="pnaDrawerTitle">Seleccionar sección</h2>
-            <button type="button" class="boton__fantasma snd-drawer__close-btn" id="pnaDrawerCloseBtn" aria-label="Cerrar selección de sección">
-                <?= sesna_render_snd_svg_icon('snd-close', 'icono--20') ?>
-            </button>
-        </div>
-
-        <!-- Body con ListItems seleccionables -->
-        <div class="snd-drawer__body" id="pnaDrawerBody">
+<?php get_template_part( 'template-parts/ui/mobile-drawer', null, array(
+    'prefix'        => 'pna',
+    'overlay_class' => 'page-planeacion-institucional',
+    'title'         => 'Seleccionar sección',
+    'close_label'   => 'Cerrar selección de sección',
+    'body'          => function () use ( $pi_grupos ) { ?>
             <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Planeación Institucional">
                 <?php foreach ( $pi_grupos as $i => $grupo ) :
                     $is_active = ( 0 === $i );
@@ -149,9 +137,8 @@ $pi_grupos = array(
                     </button>
                 <?php endforeach; ?>
             </div>
-        </div>
-    </div>
-</div>
+    <?php },
+) ); ?>
 
 <script>
 (function () {

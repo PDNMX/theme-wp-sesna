@@ -1,0 +1,66 @@
+/*
+ * Página: contrataciones-publicas
+ * Contrataciones Públicas (page-contrataciones-publicas.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ============================================================
+   CONTRATACIONES PÚBLICAS (page-contrataciones-publicas.php)
+   Scope: .page-contrataciones — aislado del resto del tema
+   ============================================================ */
+
+/* ── Hero card ilustración ── */
+
+.page-contrataciones .cp-hero-card {
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.page-contrataciones .cp-hero-card__img {
+    background-color: #f5ede6;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 36px 24px;
+    position: relative;
+}
+
+.page-contrataciones .cp-hero-card__icon-main {
+    font-size: 50px;
+    color: var(--color-burgundi);
+    opacity: 0.85;
+}
+
+.page-contrataciones .cp-hero-card__icon-sub {
+    font-size: 36px;
+    color: var(--color-dorado);
+    opacity: 0.7;
+    margin-top: 20px;
+}
+
+.page-contrataciones .cp-hero-card__body {
+    padding: 20px 24px 22px;
+    background: linear-gradient(120deg, var(--color-burgundi) 70%, var(--color-dorado) 100%);
+}
+
+.page-contrataciones .cp-hero-card__title {
+    font-family: var(--font-patria);
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.page-contrataciones .cp-hero-card__subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.4;
+}

@@ -5,7 +5,9 @@ $slider_args = array(
     'posts_per_page' => -1,
     'post_status'    => 'publish',
     'orderby'        => 'date',
-    'order'          => 'DESC'
+    'order'          => 'DESC',
+    'no_found_rows'  => true,
+    'update_post_term_cache' => false,
 );
 $slider_query = new WP_Query( $slider_args );
 

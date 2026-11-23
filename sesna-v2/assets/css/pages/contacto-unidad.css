@@ -1,0 +1,199 @@
+/*
+ * Página: contacto-unidad
+ * Contacto y Unidad de Transparencia.
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ------------------------------------------------------------
+   Unidad de Transparencia — SND v1.1.0 (Cards *: 12022:57247 / 37597:51336)
+   ------------------------------------------------------------ */
+
+.tx-unidad-card {
+    background-color: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    box-shadow: var(--sesna-card-shadow);
+    overflow: hidden;
+}
+
+.tx-unidad-card__body {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tx-unidad-divider {
+    border: 0;
+    border-top: 1px solid var(--neutro400);
+    margin: 0 0 24px 0;
+}
+
+.tx-unidad-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tx-unidad-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tx-unidad-info-item--top {
+    align-items: flex-start;
+}
+
+.tx-unidad-icon-circle {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: var(--pguinda100);
+    color: var(--pguinda600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tx-unidad-icon-circle--white {
+    background-color: var(--neutro100);
+    border: 1px solid var(--neutro400);
+}
+
+.tx-unidad-link {
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+}
+
+.tx-unidad-link:hover,
+.tx-unidad-link:focus-visible {
+    color: var(--pguinda600);
+    text-decoration: underline;
+}
+
+.tx-unidad-card__map-col {
+    padding: 0 16px 24px 16px;
+    display: flex;
+    align-items: stretch;
+}
+
+.tx-unidad-map-container {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 12px;
+    border: 1px solid var(--neutro400);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--neutro200);
+}
+
+.tx-unidad-map-iframe {
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tx-unidad-card__footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 24px 16px;
+    background-color: var(--pguinda100);
+    border-top: 1px solid var(--neutro400);
+    overflow: hidden;
+}
+
+.tx-unidad-card__footer-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.tx-unidad-footer-bg {
+    position: absolute;
+    right: -20%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: var(--principal);
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+.tx-unidad-footer-bg-light {
+    position: absolute;
+    right: -12%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: var(--pguinda600);
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+.tx-unidad-footer-bg-lighter {
+    position: absolute;
+    right: -4%;
+    top: 0;
+    height: 100%;
+    width: 40%;
+    background-color: var(--pguinda300);
+    transform: skewX(-45deg);
+    z-index: 0;
+}
+
+@media (min-width: 640px) {
+    .tx-unidad-card__body {
+        padding: 32px;
+    }
+
+    .tx-unidad-card__map-col {
+        padding: 0 32px 32px 32px;
+    }
+
+    .tx-unidad-card__footer {
+        padding: 24px 32px;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .tx-unidad-footer-bg, 
+    .tx-unidad-footer-bg-light, 
+    .tx-unidad-footer-bg-lighter {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tx-unidad-card__body {
+        padding: 40px;
+    }
+
+    .tx-unidad-card__map-col {
+        padding: 40px 40px 40px 0;
+    }
+
+    .tx-unidad-map-container {
+        min-height: 450px;
+    }
+
+    .tx-unidad-card__footer {
+        padding: 24px 40px;
+    }
+
+    .tx-unidad-card__footer-content {
+        padding-right: 25%;
+    }
+}

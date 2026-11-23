@@ -28,21 +28,12 @@ $normatividad_externa = [
 <div class="page-transparencia-normatividad front-page-bg pb--40">
 
     <!-- Breadcrumb -->
-    <nav class="ruta__cont" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ul class="ruta__lista">
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/') ) ?>" class="ruta__a"><?= sesna_render_snd_svg_icon('snd-home', 'icono--20') ?> Inicio</a>
-                </li>
-                <li class="ruta__li">
-                    <a href="<?= esc_url( home_url('/transparencia/') ) ?>" class="ruta__a">Transparencia</a>
-                </li>
-                <li class="ruta__li">
-                    <span class="ruta__a" aria-current="page">Normativa</span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Transparencia', 'url' => home_url('/transparencia/') ),
+            array( 'label' => 'Normativa' ),
+        ),
+    ) ); ?>
 
     <!-- Hero -->
     <section class="sesna-page-hero" aria-label="Encabezado de Normativa">

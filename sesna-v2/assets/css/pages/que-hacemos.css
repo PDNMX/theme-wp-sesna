@@ -1,0 +1,213 @@
+/*
+ * Página: que-hacemos
+ * ¿Qué hacemos? (page-que-hacemos.php).
+ *
+ * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
+ * El orden relativo original de las reglas se conserva dentro de cada archivo.
+ */
+
+/* ============================================================
+   ESTILOS PÁGINA: ¿QUÉ HACEMOS?
+   ============================================================ */
+
+.qh-hero {
+    background: linear-gradient(135deg, var(--color-guinda) 0%, #3a0a1e 100%);
+    color: var(--color-blanco);
+    padding: 6rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.qh-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+    background-size: 30px 30px;
+    transform: rotate(15deg);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.qh-hero-tag {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-dorado-claro);
+    margin-bottom: 6px;
+    display: inline-block;
+    border-bottom: 2px solid var(--color-dorado);
+    padding-bottom: 6px;
+}
+
+/* Iconos flotantes fondo */
+
+.qh-floating-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 26px;
+    animation: qhFloat 6s ease-in-out infinite;
+}
+
+@keyframes qhFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.qh-fi-1 { top: 20%; right: 40%; animation-delay: 0s; }
+
+.qh-fi-2 { top: 60%; right: 45%; animation-delay: 1s; }
+
+.qh-fi-3 { top: 15%; right: 15%; animation-delay: 2s; }
+
+.qh-fi-4 { top: 50%; right: 5%; animation-delay: 3s; font-size: 36px; }
+
+.qh-fi-5 { top: 80%; right: 25%; animation-delay: 4s; }
+
+/* Sección Video */
+
+.qh-video-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.qh-video-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    background-color: var(--color-blanco);
+    border: 1px solid #eee;
+}
+
+/* Misión & Visión */
+
+.qh-mv-section {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/* Labor */
+
+.qh-labor-section {
+    padding-bottom: 3rem;
+}
+
+/* Social */
+
+.qh-social-section {
+    padding-bottom: 3rem;
+}
+
+.qh-social-card {
+    background: var(--sesna-card-bg);
+    border: var(--sesna-card-border);
+    border-radius: var(--sesna-card-radius);
+    overflow: hidden;
+    box-shadow: var(--sesna-card-shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qh-social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sesna-card-shadow-hover);
+}
+
+.qh-social-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.qh-social-header i {
+    font-size: 36px;
+    color: rgba(255,255,255,0.2);
+}
+
+/* Íconos de marca propios (img/icons-base) — snd no trae logos de marca.
+   filter los fuerza a blanco para que se vean igual que los íconos de fuente
+   que reemplazan, sea cual sea el color nativo del SVG. */
+
+.qh-social-header img {
+    width: 36px;
+    height: 36px;
+    opacity: 0.2;
+    filter: brightness(0) invert(1);
+}
+
+.qh-sh-x { background-color: #0f1419; }
+
+.qh-sh-yt { background-color: #ff0000; }
+
+.qh-sh-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+.qh-sh-in { background-color: #0a66c2; }
+
+.qh-social-body {
+    padding: 2.5rem 1.5rem 1.5rem;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.qh-social-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-blanco);
+    border: 3px solid var(--color-blanco);
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.qh-social-avatar img {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+}
+
+.qh-social-account {
+    font-weight: 700;
+    font-size: 14px;
+    color: #111;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.qh-social-account i.bi-patch-check-fill {
+    color: #1d9bf0;
+    font-size: 14px;
+}
+
+.qh-social-handle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.qh-social-handle--sm {
+    font-size: 11px;
+}
+
+.qh-social-card a,
+.qh-social-card a:hover,
+.qh-social-card a:focus {
+    text-decoration: none !important;
+}

@@ -411,9 +411,9 @@ Para continuar la implementación en cualquier máquina o sesión de IA, sigue e
   - [x] 2.3 Migrar los 13 `<hr>` personalizados a `<hr class="divisor">` en los 9 archivos listados en la sección 3.3.
   - [x] 2.4 Migrar los badges de estatus/categoría a `.insignia-borde` / `.insignia-solido` en los archivos listados en la sección 3.4.
   - [x] 2.5 Migrar los chips de filtrado de `page-riesgos-inteligencia.php` y `section-entradas.php` a `.pildora__grupo` / `.pildora` según la sección 3.5.
-- [ ] **Etapa 3: Refactorización Arquitectónica, Optimización y Escalabilidad**
-  - [ ] 3.1 Modularizar `sesna-v2/functions.php` en `sesna-v2/inc/` y aislar la carga de `inc/admin/*` bajo `is_admin()` (sección 6.1).
-  - [ ] 3.2 Segmentar `sesna-v2/assets/css/main.css` en estilos base y hojas por página (`assets/css/pages/*`) encoladas condicionalmente (sección 6.2).
-  - [ ] 3.3 Extraer los `<script>` inline de plantillas PHP a archivos `.js` externos con `defer`, mover catálogos estáticos a `inc/data/` y unificar carpetas `script/` → `assets/js/` (sección 6.3).
-  - [ ] 3.4 Extraer componentes UI repetidos a parciales parametrizados en `sesna-v2/template-parts/ui/` (sección 6.4).
-  - [ ] 3.5 Optimizar consultas `WP_Query` secundarias con `'no_found_rows' => true` y banderas de caché (sección 6.5).
+- [x] **Etapa 3: Refactorización Arquitectónica, Optimización y Escalabilidad**
+  - [x] 3.1 `sesna-v2/functions.php` quedó como orquestador (`require_once` de módulos) y la lógica vive en `sesna-v2/inc/` (`setup`, `enqueue`, `nav-walker`, `helpers-*`, `blog-familias`, `cpt-*`, `bootstrap-pages`, `ajax-handlers`, `data-ata-sheets`). El orden de carga conserva el orden de registro de hooks del archivo monolítico (verificado comparando `$wp_filter`). No se aisló `inc/admin/` bajo `is_admin()`: los `save_post_*` deben ejecutarse también fuera del admin (REST, WP-CLI, importadores).
+  - [x] 3.2 `assets/css/main.css` se segmentó en `layout.css`, `components-snd.css` y 18 hojas por plantilla en `assets/css/pages/`, encoladas en `inc/enqueue.php` según la plantilla activa (`template_include`) con `filemtime()`. Las reglas se asignaron por análisis de uso de clases y se verificó la cascada (sin cambios de orden con la misma especificidad).
+  - [x] 3.3 Se extrajeron los `<script>` inline a `sesna-v2/script/` (encolados con `defer` en `inc/enqueue.php`) y los catálogos de Marco Normativo a `sesna-v2/inc/data/marco-normativo.php`.
+  - [x] 3.4 Parciales `template-parts/ui/breadcrumb.php` y `template-parts/ui/mobile-drawer.php` (24 migas de pan y 5 drawers móviles).
+  - [x] 3.5 Consultas `WP_Query`/`get_posts` auditadas: `no_found_rows` y `update_post_term_cache => false` donde no hay paginación SQL ni taxonomías.
