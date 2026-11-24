@@ -404,6 +404,7 @@ function sesna_render_recurso_card($post) {
     $badge = (!empty($terms) && !is_wp_error($terms)) ? $terms[0]->name : 'Documento técnico';
     $subseccion = get_post_meta($post->ID, '_sesna_recurso_subseccion', true);
     $tipo = get_post_meta($post->ID, '_sesna_recurso_tipo', true) ?: 'documento';
+    $video_url = get_post_meta($post->ID, '_sesna_recurso_video_url', true);
     ?>
     <div class="cp-doc-item" data-subseccion="<?php echo esc_attr($subseccion); ?>">
 
@@ -449,6 +450,11 @@ function sesna_render_recurso_card($post) {
             <?php else : ?>
             <a href="<?php echo esc_url($archivo); ?>" class="boton__primario" target="_blank" rel="noopener" download>
                 <?php echo sesna_render_snd_svg_icon('snd-download', 'icono--16'); ?> Descargar <?php echo esc_html($formato); ?>
+            </a>
+            <?php endif; ?>
+            <?php if (!empty($video_url)) : ?>
+            <a href="<?php echo esc_url($video_url); ?>" class="boton__secundario" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
+                <?php echo sesna_render_snd_svg_icon('snd-play', 'icono--16'); ?> Ver video
             </a>
             <?php endif; ?>
         </div>

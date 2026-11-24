@@ -111,7 +111,10 @@ get_header();
                             </div>
                             <!-- Lista de documentos -->
                             <div class="d-flex flex-column flex-grow-1">
-                                <?php foreach ( $col['docs'] as $doc ) : ?>
+                                <?php foreach ( $col['docs'] as $doc ) :
+                                    $ext = ! empty( $doc['file'] ) ? strtoupper( pathinfo( $doc['file'], PATHINFO_EXTENSION ) ) : '';
+                                    $icono_tipo = ( $ext === 'PDF' ) ? 'snd-document--pdf' : 'snd-document';
+                                    ?>
                                     <?php if ( ! empty( $doc['file'] ) ) : $doc_url = sesna_get_media_attachment_url( $doc['file'], $doc['path'] ); ?>
                                     <a href="#"
                                        data-modal-target="#pdfViewerModal"
@@ -119,7 +122,10 @@ get_header();
                                        data-pdf-title="<?php echo esc_attr( $col['titulo'] . ' — ' . $doc['label'] ); ?>"
                                        class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3 decoracion--ninguna pna-doc-item pna-anexo-link">
                                         <span class="b1r color--neutro800"><?php echo esc_html( $doc['label'] ); ?></span>
-                                        <?= sesna_render_snd_svg_icon('snd-download', 'icono--16 flex-shrink-0 color--pguinda600') ?>
+                                        <span class="d-flex align-items-center gap--4 flex-shrink-0">
+                                            <?= sesna_render_snd_svg_icon($icono_tipo, 'icono--16 color--pguinda600') ?>
+                                            <span class="sdr color--pguinda600 mb--0"><?php echo esc_html( $ext ); ?></span>
+                                        </span>
                                     </a>
                                     <?php else : ?>
                                     <span class="d-flex align-items-center justify-content-between gap-3 px-2 py-2 rounded-3">
@@ -179,7 +185,7 @@ get_header();
 
                 <!-- Gráfica 1: Evolución presupuestal -->
                 <div class="columna__12 columna__6--lg">
-                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important;">
                         <h3 class="sh1b color--neutro800 mb--4">Evolución presupuestal del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
                         <p class="b1r mb--16">(millones de pesos)</p>
                         <canvas id="chartMontos" height="220"></canvas>
@@ -193,7 +199,7 @@ get_header();
 
                 <!-- Gráfica 2: Instituciones participantes -->
                 <div class="columna__12 columna__6--lg">
-                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid #72588F !important;">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important;">
                         <h3 class="sh1b color--neutro800 mb--4">Instituciones participantes del Anexo Transversal en materia anticorrupción (2021–2026)</h3>
                         <p class="b1r mb--16">(número de instituciones)</p>
                         <canvas id="chartInstituciones" height="160"></canvas>
@@ -220,7 +226,7 @@ get_header();
                                     <?php foreach ( $anios_inst as $anio ) : ?>
                                     <button class="inst-anio-btn b1sb <?php echo $anio === $primer_anio ? 'active' : ''; ?>"
                                             data-anio="<?php echo esc_attr($anio); ?>"
-                                            style="font-size: 13px; border-radius: 6px; min-width: 64px; padding: 5px 12px; <?php echo $anio === $primer_anio ? 'background-color:var(--pguinda600);color:#fff;border:1px solid var(--pguinda600);' : 'background-color:var(--neutro100);color:var(--pguinda600);border:1px solid var(--neutro400);'; ?>">
+                                            style="font-size: 13px; border-radius: 6px; min-width: 64px; padding: 5px 12px; <?php echo $anio === $primer_anio ? 'background-color:#72588F;color:#fff;border:1px solid #72588F;' : 'background-color:var(--neutro100);color:#72588F;border:1px solid var(--neutro400);'; ?>">
                                         <?php echo esc_html($anio); ?>
                                     </button>
                                     <?php endforeach; ?>
@@ -254,7 +260,7 @@ get_header();
 
                 <!-- Gráfica 3: Alineación por Capítulo -->
                 <div class="columna__12 columna__6--lg">
-                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid #72588F !important;">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important;">
                         <h3 class="sh1b color--neutro800 mb--4">Alineación porcentual por Capítulo de Clasificación del Gasto (2021–2026)</h3>
                         <p class="b1r mb--16">(%)</p>
                         <canvas id="chartCapitulos" height="220"></canvas>
@@ -273,7 +279,7 @@ get_header();
 
                 <!-- Gráfica 4: Monto por Eje-Objetivo -->
                 <div class="columna__12 columna__6--lg">
-                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important; border-top: 3px solid var(--pguinda600) !important;">
+                    <div class="card border rounded-4 p-4 h-100 bg-white" style="border-color: var(--neutro400) !important;">
                         <h3 class="sh1b color--neutro800 mb--4">Monto de presupuesto asignado por Eje (2021–2025)</h3>
                         <p class="b1r mb--16">(millones de pesos)</p>
                         <div id="ejesToggles" class="d-flex flex-wrap justify-content-center gap-2 mb--16"></div>
@@ -362,10 +368,10 @@ wp_localize_script( 'sesna-presupuestacion', 'sesnaPresupuestacion', array(
                     <!-- Col 3: Botón -->
                     <div class="columna__12 columna__3--md d-flex justify-content-center justify-content-md-end">
                         <a href="https://www.sna.org.mx/sistemas-estatales-anticorrupcion/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener"
-                           class="boton__primario d-flex align-items-center justify-content-center gap-3"
-                           style="max-width: 280px; width: 100%; min-height: 72px; text-align: center;">
+                           class="boton__primario muestra--flex flex-row align-items-center justify-content-center gap--8 texto--centro"
+                           style="max-width: 280px; width: 100%; min-height: 72px;">
                             <?= sesna_render_snd_svg_icon('snd-launch', 'icono--24 flex-shrink-0') ?>
-                            <span class="b1sb">Consultar información por entidad federativa</span>
+                            <span class="b1sb mb--0">Consultar información por entidad federativa</span>
                         </a>
                     </div>
                 </div>

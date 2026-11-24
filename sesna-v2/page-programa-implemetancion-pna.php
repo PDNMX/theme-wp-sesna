@@ -144,14 +144,9 @@ if (empty($fichero_anios)) {
                                 <p class="b1r color--neutro600 mb--0">por el Comité Coordinador del Sistema Nacional Anticorrupción.</p>
                             </div>
                         </div>
-                        <a href="#" class="pna-doc-cover text-decoration-none d-flex mx-auto"
-                           data-modal-target="#pdfViewerModal"
-                           data-pdf-url="<?php echo esc_url(sesna_get_media_attachment_url('PI-PNA_actualizacion-indicadores_2024-1.pdf','2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf')); ?>"
-                           data-pdf-title="PI-PNA – Actualización 2024"
-                           title="Consultar PI-PNA (Actualización 2024)"
-                           style="cursor:pointer; max-width:260px;">
+                        <div class="pna-doc-cover d-flex mx-auto" style="max-width:260px;">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Programa de Implementación de la PNA">
-                        </a>
+                        </div>
                     </div>
 
                 </div>

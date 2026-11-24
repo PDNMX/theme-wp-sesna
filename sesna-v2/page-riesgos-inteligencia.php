@@ -24,7 +24,7 @@ get_header(); ?>
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1">
                     <h1 class="h1b patria color--pguinda600">Riesgos e <br>Inteligencia Anticorrupción</h1>
                     <p class="sh1r texto--justify">
-                        Se identifican y analizan riesgos de corrupción para generar herramientas y acciones de prevención en sectores prioritarios.
+                        Elaboramos propuestas de metodologías,herramnientas y estudios especializados en materia de análisis, gestión y mitigación de riesgos de corrupción.
                     </p>
                 </div>
                 <div class="columna__12 columna__4--md columna__6--lg muestra--ninguno muestra--flex--md align-items-center justify-content-flex-end posicion--relativa">
@@ -43,7 +43,7 @@ get_header(); ?>
 
         <!-- Texto descriptivo -->
         <p class="sh1r color--neutro600 mb--0">
-            Consulta análisis y documentos técnicos elaborados para la identificación y prevención de riesgos de corrupción.
+            Consulta los estudios, análisis y herramientas desarrolladas.
         </p>
 
         <div class="reticulaGrid__12 pt--24">
@@ -52,7 +52,7 @@ get_header(); ?>
                 <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/contrataciones.png' ); ?>" alt="" width="80" height="80" class="mb--24">
                     <h3 class="sh1b mb--16">Contrataciones<br>públicas</h3>
-                    <p class="b1r texto--justify">Análisis, estudios y propuestas metodológicas sobre riesgos en contrataciones públicas.</p>
+                    <p class="b1r texto--justify">Estudios y propuestas metodológicas orientadas a identificar riesgos de corrupción y fortalecer la integridad en los procesos de contratación pública.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -61,7 +61,7 @@ get_header(); ?>
                 <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/conflicto_de_interes.png' ); ?>" alt="" width="80" height="80" class="mb--24">
                     <h3 class="sh1b mb--16">Conflicto<br>de interés</h3>
-                    <p class="b1r texto--justify">Diagnósticos y documentos técnicos para la prevención y gestión de conflictos de interés.</p>
+                    <p class="b1r texto--justify">Documentos técnicos para la prevención, detección y atención de conflictos de interés.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -70,7 +70,7 @@ get_header(); ?>
                 <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/verificacion_patrimonial.png' ); ?>" alt="" width="80" height="80" class="mb--24">
                     <h3 class="sh1b mb--16">Verificación<br>patrimonial</h3>
-                    <p class="b1r texto--justify">Documentos y propuestas técnicas para fortalecer mecanismos de verificación patrimonial.</p>
+                    <p class="b1r texto--justify">Documentos técnicos y herramientas que facilitan el proceso de verificación patrimonial.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -79,7 +79,7 @@ get_header(); ?>
                 <a href="javascript:void(0)" data-target="#sec-deporte" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/deporte.png' ); ?>" alt="" width="80" height="80" class="mb--24">
                     <h3 class="sh1b mb--16">Deporte</h3>
-                    <p class="b1r texto--justify">Guías y herramientas para la prevención de riesgos de corrupción e integridad en el sector deporte.</p>
+                    <p class="b1r texto--justify">Herramientas y guías para fortalecer la integridad en el el sector deportivo.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
             </div>
@@ -135,8 +135,7 @@ get_header(); ?>
             <div class="fila">
                 <div class="columna__12 posicion--relativa z--1">
                     <h2 class="h2b patria color--pguinda600">Contrataciones públicas</h2>
-                    <p class="sh1r mb--16 texto--justify">El macroproceso de contrataciones públicas no es sencillo, ya que en él intervienen múltiples subprocesos y actividades específicas. En ese sentido, la implementación de actividades de mejora y control deben estar presentes en múltiples aristas del procedimiento, para asegurar un cambio integral, que permita fortalecerlos, con el fin de mejorar la calidad del gasto, promover la competencia y estimular la transparencia.</p>
-                    <p class="sh1r mb--0">Para contribuir con lo anterior se han elaborado los siguientes recursos:</p>
+                    <p class="sh1r mb--16 texto--justify">Las contrataciones públicas involucran distintas etapas, actividades y actores, por lo que es necesario contar con mecanismos para dar seguimiento e identificar posibles riesgos de corrupción. Para contribuir a estos objetivos, se han elaborado los siguientes análisis y propuestas metodológicas:</p>
                 </div>
             </div>
 
@@ -172,6 +171,15 @@ get_header(); ?>
         </div>
 
         <div id="sec-verificacion" class="dinamic-section" style="display: none;">
+            <!-- Texto descriptivo -->
+            <div class="fila">
+                <div class="columna__12 posicion--relativa z--1">
+                    <h2 class="h2b patria color--pguinda600">Verificación patrimonial</h2>
+                    <p class="sh1r mb--16 texto--justify">Es una actividad central para identificar posibles inconsistencias en las declaraciones patrimoniales de las personas servidoras públicas y prevenir riesgos de corrupción. Para llevar a cabo la verificación se necesita contar con información confiable y herramientas que permitan analizar las declaraciones.</p>
+                    <p class="sh1r mb--16 texto--justify">Con el propósito de apoyar a algunas de estas tareas, se han desarrollado los siguientes estudios, análisis y herramientas:</p>
+                </div>
+            </div>
+
             <!-- ── Recursos metodológicos ─────────────────────────────── -->
             <section class="py--24 pb--48">
 
@@ -201,21 +209,24 @@ get_header(); ?>
 
                 <div class="cp-docs-lista" id="vp-metodologicos-lista">
 
+                    <?php foreach ( $recursos_verificacion as $recurso ) :
+                        sesna_render_recurso_card( $recurso );
+                        if ( $recurso->ID === 12299 ) : ?>
                     <!-- Enlace externo (no es un documento): herramienta ALEA -->
                     <div class="cp-subsec-enlace" data-subseccion="ALEA, Muestreo Aleatorio Simple">
                         <div class="cp-subsec-enlace__icono">
                             <?= sesna_render_snd_svg_icon('snd-launch', 'icono--24') ?>
                         </div>
                         <div class="cp-subsec-enlace__texto">
-                            <span class="insignia-borde insignia-guinda mb--4">Enlace externo</span>
+                            <span class="insignia-borde insignia-guinda mb--4">Herramienta</span>
                             <p class="cp-subsec-enlace__titulo b1sb color--neutro800">ALEA, Muestreo Aleatorio Simple</p>
                         </div>
                         <a href="https://alea.sesna.gob.mx" class="boton__primario" target="_blank" title="El enlace abre en ventana nueva" rel="noopener">
                             <?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?> Visitar sitio
                         </a>
                     </div>
-
-                    <?php foreach ( $recursos_verificacion as $recurso ) : sesna_render_recurso_card( $recurso ); endforeach; ?>
+                        <?php endif;
+                    endforeach; ?>
                 </div>
 
             </section>
@@ -233,6 +244,14 @@ get_header(); ?>
         $recursos_conflicto = sesna_get_recursos_por_seccion('conflicto');
         ?>
         <div id="sec-conflicto" class="dinamic-section" style="display: none;">
+            <!-- Texto descriptivo -->
+            <div class="fila">
+                <div class="columna__12 posicion--relativa z--1">
+                    <h2 class="h2b patria color--pguinda600">Conflicto de interés</h2>
+                    <p class="sh1r mb--16 texto--justify">El conflicto de interés consiste en aquellas situaciones en las que el criterio de las personas servidoras públicas está influenciado por intereses particulares y, por lo tanto, hay una posibilidad de que su desempeño sea imparcial.</p>
+                </div>
+            </div>
+
             <?php if ( ! empty( $recursos_conflicto ) ) : ?>
             <section class="py--24 pb--48">
 

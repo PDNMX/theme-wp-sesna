@@ -14,7 +14,7 @@
     Chart.defaults.set('plugins.datalabels', { display: false });
 
     var anios = ['2021','2022','2023','2024','2025','2026'];
-    var burgundi = '#611232';
+    var moradoPrincipal = '#72588F'; // Morado institucional del eje Presupuestación
 
     var aniosPresupuesto  = datos.aniosPresupuesto;
     var montosPresupuesto = datos.montosPresupuesto;
@@ -27,7 +27,7 @@
             datasets: [{
                 label: 'Millones de pesos',
                 data: montosPresupuesto,
-                backgroundColor: burgundi,
+                backgroundColor: moradoPrincipal,
                 borderRadius: 6,
                 borderSkipped: false,
             }]
@@ -48,7 +48,7 @@
                     anchor: 'end',
                     align: 'top',
                     offset: 4,
-                    color: '#611232',
+                    color: '#72588F',
                     font: { size: 11, weight: 'bold' },
                     formatter: function(v) {
                         return '$' + v.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
@@ -80,7 +80,7 @@
             datasets: [{
                 label: 'Instituciones',
                 data: totalesInstituciones,
-                backgroundColor: burgundi,
+                backgroundColor: moradoPrincipal,
                 borderRadius: 6,
                 borderSkipped: false,
             }]
@@ -183,14 +183,14 @@
             // Actualizar botones
             document.querySelectorAll('.inst-anio-btn').forEach(function(b) {
                 b.classList.remove('active');
-                b.style.backgroundColor = '#F9F0F3';
-                b.style.color = '#611232';
-                b.style.borderColor = '#e8d0d8';
+                b.style.backgroundColor = '#F2EFF5';
+                b.style.color = '#72588F';
+                b.style.borderColor = '#D6CCDF';
             });
             this.classList.add('active');
-            this.style.backgroundColor = '#611232';
+            this.style.backgroundColor = '#72588F';
             this.style.color = '#fff';
-            this.style.borderColor = '#611232';
+            this.style.borderColor = '#72588F';
             // Mostrar panel del año seleccionado
             document.querySelectorAll('.inst-panel').forEach(function(p) {
                 p.classList.add('muestra--ninguno');
@@ -208,7 +208,7 @@
         'Cap. 5000': 'Bienes Muebles, Inmuebles e Intangibles. Adquisición de mobiliario, equipo, vehículos y activos intangibles.',
         'Cap. 6000': 'Inversión Pública. Recursos destinados a obra pública y proyectos productivos.',
     };
-    var capColores = ['#611232','#9B2D50','#C4536E','#D4859A','#E8B4BF','#F5D9DE'];
+    var capColores = ['#72588F','#9582AB','#B1A3C1','#CEC5D8','#E6E1EB','#F5F3F7'];
     var aniosCapitulos = datos.aniosCapitulos;
     var capLabels  = datos.capLabels;
     var capDatos   = datos.capDatos;
