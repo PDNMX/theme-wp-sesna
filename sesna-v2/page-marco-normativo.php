@@ -124,7 +124,7 @@ $normatividad_interna    = $sesna_marco_normativo['interna'];
 
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
-                                <a rel="noopener" href="<?= esc_attr($doc['url']) ?>" target="_blank" title="El enlace abre en ventana nueva" class="boton__fantasma">
+                                <a rel="noopener" href="<?= esc_attr($doc['url']) ?>" target="_blank" aria-label="<?= esc_attr('Consultar ' . $doc['titulo'] . ' (abre en ventana nueva)') ?>" class="boton__fantasma">
                                     <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                     Consultar
                                 </a>
@@ -141,11 +141,9 @@ $normatividad_interna    = $sesna_marco_normativo['interna'];
                     </div>
                 </div>
 
-                <!-- VER MÁS BTN (EXTERNA) -->
-                <div class="texto--centro mt--32" id="normatividad-externa-vermas-wrap">
-                    <button type="button" class="boton__fantasma" id="normatividad-externa-vermas-btn">
-                        Ver más documentos <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
-                    </button>
+                <!-- Indicador de carga progresiva por scroll (SND v1.0.0 Loading MD 48x48px) -->
+                <div id="normatividad-externa-vermas-wrap" class="sesna-inline-loader mt--16" role="status" aria-live="polite">
+                    <div class="spin sesna-snd-spin sesna-snd-spin--md">Cargando...</div>
                 </div>
 
             </div>
@@ -214,10 +212,9 @@ $normatividad_interna    = $sesna_marco_normativo['interna'];
 
                             <!-- Action Column — Botón Fantasma Horizontal (4.2 Botones) -->
                             <div class="tx-comite-card-action">
-                                <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['url']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>">
-                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?= esc_url($doc['url']) ?>" data-pdf-title="<?= esc_attr($doc['titulo']) ?>" aria-label="<?= esc_attr('Consultar ' . $doc['titulo']) ?>">
+                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                     Consultar
-                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                 </button>
                             </div>
 
@@ -232,11 +229,9 @@ $normatividad_interna    = $sesna_marco_normativo['interna'];
                     </div>
                 </div>
 
-                <!-- VER MÁS BTN (INTERNA) -->
-                <div class="texto--centro mt--32" id="normatividad-interna-vermas-wrap">
-                    <button type="button" class="boton__fantasma" id="normatividad-interna-vermas-btn">
-                        Ver más documentos <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--20') ?>
-                    </button>
+                <!-- Indicador de carga progresiva por scroll (SND v1.0.0 Loading MD 48x48px) -->
+                <div id="normatividad-interna-vermas-wrap" class="sesna-inline-loader mt--16" role="status" aria-live="polite">
+                    <div class="spin sesna-snd-spin sesna-snd-spin--md">Cargando...</div>
                 </div>
 
             </div>

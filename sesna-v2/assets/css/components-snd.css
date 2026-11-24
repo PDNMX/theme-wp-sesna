@@ -1572,8 +1572,9 @@ nav.navbar .container {
     }
 
     .tx-comite-card-date {
-        flex: 0 0 auto;
-        min-width: 120px;
+        flex: 0 0 140px;
+        width: 140px;
+        min-width: 140px;
         justify-content: center;
         padding-bottom: 0;
         padding-right: 24px;
