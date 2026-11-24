@@ -12,7 +12,7 @@
                         de los tres órdenes de gobierno para prevenir, detectar, fiscalizar y sancionar la corrupción en
                         México.</p>
                     <div class="texto--izquierda--md texto--derecha--lg mt--24">
-                        <a href="https://www.sna.org.mx/" target="_blank" title="El enlace abre en ventana nueva" rel="noopener noreferrer"
+                        <a href="https://www.sna.org.mx/" target="_blank" rel="noopener noreferrer"
                             class="boton__primario boton--grande boton--redondeado ">
                             Conoce el SNA
                         </a>

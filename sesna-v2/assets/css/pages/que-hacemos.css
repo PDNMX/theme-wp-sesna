@@ -127,9 +127,14 @@
     position: relative;
 }
 
-.qh-social-header i {
+.qh-social-header i,
+.qh-social-header svg {
+    width: 36px;
+    height: 36px;
     font-size: 36px;
-    color: rgba(255,255,255,0.2);
+    color: var(--neutro100, #ffffff);
+    fill: currentColor;
+    opacity: 0.9;
 }
 
 /* Íconos de marca propios (img/icons-base) — snd no trae logos de marca.
@@ -139,7 +144,7 @@
 .qh-social-header img {
     width: 36px;
     height: 36px;
-    opacity: 0.2;
+    opacity: 0.9;
     filter: brightness(0) invert(1);
 }
 

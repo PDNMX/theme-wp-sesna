@@ -7,10 +7,7 @@
     <div class="contenedor mb--48 pb--24">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria color--pguinda600">Noticias y actividades </h2>
-                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="boton__primario boton--redondeado">
-                    Ver todas las noticias clasificadas
-                </a>
+                <h2 class="h2b patria color--pguinda600 mb--0">Noticias y actividades</h2>
             </div>
         </div>
 
@@ -34,7 +31,7 @@
                         <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
 
                             <?php if ($noticia_cat) : ?>
-                                <span class="sna-entradas-card-category" title="<?php echo esc_attr($noticia_cat); ?>">
+                                <span class="sna-entradas-card-category">
                                     <?php echo esc_html($noticia_cat); ?>
                                 </span>
                             <?php endif; ?>
@@ -82,6 +79,14 @@
                     <p class="color--neutro600 sd">No hay noticias disponibles por el momento.</p>
                 </div>
             <?php endif; ?>
+        </div>
+
+        <div class="fila justify-content-center mt--32">
+            <div class="columna__12 texto--centro">
+                <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="boton__primario boton--redondeado">
+                    Ver todas las noticias clasificadas
+                </a>
+            </div>
         </div>
     </div>
 </section>

@@ -22,7 +22,7 @@ if (!$sna_entrada_cat && !empty($sna_entrada_cats)) {
     <a href="<?php the_permalink(); ?>" class="posicion--relativa ancho-minimo--0 alto--100 sna-noticias-card decoracion--ninguna color--neutro800 muestra--flex flex-direction-column">
 
         <?php if ($sna_entrada_cat) : ?>
-            <span class="sna-entradas-card-category" title="<?php echo esc_attr($sna_entrada_cat); ?>">
+            <span class="sna-entradas-card-category">
                 <?php echo esc_html($sna_entrada_cat); ?>
             </span>
         <?php endif; ?>
