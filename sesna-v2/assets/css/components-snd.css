@@ -470,11 +470,19 @@ nav.navbar .container {
     margin-bottom: 0;
 }
 
+.ruta__cont + .sesna-page-hero {
+    padding-top: 24px;
+}
+
 @media (max-width: 768px) {
     .sesna-page-hero {
         padding-top: 28px;
         padding-bottom: 20px;
         margin-bottom: 0;
+    }
+
+    .ruta__cont + .sesna-page-hero {
+        padding-top: 16px;
     }
 }
 
@@ -489,143 +497,27 @@ nav.navbar .container {
 }
 
 /* ------------------------------------------------------------
-   Breadcrumb SESNA — SND v1.1.0 (Variante Guinda)
+   Breadcrumb oficial SND v1.0.0 (.ruta__*, snd-guinda.css)
+   - Respiro superior e inferior respecto a .sesna-subheader
+   - Separación estándar de 8px entre el ícono snd-home y el texto "Inicio"
    ------------------------------------------------------------ */
 
-.cp-breadcrumb,
-.sesna-breadcrumb {
-    width: 100% !important;
-    background-color: transparent !important;
-    padding-top: 16px !important;
-    padding-bottom: 12px !important;
-    margin-bottom: 0 !important;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
-    font-size: 15px !important;
-    line-height: 1.4 !important;
+.ruta__cont {
+    padding-top: 16px;
+    padding-bottom: 4px;
 }
 
-.cp-breadcrumb .breadcrumb,
-.breadcrumb,
-.sesna-breadcrumb {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    list-style: none !important;
-    list-style-type: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    padding-left: 0 !important;
+@media (max-width: 768px) {
+    .ruta__cont {
+        padding-top: 12px;
+        padding-bottom: 4px;
+    }
 }
-
-.cp-breadcrumb .breadcrumb-item,
-.breadcrumb-item {
-    display: inline-flex !important;
-    align-items: center !important;
-    list-style: none !important;
-    list-style-type: none !important;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
-    font-size: 15px !important;
-    line-height: 1.4 !important;
-    color: var(--neutro800, #33383C) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.cp-breadcrumb ol,
-.cp-breadcrumb li,
-.cp-breadcrumb .breadcrumb-item::marker,
-.breadcrumb-item::marker,
-.breadcrumb::marker {
-    display: none !important;
-    content: '' !important;
-}
-
-.cp-breadcrumb .breadcrumb-item + .breadcrumb-item::before,
-.breadcrumb-item + .breadcrumb-item::before {
-    content: '›' !important;
-    display: inline-block !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    color: var(--neutro500, #7B828A) !important;
-    font-size: 18px !important;
-    font-weight: 400 !important;
-    line-height: 1 !important;
-    vertical-align: baseline !important;
-    float: none !important;
-}
-
-.cp-breadcrumb > span[aria-hidden="true"],
-.sesna-breadcrumb > span[aria-hidden="true"] {
-    display: inline-block !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    color: var(--neutro500, #7B828A) !important;
-    font-size: 18px !important;
-    line-height: 1 !important;
-}
-
-.cp-breadcrumb a,
-.cp-breadcrumb .breadcrumb-item a,
-.breadcrumb-item a,
-.sesna-breadcrumb a {
-    color: var(--pguinda600, #9B2247) !important;
-    text-decoration: none !important;
-    font-weight: 400 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    transition: color 0.15s ease, text-decoration 0.15s ease !important;
-}
-
-.cp-breadcrumb a:hover,
-.cp-breadcrumb .breadcrumb-item a:hover,
-.breadcrumb-item a:hover,
-.sesna-breadcrumb a:hover {
-    color: var(--pguinda900, #4A0C26) !important;
-    text-decoration: underline !important;
-}
-
-/* Ícono de Casa (Home) SND — soporte oficial para <i> y <svg> generado por snd.js con separación de 8px */
-
-.cp-breadcrumb .snd__icono,
-.cp-breadcrumb i.snd__icono,
-.cp-breadcrumb svg.snd__icono,
-.cp-breadcrumb .breadcrumb-item a .snd__icono,
-.cp-breadcrumb .breadcrumb-item a i.snd__icono,
-.cp-breadcrumb .breadcrumb-item a svg.snd__icono,
-.breadcrumb-item a .snd__icono,
-.breadcrumb-item a i.snd__icono,
-.breadcrumb-item a svg.snd__icono,
-.sesna-breadcrumb .snd__icono,
-.sesna-breadcrumb i.snd__icono,
-.sesna-breadcrumb svg.snd__icono {
-    margin-right: 8px !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    min-height: 16px !important;
-    display: inline-block !important;
-    vertical-align: -2px !important;
-    flex-shrink: 0 !important;
-    color: inherit !important;
-    fill: currentColor !important;
-}
-
-.cp-breadcrumb .breadcrumb-item.active,
-.breadcrumb-item.active,
-.cp-breadcrumb .current,
-.sesna-breadcrumb .current {
-    color: var(--neutro800, #161A1D) !important;
-    font-weight: 600 !important;
-    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif) !important;
-}
-
-/* Breadcrumb oficial SND v1.1.0 (.ruta__*, snd-guinda.css líneas 4781-4841):
-   el CDN no declara separación entre el ícono de Inicio y su texto — se complementa aquí. */
 
 .ruta__a svg,
 .ruta__a i {
-    margin-right: 6px;
+    margin-right: 8px;
+    flex-shrink: 0;
 }
 
 .sna-programas-icon-container {

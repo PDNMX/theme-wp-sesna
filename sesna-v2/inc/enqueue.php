@@ -263,10 +263,6 @@ function sesna_theme_scripts()
 		wp_enqueue_script('directorio-script', get_theme_file_uri('/script/directorio.js'), array(), wp_get_theme()->get('Version'), true);
 	}
 
-	if (is_page('que-hacemos')) {
-		wp_enqueue_script('quehacemos-script', get_theme_file_uri('/script/quehacemos.js'), array('jquery'), wp_get_theme()->get('Version'), true);
-	}
-
 	if (is_page('transparencia')) {
 		wp_enqueue_script('transparencia-script', get_theme_file_uri('/script/transparencia.js'), array(), wp_get_theme()->get('Version'), true);
 	}

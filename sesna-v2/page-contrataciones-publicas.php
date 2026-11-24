@@ -11,24 +11,13 @@ get_header();
 <div class="page-contrataciones front-page-bg">
 
     <!-- ── Breadcrumb ─────────────────────────────────────────── -->
-    <nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-        <div class="contenedor">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>">
-                        <?= sesna_render_snd_svg_icon('snd-home', 'icono--16') ?> Inicio
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/') ); ?>">Acciones y Programas</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="<?php echo esc_url( home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/') ); ?>">Riesgos e Inteligencia Anticorrupción</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Contrataciones públicas</li>
-            </ol>
-        </div>
-    </nav>
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => 'Acciones y Programas', 'url' => home_url('/acciones-y-programas/') ),
+            array( 'label' => 'Riesgos e Inteligencia Anticorrupción', 'url' => home_url('/acciones-y-programas/riesgos-e-inteligencia-anticorrupcion/') ),
+            array( 'label' => 'Contrataciones públicas' ),
+        ),
+    ) ); ?>
 
     <!-- ── Hero ──────────────────────────────────────────────── -->
     <section class="sesna-page-hero">

@@ -4,23 +4,28 @@ get_header();
 
 <div class="front-page-bg">
 
-    <!-- Hero Section -->
-    <section class="qh-hero">
-        <!-- Floating icons -->
-        <?= sesna_render_snd_svg_icon('snd-document', 'icono--24 qh-floating-icon qh-fi-1') ?>
-        <?= sesna_render_snd_svg_icon('snd-chart--bar', 'icono--24 qh-floating-icon qh-fi-2') ?>
-        <?= sesna_render_snd_svg_icon('snd-chart--bar', 'icono--24 qh-floating-icon qh-fi-3') ?>
-        <?= sesna_render_snd_svg_icon('snd-security', 'icono--32 qh-floating-icon qh-fi-4') ?>
-        <?= sesna_render_snd_svg_icon('snd-screen', 'icono--24 qh-floating-icon qh-fi-5') ?>
+    <!-- Migas de pan (Breadcrumb) — Estándar SND v1.0.0 -->
+    <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+        'items' => array(
+            array( 'label' => '¿Qué hacemos?' ),
+        ),
+    ) ); ?>
 
-        <div class="contenedor posicion--relativa z--1">
-            <div class="reticulaGrid__12">
-                <div class="columna__12 columna__8--md columna__7--lg">
-                    <span class="qh-hero-tag">Quiénes somos</span>
-                    <h1 class="h1b patria color--blanco mb--24">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
-                    <p class="sh1r color--blanco opacidad--75 peso--normal texto--justify">
+    <!-- Hero Section -->
+    <section class="sesna-page-hero" aria-label="Encabezado de Quiénes somos">
+        <div class="contenedor">
+            <div class="reticulaGrid__12 align-items-center">
+                <div class="columna__12 columna__8--md columna__7--lg posicion--relativa z--1">
+                    <h1 class="h1b patria color--pguinda600">Secretaría Ejecutiva del Sistema Nacional Anticorrupción</h1>
+                    <p class="sh1r mb--0 texto--justify">
                         Somos el órgano técnico de apoyo del Sistema Nacional Anticorrupción encargado de generar insumos técnicos especializados, desarrollar herramientas estratégicas, coordinar esfuerzos institucionales y contribuir al fortalecimiento de las políticas públicas para prevenir y combatir la corrupción en México.
                     </p>
+                </div>
+                <div class="columna__12 columna__4--md columna__5--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end posicion--relativa">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/logo-sesna.svg' ); ?>"
+                         alt="Secretaría Ejecutiva del Sistema Nacional Anticorrupción"
+                         class="sesna-hero__img qh-hero__logo"
+                         loading="eager">
                 </div>
             </div>
         </div>
@@ -32,7 +37,7 @@ get_header();
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__5--lg mb--24 mb--0--lg pe--48--lg">
                     <h2 class="h2b patria color--pguinda600 mb--24">Conoce a la SESNA</h2>
-                    <p class="sh1r texto--justify">
+                    <p class="sh1r color--neutro600 texto--justify">
                         Descubre el papel de la Secretaría Ejecutiva dentro del Sistema Nacional Anticorrupción y cómo contribuye al fortalecimiento de la coordinación institucional, la generación de información estratégica y el desarrollo de herramientas para la prevención y el combate a la corrupción.
                     </p>
                 </div>
@@ -48,9 +53,9 @@ get_header();
     <!-- Misión y Visión Section -->
     <section class="qh-mv-section">
         <div class="contenedor">
-            <div class="fila justify-content-center mb--48">
-                <div class="columna__12 columna__8--md texto--centro">
-                    <h2 class="h2b patria color--pguinda600 mb--16">Nuestra razón de ser</h2>
+            <div class="fila mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--0">Nuestra razón de ser</h2>
                 </div>
             </div>
             <div class="reticulaGrid__12 justify-content-center">
@@ -77,10 +82,10 @@ get_header();
     <!-- Nuestra Labor Section -->
     <section class="qh-labor-section">
         <div class="contenedor">
-            <div class="fila justify-content-center mb--48">
-                <div class="columna__12 columna__8--md texto--centro">
-                    <h2 class="h2b patria color--pguinda600 mb--16">Nuestra labor</h2>
-                    <p class="sh1r color--neutro600 mx--auto">
+            <div class="fila mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--8">Nuestra labor</h2>
+                    <p class="sh1r color--neutro600 mb--0">
                         Contribuimos al fortalecimiento del Sistema Nacional Anticorrupción mediante la generación de conocimiento, el desarrollo de herramientas y la coordinación institucional.
                     </p>
                 </div>
@@ -125,10 +130,10 @@ get_header();
     <!-- Social Section -->
     <section class="qh-social-section">
         <div class="contenedor">
-            <div class="fila justify-content-center mb--48">
-                <div class="columna__12 columna__8--md texto--centro">
-                    <h2 class="h2b patria color--pguinda600 mb--16">Mantente conectado con la SESNA</h2>
-                    <p class="sh1r color--neutro600 mx--auto">
+            <div class="fila mb--24">
+                <div class="columna__12">
+                    <h2 class="h2b patria color--pguinda600 mb--8">Mantente conectado con la SESNA</h2>
+                    <p class="sh1r color--neutro600 mb--0">
                         Conoce nuestras actividades, publicaciones, herramientas, eventos y acciones a través de nuestros canales oficiales.
                     </p>
                 </div>

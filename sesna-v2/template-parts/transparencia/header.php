@@ -1,21 +1,10 @@
 <!-- MIGAS DE PAN (BREADCRUMB) -->
-<nav class="cp-breadcrumb" aria-label="Ruta de navegación">
-    <div class="contenedor">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-                <a href="<?php echo esc_url( home_url('/') ); ?>">
-                    <?= sesna_render_snd_svg_icon('snd-home', 'icono--16') ?> Inicio
-                </a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="<?php echo esc_url( home_url('/transparencia/') ); ?>">
-                    Transparencia
-                </a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page"><?php echo esc_html( get_the_title() ); ?></li>
-        </ol>
-    </div>
-</nav>
+<?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
+    'items' => array(
+        array( 'label' => 'Transparencia', 'url' => home_url('/transparencia/') ),
+        array( 'label' => esc_html( get_the_title() ) ),
+    ),
+) ); ?>
 
 <div class="transparenciaHeader">
 

@@ -396,31 +396,6 @@ img {
     .muestra--flex--lg { display: flex !important; }
 }
 
-/* Homologación Iconos Breadcrumb SND v1.1.0 (8px separación estándar) */
-.cp-breadcrumb .snd__icono,
-.cp-breadcrumb i.snd__icono,
-.cp-breadcrumb svg.snd__icono,
-.cp-breadcrumb .breadcrumb-item a .snd__icono,
-.cp-breadcrumb .breadcrumb-item a i.snd__icono,
-.cp-breadcrumb .breadcrumb-item a svg.snd__icono,
-.breadcrumb-item a .snd__icono,
-.breadcrumb-item a i.snd__icono,
-.breadcrumb-item a svg.snd__icono,
-.sesna-breadcrumb .snd__icono,
-.sesna-breadcrumb i.snd__icono,
-.sesna-breadcrumb svg.snd__icono {
-    margin-right: 8px !important;
-    width: 16px !important;
-    height: 16px !important;
-    min-width: 16px !important;
-    min-height: 16px !important;
-    display: inline-block !important;
-    vertical-align: -2px !important;
-    flex-shrink: 0 !important;
-    color: inherit !important;
-    fill: currentColor !important;
-}
-
 /* Neutralización definitiva del Admin Bar bump de WordPress para header fijo SND */
 html:root,
 html[lang],
