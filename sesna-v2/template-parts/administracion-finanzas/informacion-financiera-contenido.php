@@ -150,12 +150,16 @@ foreach ( $fin_anios_asc as $anio => $trimestres ) {
 if ( empty( $fin_default_context ) ) {
     $fin_default_context = 'Documentos';
 }
+
+$fin_is_dashboard = is_page_template( 'page-administracion-finanzas.php' );
+$fin_htag         = $fin_is_dashboard ? 'h2' : 'h1';
+$fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
 ?>
 <div class="page-informacion-financiera">
 
     <!-- ── Encabezado de Sección SND v1.1.0 ───────────────────────── -->
     <div class="mb--32">
-        <h1 class="h1b patria color--pguinda600 mb--4">Información Financiera</h1>
+        <<?php echo $fin_htag; ?> class="<?php echo $fin_hclass; ?> patria color--pguinda600 mb--4">Información Financiera</<?php echo $fin_htag; ?>>
         <p class="sh1r color--neutro600 mb--0">Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.</p>
     </div>
 
@@ -295,10 +299,10 @@ if ( empty( $fin_default_context ) ) {
                                                         <button type="button" class="boton__fantasma fin-doc-btn"
                                                                 data-modal-target="#pdfViewerModal"
                                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                                                                data-pdf-title="<?php echo esc_attr( $label ); ?>">
-                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                                                data-pdf-title="<?php echo esc_attr( $label ); ?>"
+                                                                aria-label="Consultar <?php echo esc_attr( $label ); ?>">
+                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                                             Consultar
-                                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -333,16 +337,16 @@ if ( empty( $fin_default_context ) ) {
                                         <button type="button" class="boton__fantasma fin-doc-btn"
                                                 data-modal-target="#pdfViewerModal"
                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                                                data-pdf-title="<?php echo esc_attr( $label ); ?>">
-                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                                data-pdf-title="<?php echo esc_attr( $label ); ?>"
+                                                aria-label="Consultar <?php echo esc_attr( $label ); ?>">
+                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                             Consultar
-                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             <!-- Mensaje informativo SND v1.0.0 (Informativo) -->
-                            <div id="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>">
+                            <div id="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 fin-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-dictamen-nota-<?php echo esc_attr( $key ); ?>">
                                 Los dictámenes incluyen la opinión de cumplimiento y los resultados de la revisión de los estados financieros y presupuestarios de la SESNA.
                             </div>
                             <!-- Estado vacío de búsqueda -->

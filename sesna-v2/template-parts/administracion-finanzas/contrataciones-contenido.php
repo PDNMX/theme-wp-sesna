@@ -116,13 +116,16 @@ foreach ( $cf_columnas as &$cf_col ) {
 }
 unset( $cf_col );
 
-$cf_keys = array_keys( $cf_columnas );
+$cf_keys         = array_keys( $cf_columnas );
+$cf_is_dashboard = is_page_template( 'page-administracion-finanzas.php' );
+$cf_htag         = $cf_is_dashboard ? 'h2' : 'h1';
+$cf_hclass       = $cf_is_dashboard ? 'h2b' : 'h1b';
 ?>
 <div class="page-pna-contrataciones cf-search-scope">
 
     <!-- Encabezado de Sección (sin ícono ni fondo — solo tipografía y color SND) -->
     <div class="mb--32">
-        <h1 class="h1b patria color--pguinda600 mb--4">Contrataciones y Adquisiciones</h1>
+        <<?php echo $cf_htag; ?> class="<?php echo $cf_hclass; ?> patria color--pguinda600 mb--4">Contrataciones y Adquisiciones</<?php echo $cf_htag; ?>>
         <p class="sh1r color--neutro600 mb--0">Información relacionada con los procedimientos de contratación y adquisición de bienes y servicios.</p>
     </div>
 
@@ -180,10 +183,10 @@ $cf_keys = array_keys( $cf_columnas );
                                                         <button type="button" class="boton__fantasma fin-doc-btn"
                                                                 data-modal-target="#pdfViewerModal"
                                                                 data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                                                                data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                                                data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
+                                                                aria-label="Consultar <?php echo esc_attr( $doc['label'] ); ?>">
+                                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                                             Consultar
-                                                            <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                         </button>
                                                     <?php else : ?>
                                                         <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
@@ -197,10 +200,19 @@ $cf_keys = array_keys( $cf_columnas );
                             <?php endforeach; ?>
                         </div>
 
-                        <!-- Nota informativa al pie de cada Card -->
-                        <div id="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--auto mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>">
+                        <!-- Estado vacío de búsqueda en la Card -->
+                        <div role="status">
+                            <div id="cf-desk-empty-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno cf-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-desk-empty-<?php echo esc_attr( $col_key ); ?>">
+                                No se encontraron documentos que coincidan con la búsqueda.
+                            </div>
+                        </div>
+
+                        <?php if ( ! empty( $col['nota'] ) ) : ?>
+                        <!-- Nota informativa al pie de la Card -->
+                        <div id="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--auto mt--16 cf-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-desk-nota-<?php echo esc_attr( $col_key ); ?>">
                             <?php echo esc_html( $col['nota'] ); ?>
                         </div>
+                        <?php endif; ?>
 
                     </div>
                 </div>
@@ -247,10 +259,10 @@ $cf_keys = array_keys( $cf_columnas );
                                                 <button type="button" class="boton__fantasma fin-doc-btn"
                                                         data-modal-target="#pdfViewerModal"
                                                         data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                                                        data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                                        data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
+                                                        aria-label="Consultar <?php echo esc_attr( $doc['label'] ); ?>">
+                                                    <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                                     Consultar
-                                                    <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                 </button>
                                             <?php else : ?>
                                                 <span class="insignia-borde insignia-neutro" role="status">Próximamente</span>
@@ -263,9 +275,18 @@ $cf_keys = array_keys( $cf_columnas );
                     </div>
                     <?php endforeach; ?>
 
-                    <div id="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>">
+                    <!-- Estado vacío de búsqueda en móvil -->
+                    <div role="status">
+                        <div id="cf-mob-empty-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno cf-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-mob-empty-<?php echo esc_attr( $col_key ); ?>">
+                            No se encontraron documentos que coincidan con la búsqueda.
+                        </div>
+                    </div>
+
+                    <?php if ( ! empty( $col['nota'] ) ) : ?>
+                    <div id="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20 cf-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="cf-mob-nota-<?php echo esc_attr( $col_key ); ?>">
                         <?php echo esc_html( $col['nota'] ); ?>
                     </div>
+                    <?php endif; ?>
 
                 </div>
                 <?php endforeach; ?>
@@ -305,199 +326,3 @@ $cf_keys = array_keys( $cf_columnas );
             </div>
     <?php },
 ) ); ?>
-
-<script>
-(function () {
-    'use strict';
-
-    function initContrataciones() {
-        var triggerBtn  = document.getElementById('cfOpenDrawerBtn');
-        var labelEl     = document.getElementById('cfActiveSectionLabel');
-        var overlayEl   = document.getElementById('cfDrawerOverlay');
-        var drawerEl    = document.getElementById('cfDrawer');
-        var closeBtn    = document.getElementById('cfDrawerCloseBtn');
-        var drawerItems = document.querySelectorAll('#cfDrawer .fin-dictamen-item');
-
-        function activateMobileSection(key) {
-            document.querySelectorAll('#cfTabsContent [role="tabpanel"]').forEach(function (pane) {
-                pane.classList.add('muestra--ninguno');
-            });
-            var targetPane = document.getElementById('cf-pane-' + key);
-            if (targetPane) targetPane.classList.remove('muestra--ninguno');
-
-            drawerItems.forEach(function (item) {
-                var isAct = (item.getAttribute('data-tab-index') === key);
-                item.classList.toggle('active', isAct);
-                item.setAttribute('aria-selected', isAct ? 'true' : 'false');
-                if (isAct && labelEl) {
-                    labelEl.textContent = item.getAttribute('data-section-title') || '';
-                }
-            });
-        }
-
-        drawerItems.forEach(function (item) {
-            item.addEventListener('click', function () {
-                activateMobileSection(this.getAttribute('data-tab-index'));
-                closeDrawer();
-            });
-        });
-
-        // Control del Drawer Móvil
-        function openDrawer() {
-            if (!overlayEl || !drawerEl) return;
-            overlayEl.classList.remove('is-hidden');
-            overlayEl.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('snd-drawer-open');
-            if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'true');
-            void overlayEl.offsetWidth;
-            overlayEl.classList.add('is-visible');
-            if (closeBtn) closeBtn.focus();
-        }
-
-        function closeDrawer() {
-            if (!overlayEl || !drawerEl) return;
-            overlayEl.classList.remove('is-visible');
-            overlayEl.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('snd-drawer-open');
-            if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'false');
-            drawerEl.style.transform = '';
-            setTimeout(function () {
-                if (!overlayEl.classList.contains('is-visible')) {
-                    overlayEl.classList.add('is-hidden');
-                }
-            }, 280);
-            if (triggerBtn) triggerBtn.focus();
-        }
-
-        if (triggerBtn) triggerBtn.addEventListener('click', openDrawer);
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-
-        if (overlayEl) {
-            overlayEl.addEventListener('click', function (e) {
-                if (e.target === overlayEl) closeDrawer();
-            });
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && overlayEl && overlayEl.classList.contains('is-visible')) {
-                closeDrawer();
-            }
-        });
-
-        // Swipe Down en móvil para cerrar el Bottom Sheet
-        var touchStartY = 0;
-        var touchCurrentY = 0;
-        var handle = document.getElementById('cfDrawerHandle');
-        if (handle && drawerEl) {
-            handle.addEventListener('touchstart', function (e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-            handle.addEventListener('touchmove', function (e) {
-                touchCurrentY = e.touches[0].clientY;
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 0) drawerEl.style.transform = 'translateY(' + diff + 'px)';
-            }, { passive: true });
-            handle.addEventListener('touchend', function () {
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 80) {
-                    closeDrawer();
-                } else {
-                    drawerEl.style.transform = '';
-                }
-                touchStartY = 0;
-                touchCurrentY = 0;
-            });
-        }
-
-        // Acordeón de años — solo uno abierto a la vez por card/panel (scoping estricto a Contrataciones)
-        var cfContainer = document.querySelector('.page-pna-contrataciones') || document;
-        cfContainer.querySelectorAll('[data-cf-toggle]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var targetId = this.getAttribute('data-cf-toggle') || this.dataset.cfToggle;
-                var target   = document.getElementById(targetId);
-                var chevron  = this.querySelector('.fin-acc-chevron');
-                if (!target) return;
-                var isOpen = !target.classList.contains('muestra--ninguno');
-
-                if (isOpen) {
-                    target.classList.add('muestra--ninguno');
-                    this.setAttribute('aria-expanded', 'false');
-                    if (chevron) chevron.classList.remove('is-open');
-                } else {
-                    var card = this.closest('.fin-acc-card');
-                    if (card && card.parentElement) {
-                        Array.prototype.forEach.call(card.parentElement.children, function (sib) {
-                            if (sib !== card && sib.classList.contains('fin-acc-card')) {
-                                var sibBtn = sib.querySelector('[data-cf-toggle]');
-                                if (sibBtn) {
-                                    var sibTargetId = sibBtn.getAttribute('data-cf-toggle') || sibBtn.dataset.cfToggle;
-                                    var sibTarget   = document.getElementById(sibTargetId);
-                                    var sibChevron  = sibBtn.querySelector('.fin-acc-chevron');
-                                    if (sibTarget && !sibTarget.classList.contains('muestra--ninguno')) {
-                                        sibTarget.classList.add('muestra--ninguno');
-                                        sibBtn.setAttribute('aria-expanded', 'false');
-                                        if (sibChevron) sibChevron.classList.remove('is-open');
-                                    }
-                                }
-                            }
-                        });
-                    }
-                    target.classList.remove('muestra--ninguno');
-                    this.setAttribute('aria-expanded', 'true');
-                    if (chevron) chevron.classList.add('is-open');
-                }
-            });
-        });
-
-        // Buscador — filtra filas en vista desktop y en vista móvil
-        var searchInput = document.getElementById('cfSearchInput');
-        if (searchInput) {
-            var searchBox = searchInput.closest('.tx-comite-search-box');
-            searchInput.addEventListener('input', function () {
-                var query = this.value.trim().toLowerCase();
-                if (searchBox) searchBox.classList.toggle('is-filled', query.length > 0);
-
-                function filterContainer(container) {
-                    if (!container) return;
-                    container.querySelectorAll('.fin-acc-card').forEach(function (card) {
-                        var rows = card.querySelectorAll('.fin-doc-row');
-                        var anyMatch = false;
-                        rows.forEach(function (row) {
-                            var match = !query || (row.dataset.cfSearch || '').indexOf(query) !== -1;
-                            row.classList.toggle('muestra--ninguno', !match);
-                            if (match) anyMatch = true;
-                        });
-
-                        var collapse = card.querySelector('.fin-acc-collapse');
-                        var header   = card.querySelector('[data-cf-toggle]');
-                        var chevron  = header ? header.querySelector('.fin-acc-chevron') : null;
-
-                        if (query) {
-                            card.style.display = anyMatch ? '' : 'none';
-                            if (collapse) collapse.classList.toggle('muestra--ninguno', !anyMatch);
-                            if (header) header.setAttribute('aria-expanded', anyMatch ? 'true' : 'false');
-                            if (chevron) chevron.classList.toggle('is-open', anyMatch);
-                        } else {
-                            card.style.display = '';
-                        }
-                    });
-                }
-
-                // Filtrar panel activo móvil
-                var activeMobilePane = document.querySelector('#cfTabsContent [role="tabpanel"]:not(.muestra--ninguno)');
-                filterContainer(activeMobilePane);
-
-                // Filtrar todas las cards en vista desktop
-                var desktopView = document.querySelector('.cf-desktop-view');
-                filterContainer(desktopView);
-            });
-        }
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initContrataciones);
-    } else {
-        initContrataciones();
-    }
-})();
-</script>

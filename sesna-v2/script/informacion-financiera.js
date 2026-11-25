@@ -7,6 +7,25 @@
 (function () {
     'use strict';
 
+    /**
+     * Normaliza un texto para búsqueda insensible a mayúsculas/minúsculas y acentos/diacríticos.
+     */
+    function normalizeSearchText(str) {
+        if (!str) return '';
+        var text = String(str).toLowerCase();
+        if (typeof text.normalize === 'function') {
+            text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } else {
+            text = text
+                .replace(/[áàäâã]/g, 'a')
+                .replace(/[éèëê]/g, 'e')
+                .replace(/[íìïî]/g, 'i')
+                .replace(/[óòöôõ]/g, 'o')
+                .replace(/[úùüû]/g, 'u');
+        }
+        return text.trim();
+    }
+
     function initFinanciera() {
         var drawerOverlay = document.getElementById('finDrawerOverlay');
         var drawerEl      = document.getElementById('finDrawer');
@@ -158,6 +177,8 @@
                     });
                     var empty = targetPanel.querySelector('.fin-doc-empty');
                     if (empty) empty.classList.add('muestra--ninguno');
+                    var defaultNote = targetPanel.querySelector('.fin-doc-nota');
+                    if (defaultNote) defaultNote.classList.remove('muestra--ninguno');
                 }
 
                 // Actualizar encabezado ligero del área de contenido
@@ -181,12 +202,16 @@
             });
         });
 
-        // Buscador SND 4.1 en el área de contenido: filtra las filas del panel activo
+        // Buscador SND 4.1 en el área de contenido: filtra las filas del panel activo (insensible a acentos y mayúsculas)
         var searchInput = document.getElementById('finSearchInput');
         if (searchInput) {
             var searchBox = searchInput.closest('.tx-comite-search-box');
+            document.querySelectorAll('.fin-doc-panel .fin-doc-row').forEach(function (row) {
+                row._normalizedSearch = normalizeSearchText(row.dataset.finSearch || row.textContent || '');
+            });
+
             searchInput.addEventListener('input', function () {
-                var query = this.value.trim().toLowerCase();
+                var query = normalizeSearchText(this.value);
                 if (searchBox) {
                     searchBox.classList.toggle('is-filled', query.length > 0);
                 }
@@ -195,12 +220,16 @@
                 var rows = panel.querySelectorAll('.fin-doc-row');
                 var visibles = 0;
                 rows.forEach(function (row) {
-                    var match = (row.dataset.finSearch || '').indexOf(query) !== -1;
+                    var targetText = row._normalizedSearch || normalizeSearchText(row.dataset.finSearch || '');
+                    var match = !query || targetText.indexOf(query) !== -1;
                     row.classList.toggle('muestra--ninguno', !match);
                     if (match) visibles++;
                 });
+                var isNoResults = Boolean(query) && visibles === 0;
                 var empty = panel.querySelector('.fin-doc-empty');
-                if (empty) empty.classList.toggle('muestra--ninguno', visibles !== 0);
+                if (empty) empty.classList.toggle('muestra--ninguno', !isNoResults);
+                var defaultNote = panel.querySelector('.fin-doc-nota');
+                if (defaultNote) defaultNote.classList.toggle('muestra--ninguno', isNoResults);
             });
         }
     }

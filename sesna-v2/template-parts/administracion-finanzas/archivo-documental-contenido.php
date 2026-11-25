@@ -79,14 +79,17 @@ if ( file_exists( $ad_json_path ) ) {
     }
 }
 
-$first_key   = ! empty( $ad_grupos ) ? array_key_first( $ad_grupos ) : '';
-$first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_short_names[ $first_key ] : 'PADA';
+$first_key       = ! empty( $ad_grupos ) ? array_key_first( $ad_grupos ) : '';
+$first_short     = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_short_names[ $first_key ] : 'PADA';
+$ad_is_dashboard = is_page_template( 'page-administracion-finanzas.php' );
+$ad_htag         = $ad_is_dashboard ? 'h2' : 'h1';
+$ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
 ?>
 <div class="page-pna-archivo cf-search-scope">
 
     <!-- Encabezado de Sección (SND v1.1.0 — Homologado con Información Financiera y Contrataciones) -->
     <div class="mb--32">
-        <h1 class="h1b patria color--pguinda600 mb--4">Archivo Documental</h1>
+        <<?php echo $ad_htag; ?> class="<?php echo $ad_hclass; ?> patria color--pguinda600 mb--4">Archivo Documental</<?php echo $ad_htag; ?>>
         <p class="sh1r color--neutro600 mb--0">Instrumentos para la organización, conservación y administración de los archivos institucionales.</p>
     </div>
 
@@ -168,17 +171,17 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                                     <button type="button" class="boton__fantasma fin-doc-btn"
                                                             data-modal-target="#pdfViewerModal"
                                                             data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                                                            data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>">
-                                                        <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
+                                                            data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
+                                                            aria-label="Consultar <?php echo esc_attr( $doc['label'] ); ?>">
+                                                        <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
                                                         Consultar
-                                                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                     </button>
                                                 <?php else : ?>
-                                                    <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener"
-                                                       class="boton__fantasma fin-doc-btn text-decoration-none">
+                                                    <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener noreferrer"
+                                                       class="boton__fantasma fin-doc-btn text-decoration-none"
+                                                       aria-label="Abrir enlace de <?php echo esc_attr( $doc['label'] ); ?> (abre en ventana nueva)">
                                                         <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                                         Abrir enlace
-                                                        <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
                                                     </a>
                                                 <?php endif; ?>
                                             </div>
@@ -187,7 +190,7 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                                 </div>
 
                                 <?php if ( ! empty( $grupo['nota'] ) ) : ?>
-                                <div id="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>">
+                                <div id="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20 ad-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-nota-msg-<?php echo esc_attr( $p_i ); ?>">
                                     <?php echo esc_html( $grupo['nota'] ); ?>
                                 </div>
                                 <?php endif; ?>
@@ -209,9 +212,9 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
         </div>
     </div>
 
-    <!-- ── VISTA MÓVIL: Selector Chip + Drawer Bottom Sheet SND v1.1.0 (Sin modificar) ── -->
+    <!-- ── VISTA MÓVIL: Selector Chip + Drawer Bottom Sheet SND v1.0.0 ── -->
     <div class="ad-mobile-view">
-        <div class="cf-panel-card mb-4">
+        <div class="fin-panel-card p--20 mb--24">
             <!-- Buscador móvil -->
             <form class="search-container mb--20" role="search" action="javascript:void(0);">
                 <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control">
@@ -228,55 +231,63 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
                 </button>
             </div>
 
-            <!-- Contenedor de la card principal para la sección activa -->
+            <!-- Contenedor de paneles móviles homologados con la vista Desktop -->
             <div class="ad-mobile-panels" id="adMobilePanels">
-                <?php $m_i = 0; foreach ( $ad_grupos as $grupo ) :
-                    $meta = isset( $ad_columnas[ $grupo['titulo'] ] ) ? $ad_columnas[ $grupo['titulo'] ] : array( 'icono' => 'snd-folder', 'bg' => '#F9F0F3', 'color' => '#611232' );
+                <?php $m_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
+                    $meta = isset( $ad_columnas[ $sec_title ] ) ? $ad_columnas[ $sec_title ] : array( 'icono' => 'snd-folder', 'bg' => '#F9F0F3', 'color' => '#611232' );
                     $is_first = ( 0 === $m_i );
+                    $display_title = ( 'Inventario general por Expediente' === $sec_title ) ? 'Inventario General por Expediente' : $sec_title;
                     ?>
                 <div class="ad-mobile-pane <?php echo $is_first ? '' : 'muestra--ninguno'; ?>" id="ad-mobile-pane-<?php echo esc_attr( $m_i ); ?>" data-section-index="<?php echo esc_attr( $m_i ); ?>">
-                    <div class="cf-inner-card d-flex flex-column p-3">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                                <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
+                    <div class="d-flex align-items-center gap--12 pb--16 mb--16 border-bottom">
+                        <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
+                            <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
+                        </div>
+                        <h3 class="sh1b color--pguinda600 mb--0" style="line-height: 1.3;"><?php echo esc_html( $display_title ); ?></h3>
+                    </div>
+
+                    <div class="fin-doc-list">
+                        <?php foreach ( $grupo['docs'] as $doc ) :
+                            $search_attr = esc_attr( mb_strtolower( $doc['label'], 'UTF-8' ) );
+                            ?>
+                            <div class="fin-doc-row cf-doc-row" data-cf-search="<?php echo $search_attr; ?>">
+                                <div class="fin-doc-left">
+                                    <h4 class="b1r color--neutro800 mb--0 fin-doc-label"><?php echo esc_html( $doc['label'] ); ?></h4>
+                                </div>
+                                <div class="fin-doc-action">
+                                    <?php if ( $doc['es_pdf'] ) : ?>
+                                        <button type="button" class="boton__fantasma fin-doc-btn"
+                                                data-modal-target="#pdfViewerModal"
+                                                data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
+                                                data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
+                                                aria-label="Consultar <?php echo esc_attr( $doc['label'] ); ?>">
+                                            <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
+                                            Consultar
+                                        </button>
+                                    <?php else : ?>
+                                        <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener noreferrer"
+                                           class="boton__fantasma fin-doc-btn text-decoration-none"
+                                           aria-label="Abrir enlace de <?php echo esc_attr( $doc['label'] ); ?> (abre en ventana nueva)">
+                                            <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
+                                            Abrir enlace
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                            <h3 class="h6 fw-bold mb-0 font-noto-sans" style="color: #611232; line-height: 1.3;"><?php echo esc_html( $grupo['titulo'] ); ?></h3>
-                        </div>
+                        <?php endforeach; ?>
+                    </div>
 
-                        <div class="d-flex flex-column flex-grow-1">
-                            <?php foreach ( $grupo['docs'] as $doc ) :
-                                $search_attr = esc_attr( mb_strtolower( $doc['label'], 'UTF-8' ) );
-                                if ( $doc['es_pdf'] ) : ?>
-                            <a href="<?php echo esc_url( $doc['url'] ); ?>"
-                               class="pna-doc-item cf-doc-row px-2 py-2 rounded-3 text-decoration-none"
-                               data-modal-target="#pdfViewerModal"
-                               data-pdf-url="<?php echo esc_url( $doc['url'] ); ?>"
-                               data-pdf-title="<?php echo esc_attr( $doc['label'] ); ?>"
-                               data-cf-search="<?php echo $search_attr; ?>"
-                               style="color: #333;">
-                                <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                                <span class="cf-doc-view" data-tooltip="Ver documento" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-document', 'icono--16') ?></span>
-                                <span class="visually-hidden">Ver documento</span>
-                            </a>
-                            <?php else : ?>
-                            <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener"
-                               class="pna-doc-item cf-doc-row px-2 py-2 rounded-3 text-decoration-none"
-                               data-cf-search="<?php echo $search_attr; ?>"
-                               style="color: #333;">
-                                <span class="font-noto-sans" style="font-size: 13px;"><?php echo esc_html( $doc['label'] ); ?></span>
-                                <span class="cf-doc-view" data-tooltip="Abrir enlace" aria-hidden="true"><?= sesna_render_snd_svg_icon('snd-launch', 'icono--16') ?></span>
-                                <span class="visually-hidden">Abrir enlace</span>
-                            </a>
-                            <?php endif; ?>
-                            <?php endforeach; ?>
-                        </div>
+                    <?php if ( ! empty( $grupo['nota'] ) ) : ?>
+                    <div id="ad-mob-nota-msg-<?php echo esc_attr( $m_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--20 ad-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-mob-nota-msg-<?php echo esc_attr( $m_i ); ?>">
+                        <?php echo esc_html( $grupo['nota'] ); ?>
+                    </div>
+                    <?php endif; ?>
 
-                        <?php if ( ! empty( $grupo['nota'] ) ) : ?>
-                        <div class="mt-3 pt-3 d-flex align-items-start gap-2 cf-inner-card__footer">
-                            <?= sesna_render_snd_svg_icon('snd-information', 'text-muted flex-shrink-0 icono--16', 'margin-top: 2px;') ?>
-                            <span class="text-muted font-noto-sans" style="font-size: 12px;"><?php echo esc_html( $grupo['nota'] ); ?></span>
+                    <!-- Estado vacío de búsqueda en móvil -->
+                    <div role="status">
+                        <div id="ad-mob-empty-msg-<?php echo esc_attr( $m_i ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno ad-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-mob-empty-msg-<?php echo esc_attr( $m_i ); ?>">
+                            No se encontraron documentos que coincidan con la búsqueda.
                         </div>
-                        <?php endif; ?>
                     </div>
                 </div>
                 <?php $m_i++; endforeach; ?>
@@ -312,196 +323,3 @@ $first_short = ( $first_key && isset( $ad_short_names[ $first_key ] ) ) ? $ad_sh
             </div>
     <?php },
 ) ); ?>
-
-<script>
-(function () {
-    'use strict';
-
-    function initArchivoDocumental() {
-        // ── Lógica Desktop: Sidebar + Área de Contenido Compartida ──────
-        var sidebarItems  = Array.from(document.querySelectorAll('.ad-desktop-sidebar-col .fin-dictamen-item'));
-        var docPanels     = Array.from(document.querySelectorAll('#adDocPanelsDesktop .ad-doc-panel'));
-        var desktopSearch = document.getElementById('adSearchInputDesktop');
-
-        function activateDesktopSection(index) {
-            sidebarItems.forEach(function (btn) {
-                var btnIdx = parseInt(btn.getAttribute('data-ad-panel'), 10);
-                var isAct = (btnIdx === index);
-                btn.classList.toggle('active', isAct);
-                btn.setAttribute('aria-selected', isAct ? 'true' : 'false');
-            });
-
-            docPanels.forEach(function (panel) {
-                var panelIdx = parseInt(panel.getAttribute('data-ad-panel'), 10);
-                var isAct = (panelIdx === index);
-                panel.classList.toggle('muestra--ninguno', !isAct);
-
-                if (isAct) {
-                    var query = desktopSearch ? desktopSearch.value.trim().toLowerCase() : '';
-                    var rows = panel.querySelectorAll('.cf-doc-row');
-                    var visibleCount = 0;
-                    rows.forEach(function (r) {
-                        var match = !query || ((r.getAttribute('data-cf-search') || '').indexOf(query) !== -1);
-                        r.classList.toggle('muestra--ninguno', !match);
-                        if (match) visibleCount++;
-                    });
-                    var emptyNotice = panel.querySelector('.ad-doc-empty');
-                    if (emptyNotice) {
-                        emptyNotice.classList.toggle('muestra--ninguno', visibleCount > 0 || !query);
-                    }
-                }
-            });
-        }
-
-        sidebarItems.forEach(function (item, idx) {
-            item.addEventListener('click', function () {
-                var targetIdx = parseInt(this.getAttribute('data-ad-panel'), 10);
-                activateDesktopSection(targetIdx);
-            });
-
-            item.addEventListener('keydown', function (e) {
-                var nextIdx = null;
-                if (e.key === 'ArrowDown') {
-                    nextIdx = (idx + 1) % sidebarItems.length;
-                } else if (e.key === 'ArrowUp') {
-                    nextIdx = (idx - 1 + sidebarItems.length) % sidebarItems.length;
-                }
-                if (nextIdx !== null) {
-                    e.preventDefault();
-                    sidebarItems[nextIdx].focus();
-                    var panelIndex = parseInt(sidebarItems[nextIdx].getAttribute('data-ad-panel'), 10);
-                    activateDesktopSection(panelIndex);
-                }
-            });
-        });
-
-        if (desktopSearch) {
-            desktopSearch.addEventListener('input', function () {
-                var query = this.value.trim().toLowerCase();
-                var activePanel = document.querySelector('#adDocPanelsDesktop .ad-doc-panel:not(.muestra--ninguno)');
-                if (activePanel) {
-                    var rows = activePanel.querySelectorAll('.cf-doc-row');
-                    var visibleCount = 0;
-                    rows.forEach(function (r) {
-                        var match = !query || ((r.getAttribute('data-cf-search') || '').indexOf(query) !== -1);
-                        r.classList.toggle('muestra--ninguno', !match);
-                        if (match) visibleCount++;
-                    });
-                    var emptyNotice = activePanel.querySelector('.ad-doc-empty');
-                    if (emptyNotice) {
-                        emptyNotice.classList.toggle('muestra--ninguno', visibleCount > 0 || !query);
-                    }
-                }
-            });
-        }
-
-        // ── Lógica Móvil: Selector Chip + Drawer Bottom Sheet ──────────
-        var triggerBtn  = document.getElementById('adOpenDrawerBtn');
-        var labelEl     = document.getElementById('adActiveSectionLabel');
-        var overlayEl   = document.getElementById('adDrawerOverlay');
-        var drawerEl    = document.getElementById('adDrawer');
-        var closeBtn    = document.getElementById('adDrawerCloseBtn');
-        var drawerItems = document.querySelectorAll('#adDrawer .fin-dictamen-item');
-        var mobilePanes = document.querySelectorAll('#adMobilePanels .ad-mobile-pane');
-
-        function activateMobileSection(index) {
-            mobilePanes.forEach(function (pane) {
-                var paneIdx = parseInt(pane.getAttribute('data-section-index'), 10);
-                pane.classList.toggle('muestra--ninguno', paneIdx !== index);
-            });
-
-            drawerItems.forEach(function (item) {
-                var itemIdx = parseInt(item.getAttribute('data-section-index'), 10);
-                var isAct = (itemIdx === index);
-                item.classList.toggle('active', isAct);
-                item.setAttribute('aria-selected', isAct ? 'true' : 'false');
-                if (isAct && labelEl) {
-                    labelEl.textContent = item.getAttribute('data-short-name') || '';
-                }
-            });
-        }
-
-        function openDrawer() {
-            if (!overlayEl || !drawerEl) return;
-            overlayEl.classList.remove('is-hidden');
-            overlayEl.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('snd-drawer-open');
-            if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'true');
-            void overlayEl.offsetWidth;
-            overlayEl.classList.add('is-visible');
-            if (closeBtn) closeBtn.focus();
-        }
-
-        function closeDrawer() {
-            if (!overlayEl || !drawerEl) return;
-            overlayEl.classList.remove('is-visible');
-            overlayEl.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('snd-drawer-open');
-            if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'false');
-            if (drawerEl) drawerEl.style.transform = '';
-            setTimeout(function () {
-                if (!overlayEl.classList.contains('is-visible')) {
-                    overlayEl.classList.add('is-hidden');
-                }
-            }, 280);
-            if (triggerBtn) triggerBtn.focus();
-        }
-
-        if (triggerBtn) triggerBtn.addEventListener('click', openDrawer);
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-
-        if (overlayEl) {
-            overlayEl.addEventListener('click', function (e) {
-                if (e.target === overlayEl) closeDrawer();
-            });
-        }
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && overlayEl && overlayEl.classList.contains('is-visible')) {
-                closeDrawer();
-            }
-        });
-
-        // Swipe Down / Touch drag en móvil para cerrar el Bottom Sheet
-        var touchStartY = 0;
-        var touchCurrentY = 0;
-        var handle = document.getElementById('adDrawerHandle');
-        if (handle && drawerEl) {
-            handle.addEventListener('touchstart', function (e) {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-            handle.addEventListener('touchmove', function (e) {
-                touchCurrentY = e.touches[0].clientY;
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 0) {
-                    drawerEl.style.transform = 'translateY(' + diff + 'px)';
-                }
-            }, { passive: true });
-            handle.addEventListener('touchend', function () {
-                var diff = touchCurrentY - touchStartY;
-                if (diff > 80) {
-                    closeDrawer();
-                } else {
-                    drawerEl.style.transform = '';
-                }
-                touchStartY = 0;
-                touchCurrentY = 0;
-            });
-        }
-
-        drawerItems.forEach(function (item) {
-            item.addEventListener('click', function () {
-                var idx = parseInt(this.getAttribute('data-section-index'), 10);
-                activateMobileSection(idx);
-                closeDrawer();
-            });
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initArchivoDocumental);
-    } else {
-        initArchivoDocumental();
-    }
-})();
-</script>

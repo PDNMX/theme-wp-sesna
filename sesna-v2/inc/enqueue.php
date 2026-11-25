@@ -125,9 +125,21 @@ function sesna_template_scripts_map()
 			'src'       => '/script/administracion-finanzas.js',
 			'templates' => array('page-administracion-finanzas.php'),
 		),
+		'sesna-planeacion-institucional' => array(
+			'src'       => '/script/planeacion-institucional.js',
+			'templates' => array('page-administracion-finanzas.php', 'page-planeacion-institucional.php'),
+		),
 		'sesna-informacion-financiera' => array(
 			'src'       => '/script/informacion-financiera.js',
 			'templates' => array('page-administracion-finanzas.php', 'page-informacion-financiera.php'),
+		),
+		'sesna-contrataciones-adquisiciones' => array(
+			'src'       => '/script/contrataciones-adquisiciones.js',
+			'templates' => array('page-administracion-finanzas.php', 'page-contrataciones-adquisiciones.php'),
+		),
+		'sesna-archivo-documental' => array(
+			'src'       => '/script/archivo-documental.js',
+			'templates' => array('page-administracion-finanzas.php', 'page-archivo-documental.php'),
 		),
 		'sesna-organos-colegiados-drawer' => array(
 			'src'       => '/script/organos-colegiados-drawer.js',
