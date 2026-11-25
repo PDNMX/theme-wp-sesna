@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div class="page-pna front-page-bg">
+<div class="front-page-bg">
 
     <!-- Breadcrumb -->
     <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(

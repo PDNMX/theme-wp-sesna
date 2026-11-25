@@ -6,6 +6,26 @@
  * El orden relativo original de las reglas se conserva dentro de cada archivo.
  */
 
+/* ── Administración y Finanzas (Dashboard) ── */
+
+.page-administracion-finanzas {
+    min-height: 100vh;
+}
+
+#af-content-wrapper {
+    scroll-margin-top: 80px;
+}
+
+.page-administracion-finanzas .sesna-card.sna-tab-trigger.active,
+.page-administracion-finanzas .sesna-card.sna-tab-trigger.active:hover {
+    border-color: var(--pguinda600);
+    box-shadow: 0 0 0 2px var(--pguinda600);
+}
+
+.fin-sidebar-heading {
+    line-height: 1.3;
+}
+
 /* ── Contrataciones: Vista Desktop (Grid 2x2) vs Vista Móvil (Drawer) ── */
 
 .cf-desktop-view {

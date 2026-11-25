@@ -53,6 +53,7 @@ $icon_img  = isset($args['icon_img']) ? (string) $args['icon_img'] : '';
 $icon_alt  = isset($args['icon_alt']) ? (string) $args['icon_alt'] : '';
 $action    = isset($args['action']) && is_array($args['action']) ? $args['action'] : null;
 $class     = 'sesna-card' . ( !empty($args['class']) ? ' ' . $args['class'] : '' );
+$attrs     = isset($args['attrs']) && is_array($args['attrs']) ? $args['attrs'] : array();
 
 $new_window = ( $target === '_blank' );
 $link_attrs = '';
@@ -60,6 +61,11 @@ if ( $tag === 'a' ) {
 	$link_attrs  = ' href="' . esc_url( $href ) . '"';
 	$link_attrs .= $new_window ? ' target="_blank" rel="noopener noreferrer"' : '';
 	$link_attrs .= !empty($args['aria_label']) ? ' aria-label="' . esc_attr( $args['aria_label'] ) . '"' : '';
+}
+foreach ( $attrs as $attr_name => $attr_val ) {
+	if ( $attr_val !== null && $attr_val !== false ) {
+		$link_attrs .= ' ' . esc_attr( $attr_name ) . '="' . esc_attr( (string) $attr_val ) . '"';
+	}
 }
 ?>
 <<?php echo esc_html( $tag ); ?> class="<?php echo esc_attr( $class ); ?>"<?php echo $link_attrs; // phpcs:ignore WordPress.Security.EscapeOutput ?>>

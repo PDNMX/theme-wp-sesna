@@ -124,7 +124,7 @@ $pi_hclass       = $pi_is_dashboard ? 'h2b' : 'h1b';
     'title'         => 'Seleccionar sección',
     'close_label'   => 'Cerrar selección de sección',
     'body'          => function () use ( $pi_grupos ) { ?>
-            <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Planeación Institucional">
+            <div class="muestra--flex flex-direction-column gap--8" role="listbox" aria-label="Secciones de Planeación Institucional">
                 <?php foreach ( $pi_grupos as $i => $grupo ) :
                     $is_active = ( 0 === $i );
                     ?>

@@ -46,16 +46,11 @@
                 }
             });
 
-            // Actualizar estado activo en las cards selectoras (homologado a page-riesgos-inteligencia.php)
+            // Actualizar estado activo en las cards selectoras
             triggers.forEach(function (t) {
                 var isMatch = (t.getAttribute('data-target') === '#' + targetSecId);
                 t.classList.toggle('active', isMatch);
                 t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-                if (isMatch) {
-                    t.style.boxShadow = '0 0 0 2px rgba(155, 34, 66, 1)';
-                } else {
-                    t.style.boxShadow = '';
-                }
             });
 
             // Actualizar URL hash de forma limpia

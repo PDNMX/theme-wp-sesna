@@ -15,11 +15,11 @@
 $ad_json_path = get_template_directory() . '/data/inventario-dgayf.json';
 
 $ad_columnas = array(
-    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-calendar', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-chart--bar', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-collaborate', 'bg' => '#F9F0F3', 'color' => '#611232' ),
-    'Guía de Archivo Documental' => array( 'icono' => 'snd-education', 'bg' => '#EEE8F5', 'color' => '#72588F' ),
-    'Inventario general por Expediente' => array( 'icono' => 'snd-folder--details', 'bg' => '#F9F0F3', 'color' => '#611232' ),
+    'Plan Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-calendar' ),
+    'Informe de Cumplimiento del Programa Anual de Desarrollo Archivístico (PADA)' => array( 'icono' => 'snd-chart--bar' ),
+    'Instrumentos de Control Archivístico de la SESNA' => array( 'icono' => 'snd-collaborate' ),
+    'Guía de Archivo Documental' => array( 'icono' => 'snd-education' ),
+    'Inventario general por Expediente' => array( 'icono' => 'snd-folder--details' ),
 );
 
 $ad_short_names = array(
@@ -101,8 +101,8 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
             <div class="columna__12 columna__4--lg ad-desktop-sidebar-col">
                 <div class="fin-panel-card p--20">
                     <div class="fin-sidebar-section">
-                        <h2 class="sh0b color--neutro800 mb--16" style="line-height: 1.3;">Secciones</h2>
-                        <div class="fin-dictamen-list d-flex flex-column gap--4" role="tablist" aria-label="Secciones de Archivo Documental">
+                        <h2 class="sh0b color--neutro800 mb--16 fin-sidebar-heading">Secciones</h2>
+                        <div class="fin-dictamen-list muestra--flex flex-direction-column gap--4" role="tablist" aria-label="Secciones de Archivo Documental">
                             <?php $s_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
                                 $is_active = ( 0 === $s_i );
                                 $display_title = ( 'Inventario general por Expediente' === $sec_title ) ? 'Inventario General por Expediente' : $sec_title;
@@ -129,7 +129,7 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
 
                     <!-- Barra de búsqueda superior — SND 4.1 homologado con la sección -->
                     <div class="search-container mb--20" role="search">
-                        <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control w-100">
+                        <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control ancho--100">
                             <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                             <input type="search" id="adSearchInputDesktop" class="cf-search-input sh0r js-input tx-comite-search-input" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
                         </div>
@@ -138,7 +138,7 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
                     <!-- Paneles de documentos por sección -->
                     <div id="adDocPanelsDesktop">
                         <?php $p_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
-                            $meta = isset( $ad_columnas[ $sec_title ] ) ? $ad_columnas[ $sec_title ] : array( 'icono' => 'snd-folder', 'bg' => '#F9F0F3', 'color' => '#611232' );
+                            $meta = isset( $ad_columnas[ $sec_title ] ) ? $ad_columnas[ $sec_title ] : array( 'icono' => 'snd-folder' );
                             $is_active = ( 0 === $p_i );
                             $display_title = ( 'Inventario general por Expediente' === $sec_title ) ? 'Inventario General por Expediente' : $sec_title;
                             ?>
@@ -150,11 +150,11 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
                                  data-ad-panel="<?php echo esc_attr( $p_i ); ?>">
 
                                 <!-- Encabezado de la sección activa (ícono + nombre) -->
-                                <div class="d-flex align-items-center gap--12 pb--16 mb--20 border-bottom">
-                                    <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                                        <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
+                                <div class="muestra--flex align-items-center gap--12 pb--16 mb--20 borde--inferior">
+                                    <div class="cf-card-icon-wrap">
+                                        <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20') ?>
                                     </div>
-                                    <h2 class="sh0b color--pguinda600 mb--0" style="line-height: 1.3;"><?php echo esc_html( $display_title ); ?></h2>
+                                    <h2 class="sh0b color--pguinda600 mb--0 fin-sidebar-heading"><?php echo esc_html( $display_title ); ?></h2>
                                 </div>
 
                                 <!-- Lista de documentos de la sección -->
@@ -178,7 +178,7 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
                                                     </button>
                                                 <?php else : ?>
                                                     <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener noreferrer"
-                                                       class="boton__fantasma fin-doc-btn text-decoration-none"
+                                                       class="boton__fantasma fin-doc-btn decoracion--ninguna"
                                                        aria-label="Abrir enlace de <?php echo esc_attr( $doc['label'] ); ?> (abre en ventana nueva)">
                                                         <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                                         Abrir enlace
@@ -234,16 +234,16 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
             <!-- Contenedor de paneles móviles homologados con la vista Desktop -->
             <div class="ad-mobile-panels" id="adMobilePanels">
                 <?php $m_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
-                    $meta = isset( $ad_columnas[ $sec_title ] ) ? $ad_columnas[ $sec_title ] : array( 'icono' => 'snd-folder', 'bg' => '#F9F0F3', 'color' => '#611232' );
+                    $meta = isset( $ad_columnas[ $sec_title ] ) ? $ad_columnas[ $sec_title ] : array( 'icono' => 'snd-folder' );
                     $is_first = ( 0 === $m_i );
                     $display_title = ( 'Inventario general por Expediente' === $sec_title ) ? 'Inventario General por Expediente' : $sec_title;
                     ?>
                 <div class="ad-mobile-pane <?php echo $is_first ? '' : 'muestra--ninguno'; ?>" id="ad-mobile-pane-<?php echo esc_attr( $m_i ); ?>" data-section-index="<?php echo esc_attr( $m_i ); ?>">
-                    <div class="d-flex align-items-center gap--12 pb--16 mb--16 border-bottom">
-                        <div class="icon-bg-circle icon-bg-circle--sm flex-shrink-0" style="background-color: <?php echo esc_attr( $meta['bg'] ); ?>;">
-                            <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20', 'color: ' . $meta['color'] . ';') ?>
+                    <div class="muestra--flex align-items-center gap--12 pb--16 mb--16 borde--inferior">
+                        <div class="cf-card-icon-wrap">
+                            <?= sesna_render_snd_svg_icon($meta['icono'], 'icono--20') ?>
                         </div>
-                        <h3 class="sh1b color--pguinda600 mb--0" style="line-height: 1.3;"><?php echo esc_html( $display_title ); ?></h3>
+                        <h3 class="sh1b color--pguinda600 mb--0 fin-sidebar-heading"><?php echo esc_html( $display_title ); ?></h3>
                     </div>
 
                     <div class="fin-doc-list">
@@ -266,7 +266,7 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
                                         </button>
                                     <?php else : ?>
                                         <a href="<?php echo esc_url( $doc['url'] ); ?>" target="_blank" rel="noopener noreferrer"
-                                           class="boton__fantasma fin-doc-btn text-decoration-none"
+                                           class="boton__fantasma fin-doc-btn decoracion--ninguna"
                                            aria-label="Abrir enlace de <?php echo esc_attr( $doc['label'] ); ?> (abre en ventana nueva)">
                                             <?= sesna_render_snd_svg_icon('snd-launch', 'icono--20') ?>
                                             Abrir enlace
@@ -295,6 +295,11 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
         </div>
     </div>
 
+    <!-- Nota informativa al pie SND v1.0.0 (Informativo) -->
+    <div id="ad-footer-nota-msg" class="mensajeInformativo mensajeInformativo--informativo mt--32" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="ad-footer-nota-msg">
+        La información publicada en esta sección contribuye a la transparencia, la rendición de cuentas y el fortalecimiento de la gestión institucional de la SESNA.
+    </div>
+
 </div>
 
 <?php get_template_part( 'template-parts/ui/mobile-drawer', null, array(
@@ -303,7 +308,7 @@ $ad_hclass       = $ad_is_dashboard ? 'h2b' : 'h1b';
     'title'         => 'Seleccionar sección',
     'close_label'   => 'Cerrar selección de sección',
     'body'          => function () use ( $ad_grupos, $ad_short_names ) { ?>
-            <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Archivo Documental">
+            <div class="muestra--flex flex-direction-column gap--8" role="listbox" aria-label="Secciones de Archivo Documental">
                 <?php $d_i = 0; foreach ( $ad_grupos as $sec_title => $grupo ) :
                     $is_active = ( 0 === $d_i );
                     $short_name = isset( $ad_short_names[ $sec_title ] ) ? $ad_short_names[ $sec_title ] : $sec_title;

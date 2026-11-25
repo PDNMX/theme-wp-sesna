@@ -145,18 +145,18 @@ $cf_hclass       = $cf_is_dashboard ? 'h2b' : 'h1b';
             <div class="reticulaGrid__12 align-items-stretch">
                 <?php foreach ( $cf_columnas as $col_key => $col ) : ?>
                 <div class="columna__12 columna__6--lg mb--24">
-                    <div class="cf-inner-card h-100 d-flex flex-column" data-section-key="<?php echo esc_attr( $col_key ); ?>">
+                    <div class="cf-inner-card" data-section-key="<?php echo esc_attr( $col_key ); ?>">
 
                         <!-- Encabezado homologado de la Card: Ícono + Título de Sección -->
-                        <div class="cf-card-header d-flex align-items-center gap--12 mb--16">
-                            <div class="cf-card-icon-wrap flex-shrink-0">
+                        <div class="cf-card-header">
+                            <div class="cf-card-icon-wrap">
                                 <?= sesna_render_snd_svg_icon($col['icono'], 'icono--20') ?>
                             </div>
                             <h2 class="sh1b color--neutro800 mb--0 cf-card-title"><?php echo esc_html( $col['titulo'] ); ?></h2>
                         </div>
 
                         <!-- Cuerpo: Acordeón de años y ListItems de documentos -->
-                        <div class="cf-card-body flex-grow-1">
+                        <div class="cf-card-body flex--1-auto">
                             <?php
                             $first = true;
                             foreach ( $col['anios'] as $anio => $docs ) :
@@ -308,7 +308,7 @@ $cf_hclass       = $cf_is_dashboard ? 'h2b' : 'h1b';
     'title'         => 'Seleccionar sección',
     'close_label'   => 'Cerrar selección de sección',
     'body'          => function () use ( $cf_columnas ) { ?>
-            <div class="d-flex flex-column gap--8" role="listbox" aria-label="Secciones de Contrataciones y Adquisiciones">
+            <div class="muestra--flex flex-direction-column gap--8" role="listbox" aria-label="Secciones de Contrataciones y Adquisiciones">
                 <?php foreach ( $cf_columnas as $col_key => $col ) :
                     $is_active = ( 'comite' === $col_key );
                     ?>

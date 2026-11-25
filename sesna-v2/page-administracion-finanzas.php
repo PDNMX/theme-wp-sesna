@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Administración y Finanzas
- * Homologada al Sistema Nacional de Diseño (SND v1.1.0 — Tema Guinda)
+ * Homologada al Sistema Nacional de Diseño (SND v1.0.0 — Tema Guinda)
  * Dashboard unificado de una sola página con selector por Cards
  *
  * @package sesna
@@ -14,7 +14,7 @@ $af_cards = array(
         'id'     => 'planeacion',
         'target' => '#sec-planeacion',
         'hash'   => 'planeacion',
-        'title'  => 'Planeación<br>Institucional',
+        'title'  => 'Planeación Institucional',
         'icon'   => 'snd-checkmark--filled',
         'img'    => 'planeacion_institucional.png',
         'desc'   => 'Documentos que orientan y dan seguimiento al cumplimiento de los objetivos y metas institucionales.',
@@ -23,7 +23,7 @@ $af_cards = array(
         'id'     => 'info-financiera',
         'target' => '#sec-info-financiera',
         'hash'   => 'info-financiera',
-        'title'  => 'Información<br>Financiera',
+        'title'  => 'Información Financiera',
         'icon'   => 'snd-chart--bar',
         'img'    => 'informacion_financiera.png',
         'desc'   => 'Estados financieros, dictámenes y documentación relacionada con la situación financiera de la institución.',
@@ -32,7 +32,7 @@ $af_cards = array(
         'id'     => 'contrataciones',
         'target' => '#sec-contrataciones',
         'hash'   => 'contrataciones',
-        'title'  => 'Contrataciones<br>y Adquisiciones',
+        'title'  => 'Contrataciones y Adquisiciones',
         'icon'   => 'snd-portfolio',
         'img'    => 'contrataciones_adquisiciones.png',
         'desc'   => 'Información relacionada con los procedimientos de contratación y adquisición de bienes y servicios.',
@@ -41,7 +41,7 @@ $af_cards = array(
         'id'     => 'gestion-documental',
         'target' => '#sec-gestion-documental',
         'hash'   => 'gestion-documental',
-        'title'  => 'Gestión<br>Documental',
+        'title'  => 'Archivo Documental',
         'icon'   => 'snd-document',
         'img'    => 'gestion_documental.png',
         'desc'   => 'Instrumentos para la organización, conservación y administración de los archivos institucionales.',
@@ -49,9 +49,9 @@ $af_cards = array(
 );
 ?>
 
-<div class="page-administracion-finanzas front-page-bg" style="min-height: 100vh;">
+<div class="page-administracion-finanzas front-page-bg">
 
-    <!-- ── Migas de Pan (SND v1.1.0) ───────────────────────────── -->
+    <!-- ── Migas de Pan (SND v1.0.0) ───────────────────────────── -->
     <?php get_template_part( 'template-parts/ui/breadcrumb', null, array(
         'items' => array(
             array( 'label' => 'Acciones y Programas', 'url' => home_url( '/acciones-y-programas/' ) ),
@@ -59,7 +59,7 @@ $af_cards = array(
         ),
     ) ); ?>
 
-    <!-- ── Hero Banner (SND v1.1.0) ────────────────────────────── -->
+    <!-- ── Hero Banner (SND v1.0.0) ────────────────────────────── -->
     <section class="sesna-page-hero">
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
@@ -69,7 +69,7 @@ $af_cards = array(
                         Consulta información institucional relacionada con la planeación, estados financieros, adquisiciones, contrataciones y gestión documental de la SESNA.
                     </p>
                 </div>
-                <div class="columna__12 columna__4--md columna__5--lg muestra--ninguno muestra--flex--md align-items-center justify-content-flex-end posicion--relativa">
+                <div class="columna__12 columna__4--md columna__5--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end posicion--relativa">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/heroes_section/' . rawurlencode( 'logo_admin_finanzas.png' ) ); ?>"
                          alt="Administración y Finanzas"
                          class="sesna-hero__img"
@@ -88,57 +88,53 @@ $af_cards = array(
             Selecciona una de las siguientes categorías para consultar documentos, informes y recursos relacionados.
         </p>
 
-        <div class="reticulaGrid__12 pt--24" id="af-cards-grid">
+        <div class="reticulaGrid__12 pt--24" id="af-cards-grid" role="tablist" aria-label="Categorías de consulta de Administración y Finanzas">
             <?php $c_i = 0; foreach ( $af_cards as $key => $card ) :
                 $is_default = ( 0 === $c_i );
                 ?>
-                <div class="columna__12 columna__6--md columna__3--lg">
-                    <a href="#<?php echo esc_attr( $card['hash'] ); ?>"
-                       id="af-card-<?php echo esc_attr( $key ); ?>"
-                       data-target="<?php echo esc_attr( $card['target'] ); ?>"
-                       data-hash="<?php echo esc_attr( $card['hash'] ); ?>"
-                       class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger <?php echo $is_default ? 'active' : ''; ?>"
-                       role="tab"
-                       aria-controls="<?php echo esc_attr( ltrim( $card['target'], '#' ) ); ?>"
-                       aria-selected="<?php echo $is_default ? 'true' : 'false'; ?>">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/img/administracion_finanzas/' . rawurlencode( $card['img'] ) ); ?>" alt="" width="80" height="80" class="mb--24">
-                        <h3 class="sh1b mb--16">
-                            <?php echo $card['title']; ?>
-                        </h3>
-                        <p class="b1r texto--justify">
-                            <?php echo esc_html( $card['desc'] ); ?>
-                        </p>
-                        <div class="mt--auto texto--derecha--md ancho--100">
-                            <span class="sh1b muestra--flex-linea align-items-center color--pguinda600">
-                                Consultar
-                            </span>
-                        </div>
-                    </a>
+                <div class="columna__12 columna__6--md columna__3--lg" role="presentation">
+                    <?php get_template_part( 'template-parts/ui/card', null, array(
+                        'href'     => '#' . $card['hash'],
+                        'title'    => $card['title'],
+                        'text'     => $card['desc'],
+                        'icon_img' => get_template_directory_uri() . '/img/administracion_finanzas/' . rawurlencode( $card['img'] ),
+                        'icon_alt' => '',
+                        'action'   => array( 'type' => 'link', 'label' => 'Consultar' ),
+                        'class'    => 'sna-tab-trigger' . ( $is_default ? ' active' : '' ),
+                        'attrs'    => array(
+                            'id'            => 'af-card-' . $key,
+                            'data-target'   => $card['target'],
+                            'data-hash'     => $card['hash'],
+                            'role'          => 'tab',
+                            'aria-controls' => ltrim( $card['target'], '#' ),
+                            'aria-selected' => $is_default ? 'true' : 'false',
+                        ),
+                    ) ); ?>
                 </div>
             <?php $c_i++; endforeach; ?>
         </div>
     </section>
 
     <!-- ── Contenedor Dinámico de Paneles de Contenido (Dashboard) ── -->
-    <div id="af-content-wrapper" class="contenedor mb--48" style="scroll-margin-top: 80px;">
+    <div id="af-content-wrapper" class="contenedor mb--48">
 
         <!-- 1. Planeación Institucional -->
-        <div id="sec-planeacion" class="af-dinamic-section" role="region" aria-labelledby="af-card-planeacion">
+        <div id="sec-planeacion" class="af-dinamic-section" role="tabpanel" aria-labelledby="af-card-planeacion">
             <?php get_template_part( 'template-parts/administracion-finanzas/planeacion-institucional-contenido' ); ?>
         </div>
 
         <!-- 2. Información Financiera -->
-        <div id="sec-info-financiera" class="af-dinamic-section muestra--ninguno" role="region" aria-labelledby="af-card-info-financiera">
+        <div id="sec-info-financiera" class="af-dinamic-section muestra--ninguno" role="tabpanel" aria-labelledby="af-card-info-financiera">
             <?php get_template_part( 'template-parts/administracion-finanzas/informacion-financiera-contenido' ); ?>
         </div>
 
         <!-- 3. Contrataciones y Adquisiciones -->
-        <div id="sec-contrataciones" class="af-dinamic-section muestra--ninguno" role="region" aria-labelledby="af-card-contrataciones">
+        <div id="sec-contrataciones" class="af-dinamic-section muestra--ninguno" role="tabpanel" aria-labelledby="af-card-contrataciones">
             <?php get_template_part( 'template-parts/administracion-finanzas/contrataciones-contenido' ); ?>
         </div>
 
-        <!-- 4. Gestión Documental (Archivo Documental) -->
-        <div id="sec-gestion-documental" class="af-dinamic-section muestra--ninguno" role="region" aria-labelledby="af-card-gestion-documental">
+        <!-- 4. Archivo Documental -->
+        <div id="sec-gestion-documental" class="af-dinamic-section muestra--ninguno" role="tabpanel" aria-labelledby="af-card-gestion-documental">
             <?php get_template_part( 'template-parts/administracion-finanzas/archivo-documental-contenido' ); ?>
         </div>
 
@@ -149,4 +145,3 @@ $af_cards = array(
 <?php get_template_part( 'template-parts/visor-pdf' ); ?>
 
 <?php get_footer(); ?>
-

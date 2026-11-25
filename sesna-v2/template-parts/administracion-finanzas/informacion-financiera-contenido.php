@@ -193,7 +193,7 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                                             ?>
                                             <div class="fin-acc-subcard mb--6">
                                                 <button type="button" class="fin-acc-sub-header" data-fin-toggle="<?php echo esc_attr( $trim_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $trim_acc_id ); ?>">
-                                                    <span class="b2sb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
+                                                    <span class="sdsb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
                                                     <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                                                 </button>
                                                 <div class="fin-acc-sub-collapse muestra--ninguno" id="<?php echo esc_attr( $trim_acc_id ); ?>">
@@ -229,8 +229,8 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
 
                 <!-- Sección B: Dictámenes de Estados Financieros y Presupuestarios (ListItems) -->
                 <div class="fin-sidebar-section">
-                    <h2 class="sh0b color--neutro800 mb--16" style="line-height: 1.3;">Dictámenes de Estados Financieros y Presupuestarios</h2>
-                    <div class="fin-dictamen-list d-flex flex-column gap--4">
+                    <h2 class="sh0b color--neutro800 mb--16 fin-sidebar-heading">Dictámenes de Estados Financieros y Presupuestarios</h2>
+                    <div class="fin-dictamen-list muestra--flex flex-direction-column gap--4">
                         <?php foreach ( $fin_dictamenes as $anio_dict => $doc ) :
                             $key           = 'dictamen-' . sanitize_title( $anio_dict );
                             $context_label = 'Dictamen ' . $anio_dict;
@@ -254,8 +254,8 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
             <div class="fin-panel-card p--24 mb--24">
 
                 <!-- Controles superiores: Buscador + Botón Filtrar (móvil) -->
-                <div class="fin-toolbar d-flex align-items-center gap--12 mb--20">
-                    <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control fin-content-search flex-grow-1">
+                <div class="fin-toolbar mb--20">
+                    <div class="form__inset general-search tx-comite-search-box tx-comite-filter-control fin-content-search">
                         <?= sesna_render_snd_svg_icon('snd-search', 'search-icon icono--24') ?>
                         <input type="search" class="sh0r js-input tx-comite-search-input" id="finSearchInput" placeholder="Buscar documento..." aria-label="Buscar documento" autocomplete="off">
                     </div>
@@ -397,7 +397,7 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                                         ?>
                                         <div class="fin-acc-subcard mb--6">
                                             <button type="button" class="fin-acc-sub-header" data-fin-toggle="<?php echo esc_attr( $trim_acc_id ); ?>" aria-expanded="false" aria-controls="<?php echo esc_attr( $trim_acc_id ); ?>">
-                                                <span class="b2sb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
+                                                <span class="sdsb color--neutro800 mb--0"><?php echo esc_html( $trimestre ); ?></span>
                                                 <?= sesna_render_snd_svg_icon('snd-chevron--down', 'icono--16 fin-acc-chevron') ?>
                                             </button>
                                             <div class="fin-acc-sub-collapse muestra--ninguno" id="<?php echo esc_attr( $trim_acc_id ); ?>">
@@ -432,8 +432,8 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
 
                 <!-- Sección B en Drawer: Dictámenes -->
                 <div>
-                    <h3 class="sh0b color--neutro800 mb--12" style="line-height: 1.3;">Dictámenes de Estados Financieros y Presupuestarios</h3>
-                    <div class="fin-dictamen-list d-flex flex-column gap--4">
+                    <h3 class="sh0b color--neutro800 mb--12 fin-sidebar-heading">Dictámenes de Estados Financieros y Presupuestarios</h3>
+                    <div class="fin-dictamen-list muestra--flex flex-direction-column gap--4">
                         <?php foreach ( $fin_dictamenes as $anio_dict => $doc ) :
                             $key           = 'dictamen-' . sanitize_title( $anio_dict );
                             $context_label = 'Dictamen ' . $anio_dict;
