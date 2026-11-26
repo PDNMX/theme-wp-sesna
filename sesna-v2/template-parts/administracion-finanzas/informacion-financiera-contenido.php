@@ -11,6 +11,7 @@
 
 $fin_anios       = array();
 $fin_dictamenes  = array();
+$fin_inventarios = array();
 $fin_json_path   = get_template_directory() . '/data/inventario-dgayf.json';
 
 $fin_orden_trimestres = array( 'Primer Trimestre', 'Segundo Trimestre', 'Tercer Trimestre', 'Cuarto Trimestre' );
@@ -121,11 +122,28 @@ if ( file_exists( $fin_json_path ) ) {
                 break;
             }
         }
+
+        // ── Sección "Inventario de Bienes Muebles" ──
+        foreach ( $fin_data as $seccion ) {
+            if ( isset( $seccion['seccion'] ) && 'Inventario de Bienes Muebles' === $seccion['seccion'] ) {
+                foreach ( $seccion['subsecciones'] as $sub ) {
+                    $anio_inv = strval( $sub['subseccion'] );
+                    foreach ( $sub['documentos'] as $doc ) {
+                        if ( ! empty( $doc['url'] ) ) {
+                            $doc['url'] = sna_resolve_upload_url( $doc['url'] );
+                            $fin_inventarios[ $anio_inv ][] = $doc;
+                        }
+                    }
+                }
+                break;
+            }
+        }
     }
 }
 
 krsort( $fin_anios, SORT_NUMERIC );
 krsort( $fin_dictamenes );
+krsort( $fin_inventarios, SORT_NUMERIC );
 
 // Determina el panel activo por defecto: el más reciente disponible (año, trimestre y mes más nuevos).
 $fin_default_key     = null;
@@ -246,6 +264,30 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                     </div>
                 </div>
 
+                <?php if ( ! empty( $fin_inventarios ) ) : ?>
+                <!-- Divider SND entre secciones -->
+                <hr class="divisor fin-sidebar-divider my--20" />
+
+                <!-- Sección C: Inventario de Bienes Muebles (ListItems) -->
+                <div class="fin-sidebar-section">
+                    <h2 class="sh0b color--neutro800 mb--16 fin-sidebar-heading">Inventario de Bienes Muebles</h2>
+                    <div class="fin-dictamen-list muestra--flex flex-direction-column gap--4">
+                        <?php foreach ( $fin_inventarios as $anio_inv => $docs_inv ) :
+                            $key           = 'inventario-' . sanitize_title( $anio_inv );
+                            $context_label = 'Inventario de Bienes Muebles';
+                            ?>
+                            <button type="button"
+                                    class="fin-nav-leaf fin-dictamen-item"
+                                    data-fin-panel="<?php echo esc_attr( $key ); ?>"
+                                    data-fin-context="<?php echo esc_attr( $context_label ); ?>">
+                                <span><?php echo esc_html( $anio_inv ); ?></span>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16 fin-nav-chevron') ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+
             </div>
         </div>
 
@@ -358,6 +400,47 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                         </div>
                     <?php endforeach; ?>
 
+                    <!-- Paneles de Inventario de Bienes Muebles -->
+                    <?php foreach ( $fin_inventarios as $anio_inv => $docs_inv ) :
+                        $key  = 'inventario-' . sanitize_title( $anio_inv );
+                        $nota = ! empty( $docs_inv[0]['descripcion'] ) ? $docs_inv[0]['descripcion'] : 'Documento correspondiente al inventario de bienes muebles e inmuebles de la SESNA, con corte al 30 de septiembre de ' . $anio_inv . '.';
+                        ?>
+                        <div class="fin-doc-panel muestra--ninguno" id="fin-panel-<?php echo esc_attr( $key ); ?>">
+                            <h3 class="sh0b color--neutro800 mb--12"><?php echo esc_html( $anio_inv ); ?></h3>
+                            <div class="fin-doc-list">
+                                <?php foreach ( $docs_inv as $doc_inv ) :
+                                    $label = ! empty( $doc_inv['contenidoN1'] ) ? $doc_inv['contenidoN1'] : $doc_inv['descripcion'];
+                                    ?>
+                                    <div class="fin-doc-row" data-fin-search="<?php echo esc_attr( mb_strtolower( $label . ' ' . $anio_inv, 'UTF-8' ) ); ?>">
+                                        <div class="fin-doc-left">
+                                            <h4 class="b1r color--neutro800 mb--0 fin-doc-label"><?php echo esc_html( $label ); ?></h4>
+                                        </div>
+                                        <div class="fin-doc-action">
+                                            <button type="button" class="boton__fantasma fin-doc-btn"
+                                                    data-modal-target="#pdfViewerModal"
+                                                    data-pdf-url="<?php echo esc_url( $doc_inv['url'] ); ?>"
+                                                    data-pdf-title="<?php echo esc_attr( $label ); ?>"
+                                                    aria-label="Consultar <?php echo esc_attr( $label ); ?>">
+                                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
+                                                Consultar
+                                            </button>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <!-- Mensaje informativo SND v1.0.0 (Informativo) -->
+                            <div id="fin-inventario-nota-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 fin-doc-nota" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-inventario-nota-<?php echo esc_attr( $key ); ?>">
+                                <?php echo esc_html( $nota ); ?>
+                            </div>
+                            <!-- Estado vacío de búsqueda -->
+                            <div role="status">
+                                <div id="fin-empty-<?php echo esc_attr( $key ); ?>" class="mensajeInformativo mensajeInformativo--informativo mt--16 muestra--ninguno fin-doc-empty" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="fin-empty-<?php echo esc_attr( $key ); ?>">
+                                    No se encontraron documentos que coincidan con la búsqueda.
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
         </div>
@@ -373,7 +456,7 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
         'prefix'        => 'fin',
         'title'         => 'Seleccionar período',
         'close_label'   => 'Cerrar selección de período',
-        'body'          => function () use ( $fin_anios, $fin_default_key, $fin_dictamenes, $fin_orden_meses, $fin_orden_trimestres ) { ?>
+        'body'          => function () use ( $fin_anios, $fin_default_key, $fin_dictamenes, $fin_inventarios, $fin_orden_meses, $fin_orden_trimestres ) { ?>
             <div class="fin-drawer-accordion">
                 <!-- Sección A: Estados Financieros -->
                 <div class="mb--16">
@@ -439,7 +522,7 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                             $context_label = 'Dictamen ' . $anio_dict;
                             ?>
                             <button type="button"
-                                    class="fin-nav-leaf fin-dictamen-item"
+                                     class="fin-nav-leaf fin-dictamen-item"
                                     data-fin-panel="<?php echo esc_attr( $key ); ?>"
                                     data-fin-context="<?php echo esc_attr( $context_label ); ?>">
                                 <span><?php echo esc_html( $anio_dict ); ?></span>
@@ -448,6 +531,30 @@ $fin_hclass       = $fin_is_dashboard ? 'h2b' : 'h1b';
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+                <?php if ( ! empty( $fin_inventarios ) ) : ?>
+                <!-- Divider en Drawer -->
+                <hr class="divisor fin-sidebar-divider my--16" />
+
+                <!-- Sección C en Drawer: Inventario de Bienes Muebles -->
+                <div>
+                    <h3 class="sh0b color--neutro800 mb--12 fin-sidebar-heading">Inventario de Bienes Muebles</h3>
+                    <div class="fin-dictamen-list muestra--flex flex-direction-column gap--4">
+                        <?php foreach ( $fin_inventarios as $anio_inv => $docs_inv ) :
+                            $key           = 'inventario-' . sanitize_title( $anio_inv );
+                            $context_label = 'Inventario de Bienes Muebles';
+                            ?>
+                            <button type="button"
+                                    class="fin-nav-leaf fin-dictamen-item"
+                                    data-fin-panel="<?php echo esc_attr( $key ); ?>"
+                                    data-fin-context="<?php echo esc_attr( $context_label ); ?>">
+                                <span><?php echo esc_html( $anio_inv ); ?></span>
+                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16 fin-nav-chevron') ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
         <?php },
     ) ); ?>

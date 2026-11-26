@@ -2391,7 +2391,7 @@
             "contenidoN3": null,
             "tipo": "Documento",
             "descripcion": "Dictamen de los Estados Financieros y anexos 2023",
-            "url": "/2024/07/08/dictamen-de-los-estados-financieros-y-anexos-2023/",
+            "url": "/wp-content/uploads/2024/07/Dictamen-de-los-Estados-Financieros-y-anexos-2023.pdf",
             "anio": 2023,
             "seccionDestino": "Dirección General de Administración y Finanzas"
           }
@@ -2894,6 +2894,26 @@
             "url": "/wp-content/uploads/2021/01/PROGRAMA-ANUAL-SESNA-2021.pdf",
             "anio": 2021,
             "seccionDestino": "Adquisiciones"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "seccion": "Inventario de Bienes Muebles",
+    "subsecciones": [
+      {
+        "subseccion": 2026,
+        "documentos": [
+          {
+            "contenidoN1": "Libro de Inventarios de Bienes Muebles e Inmuebles al 30 de septiembre de 2026",
+            "contenidoN2": null,
+            "contenidoN3": null,
+            "tipo": "Documento",
+            "descripcion": "Documento correspondiente al inventario de bienes muebles e inmuebles de la SESNA, con corte al 30 de septiembre de 2026.",
+            "url": "/wp-content/uploads/2026/11/LIBRO_DE_INVENTARIOS_DE_BIENES_MUEBLES_30_09_2026.pdf",
+            "anio": 2026,
+            "seccionDestino": "Dirección General de Administración y Finanzas"
           }
         ]
       }
