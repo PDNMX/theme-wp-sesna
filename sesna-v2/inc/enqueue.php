@@ -305,5 +305,9 @@ function sesna_theme_scripts()
 			'loading_url' => get_bloginfo('stylesheet_directory') . '/img/loading.gif',
 		));
 	}
+
+	if (wp_script_is('sesna-visor-pdf', 'enqueued')) {
+		wp_enqueue_style('sesna-visor-pdf', get_template_directory_uri() . '/assets/css/visor-pdf.css', array('sesna-utilidades'), sesna_asset_version('/assets/css/visor-pdf.css'));
+	}
 }
 add_action('wp_enqueue_scripts', 'sesna_theme_scripts');

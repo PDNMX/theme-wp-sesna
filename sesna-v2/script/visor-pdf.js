@@ -32,6 +32,34 @@
         return backdropEl;
     }
 
+    var SCROLLBAR_VAR = '--snd-scrollbar-width';
+
+    function compensateSndHeader() {
+        var header = document.querySelector('snd-header');
+        var shadow = header && header.shadowRoot;
+        if (!shadow || shadow.getElementById('snd-scrollbar-fix')) return;
+
+        var style = document.createElement('style');
+        style.id = 'snd-scrollbar-fix';
+        style.textContent = '.mexico { border-right: var(' + SCROLLBAR_VAR + ', 0px) solid transparent !important; }';
+        shadow.appendChild(style);
+    }
+
+    function lockScroll() {
+        var root = document.documentElement;
+        var scrollbarWidth = window.innerWidth - root.clientWidth;
+        if (scrollbarWidth > 0) {
+            root.style.setProperty(SCROLLBAR_VAR, scrollbarWidth + 'px');
+        }
+        compensateSndHeader();
+        document.body.classList.add('snd-modal-open');
+    }
+
+    function unlockScroll() {
+        document.body.classList.remove('snd-modal-open');
+        document.documentElement.style.removeProperty(SCROLLBAR_VAR);
+    }
+
     window.sndModal = {
         show: function(modalEl, trigger) {
             if (typeof modalEl === 'string') {
@@ -55,7 +83,7 @@
             modalEl.classList.add('is-open');
             modalEl.setAttribute('aria-modal', 'true');
             modalEl.removeAttribute('aria-hidden');
-            document.body.classList.add('snd-modal-open');
+            lockScroll();
 
             // Foco accesible al diálogo o botón de cierre
             var closeBtn = modalEl.querySelector('[data-modal-dismiss], .btn-close');
@@ -96,7 +124,7 @@
             if (remaining.length === 0) {
                 var bd = getOrCreateBackdrop();
                 bd.classList.remove('is-visible');
-                document.body.classList.remove('snd-modal-open');
+                unlockScroll();
             }
 
             setTimeout(function() {
@@ -186,6 +214,11 @@
         var copyLinkBtnText = document.getElementById('pdfCopyLinkBtnText');
         var loader = document.getElementById('pdfLoader');
         var title = document.getElementById('pdfViewerModalLabel');
+        var lastResolvedByClick = false;
+
+        function urlVisor(url) {
+            return url.split('#')[0] + '#pagemode=none&navpanes=0';
+        }
 
         if (copyLinkBtn) {
             copyLinkBtn.addEventListener('click', function () {
@@ -327,10 +360,11 @@
                         if (loader) loader.style.display = 'none';
                     }, 150);
                 } else {
-                    iframe.src = pdfUrl;
+                    iframe.src = urlVisor(pdfUrl);
                 }
             }
 
+            lastResolvedByClick = true;
             window.sndModal.show(pdfModalEl, trigger);
         }, true);
 
@@ -362,11 +396,11 @@
             if (title) title.textContent = pdfTitle;
             if (downloadBtn) downloadBtn.href = pdfUrl;
 
-            if (iframe && iframe.src !== pdfUrl) {
+            if (iframe && iframe.getAttribute('src') !== urlVisor(pdfUrl)) {
                 iframe.style.opacity = '0';
                 if (loader) loader.style.display = 'block';
                 if (pdfUrl !== '#' && pdfUrl !== '') {
-                    iframe.src = pdfUrl;
+                    iframe.src = urlVisor(pdfUrl);
                 }
             }
         });

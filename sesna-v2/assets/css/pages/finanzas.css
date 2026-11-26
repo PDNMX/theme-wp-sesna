@@ -1,11 +1,3 @@
-/*
- * Página: finanzas
- * Administración y Finanzas (portada y subpáginas: archivo documental, contrataciones, información financiera, planeación).
- *
- * Generado por la segmentación de main.css (Etapa 3.2 del plan SND v1.0.0).
- * El orden relativo original de las reglas se conserva dentro de cada archivo.
- */
-
 /* ── Administración y Finanzas (Dashboard) ── */
 
 .page-administracion-finanzas {
@@ -184,7 +176,7 @@
 
 /* El SVG de .snd__icono no hereda `color` dinámicamente (snd.js lo
    inyecta con su propio fill) — se fuerza a blanco con filter, mismo
-   truco ya usado en template-parts/visor-pdf.php (#pdfCopyLinkBtn.is-copied). */
+   truco ya usado en assets/css/visor-pdf.css (#pdfCopyLinkBtn.is-copied). */
 
 .cf-doc-row:hover .cf-doc-view .snd__icono,
 .fin-doc-row:hover .cf-doc-view .snd__icono {
