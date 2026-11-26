@@ -123,8 +123,6 @@ get_header();
     <section class="pb-5">
         <div class="contenedor">
             <h2 class="h2b patria color--pguinda600 texto--centro mb--16">Ciclo de la Política Pública</h2>
-            <p class="sh1r color--neutro600 texto--centro mb--24">La política se diseña, implementa, se evalúa, se financia y mejora continuamente.</p>
-
             <div class="pna-ciclo-section">
             <div class="pna-ciclo-diagram mt-4">
 
