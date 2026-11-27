@@ -88,16 +88,16 @@ if (empty($fichero_anios)) {
     ) ); ?>
 
     <!-- BLOQUE 1: Hero -->
-    <section class="pt-4 pb-5">
+    <section class="sesna-page-hero" aria-label="Encabezado de Implementación de la PNA">
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
-                <div class="columna__12 columna__7--lg">
+                <div class="columna__12 columna__8--md columna__7--lg">
                     <h1 class="h1b patria color--pguinda600 mb--24">Implementación</h1>
                     <p class="sh1r mb--0 texto--justify">
                         En esta sección se presenta el Programa de Implementación de la Política Nacional Anticorrupción (PI-PNA), instrumento que traduce las prioridades de la PNA en estrategias, líneas de acción e indicadores para orientar su ejecución y seguimiento.
                     </p>
                 </div>
-                <div class="columna__12 columna__5--lg muestra--ninguno muestra--flex--lg align-items-center justify-content-end">
+                <div class="columna__12 columna__4--md columna__5--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/implementacion.svg' ); ?>" alt="" class="sesna-hero__img" loading="eager">
                 </div>
             </div>
@@ -105,7 +105,7 @@ if (empty($fichero_anios)) {
     </section>
 
     <!-- ── BLOQUE 2: PI-PNA ────────────────────────────────────── -->
-    <section class="pb-5">
+    <section class="pb--48">
         <div class="contenedor">
             <h2 class="h2b patria color--pguinda600 mb--16">Programa de Implementación de la Política Nacional Anticorrupción</h2>
 
@@ -120,6 +120,7 @@ if (empty($fichero_anios)) {
                             </p>
                             <p class="b1r mb--16 texto--justify">
                                 A través de estos elementos y de indicadores asociados a las estrategias, el PI-PNA articula la participación de las instituciones responsables de su implementación y permite dar seguimiento a los avances en el cumplimiento de los objetivos de la PNA.
+                            </p>
                             <p class="b1r mb--0 texto--justify">
                                 Su ejecución se concibe como un proceso coordinado, flexible y sujeto a mejora continua, en el que la información generada permite identificar avances y áreas de oportunidad para realizar, con base en evidencia, los ajustes necesarios a lo largo del proceso.
                             </p>
@@ -155,7 +156,7 @@ if (empty($fichero_anios)) {
     </section>
 
     <!-- ── BLOQUE 3: Estructura ────────────────────────────────── -->
-    <section class="pb-5">
+    <section class="pb--48">
         <div class="contenedor">
 
             <h2 class="h2b patria color--pguinda600 mb--16">Estructura del Programa de Implementación</h2>
@@ -200,7 +201,7 @@ if (empty($fichero_anios)) {
                                     background:<?php echo $color_fase; ?>;
                                     clip-path:<?php echo $clip; ?>;
                                     color:#fff;">
-                            <span class="sdb" style="display:block; margin-bottom:3px; line-height:1;">Fase <?php echo $i + 1; ?>:</span>
+                            <span class="sdsb" style="display:block; margin-bottom:3px; line-height:1;">Fase <?php echo $i + 1; ?>:</span>
                             <span class="sdr" style="display:block; line-height:1.35; margin-bottom:0;"><?php echo esc_html($titulo); ?></span>
                         </div>
                         <?php endforeach; ?>
@@ -333,12 +334,9 @@ if (empty($fichero_anios)) {
 
                 </div>
 
-                <!-- Pie de sección: Texto oficial con icono institucional -->
-                <div class="muestra--flex justify-content-center mt--4 mb--24">
-                    <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
-                        <?= sesna_render_snd_svg_icon('snd-select--window', 'icono--20 cp-nota__icono color--azul500') ?>
-                        <p class="cp-nota__texto b1r color--azul500 mb--0">Selecciona un <strong>eje</strong> para conocer sus objetivos específicos, número de estrategias y líneas de acción.</p>
-                    </div>
+                <!-- Pie de sección: Mensaje informativo SND v1.0.0 (Informativo) -->
+                <div id="pna-impl-eje-hint" class="mensajeInformativo mensajeInformativo--informativo mt--8 mb--24" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="pna-impl-eje-hint">
+                    Selecciona un eje para conocer sus objetivos específicos, número de estrategias y líneas de acción.
                 </div>
 
                 <!-- Divider entre la rueda/nota y el detalle del eje seleccionado -->
@@ -374,7 +372,7 @@ if (empty($fichero_anios)) {
                             <!-- Columna Derecha: Objetivos específicos asociados -->
                             <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: <?php echo $e['color']; ?>;">Objetivos específicos asociados</h4>
+                                    <h4 class="b1sb mb--0" style="color: <?php echo $e['color']; ?>;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <?php foreach ($e['objetivos'] as $i => $obj) : ?>
@@ -396,20 +394,20 @@ if (empty($fichero_anios)) {
     </section>
 
     <!-- ── BLOQUE 4: Documentos e informes ────────────────────── -->
-    <section class="pb-5">
+    <section class="pb--48">
         <div class="contenedor">
             <h2 class="h2b patria color--pguinda600 mb--16">Documentos e informes del PI-PNA</h2>
             <?php
             $docs_cols = [
-                ['icono'=>'snd-document','titulo'=>'Programa','desc'=>'Versiones del Programa de Implementación de la PNA.','docs'=>[
+                ['icono'=>'Programas.svg','titulo'=>'Programa','desc'=>'Versiones del Programa de Implementación de la PNA.','docs'=>[
                     ['label'=>'PI-PNA aprobado 2022','nota'=>'Versión original aprobada por el CC-SNA','file'=>'Programa_Implementacion_PNA_.pdf','path'=>'2024/04/Programa_Implementacion_PNA_.pdf'],
                     ['label'=>'Actualización 2024','nota'=>'Actualización de indicadores','file'=>'PI-PNA_actualizacion-indicadores_2024-1.pdf','path'=>'2024/03/PI-PNA_actualizacion-indicadores_2024-1.pdf'],
                 ]],
-                ['icono'=>'snd-catalog','titulo'=>'Informes','desc'=>'Seguimiento a la ejecución del PI-PNA por periodo.','docs'=>[
+                ['icono'=>'Informes.svg','titulo'=>'Informes','desc'=>'Seguimiento a la ejecución del PI-PNA por periodo.','docs'=>[
                     ['label'=>'Primer Informe','nota'=>'Resultados al 28 de abril de 2023','file'=>'Primer-Informe-de-ejecucion-del-PI-PNA-28.04.2023.pdf','path'=>'2023/04/Primer-Informe-de-ejecucion-del-PI-PNA-28.04.2023.pdf'],
                     ['label'=>'Segundo Informe','nota'=>'Resultados mayo 2024','file'=>'SEGUNDO-INFORME-PI-PNA.pdf','path'=>'2024/05/SEGUNDO-INFORME-PI-PNA.pdf'],
                 ]],
-                ['icono'=>'snd-document--import','titulo'=>'Anexos','desc'=>'Material complementario de los informes de seguimiento.','docs'=>[
+                ['icono'=>'Anexos.svg','titulo'=>'Anexos','desc'=>'Material complementario de los informes de seguimiento.','docs'=>[
                     ['label'=>'Anexo Segundo Informe','nota'=>'Datos estadísticos detallados','file'=>'ANEXO_INFORME_PI-PNA.pdf','path'=>'2024/05/ANEXO_INFORME_PI-PNA.pdf'],
                 ]],
             ];
@@ -420,9 +418,11 @@ if (empty($fichero_anios)) {
                     <div class="pna-doc-card-compact h-100 d-flex flex-column">
                         <!-- Header -->
                         <div class="d-flex align-items-center gap--12 mb--16">
-                            <div class="pna-guinda-icon-box flex-shrink-0 d-flex align-items-center justify-content-center">
-                                <?= sesna_render_snd_svg_icon($col['icono'], 'icono--20 color--neutro100') ?>
-                            </div>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/implementacion_pna/' . $col['icono'] ); ?>"
+                                 alt=""
+                                 width="52"
+                                 height="52"
+                                 class="flex-shrink-0">
                             <h3 class="sh1b mb--0"><?php echo esc_html($col['titulo']); ?></h3>
                         </div>
                         <!-- Documentos -->
@@ -461,7 +461,7 @@ if (empty($fichero_anios)) {
     </section>
 
     <!-- ── BLOQUE 5: Fichero ──────────────────────────────────── -->
-    <section class="pb-5">
+    <section class="pb--48">
         <div class="contenedor">
             <h2 class="h2b patria color--pguinda600 mb--16">Fichero del Informe PI-PNA</h2>
             <p class="sh1r color--neutro600 mb--24">
@@ -543,10 +543,9 @@ if (empty($fichero_anios)) {
                             <p class="b1r color--neutro700 mb--0 tx-comite-card-subtitle"><span class="b1sb color--neutro800">Eje <?php echo esc_html($f['eje']); ?>:</span> <?php echo esc_html($f['tipo']); ?></p>
                         </div>
                         <div class="tx-comite-card-action">
-                            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($f['url']); ?>" data-pdf-title="<?php echo esc_attr($f['titulo'] . ' (' . $f['anio'] . ')'); ?>">
-                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--24') ?>
-                                Ficha
-                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--20') ?>
+                            <button type="button" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-url="<?php echo esc_url($f['url']); ?>" data-pdf-title="<?php echo esc_attr($f['titulo'] . ' (' . $f['anio'] . ')'); ?>" aria-label="<?php echo esc_attr('Consultar ' . $f['titulo'] . ' (' . $f['anio'] . ')'); ?>">
+                                <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--20') ?>
+                                Consultar
                             </button>
                         </div>
                     </div>
@@ -567,133 +566,5 @@ if (empty($fichero_anios)) {
 </div><!-- .page-pna-implementacion -->
 
 <?php get_template_part('template-parts/visor-pdf'); ?>
-
-<style>
-/* Animación de entrada del panel de eje */
-@keyframes ejeSlideIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-.pna-eje-content:not(.muestra--ninguno) {
-    animation: ejeSlideIn .3s ease forwards;
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Animaciones entrada
-    var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-            if (e.isIntersecting) { e.target.classList.add('pna-visible'); obs.unobserve(e.target); }
-        });
-    }, {threshold: 0.1});
-    document.querySelectorAll('.pna-chart-card, .pna-reveal').forEach(function(el) { obs.observe(el); });
-
-    // Interacción ejes donut (mismo patrón que Diseño PNA: pna-eje-btn / pna-wheel-slice)
-    var ejeButtons = document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice');
-    var ejeContents = document.querySelectorAll('.pna-eje-content');
-    var activeEjeId = null;
-
-    function deselectEje() {
-        activeEjeId = null;
-        document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice').forEach(function(el) {
-            el.classList.remove('active', 'pna-eje-inactive');
-        });
-        ejeContents.forEach(function(content) { content.classList.add('muestra--ninguno'); });
-    }
-
-    function selectEje(ejeId, scrollTo) {
-        if (activeEjeId === ejeId) { deselectEje(); return; }
-        activeEjeId = ejeId;
-
-        document.querySelectorAll('.pna-eje-btn, .pna-wheel-slice').forEach(function(el) {
-            var isActive = el.getAttribute('data-eje') === ejeId;
-            el.classList.remove('active');
-            el.classList.toggle('pna-eje-inactive', !isActive);
-        });
-        ejeContents.forEach(function(content) { content.classList.add('muestra--ninguno'); });
-
-        document.querySelectorAll('[data-eje="' + ejeId + '"]').forEach(function(el) {
-            el.classList.add('active');
-            el.classList.remove('pna-eje-inactive');
-        });
-
-        var targetContent = document.getElementById('content-eje-' + ejeId);
-        if (targetContent) {
-            targetContent.classList.remove('muestra--ninguno');
-            targetContent.classList.add('active');
-            if (scrollTo) targetContent.scrollIntoView({behavior:'smooth', block:'nearest'});
-        }
-    }
-
-    ejeButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var ejeId = this.getAttribute('data-eje');
-            if (ejeId) selectEje(ejeId, true);
-        });
-        btn.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                var ejeId = this.getAttribute('data-eje');
-                if (ejeId) selectEje(ejeId, true);
-            }
-        });
-    });
-
-    // Estado inicial: Eje 1 activo por defecto, el resto atenuado (sin hacer scroll)
-    var initialActive = document.querySelector('.pna-eje-btn.active, .pna-wheel-slice.active');
-    if (initialActive) selectEje(initialActive.getAttribute('data-eje'), false);
-
-    // Fichero: filtros de Año / Eje sobre el listado (mismo patrón que Actas del Comité)
-    var ficheroFilterAnio = document.getElementById('fichero-filter-anio');
-    var ficheroFilterEje = document.getElementById('fichero-filter-eje');
-    var ficheroCards = Array.from(document.querySelectorAll('.fichero-card'));
-    var ficheroCountStatus = document.getElementById('fichero-count-status');
-    var ficheroEmptyState = document.getElementById('fichero-empty-state');
-    var ficheroBtnReset = document.getElementById('fichero-btn-reset');
-
-    function applyFicheroFilters() {
-        var anio = ficheroFilterAnio ? ficheroFilterAnio.value : 'Todos';
-        var eje = ficheroFilterEje ? ficheroFilterEje.value : 'Todos';
-        var total = ficheroCards.length;
-        var matched = 0;
-
-        ficheroCards.forEach(function(card) {
-            var matchAnio = anio === 'Todos' || card.getAttribute('data-anio') === anio;
-            var matchEje = eje === 'Todos' || card.getAttribute('data-eje') === eje;
-            if (matchAnio && matchEje) {
-                card.style.display = '';
-                matched++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        if (ficheroCountStatus) {
-            ficheroCountStatus.textContent = matched === 0
-                ? '0 fichas encontradas'
-                : 'Mostrando ' + matched + ' de ' + total + ' ' + (total === 1 ? 'ficha' : 'fichas');
-        }
-        if (ficheroEmptyState) {
-            ficheroEmptyState.classList.toggle('muestra--ninguno', matched > 0);
-        }
-        if (ficheroBtnReset) {
-            var hasActiveFilter = anio !== 'Todos' || eje !== 'Todos';
-            ficheroBtnReset.classList.toggle('muestra--ninguno', !hasActiveFilter);
-        }
-    }
-
-    if (ficheroFilterAnio) ficheroFilterAnio.addEventListener('change', applyFicheroFilters);
-    if (ficheroFilterEje) ficheroFilterEje.addEventListener('change', applyFicheroFilters);
-    if (ficheroBtnReset) {
-        ficheroBtnReset.addEventListener('click', function() {
-            if (ficheroFilterAnio) ficheroFilterAnio.value = 'Todos';
-            if (ficheroFilterEje) ficheroFilterEje.value = 'Todos';
-            applyFicheroFilters();
-        });
-    }
-});
-</script>
 
 <?php get_footer(); ?>

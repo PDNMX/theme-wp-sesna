@@ -235,3 +235,14 @@
         width: 62px;
     }
 }
+
+/* Animación de entrada del panel de eje (Implementación y Diseño PNA) */
+
+@keyframes ejeSlideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-pna .pna-eje-content:not(.muestra--ninguno) {
+    animation: ejeSlideIn .3s ease forwards;
+}

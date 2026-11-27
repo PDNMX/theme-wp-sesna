@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-5 {
+        fill: #f2f0fd;
+      }
+
+      .cls-3 {
+        stroke: #f5f7ff;
+      }
+
+      .cls-3, .cls-6 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-6, .cls-7 {
+        fill: none;
+        stroke: #f2f0fd;
+        stroke-width: 2px;
+      }
+
+      .cls-8 {
+        fill: #3a90c5;
+      }
+
+      .cls-4, .cls-9 {
+        fill: #f5f7ff;
+      }
+    </style>
+  </defs>
+  <g id="Capa_11" data-name="Capa 11">
+    <circle class="cls-8" cx="150" cy="150" r="116.1"/>
+  </g>
+  <g shape-rendering="auto">
+    <path class="cls-2" color-rendering="auto" d="M90.66,92.14c-2.26,0-4.08,2.02-4.08,4.54v4.44h126.84v-4.44c0-2.52-1.82-4.54-4.08-4.54H90.66Z" image-rendering="auto"/>
+    <path class="cls-1" color-rendering="auto" d="M209.39,94.09H209.39c1.26,0,2.27,1.14,2.27,2.54h0c0,1.4-1.01,2.53-2.27,2.53h0c-1.26,0-2.28-1.13-2.28-2.53h0C207.11,95.23,208.13,94.09,209.39,94.09Z" image-rendering="auto"/>
+    <path class="cls-4" color-rendering="auto" d="M202.56,94.09H202.56c1.26,0,2.28,1.14,2.28,2.54h0c0,1.4-1.02,2.53-2.28,2.53h0c-1.26,0-2.28-1.13-2.28-2.53h0C200.28,95.23,201.3,94.09,202.56,94.09Z" image-rendering="auto"/>
+    <rect class="cls-7" x="86.58" y="92.14" width="126.85" height="115.73" rx="6.1" ry="6.1" color-rendering="auto" image-rendering="auto"/>
+    <path class="cls-6" color-rendering="auto" d="M99.76,173.26l20.1-20.03,20.09,13.6,20.1-26.95,20.09,3.46,20.1-20.52" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="119.86" cy="153.24" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="139.95" cy="166.83" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="160.05" cy="139.88" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="99.76" cy="173.26" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="180.14" cy="143.35" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <ellipse class="cls-5" cx="200.23" cy="122.82" rx="2.83" ry="3.15" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="96.15" y="183.69" width="7.22" height="14.96" rx="1.24" ry="1.24" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="116.43" y="172.89" width="6.85" height="25.55" rx="2.13" ry="2.13" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="136.46" y="176.91" width="6.97" height="21.61" rx="1.8" ry="1.8" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="156.61" y="173.51" width="6.87" height="24.95" rx="2.08" ry="2.08" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="176.91" y="156.8" width="6.45" height="41.42" rx="3.22" ry="3.22" color-rendering="auto" image-rendering="auto"/>
+    <rect class="cls-9" x="197.12" y="145.8" width="6.23" height="52.3" rx="3.11" ry="3.11" color-rendering="auto" image-rendering="auto"/>
+    <path class="cls-3" color-rendering="auto" d="M108.81,112.14c-7.03,0-12.74,6.35-12.74,14.19,0,7.84,5.71,14.19,12.74,14.19,4.49,0,8.65-2.64,10.94-6.95l-10.94-7.24V112.14Z" image-rendering="auto"/>
+    <path class="cls-3" color-rendering="auto" d="M112.48,109.34v14.19l10.94,7.24c1.17-2.19,1.8-4.69,1.8-7.24,0-7.84-5.7-14.19-12.74-14.19h0H112.48Z" image-rendering="auto"/>
+  </g>
+</svg>

@@ -22,17 +22,17 @@ get_header();
     <!-- ============================================================
          BLOQUE 1: La Política Nacional Anticorrupción
          ============================================================ -->
-    <section class="pt-4 pb-5">
+    <section class="sesna-page-hero" aria-label="Encabezado de Diseño de la PNA">
         <div class="contenedor">
             <!-- Fila 1: Título/descripción (izquierda) e ícono (derecha) -->
             <div class="reticulaGrid__12 align-items-center mb--24">
-                <div class="columna__12 columna__7--lg">
+                <div class="columna__12 columna__8--md columna__7--lg">
                     <h1 class="h1b patria color--pguinda600 mb--24">Diseño PNA</h1>
                     <p class="sh1r mb--0 texto--justify">
                         Define el rumbo estratégico de la política a partir de prioridades, objetivos  y participación de diversos actores.
                     </p>
                 </div>
-                <div class="columna__12 columna__5--lg muestra--ninguno muestra--flex--lg align-items-center justify-content-end">
+                <div class="columna__12 columna__4--md columna__5--lg muestra--ninguno muestra--flex--md align-items-center justify-content-end">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/ciclo_pna/' . rawurlencode('diseño.svg') ); ?>" alt="" class="sesna-hero__img" loading="eager">
                 </div>
             </div>
@@ -124,7 +124,7 @@ get_header();
     <!-- ============================================================
          BLOQUE 2: Ejes y Objetivos de la Política Nacional Anticorrupción
          ============================================================ -->
-    <section class="pb-5">
+    <section class="pb--48 pt--24">
         <div class="contenedor">
 
             <h2 class="h2b patria color--pguinda600 mb--16">Ejes y Objetivos de la Política Nacional Anticorrupción</h2>
@@ -290,12 +290,9 @@ get_header();
 
                 </div>
 
-                <!-- Pie de sección: Texto oficial con icono institucional -->
-                <div class="muestra--flex justify-content-center mt--4 mb--24">
-                    <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
-                        <?= sesna_render_snd_svg_icon('snd-select--window', 'icono--20 cp-nota__icono color--azul500') ?>
-                        <p class="cp-nota__texto b1r color--azul500 mb--0">Selecciona un <strong>eje</strong> para conocer sus objetivos específicos.</p>
-                    </div>
+                <!-- Pie de sección: Mensaje informativo SND v1.0.0 (Informativo) -->
+                <div id="pna-diseno-eje-hint" class="mensajeInformativo mensajeInformativo--informativo mt--8 mb--24" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="pna-diseno-eje-hint">
+                    Selecciona un eje para conocer sus objetivos específicos.
                 </div>
 
                 <!-- Divider entre la rueda/nota y el detalle del eje seleccionado -->
@@ -322,7 +319,7 @@ get_header();
                             <!-- Columna Derecha: Objetivos específicos asociados -->
                             <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: #6AC72C;">Objetivos específicos asociados</h4>
+                                    <h4 class="b1sb mb--0" style="color: #6AC72C;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 1 -->
@@ -358,7 +355,7 @@ get_header();
                             <!-- Columna Derecha: Objetivos específicos asociados -->
                             <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: #1D70B8;">Objetivos específicos asociados</h4>
+                                    <h4 class="b1sb mb--0" style="color: #1D70B8;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 3 -->
@@ -400,7 +397,7 @@ get_header();
                             <!-- Columna Derecha: Objetivos específicos asociados -->
                             <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: #74598F;">Objetivos específicos asociados</h4>
+                                    <h4 class="b1sb mb--0" style="color: #74598F;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 6 -->
@@ -437,7 +434,7 @@ get_header();
                             <!-- Columna Derecha: Objetivos específicos asociados -->
                             <div class="columna__12 columna__7--lg ps-lg-4">
                                 <div class="pb-2 mb-3 border-bottom">
-                                    <h4 class="b1b mb--0" style="color: #E14586;">Objetivos específicos asociados</h4>
+                                    <h4 class="b1sb mb--0" style="color: #E14586;">Objetivos específicos asociados</h4>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <!-- Objetivo 8 -->
@@ -469,9 +466,9 @@ get_header();
     <!-- ============================================================
          BLOQUE 3: ¿Cómo se construyó la Política Nacional Anticorrupción?
          ============================================================ -->
-    <section class="pb-5" id="bloque-3">
+    <section class="pb--48" id="bloque-3">
         <div class="contenedor">
-            <div class="reticulaGrid__12 mb-5">
+            <div class="reticulaGrid__12 mb--32">
                 <div class="columna__12">
                     <h2 class="h2b patria color--pguinda600 mb--16">¿Cómo se construyó la Política Nacional Anticorrupción?</h2>
                     <p class="sh1r color--neutro600 mb--0 texto--justify">
@@ -487,8 +484,8 @@ get_header();
                     <!-- Etapa 1: Consejo consultivo y análisis técnico -->
                     <div class="columna__12 columna__4--sm columna__2--lg d-flex flex-grow">
                         <div class="pna-stage-btn active p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="1" role="button" tabindex="0" style="cursor: pointer; background: linear-gradient(135deg, #F7F2FA 0%, #EEE4F5 100%); border: 1px solid #E9ECEF; min-height: 135px;">
-                            <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
+                            <div class="d-flex align-items-center justify-content-center gap--8 mb-2">
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="background-color: #74598F; width: 32px; height: 32px; font-size: 13px;">1</span>
                                 <span class="fs-4" style="color: #74598F; line-height: 1;"><?= sesna_render_snd_svg_icon('snd-group', 'icono--24') ?></span>
                             </div>
                             <span class="fw-bold small" style="color: #74598F; line-height: 1.25; font-size: 13px;">Consejo consultivo<br>y análisis técnico</span>
@@ -503,8 +500,8 @@ get_header();
                     <!-- Etapa 2: Consulta Ciudadana en línea -->
                     <div class="columna__12 columna__4--sm columna__2--lg d-flex flex-grow">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="2" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
-                            <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
+                            <div class="d-flex align-items-center justify-content-center gap--8 mb-2">
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="background-color: #00887A; width: 32px; height: 32px; font-size: 13px;">2</span>
                                 <span class="fs-4" style="color: #00887A; line-height: 1;"><?= sesna_render_snd_svg_icon('snd-group', 'icono--24') ?></span>
                             </div>
                             <span class="d-block fw-bold small" style="color: #00887A; line-height: 1.25; font-size: 13px;">Consulta<br>Ciudadana en línea</span>
@@ -519,8 +516,8 @@ get_header();
                     <!-- Etapa 3: Foros de Consulta Regional -->
                     <div class="columna__12 columna__4--sm columna__2--lg d-flex flex-grow">
                         <div class="pna-stage-btn p-3 rounded-4 transition-all d-flex flex-column align-items-center justify-content-center w-100 h-100" data-stage="3" role="button" tabindex="0" style="cursor: pointer; background: #f8f9fa; border: 1px solid #E9ECEF; min-height: 135px;">
-                            <div class="d-flex align-items-center justify-content-center mb-2">
-                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm me-2" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
+                            <div class="d-flex align-items-center justify-content-center gap--8 mb-2">
+                                <span class="badge rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow-sm" style="background-color: #D97706; width: 32px; height: 32px; font-size: 13px;">3</span>
                                 <span class="fs-4" style="color: #D97706; line-height: 1;"><?= sesna_render_snd_svg_icon('snd-location--filled', 'icono--24') ?></span>
                             </div>
                             <span class="d-block fw-bold small" style="color: #D97706; line-height: 1.25; font-size: 13px;">Foros de Consulta<br>Regional</span>
@@ -541,12 +538,9 @@ get_header();
 
                 </div>
 
-                <!-- Banner de instrucciones -->
-                <div class="mt--16 texto--centro">
-                    <div class="cp-nota__inner fondo--azul100 muestra--flex-linea mx--auto" style="max-width: 100%; width: 100%;">
-                        <?= sesna_render_snd_svg_icon('snd-information', 'icono--20 cp-nota__icono color--azul500') ?>
-                        <span class="cp-nota__texto b1r color--azul500">Al dar clic en cada etapa se desplegará la información hacia abajo.</span>
-                    </div>
+                <!-- Banner de instrucciones — Mensaje informativo SND v1.0.0 (Informativo) -->
+                <div id="pna-diseno-etapa-hint" class="mensajeInformativo mensajeInformativo--informativo mt--16" tabindex="0" role="note" aria-roledescription="alerta" aria-labelledby="pna-diseno-etapa-hint">
+                    Al dar clic en cada etapa se desplegará la información hacia abajo.
                 </div>
 
                 <!-- Contenedor Dinámico de Tarjetas de Etapa (Sólo se muestra una a la vez) -->
@@ -678,7 +672,7 @@ get_header();
                         <!-- Imagen Consulta Ciudadana en línea -->
                         <div class="columna__6">
                             <div class="fondo--neutro200 rounded-4 border h-100 d-flex align-items-center justify-content-center p-4">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/' . rawurlencode('Consulta Ciudadana en línea.svg') ); ?>"
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/img/diseno_pna/consulta_ciudadana_online.svg' ); ?>"
                                      alt="Consulta Ciudadana en línea"
                                      style="max-width: 100%; max-height: 350px; width: auto;">
                             </div>
@@ -904,8 +898,8 @@ get_header();
                                     <!-- Tooltip flotante del mapa -->
                                     <div id="mapTooltip" class="pna-map-tooltip position-absolute bg-dark text-white p-3 rounded shadow muestra--ninguno text-start" style="width: 220px; z-index: 10;">
                                         <span class="pna-tooltip-badge sdsb mb--4" id="tooltipDate">23 Oct 2018</span>
-                                        <h5 class="b1b color--neutro100 mb--4" id="tooltipCity">Guadalajara, Jalisco</h5>
-                                                             </div>
+                                        <h5 class="b1sb color--neutro100 mb--4" id="tooltipCity">Guadalajara, Jalisco</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -928,10 +922,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Guadalajara, Jalisco</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Guadalajara, Jalisco" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '16.urpp_.relatoria_guadalajara-09.07.2020.pdf', '2018/10/16.urpp_.relatoria_guadalajara-09.07.2020.pdf' ) ); ?>" aria-label="Consultar relatoría de Guadalajara, Jalisco">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -947,10 +940,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Zacatecas, Zacatecas</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Zacatecas, Zacatecas" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '22.urpp_.relatoria_zacatecas.pdf.pdf', '2019/08/22.urpp_.relatoria_zacatecas.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Zacatecas, Zacatecas">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -966,10 +958,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Saltillo, Coahuila</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Saltillo, Coahuila" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '21.urpp_.relatoria_saltillo.pdf.pdf', '2019/08/21.urpp_.relatoria_saltillo.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Saltillo, Coahuila">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -985,10 +976,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Oaxaca, Oaxaca</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Oaxaca, Oaxaca" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '19.urpp_.relatoria_oaxaca.pdf.pdf', '2019/08/19.urpp_.relatoria_oaxaca.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Oaxaca, Oaxaca">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -1004,10 +994,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Querétaro, Querétaro</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Querétaro, Querétaro" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '20.urpp_.relatoria_queretaro.pdf.pdf', '2019/08/20.urpp_.relatoria_queretaro.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Querétaro, Querétaro">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -1023,10 +1012,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Hermosillo, Sonora</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Hermosillo, Sonora" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '18.urpp_.relatoria_hermosillo.pdf.pdf', '2019/08/18.urpp_.relatoria_hermosillo.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Hermosillo, Sonora">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -1042,10 +1030,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Cancún, Quintana Roo</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Cancún, Quintana Roo" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '15.urpp_.relatoria_cancun.pdf.pdf', '2019/08/15.urpp_.relatoria_cancun.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Cancún, Quintana Roo">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>
@@ -1061,10 +1048,9 @@ get_header();
                                                 <span class="pna-foro-card__sep"></span>
                                                 <span class="pna-foro-card__city">Ciudad de México, CDMX</span>
                                             </div>
-                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>">
+                                            <a href="#" class="boton__fantasma" data-modal-target="#pdfViewerModal" data-pdf-title="Relatoría - Ciudad de México, CDMX" data-pdf-url="<?php echo esc_url( sesna_get_media_attachment_url( '17.urpp_.relatoria_cdmx.pdf.pdf', '2019/08/17.urpp_.relatoria_cdmx.pdf.pdf' ) ); ?>" aria-label="Consultar relatoría de Ciudad de México, CDMX">
                                                 <?= sesna_render_snd_svg_icon('snd-document--pdf', 'icono--16') ?>
                                                 Relatoría
-                                                <?= sesna_render_snd_svg_icon('snd-chevron--right', 'icono--16') ?>
                                             </a>
                                         </div>
                                     </div>

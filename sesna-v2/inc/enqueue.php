@@ -162,6 +162,10 @@ function sesna_template_scripts_map()
 			'src'       => '/script/diseno-pna.js',
 			'templates' => array('page-diseno-pna.php'),
 		),
+		'sesna-implementacion-pna' => array(
+			'src'       => '/script/implementacion-pna.js',
+			'templates' => array('page-programa-implemetancion-pna.php'),
+		),
 		'sesna-transparencia-comite' => array(
 			'src'       => '/script/transparencia-comite.js',
 			'templates' => array('template-transparencia-comite.php'),
