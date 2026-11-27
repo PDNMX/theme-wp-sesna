@@ -11,28 +11,28 @@
             <?php
             $programas = [
                 [
-                    'title' => 'Plataforma<br>Digital Nacional',
+                    'title' => 'Plataforma Digital Nacional',
                     'icon' => 'snd-chart--bar',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_01_pdn.jpg' ) ),
                     'desc' => 'Herramienta de inteligencia tecnológica que integra y conecta diversos sistemas electrónicos que poseen información necesaria a las autoridades competentes en materia de combate a la corrupción.',
                     'link' => 'https://www.plataformadigitalnacional.org/'
                 ],
                 [
-                    'title' => 'Política Nacional<br>Anticorrupción',
+                    'title' => 'Política Nacional Anticorrupción',
                     'icon' => 'snd-security',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_02_politica.jpg' ) ),
                     'desc' => 'Fue aprobada el 29 de enero de 2020 por el Comite Coordinador del Sistema Nacional Anticorrupción, en ella se define la estrategia para combatir el problema de la corrupción en México.',
                     'link' => home_url('/acciones-y-programas/politica-nacional-anticorrupcion/')
                 ],
                 [
-                    'title' => 'Plataforma de Aprendizaje<br>Anticorrupción',
+                    'title' => 'Plataforma de Aprendizaje Anticorrupción',
                     'icon' => 'snd-screen',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_04_aprendizaje.jpg' ) ),
                     'desc' => 'Herramienta tecnológica y pedagógica que promueve conocimientos y capacidades para fortalecer la integridad y combatir la corrupción.',
                     'link' => 'https://paa.sesna.gob.mx/web/index.html'
                 ],
                 [
-                    'title' => 'Riesgos e Inteligencia<br>Anticorrupción',
+                    'title' => 'Riesgos e Inteligencia Anticorrupción',
                     'icon' => 'snd-building',
                     'img' => esc_url( get_theme_file_uri( '/img/home_v2/img_web_03_riesgos.jpg' ) ),
                     'desc' => 'Genera evidencia y herramientas de análisis para identificar riesgos de corrupción y fortalecer la toma de decisiones.',

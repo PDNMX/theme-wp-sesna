@@ -23,7 +23,7 @@ get_header();
         <div class="contenedor">
             <div class="reticulaGrid__12 align-items-center">
                 <div class="columna__12 columna__8--md columna__6--lg posicion--relativa z--1 mb--24 mb--0--lg">
-                    <h1 class="h1b patria color--pguinda600">Derechos Humanos<br>y Perspectiva de Género</h1>
+                    <h1 class="h1b patria color--pguinda600">Derechos Humanos <br>y Perspectiva de Género</h1>
                     <p class="sh1r texto--justify">
                         Promovemos el respeto a los Derechos Humanos, la igualdad de género y la no discriminación, contribuyendo a fortalecer la cultura de integridad y prevenir la violencia en la Secretaría Ejecutiva del Sistema Nacional Anticorrupción.
                     </p>

@@ -105,7 +105,7 @@ get_header();
                                 <?= sesna_render_snd_svg_icon('snd-security', 'icono--24 color--pguinda600') ?>
                             </div>
                             <p class="b1sb color--neutro800 mb--0">
-                                Nuestro compromiso es promover la transparencia, la rendición de cuentas<br class="muestra--ninguno muestra--bloque--md">y la participación ciudadana.
+                                Nuestro compromiso es promover la transparencia, la rendición de cuentas <br class="muestra--ninguno muestra--bloque--md">y la participación ciudadana.
                             </p>
                         </div>
 

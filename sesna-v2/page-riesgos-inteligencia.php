@@ -51,7 +51,7 @@ get_header(); ?>
             <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-contrataciones" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/contrataciones.png' ); ?>" alt="" width="80" height="80" class="mb--24">
-                    <h3 class="sh1b mb--16">Contrataciones<br>públicas</h3>
+                    <h3 class="sh1b mb--16">Contrataciones públicas</h3>
                     <p class="b1r texto--justify">Estudios y propuestas metodológicas orientadas a identificar riesgos de corrupción y fortalecer la integridad en los procesos de contratación pública.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
@@ -60,7 +60,7 @@ get_header(); ?>
             <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-conflicto" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/conflicto_de_interes.png' ); ?>" alt="" width="80" height="80" class="mb--24">
-                    <h3 class="sh1b mb--16">Conflicto<br>de interés</h3>
+                    <h3 class="sh1b mb--16">Conflicto de interés</h3>
                     <p class="b1r texto--justify">Documentos técnicos para la prevención, detección y atención de conflictos de interés.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
@@ -69,7 +69,7 @@ get_header(); ?>
             <div class="columna__12 columna__6--md columna__3--lg">
                 <a href="javascript:void(0)" data-target="#sec-verificacion" class="sna-noticias-card alto--100 muestra--flex flex-direction-column align-items-center texto--centro px--24 py--48 ancho--100 decoracion--ninguna color--neutro800 sna-tab-trigger">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/img/dgria/verificacion_patrimonial.png' ); ?>" alt="" width="80" height="80" class="mb--24">
-                    <h3 class="sh1b mb--16">Verificación<br>patrimonial</h3>
+                    <h3 class="sh1b mb--16">Verificación patrimonial</h3>
                     <p class="b1r texto--justify">Documentos técnicos y herramientas que facilitan el proceso de verificación patrimonial.</p>
                     <div class="mt--auto texto--derecha--md ancho--100"><span class="sh1b muestra--flex-linea align-items-center color--pguinda600">Consultar</span></div>
                 </a>
