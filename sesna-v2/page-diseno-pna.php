@@ -671,7 +671,7 @@ get_header();
                     </div>
                     
                     <p class="b1r mb--24 texto--justify">
-                        Mediante una encuesta en línea y un análisis de subjetividades con expertos, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil ciudadanos de diversas edades, entidades federativas y sectores del país, de los cuales 14 mil la contestaron al 100%.
+                        Mediante una encuesta en línea y un análisis de subjetividades con personas expertas, se identificaron las percepciones y preocupaciones de la ciudadanía con respecto a las causas, efectos y potenciales soluciones al problema de la corrupción. Se llevaron a cabo 64 entrevistas a profundidad para el análisis de subjetividades, mientras que en la encuesta en línea participaron más de 19 mil personas mexicanas de diversas edades, entidades federativas y sectores del país, de las cuales 14 mil la contestaron al 100%.
                     </p>
 
                     <div class="reticulaGrid__12 align-items-stretch">

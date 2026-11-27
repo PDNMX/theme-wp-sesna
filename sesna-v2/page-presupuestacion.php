@@ -31,7 +31,7 @@ get_header();
                         Conoce más sobre el Anexo Transversal 30 del Presupuesto de Egresos de la Federación, el cual agrupa los recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.
                     </p>
                     <p class="sh1r mb--0 texto--justify">
-                        Este Anexo Transversal identifica a los responsables y los montos de recursos públicos destinados a dichas tareas, permitiendo dar seguimiento al gasto anticorrupción a nivel federal.
+                        Este Anexo Transversal identifica a las instituciones responsables y los montos de recursos públicos destinados a dichas tareas, permitiendo dar seguimiento al gasto anticorrupción a nivel federal.
                     </p>
                 </div>
 

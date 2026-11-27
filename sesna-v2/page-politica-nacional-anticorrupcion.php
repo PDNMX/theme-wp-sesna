@@ -178,7 +178,7 @@ get_header();
                         <span class="pna-ciclo-step__number">2</span>
                         <p class="pna-ciclo-step__title sh1b">Presupuestación</p>
                     </div>
-                    <p class="b1r color--neutro600">El Anexo Transversal en materia anticorrupción identifica a los responsables y los montos de recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.</p>
+                    <p class="b1r color--neutro600">El Anexo Transversal en materia anticorrupción identifica a las instituciones responsables y los montos de recursos públicos destinados a la prevención, detección, investigación y sanción de hechos de corrupción.</p>
                 </a>
 
                 <a href="<?php echo esc_url( home_url('/acciones-y-programas/politica-nacional-anticorrupcion/implementacion/') ); ?>" class="pna-ciclo-step pna-ciclo-step--3 decoracion--ninguna">
