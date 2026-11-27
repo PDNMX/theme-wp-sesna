@@ -149,6 +149,8 @@ function sesna_recurso_meta_box_html($post) {
     $seccion     = get_post_meta($post->ID, '_sesna_recurso_seccion', true) ?: 'contrataciones';
     $subseccion  = get_post_meta($post->ID, '_sesna_recurso_subseccion', true) ?: '';
     $tipo        = get_post_meta($post->ID, '_sesna_recurso_tipo', true) ?: 'documento';
+    $video_url      = get_post_meta($post->ID, '_sesna_recurso_video_url', true) ?: '';
+    $comunicado_url = get_post_meta($post->ID, '_sesna_recurso_comunicado_url', true) ?: '';
 
     $tipos = array(
         'documento'   => 'Documento',
@@ -243,9 +245,21 @@ function sesna_recurso_meta_box_html($post) {
         <label for="sr_archivo_url">Archivo del recurso</label>
         <div style="display:flex; gap:10px; max-width: 600px;">
             <input type="text" id="sr_archivo_url" name="_sesna_recurso_archivo_url" value="<?php echo esc_attr($archivo_url); ?>" style="flex-grow:1;">
-            <button type="button" class="button sr-media-btn">Seleccionar archivo</button>
+            <button type="button" class="button sr-media-btn" data-target="#sr_archivo_url">Seleccionar archivo</button>
         </div>
         <p class="sr-mb-hint">Se usa tanto para el botón "Ver documento" como para "Descargar PDF".</p>
+    </div>
+
+    <div class="sr-mb-row">
+        <label for="sr_video_url">Video <span class="sr-mb-hint">(opcional)</span></label>
+        <input type="text" id="sr_video_url" name="_sesna_recurso_video_url" value="<?php echo esc_attr($video_url); ?>" placeholder="https://www.youtube.com/watch?v=...">
+        <p class="sr-mb-hint">Si se llena, la tarjeta del recurso muestra un botón adicional "Ver video" que abre este enlace en una pestaña nueva.</p>
+    </div>
+
+    <div class="sr-mb-row">
+        <label for="sr_comunicado_url">Comunicado <span class="sr-mb-hint">(opcional)</span></label>
+        <input type="text" id="sr_comunicado_url" name="_sesna_recurso_comunicado_url" value="<?php echo esc_attr($comunicado_url); ?>" placeholder="/2026/10/08/la-sesna-desarrolla-alea-.../ o https://...">
+        <p class="sr-mb-hint">Si se llena, la tarjeta del recurso muestra un botón adicional "Ver comunicado" que lleva a esta entrada/página (ej. la nota de prensa relacionada).</p>
     </div>
 
     <p class="description" style="margin-top: 10px;">
@@ -256,21 +270,17 @@ function sesna_recurso_meta_box_html($post) {
 
     <script>
     jQuery(document).ready(function($) {
-        var srMediaFrame;
         $('.sr-media-btn').on('click', function(e) {
             e.preventDefault();
-            if (srMediaFrame) {
-                srMediaFrame.open();
-                return;
-            }
-            srMediaFrame = wp.media({
+            var $targetInput = $($(this).data('target'));
+            var srMediaFrame = wp.media({
                 title: 'Seleccionar archivo del recurso',
                 button: { text: 'Usar este archivo' },
                 multiple: false
             });
             srMediaFrame.on('select', function() {
                 var attachment = srMediaFrame.state().get('selection').first().toJSON();
-                $('#sr_archivo_url').val(attachment.url);
+                $targetInput.val(attachment.url);
             });
             srMediaFrame.open();
         });
@@ -316,6 +326,12 @@ function sesna_save_recurso_meta($post_id) {
     }
     if (isset($_POST['_sesna_recurso_tipo'])) {
         update_post_meta($post_id, '_sesna_recurso_tipo', sanitize_text_field($_POST['_sesna_recurso_tipo']));
+    }
+    if (isset($_POST['_sesna_recurso_video_url'])) {
+        update_post_meta($post_id, '_sesna_recurso_video_url', esc_url_raw($_POST['_sesna_recurso_video_url']));
+    }
+    if (isset($_POST['_sesna_recurso_comunicado_url'])) {
+        update_post_meta($post_id, '_sesna_recurso_comunicado_url', esc_url_raw($_POST['_sesna_recurso_comunicado_url']));
     }
 
     // Si se escribió una categoría nueva, se crea (si hace falta) y
@@ -405,6 +421,7 @@ function sesna_render_recurso_card($post) {
     $subseccion = get_post_meta($post->ID, '_sesna_recurso_subseccion', true);
     $tipo = get_post_meta($post->ID, '_sesna_recurso_tipo', true) ?: 'documento';
     $video_url = get_post_meta($post->ID, '_sesna_recurso_video_url', true);
+    $comunicado_url = get_post_meta($post->ID, '_sesna_recurso_comunicado_url', true);
     ?>
     <div class="cp-doc-item" data-subseccion="<?php echo esc_attr($subseccion); ?>">
 
@@ -455,6 +472,11 @@ function sesna_render_recurso_card($post) {
             <?php if (!empty($video_url)) : ?>
             <a href="<?php echo esc_url($video_url); ?>" class="boton__secundario" target="_blank" rel="noopener" title="El enlace abre en ventana nueva">
                 <?php echo sesna_render_snd_svg_icon('snd-play', 'icono--16'); ?> Ver video
+            </a>
+            <?php endif; ?>
+            <?php if (!empty($comunicado_url)) : ?>
+            <a href="<?php echo esc_url($comunicado_url); ?>" class="boton__secundario">
+                <?php echo sesna_render_snd_svg_icon('snd-document', 'icono--16'); ?> Ver comunicado
             </a>
             <?php endif; ?>
         </div>
