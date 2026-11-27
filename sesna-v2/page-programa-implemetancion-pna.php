@@ -145,7 +145,7 @@ if (empty($fichero_anios)) {
                             </div>
                         </div>
                         <div class="pna-doc-cover d-flex mx-auto" style="max-width:260px;">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/pna_portada.png' ); ?>" alt="Portada Programa de Implementación de la PNA">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/img/home_v2/portada_pi.svg' ); ?>" alt="Portada Programa de Implementación de la PNA">
                         </div>
                     </div>
 
