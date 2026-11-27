@@ -96,6 +96,11 @@ function sesna_enqueue_template_styles()
 function sesna_template_scripts_map()
 {
 	return array(
+		// Controlador del carrusel de la página de inicio (front-page.php)
+		'sesna-home-carousel' => array(
+			'src'       => '/script/home-carousel.js',
+			'templates' => array('front-page.php'),
+		),
 		// Controlador global de modales SND y visor de PDF (parcial template-parts/visor-pdf.php)
 		'sesna-visor-pdf' => array(
 			'src'       => '/script/visor-pdf.js',

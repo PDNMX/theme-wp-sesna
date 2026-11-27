@@ -2,11 +2,11 @@
     <div class="contenedor mb--48">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria color--pguinda600">Acciones y programas</h2>
-                <p class="sh1r color--neutro600">Conoce y accede a nuestros micrositios</p>
+                <h2 class="h2b patria color--pguinda600 mb--8">Acciones y programas</h2>
+                <p class="sh1r color--neutro600 mb--0">Conoce y accede a nuestros micrositios</p>
             </div>
         </div>
-        <div class="reticulaGrid__12 pt--24">
+        <div class="reticulaGrid__12">
 
             <?php
             $programas = [

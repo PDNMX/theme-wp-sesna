@@ -28,19 +28,46 @@
 
     /* El header (<snd-header>, 58px) y el subheader (.sesna-subheader, 52px)
        permanecen visibles y estáticos en la parte superior (z-index: 1000000 y
-       999999, por encima del z-index: 99999 del loader). Ocultamos el loader
-       apenas el DOM está listo (igual que en snd-dev). */
+       999999, por encima del z-index: 99999 del loader).
+       Para evitar que los componentes parpadeen o salten mientras cargan las
+       imágenes y hojas de estilo de cada vista, garantizamos una permanencia
+       mínima breve (220ms desde el inicio de la navegación) y esperamos a que
+       la página esté lista ('load' o timeout de seguridad) antes de desvanecer
+       suavemente el loader con fade-out. */
+    var loaderStartTime = (window.performance && performance.now) ? performance.now() : Date.now();
+    var MIN_LOADER_MS = 220;
+    var loaderScheduled = false;
+
     function ocultarLoader() {
         var loader = document.getElementById('sesna-page-loader');
-        if (loader && !loader.classList.contains('loader-hidden')) {
-            loader.classList.add('loader-hidden');
-            setTimeout(function() {
-                loader.style.display = 'none';
-            }, 400);
+        if (!loader || loader.classList.contains('loader-hidden') || loaderScheduled) {
+            return;
         }
+        loaderScheduled = true;
+
+        var now = (window.performance && performance.now) ? performance.now() : Date.now();
+        var elapsed = now - loaderStartTime;
+        var remaining = Math.max(0, MIN_LOADER_MS - elapsed);
+
+        setTimeout(function () {
+            requestAnimationFrame(function () {
+                loader.classList.add('loader-hidden');
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                }, 480);
+            });
+        }, remaining);
     }
-    document.addEventListener('DOMContentLoaded', ocultarLoader);
-    window.addEventListener('load', ocultarLoader);
+
+    if (document.readyState === 'complete') {
+        ocultarLoader();
+    } else {
+        window.addEventListener('load', ocultarLoader);
+        // Respaldo de seguridad por si algún recurso externo lento (ej. iframe de YouTube) tarda más
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(ocultarLoader, 450);
+        });
+    }
 
     /* Seguridad: el widget de accesibilidad (gobmx-accesibilidad-js) y el
        navbar legado oculto (.navbar-fixed-top, ver main.css) pueden inyectar

@@ -4,6 +4,11 @@
 
 <?php get_template_part( 'template-parts/home/banner' ); ?>
 
+<?php
+//  Identidad Institucional SESNA al inicio de la página
+// get_template_part( 'template-parts/home/section-sesna' );
+?>
+
 <?php get_template_part( 'template-parts/home/carousel' ); ?>
 
 <?php get_template_part( 'template-parts/home/section-sna' ); ?>

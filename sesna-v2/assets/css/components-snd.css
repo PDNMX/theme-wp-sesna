@@ -1034,7 +1034,10 @@ nav.navbar .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.35s ease-out, visibility 0.35s ease-out;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
 }
 
 .sesna-loader.loader-hidden {

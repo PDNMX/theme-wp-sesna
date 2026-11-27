@@ -7,7 +7,8 @@
     <div class="contenedor mb--48 pb--24">
         <div class="fila justify-content-center mb--48">
             <div class="columna__12 columna__8--md texto--centro">
-                <h2 class="h2b patria color--pguinda600 mb--0">Noticias y actividades</h2>
+                <h2 class="h2b patria color--pguinda600 mb--8">Noticias y actividades</h2>
+                <p class="sh1r color--neutro600 mb--0">Consulta los comunicados, eventos y actividades más recientes de la SESNA.</p>
             </div>
         </div>
 
@@ -84,7 +85,7 @@
         <div class="fila justify-content-center mt--32">
             <div class="columna__12 texto--centro">
                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="boton__primario boton--redondeado">
-                    Ver todas las noticias clasificadas
+                    Ver todas las noticias
                 </a>
             </div>
         </div>

@@ -33,21 +33,356 @@
 }
 
 /* ------------------------------------------------------------
-   Carrusel de la página de inicio (Bootstrap 5)
+   Carrusel de la página de inicio (SND v1.0.0)
    ------------------------------------------------------------ */
 
-.sesna-carousel-section {
-    padding-top: 0;
-    padding-bottom: 0;
+.sesna-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sesna-carousel-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2560 / 622;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.sesna-carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.sesna-carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
+    display: block;
+}
+
+.sesna-carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.fallback-img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+}
+
+.sesna-carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 16px 48px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.78) 100%);
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.sesna-carousel-excerpt {
+    max-width: 800px;
+}
+
+.text-shadow-sm {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.sesna-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sesna-carousel-btn--prev {
+    left: 24px;
+}
+
+.sesna-carousel-btn--next {
+    right: 24px;
+}
+
+.sesna-carousel-btn:hover {
+    background: rgba(97, 18, 50, 0.92);
+    border-color: #ffffff;
+}
+
+.sesna-carousel-btn:focus-visible {
+    background: rgba(97, 18, 50, 0.92);
+    border-color: #ffffff;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Barra inferior de controles: dots + botón pausa/reproducir (WCAG 2.2.2) */
+.sesna-carousel-controls {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.sesna-carousel-indicators {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.38);
+    pointer-events: auto;
+}
+
+.sesna-carousel-dot {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.65);
+    border: 1.5px solid rgba(0, 0, 0, 0.35);
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    outline: none;
+    display: inline-block;
+}
+
+.sesna-carousel-dot:hover {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.6);
+}
+
+.sesna-carousel-dot:focus-visible {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.6);
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.sesna-carousel-dot.is-active {
+    background-color: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.55);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85), 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.sesna-carousel-pause-btn {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.sesna-carousel-pause-btn:hover {
+    background: rgba(97, 18, 50, 0.92);
+    border-color: #ffffff;
+}
+
+.sesna-carousel-pause-btn:focus-visible {
+    background: rgba(97, 18, 50, 0.92);
+    border-color: #ffffff;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.sesna-carousel-pause-btn .snd__icono {
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .sesna-carousel-btn {
+        display: none;
+    }
+
+    .sesna-carousel-controls {
+        bottom: 6px;
+        gap: 8px;
+    }
+
+    .sesna-carousel-indicators {
+        gap: 6px;
+        padding: 4px 10px;
+    }
+
+    .sesna-carousel-dot {
+        width: 8px;
+        height: 8px;
+        min-width: 8px;
+        min-height: 8px;
+    }
+
+    .sesna-carousel-pause-btn {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sesna-carousel-track {
+        transition: none;
+    }
+}
+
+/* Comportamiento de Enlace y Tooltip en Slides */
+.sesna-carousel-slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    cursor: default;
+    pointer-events: none;
+}
+
+.sesna-carousel-slide.is-active .sesna-carousel-slide-link {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.sesna-carousel-slide-link:hover,
+.sesna-carousel-slide-link:focus,
+.sesna-carousel-slide-link:active {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    opacity: 1;
+    filter: none;
+}
+
+.sesna-carousel-slide-link:hover .sesna-carousel-img,
+.sesna-carousel-slide-link:focus .sesna-carousel-img {
+    transform: none;
+    filter: none;
+}
+
+.sesna-carousel-floating-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(33, 37, 41, 0.92);
+    color: #ffffff;
+    font-family: var(--font-noto-sans, 'Noto Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-50%, -135%, 0);
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    white-space: nowrap;
+}
+
+.sesna-carousel-floating-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sesna-carousel-tooltip-icon {
+    flex-shrink: 0;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .sesna-carousel-floating-tooltip {
+        display: none;
+    }
 }
 
 /* ------------------------------------------------------------
-   Sección logo del SNA.
+   Sección principal de identidad SESNA (H1) y Sección logo del SNA (H2)
    ------------------------------------------------------------ */
 
+.sesna-intro__logo-link {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+}
+
+.sesna-intro__logo {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+@media (max-width: 991.98px) {
+    .sesna-intro__logo-link,
+    .sesna-intro__logo {
+        max-width: 300px;
+    }
+}
+
+.sna-logo-link {
+    display: inline-block;
+    line-height: 0;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sna-logo-link:hover,
+.sna-logo-link:focus-visible {
+    transform: scale(1.02);
+    opacity: 0.92;
+}
+
 .sna-logo {
-    max-width: 350px;
-    float: left;
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin: 0 auto;
 }
 
 /* ------------------------------------------------------------
